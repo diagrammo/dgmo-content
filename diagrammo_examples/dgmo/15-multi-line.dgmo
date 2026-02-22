@@ -1,0 +1,14 @@
+chart: line
+title: Monthly Captures by Fleet
+series: Blackbeard(red), Roberts(blue), Vane(green)
+xlabel: Month
+//ylabel: Captures
+
+Jan: 3, 5, 2
+Feb: 4, 3, 4
+Mar: 2, 7, 3
+Apr: 6, 4, 1
+May: 5, 6, 5
+Jun: 3, 8, 2
+
+// DGMO chart learn more at https://diagrammo.app

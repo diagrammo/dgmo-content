@@ -1,0 +1,28 @@
+%% [*] = start/end, State --> State: label
+stateDiagram-v2
+    [*] --> InPort: Ship launched
+    InPort --> Provisioning: Restock supplies
+    Provisioning --> SetSail: Crew aboard
+
+    SetSail --> Cruising: Open waters
+    Cruising --> Hunting: Ship spotted
+
+    Hunting --> Battle: Attack!
+    Hunting --> Cruising: False alarm
+
+    Battle --> Victory: Enemy surrenders
+    Battle --> Damaged: Hull breached
+    Battle --> Retreat: Outgunned
+
+    Victory --> Plundering: Board enemy
+    Plundering --> Cruising: Loot secured
+
+    Damaged --> Repairs: Find safe harbor
+    Repairs --> Cruising: Seaworthy again
+    Repairs --> Scuttled: Beyond repair
+
+    Retreat --> Cruising: Lost pursuit
+    Retreat --> Damaged: Hit while fleeing
+
+    Cruising --> InPort: Return to base
+    Scuttled --> [*]: Ship lost

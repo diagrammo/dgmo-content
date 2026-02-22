@@ -1,0 +1,33 @@
+// -> directed, <-> bidirectional, -- undirected
+// <-- reverse, o- aggregation, +- composition
+#direction: right
+#spacing: 80
+#padding: 12
+#fontSize: 12
+#lineWidth: 2
+#edges: rounded
+
+[Blackbeard's Fleet] <-> [Charles Vane's Crew]
+[Blackbeard's Fleet] <-> [Stede Bonnet's Ship]
+[Blackbeard's Fleet] -- [Anne Bonny's Pirates]
+
+[Charles Vane's Crew] -> [Jack Rackham's Band]
+[Jack Rackham's Band] <-> [Anne Bonny's Pirates]
+[Anne Bonny's Pirates] <-> [Mary Read's Company]
+
+[<frame> The Brethren Court |
+  [Blackbeard's Fleet]
+  [Charles Vane's Crew]
+  [Jack Rackham's Band]
+  [Anne Bonny's Pirates]
+  [Mary Read's Company]
+]
+
+[Royal Navy] <-- [Blackbeard's Fleet]
+[Royal Navy] <-- [Charles Vane's Crew]
+[East India Company] <-- [Jack Rackham's Band]
+[Spanish Armada] <-- [Anne Bonny's Pirates]
+
+[Tortuga|Safe Haven] -> [The Brethren Court]
+[Nassau|Pirate Republic] -> [The Brethren Court]
+[Port Royal|Trading Post] -> [The Brethren Court]

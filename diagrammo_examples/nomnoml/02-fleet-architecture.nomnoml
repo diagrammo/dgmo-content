@@ -1,0 +1,39 @@
+// <package>, <frame> = container classifiers
+// [Name|compartment1; compartment2] for details
+#direction: right
+#spacing: 50
+#padding: 10
+#fontSize: 12
+#lineWidth: 2
+#edges: rounded
+
+[<package> Pirate Fleet |
+  [<frame> Flagship: Queen Anne's Revenge |
+    [Bridge|navigation; command]
+    [Gun Deck|40 cannons; armory]
+    [Cargo Hold|treasure; supplies]
+    [Crew Quarters|hammocks; galley]
+    [Bridge] -> [Gun Deck]
+    [Gun Deck] -> [Cargo Hold]
+    [Cargo Hold] -> [Crew Quarters]
+  ]
+
+  [<frame> Scout: The Sea Hawk |
+    [Crow's Nest|lookout]
+    [Light Armament|12 cannons]
+    [Speed Systems|extra sails]
+    [Crow's Nest] -> [Light Armament]
+    [Light Armament] -> [Speed Systems]
+  ]
+
+  [<frame> Supply Ship: The Tortuga Runner |
+    [Provisions|food; water; rum]
+    [Medical Bay|surgeon; herbs]
+    [Repair Shop|wood; tar; rope]
+    [Provisions] -> [Medical Bay]
+    [Medical Bay] -> [Repair Shop]
+  ]
+
+  [Flagship: Queen Anne's Revenge] <-> [Scout: The Sea Hawk]
+  [Flagship: Queen Anne's Revenge] <-> [Supply Ship: The Tortuga Runner]
+]

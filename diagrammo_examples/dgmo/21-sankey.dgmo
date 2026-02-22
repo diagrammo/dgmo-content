@@ -1,0 +1,18 @@
+chart: sankey
+title: Rum Supply Chain of the Caribbean
+
+// source -> target: value
+Sugar Plantations -> Tortuga Distillery: 3000
+Sugar Plantations -> Nassau Distillery: 2500
+Sugar Plantations -> Kingston Distillery: 2000
+Tortuga Distillery -> Pirate Taverns: 2000
+Tortuga Distillery -> Ship Provisions: 1000
+Nassau Distillery -> Pirate Taverns: 1500
+Nassau Distillery -> Black Market: 1000
+Kingston Distillery -> Royal Navy: 1200
+Kingston Distillery -> Pirate Taverns: 800
+Pirate Taverns -> Crew Morale: 3500
+Pirate Taverns -> Bar Fights: 800
+Ship Provisions -> Long Voyages: 1000
+
+// DGMO chart learn more at https://diagrammo.app

@@ -1,0 +1,10 @@
+chart: radar
+title: Ship Combat Rating
+
+Firepower: 85
+Speed: 70
+Armor: 60
+Maneuverability: 90
+Crew Morale: 75
+
+// DGMO chart learn more at https://diagrammo.app

@@ -1,0 +1,15 @@
+chart: bar
+title: Treasure Hauls by Port
+series: Gold Doubloons
+//xlabel: Port
+//ylabel: Doubloons
+//orientation: horizontal
+
+// label: value
+Port Royal: 850
+Tortuga: 620
+Nassau: 1100
+Havana: 430
+Cartagena: 780
+
+// DGMO chart learn more at https://diagrammo.app

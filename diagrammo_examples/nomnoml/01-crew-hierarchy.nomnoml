@@ -1,0 +1,61 @@
+// #directives control layout and style
+// [Name|fields|methods] for class-like boxes
+// [A] -> [B] for relationships
+#direction: down
+#spacing: 60
+#padding: 12
+#fontSize: 13
+#lineWidth: 2
+#edges: rounded
+
+[<frame> Pirate Crew Hierarchy |
+  [Captain|
+    name: Blackbeard|
+    reputation: Legendary|
+    commandShip()
+    divideLoot()
+  ]
+
+  [Quartermaster|
+    name: Calico Jack|
+    duty: Crew Welfare|
+    resolveDisputes()
+    distributeLoot()
+  ]
+
+  [Navigator|
+    charts: Caribbean Sea|
+    plotCourse()
+    readStars()
+  ]
+
+  [Gunner Master|
+    cannons: 40|
+    fireBroadside()
+    maintainWeapons()
+  ]
+
+  [Boatswain|
+    inspectRigging()
+    superviseDeck()
+  ]
+
+  [Surgeon|
+    treatWounds()
+    amputateLimbs()
+  ]
+
+  [Crew|
+    count: 150|
+    swabDeck()
+    manCannons()
+  ]
+
+  [Captain] -> [Quartermaster]
+  [Captain] -> [Navigator]
+  [Quartermaster] -> [Gunner Master]
+  [Quartermaster] -> [Boatswain]
+  [Quartermaster] -> [Surgeon]
+  [Boatswain] -> [Crew]
+  [Gunner Master] -> [Crew]
+]

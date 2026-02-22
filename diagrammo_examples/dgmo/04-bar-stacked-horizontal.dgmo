@@ -1,0 +1,13 @@
+chart: bar-stacked
+orientation: horizontal
+title: Port Revenue by Trade
+series: Imports(blue), Exports(green), Tariffs(orange)
+//xlabel: Port
+//ylabel: Revenue
+
+Port Royal: 300, 450, 80
+Tortuga: 150, 200, 30
+Nassau: 400, 350, 120
+Havana: 500, 600, 150
+
+// DGMO chart learn more at https://diagrammo.app

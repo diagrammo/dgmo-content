@@ -1,0 +1,29 @@
+%% tasks: name :id, start|after, duration
+%% crit = critical, milestone = zero-duration marker
+gantt
+    title Voyage to Treasure Island
+    dateFormat  YYYY-MM-DD
+
+    section Preparation
+    Recruit crew           :a1, 2024-01-01, 7d
+    Provision ship         :a2, after a1, 5d
+    Study treasure map     :a3, 2024-01-01, 10d
+    Repair hull            :a4, after a1, 4d
+
+    section Voyage Out
+    Sail to open waters    :b1, after a2, 3d
+    Navigate by stars      :b2, after b1, 14d
+    Survive storm          :crit, b3, after b2, 2d
+    Reach island           :b4, after b3, 1d
+
+    section Treasure Hunt
+    Scout the island       :c1, after b4, 2d
+    Decode map clues       :c2, after c1, 3d
+    Dig for treasure       :crit, c3, after c2, 2d
+    Load treasure          :c4, after c3, 1d
+
+    section Return
+    Set sail home          :d1, after c4, 14d
+    Evade Navy patrol      :crit, d2, after d1, 3d
+    Arrive at port         :d3, after d2, 1d
+    Divide the loot        :milestone, after d3, 0d
