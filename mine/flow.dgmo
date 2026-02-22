@@ -1,7 +1,0 @@
-chart: flowchart
-title: the flow
-(Start) -> [Process] -> <Decision?>
-<Decision?> -foo-> [Do Thing] -> [Order~] -> (End) 
-<Decision?> -bar-> [Other Thing] 
-[Other Thing] -> /Parallelogram/
-/ParalleLogram/ -> (End)

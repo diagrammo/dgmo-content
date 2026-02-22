@@ -1,9 +1,0 @@
-chart: sequence
-activations: off
-
-  Client -> API: POST /login
-  API -> Auth: validate credentials
-  Auth -> DB: SELECT user
-  DB -> Auth: user record
-  Auth -> API: JWT token
-  API -> Client: 200 OK { token }
