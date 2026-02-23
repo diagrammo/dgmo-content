@@ -1,0 +1,42 @@
+chart: class
+title: E-Commerce Domain
+
+Customer
+  + name: string
+  + email: string
+  + placeOrder(items: Item[]): Order
+
+Order
+  - id: string
+  - total: number
+  + addItem(item: Item): void
+  + cancel(): void
+
+Item
+  - sku: string
+  - price: number
+  + getPrice(): number
+
+OrderStatus [enum]
+  Pending
+  Confirmed
+  Shipped
+  Delivered
+
+PaymentMethod [interface]
+  + charge(amount: number): boolean
+  + refund(amount: number): boolean
+
+CreditCard
+  - cardNumber: string
+  - expiry: string
+
+PayPal
+  - email: string
+
+CreditCard ..|> PaymentMethod
+PayPal ..|> PaymentMethod
+Customer -> Order : places
+Order *-- Item : contains
+Order -> OrderStatus : has status
+Order -> PaymentMethod : paid via

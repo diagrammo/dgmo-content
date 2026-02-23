@@ -1,0 +1,30 @@
+chart: class
+title: Observer Pattern
+
+Observer [interface]
+  + update(event: Event): void
+
+Subject [abstract]
+  # observers: Observer[]
+  + attach(o: Observer): void
+  + detach(o: Observer): void
+  + notify(): void
+
+EventBus
+  - topics: Map
+  + subscribe(topic: string, o: Observer): void
+  + publish(topic: string, data: Event): void
+
+Logger
+  - logFile: string
+  + update(event: Event): void
+
+Dashboard
+  - widgets: Widget[]
+  + update(event: Event): void
+  + refresh(): void
+
+EventBus --|> Subject
+Logger ..|> Observer
+Dashboard ..|> Observer
+EventBus o-- Observer : notifies

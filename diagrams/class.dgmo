@@ -1,0 +1,32 @@
+chart: class
+title: Ship Class Hierarchy
+
+  Vessel [interface]
+  + sail(): void
+  + anchor(): void
+
+Ship [abstract]
+  # name: string
+  # crew: number
+  + getName(): string
+
+Galleon
+  - cannons: number
+  + fire(): void
+
+Sloop
+  - speed: number
+  + flee(): void
+
+ShipType [enum]
+  Galleon
+  Sloop
+  Frigate
+
+// keyword syntax
+Galleon extends Ship
+Ship implements Vessel
+
+// arrow syntax
+Sloop --|> Ship
+Ship -> ShipType : has type

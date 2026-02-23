@@ -1,0 +1,39 @@
+chart: class
+title: Vehicle Composition
+
+Vehicle [abstract]
+  # make: string
+  # model: string
+  + start(): void
+  + stop(): void
+
+Engine
+  - horsepower: number
+  - fuelType: string
+  + ignite(): void
+  + getHorsepower(): number
+
+Wheel
+  - diameter: number
+  - pressure: number
+  + inflate(psi: number): void
+
+GPS
+  - latitude: number
+  - longitude: number
+  + getPosition(): Coords
+  + navigate(dest: string): Route
+
+Car
+  - doors: number
+  + openTrunk(): void
+
+Truck
+  - payload: number
+  + loadCargo(weight: number): void
+
+Car --|> Vehicle
+Truck --|> Vehicle
+Vehicle *-- Engine : powered by
+Vehicle o-- Wheel : has 4
+Car o-- GPS : optional

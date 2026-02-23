@@ -1,0 +1,40 @@
+chart: class
+title: Service Architecture
+
+Repository [interface]
+  + findById(id: string): Entity
+  + save(entity: Entity): void
+  + delete(id: string): void
+
+UserService
+  - repo: UserRepository
+  + getUser(id: string): User
+  + createUser(data: UserData): User
+  + authenticate(email: string, pass: string): Token
+
+UserRepository
+  - db: Database
+  + findById(id: string): User
+  + save(user: User): void
+  + delete(id: string): void
+  + findByEmail(email: string): User
+
+Database [abstract]
+  # connectionString: string
+  + connect(): void
+  + disconnect(): void
+  + query(sql: string): Result
+
+PostgresDB
+  - pool: ConnectionPool
+
+RedisCache
+  - ttl: number
+  + get(key: string): string
+  + set(key: string, val: string): void
+
+UserRepository ..|> Repository
+PostgresDB --|> Database
+UserService *-- UserRepository : uses
+UserRepository -> PostgresDB : queries
+UserService ..> RedisCache : caches
