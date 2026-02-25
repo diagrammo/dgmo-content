@@ -1,0 +1,10 @@
+chart: org
+
+Long John| r: FirstMate
+  [Rigging Crew]
+    Monkey Fist| r: Bosun
+    Pegleg Pete
+    Crow Jane
+  [Navigation]
+    Stargazer Quinn| r: Quartermaster
+    Compass Rose| st: NewRecruit

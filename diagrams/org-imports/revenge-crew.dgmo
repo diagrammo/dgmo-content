@@ -1,0 +1,11 @@
+chart: org
+
+Anne Bonny| r: FirstMate
+  [Gun Deck]
+    Cannonball Pete| r: Gunner
+    Smokey Jack| r: Gunner, st: NewRecruit
+    Powder Meg| r: Sailor, st: NewRecruit
+  [Boarding Party]
+    Cutlass Jim| r: Bosun
+    Red Mary
+    One-Eyed Dan| st: Turncoat

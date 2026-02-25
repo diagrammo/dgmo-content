@@ -1,0 +1,28 @@
+chart: kanban
+title: Plunder Sprint 7
+
+## Priority
+  Urgent(red)
+  High(orange)
+  Low(green) default
+
+## Crew alias c
+  Blackbeard(red)
+  Anne Bonny(purple)
+  Calico Jack(teal)
+
+== Awaiting Orders ==
+Recruit gunners at Tortuga | priority: High, c: Calico Jack
+Chart new trade route | priority: Urgent, c: Anne Bonny
+  Scout the Windward Passage
+  Avoid Royal Navy patrols
+Repair hull damage | priority: Low, c: Blackbeard
+
+== Underway [wip: 2] ==
+Raid merchant convoy | priority: Urgent, c: Blackbeard
+  Three ships spotted off Nassau
+Forge letters of marque | priority: High, c: Anne Bonny
+
+== Done ==
+Resupply rum and powder | priority: Low, c: Calico Jack
+Bribe the harbour master | priority: High, c: Anne Bonny
