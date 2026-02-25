@@ -5,7 +5,7 @@ scale: on
 //swimlanes: on
 
 // events: YYYY: point, YYYY->YYYY: range, YYYY->3m: duration
-// use ->? for uncertain end dates (e.g. 1717->?1718)
+// use ? after end for uncertain dates (e.g. 1717->1718?)
 era 1716->1718: Nassau Republic
 era 1719->1722: Roberts Era
 
@@ -20,7 +20,7 @@ marker 1721-08: Roberts reaches peak (teal)
 
 ## Bonny & Rackham (purple)
 1718->1719: Rackham builds crew in Nassau
-1719-03->1720-10: Bonny & Rackham raid together
+1719-03->1720-10?: Bonny & Rackham raid together
 1720-11: Rackham hanged at Port Royal
 
 ## Roberts (blue)
