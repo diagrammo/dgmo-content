@@ -1,0 +1,102 @@
+chart: c4
+title: Ride-Sharing Microservices
+
+## Technology alias tech
+  TypeScript(blue)
+  Go(teal)
+  Python(green)
+  PostgreSQL(purple)
+  Redis(red)
+  Kafka(orange)
+
+## Team alias t
+  Rider(blue) default
+  Driver(green)
+  Platform(purple)
+
+## Scope alias sc
+  Internal(blue) default
+  External(gray)
+
+person Rider | description: Requests and pays for rides
+person Driver | description: Accepts rides and navigates to pickup
+
+system Ride Platform | description: Core ride-sharing platform
+  -> Rider: Provides mobile app to [HTTPS]
+  -> Driver: Provides driver app to [HTTPS]
+  -> Maps Provider: Geocodes addresses via [HTTPS]
+  -> Payment Gateway: Charges riders via [HTTPS]
+  ~> Notification Service: Sends push notifications via [HTTPS]
+
+  containers:
+    [API Layer]
+      container API Gateway is a cloud | tech: TypeScript, t: Platform
+        description: Routes requests and handles auth
+        -> Ride Service: Forwards ride requests to [gRPC]
+        -> User Service: Validates tokens with [gRPC]
+        -> Pricing Service: Fetches fare estimates from [gRPC]
+
+    [Core Services]
+      container Ride Service | tech: Go, t: Rider
+        description: Manages ride lifecycle
+        -> Ride DB: Persists ride records [SQL/TCP]
+        -> Location Cache: Reads driver positions [TCP]
+        ~> Event Stream: Publishes ride events [TCP]
+
+        components:
+          component Matching Engine | tech: Go
+            description: Pairs riders with nearby drivers
+          component Trip Manager | tech: Go
+            description: Tracks ride state transitions
+          component Fare Calculator | tech: Go
+            description: Computes final fare at ride end
+
+      container User Service | tech: TypeScript, t: Platform
+        description: Authentication and user profiles
+        -> User DB: Reads/writes user data [SQL/TCP]
+
+      container Pricing Service | tech: Python, t: Platform
+        description: Dynamic surge pricing and fare estimation
+        -> Pricing DB: Reads pricing rules [SQL/TCP]
+        -> Location Cache: Reads demand heatmap [TCP]
+
+    [Driver Services]
+      container Location Tracker | tech: Go, t: Driver
+        description: Ingests real-time driver GPS updates
+        -> Location Cache: Writes driver positions [TCP]
+        ~> Event Stream: Publishes location updates [TCP]
+
+      container Driver Service | tech: TypeScript, t: Driver
+        description: Driver onboarding and availability
+        -> Driver DB: Reads/writes driver data [SQL/TCP]
+
+    [Data Stores]
+      container Ride DB | tech: PostgreSQL, t: Rider
+        description: Ride history and trip records
+
+      container User DB | tech: PostgreSQL, t: Platform
+        description: User profiles and credentials
+
+      container Driver DB | tech: PostgreSQL, t: Driver
+        description: Driver profiles and documents
+
+      container Pricing DB | tech: PostgreSQL, t: Platform
+        description: Fare rules and surge zones
+
+      container Location Cache is a cache | tech: Redis, t: Platform
+        description: Real-time driver positions and demand data
+
+      container Event Stream | tech: Kafka, t: Platform
+        description: Central event backbone
+
+system Maps Provider is an external | sc: External
+  description: Google Maps geocoding and routing
+
+system Payment Gateway is an external | sc: External
+  description: Stripe payment processing
+  ~> Rider: Sends payment receipts to
+
+system Notification Service is an external | sc: External
+  description: Firebase push notification delivery
+  ~> Rider: Sends ride updates to
+  ~> Driver: Sends ride requests to

@@ -1,0 +1,62 @@
+chart: c4
+title: SaaS Analytics Platform
+
+## Technology alias tech
+  React(blue)
+  Node.js(green)
+  PostgreSQL(purple)
+  Redis(red)
+
+## Team alias t
+  Product(blue) default
+  Data(orange)
+  Infrastructure(teal)
+
+person End User | description: Views dashboards and creates reports
+person Account Admin | description: Manages workspace settings and members
+
+system Analytics Platform | description: Multi-tenant analytics and reporting
+  -> End User: Serves dashboards to [HTTPS]
+  -> Account Admin: Provides admin console to [HTTPS]
+  ~> Email Service: Sends scheduled reports via [SMTP]
+
+  containers:
+    [Frontend]
+      container Dashboard App | tech: React, t: Product
+        description: Interactive data visualization SPA
+        -> API Gateway: Fetches data from [JSON/HTTPS]
+
+      container Admin Console | tech: React, t: Product
+        description: Workspace and user management
+        -> API Gateway: Manages settings via [JSON/HTTPS]
+
+    [Backend]
+      container API Gateway | tech: Node.js, t: Product
+        description: REST API serving all frontends
+        -> App Database: Reads/writes user and workspace data [SQL/TCP]
+        -> Cache: Reads/writes sessions [TCP]
+        ~> Query Engine: Submits analytics queries [AMQP]
+
+      container Query Engine | tech: Node.js, t: Data
+        description: Processes analytics queries asynchronously
+        -> Data Warehouse: Runs analytical queries against [SQL/TCP]
+        ~> Event Bus: Publishes query results [AMQP]
+
+    [Data]
+      container App Database | tech: PostgreSQL, t: Product
+        description: Users, workspaces, and dashboard configs
+
+      container Data Warehouse | tech: PostgreSQL, t: Data
+        description: Aggregated analytics data
+
+      container Cache is a cache | tech: Redis, t: Infrastructure
+        description: Session store and rate limiter
+
+      container Event Bus | tech: RabbitMQ, t: Infrastructure
+        description: Async messaging backbone
+
+system Email Service | description: Transactional email delivery
+  ~> End User: Delivers report emails to
+
+system Data Ingestion | description: Collects events from customer applications
+  -> Analytics Platform: Streams event data to [HTTPS]

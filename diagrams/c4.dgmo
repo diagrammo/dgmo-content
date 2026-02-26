@@ -1,0 +1,24 @@
+chart: c4
+title: Internet Banking System
+
+## Scope alias sc
+  Internal(blue) default
+  External(gray)
+
+person Customer | description: A customer of the bank
+
+system Internet Banking | description: Allows customers to view accounts and make payments
+  -> Customer: Delivers content to [HTTPS]
+  -> Email: Sends emails using [SMTP]
+
+  containers:
+    container Web App | description: SPA that provides banking features, tech: React
+      -> API: Makes API calls [JSON/HTTPS]
+
+    container API | description: JSON/HTTPS API backend, tech: Node.js
+      -> Database: Reads from and writes to [SQL/TCP]
+
+    container Database | description: Stores account data, tech: PostgreSQL
+
+system Email | description: Sendgrid email delivery, sc: External
+  ~> Customer: Sends emails to
