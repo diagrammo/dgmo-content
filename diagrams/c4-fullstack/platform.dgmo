@@ -1,0 +1,65 @@
+chart: c4
+title: DevOps Platform
+
+## Technology alias tech
+  React(blue)
+  Node.js(green)
+  PostgreSQL(purple)
+  Redis(red)
+
+## Scope alias sc
+  Internal(blue) default
+  External(gray)
+
+person Developer | description: Uses the platform to deploy and monitor services
+
+system DevOps Platform | description: Internal developer platform for CI/CD and observability
+  -> Developer: Serves dashboard to [HTTPS]
+  -> GitHub: Pulls source code from [HTTPS]
+  -> PagerDuty: Sends alerts via [HTTPS]
+
+  containers:
+    container Dashboard | tech: React
+      description: SPA for pipeline status and service health
+      -> API Server: Fetches data from [JSON/HTTPS]
+
+    container API Server | tech: Node.js
+      description: Core backend handling pipelines, deployments, and metrics
+      import: api-classes.dgmo
+      -> Database: Reads and writes pipeline data [SQL/TCP]
+      -> Cache: Stores build artifact refs [TCP]
+
+      components:
+        component Pipeline Controller | tech: Express
+          description: Manages CI/CD pipeline execution
+        component Deploy Service | tech: Node.js
+          description: Orchestrates rolling deployments
+        component Metrics Aggregator | tech: Node.js
+          description: Collects and exposes service metrics
+
+    container Database | tech: PostgreSQL
+      description: Stores pipelines, deployments, and audit logs
+
+    container Cache | tech: Redis
+      description: Build artifact references and session data
+
+system GitHub is an external | sc: External
+  description: Source code hosting and webhook events
+
+system PagerDuty is an external | sc: External
+  description: Incident alerting and on-call routing
+  ~> Developer: Pages on-call engineers
+
+deployment:
+  AWS us-east-1 is a cloud
+    Public Subnet
+      ALB is a cloud
+        container Dashboard
+    Private Subnet
+      ECS Cluster is a cloud
+        container API Server
+    Data Subnet is a database
+      RDS
+        container Database
+      ElastiCache is a cache
+        container Cache
