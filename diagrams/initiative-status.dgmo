@@ -1,0 +1,19 @@
+chart: initiative-status
+title: Project Phoenix
+
+User | done
+Mobile App | wip
+Back End | wip
+
+[Cloud]
+  Auth Service | done
+  API Gateway | wip
+  Database | todo
+
+Monitoring | na
+
+User -> Mobile App
+Mobile App -> API Gateway
+API Gateway -> Auth Service
+API Gateway -> Database
+Back End -> Database
