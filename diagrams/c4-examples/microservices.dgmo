@@ -22,26 +22,26 @@ person Rider | description: Requests and pays for rides
 person Driver | description: Accepts rides and navigates to pickup
 
 system Ride Platform | description: Core ride-sharing platform
-  -> Rider: Provides mobile app to [HTTPS]
-  -> Driver: Provides driver app to [HTTPS]
-  -> Maps Provider: Geocodes addresses via [HTTPS]
-  -> Payment Gateway: Charges riders via [HTTPS]
-  ~> Notification Service: Sends push notifications via [HTTPS]
+  -Provides mobile app to [HTTPS]-> Rider
+  -Provides driver app to [HTTPS]-> Driver
+  -Geocodes addresses via [HTTPS]-> Maps Provider
+  -Charges riders via [HTTPS]-> Payment Gateway
+  ~Sends push notifications via [HTTPS]~> Notification Service
 
   containers:
     [API Layer]
       container API Gateway is a cloud | tech: TypeScript, t: Platform
         description: Routes requests and handles auth
-        -> Ride Service: Forwards ride requests to [gRPC]
-        -> User Service: Validates tokens with [gRPC]
-        -> Pricing Service: Fetches fare estimates from [gRPC]
+        -Forwards ride requests to [gRPC]-> Ride Service
+        -Validates tokens with [gRPC]-> User Service
+        -Fetches fare estimates from [gRPC]-> Pricing Service
 
     [Core Services]
       container Ride Service | tech: Go, t: Rider
         description: Manages ride lifecycle
-        -> Ride DB: Persists ride records [SQL/TCP]
-        -> Location Cache: Reads driver positions [TCP]
-        ~> Event Stream: Publishes ride events [TCP]
+        -Persists ride records [SQL/TCP]-> Ride DB
+        -Reads driver positions [TCP]-> Location Cache
+        ~Publishes ride events [TCP]~> Event Stream
 
         components:
           component Matching Engine | tech: Go
@@ -53,22 +53,22 @@ system Ride Platform | description: Core ride-sharing platform
 
       container User Service | tech: TypeScript, t: Platform
         description: Authentication and user profiles
-        -> User DB: Reads/writes user data [SQL/TCP]
+        -Reads/writes user data [SQL/TCP]-> User DB
 
       container Pricing Service | tech: Python, t: Platform
         description: Dynamic surge pricing and fare estimation
-        -> Pricing DB: Reads pricing rules [SQL/TCP]
-        -> Location Cache: Reads demand heatmap [TCP]
+        -Reads pricing rules [SQL/TCP]-> Pricing DB
+        -Reads demand heatmap [TCP]-> Location Cache
 
     [Driver Services]
       container Location Tracker | tech: Go, t: Driver
         description: Ingests real-time driver GPS updates
-        -> Location Cache: Writes driver positions [TCP]
-        ~> Event Stream: Publishes location updates [TCP]
+        -Writes driver positions [TCP]-> Location Cache
+        ~Publishes location updates [TCP]~> Event Stream
 
       container Driver Service | tech: TypeScript, t: Driver
         description: Driver onboarding and availability
-        -> Driver DB: Reads/writes driver data [SQL/TCP]
+        -Reads/writes driver data [SQL/TCP]-> Driver DB
 
     [Data Stores]
       container Ride DB | tech: PostgreSQL, t: Rider
@@ -94,9 +94,32 @@ system Maps Provider is an external | sc: External
 
 system Payment Gateway is an external | sc: External
   description: Stripe payment processing
-  ~> Rider: Sends payment receipts to
+  ~Sends payment receipts to~> Rider
 
 system Notification Service is an external | sc: External
   description: Firebase push notification delivery
-  ~> Rider: Sends ride updates to
-  ~> Driver: Sends ride requests to
+  ~Sends ride updates to~> Rider
+  ~Sends ride requests to~> Driver
+
+deployment:
+  AWS us-east-1 is a cloud
+    Public Subnet
+      ALB is a cloud
+        container API Gateway
+    Private Subnet — Services
+      ECS Cluster is a cloud
+        container Ride Service
+        container User Service
+        container Pricing Service
+        container Location Tracker
+        container Driver Service
+    Private Subnet — Data
+      RDS Primary is a database
+        container Ride DB
+        container User DB
+        container Driver DB
+        container Pricing DB
+      ElastiCache is a cache
+        container Location Cache
+      MSK Cluster
+        container Event Stream

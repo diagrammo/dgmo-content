@@ -14,20 +14,20 @@ tag: Scope alias sc
 person Developer | description: Uses the platform to deploy and monitor services
 
 system DevOps Platform | description: Internal developer platform for CI/CD and observability
-  -> Developer: Serves dashboard to [HTTPS]
-  -> GitHub: Pulls source code from [HTTPS]
-  -> PagerDuty: Sends alerts via [HTTPS]
+  -Serves dashboard to [HTTPS]-> Developer
+  -Pulls source code from [HTTPS]-> GitHub
+  -Sends alerts via [HTTPS]-> PagerDuty
 
   containers:
     container Dashboard | tech: React
       description: SPA for pipeline status and service health
-      -> API Server: Fetches data from [JSON/HTTPS]
+      -Fetches data from [JSON/HTTPS]-> API Server
 
     container API Server | tech: Node.js
       description: Core backend handling pipelines, deployments, and metrics
       import: api-classes.dgmo
-      -> Database: Reads and writes pipeline data [SQL/TCP]
-      -> Cache: Stores build artifact refs [TCP]
+      -Reads and writes pipeline data [SQL/TCP]-> Database
+      -Stores build artifact refs [TCP]-> Cache
 
       components:
         component Pipeline Controller | tech: Express
@@ -48,7 +48,7 @@ system GitHub is an external | sc: External
 
 system PagerDuty is an external | sc: External
   description: Incident alerting and on-call routing
-  ~> Developer: Pages on-call engineers
+  ~Pages on-call engineers~> Developer
 
 deployment:
   AWS us-east-1 is a cloud

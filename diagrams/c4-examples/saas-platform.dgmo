@@ -16,31 +16,31 @@ person End User | description: Views dashboards and creates reports
 person Account Admin | description: Manages workspace settings and members
 
 system Analytics Platform | description: Multi-tenant analytics and reporting
-  -> End User: Serves dashboards to [HTTPS]
-  -> Account Admin: Provides admin console to [HTTPS]
-  ~> Email Service: Sends scheduled reports via [SMTP]
+  -Serves dashboards to [HTTPS]-> End User
+  -Provides admin console to [HTTPS]-> Account Admin
+  ~Sends scheduled reports via [SMTP]~> Email Service
 
   containers:
     [Frontend]
       container Dashboard App | tech: React, t: Product
         description: Interactive data visualization SPA
-        -> API Gateway: Fetches data from [JSON/HTTPS]
+        -Fetches data from [JSON/HTTPS]-> API Gateway
 
       container Admin Console | tech: React, t: Product
         description: Workspace and user management
-        -> API Gateway: Manages settings via [JSON/HTTPS]
+        -Manages settings via [JSON/HTTPS]-> API Gateway
 
     [Backend]
       container API Gateway | tech: Node.js, t: Product
         description: REST API serving all frontends
-        -> App Database: Reads/writes user and workspace data [SQL/TCP]
-        -> Cache: Reads/writes sessions [TCP]
-        ~> Query Engine: Submits analytics queries [AMQP]
+        -Reads/writes user and workspace data [SQL/TCP]-> App Database
+        -Reads/writes sessions [TCP]-> Cache
+        ~Submits analytics queries [AMQP]~> Query Engine
 
       container Query Engine | tech: Node.js, t: Data
         description: Processes analytics queries asynchronously
-        -> Data Warehouse: Runs analytical queries against [SQL/TCP]
-        ~> Event Bus: Publishes query results [AMQP]
+        -Runs analytical queries against [SQL/TCP]-> Data Warehouse
+        ~Publishes query results [AMQP]~> Event Bus
 
     [Data]
       container App Database | tech: PostgreSQL, t: Product
@@ -56,7 +56,23 @@ system Analytics Platform | description: Multi-tenant analytics and reporting
         description: Async messaging backbone
 
 system Email Service | description: Transactional email delivery
-  ~> End User: Delivers report emails to
+  ~Delivers report emails to~> End User
 
 system Data Ingestion | description: Collects events from customer applications
-  -> Analytics Platform: Streams event data to [HTTPS]
+  -Streams event data to [HTTPS]-> Analytics Platform
+
+deployment:
+  GCP us-central1 is a cloud
+    Cloud Run — Frontend
+      container Dashboard App
+      container Admin Console
+    Cloud Run — Backend
+      container API Gateway
+      container Query Engine
+    Cloud SQL is a database
+      container App Database
+      container Data Warehouse
+    Memorystore is a cache
+      container Cache
+    Cloud Pub/Sub
+      container Event Bus

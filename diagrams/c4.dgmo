@@ -8,20 +8,20 @@ tag: Scope alias sc
 person Customer | description: A customer of the bank
 
 system Internet Banking | description: Allows customers to view accounts and make payments
-  -> Customer: Delivers content to [HTTPS]
-  -> Email: Sends emails using [SMTP]
+  -Delivers content to [HTTPS]-> Customer
+  -Sends emails using [SMTP]-> Email
 
   containers:
     container Web App | description: SPA that provides banking features, tech: React
       -Makes API calls [JSON/HTTPS]-> API
 
     container API | description: JSON/HTTPS API backend, tech: Node.js
-      -> Database: Reads from and writes to [SQL/TCP]
+      -Reads from and writes to [SQL/TCP]-> Database
 
     container Database | description: Stores account data, tech: PostgreSQL
 
 system Email | description: Sendgrid email delivery, sc: External
-  ~> Customer: Sends emails to
+  ~Sends emails to~> Customer
 
 deployment:
   Vercel is a cloud
