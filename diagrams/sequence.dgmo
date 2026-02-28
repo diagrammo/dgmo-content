@@ -2,21 +2,25 @@ chart: sequence
 title: Treasure Hunt App
 
 User -Search nearby loot-> WebApp
-  WebApp -GET /treasures?nearby-> TreasureAPI
-    note:
-      - check location
-      - http://example.com
-    TreasureAPI -Find within 5nm-> MapDB
-    MapDB -> TreasureAPI: <- 3 results
-  TreasureAPI -> WebApp: <- locations
+WebApp -GET /treasures?nearby-> TreasureAPI
+note:
+  - check location
+  - http://example.com
+TreasureAPI -Find within 5nm-> MapDB
+MapDB -> TreasureAPI: <- 3 results
+TreasureAPI -> WebApp: <- locations
 WebApp -> User: <- Show treasure map
 
 == Claim ==
 
 User -Claim chest #42-> WebApp
-  WebApp -POST /claim-> TreasureAPI
+WebApp -POST /claim-> TreasureAPI
+  if chest available
     TreasureAPI -Set status = claimed-> MapDB
     MapDB -> TreasureAPI: <- OK
-  TreasureAPI -> WebApp: <- Claim accepted
-WebApp -> User: <- 500 doubloons earned!
-TreasureAPI ~treasure.claimed~> NotifyQueue
+    TreasureAPI -> WebApp: <- Claim accepted
+    WebApp -> User: <- 500 doubloons earned!
+    TreasureAPI ~treasure.claimed~> NotifyQueue
+  else
+    TreasureAPI -> WebApp: <- 409 Already claimed
+    WebApp -> User: <- Too slow, matey!
