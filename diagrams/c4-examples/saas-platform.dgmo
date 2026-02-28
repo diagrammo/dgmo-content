@@ -1,13 +1,13 @@
 chart: c4
 title: SaaS Analytics Platform
 
-## Technology alias tech
+tag: Technology alias tech
   React(blue)
   Node.js(green)
   PostgreSQL(purple)
   Redis(red)
 
-## Team alias t
+tag: Team alias t
   Product(blue) default
   Data(orange)
   Infrastructure(teal)

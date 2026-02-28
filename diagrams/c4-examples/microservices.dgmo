@@ -1,7 +1,7 @@
 chart: c4
 title: Ride-Sharing Microservices
 
-## Technology alias tech
+tag: Technology alias tech
   TypeScript(blue)
   Go(teal)
   Python(green)
@@ -9,12 +9,12 @@ title: Ride-Sharing Microservices
   Redis(red)
   Kafka(orange)
 
-## Team alias t
+tag: Team alias t
   Rider(blue) default
   Driver(green)
   Platform(purple)
 
-## Scope alias sc
+tag: Scope alias sc
   Internal(blue) default
   External(gray)
 

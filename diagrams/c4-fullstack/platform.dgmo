@@ -1,13 +1,13 @@
 chart: c4
 title: DevOps Platform
 
-## Technology alias tech
+tag: Technology alias tech
   React(blue)
   Node.js(green)
   PostgreSQL(purple)
   Redis(red)
 
-## Scope alias sc
+tag: Scope alias sc
   Internal(blue) default
   External(gray)
 
