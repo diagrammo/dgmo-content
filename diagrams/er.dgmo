@@ -30,13 +30,8 @@ ports
   name: varchar
   region: varchar [unique]
 
-// symbolic double-dash
 ships 1--* crew_members : aboard
-// symbolic single-dash
 ships 1-1 captains : commanded by
-// keyword hyphenated
-ships one-to-many treasure : carries
-// keyword spaced
-ports one to many ships : home of
-// mixed
-captains ? to 1 ports : frequents
+ships 1--* treasure : carries
+ports 1--* ships : home of
+captains ?--1 ports : frequents

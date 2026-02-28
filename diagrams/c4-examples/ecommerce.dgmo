@@ -6,7 +6,7 @@ person Admin | description: Manages inventory and fulfills orders
 
 system Storefront | description: Customer-facing web store
   -> Shopper: Serves product pages to [HTTPS]
-  -> Payments: Processes charges via [HTTPS]
+  -Processes charges via [HTTPS]-> Payments
   -> Warehouse: Sends fulfillment requests to [HTTPS]
 
 system Payments | description: Stripe payment processing

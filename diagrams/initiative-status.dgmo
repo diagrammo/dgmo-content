@@ -1,19 +1,26 @@
 chart: initiative-status
-title: Project Phoenix
+title: Operation Blackbeard
 
-User | done
-Mobile App | wip
-Back End | wip
+Captain | na
+CrewApp | done
+ShipDashboard | todo
+Quartermaster | wip
+NavigationService | wip
+ShipLog | done
+CargoService | wip
+[Royal Navy]
+  PortAuthority | na
+  TradingPost | na
 
-[Cloud]
-  Auth Service | done
-  API Gateway | wip
-  Database | todo
-
-Monitoring | na
-
-User -> Mobile App
-Mobile App -> API Gateway
-API Gateway -> Auth Service
-API Gateway -> Database
-Back End -> Database
+Captain -issueOrders-> CrewApp | na
+Captain -viewCharts-> ShipDashboard | na
+CrewApp -> Quartermaster: getCrewRoster | done
+CrewApp -> Quartermaster: assignWatch | todo
+Quartermaster -> PortAuthority: dockRequest | done
+Quartermaster -> NavigationService: plotCourse | todo
+Quartermaster -> ShipLog: recordVoyage | done
+Quartermaster -> ShipLog: logMutiny | done
+Quartermaster -> TradingPost: tradeGoods | wip
+Quartermaster -> TradingPost: fenceBooty | todo
+CargoService -> Quartermaster: inventoryUpdate | wip
+ShipDashboard -> Quartermaster: API | todo

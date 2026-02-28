@@ -12,5 +12,6 @@ TreasureAPI -> MapDB: Find within 5nm <- 3 results
 
 User -> WebApp: Claim chest #42 <- 500 doubloon earned!
 WebApp -> TreasureAPI: POST /treasures/42/claim <- Claim accepted
-TreasureAPI -> MapDB: Set status = claimed <- OK
-TreasureAPI ~> NotifyQueue: treasure.claimed
+TreasureAPI -Set status = claimed-> MapDB
+MapDB -> TreasureAPI: <- OK
+TreasureAPI ~treasure.claimed~> NotifyQueue

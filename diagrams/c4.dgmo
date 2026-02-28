@@ -13,7 +13,7 @@ system Internet Banking | description: Allows customers to view accounts and mak
 
   containers:
     container Web App | description: SPA that provides banking features, tech: React
-      -> API: Makes API calls [JSON/HTTPS]
+      -Makes API calls [JSON/HTTPS]-> API
 
     container API | description: JSON/HTTPS API backend, tech: Node.js
       -> Database: Reads from and writes to [SQL/TCP]
@@ -22,3 +22,11 @@ system Internet Banking | description: Allows customers to view accounts and mak
 
 system Email | description: Sendgrid email delivery, sc: External
   ~> Customer: Sends emails to
+
+deployment:
+  Vercel is a cloud
+    container Web App
+  Railway
+    container API
+  Neon is a database
+    container Database
