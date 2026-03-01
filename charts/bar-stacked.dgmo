@@ -1,11 +1,16 @@
 chart: bar-stacked
 title: Cargo by Voyage
-series: Rum, Spices, Silk, Gold
+series:
+  Rum
+  Spices
+  Silk
+  Gold
 //xlabel: Voyage
 //ylabel: Barrels
 //orientation: horizontal
 
-// add (color) to series names for custom colors
+// multi-line series — one per line, indented
+// also works inline: series: Rum, Spices, Silk, Gold
 Voyage 1: 40, 20, 10, 30
 Voyage 2: 25, 35, 20, 20
 Voyage 3: 15, 10, 45, 30
