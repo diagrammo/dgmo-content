@@ -1,0 +1,65 @@
+chart: c4
+title: DevOps Platform
+
+tag: Technology alias tech
+  React(blue)
+  Node.js(green)
+  PostgreSQL(purple)
+  Redis(red)
+
+tag: Scope alias sc
+  Internal(blue) default
+  External(gray)
+
+person Developer | description: Uses the platform to deploy and monitor services
+
+system DevOps Platform | description: Internal developer platform for CI/CD and observability
+  -Serves dashboard to [HTTPS]-> Developer
+  -Pulls source code from [HTTPS]-> GitHub
+  -Sends alerts via [HTTPS]-> PagerDuty
+
+  containers:
+    container Dashboard | tech: React
+      description: SPA for pipeline status and service health
+      -Fetches data from [JSON/HTTPS]-> API Server
+
+    container API Server | tech: Node.js
+      description: Core backend handling pipelines, deployments, and metrics
+      import: api-classes.dgmo
+      -Reads and writes pipeline data [SQL/TCP]-> Database
+      -Stores build artifact refs [TCP]-> Cache
+
+      components:
+        component Pipeline Controller | tech: Express
+          description: Manages CI/CD pipeline execution
+        component Deploy Service | tech: Node.js
+          description: Orchestrates rolling deployments
+        component Metrics Aggregator | tech: Node.js
+          description: Collects and exposes service metrics
+
+    container Database | tech: PostgreSQL
+      description: Stores pipelines, deployments, and audit logs
+
+    container Cache | tech: Redis
+      description: Build artifact references and session data
+
+system GitHub is an external | sc: External
+  description: Source code hosting and webhook events
+
+system PagerDuty is an external | sc: External
+  description: Incident alerting and on-call routing
+  ~Pages on-call engineers~> Developer
+
+deployment:
+  AWS us-east-1 is a cloud
+    Public Subnet
+      ALB is a cloud
+        container Dashboard
+    Private Subnet
+      ECS Cluster is a cloud
+        container API Server
+    Data Subnet is a database
+      RDS
+        container Database
+      ElastiCache is a cache
+        container Cache

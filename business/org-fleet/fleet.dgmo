@@ -1,0 +1,13 @@
+chart: org
+title: The Dread Fleet
+tags: tags.dgmo
+sub-node-label: Crew
+show-sub-node-count: yes
+
+Blackbeard| r: Captain
+  import: revenge-crew.dgmo
+  Calico Rackham| r: Quartermaster
+    [Cargo Hold]
+      Barnacle Bob
+      Slippery Sal| st: Turncoat
+  import: serpent-crew.dgmo

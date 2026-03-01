@@ -1,0 +1,36 @@
+chart: class
+title: API Server — Internal Structure
+
+PipelineController
+  - router: Router
+  + createPipeline(req: Request): Response
+  + getPipeline(id: string): Response
+  + triggerBuild(id: string): Response
+
+DeployService
+  - orchestrator: Orchestrator
+  + deploy(env: Environment, build: Build): Deployment
+  + rollback(deploymentId: string): void
+  + getStatus(deploymentId: string): DeployStatus
+
+MetricsAggregator
+  - collectors: Collector[]
+  + collect(serviceId: string): Metric[]
+  + query(range: TimeRange): MetricSeries
+
+PipelineRepository
+  - db: Database
+  + findById(id: string): Pipeline
+  + save(pipeline: Pipeline): void
+  + listByStatus(status: Status): Pipeline[]
+
+DeployStatus [enum]
+  Pending
+  InProgress
+  Succeeded
+  Failed
+  RolledBack
+
+PipelineController --> DeployService : triggers
+PipelineController --> PipelineRepository : reads/writes
+DeployService --> MetricsAggregator : checks health
