@@ -24,11 +24,12 @@ A sequence diagram:
 chart: sequence
 title: Treasure Hunt App
 
-User -> WebApp: Search nearby loot
-WebApp -> TreasureAPI: GET /treasures?nearby
-TreasureAPI -> MapDB: Find within 5nm <- 3 results
-TreasureAPI -> WebApp: Treasure locations <- JSON
-WebApp -> User: Show treasure map
+User -Search nearby loot-> WebApp
+WebApp -GET /treasures?nearby-> TreasureAPI
+TreasureAPI -Find within 5nm-> MapDB
+MapDB -3 results-> TreasureAPI
+TreasureAPI -Treasure locations-> WebApp
+WebApp -Show treasure map-> User
 ```
 
 A timeline:
