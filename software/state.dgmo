@@ -1,16 +1,21 @@
 chart: state
-title: Order Lifecycle
+title: Order of the Jolly Roger
 
-[*] -> Pending
-Pending
-  -submit-> Processing
-Processing
-  -approve-> Approved
-  -reject-> Rejected(red)
-Approved
-  -ship-> Shipped
-Shipped
-  -deliver-> Delivered
-  -return-> Pending
-Delivered -> [*]
-Rejected -> [*]
+[*] -> Docked
+Docked
+  -set sail-> At Sea
+At Sea
+  -spot treasure-> Treasure Hunt
+  -enemy ship!-> Battle
+Treasure Hunt
+  -found gold-> Celebrating
+  -empty chest-> At Sea
+Battle
+  -victory!-> Plundering
+  -retreat!-> At Sea
+Plundering
+  -> Celebrating
+Celebrating
+  -rum's gone-> At Sea
+  -retire-> Docked
+  -mutiny!-> [*]
