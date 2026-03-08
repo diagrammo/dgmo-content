@@ -1,0 +1,16 @@
+chart: state
+title: Order Lifecycle
+
+[*] -> Pending
+Pending
+  -submit-> Processing
+Processing
+  -approve-> Approved
+  -reject-> Rejected(red)
+Approved
+  -ship-> Shipped
+Shipped
+  -deliver-> Delivered
+  -return-> Pending
+Delivered -> [*]
+Rejected -> [*]

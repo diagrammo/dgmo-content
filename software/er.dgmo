@@ -6,12 +6,16 @@ ships
   name: varchar
   ship_type: varchar
   cannons: int
+  1-aboard-* crew_members
+  1-1 captains
+  1-carries-* treasure
 
 captains
   id: int [pk]
   name: varchar
   ship_id: int [fk]
   bounty: int
+  ?-frequents-1 ports
 
 crew_members
   id: int [pk]
@@ -29,9 +33,4 @@ ports
   id: int [pk]
   name: varchar
   region: varchar [unique]
-
-ships 1--* crew_members : aboard
-ships 1-1 captains : commanded by
-ships 1--* treasure : carries
-ports 1--* ships : home of
-captains ?--1 ports : frequents
+  1-docks-* ships

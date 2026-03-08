@@ -1,0 +1,98 @@
+chart: sitemap
+title: SaaS Platform
+
+tag: Auth
+  Public(green)
+  Required(blue)
+  Admin(red)
+
+tag: Type
+  Landing(purple)
+  Form(orange)
+  Content(cyan)
+  Transactional(yellow)
+
+Home
+  Auth: Public
+  Type: Landing
+  -pricing-> Pricing
+  -login-> Login
+  -docs-> Docs
+
+[Marketing]
+  Pricing
+    Auth: Public
+    Type: Content
+    -sign up-> Register
+
+  Docs
+    Auth: Public
+    Type: Content
+    -api ref-> API Reference
+
+  API Reference
+    Auth: Public
+    Type: Content
+
+[Auth]
+  Login
+    Auth: Public
+    Type: Form
+    -success-> Dashboard
+    -forgot-> Reset Password
+    -new user-> Register
+
+  Register
+    Auth: Public
+    Type: Form
+    -success-> Dashboard
+
+  Reset Password
+    Auth: Public
+    Type: Form
+    -submitted-> Login
+
+[App]
+  Dashboard
+    Auth: Required
+    Type: Landing
+    -projects-> Projects
+    -settings-> Settings
+    -billing-> Billing
+
+  Projects
+    Auth: Required
+    Type: Content
+    -new-> New Project
+    -select-> Project Detail
+
+  New Project
+    Auth: Required
+    Type: Form
+    -created-> Project Detail
+
+  Project Detail
+    Auth: Required
+    Type: Content
+    -settings-> Project Settings
+
+  Project Settings
+    Auth: Required
+    Type: Form
+    -saved-> Project Detail
+
+[Account]
+  Settings
+    Auth: Required
+    Type: Form
+    -saved-> Dashboard
+
+  Billing
+    Auth: Required
+    Type: Transactional
+    -upgrade-> Checkout
+
+  Checkout
+    Auth: Required
+    Type: Transactional
+    -success-> Dashboard
