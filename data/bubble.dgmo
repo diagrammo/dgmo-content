@@ -7,13 +7,13 @@ sizelabel: Crew
 
 // label: x, y, size
 // omit size for a plain scatter plot
-## English Pirates(red)
-Blackbeard: 85, 90, 80
-Calico Jack: 45, 55, 35
-Anne Bonny: 50, 70, 30
-Charles Vane: 60, 65, 45
+[English Pirates](red)
+  Blackbeard: 85, 90, 80
+  Calico Jack: 45, 55, 35
+  Anne Bonny: 50, 70, 30
+  Charles Vane: 60, 65, 45
 
-## French Buccaneers(blue)
-L'Olonnais: 70, 80, 60
-Michel de Grammont: 55, 60, 40
-Pierre le Grand: 30, 45, 25
+[French Buccaneers](blue)
+  L'Olonnais: 70, 80, 60
+  Michel de Grammont: 55, 60, 40
+  Pierre le Grand: 30, 45, 25
