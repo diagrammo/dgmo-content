@@ -1,0 +1,101 @@
+chart: infra
+title: E-Commerce Platform
+direction: LR
+default-uptime: 99.99
+
+tag: Team alias t
+  Platform(teal)
+  Backend(blue)
+  Data(violet)
+
+Edge
+  rps: 5229
+  -> CDN
+
+CDN | t: Platform
+  cache-hit: 70%
+  -> WAF
+
+WAF | t: Platform
+  firewall-block: 10%
+  -> LB
+
+LB | t: Platform
+  ratelimit-rps: 20000
+  -/api-> APIServer | split: 60%
+  -/events-> EventLambda | split: 30%
+  -/static-> StaticCDN | split: 10%
+
+[API Cluster]
+  instances: 3
+
+  APIServer | t: Backend
+    max-rps: 1500
+    instances: 2
+    latency-ms: 45
+    cb-error-threshold: 50%
+    -> DB
+    -> EventBus
+
+DB | t: Data
+  max-rps: 8000
+  latency-ms: 12
+  uptime: 99.999%
+
+EventLambda | t: Backend
+  concurrency: 500
+  duration-ms: 100
+  cold-start-ms: 900
+  -> EventBus
+
+EventBus | t: Data
+  buffer: 1000000
+  drain-rate: 5000
+  retention-hours: 168
+  partitions: 24
+  -> AnalyticsWorker
+  -> NotificationWorker
+
+AnalyticsWorker | t: Data
+  max-rps: 2000
+  instances: 1-4
+  latency-ms: 200
+
+NotificationWorker | t: Backend
+  concurrency: 200
+  duration-ms: 300
+  cold-start-ms: 500
+
+StaticCDN | t: Platform
+  cache-hit: 95%
+  latency-ms: 5
+
+scenario: peak-traffic
+  Edge
+    rps: 50000
+  APIServer
+    instances: 5
+  EventLambda
+    concurrency: 2000
+  EventBus
+    drain-rate: 15000
+
+scenario: scenario-1
+  WAF
+    firewall-block: 70
+
+scenario: black-friday
+  CDN
+    cache-hit: 30
+  WAF
+    firewall-block: 45
+
+scenario: normal-day
+  Edge
+    rps: 4000
+  CDN
+    cache-hit: 30
+
+scenario: foo-bar
+  WAF
+    firewall-block: 30

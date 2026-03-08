@@ -1,0 +1,57 @@
+chart: infra
+title: Serverless Event Pipeline
+direction: LR
+
+Edge
+  rps: 5000
+  -> API-GW
+
+API-GW
+  ratelimit-rps: 10000
+  latency-ms: 10
+  -> AuthLambda
+
+AuthLambda
+  concurrency: 1000
+  duration-ms: 50
+  cold-start-ms: 800
+  -> Router
+
+Router
+  latency-ms: 5
+  -/orders-> OrderLambda | split: 40%
+  -/search-> SearchLambda | split: 50%
+  -/admin-> AdminLambda | split: 10%
+
+OrderLambda
+  concurrency: 500
+  duration-ms: 200
+  cold-start-ms: 1200
+  -> OrderDB
+
+SearchLambda
+  concurrency: 2000
+  duration-ms: 80
+  cold-start-ms: 600
+  -> SearchIndex
+
+AdminLambda
+  concurrency: 50
+  duration-ms: 150
+  cold-start-ms: 1500
+
+OrderDB
+  max-rps: 3000
+  latency-ms: 15
+
+SearchIndex
+  max-rps: 10000
+  latency-ms: 8
+
+scenario: black-friday
+  Edge
+    rps: 50000
+  OrderLambda
+    concurrency: 2000
+  SearchLambda
+    concurrency: 5000
