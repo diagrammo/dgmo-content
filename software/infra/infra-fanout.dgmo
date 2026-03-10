@@ -1,0 +1,22 @@
+chart: infra
+title: Search Platform Fan-Out
+direction: LR
+
+Edge
+  rps: 5000
+  -> SearchAPI
+
+SearchAPI
+  max-rps: 10000
+  instances: 2
+  latency-ms: 10
+  -> IndexShards | split: 70% x8
+  -> SuggestShards | split: 30% x4
+
+IndexShards
+  max-rps: 50000
+  latency-ms: 3
+
+SuggestShards
+  max-rps: 20000
+  latency-ms: 2
