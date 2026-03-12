@@ -1,40 +1,87 @@
 chart: infra
-title: Production Traffic Flow
+title: SaaS API Platform
 direction: LR
 
 tag: Team alias t
-  Backend(blue)
   Platform(teal) default
+  Backend(blue)
+  Data(purple)
 
 Edge
-  rps: 100000
-  -> CloudFront
+  rps: 8000
+  -> CDN
 
-CloudFront | t: Platform
-  cache-hit: 80%
-  -> CloudArmor
+CDN | t: Platform
+  description: Edge cache — static assets and cacheable API responses
+  cache-hit: 75%
+  -> WAF
 
-CloudArmor | t: Platform
-  firewall-block: 5%
-  -> ALB
+WAF | t: Platform
+  description: Web application firewall
+  firewall-block: 8%
+  ratelimit-rps: 20000
+  -> LB
 
-ALB | t: Platform
-  -/api-> [API Pods] | split: 60%
-  -/purchase-> [Commerce Pods] | split: 30%
-  -/static-> StaticServer | split: 10%
+LB | t: Platform
+  -/api-> [API Cluster] | split: 60%
+  -/search-> SearchAPI | split: 30%
+  -/static-> StaticCDN | split: 10%
 
-[API Pods]
+[API Cluster]
+  instances: 3
+
   APIServer | t: Backend
-    instances: 3
-    max-rps: 500
-    latency-ms: 45
+    description: Core REST API — auth, billing, user data
+    instances: 2
+    max-rps: 1200
+    latency-ms: 40
     cb-error-threshold: 50%
+    -> PostgreSQL
+    -> JobQueue
 
-[Commerce Pods]
-  PurchaseMS
-    instances: 1-8
-    max-rps: 300
-    latency-ms: 120
+PostgreSQL | t: Data
+  max-rps: 6000
+  latency-ms: 8
+  uptime: 99.999%
 
-StaticServer | t: Platform
-  latency-ms: 5
+JobQueue | t: Data
+  buffer: 250000
+  drain-rate: 1200
+  retention-hours: 48
+  partitions: 8
+  -> JobWorker
+
+[Job Workers]
+  instances: 1-6
+
+  JobWorker | t: Backend
+    max-rps: 400
+    latency-ms: 180
+
+SearchAPI | t: Backend
+  concurrency: 800
+  duration-ms: 120
+  cold-start-ms: 700
+  -> SearchShards | split: 100% x6
+
+SearchShards | t: Data
+  max-rps: 30000
+  latency-ms: 3
+
+StaticCDN | t: Platform
+  cache-hit: 98%
+  latency-ms: 4
+
+scenario: peak-load
+  Edge
+    rps: 50000
+  APIServer
+    instances: 8
+  SearchAPI
+    concurrency: 4000
+
+scenario: worker-outage
+  JobWorker
+    max-rps: 80
+  JobQueue
+    drain-rate: 200
