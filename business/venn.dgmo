@@ -1,12 +1,11 @@
 chart: venn
 title: Pirate Skill Overlap
-values: on
 
-sw(red): 120 "Swordsmanship"
-nav(blue): 100 "Navigation"
-lead(green): 80 "Leadership"
+Swordsmanship(red) alias sw
+Navigation(blue) alias nav
+Leadership(green) alias lead
 
-sw & nav: 35 "Foo"
-nav & lead: 40 "Voyager Captains"
-sw & lead: 30 "Foo Bar"
-sw & nav & lead: 10 "Bar Baz"
+sw + nav: Sea Raiders
+nav + lead: Voyager Captains
+sw + lead: Buccaneer Chiefs
+sw + nav + lead: Legendary Pirates
