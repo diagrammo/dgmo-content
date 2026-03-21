@@ -11,16 +11,3 @@ TreasureAPI -Find within 5nm-> MapDB | c: Search
 MapDB -3 results-> TreasureAPI
 TreasureAPI -locations-> WebApp
 WebApp -Show treasure map-> User
-
-== Claim ==
-User -Claim chest #42-> WebApp
-WebApp -POST /claim-> TreasureAPI | c: Claims
-if chest available
-  TreasureAPI -Set status = claimed-> MapDB | c: Claims
-  MapDB -OK-> TreasureAPI
-  TreasureAPI -Claim accepted-> WebApp
-  WebApp -500 doubloons earned!-> User
-  TreasureAPI ~treasure.claimed~> NotifyQueue | c: Notifications
-else
-  TreasureAPI -409 Already claimed-> WebApp
-  WebApp -Too slow, matey!-> User
