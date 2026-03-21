@@ -4,6 +4,9 @@ series: Knots
 xlabel: Day
 ylabel: Speed
 
+era Day 1 -> Day 3: Rough Seas (red)
+era Day 3 -> Day 7: Fair Winds (blue)
+
 Day 1: 8
 Day 2: 10
 Day 3: 7

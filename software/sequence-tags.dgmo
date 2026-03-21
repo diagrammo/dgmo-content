@@ -1,5 +1,22 @@
 chart: sequence
 title: Treasure Hunt App
+active-tag: Concern
+
+tag: Concern alias c
+  Search(blue)
+  Claims(green)
+  Notifications(orange)
+
+tag: Layer alias l
+  Frontend(teal)
+  Backend(purple)
+  Data(red)
+
+User is an actor
+WebApp is a frontend | l: Frontend
+TreasureAPI is a service | l: Backend
+MapDB is a database | l: Data
+NotifyQueue is a queue | l: Backend
 
 User -Search nearby loot-> WebApp
 WebApp -GET /treasures?nearby-> TreasureAPI | c: Search
@@ -13,6 +30,7 @@ TreasureAPI -locations-> WebApp
 WebApp -Show treasure map-> User
 
 == Claim ==
+
 User -Claim chest #42-> WebApp
 WebApp -POST /claim-> TreasureAPI | c: Claims
 if chest available

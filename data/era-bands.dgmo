@@ -1,0 +1,24 @@
+chart: line
+title: Pirate Activity by Era
+ylabel: Incidents
+
+era 1650 -> 1680: Buccaneers (orange)
+era 1680 -> 1730: Golden Age (red)
+era 1730 -> 1800: Suppression (blue)
+
+1650: 12
+1660: 18
+1670: 24
+1680: 35
+1690: 52
+1700: 71
+1710: 89
+1720: 95
+1730: 61
+1740: 38
+1750: 22
+1760: 15
+1770: 9
+1780: 7
+1790: 5
+1800: 4
