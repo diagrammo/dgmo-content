@@ -1,12 +1,11 @@
-chart: kanban
-title: Plunder Sprint 7
+kanban Plunder Sprint 7
 
-tag: Priority
+tag Priority
+  Low(green)
   Urgent(red)
   High(orange)
-  Low(green) default
 
-tag: Crew alias c
+tag Crew c
   Blackbeard(red)
   Anne Bonny(purple)
   Calico Jack(teal)

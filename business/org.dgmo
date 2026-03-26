@@ -1,25 +1,24 @@
-chart: org
-title: The Dread Fleet
-sub-node-label: Crew
-show-sub-node-count: yes
+org The Dread Fleet
+sub-node-label Crew
+show-sub-node-count
 
-tag: Rank alias r
+tag Rank r
+  Sailor(blue)
   Captain(red)
   FirstMate(orange)
   Quartermaster(yellow)
   Bosun(green)
   Gunner(teal)
-  Sailor(blue) default
   Jester(cyan)
   Swab(purple)
 
-tag: Ship alias s
-  Revenge(blue) default
+tag Ship s
+  Revenge(blue)
   Serpent(green)
   Phantom(purple)
 
-tag: Status alias st
-  Loyal(green) default
+tag Status st
+  Loyal(green)
   Turncoat(red)
   NewRecruit(yellow)
 

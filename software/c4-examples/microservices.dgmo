@@ -1,7 +1,6 @@
-chart: c4
-title: Ride-Sharing Microservices
+c4 Ride-Sharing Microservices
 
-tag: Technology alias tech
+tag Technology tech
   TypeScript(blue)
   Go(teal)
   Python(green)
@@ -9,99 +8,99 @@ tag: Technology alias tech
   Redis(red)
   Kafka(orange)
 
-tag: Team alias t
-  Rider(blue) default
+tag Team t
+  Rider(blue)
   Driver(green)
   Platform(purple)
 
-tag: Scope alias sc
-  Internal(blue) default
+tag Scope sc
+  Internal(blue)
   External(gray)
 
-person Rider | description: Requests and pays for rides
-person Driver | description: Accepts rides and navigates to pickup
+person Rider | description Requests and pays for rides
+person Driver | description Accepts rides and navigates to pickup
 
-system Ride Platform | description: Core ride-sharing platform
+system Ride Platform | description Core ride-sharing platform
   -Provides mobile app to [HTTPS]-> Rider
   -Provides driver app to [HTTPS]-> Driver
   -Geocodes addresses via [HTTPS]-> Maps Provider
   -Charges riders via [HTTPS]-> Payment Gateway
   ~Sends push notifications via [HTTPS]~> Notification Service
 
-  containers:
+  containers
     [API Layer]
       container API Gateway is a cloud | tech: TypeScript, t: Platform
-        description: Routes requests and handles auth
+        description Routes requests and handles auth
         -Forwards ride requests to [gRPC]-> Ride Service
         -Validates tokens with [gRPC]-> User Service
         -Fetches fare estimates from [gRPC]-> Pricing Service
 
     [Core Services]
       container Ride Service | tech: Go, t: Rider
-        description: Manages ride lifecycle
+        description Manages ride lifecycle
         -Persists ride records [SQL/TCP]-> Ride DB
         -Reads driver positions [TCP]-> Location Cache
         ~Publishes ride events [TCP]~> Event Stream
 
-        components:
+        components
           component Matching Engine | tech: Go
-            description: Pairs riders with nearby drivers
+            description Pairs riders with nearby drivers
           component Trip Manager | tech: Go
-            description: Tracks ride state transitions
+            description Tracks ride state transitions
           component Fare Calculator | tech: Go
-            description: Computes final fare at ride end
+            description Computes final fare at ride end
 
       container User Service | tech: TypeScript, t: Platform
-        description: Authentication and user profiles
+        description Authentication and user profiles
         -Reads/writes user data [SQL/TCP]-> User DB
 
       container Pricing Service | tech: Python, t: Platform
-        description: Dynamic surge pricing and fare estimation
+        description Dynamic surge pricing and fare estimation
         -Reads pricing rules [SQL/TCP]-> Pricing DB
         -Reads demand heatmap [TCP]-> Location Cache
 
     [Driver Services]
       container Location Tracker | tech: Go, t: Driver
-        description: Ingests real-time driver GPS updates
+        description Ingests real-time driver GPS updates
         -Writes driver positions [TCP]-> Location Cache
         ~Publishes location updates [TCP]~> Event Stream
 
       container Driver Service | tech: TypeScript, t: Driver
-        description: Driver onboarding and availability
+        description Driver onboarding and availability
         -Reads/writes driver data [SQL/TCP]-> Driver DB
 
     [Data Stores]
       container Ride DB | tech: PostgreSQL, t: Rider
-        description: Ride history and trip records
+        description Ride history and trip records
 
       container User DB | tech: PostgreSQL, t: Platform
-        description: User profiles and credentials
+        description User profiles and credentials
 
       container Driver DB | tech: PostgreSQL, t: Driver
-        description: Driver profiles and documents
+        description Driver profiles and documents
 
       container Pricing DB | tech: PostgreSQL, t: Platform
-        description: Fare rules and surge zones
+        description Fare rules and surge zones
 
       container Location Cache is a cache | tech: Redis, t: Platform
-        description: Real-time driver positions and demand data
+        description Real-time driver positions and demand data
 
       container Event Stream | tech: Kafka, t: Platform
-        description: Central event backbone
+        description Central event backbone
 
 system Maps Provider is an external | sc: External
-  description: Google Maps geocoding and routing
+  description Google Maps geocoding and routing
 
 system Payment Gateway is an external | sc: External
-  description: Stripe payment processing
+  description Stripe payment processing
   ~Sends payment receipts to~> Rider
 
 system Notification Service is an external | sc: External
-  description: Firebase push notification delivery
+  description Firebase push notification delivery
   ~Sends ride updates to~> Rider
   ~Sends ride requests to~> Driver
 
-deployment:
+deployment
   AWS us-east-1 is a cloud
     Public Subnet
       ALB is a cloud

@@ -1,12 +1,11 @@
-chart: sitemap
-title: SaaS Platform
+sitemap SaaS Platform
 
-tag: Auth
+tag Auth
   Public(green)
   Required(blue)
   Admin(red)
 
-tag: Type
+tag Type
   Landing(purple)
   Form(orange)
   Content(cyan)

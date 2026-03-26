@@ -1,14 +1,13 @@
-chart: c4
-title: SaaS Analytics Platform
+c4 SaaS Analytics Platform
 
-tag: Technology alias tech
+tag Technology tech
   React(blue)
   Node.js(green)
   PostgreSQL(purple)
   Redis(red)
 
-tag: Team alias t
-  Product(blue) default
+tag Team t
+  Product(blue)
   Data(orange)
   Infrastructure(teal)
 
@@ -20,40 +19,40 @@ system Analytics Platform | description: Multi-tenant analytics and reporting
   -Provides admin console to [HTTPS]-> Account Admin
   ~Sends scheduled reports via [SMTP]~> Email Service
 
-  containers:
+  containers
     [Frontend]
       container Dashboard App | tech: React, t: Product
-        description: Interactive data visualization SPA
+        description Interactive data visualization SPA
         -Fetches data from [JSON/HTTPS]-> API Gateway
 
       container Admin Console | tech: React, t: Product
-        description: Workspace and user management
+        description Workspace and user management
         -Manages settings via [JSON/HTTPS]-> API Gateway
 
     [Backend]
       container API Gateway | tech: Node.js, t: Product
-        description: REST API serving all frontends
+        description REST API serving all frontends
         -Reads/writes user and workspace data [SQL/TCP]-> App Database
         -Reads/writes sessions [TCP]-> Cache
         ~Submits analytics queries [AMQP]~> Query Engine
 
       container Query Engine | tech: Node.js, t: Data
-        description: Processes analytics queries asynchronously
+        description Processes analytics queries asynchronously
         -Runs analytical queries against [SQL/TCP]-> Data Warehouse
         ~Publishes query results [AMQP]~> Event Bus
 
     [Data]
       container App Database | tech: PostgreSQL, t: Product
-        description: Users, workspaces, and dashboard configs
+        description Users, workspaces, and dashboard configs
 
       container Data Warehouse | tech: PostgreSQL, t: Data
-        description: Aggregated analytics data
+        description Aggregated analytics data
 
       container Cache is a cache | tech: Redis, t: Infrastructure
-        description: Session store and rate limiter
+        description Session store and rate limiter
 
       container Event Bus | tech: RabbitMQ, t: Infrastructure
-        description: Async messaging backbone
+        description Async messaging backbone
 
 system Email Service | description: Transactional email delivery
   ~Delivers report emails to~> End User
@@ -61,7 +60,7 @@ system Email Service | description: Transactional email delivery
 system Data Ingestion | description: Collects events from customer applications
   -Streams event data to [HTTPS]-> Analytics Platform
 
-deployment:
+deployment
   GCP us-central1 is a cloud
     Cloud Run — Frontend
       container Dashboard App

@@ -1,21 +1,20 @@
-chart: c4
-title: E-Commerce Platform
+c4 E-Commerce Platform
 
-person Shopper | description: Browses products and places orders
-person Admin | description: Manages inventory and fulfills orders
+person Shopper | description Browses products and places orders
+person Admin | description Manages inventory and fulfills orders
 
-system Storefront | description: Customer-facing web store
+system Storefront | description Customer-facing web store
   -Serves product pages to [HTTPS]-> Shopper
   -Processes charges via [HTTPS]-> Payments
   -Sends fulfillment requests to [HTTPS]-> Warehouse
 
-system Payments | description: Stripe payment processing
+system Payments | description Stripe payment processing
   -Sends receipts to [Email]-> Shopper
 
-system Warehouse | description: Inventory and shipping management
+system Warehouse | description Inventory and shipping management
   ~Sends tracking updates to [Email]~> Shopper
 
-system Back Office | description: Admin dashboard for order and inventory management
+system Back Office | description Admin dashboard for order and inventory management
   -Provides management UI to [HTTPS]-> Admin
   -Queries stock levels from [HTTPS]-> Warehouse
   <-Syncs catalog data [JSON/HTTPS]-> Storefront

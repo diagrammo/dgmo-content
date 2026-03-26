@@ -1,11 +1,10 @@
-chart: class
-title: Ship Class Hierarchy
+class Ship Class Hierarchy
 
-Vessel [interface]
+Vessel interface
   + sail(): void
   + anchor(): void
 
-Ship implements Vessel [abstract]
+Ship implements Vessel abstract
   # name: string
   # crew: number
   + getName(): string
@@ -18,7 +17,7 @@ Sloop extends Ship
   - speed: number
   + flee(): void
 
-ShipType [enum]
+ShipType enum
   Galleon
   Sloop
   Frigate

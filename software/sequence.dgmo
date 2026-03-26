@@ -1,9 +1,8 @@
-chart: sequence
-title: Treasure Hunt App
+sequence Treasure Hunt App
 
 User -Search nearby loot-> WebApp
 WebApp -GET /treasures?nearby-> TreasureAPI | c: Search
-note:
+note
   - check location
   - use compass
   - http://example.com

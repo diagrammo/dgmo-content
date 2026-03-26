@@ -1,29 +1,28 @@
-chart: c4
-title: Internet Banking System
+c4 Internet Banking System
 
-tag: Scope alias sc
-  Internal(blue) default
+tag Scope sc
+  Internal(blue)
   External(gray)
 
-person Customer | description: A customer of the bank
+person Customer | description A customer of the bank
 
-system Internet Banking | description: Allows customers to view accounts and make payments
+system Internet Banking | description Allows customers to view accounts and make payments
   -Delivers content to [HTTPS]-> Customer
   -Sends emails using [SMTP]-> Email
 
-  containers:
-    container Web App | description: SPA that provides banking features, tech: React
+  containers
+    container Web App | description SPA that provides banking features, tech React
       -Makes API calls [JSON/HTTPS]-> API
 
-    container API | description: JSON/HTTPS API backend, tech: Node.js
+    container API | description JSON/HTTPS API backend, tech Node.js
       -Reads from and writes to [SQL/TCP]-> Database
 
-    container Database | description: Stores account data, tech: PostgreSQL
+    container Database | description Stores account data, tech PostgreSQL
 
-system Email | description: Sendgrid email delivery, sc: External
+system Email | description Sendgrid email delivery, sc: External
   ~Sends emails to~> Customer
 
-deployment:
+deployment
   Vercel is a cloud
     container Web App
   Railway

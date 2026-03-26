@@ -1,35 +1,34 @@
-chart: timeline
-title: The Golden Age of Piracy (1716–1722)
-scale: on
+timeline The Golden Age of Piracy (1716–1722)
+scale on
 
-tag: Pirate alias p
+tag Pirate p
   Blackbeard(red)
   Bonny & Rackham(purple)
   Roberts(blue)
 
-tag: Outcome alias o
+tag Outcome o
+  Uncertain(yellow)
   Victory(green)
   Defeat(red)
-  Uncertain(yellow) default
 
-tag: Theatre alias t
-  Caribbean(teal) default
+tag Theatre t
+  Caribbean(teal)
   Atlantic(blue)
   Africa(orange)
 
-era 1716->1718: Nassau Republic
-era 1719->1722: Roberts Era
+era 1716->1718 Nassau Republic
+era 1719->1722 Roberts Era
 
-marker 1718-07: Woodes Rogers arrives (orange)
-marker 1721-08: Roberts reaches peak (teal)
+marker 1718-07 Woodes Rogers arrives (orange)
+marker 1721-08 Roberts reaches peak (teal)
 
-1716->1717: Sails under Hornigold | p: Blackbeard, o: Victory
-1717-11->1718-06: Commands Queen Anne's Revenge | p: Blackbeard, o: Victory, t: Atlantic
-1718-05: Blockades Charleston harbor | p: Blackbeard, o: Victory
-1718-11-22: Killed at Ocracoke | p: Blackbeard, o: Defeat
-1718->1719: Rackham builds crew in Nassau | p: Bonny & Rackham, o: Victory
-1719-03->1720-10?: Bonny & Rackham raid together | p: Bonny & Rackham
-1720-11: Rackham hanged at Port Royal | p: Bonny & Rackham, o: Defeat
-1719-06->1720: Raids West African coast | p: Roberts, o: Victory, t: Africa
-1720->1722: Captures 400+ ships | p: Roberts, o: Victory, t: Atlantic
-1722-02-10: Killed at Cape Lopez | p: Roberts, o: Defeat, t: Africa
+1716->1717 Sails under Hornigold | p: Blackbeard, o: Victory
+1717-11->1718-06 Commands Queen Anne's Revenge | p: Blackbeard, o: Victory, t: Atlantic
+1718-05 Blockades Charleston harbor | p: Blackbeard, o: Victory
+1718-11-22 Killed at Ocracoke | p: Blackbeard, o: Defeat
+1718->1719 Rackham builds crew in Nassau | p: Bonny & Rackham, o: Victory
+1719-03->1720-10? Bonny & Rackham raid together | p: Bonny & Rackham
+1720-11 Rackham hanged at Port Royal | p: Bonny & Rackham, o: Defeat
+1719-06->1720 Raids West African coast | p: Roberts, o: Victory, t: Africa
+1720->1722 Captures 400+ ships | p: Roberts, o: Victory, t: Atlantic
+1722-02-10 Killed at Cape Lopez | p: Roberts, o: Defeat, t: Africa

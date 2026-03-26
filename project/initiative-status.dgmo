@@ -1,23 +1,32 @@
-chart: initiative-status
-title: Operation Blackbeard
+initiative-status Operation Blackbeard
 
-Captain | na
+tag Phase p
+  Phase 1
+  Phase 2
+  Phase 3
+
+tag Team t
+  Bridge
+  Crew
+  Allies
+
+Captain | na, t: Bridge
   -issueOrders-> CrewApp | na
   -viewCharts-> ShipDashboard | na
-CrewApp | done
+CrewApp | done, p: Phase 1, t: Bridge
   -assignWatch-> Quartermaster | todo
-ShipDashboard | todo
+ShipDashboard | todo, p: Phase 2, t: Bridge
   -API-> Quartermaster | todo
-Quartermaster | wip
+Quartermaster | wip, p: Phase 2, t: Crew
   -dockRequest-> PortAuthority | done
   -plotCourse-> NavigationService | todo
   -recordVoyage-> ShipLog | done
   -tradeGoods-> TradingPost | wip
   -fenceBooty-> TradingPost | todo
-NavigationService | wip
-ShipLog | done
-CargoService | wip
+NavigationService | wip, p: Phase 2, t: Crew
+ShipLog | done, p: Phase 1, t: Crew
+CargoService | wip, p: Phase 3, t: Crew
   -inventoryUpdate-> Quartermaster | wip
 [Royal Navy]
-  PortAuthority | na
-  TradingPost | na
+  PortAuthority | na, t: Allies
+  TradingPost | na, t: Allies

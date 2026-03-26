@@ -1,5 +1,4 @@
-chart: class
-title: API Server — Internal Structure
+class API Server — Internal Structure
 
 PipelineController
   - router: Router
@@ -24,7 +23,7 @@ PipelineRepository
   + save(pipeline: Pipeline): void
   + listByStatus(status: Status): Pipeline[]
 
-DeployStatus [enum]
+enum DeployStatus
   Pending
   InProgress
   Succeeded

@@ -1,5 +1,4 @@
-chart: arc
-title: Pirate Alliances
+arc Pirate Alliances
 //order: appearance | name | group | degree
 
 // Source -> Target: weight

@@ -1,8 +1,7 @@
-chart: org
-title: The Dread Fleet
+org The Dread Fleet
 tags: tags.dgmo
-sub-node-label: Crew
-show-sub-node-count: yes
+sub-node-label Crew
+show-sub-node-count
 
 Blackbeard| r: Captain
   import: revenge-crew.dgmo

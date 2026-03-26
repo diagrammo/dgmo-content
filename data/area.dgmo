@@ -1,14 +1,13 @@
-chart: area
-title: Fleet Growth Over Time
-series: Ships
-xlabel: Year
+area Fleet Growth Over Time
+series Ships
+xlabel Year
 
-era 1710 -> 1716: Rise (green)
-era 1716 -> 1720: Decline (red)
+era 1710 -> 1716 Rise (green)
+era 1716 -> 1720 Decline (red)
 
-1710: 3
-1712: 5
-1714: 9
-1716: 14
-1718: 8
-1720: 4
+1710 3
+1712 5
+1714 9
+1716 14
+1718 8
+1720 4

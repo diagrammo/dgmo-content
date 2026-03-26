@@ -1,13 +1,12 @@
-chart: sequence
-title: Treasure Hunt App
-active-tag: Concern
+sequence Treasure Hunt App
+active-tag Concern
 
-tag: Concern alias c
+tag Concern c
   Search(blue)
   Claims(green)
   Notifications(orange)
 
-tag: Layer alias l
+tag Layer l
   Frontend(teal)
   Backend(purple)
   Data(red)
@@ -20,7 +19,7 @@ NotifyQueue is a queue | l: Backend
 
 User -Search nearby loot-> WebApp
 WebApp -GET /treasures?nearby-> TreasureAPI | c: Search
-note:
+note
   - check location
   - use compass
   - http://example.com

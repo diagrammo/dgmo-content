@@ -1,12 +1,12 @@
-tag: Rank alias r
+tag Rank r
+  Sailor(blue)
   Captain(red)
   FirstMate(orange)
   Quartermaster(yellow)
   Bosun(green)
   Gunner(teal)
-  Sailor(blue) default
 
-tag: Status alias st
-  Loyal(green) default
+tag Status st
+  Loyal(green)
   Turncoat(red)
   NewRecruit(yellow)
