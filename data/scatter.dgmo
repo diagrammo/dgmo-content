@@ -1,16 +1,22 @@
-scatter Cannon Range vs Powder Charge
+scatter Pirate Captains
 labels on
-xlabel Powder (lbs)
-ylabel Range (yards)
+xlabel Ruthlessness
+ylabel Treasure (doubloons)
 
-// label x, y
-Long Tom 12, 1800
-Demi-Culverin 8, 1200
-Carronade 4, 400
-Swivel Gun 2, 250
-Nine-Pounder 6, 900
-Eighteen-Pounder 10, 1500
-Basilisk 14, 2000
-Falconet 3, 350
-Minion 5, 700
-Saker 7, 1050
+[Caribbean](red)
+  Blackbeard 90, 8500
+  Calico Jack 55, 3200
+  Anne Bonny 70, 2800
+  Henry Morgan 85, 12000
+  Charles Vane 75, 4100
+
+[Atlantic](blue)
+  Black Sam Bellamy 60, 9200
+  Bartholomew Roberts 88, 11000
+  Edward Low 95, 5500
+  Stede Bonnet 30, 1800
+
+[Indian Ocean](green)
+  Henry Every 80, 14000
+  William Kidd 65, 6800
+  Thomas Tew 50, 7200
