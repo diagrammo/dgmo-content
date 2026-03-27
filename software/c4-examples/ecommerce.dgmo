@@ -17,4 +17,5 @@ Warehouse is a system | description Inventory and shipping management
 Back Office is a system | description Admin dashboard for order and inventory management
   -Provides management UI to [HTTPS]-> Admin
   -Queries stock levels from [HTTPS]-> Warehouse
-  <-Syncs catalog data [JSON/HTTPS]-> Storefront
+  -Syncs catalog data [JSON/HTTPS]-> Storefront
+  Storefront -Syncs catalog data [JSON/HTTPS]-> Back Office

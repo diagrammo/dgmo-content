@@ -11,10 +11,10 @@ tag Team t
   Data(orange)
   Infrastructure(teal)
 
-End User is a person | description: Views dashboards and creates reports
-Account Admin is a person | description: Manages workspace settings and members
+End User is a person | description Views dashboards and creates reports
+Account Admin is a person | description Manages workspace settings and members
 
-Analytics Platform is a system | description: Multi-tenant analytics and reporting
+Analytics Platform is a system | description Multi-tenant analytics and reporting
   -Serves dashboards to [HTTPS]-> End User
   -Provides admin console to [HTTPS]-> Account Admin
   ~Sends scheduled reports via [SMTP]~> Email Service
@@ -54,10 +54,10 @@ Analytics Platform is a system | description: Multi-tenant analytics and reporti
       Event Bus is a container | tech: RabbitMQ, t: Infrastructure
         description Async messaging backbone
 
-Email Service is a system | description: Transactional email delivery
+Email Service is a system | description Transactional email delivery
   ~Delivers report emails to~> End User
 
-Data Ingestion is a system | description: Collects events from customer applications
+Data Ingestion is a system | description Collects events from customer applications
   -Streams event data to [HTTPS]-> Analytics Platform
 
 deployment

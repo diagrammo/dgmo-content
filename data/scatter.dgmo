@@ -1,7 +1,7 @@
 scatter Pirate Captains
 labels on
 xlabel Ruthlessness
-ylabel Treasure (doubloons)
+ylabel Treasure
 
 [Caribbean](red)
   Blackbeard 90, 8500

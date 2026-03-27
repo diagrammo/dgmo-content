@@ -1,11 +1,9 @@
 scatter Pirate Fleets of the Caribbean
 labels on
 sizelabel Crew
-//xlabel Firepower
-//ylabel Reputation
+xlabel Firepower
+ylabel Reputation
 
-// label x, y, size
-// omit size for a plain scatter plot
 [English Pirates](red)
   Blackbeard 85, 90, 80
   Calico Jack 45, 55, 35

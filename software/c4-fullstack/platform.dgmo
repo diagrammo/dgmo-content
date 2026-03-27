@@ -10,9 +10,9 @@ tag Scope sc
   Internal(blue)
   External(gray)
 
-Developer is a person | description: Uses the platform to deploy and monitor services
+Developer is a person | description Uses the platform to deploy and monitor services
 
-DevOps Platform is a system | description: Internal developer platform for CI/CD and observability
+DevOps Platform is a system | description Internal developer platform for CI/CD and observability
   -Serves dashboard to [HTTPS]-> Developer
   -Pulls source code from [HTTPS]-> GitHub
   -Sends alerts via [HTTPS]-> PagerDuty
