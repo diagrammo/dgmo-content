@@ -7,22 +7,20 @@ Diagrammo turns plain text into diagrams. Write a few lines, get a chart.
 A bar chart:
 
 ```dgmo
-chart: bar
-title: Treasure Hauls by Port
-series: Gold Doubloons
+bar Treasure Hauls by Port
+series Gold Doubloons
 
-Port Royal: 850
-Tortuga: 620
-Nassau: 1100
-Havana: 430
-Cartagena: 780
+Port Royal 850
+Tortuga 620
+Nassau 1100
+Havana 430
+Cartagena 780
 ```
 
 A sequence diagram:
 
 ```dgmo
-chart: sequence
-title: Treasure Hunt App
+sequence Treasure Hunt App
 
 User -Search nearby loot-> WebApp
 WebApp -GET /treasures?nearby-> TreasureAPI
@@ -35,16 +33,15 @@ WebApp -Show treasure map-> User
 A timeline:
 
 ```dgmo
-chart: timeline
-title: Golden Age of Piracy
+timeline Golden Age of Piracy
 
-era 1690-01 -> 1700-01: Buccaneers
-era 1700-01 -> 1718-01: Golden Age
+era 1690-01->1700-01 Buccaneers
+era 1700-01->1718-01 Golden Age
 
-## Famous Pirates
-1694-01: Henry Every retires rich
-1718-06: Blackbeard's last stand
-1720-11: Calico Jack captured
+[Famous Pirates]
+1694-01 Henry Every retires rich
+1718-06 Blackbeard's last stand
+1720-11 Calico Jack captured
 ```
 
 ## Supported Types
