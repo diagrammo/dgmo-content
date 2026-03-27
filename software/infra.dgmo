@@ -22,7 +22,7 @@ WAF | t: Platform
   -> LB
 
 LB | t: Platform
-  -/api-> [API Cluster] | split: 60%
+  -/api-> APIServer | split: 60%
   -/search-> SearchAPI | split: 30%
   -/static-> StaticCDN | split: 10%
 
@@ -61,7 +61,7 @@ SearchAPI | t: Backend
   concurrency 800
   duration-ms 120
   cold-start-ms 700
-  -> SearchShards | split: 100% | fanout: 6
+  -> SearchShards | split 100%, fanout: 6
 
 SearchShards | t: Data
   max-rps 30000

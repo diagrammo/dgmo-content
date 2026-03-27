@@ -10,7 +10,7 @@ tag Team t
   Crew
   Allies
 
-Captain | na, t: Bridge
+Captain | t: Bridge
   -issueOrders-> CrewApp | na
   -viewCharts-> ShipDashboard | na
 CrewApp | done, p: Phase 1, t: Bridge
