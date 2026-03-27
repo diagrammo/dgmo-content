@@ -1,10 +1,10 @@
 org The Dread Fleet
-tags: tags.dgmo
 sub-node-label Crew
 show-sub-node-count
+tags tags.dgmo
 
 Blackbeard| r: Captain
-  import: revenge-crew.dgmo
+  import revenge-crew.dgmo
   Calico Rackham| r: Quartermaster
     [Cargo Hold]
       Barnacle Bob
