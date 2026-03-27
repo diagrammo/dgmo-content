@@ -11,53 +11,53 @@ tag Team t
   Data(orange)
   Infrastructure(teal)
 
-person End User | description: Views dashboards and creates reports
-person Account Admin | description: Manages workspace settings and members
+End User is a person | description: Views dashboards and creates reports
+Account Admin is a person | description: Manages workspace settings and members
 
-system Analytics Platform | description: Multi-tenant analytics and reporting
+Analytics Platform is a system | description: Multi-tenant analytics and reporting
   -Serves dashboards to [HTTPS]-> End User
   -Provides admin console to [HTTPS]-> Account Admin
   ~Sends scheduled reports via [SMTP]~> Email Service
 
   containers
     [Frontend]
-      container Dashboard App | tech: React, t: Product
+      Dashboard App is a container | tech: React, t: Product
         description Interactive data visualization SPA
         -Fetches data from [JSON/HTTPS]-> API Gateway
 
-      container Admin Console | tech: React, t: Product
+      Admin Console is a container | tech: React, t: Product
         description Workspace and user management
         -Manages settings via [JSON/HTTPS]-> API Gateway
 
     [Backend]
-      container API Gateway | tech: Node.js, t: Product
+      API Gateway is a container | tech: Node.js, t: Product
         description REST API serving all frontends
         -Reads/writes user and workspace data [SQL/TCP]-> App Database
         -Reads/writes sessions [TCP]-> Cache
         ~Submits analytics queries [AMQP]~> Query Engine
 
-      container Query Engine | tech: Node.js, t: Data
+      Query Engine is a container | tech: Node.js, t: Data
         description Processes analytics queries asynchronously
         -Runs analytical queries against [SQL/TCP]-> Data Warehouse
         ~Publishes query results [AMQP]~> Event Bus
 
     [Data]
-      container App Database | tech: PostgreSQL, t: Product
+      App Database is a container | tech: PostgreSQL, t: Product
         description Users, workspaces, and dashboard configs
 
-      container Data Warehouse | tech: PostgreSQL, t: Data
+      Data Warehouse is a container | tech: PostgreSQL, t: Data
         description Aggregated analytics data
 
       container Cache is a cache | tech: Redis, t: Infrastructure
         description Session store and rate limiter
 
-      container Event Bus | tech: RabbitMQ, t: Infrastructure
+      Event Bus is a container | tech: RabbitMQ, t: Infrastructure
         description Async messaging backbone
 
-system Email Service | description: Transactional email delivery
+Email Service is a system | description: Transactional email delivery
   ~Delivers report emails to~> End User
 
-system Data Ingestion | description: Collects events from customer applications
+Data Ingestion is a system | description: Collects events from customer applications
   -Streams event data to [HTTPS]-> Analytics Platform
 
 deployment

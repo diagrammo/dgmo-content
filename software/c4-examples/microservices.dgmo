@@ -17,10 +17,10 @@ tag Scope sc
   Internal(blue)
   External(gray)
 
-person Rider | description Requests and pays for rides
-person Driver | description Accepts rides and navigates to pickup
+Rider is a person | description Requests and pays for rides
+Driver is a person | description Accepts rides and navigates to pickup
 
-system Ride Platform | description Core ride-sharing platform
+Ride Platform is a system | description Core ride-sharing platform
   -Provides mobile app to [HTTPS]-> Rider
   -Provides driver app to [HTTPS]-> Driver
   -Geocodes addresses via [HTTPS]-> Maps Provider
@@ -36,56 +36,56 @@ system Ride Platform | description Core ride-sharing platform
         -Fetches fare estimates from [gRPC]-> Pricing Service
 
     [Core Services]
-      container Ride Service | tech: Go, t: Rider
+      Ride Service is a container | tech: Go, t: Rider
         description Manages ride lifecycle
         -Persists ride records [SQL/TCP]-> Ride DB
         -Reads driver positions [TCP]-> Location Cache
         ~Publishes ride events [TCP]~> Event Stream
 
         components
-          component Matching Engine | tech: Go
+          Matching Engine is a component | tech: Go
             description Pairs riders with nearby drivers
-          component Trip Manager | tech: Go
+          Trip Manager is a component | tech: Go
             description Tracks ride state transitions
-          component Fare Calculator | tech: Go
+          Fare Calculator is a component | tech: Go
             description Computes final fare at ride end
 
-      container User Service | tech: TypeScript, t: Platform
+      User Service is a container | tech: TypeScript, t: Platform
         description Authentication and user profiles
         -Reads/writes user data [SQL/TCP]-> User DB
 
-      container Pricing Service | tech: Python, t: Platform
+      Pricing Service is a container | tech: Python, t: Platform
         description Dynamic surge pricing and fare estimation
         -Reads pricing rules [SQL/TCP]-> Pricing DB
         -Reads demand heatmap [TCP]-> Location Cache
 
     [Driver Services]
-      container Location Tracker | tech: Go, t: Driver
+      Location Tracker is a container | tech: Go, t: Driver
         description Ingests real-time driver GPS updates
         -Writes driver positions [TCP]-> Location Cache
         ~Publishes location updates [TCP]~> Event Stream
 
-      container Driver Service | tech: TypeScript, t: Driver
+      Driver Service is a container | tech: TypeScript, t: Driver
         description Driver onboarding and availability
         -Reads/writes driver data [SQL/TCP]-> Driver DB
 
     [Data Stores]
-      container Ride DB | tech: PostgreSQL, t: Rider
+      Ride DB is a container | tech: PostgreSQL, t: Rider
         description Ride history and trip records
 
-      container User DB | tech: PostgreSQL, t: Platform
+      User DB is a container | tech: PostgreSQL, t: Platform
         description User profiles and credentials
 
-      container Driver DB | tech: PostgreSQL, t: Driver
+      Driver DB is a container | tech: PostgreSQL, t: Driver
         description Driver profiles and documents
 
-      container Pricing DB | tech: PostgreSQL, t: Platform
+      Pricing DB is a container | tech: PostgreSQL, t: Platform
         description Fare rules and surge zones
 
       container Location Cache is a cache | tech: Redis, t: Platform
         description Real-time driver positions and demand data
 
-      container Event Stream | tech: Kafka, t: Platform
+      Event Stream is a container | tech: Kafka, t: Platform
         description Central event backbone
 
 system Maps Provider is an external | sc: External

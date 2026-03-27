@@ -4,22 +4,22 @@ tag Scope sc
   Internal(blue)
   External(gray)
 
-person Customer | description A customer of the bank
+Customer is a person | description A customer of the bank
 
-system Internet Banking | description Allows customers to view accounts and make payments
+Internet Banking is a system | description Allows customers to view accounts and make payments
   -Delivers content to [HTTPS]-> Customer
   -Sends emails using [SMTP]-> Email
 
   containers
-    container Web App | description SPA that provides banking features, tech React
+    Web App is a container | description SPA that provides banking features, tech React
       -Makes API calls [JSON/HTTPS]-> API
 
-    container API | description JSON/HTTPS API backend, tech Node.js
+    API is a container | description JSON/HTTPS API backend, tech Node.js
       -Reads from and writes to [SQL/TCP]-> Database
 
-    container Database | description Stores account data, tech PostgreSQL
+    Database is a container | description Stores account data, tech PostgreSQL
 
-system Email | description Sendgrid email delivery, sc: External
+Email is an external | description Sendgrid email delivery, sc: External
   ~Sends emails to~> Customer
 
 deployment
