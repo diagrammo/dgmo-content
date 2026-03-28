@@ -22,37 +22,37 @@ Analytics Platform is a system | description Multi-tenant analytics and reportin
   containers
     [Frontend]
       Dashboard App is a container | tech: React, t: Product
-        description Interactive data visualization SPA
+        description: Interactive data visualization SPA
         -Fetches data from [JSON/HTTPS]-> API Gateway
 
       Admin Console is a container | tech: React, t: Product
-        description Workspace and user management
+        description: Workspace and user management
         -Manages settings via [JSON/HTTPS]-> API Gateway
 
     [Backend]
       API Gateway is a container | tech: Node.js, t: Product
-        description REST API serving all frontends
+        description: REST API serving all frontends
         -Reads/writes user and workspace data [SQL/TCP]-> App Database
         -Reads/writes sessions [TCP]-> Cache
         ~Submits analytics queries [AMQP]~> Query Engine
 
       Query Engine is a container | tech: Node.js, t: Data
-        description Processes analytics queries asynchronously
+        description: Processes analytics queries asynchronously
         -Runs analytical queries against [SQL/TCP]-> Data Warehouse
         ~Publishes query results [AMQP]~> Event Bus
 
     [Data]
       App Database is a container | tech: PostgreSQL, t: Product
-        description Users, workspaces, and dashboard configs
+        description: Users, workspaces, and dashboard configs
 
       Data Warehouse is a container | tech: PostgreSQL, t: Data
-        description Aggregated analytics data
+        description: Aggregated analytics data
 
-      container Cache is a cache | tech: Redis, t: Infrastructure
-        description Session store and rate limiter
+      Cache is a container is a cache | tech: Redis, t: Infrastructure
+        description: Session store and rate limiter
 
       Event Bus is a container | tech: RabbitMQ, t: Infrastructure
-        description Async messaging backbone
+        description: Async messaging backbone
 
 Email Service is a system | description Transactional email delivery
   ~Delivers report emails to~> End User

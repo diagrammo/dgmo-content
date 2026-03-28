@@ -19,34 +19,34 @@ DevOps Platform is a system | description Internal developer platform for CI/CD 
 
   containers
     Dashboard is a container | tech: React
-      description SPA for pipeline status and service health
+      description: SPA for pipeline status and service health
       -Fetches data from [JSON/HTTPS]-> API Server
 
     API Server is a container | tech: Node.js
-      description Core backend handling pipelines, deployments, and metrics
-      import api-classes.dgmo
+      description: Core backend handling pipelines, deployments, and metrics
+      import: api-classes.dgmo
       -Reads and writes pipeline data [SQL/TCP]-> Database
       -Stores build artifact refs [TCP]-> Cache
 
       components
         Pipeline Controller is a component | tech: Express
-          description Manages CI/CD pipeline execution
+          description: Manages CI/CD pipeline execution
         Deploy Service is a component | tech: Node.js
-          description Orchestrates rolling deployments
+          description: Orchestrates rolling deployments
         Metrics Aggregator is a component | tech: Node.js
-          description Collects and exposes service metrics
+          description: Collects and exposes service metrics
 
     Database is a container | tech: PostgreSQL
-      description Stores pipelines, deployments, and audit logs
+      description: Stores pipelines, deployments, and audit logs
 
     Cache is a container | tech: Redis
-      description Build artifact references and session data
+      description: Build artifact references and session data
 
 system GitHub is an external | sc: External
-  description Source code hosting and webhook events
+  description: Source code hosting and webhook events
 
 system PagerDuty is an external | sc: External
-  description Incident alerting and on-call routing
+  description: Incident alerting and on-call routing
   ~Pages on-call engineers~> Developer
 
 deployment

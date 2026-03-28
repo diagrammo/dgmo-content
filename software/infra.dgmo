@@ -1,5 +1,4 @@
 infra SaaS API Platform
-direction LR
 
 tag Team t
   Platform(teal)
@@ -22,9 +21,9 @@ WAF | t: Platform
   -> LB
 
 LB | t: Platform
-  -/api-> APIServer | split: 60%
-  -/search-> SearchAPI | split: 30%
-  -/static-> StaticCDN | split: 10%
+  -/api-> APIServer | split 60%
+  -/search-> SearchAPI | split 30%
+  -/static-> StaticCDN | split 10%
 
 [API Cluster]
   instances 3
@@ -61,7 +60,7 @@ SearchAPI | t: Backend
   concurrency 800
   duration-ms 120
   cold-start-ms 700
-  -> SearchShards | split 100%, fanout: 6
+  -> SearchShards | split 100%, fanout 6
 
 SearchShards | t: Data
   max-rps 30000

@@ -4,7 +4,7 @@ Swordsmanship(red) alias sw
 Navigation(blue) alias nav
 Leadership(green) alias lead
 
-sw + nav: Sea Raiders
-nav + lead: Voyager Captains
-sw + lead: Buccaneer Chiefs
-sw + nav + lead: Legendary Pirates
+sw + nav Sea Raiders
+nav + lead Voyager Captains
+sw + lead Buccaneer Chiefs
+sw + nav + lead Legendary Pirates

@@ -22,4 +22,5 @@ ShipType enum
   Sloop
   Frigate
 
-Ship -> ShipType : has type
+Ship
+  -> ShipType has type
