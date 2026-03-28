@@ -1,4 +1,5 @@
 bar Crew Size by Ship
+orientation-horizontal
 series Crew Members
 //xlabel Ship
 //ylabel Crew

@@ -1,5 +1,6 @@
 bar-stacked Port Revenue by Trade
-series 
+orientation-horizontal
+series
   Imports(blue)
   Exports(green)
   Tariffs(orange)
