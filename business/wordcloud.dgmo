@@ -1,7 +1,4 @@
 wordcloud Pirate Skills
-//rotate none | mixed | angled
-//max 50
-//size 14, 80
 
 // word weight (higher = larger)
 swordsmanship 95

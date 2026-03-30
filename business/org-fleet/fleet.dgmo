@@ -9,4 +9,4 @@ Blackbeard| r: Captain
     [Cargo Hold]
       Barnacle Bob
       Slippery Sal| st: Turncoat
-  import: serpent-crew.dgmo
+  import serpent-crew.dgmo
