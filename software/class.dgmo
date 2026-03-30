@@ -1,10 +1,10 @@
 class Ship Class Hierarchy
 
-Vessel interface
+interface Vessel
   + sail(): void
   + anchor(): void
 
-Ship implements Vessel abstract
+abstract Ship implements Vessel
   # name: string
   # crew: number
   + getName(): string
@@ -17,7 +17,7 @@ Sloop extends Ship
   - speed: number
   + flee(): void
 
-ShipType enum
+enum ShipType
   Galleon
   Sloop
   Frigate
