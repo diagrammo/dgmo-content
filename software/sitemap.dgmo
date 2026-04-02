@@ -1,97 +1,33 @@
-sitemap SaaS Platform
+sitemap Pirate Bay Trading Co.
 
-tag Auth
+tag Access
   Public(green)
-  Required(blue)
-  Admin(red)
+  Crew Only(blue)
+  Captain(red)
 
-tag Type
+tag Page
   Landing(purple)
   Form(orange)
   Content(cyan)
-  Transactional(yellow)
 
-Home
-  Auth: Public
-  Type: Landing
-  -pricing-> Pricing
-  -login-> Login
-  -docs-> Docs
+Home | Access: Public, Page: Landing
+  -shop-> Shop
+  -join-> Enlist
+  -map-> Treasure Map
+  -> [Port Market]
 
-[Marketing]
-  Pricing
-    Auth: Public
-    Type: Content
-    -sign up-> Register
+[Port Market]
+  Shop | Access: Public, Page: Content
+    -buy-> Checkout
 
-  Docs
-    Auth: Public
-    Type: Content
-    -api ref-> API Reference
+  Checkout | Access: Crew Only, Page: Form
+    -purchased-> Ship Log
 
-  API Reference
-    Auth: Public
-    Type: Content
+[Crew Quarters]
+  Enlist | Access: Public, Page: Form
+    -enlisted-> Ship Log
 
-[Auth]
-  Login
-    Auth: Public
-    Type: Form
-    -success-> Dashboard
-    -forgot-> Reset Password
-    -new user-> Register
+  Ship Log | Access: Crew Only, Page: Content
+    -voyage-> Treasure Map
 
-  Register
-    Auth: Public
-    Type: Form
-    -success-> Dashboard
-
-  Reset Password
-    Auth: Public
-    Type: Form
-    -submitted-> Login
-
-[App]
-  Dashboard
-    Auth: Required
-    Type: Landing
-    -projects-> Projects
-    -settings-> Settings
-    -billing-> Billing
-
-  Projects
-    Auth: Required
-    Type: Content
-    -new-> New Project
-    -select-> Project Detail
-
-  New Project
-    Auth: Required
-    Type: Form
-    -created-> Project Detail
-
-  Project Detail
-    Auth: Required
-    Type: Content
-    -settings-> Project Settings
-
-  Project Settings
-    Auth: Required
-    Type: Form
-    -saved-> Project Detail
-
-[Account]
-  Settings
-    Auth: Required
-    Type: Form
-    -saved-> Dashboard
-
-  Billing
-    Auth: Required
-    Type: Transactional
-    -upgrade-> Checkout
-
-  Checkout
-    Auth: Required
-    Type: Transactional
-    -success-> Dashboard
+  Treasure Map | Access: Captain, Page: Content

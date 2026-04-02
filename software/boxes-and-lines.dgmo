@@ -1,52 +1,24 @@
-boxes-and-lines Microservices Architecture
+boxes-and-lines Pirate Software 
 
-tag Team t
-  Backend(blue)
-  Frontend(green)
-  Platform(purple)
+tag Status s
+  Done(green)
+  Doing(yellow)
+  Todo(red)
+  NA(gray) default
 
-active-tag Team
+active-tag Status
 
-API Gateway [gateway] | t: Backend, description: Routes all external traffic
-  -auth-> AuthService
-  -/api-> UserService
-  -/products-> ProductService
+MobileApp | s:Todo
+  -> [Backend]
 
-AuthService | t: Backend, description: OAuth2 and session management
-  -validates-> SessionCache
-  -reads-> UserDB
+WebSite | s:Doing
+  -> [Backend]
 
-UserService | t: Backend
-  -reads-> UserDB
-  -publishes-> EventBus
+[Backend]
+  API | s:Doing
+    -> DB
+    -> AuthVendor
+  
+  DB | s:Done
 
-ProductService | t: Frontend, description: Catalog search and filtering
-  -queries-> ProductDB
-  -checks-> ProductCache
-
-EventBus [queue] | t: Platform
-  -notifies-> NotificationWorker
-
-NotificationWorker | t: Backend
-  -> EmailGateway
-
-[AWS us-east-1]
-  [Compute]
-    API Gateway
-    AuthService
-    UserService
-    ProductService
-    NotificationWorker
-  [Data]
-    UserDB [database] | t: Platform
-    ProductDB [database] | t: Platform
-    SessionCache [cache] | t: Platform
-    ProductCache [cache] | t: Platform
-
-EmailGateway [external] | t: Backend, description: SendGrid integration
-
-WebApp [frontend] | t: Frontend
-WebApp -> API Gateway
-
-Admin [actor] | t: Backend
-Admin -> API Gateway
+AuthVendor
