@@ -1,0 +1,752 @@
+# Diagrammo — All Chart Types
+
+> Every `dgmo` code fence below renders a different chart type.
+> Edit the data to experiment! For the full editor experience visit [diagrammo.app](https://diagrammo.app).
+
+---
+
+# Data
+
+## Arc Diagram
+
+```dgmo
+arc Microservice Dependencies
+order group
+
+## Frontend
+WebApp -> API Gateway 5
+MobileApp -> API Gateway 3
+
+## Core Services
+API Gateway -> AuthService 4
+API Gateway -> UserService 5
+API Gateway -> OrderService 3
+UserService -> Database 4
+OrderService -> Database 3
+OrderService -> PaymentService 2
+
+## External
+PaymentService -> Stripe 2
+AuthService -> OAuth 3
+```
+
+---
+
+## Area Chart
+
+```dgmo
+area Memory Usage Over Time
+x-label Hour
+y-label GB
+
+12am 2.1
+3am 1.8
+6am 2.4
+9am 5.7
+10am 6.3
+12pm 7.1
+2pm 6.8
+4pm 5.9
+6pm 4.2
+9pm 3.1
+11pm 2.5
+```
+
+---
+
+## Bar Chart
+
+```dgmo
+bar Monthly Revenue by Product Line
+x-label Product
+y-label Revenue ($K)
+
+Enterprise 245
+Professional 182
+Starter 97
+Free Trial 43
+Add-ons 61
+Consulting 128
+```
+
+---
+
+## Bar Chart (Stacked)
+
+```dgmo
+bar-stacked Support Tickets by Priority
+x-label Month
+y-label Tickets
+
+series Critical (red), High (orange), Medium (yellow), Low (green)
+January 8, 24, 45, 62
+February 12, 19, 51, 58
+March 6, 22, 38, 71
+April 10, 28, 42, 65
+May 5, 15, 48, 70
+```
+
+---
+
+## Chord Diagram
+
+```dgmo
+chord Inter-Department Collaboration
+
+Engineering -> Design 85
+Engineering -> Product 72
+Engineering -> QA 95
+Design -> Product 68
+Design -> Marketing 45
+Product -> Marketing 58
+Product -> Sales 42
+Marketing -> Sales 65
+QA -> Engineering 88
+Sales -> Product 30
+```
+
+---
+
+## Doughnut Chart
+
+```dgmo
+doughnut Cloud Spending by Service
+
+Compute (blue) 34
+Storage (cyan) 22
+Database (green) 18
+Networking (orange) 12
+AI/ML (purple) 8
+Other (gray) 6
+```
+
+---
+
+## Function Plot
+
+```dgmo
+function Mathematical Functions
+x-label x
+y-label f(x)
+
+x -6 to 6
+f(x) (blue) sin(x)
+g(x) (red) x^2 / 10
+h(x) (green) cos(x) * 2
+```
+
+---
+
+## Heatmap
+
+```dgmo
+heatmap Deploy Frequency by Day and Hour
+
+columns Mon, Tue, Wed, Thu, Fri
+6 AM 1, 2, 0, 1, 0
+9 AM 5, 8, 6, 7, 4
+12 PM 3, 4, 5, 3, 2
+3 PM 8, 12, 9, 10, 6
+6 PM 2, 3, 1, 2, 1
+```
+
+---
+
+## Line Chart
+
+```dgmo
+line Daily Active Users (Q1)
+x-label Week
+y-label Users (thousands)
+
+Week 1 12.4
+Week 2 13.1
+Week 3 14.8
+Week 4 13.9
+Week 5 16.2
+Week 6 17.5
+Week 7 18.1
+Week 8 19.3
+Week 9 21.0
+Week 10 22.4
+Week 11 24.1
+Week 12 23.8
+```
+
+---
+
+## Line Chart (Multi)
+
+```dgmo
+multi-line Quarterly Revenue vs Operating Cost
+x-label Quarter
+y-label Amount ($M)
+
+series Revenue (blue), Operating Cost (red), Net Profit (green)
+Q1 2023 4.2, 3.1, 1.1
+Q2 2023 4.8, 3.3, 1.5
+Q3 2023 5.1, 3.5, 1.6
+Q4 2023 5.9, 3.7, 2.2
+Q1 2024 6.3, 3.9, 2.4
+Q2 2024 7.1, 4.2, 2.9
+```
+
+---
+
+## Pie Chart
+
+```dgmo
+pie Browser Market Share
+
+Chrome 63.5
+Safari 19.8
+Firefox 6.2
+Edge 5.1
+Samsung Internet 2.8
+Opera 1.4
+Other 1.2
+```
+
+---
+
+## Polar Area Chart
+
+```dgmo
+polar-area Incident Categories (Last 30 Days)
+
+Security 12
+Performance 28
+Availability 8
+Data Loss 3
+Configuration 19
+Network 15
+```
+
+---
+
+## Radar Chart
+
+```dgmo
+radar Engineering Team Skills
+
+Frontend 85
+Backend 72
+DevOps 68
+Testing 90
+Documentation 55
+Architecture 78
+```
+
+---
+
+## Sankey Diagram
+
+```dgmo
+sankey Website Traffic Flow
+
+Organic Search (green)
+  Landing Page 450
+Paid Ads (orange)
+  Landing Page 280
+Social Media (blue)
+  Landing Page 180
+
+Landing Page
+  Sign Up 340
+  Browse Products 520
+  Bounce 260 (red)
+
+Sign Up
+  Free Trial 240
+  Paid Plan 100
+
+Browse Products
+  Add to Cart 310
+  Exit 210 (red)
+
+Add to Cart
+  Purchase (green) 220
+  Abandon 90 (red)
+```
+
+---
+
+## Scatter Plot
+
+```dgmo
+scatter Startup Funding vs Revenue
+x-label Funding ($M)
+y-label Annual Revenue ($M)
+
+[SaaS](blue)
+  Acme Cloud 12, 8.5
+  DataSync 5.2, 3.1
+  CloudOps 25, 18.4
+  PlatformX 8, 5.7
+
+[Fintech](green)
+  PayFlow 45, 32
+  LendTech 18, 12.5
+  QuickPay 9, 6.8
+
+[HealthTech](red)
+  MediScan 15, 7.2
+  HealthAI 22, 14.1
+  CareLink 7, 3.8
+```
+
+---
+
+## Slope Chart
+
+```dgmo
+slope Programming Language Popularity
+
+period 2020 2022 2025
+
+Python (blue) 3 1 1
+JavaScript (yellow) 1 2 2
+TypeScript (cyan) 7 4 3
+Rust (orange) 18 12 5
+Go (green) 10 8 7
+```
+
+---
+
+# Business
+
+## Funnel Chart
+
+```dgmo
+funnel Sales Pipeline Conversion
+
+Website Visitors 12000
+Product Page Views 5400
+Free Trial Signups 2100
+Onboarding Complete 890
+Paid Conversion 340
+```
+
+---
+
+## Org Chart
+
+```dgmo
+org Pirate Crew
+
+Captain Blackbeard
+  First Mate Anne
+    Bosun Jim
+      Deckhand Pete
+      Deckhand Sally
+    Gunner Tom
+  Quartermaster Silver
+    Cook Ben
+    Navigator Mary
+```
+
+---
+
+## Quadrant Chart
+
+```dgmo
+quadrant Feature Prioritization Matrix
+
+x-label Low Effort, High Effort
+y-label Low Impact, High Impact
+
+top-left Quick Wins
+top-right Major Projects
+bottom-left Fill-ins
+bottom-right Avoid
+
+Dark Mode (blue) 0.25, 0.85
+API v2 (red) 0.8, 0.9
+Fix Typos 0.1, 0.15
+SSO Integration 0.75, 0.7
+Export CSV 0.3, 0.6
+Mobile App 0.9, 0.95
+```
+
+---
+
+## Venn Diagram
+
+```dgmo
+venn Full-Stack Developer Skills
+
+Frontend (blue)
+Backend (green)
+DevOps (orange)
+
+Frontend + Backend Web Apps
+Backend + DevOps Infrastructure
+Frontend + DevOps CI/CD
+Frontend + Backend + DevOps Unicorns
+```
+
+---
+
+## Word Cloud
+
+```dgmo
+wordcloud Tech Conference Topics
+
+Kubernetes 95
+Machine Learning 88
+Microservices 72
+DevOps 68
+Serverless 55
+GraphQL 48
+TypeScript 82
+Rust 62
+WebAssembly 45
+Edge Computing 38
+Observability 52
+Platform Engineering 60
+AI Agents 90
+LLM 85
+```
+
+---
+
+# Project
+
+## Gantt Chart
+
+```dgmo
+gantt Product Launch Plan
+start 2024-01-15
+dependencies
+
+tag Team alias t
+  Engineering(blue)
+  Design(purple)
+  QA(orange)
+
+parallel
+  [Backend] | t: Engineering
+    30bd Database Layer | 80%
+    10bd? Auth Module | 100%
+    parallel
+      5bd Load Testing | t: QA
+      5bd Security Audit | t: QA
+
+  [Frontend] | t: Design
+    15bd Component Library
+    10bd API Integration | t: Engineering
+    5bd Polish | 30%
+
+[Integration] | t: QA
+  10bd E2E Testing
+  0d Release Candidate
+```
+
+---
+
+## Kanban Board
+
+```dgmo
+kanban Sprint 7
+
+tag Priority
+  Low(green)
+  Urgent(red)
+  High(orange)
+
+[To Do](red)
+  Recruit new hires | priority: High
+  Chart release plan | priority: Urgent
+  Update documentation | priority: Low
+
+[In Progress](orange) | wip: 2
+  Forge API contracts | priority: High
+  Refactor auth module | priority: Urgent
+
+[Done](green)
+  Deploy staging build | priority: High
+  Fix login regression | priority: Low
+```
+
+---
+
+## Timeline
+
+```dgmo
+timeline Product Roadmap
+
+era 2024-01 -> 2024-06 Phase 1 - Foundation
+era 2024-07 -> 2024-12 Phase 2 - Growth
+
+marker 2024-03 Beta Launch
+marker 2024-09 GA Release
+
+## Engineering
+2024-01->2024-03 Core API Development
+2024-02->2024-05 Auth & Permissions
+2024-04->2024-07 Real-time Features
+2024-08->2024-11 Performance Optimization
+
+## Design
+2024-01->2024-02 Design System v1
+2024-03->2024-05 User Research
+2024-06->2024-08 Design System v2
+```
+
+---
+
+# Software
+
+## Boxes and Lines
+
+```dgmo
+boxes-and-lines Pirate Software
+
+tag Status s
+  Done(green)
+  Doing(yellow)
+  Todo(red)
+  NA(gray) default
+
+active-tag Status
+
+MobileApp | s:Todo
+  -> API
+
+WebSite | s:Doing
+  -> [Backend]
+
+[Backend]
+  API | s:Doing
+    -> DB
+    -> AuthVendor
+
+  DB | s:Done
+
+AuthVendor
+```
+
+---
+
+## C4 Architecture Diagram
+
+```dgmo
+c4 Internet Banking System
+
+Customer is a person
+  description: A customer of the bank
+
+Banking is a system
+  description: Core internet banking system
+  containers
+    WebApp is a container | tech: React
+    API is a container | tech: Node.js
+    DB is a container is a database | tech: PostgreSQL
+
+Email is a system
+  description: External email delivery service
+
+Customer -Uses-> Banking
+Banking -Sends emails via-> Email
+```
+
+---
+
+## Class Diagram
+
+```dgmo
+class Ship Class Hierarchy
+
+Vessel [interface]
+  + sail(): void
+  + anchor(): void
+
+Ship [abstract]
+  # name: string
+  # crew: number
+  + getName(): string
+
+Galleon
+  - cannons: number
+  + fire(): void
+
+Sloop
+  - speed: number
+  + flee(): void
+
+Galleon extends Ship
+Sloop extends Ship
+Ship implements Vessel
+```
+
+---
+
+## Entity Relationship
+
+```dgmo
+er Pirate Fleet
+
+ships
+  id int pk
+  name varchar
+  ship_type varchar
+  cannons int
+  1-aboard-* crew_members
+  1-1 captains
+  1-carries-* treasure
+
+captains
+  id int pk
+  name varchar
+  ship_id int fk
+  bounty int
+  ?-frequents-1 ports
+
+crew_members
+  id int pk
+  name varchar
+  ship_id int fk
+  role varchar nullable
+
+treasure
+  id int pk
+  name varchar
+  value int
+  ship_id int fk, nullable
+
+ports
+  id int pk
+  name varchar
+  region varchar unique
+  1-docks-* ships
+```
+
+---
+
+## Flowchart
+
+```dgmo
+flowchart Ship Battle Decision
+
+Spot Enemy? {diamond}
+Spot Enemy? -- yes --> Raise Colors
+Spot Enemy? -- no --> Keep Sailing
+
+Raise Colors --> Check Cannons {diamond}
+Check Cannons -- loaded --> Fire Broadside!
+Check Cannons -- empty --> Reload
+
+Reload --> Fire Broadside!
+Fire Broadside! --> Board Enemy (green)
+Keep Sailing --> Scan Horizon
+```
+
+---
+
+## Infrastructure Diagram
+
+```dgmo
+infra Production Traffic Flow
+
+tag Team alias t
+  Backend(blue)
+  Platform(teal)
+
+edge
+  rps: 10000
+  -> CloudFront
+
+CloudFront is a network | t: Platform
+  cache-hit: 80%
+  -> ALB
+
+ALB is a gateway | t: Platform
+  -/api-> APIServer | split: 70%
+  -/static-> StaticServer | split: 30%
+
+APIServer is a service | t: Backend
+  instances: 3
+  max-rps: 500
+  latency-ms: 45
+  ~events~> MessageQueue
+
+MessageQueue is a queue | t: Platform
+
+StaticServer is a storage | t: Platform
+  latency-ms: 5
+```
+
+---
+
+## Sequence Diagram
+
+```dgmo
+sequence API Request Flow
+
+User is an actor
+App is a frontend
+API is a gateway
+DB is a database
+
+User -> App: click submit
+App -> API: POST /data <- 201 Created
+API -> DB: INSERT record <- ok
+API -> App: response
+App -> User: show confirmation
+```
+
+---
+
+## Sitemap
+
+```dgmo
+sitemap Simple Website
+
+Home
+  -about-> About
+  -blog-> Blog
+
+[Content]
+  About
+  Blog
+    -read-> Post
+
+  Post
+```
+
+---
+
+## State Diagram
+
+```dgmo
+state Order Lifecycle
+
+[*] -> Pending
+
+Pending
+  -submit-> Validating
+
+Validating
+  -approved-> Processing
+  -rejected-> Cancelled
+
+[Fulfillment]
+  Processing
+    -pack-> Shipping
+    -out of stock-> Cancelled
+
+  Shipping
+    -delivered-> Delivered
+    -lost-> Refunded
+
+[Resolution]
+  Delivered
+    -return request-> Returning
+
+  Returning
+    -received-> Refunded
+
+Cancelled -> [*]
+Refunded -> [*]
+Delivered -> [*]
+```
