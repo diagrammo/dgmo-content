@@ -33,19 +33,19 @@ Notification Service is a system is an external | sc: External
   ~Sends ride requests to~> Driver
 
 Ride Platform is a system | description Core ride-sharing platform
-  -Provides mobile app to [HTTPS]-> Rider
-  -Provides driver app to [HTTPS]-> Driver
-  -Geocodes addresses via [HTTPS]-> Maps Provider
-  -Charges riders via [HTTPS]-> Payment Gateway
-  ~Sends push notifications via [HTTPS]~> Notification Service
+  -Provides mobile app [HTTPS]-> Rider
+  -Provides driver app [HTTPS]-> Driver
+  -Geocodes addresses [HTTPS]-> Maps Provider
+  -Charges riders [HTTPS]-> Payment Gateway
+  ~Sends push notifications [HTTPS]~> Notification Service
 
   containers
     [API Layer]
       API Gateway is a container is a cloud | tech: TypeScript, t: Platform
         description: Routes requests and handles auth
-        -Forwards ride requests to [gRPC]-> Ride Service
-        -Validates tokens with [gRPC]-> User Service
-        -Fetches fare estimates from [gRPC]-> Pricing Service
+        -Forwards ride requests [gRPC]-> Ride Service
+        -Validates tokens [gRPC]-> User Service
+        -Fetches fare estimates [gRPC]-> Pricing Service
 
     [Core Services]
       Ride Service is a container | tech: Go, t: Rider

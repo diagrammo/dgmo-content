@@ -4,18 +4,18 @@ Shopper is a person | description Browses products and places orders
 Admin is a person | description Manages inventory and fulfills orders
 
 Storefront is a system | description Customer-facing web store
-  -Serves product pages to [HTTPS]-> Shopper
-  -Processes charges via [HTTPS]-> Payments
-  -Sends fulfillment requests to [HTTPS]-> Warehouse
+  -Serves product pages [HTTPS]-> Shopper
+  -Processes charges [HTTPS]-> Payments
+  -Sends fulfillment requests [HTTPS]-> Warehouse
 
 Payments is a system | description Stripe payment processing
-  -Sends receipts to [Email]-> Shopper
+  -Sends receipts [Email]-> Shopper
 
 Warehouse is a system | description Inventory and shipping management
-  ~Sends tracking updates to [Email]~> Shopper
+  ~Sends tracking updates [Email]~> Shopper
 
 Back Office is a system | description Admin dashboard for order and inventory management
-  -Provides management UI to [HTTPS]-> Admin
-  -Queries stock levels from [HTTPS]-> Warehouse
+  -Provides management UI [HTTPS]-> Admin
+  -Queries stock levels [HTTPS]-> Warehouse
   -Syncs catalog data [JSON/HTTPS]-> Storefront
   Storefront -Syncs catalog data [JSON/HTTPS]-> Back Office

@@ -7,15 +7,15 @@ tag Scope sc
 Customer is a person | description A customer of the bank
 
 Internet Banking is a system | description Allows customers to view accounts and make payments
-  -Delivers content to [HTTPS]-> Customer
-  -Sends emails using [SMTP]-> Email
+  -Delivers content [HTTPS]-> Customer
+  -Sends emails [SMTP]-> Email
 
   containers
     Web App is a container | description SPA that provides banking features, tech React
       -Makes API calls [JSON/HTTPS]-> API
 
     API is a container | description JSON/HTTPS API backend, tech Node.js
-      -Reads from and writes to [SQL/TCP]-> Database
+      -Reads/writes [SQL/TCP]-> Database
 
     Database is a container | description Stores account data, tech PostgreSQL
 

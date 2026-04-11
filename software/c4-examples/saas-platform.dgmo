@@ -15,19 +15,19 @@ End User is a person | description Views dashboards and creates reports
 Account Admin is a person | description Manages workspace settings and members
 
 Analytics Platform is a system | description Multi-tenant analytics and reporting
-  -Serves dashboards to [HTTPS]-> End User
-  -Provides admin console to [HTTPS]-> Account Admin
-  ~Sends scheduled reports via [SMTP]~> Email Service
+  -Serves dashboards [HTTPS]-> End User
+  -Provides admin console [HTTPS]-> Account Admin
+  ~Sends scheduled reports [SMTP]~> Email Service
 
   containers
     [Frontend]
       Dashboard App is a container | tech: React, t: Product
         description: Interactive data visualization SPA
-        -Fetches data from [JSON/HTTPS]-> API Gateway
+        -Fetches data [JSON/HTTPS]-> API Gateway
 
       Admin Console is a container | tech: React, t: Product
         description: Workspace and user management
-        -Manages settings via [JSON/HTTPS]-> API Gateway
+        -Manages settings [JSON/HTTPS]-> API Gateway
 
     [Backend]
       API Gateway is a container | tech: Node.js, t: Product
@@ -38,7 +38,7 @@ Analytics Platform is a system | description Multi-tenant analytics and reportin
 
       Query Engine is a container | tech: Node.js, t: Data
         description: Processes analytics queries asynchronously
-        -Runs analytical queries against [SQL/TCP]-> Data Warehouse
+        -Runs analytical queries [SQL/TCP]-> Data Warehouse
         ~Publishes query results [AMQP]~> Event Bus
 
     [Data]
@@ -58,7 +58,7 @@ Email Service is a system | description Transactional email delivery
   ~Delivers report emails to~> End User
 
 Data Ingestion is a system | description Collects events from customer applications
-  -Streams event data to [HTTPS]-> Analytics Platform
+  -Streams event data [HTTPS]-> Analytics Platform
 
 deployment
   GCP us-central1 is a cloud
