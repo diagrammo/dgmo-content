@@ -1,0 +1,83 @@
+wireframe E-Commerce Product Page
+
+[Header]
+  [Logo + Nav] | horizontal
+    Acme Store
+    nav
+      Products | active
+      Categories
+      Deals
+      About
+  [User] | horizontal
+    [Search products...]
+    Cart (3)
+    Sign In
+
+[Sidebar]
+  ## Categories
+  - Electronics
+  - Clothing
+  - Home & Garden
+  - Sports
+  ---
+  ## Price Range
+  Min  [0]
+  Max  [500]
+  (Apply)
+
+[Main]
+  Home > Products > Headphones
+
+  # Wireless Noise-Canceling Headphones
+  $299.99  ~~$349.99~~
+
+  [Product Info] | horizontal
+    [Images]
+      image
+      [Thumbnails] | horizontal
+        image  image  image
+
+    [Details]
+      ## Color
+      (*) Black  ( ) White  ( ) Navy
+
+      ## Quantity
+      (-)  1  (+)
+
+      (Add to Cart) | success
+      (Buy Now)
+      (Add to Wishlist) | ghost
+
+      ---
+      Free shipping on orders over $50
+      In stock - ships within 2 days | success
+
+  ---
+
+  tabs
+    Description | active
+    Specifications
+    Reviews (47)
+
+  Long product description text goes here.
+
+  ## You Might Also Like
+  [Recommendations] | horizontal
+    [Product Card]
+      image
+      Similar Product 1
+      $199.99
+      (Add to Cart) | ghost
+    [Product Card]
+      image
+      Similar Product 2
+      $149.99
+      (Add to Cart) | ghost
+
+[Footer]
+  [Links] | horizontal
+    About Us
+    Contact
+    Privacy Policy
+    Terms of Service
+  © 2026 Acme Store
