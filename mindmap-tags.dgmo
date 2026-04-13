@@ -1,0 +1,33 @@
+mindmap Product Strategy(blue)
+
+tag Priority p
+  High(red)
+  Medium(yellow)
+  Low(green)
+
+tag Department d
+  Engineering(blue)
+  Design(purple)
+  Marketing(orange)
+
+active-tag Priority
+
+Research | d: Marketing
+  User Interviews | p: High
+    Surveys | description: Quarterly NPS survey
+    Focus Groups
+  Competitor Analysis | d: Engineering
+    Feature Matrix
+    Pricing Review
+Development | p: High, d: Engineering
+  MVP Features
+    Auth System
+      description: Handle login, signup, OAuth flows
+    Dashboard
+  Nice-to-haves | p: Low, collapsed: true
+    Dark Mode
+    Export PDF
+Go-to-Market | d: Marketing
+  Launch Plan
+    Blog Post
+    Demo Video | description: 2-min product walkthrough
