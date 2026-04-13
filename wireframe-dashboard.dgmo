@@ -1,0 +1,44 @@
+wireframe Analytics Dashboard
+
+[Header]
+  [Logo] | horizontal
+    Acme Analytics
+  [Controls] | horizontal
+    {Last 7 days | Last 30 days | Last 90 days}
+    (Export) | ghost
+
+[Main]
+  ## Key Metrics
+  [Cards] | horizontal
+    [Card]
+      Total Users
+      # 12,847
+      +14% from last month | success
+    [Card]
+      Revenue
+      # $48,290
+      +8% from last month | success
+    [Card]
+      Bounce Rate
+      # 34.2%
+      +2% from last month | warning
+    [Card]
+      Active Sessions
+      # 1,429
+      Live
+
+  ---
+
+  [Charts] | horizontal
+    [Traffic]
+      ## Traffic Over Time
+      chart line
+    [Sources]
+      ## Traffic Sources
+      chart pie
+
+  ---
+
+  ## Recent Activity
+  table 5x4
+    User, Action, Page, Time

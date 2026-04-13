@@ -1,0 +1,38 @@
+wireframe Food Delivery
+mobile
+
+[Header]
+  [Nav] | horizontal
+    (☰)
+    FoodDash
+    image round
+
+[Search]
+  [Search restaurants or dishes...]
+
+## Categories
+[Categories] | horizontal
+  Pizza
+  Sushi
+  Burgers
+  Salads
+
+## Near You
+[Restaurant]
+  image wide
+  Mario's Pizza
+  ★★★★☆ (127)
+  25-35 min · $2.99 delivery
+
+[Restaurant]
+  image wide
+  Sushi Palace
+  ★★★★★ (89)
+  30-40 min · Free delivery | success
+
+[Footer]
+  [Nav] | horizontal
+    Home | active
+    Search
+    Orders
+    Account
