@@ -1,0 +1,23 @@
+wireframe Login Page
+
+[Header]
+  Acme App
+  nav
+    Home | active
+    About
+    Pricing
+
+[Main]
+  # Sign In
+
+  Email  [user@example.com]
+  Password  [****] | password
+
+  <x> Remember me
+
+  (Sign In)
+  (Forgot Password?) | ghost
+
+  ---
+
+  New here? (Create Account) | ghost
