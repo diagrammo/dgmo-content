@@ -419,7 +419,7 @@ gantt Product Launch Plan
 start 2024-01-15
 dependencies
 
-tag Team alias t
+tag Team t
   Engineering(blue)
   Design(purple)
   QA(orange)
@@ -648,7 +648,7 @@ Keep Sailing --> Scan Horizon
 ```dgmo
 infra Production Traffic Flow
 
-tag Team alias t
+tag Team t
   Backend(blue)
   Platform(teal)
 
