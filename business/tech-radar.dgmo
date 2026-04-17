@@ -1,0 +1,46 @@
+tech-radar Technology Radar — Q2 2026
+
+rings
+  Adopt
+  Trial
+  Assess
+  Hold
+
+Techniques | quadrant: top-right
+  Continuous Deployment | ring: Adopt, trend: stable
+    We've fully adopted **CD** across all services.
+    Reduces release risk significantly.
+  Infrastructure as Code | ring: Adopt, trend: stable
+    All infrastructure managed via Terraform modules.
+  Micro Frontends | ring: Trial, trend: up
+    Exploring for the customer portal.
+  Design Systems | ring: Adopt, trend: new
+    Launched our shared component library.
+
+Tools | quadrant: top-left
+  GitHub Copilot | ring: Trial, trend: new
+    Early results show 15-20% productivity gains.
+  Vite | ring: Adopt, trend: up
+    Default build tool for all new projects.
+  Webpack | ring: Hold, trend: down
+    Migrating remaining projects to Vite.
+  Playwright | ring: Adopt, trend: stable
+    Standard E2E testing framework.
+
+Platforms | quadrant: bottom-left
+  Kubernetes | ring: Adopt, trend: stable
+    Primary orchestration platform.
+  Cloudflare Workers | ring: Trial, trend: up
+    Testing for edge API layer.
+  Serverless | ring: Trial, trend: stable
+    Used selectively for event processing.
+
+Languages & Frameworks | quadrant: bottom-right
+  TypeScript | ring: Adopt, trend: stable
+    Standard language for all new services.
+  Rust | ring: Assess, trend: new
+    Evaluating for **performance-critical** services.
+    See [evaluation doc](https://internal.wiki/rust-eval).
+  React | ring: Adopt, trend: stable
+  Go | ring: Adopt, trend: stable
+    Backend services and CLI tools.
