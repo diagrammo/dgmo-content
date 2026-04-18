@@ -1,0 +1,14 @@
+cycle PDCA Cycle
+
+Plan | color: blue
+  Define goals and processes
+  -Execute plan-> | color: blue
+Do | color: green
+  Implement the plan
+  -Evaluate results-> | color: green
+Check | color: orange
+  Measure and compare results
+  -Improve process-> | color: orange
+Act | color: red
+  Adjust and standardize
+  -Refine goals-> | color: red
