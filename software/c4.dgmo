@@ -1,31 +1,30 @@
-c4 Internet Banking System
+c4 Pirate Treasure Map System
 
 tag Scope sc
-  Internal(blue)
+  Crew(blue)
   External(gray)
 
-Customer is a person | description A customer of the bank
+Captain is a person | description Commands the fleet and plans raids
 
-Internet Banking is a system | description Allows customers to view accounts and make payments
-  -Delivers content [HTTPS]-> Customer
-  -Sends emails [SMTP]-> Email
+TreasureMap is a system | description Tracks buried treasure locations and raid intelligence
+  -Views treasure locations-> Captain
+  -Sends raid alerts [carrier pigeon]-> Lookout
 
   containers
-    Web App is a container | description SPA that provides banking features, tech React
-      -Makes API calls [JSON/HTTPS]-> API
+    ChartRoom is a container | description Interactive sea chart with treasure markers, tech Parchment
+      -Queries treasure data [secret code]-> Vault
 
-    API is a container | description JSON/HTTPS API backend, tech Node.js
-      -Reads/writes [SQL/TCP]-> Database
+    Vault is a container | description Encrypted treasure ledger and coordinates, tech Iron Chest
+      -Reads/writes [quill and ink]-> TreasureLog
 
-    Database is a container | description Stores account data, tech PostgreSQL
+    TreasureLog is a container | description Stores locations, guard counts, and loot inventories, tech Leather-Bound Tome
 
-Email is an external | description Sendgrid email delivery, sc: External
-  ~Sends emails to~> Customer
+Lookout is an external | description Crow's nest spotter on allied ships, sc: External
+  ~Relays sightings to~> Captain
 
 deployment
-  Vercel is a cloud
-    container Web App
-  Railway
-    container API
-  Neon is a database
-    container Database
+  Flagship
+    container ChartRoom
+    container Vault
+  SecretCave
+    container TreasureLog

@@ -1,24 +1,28 @@
-boxes-and-lines Pirate Software 
+boxes-and-lines Pirate Fleet Command
 
 tag Status s
-  Done(green)
-  Doing(yellow)
-  Todo(red)
-  NA(gray) default
+  Operational(green)
+  Damaged(orange)
+  Sunk(red)
+  Building(blue) default
 
 active-tag Status
 
-MobileApp | s:Todo
-  -> [Backend]
+Flagship | s: Operational
+  -> [Harbor Defenses]
+  -> IntelNetwork
 
-WebSite | s:Doing
-  -> [Backend]
+[Harbor Defenses]
+  FortCannon | s: Operational
+    -> Watchtower
+  Watchtower | s: Operational
+  SeaMines | s: Building
 
-[Backend]
-  API | s:Doing
-    -> DB
-    -> AuthVendor
-  
-  DB | s:Done
+IntelNetwork | s: Operational
+  -> SpyRing
+  -> SignalFlags
 
-AuthVendor
+SpyRing | s: Operational
+  -> [Harbor Defenses]
+
+SignalFlags | s: Damaged

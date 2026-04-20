@@ -1,0 +1,12 @@
+journey-map Marooned on an Island
+
+Shipwrecked on the beach | 1 Terrified
+  pain: No supplies survived the wreck
+Explore the island | 2
+  thought: There must be fresh water somewhere
+Find a freshwater spring | 4 Relieved
+Build a signal fire | 3
+  opportunity: Use wreckage for fuel
+Spot a ship on the horizon | 4 Hopeful
+Signal fire catches attention | 5 Overjoyed
+  thought: Never mutiny against the captain again

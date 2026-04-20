@@ -1,71 +1,52 @@
-infra SaaS API Platform
+infra Pirate Communication Network
 
-tag Team t
-  Platform(teal)
-  Backend(blue)
-  Data(purple)
+tag Fleet f
+  Blackbeard(red)
+  Bonny(purple)
+  Rackham(blue)
 
 Edge
-  rps 8000
-  -> CDN
+  rps 200
+  -> SignalFlags
 
-CDN | t: Platform
-  description Edge cache — static assets and cacheable API responses
-  cache-hit 75%
-  -> WAF
+SignalFlags | f: Blackbeard
+  description Flag semaphore relay — ship-to-ship messaging
+  latency-ms 30000
+  -> Flagship
+  -> ScoutShip
 
-WAF | t: Platform
-  description Web application firewall
-  firewall-block 8%
-  ratelimit-rps 20000
-  -> LB 
+Flagship | f: Blackbeard
+  description Command vessel — decrypts and routes all intelligence
+  instances 1
+  max-rps 50
+  latency-ms 5000
+  -> CarrierPigeons
+  -> RumRunner
 
-LB | t: Platform
-  -/api-> APIServer | split: 60%
-  -/search-> SearchAPI | split: 30%
-  -/static-> StaticCDN | split: 10%
+ScoutShip | f: Bonny
+  description Fast sloop for reconnaissance
+  instances 2
+  max-rps 30
+  latency-ms 8000
+  -> Flagship
 
-[API Cluster]
+CarrierPigeons | f: Rackham
+  description Long-range bird relay — messages to allied ports
+  buffer 100
+  drain-rate 12
+  retention-hours 72
+  -> TavernNetwork
+
+[Allied Ports]
   instances 3
 
-  APIServer | t: Backend
-    description Core REST API — auth, billing, user data
-    instances 2
-    max-rps 1200
-    latency-ms 40
-    cb-error-threshold 50%
-    -> PostgreSQL
-    -> JobQueue
+  TavernNetwork | f: Rackham
+    description Dockside tavern informants across the Caribbean
+    max-rps 20
+    latency-ms 86400000
 
-PostgreSQL | t: Data
-  max-rps 6000
-  latency-ms 8
-  uptime 99.999%
-
-JobQueue | t: Data
-  buffer 250000
-  drain-rate 1200
-  retention-hours 48
-  partitions 8
-  -> JobWorker
-
-[Job Workers]
-  instances 1-6
-
-  JobWorker | t: Backend
-    max-rps 400
-    latency-ms 180
-
-SearchAPI | t: Backend
-  concurrency 800
-  duration-ms 120
-  cold-start-ms 700
-  -> SearchShards | split: 100%, fanout: 6
-
-SearchShards | t: Data
-  max-rps 30000
-  latency-ms 3
-
-StaticCDN | t: Platform
-  cache-hit 98%
-  latency-ms 4
+RumRunner | f: Bonny
+  description Smuggler supply line — moves coded messages in rum barrels
+  concurrency 4
+  duration-ms 172800000
+  -> TavernNetwork
