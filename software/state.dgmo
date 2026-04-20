@@ -1,30 +1,31 @@
-state Order Lifecycle
+state Ship Battle Lifecycle
 
-[*] -> Pending
+[*] -> Sailing
 
-Pending
-  -submit-> Validating
+Sailing
+  -enemy spotted-> BattleStations
 
-Validating
-  -approved-> Processing
-  -rejected-> Cancelled
+BattleStations
+  -in range-> Engaging
+  -enemy retreats-> Sailing
 
-[Fulfillment]
-  Processing
-    -pack-> Shipping
-    -out of stock-> Cancelled
+[Combat]
+  Engaging
+    -alongside-> Boarding
+    -hull breach-> Sinking
+    -outgunned-> Retreating
 
-  Shipping
-    -delivered-> Delivered
-    -lost-> Refunded
+  Boarding
+    -crew wins-> Victorious
+    -crew loses-> Captured
 
-[Resolution]
-  Delivered
-    -return request-> Returning
+[Aftermath]
+  Victorious
+    -loot taken-> Sailing
 
-  Returning
-    -received-> Refunded
+  Retreating
+    -escaped-> Sailing
+    -caught-> Captured
 
-Cancelled -> [*]
-Refunded -> [*]
-Delivered -> [*]
+Captured -> [*]
+Sinking -> [*]

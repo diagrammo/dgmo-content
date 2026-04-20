@@ -1,53 +1,50 @@
-gantt Product Launch 2024
-start 2026-03-15
-today-marker
+gantt The Great Raid of Nassau — 1718
+
+start 1718-01-15
+today-marker 1718-04-01
 critical-path
 
-
-holiday
-  2024-02-19 Presidents Day
-  2024-05-27 Memorial Day
-
-tag Team t
-  Engineering(blue)
-  Design(purple)
-  QA(orange)
-  Marketing(green)
+tag Crew c
+  Officers(red)
+  Sailors(blue)
+  Gunners(orange)
+  Spies(purple)
 
 tag Phase p
-  Foundation(teal)
-  Build(blue)
-  Launch(red)
+  Preparation(teal)
+  Execution(red)
+  Aftermath(green)
 
-era 2026-04-06 -> 2026-04-10 RSA Conference (purple)
-marker 2026-03-27 Board Review
-marker 2026-05-12 Trade Show Demo (orange)
+era 1718-03-01 -> 1718-03-15 Storm Season (blue)
+marker 1718-02-14 New Moon (purple)
+marker 1718-04-15 Governor Arrives (red)
 
 parallel
-  [Backend] | t: Engineering
-    20bd Database Schema | p: Foundation, 100%
-    15bd? Core API Endpoints | p: Foundation, 80%
-      -> Frontend.API Integration
-    10bd Auth & Permissions | p: Build, 40%
-      -> E2E Testing
-    parallel
-      5bd Load Testing | t: QA, p: Build
-      5bd Security Audit | t: QA, p: Build
+  [Intelligence] | c: Spies
+    30d Scout Harbor Defenses | p: Preparation, 100%
+    14d? Map Guard Rotations | p: Preparation, 80%
+      -> Assault.Launch Night Raid
+    7d Bribe Dockworkers | p: Preparation, 60%
 
-  [Frontend] | t: Design
-    10bd Wireframes & Prototypes | p: Foundation, 100%
-    15bd Component Library | p: Build, 60%
-    10bd API Integration | t: Engineering, p: Build
-      // Blocked until Core API is stable
-    5bd Polish & Animations | p: Launch, 10%
+  [Fleet Readiness] | c: Sailors
+    21d Careen and Repair Hulls | p: Preparation, 100%
+    14d Stock Gunpowder and Shot | c: Gunners, p: Preparation, 70%
+    7d Load Provisions | p: Preparation, 50%
+      -> Assault.Launch Night Raid
 
-  [Marketing] | t: Marketing
-    10bd? Brand Guidelines | p: Foundation, 100%
-    15bd Landing Page | p: Build, 50%
-    5bd? Launch Campaign Prep | p: Launch
-      -> Launch Day
+  [Recruitment] | c: Officers
+    21d? Recruit at Tortuga Taverns | p: Preparation, 90%
+    7d Swear the Pirate Oath | p: Preparation
+      -> Assault.Launch Night Raid
 
-[Integration] | t: QA
-  10bd E2E Testing | p: Launch, offset: 10bd
-  3bd Staging Deploy | p: Launch
-  0d Launch Day
+[Assault] | c: Officers
+  1d Launch Night Raid | p: Execution
+  3d Blockade the Harbor | p: Execution
+    -> Secure the Fort
+  2d Secure the Fort | c: Gunners, p: Execution
+  0d Nassau Falls
+
+[Aftermath] | c: Officers
+  14d Divide the Plunder | p: Aftermath, offset: 3d
+  7d Establish Pirate Republic | p: Aftermath
+  0d Republic Declared

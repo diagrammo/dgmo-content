@@ -1,23 +1,30 @@
-wireframe Login Page
+wireframe Pirate Crew Portal
 
 [Header]
-  Acme App
+  The Jolly Roger Crew Hub
   nav
-    Home | active
-    About
-    Pricing
+    Dashboard | active
+    Treasure Map
+    Ship Log
+    Crew Roster
 
 [Main]
-  # Sign In
+  # Ahoy, Captain!
 
-  Email  [user@example.com]
-  Password  [****] | password
+  Next Raid Target  [Port Royal]
+  Estimated Loot  [5000 doubloons] | readonly
 
-  <x> Remember me
+  {The Revenge | The Serpent | The Phantom}
 
-  (Sign In)
-  (Forgot Password?) | ghost
+  <x> Load extra cannons
+  < > Fly false colors
+
+  (*) Full crew
+  ( ) Skeleton crew
+
+  (Set Sail!)
+  (Abort Mission) | ghost
 
   ---
 
-  New here? (Create Account) | ghost
+  New to piracy? (Read the Code) | ghost

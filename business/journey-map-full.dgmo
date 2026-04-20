@@ -1,0 +1,39 @@
+journey-map Acquiring a New Pirate Ship
+
+persona Captain Flint
+  Seasoned buccaneer with 15 years at sea
+  Commands a loyal but restless crew of 40
+
+tag Method m
+  Cunning(purple)
+  Force(red)
+  Diplomacy(green)
+  Gold(yellow)
+
+[Intelligence]
+  Hear rumors at the tavern | 3, m: Cunning
+    description: Dockside informants whisper of a prize frigate
+  Bribe the harbormaster | 4, m: Gold
+    pain: Harbormasters are expensive and unreliable
+  Scout the target ship | 4 Focused, m: Cunning
+    opportunity: Map the guard rotation schedule
+
+[Acquisition]
+  Forge transfer papers | 2 Nervous, m: Cunning
+    pain: Forgery nearly discovered by a sharp-eyed clerk
+    thought: Should have brought better ink
+  Distract the night watch | 3, m: Diplomacy
+    description: A barrel of rum works wonders on bored guards
+  Sneak the crew aboard | 4, m: Force
+    opportunity: Recruit disgruntled sailors from the current crew
+  Cut the anchor and sail | 5 Triumphant, m: Force
+
+[Refit]
+  Rename the vessel | 5 Proud, m: Diplomacy
+    thought: The Queen Anne's Revenge has a fine ring to it
+  Mount extra cannons | 4, m: Gold
+    pain: Quality cannons are scarce in the Caribbean
+  Paint the hull black | 4, m: Force
+    description: A black ship strikes fear before the first shot
+  Recruit new hands | 3, m: Diplomacy
+    opportunity: Offer better shares than the Royal Navy pays
