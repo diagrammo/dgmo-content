@@ -1,50 +1,31 @@
-gantt The Great Raid of Nassau — 1718
+gantt Blackbeard's Blockade — 1718
 
-start 1718-01-15
-today-marker 1718-04-01
-critical-path
+start 1718-05-01
+today-marker 1718-05-15
 
-tag Crew c
-  Officers(red)
-  Sailors(blue)
-  Gunners(orange)
-  Spies(purple)
+tag Role r
+  Command(red)
+  Crew(blue)
+  Captives(orange)
 
-tag Phase p
-  Preparation(teal)
-  Execution(red)
-  Aftermath(green)
-
-era 1718-03-01 -> 1718-03-15 Storm Season (blue)
-marker 1718-02-14 New Moon (purple)
-marker 1718-04-15 Governor Arrives (red)
+marker 1718-05-22 Ransom Deadline (red)
+era 1718-05-10 -> 1718-05-18 Blockade Active (blue)
 
 parallel
-  [Intelligence] | c: Spies
-    30d Scout Harbor Defenses | p: Preparation, 100%
-    14d? Map Guard Rotations | p: Preparation, 80%
-      -> Assault.Launch Night Raid
-    7d Bribe Dockworkers | p: Preparation, 60%
+  [Preparation] | r: Command
+    parallel
+      1718-05-01 -> 7d Anchor and Position Fleet | 100%
+      1718-05-03 -> 4d Deploy Prize Sloops | r: Crew, 100%
 
-  [Fleet Readiness] | c: Sailors
-    21d Careen and Repair Hulls | p: Preparation, 100%
-    14d Stock Gunpowder and Shot | c: Gunners, p: Preparation, 70%
-    7d Load Provisions | p: Preparation, 50%
-      -> Assault.Launch Night Raid
+  [Blockade] | r: Crew
+    parallel
+      1718-05-06 -> 12d Seize Merchant Vessels | 80%
+      1718-05-08 -> 8d Hold Hostages | r: Captives, 60%
 
-  [Recruitment] | c: Officers
-    21d? Recruit at Tortuga Taverns | p: Preparation, 90%
-    7d Swear the Pirate Oath | p: Preparation
-      -> Assault.Launch Night Raid
+  [Negotiations] | r: Command
+    parallel
+      1718-05-10 -> 8d Demand Medicine Chest | 50%
+      1718-05-14 -> 6d? Threaten Executions | 40%
 
-[Assault] | c: Officers
-  1d Launch Night Raid | p: Execution
-  3d Blockade the Harbor | p: Execution
-    -> Secure the Fort
-  2d Secure the Fort | c: Gunners, p: Execution
-  0d Nassau Falls
-
-[Aftermath] | c: Officers
-  14d Divide the Plunder | p: Aftermath, offset: 3d
-  7d Establish Pirate Republic | p: Aftermath
-  0d Republic Declared
+  [Resolution] | r: Command
+    1718-05-20 -> 3d Receive Ransom and Release | r: Captives
