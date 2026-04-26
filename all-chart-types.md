@@ -751,29 +751,3 @@ Refunded -> [*]
 Delivered -> [*]
 ```
 
-## Pyramid Diagram
-
-```dgmo
-pyramid Pirate Crew Hierarchy
-
-Captain | color: purple
-  Final word on heading and plunder,
-  keeper of the ship's charter.
-
-Quartermaster | color: blue
-  Second-in-command, arbitrates
-  disputes, divvies the booty.
-
-Boatswain & Gunner | color: green
-  Keep the rigging tight and
-  the cannons ready.
-
-Able Seamen | color: yellow
-  Haul lines, swab decks,
-  and stand watch.
-
-Powder Monkeys | color: orange
-  Ferry shot and charges to the guns
-  during a broadside.
-```
-
