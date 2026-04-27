@@ -1,0 +1,7 @@
+sequence Boarding the Marauder
+Quartermaster -> Crew: Hoist colors
+Crew -> Bosun: Aye, captain
+Bosun -> Helm: Heading 270
+Helm -> Quartermaster: On course
+
+note over Crew,Bosun: Ready to embark
