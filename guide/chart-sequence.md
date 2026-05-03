@@ -96,8 +96,8 @@ You only need explicit declarations when you want to **override** the inferred t
 // Override type when the name doesn't match conventions
 Stripe is an external
 
-// Set a display alias for a cleaner label
-PaymentGW is a networking aka "Payment Gateway"
+// Multi-word names are accepted directly — no aliasing needed
+"Payment Gateway" is a networking
 
 // Control left-to-right ordering
 OrderDB position -1
