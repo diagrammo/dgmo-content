@@ -1,0 +1,19 @@
+quadrant Plunder Targets
+
+x-label Hard, Easy
+y-label Low Reward, High Reward
+
+top-right Strike Now (green)
+top-left Worth the Risk (orange)
+bottom-left Skip (red)
+bottom-right Routine Run (blue)
+
+Spanish Galleon       0.2  0.95
+French Frigate        0.45 0.85
+Merchant Sloop        0.85 0.55
+Fishing Boat          0.95 0.15
+Royal Navy Warship    0.10 0.70
+Treasure Caravan      0.30 0.90
+Bermuda Trader        0.75 0.40
+Empty Schooner        0.85 0.05
+Plantation Barge      0.65 0.50

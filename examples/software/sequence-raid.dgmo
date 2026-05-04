@@ -1,0 +1,27 @@
+sequence Boarding Action
+
+participant L as Lookout
+participant Q as Quartermaster
+participant C as Captain
+participant B as Boarders
+participant M as Merchants
+
+L -> Q: Sail spotted, three points off port bow
+Q -> C: Likely a Spanish galleon, low in the water
+C -> Q: Hoist the colours, run out the guns
+Q -> B: Ready grappling hooks and pistols
+
+note over C, M: Closing range
+C -> M: Strike your colours or be sent to Davy Jones!
+
+if Surrender
+  M -> C: We yield, take what you will
+  C -> B: Hold fire, board peaceably
+else Resistance
+  M -> C: We will see you in hell first
+  C -> B: Fire a broadside!
+  B -> M: Boarding action!
+end
+
+B -> Q: Hold secured, gold in the strongroom
+Q -> C: Provisions and powder counted

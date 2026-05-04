@@ -1,0 +1,13 @@
+state Voyage Lifecycle
+
+[*] -> Provisioning
+Provisioning -Ready-> AtSea
+AtSea -Spotted-> Pursuit
+AtSea -Storm-> Surviving
+Surviving -Calm-> AtSea
+Pursuit -Engaged-> Combat
+Pursuit -Lost-> AtSea
+Combat -Boarded-> Plundering
+Combat -Sunk-> [*]
+Plundering -Done-> ReturnPort
+ReturnPort -Docked-> [*]
