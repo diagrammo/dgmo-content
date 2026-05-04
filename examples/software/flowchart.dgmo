@@ -1,4 +1,5 @@
 flowchart Pirate's Code
+solid-fill
 
 (Sail Ho!) -> <Friend or Foe?>
   -friend-> [Check Logs~] -> /Trade Rum/ -> [Celebrate]

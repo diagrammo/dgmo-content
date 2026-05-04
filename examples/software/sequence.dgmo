@@ -1,4 +1,5 @@
 sequence Treasure Hunt App
+solid-fill
 
 User -Search nearby loot-> WebApp
 WebApp -GET /treasures?nearby-> TreasureAPI | c: Search
