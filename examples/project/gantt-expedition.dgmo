@@ -1,0 +1,27 @@
+gantt Treasure Expedition
+
+start 1718-06-01
+
+tag Phase ph
+  Preparation(yellow)
+  Voyage(blue)
+  Return(green)
+
+parallel
+  [Preparation] | ph: Preparation
+    parallel
+      1718-06-01 -> 5d Provision the ship | 100%
+      1718-06-06 -> 4d Recruit fresh crew | 100%
+      1718-06-01 -> 7d Chart the route | 100%
+
+  [Voyage] | ph: Voyage
+    parallel
+      1718-06-10 -> 14d Sail to the Bahamas | 80%
+      1718-06-24 -> 6d Search the cay | 50%
+      1718-06-30 -> 3d Excavate the chest | 0%
+
+  [Return] | ph: Return
+    parallel
+      1718-07-03 -> 12d Sail back to Tortuga | 0%
+      1718-07-15 -> 1d Divide the spoils | 0%
+      1718-07-16 -> 3d Celebrate the haul | 0%
