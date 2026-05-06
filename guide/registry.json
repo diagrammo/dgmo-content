@@ -46,6 +46,7 @@
     { "slug": "chart-org", "title": "Org Chart", "group": "business", "file": "chart-org.md" },
     { "slug": "chart-pyramid", "title": "Pyramid Diagram", "group": "business", "file": "chart-pyramid.md" },
     { "slug": "chart-quadrant", "title": "Quadrant Chart", "group": "business", "file": "chart-quadrant.md" },
+    { "slug": "chart-ring", "title": "Ring Diagram", "group": "business", "file": "chart-ring.md" },
     { "slug": "chart-sankey", "title": "Sankey Diagram", "group": "business", "file": "chart-sankey.md" },
     { "slug": "chart-tech-radar", "title": "Technology Radar", "group": "business", "file": "chart-tech-radar.md" },
     { "slug": "chart-venn", "title": "Venn Diagram", "group": "business", "file": "chart-venn.md" },
