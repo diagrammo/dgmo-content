@@ -751,3 +751,68 @@ Refunded -> [*]
 Delivered -> [*]
 ```
 
+---
+
+## Pyramid Diagram
+
+```dgmo
+pyramid Maslow's Hierarchy
+
+Self-Actualization | color: purple
+Esteem | color: blue
+Belonging | color: green
+Safety | color: yellow
+Physiological | color: red
+```
+
+---
+
+## RACI Matrix
+
+```dgmo
+raci Voyage Operations
+roles
+  Cap  | color: red
+  QM   | color: orange
+  Bos  | color: yellow
+  Nav  | color: blue
+  Crew | color: gray
+
+[Departure] | color: teal
+  Plot the course
+    Cap: A
+    Nav: R
+    QM: C
+  Provision the hold
+    QM: A R
+    Cap: C
+    Crew: I
+
+[At Sea] | color: purple
+  Stand the watch
+    Bos: A
+    Crew: R
+```
+
+---
+
+## Ring Diagram
+
+```dgmo
+ring Captain's Sphere of Influence
+
+Captain | color: red
+  Final word on heading and plunder.
+
+Quartermaster | Second-in-command, divvies the booty
+
+Crew | color: yellow
+  Deckhands, gunners, and powder monkeys.
+
+Allied Crews | color: green
+  Loose alliances kept by oath.
+
+The Open Sea | color: blue
+  Weather, currents, and rival flags.
+```
+

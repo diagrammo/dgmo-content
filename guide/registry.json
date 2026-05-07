@@ -54,6 +54,7 @@
 
     { "slug": "chart-gantt", "title": "Gantt Chart", "group": "project", "file": "chart-gantt.md" },
     { "slug": "chart-kanban", "title": "Kanban Board", "group": "project", "file": "chart-kanban.md" },
+    { "slug": "chart-raci", "title": "RACI Matrix", "group": "project", "file": "chart-raci.md" },
     { "slug": "chart-timeline", "title": "Timeline", "group": "project", "file": "chart-timeline.md" }
   ]
 }
