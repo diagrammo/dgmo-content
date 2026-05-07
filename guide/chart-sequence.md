@@ -273,7 +273,7 @@ Tags add color-coded metadata dimensions to sequence diagrams. Define a tag grou
 ### Defining Tag Groups
 
 ```
-tag Concern alias c
+tag Concern as c
   Caching(blue)
   Auth(green)
   BusinessLogic(purple) default
@@ -296,7 +296,7 @@ User -login-> API | concern: Auth
 ```
 
 - Multiple tags: `| key1: val1, key2: val2`
-- Aliases work: `| c: Caching` (if `alias c` was declared)
+- Aliases work: `| c: Caching` (if `tag Concern as c` was declared)
 
 ### Tag Resolution
 
@@ -319,7 +319,7 @@ Set `active-tag GroupName` in settings to activate a group on load.
 ```dgmo
 sequence E-Commerce Checkout
 
-tag Layer alias l
+tag Layer as l
   Frontend(teal)
   Backend(blue)
   Storage(purple)

@@ -3,7 +3,7 @@
 ```dgmo
 infra SaaS API Platform
 
-tag Team alias t
+tag Team as t
   Platform(teal) default
   Backend(blue)
   Data(purple)
@@ -489,7 +489,7 @@ For queues inside groups, `drain-rate` scales with group instances (more consume
 Tags add metadata dimensions — team ownership, environment, region. They appear as colored badges in the legend.
 
 ```
-tag Team alias t
+tag Team as t
   Backend(blue)
   Platform(teal) default
   Data(violet)
@@ -634,7 +634,7 @@ DGMO validates your diagram and reports diagnostics:
 ```dgmo
 infra E-Commerce Platform
 
-tag Team alias t
+tag Team as t
   Backend(blue)
   Platform(teal) default
   Data(violet)

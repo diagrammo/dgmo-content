@@ -4,17 +4,17 @@
 timeline The Golden Age of Piracy (1716–1722)
 scale on
 
-tag Pirate alias p
+tag Pirate as p
   Blackbeard(red)
   Bonny & Rackham(purple)
   Roberts(blue)
 
-tag Outcome alias o
+tag Outcome as o
   Victory(green)
   Defeat(red)
   Uncertain(yellow) default
 
-tag Theatre alias t
+tag Theatre as t
   Caribbean(teal) default
   Atlantic(blue)
   Africa(orange)

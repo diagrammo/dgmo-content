@@ -1,12 +1,12 @@
 c4 SaaS Analytics Platform
 
-tag Technology tech
+tag Technology as tech
   React(blue)
   Node.js(green)
   PostgreSQL(purple)
   Redis(red)
 
-tag Team t
+tag Team as t
   Product(blue)
   Data(orange)
   Infrastructure(teal)

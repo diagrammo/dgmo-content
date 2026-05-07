@@ -108,10 +108,10 @@ Rings support aliases for shorter blip references:
 
 ```
 rings
-  Adopt alias a
-  Trial alias t
-  Assess alias x
-  Hold alias h
+  Adopt as a
+  Trial as t
+  Assess as x
+  Hold as h
 
 Quadrant | quadrant: top-right
   Item Name | ring: a, trend: up

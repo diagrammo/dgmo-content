@@ -1,6 +1,6 @@
 c4 Ride-Sharing Microservices
 
-tag Technology tech
+tag Technology as tech
   TypeScript(blue)
   Go(teal)
   Python(green)
@@ -8,12 +8,12 @@ tag Technology tech
   Redis(red)
   Kafka(orange)
 
-tag Team t
+tag Team as t
   Rider(blue)
   Driver(green)
   Platform(purple)
 
-tag Scope sc
+tag Scope as sc
   Internal(blue)
   External(gray)
 

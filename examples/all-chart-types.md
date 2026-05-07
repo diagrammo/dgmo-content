@@ -419,7 +419,7 @@ gantt Product Launch Plan
 start 2024-01-15
 dependencies
 
-tag Team t
+tag Team as t
   Engineering(blue)
   Design(purple)
   QA(orange)
@@ -502,7 +502,7 @@ marker 2024-09 GA Release
 ```dgmo
 boxes-and-lines Pirate Software
 
-tag Status s
+tag Status as s
   Done(green)
   Doing(yellow)
   Todo(red)
@@ -648,7 +648,7 @@ Keep Sailing --> Scan Horizon
 ```dgmo
 infra Production Traffic Flow
 
-tag Team t
+tag Team as t
   Backend(blue)
   Platform(teal)
 

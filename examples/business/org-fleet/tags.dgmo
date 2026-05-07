@@ -1,4 +1,4 @@
-tag Rank r
+tag Rank as r
   Sailor(blue)
   Captain(red)
   FirstMate(orange)
@@ -6,7 +6,7 @@ tag Rank r
   Bosun(green)
   Gunner(teal)
 
-tag Status st
+tag Status as st
   Loyal(green)
   Turncoat(red)
   NewRecruit(yellow)

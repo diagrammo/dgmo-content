@@ -178,13 +178,13 @@ containers
 Color-code elements by technology, team, or any custom category:
 
 ```
-tag Technology alias tech
+tag Technology as tech
   React(blue)
   Node.js(green)
   PostgreSQL(purple)
   Redis(red)
 
-tag Team alias t
+tag Team as t
   Product(blue) default
   Data(orange)
   Infrastructure(teal)
@@ -223,13 +223,13 @@ deployment
 ```dgmo
 c4 SaaS Analytics Platform
 
-tag Technology alias tech
+tag Technology as tech
   React(blue)
   Node.js(green)
   PostgreSQL(purple)
   Redis(red)
 
-tag Team alias t
+tag Team as t
   Product(blue) default
   Data(orange)
   Infrastructure(teal)

@@ -138,7 +138,7 @@ This is the primary way to color sequence diagrams, org charts, infrastructure d
 ### Declaring a tag group
 
 ```
-tag GroupName alias g
+tag GroupName as g
   Value1(blue)
   Value2(green)
   Value3(orange) default
@@ -169,13 +169,13 @@ Tags color participant boxes, self-messages, and message arrows. Use `active-tag
 sequence API Gateway — Infrastructure Concerns
 active-tag Concern
 
-tag Concern alias c
+tag Concern as c
   Caching(blue)
   Auth(green)
   RateLimiting(orange)
   BusinessLogic(purple) default
 
-tag Team alias t
+tag Team as t
   Platform(teal)
   Product(orange)
   Security(red)
@@ -248,7 +248,7 @@ Jane Smith
 ```
 infra Production Traffic Flow
 
-tag Team alias t
+tag Team as t
   Backend(blue)
   Platform(teal)
 
@@ -274,7 +274,7 @@ Tags in timelines sort and color swim lanes. Use `sort tag:GroupName` to arrange
 ```
 timeline Product Roadmap 2025
 
-tag Team alias t
+tag Team as t
   Engineering(blue)
   Design(purple)
   Product(green)

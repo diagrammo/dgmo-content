@@ -8,7 +8,7 @@ tag Priority
   High(orange)
   Low(green) default
 
-tag Crew alias c
+tag Crew as c
   Blackbeard(red)
   Anne Bonny(purple)
   Calico Jack(teal)
@@ -115,7 +115,7 @@ tag Priority
   Medium(yellow)
   Low(green) default
 
-tag Assignee alias a
+tag Assignee as a
   Alice(blue)
   Bob(purple)
 ```
@@ -133,7 +133,7 @@ tag Status
   Blocked(red)
   Active(green) default
 
-tag Team alias t
+tag Team as t
   Frontend(blue)
   Backend(purple)
   Design(yellow)

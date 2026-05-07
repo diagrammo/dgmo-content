@@ -124,7 +124,7 @@ Tag groups define color-coded categories. They appear before content and follow 
 ```
 mindmap Root
 
-tag Priority p
+tag Priority as p
   High(red)
   Medium(yellow)
   Low(green)
@@ -149,7 +149,7 @@ Options are placed on their own line before content:
 ```
 mindmap Root
 
-tag Priority p
+tag Priority as p
   High(red)
   Low(green)
 
@@ -164,12 +164,12 @@ no-descriptions
 ```dgmo
 mindmap Product Strategy(blue)
 
-tag Priority p
+tag Priority as p
   High(red)
   Medium(yellow)
   Low(green)
 
-tag Department d
+tag Department as d
   Engineering(blue)
   Design(purple)
   Marketing(orange)

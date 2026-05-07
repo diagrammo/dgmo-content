@@ -2,7 +2,7 @@ gantt Treasure Expedition
 
 start 1718-06-01
 
-tag Phase ph
+tag Phase as ph
   Preparation(yellow)
   Voyage(blue)
   Return(green)

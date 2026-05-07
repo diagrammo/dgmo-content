@@ -1,12 +1,12 @@
 c4 DevOps Platform
 
-tag Technology tech
+tag Technology as tech
   React(blue)
   Node.js(green)
   PostgreSQL(purple)
   Redis(red)
 
-tag Scope sc
+tag Scope as sc
   Internal(blue)
   External(gray)
 
