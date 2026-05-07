@@ -1,0 +1,40 @@
+rasci Treasure Map Launch
+roles
+  PM
+  Cap
+  Nav
+  QM
+  Bos
+  Crew
+
+[Discovery]
+  Scout the cove
+    Cap: A
+    Nav: R
+    Crew: S
+  Map the reef
+    Nav: A R
+    Bos: C
+    Crew: S
+
+[Build]
+  Forge the chest
+    Bos: A R
+    QM: C
+    Crew: S
+  Cast the locks
+    Bos: A
+    Crew: R S
+    QM: C
+  Engrave the keys
+    PM: A
+    Bos: R
+
+[Launch]
+  Hoist the colors
+    Cap: A R
+    Crew: S
+  Toast the maiden voyage
+    Cap: A
+    PM: R
+    Crew: S I
