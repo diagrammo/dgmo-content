@@ -1,0 +1,31 @@
+raci Voyage Operations — Concatenated Markers
+roles
+  Cap  | color: red
+  QM   | color: orange
+  Bos  | color: yellow
+  Nav  | color: blue
+  Crew | color: gray
+
+[Departure] | color: teal
+  Plot the course
+    Cap A
+    Nav R
+    QM C
+    Crew I
+  Provision the hold
+    Salt pork, biscuit, fresh water for six weeks
+    QM AR
+    Cap C
+    Crew I
+  Inspect rigging
+    Bos AR
+    Crew C
+
+[Landfall] | color: green
+  Negotiate with port
+    Cap AR
+    QM C
+  Inventory the take
+    QM AR
+    Cap C
+    Crew I
