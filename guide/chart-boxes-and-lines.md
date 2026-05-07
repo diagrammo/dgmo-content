@@ -3,7 +3,7 @@
 ```dgmo
 boxes-and-lines Pirate Software
 
-tag Status s
+tag Status as s
   Done(green)
   Doing(yellow)
   Todo(red)

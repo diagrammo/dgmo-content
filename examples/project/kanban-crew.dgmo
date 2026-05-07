@@ -1,12 +1,12 @@
 kanban Crew Tasks
 
-tag Priority p
+tag Priority as p
   Low(blue)
   Medium(yellow)
   High(orange)
   Critical(red)
 
-tag Watch w
+tag Watch as w
   Morning(green)
   Afternoon(yellow)
   Night(purple)

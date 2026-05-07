@@ -11,13 +11,13 @@ holiday
   2024-02-19 Presidents Day
   2024-05-27 Memorial Day
 
-tag Team alias t
+tag Team as t
   Engineering(blue)
   Design(purple)
   QA(orange)
   Marketing(green)
 
-tag Phase alias p
+tag Phase as p
   Foundation(teal)
   Build(blue)
   Launch(red)
@@ -286,12 +286,12 @@ marker 2024-06-30 Demo Day (red)
 Tag groups categorize tasks with color-coded values:
 
 ```
-tag Team alias t
+tag Team as t
   Engineering(blue)
   Design(purple)
   QA(orange)
 
-tag Phase alias p
+tag Phase as p
   Foundation(green)
   Growth(orange)
 
@@ -307,7 +307,7 @@ Use `sort: tag` (or `sort: tag:GroupName`) to organize tasks into horizontal swi
 ```
 sort tag:Team
 
-tag Team alias t
+tag Team as t
   Frontend(blue)
   Backend(green)
   QA(orange)
@@ -340,7 +340,7 @@ today-marker 2024-03-01
 critical-path
 dependencies
 
-tag Team alias t
+tag Team as t
   Engineering(blue)
   Design(purple)
   QA(orange)

@@ -4,7 +4,7 @@ persona Blackbeard | color: red
   Edward Teach, the most feared pirate in the Caribbean
   Crew of 300 across four vessels, seeking a proper warship
 
-tag Method m
+tag Method as m
   Cunning(purple)
   Force(red)
   Diplomacy(green)

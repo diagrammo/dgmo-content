@@ -110,7 +110,7 @@ Multiple annotations per step are allowed.
 Tags add color-coded dimensions like channel or touchpoint:
 
 ```
-tag Channel ch
+tag Channel as ch
   Web(blue)
   Mobile(purple)
   In-Person(green)
@@ -152,7 +152,7 @@ journey-map Buying a Laptop
 persona Tech-Savvy Shopper
   28yo developer, price-sensitive, does extensive research
 
-tag Channel ch
+tag Channel as ch
   Web(blue)
   Mobile(purple)
   Email(teal)

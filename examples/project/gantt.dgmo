@@ -3,7 +3,7 @@ gantt Blackbeard's Blockade — 1718
 start 1718-05-01
 today-marker 1718-05-15
 
-tag Role r
+tag Role as r
   Command(red)
   Crew(blue)
   Captives(orange)

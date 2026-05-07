@@ -1,7 +1,7 @@
 c4 Pirate Treasure Map System
 solid-fill
 
-tag Scope sc
+tag Scope as sc
   Crew(blue)
   External(gray)
 

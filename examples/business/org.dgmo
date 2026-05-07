@@ -3,7 +3,7 @@ solid-fill
 sub-node-label Crew
 show-sub-node-count
 
-tag Rank r
+tag Rank as r
   Sailor(blue)
   Captain(red)
   FirstMate(orange)
@@ -13,12 +13,12 @@ tag Rank r
   Jester(cyan)
   Swab(purple)
 
-tag Ship s
+tag Ship as s
   Revenge(blue)
   Serpent(green)
   Phantom(purple)
 
-tag Status st
+tag Status as st
   Loyal(green)
   Turncoat(red)
   NewRecruit(yellow)

@@ -46,7 +46,7 @@ When you want to make something red, your instinct might be to reach for a color
 **Tags** let you separate *what something means* from *how it looks*:
 
 ```dgmo-source
-tag Priority alias p
+tag Priority as p
   Critical(red)
   Normal(green)
   Low(gray)
@@ -247,7 +247,7 @@ Trajectory(blue): -0.001*x^2 + 0.27*x  // function expression
 **No colons anywhere else** — declarations, options, tags, data rows, arrows, groups, and comments are all colon-free:
 ```dgmo-source
 bar Revenue by Quarter                  // declaration: no colon
-tag Team alias t                        // tag: no colon
+tag Team as t                        // tag: no colon
 start 2026-03-15                        // option: no colon
 Gold 3500 4200 5100                     // data row: no colon
 id int pk                               // ER column: no colon

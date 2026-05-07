@@ -1,8 +1,8 @@
 venn Pirate Skill Specialists
 
-Cunning(purple) alias c
-Brawn(red) alias b
-Seamanship(blue) alias s
+Cunning(purple) as c
+Brawn(red) as b
+Seamanship(blue) as s
 
 c + b           Boarding Captains
 b + s           Bosuns

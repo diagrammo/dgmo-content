@@ -5,7 +5,7 @@ org The Dread Fleet
 sub-node-label Crew
 show-sub-node-count
 
-tag Rank alias r
+tag Rank as r
   Captain(red)
   FirstMate(orange)
   Quartermaster(yellow)
@@ -15,12 +15,12 @@ tag Rank alias r
   Jester(cyan)
   Swab(purple)
 
-tag Ship alias s
+tag Ship as s
   Revenge(blue) default
   Serpent(green)
   Phantom(purple)
 
-tag Status alias st
+tag Status as st
   Loyal(green) default
   Turncoat(red)
   NewRecruit(yellow)
@@ -162,7 +162,7 @@ Jane Smith
 ```
 
 - `tag GroupName` starts a tag group
-- `alias` provides a shorthand for metadata keys (e.g., `tag Location alias l`)
+- `as <alias>` provides a shorthand for metadata keys (e.g., `tag Location as l`)
 - `default` marks the fallback value for nodes without that metadata
 - When a node's metadata value matches a tag entry, it renders with that tag's color as a badge
 

@@ -1,6 +1,6 @@
 boxes-and-lines Pirate Fleet Command
 
-tag Status s
+tag Status as s
   Operational(green)
   Damaged(orange)
   Sunk(red)

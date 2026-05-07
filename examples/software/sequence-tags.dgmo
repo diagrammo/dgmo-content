@@ -1,12 +1,12 @@
 sequence Treasure Hunt App
 active-tag Concern
 
-tag Concern c
+tag Concern as c
   Search(blue)
   Claims(green)
   Notifications(orange)
 
-tag Layer l
+tag Layer as l
   Frontend(teal)
   Backend(purple)
   Data(red)
