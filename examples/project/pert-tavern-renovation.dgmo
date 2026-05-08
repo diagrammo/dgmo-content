@@ -1,0 +1,28 @@
+pert Tortuga Tavern Renovation
+time-unit d
+confidence medium
+
+milestone permits in hand
+
+permits in hand
+  -> tear out walls 2 3 5
+  -> order furnishings 1 1 2
+
+tear out walls
+  -> rebuild bar 4 6 10
+  -> reroof common room 3 5 8
+
+order furnishings
+  -> stock cellar 2 3 4
+
+rebuild bar
+  -> hang signage 1 1 2
+
+reroof common room
+  -> hang signage
+
+stock cellar
+  -> hang signage
+
+hang signage
+  -> grand opening 1 2 3
