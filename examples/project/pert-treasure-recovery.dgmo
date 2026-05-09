@@ -1,6 +1,6 @@
 pert Treasure Recovery from the Wreck
 time-unit d
-confidence low
+default-confidence low
 
 wreck located 0
   -> survey site

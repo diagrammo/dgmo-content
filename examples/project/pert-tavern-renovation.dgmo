@@ -1,6 +1,6 @@
 pert Tortuga Tavern Renovation
 time-unit d
-confidence medium
+default-confidence medium
 
 permits in hand 0
   -> tear out walls

@@ -3,7 +3,7 @@
 ```dgmo
 pert Pirate Voyage to the Atoll
 time-unit w
-confidence medium
+default-confidence medium
 
 voyage approved 0
   -> recruit crew
@@ -63,7 +63,7 @@ Every activity is declared on its own non-indented source-line with its duration
 | `time-unit`    | One of `d`, `bd`, `w`, `m`, `q`, `y`. Used for μ/σ/ES/EF formatting.              | `d`           |
 | `direction`    | `LR` (left-to-right) or `TB` (top-to-bottom).                                     | `LR`          |
 | `node-detail`  | `compact` shows name + duration; `full` adds μ ± σ inside the node.               | `compact`     |
-| `confidence`   | `high` / `medium` / `low`, or an explicit `O P` factor pair. Fills missing O/P.  | `medium`      |
+| `default-confidence` | `high` / `medium` / `low`, or an explicit `O P` factor pair. Fills missing O/P. Per-activity override via `\| confidence: low` pipe metadata. | `medium` |
 | `trials`       | Monte Carlo trial count. Auto-derived from activity count when omitted.           | auto-derived  |
 | `seed`         | Deterministic PRNG seed. Auto-derived from the title (or activity names) when omitted. | auto-derived  |
 
@@ -75,7 +75,7 @@ Each activity is declared on its own non-indented source-line. The duration esti
 
 ```
 research 2 3 5             three-point: O M P
-prototype 5                M-only: O and P fill from confidence
+prototype 5                M-only: O and P fill from default-confidence
 gate 0                     zero-duration: marked with ◆ (sync point)
 demo                       TBD: no estimate yet (poisons descendants)
 ```
@@ -89,7 +89,7 @@ demo                       TBD: no estimate yet (poisons descendants)
 
 ### M-only Estimates
 
-`name M` records only the most-likely duration. The analyzer expands O and P from the active `confidence` level (or a per-activity override via `| confidence: low`).
+`name M` records only the most-likely duration. The analyzer expands O and P from the active `default-confidence` level (or a per-activity override via `| confidence: low`).
 
 ### Zero-duration Activities (Sync Points)
 
