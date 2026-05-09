@@ -1,26 +1,21 @@
 pert Treasure Recovery from the Wreck
 time-unit d
 confidence low
-analysis monte-carlo
-trials 5000
-seed 17
 
-milestone wreck located
-
-wreck located
+wreck located 0
   -> survey site
 
 [dive operations]
   survey site 2 3 5 as ss
     -> rig moorings
-  rig moorings 1 2 4
+  rig moorings 2
     -> first dive
   first dive 1 1 2
     -> recover chests
   recover chests 3 6 12
 
 [surface logistics]
-  hire longboat 0.5 1 2
+  hire longboat 1
     -> rig moorings
   brew ginger tea 0.5 0.5 1
     -> first dive
@@ -32,7 +27,7 @@ recover chests
 haul ashore 1 2 3
   -> share-out
 
-log inventory 0.5 1 2
+log inventory 1
   -> share-out
 
 share-out 1 1 2
