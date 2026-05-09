@@ -4,7 +4,6 @@
 pert Pirate Voyage to the Atoll
 time-unit w
 confidence medium
-analysis monte-carlo
 trials 5000
 seed 42
 
@@ -15,20 +14,23 @@ voyage approved
 
 [outfit ship]
   recruit crew 1 2 4 as rc
-    -> load powder 0.5 1 2
+    -> load powder
   careen hull 1 1.5 2.5
     -> load powder
-  load powder
-    -> sail to atoll 3 5 8
+  load powder 0.5 1 2
+    -> sail to atoll
 
-sail to atoll
-  -> count gold 1 2 3
-  -> repair hull 2 3 5
+sail to atoll 3 5 8
+  -> count gold
+  -> repair hull
 
-count gold
-  -> divvy shares 1 2 3
-repair hull
+count gold 1 2 3
   -> divvy shares
+
+repair hull 2 3 5
+  -> divvy shares
+
+divvy shares 1 2 3
 ```
 
 ## Overview
@@ -46,12 +48,18 @@ time-unit w
 milestone kickoff
 
 kickoff
-  -> design 1 2 4
-design
-  -> build 2 3 5
-build
-  -> ship 1 1 2
+  -> design
+
+design 1 2 4
+  -> build
+
+build 2 3 5
+  -> ship
+
+ship 1 1 2
 ```
+
+Every activity is declared on its own non-indented source-line with its duration estimate. Arrow lines (`-> name`) only carry a name — they are pure references, never declarations. This keeps every activity's attributes in exactly one place.
 
 ## Settings
 
@@ -62,13 +70,12 @@ build
 | `direction`    | `LR` (left-to-right) or `TB` (top-to-bottom).                                     | `LR`      |
 | `node-detail`  | `compact` shows name + duration; `full` adds μ ± σ inside the node.               | `compact` |
 | `confidence`   | `high` / `medium` / `low`, or an explicit `O P` factor pair. Fills missing O/P.  | `medium`  |
-| `analysis`     | `none` or `monte-carlo`. Enables criticality + percentile output.                 | `none`    |
-| `trials`       | Monte Carlo trial count for static export.                                        | `10000`   |
+| `trials`       | Monte Carlo trial count for static export. Below 100 falls back to analytical.    | `10000`   |
 | `seed`         | Deterministic seed (integer). Same seed → same output across machines.            | `1`       |
 
 ## Activities
 
-Each activity is declared on its own line. The duration estimate follows the name:
+Each activity is declared on its own non-indented source-line. The duration estimate follows the name:
 
 ```
 research 2 3 5             three-point: O M P
@@ -89,12 +96,18 @@ demo                        TBD: no estimate yet (poisons descendants)
 
 ### Aliases
 
-Append `as <id>` to give an activity a stable short id you can reference from edges:
+Append `as <id>` to give an activity a stable short id you can reference from later edges:
 
 ```
 recruit crew 1 2 4 as rc
-  -> rc.then-load powder 0.5 1 2
+
+load powder 0.5 1 2
+
+rc
+  -> load powder
 ```
+
+A bare alias source-line (`rc`) resolves to the canonical activity, so subsequent arrows attach to the original. Aliases must be declared on the activity's source-line — not on an arrow line.
 
 ### Milestones
 
@@ -109,15 +122,18 @@ Milestones render as diamonds and never lie on the critical path themselves — 
 
 ## Edges
 
-Dependencies are written with `->` from a child line indented under the predecessor:
+Dependencies are written with `->` from a child line indented under the predecessor. Arrow lines may only carry a destination name (or an existing alias) — durations, `as <alias>`, and pipe metadata must live on the target's own source-line:
 
 ```
 recruit crew 1 2 4
-  -> load powder 0.5 1 2
-  -> careen hull 1 1.5 2.5
+  -> load powder
+  -> careen hull
+
+load powder 0.5 1 2
+careen hull 1 1.5 2.5
 ```
 
-The arrow always points from predecessor to successor. Inline duration on the right-hand side is allowed — the activity is created if it doesn't already exist.
+Inline forward-declarations (`-> load powder 0.5 1 2`) are rejected — readers should always know to look at a non-indented line for an activity's attributes.
 
 ## Groups
 
@@ -126,22 +142,30 @@ Wrap related activities in `[group-name]` to add a dashed bounding rect. Groups 
 ```
 [outfit ship]
   recruit crew 1 2 4
-    -> load powder 0.5 1 2
+    -> load powder
   careen hull 1 1.5 2.5
     -> load powder
-  load powder
-    -> sail to atoll 3 5 8
+  load powder 0.5 1 2
+    -> sail to atoll
+
+sail to atoll 3 5 8
 ```
 
 ## Monte Carlo Analysis
 
-Add the `analysis monte-carlo` directive to enable probabilistic analysis:
+Monte Carlo runs **automatically** whenever at least one non-milestone activity carries an O/M/P triple (e.g. `recruit crew 1 2 4`). No directive needed — the data tells the analyzer what kind of analysis it can perform.
 
 ```
-analysis monte-carlo
 trials 5000
 seed 42
+
+recruit crew 1 2 4
+  -> sail
+
+sail 3 5 8
 ```
+
+`trials < 100` clamps mode back to analytical (with a one-line caveat in the project-stats caption) — small samples produce nonsense percentiles. The legacy `analysis monte-carlo` directive is reserved-but-inert: it parses with a non-blocking warning so older `.dgmo` files keep rendering.
 
 The renderer then:
 

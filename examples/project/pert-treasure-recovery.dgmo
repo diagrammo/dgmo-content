@@ -12,11 +12,12 @@ wreck located
 
 [dive operations]
   survey site 2 3 5 as ss
-    -> rig moorings 1 2 4
-  rig moorings
-    -> first dive 1 1 2
-  first dive
-    -> recover chests 3 6 12
+    -> rig moorings
+  rig moorings 1 2 4
+    -> first dive
+  first dive 1 1 2
+    -> recover chests
+  recover chests 3 6 12
 
 [surface logistics]
   hire longboat 0.5 1 2
@@ -25,10 +26,13 @@ wreck located
     -> first dive
 
 recover chests
-  -> haul ashore 1 2 3
-  -> log inventory 0.5 1 2
+  -> haul ashore
+  -> log inventory
 
-haul ashore
-  -> share-out 1 1 2
-log inventory
+haul ashore 1 2 3
   -> share-out
+
+log inventory 0.5 1 2
+  -> share-out
+
+share-out 1 1 2
