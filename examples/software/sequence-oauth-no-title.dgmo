@@ -1,0 +1,14 @@
+sequence OAuth Handshake
+
+no-title
+
+Captain is a participant
+Helm is a participant
+Lookout is a participant
+Treasury is a participant
+
+Captain -board the Helm-> Helm
+Helm -ask Lookout for token-> Lookout
+Lookout -confirm sighting-> Helm
+Helm -hand token to Captain-> Captain
+Captain -unlock Treasury-> Treasury

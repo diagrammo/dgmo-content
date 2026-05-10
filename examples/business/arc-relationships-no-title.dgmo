@@ -1,0 +1,11 @@
+arc Crew Allegiances
+
+no-title
+
+[Caribbean](blue)
+  Captain -> First Mate: 8
+  Captain -> Quartermaster: 6
+  First Mate -> Bosun: 4
+  First Mate -> Lookout: 3
+  Quartermaster -> Powder Monkey: 2
+  Bosun -> Powder Monkey: 2
