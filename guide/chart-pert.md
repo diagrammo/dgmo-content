@@ -207,6 +207,85 @@ careen hull 1.5
 
 Inline forward-declarations (`-> load powder 0.5 1 2`) are rejected — readers should always know to look at a non-indented line for an activity's attributes.
 
+### Dependency Types and Lag/Lead
+
+By default, every `->` is **Finish-to-Start with zero lag** — the successor can't start until the predecessor finishes. That's the dominant case; you almost never need anything else.
+
+For the cases where you do, the arrow carries an inline label between two dashes to override the type, the lag, or both:
+
+```
+A -> B            # FS, no lag (default)
+A -SS-> B         # Start-to-Start: B starts when A starts
+A -2d-> B         # FS with +2d lag (B starts 2 days after A finishes)
+A -SS+2d-> B      # SS with +2d lag (B starts 2 days after A starts)
+A -FF-1d-> B      # FF with a 1-day lead (B finishes 1 day before A finishes)
+A -SF+3d-> B      # SF with +3d lag (rare)
+```
+
+Grammar: `-[TYPE][±LAG]->` — both pieces optional, but the label must carry at least one of them. Type names are case-insensitive (`SS`, `ss`, `Ss` all parse).
+
+#### The four types
+
+| Type | What it constrains | When to use |
+|------|--------------------|-------------|
+| **FS** *(default)* | B can't start until A finishes (+ lag) | Sequential work — the common case |
+| **SS** | B can't start until A starts (+ lag) | Parallel work staggered by a fixed offset |
+| **FF** | B can't finish until A finishes (+ lag) | Ship-together activities that have to land simultaneously |
+| **SF** | B can't finish until A starts (+ lag) | Rare; included for completeness |
+
+The trick to reading them: the **first letter is the predecessor's anchor**, the **second is the successor's anchor**. `SS` means "predecessor's start gates successor's start"; `FF` means "predecessor's finish gates successor's finish." `FS` (the default) is "predecessor's finish gates successor's start" — and that's why it's the common case: most work is "finish this, then start that."
+
+#### Lag vs lead
+
+- **Lag is positive — a wait.** `-FS+2d->` reads "B starts 2 days *after* A finishes." Lag pushes the successor later.
+- **Lead is negative — an overlap.** `-FS-1d->` reads "B can start 1 day *before* A finishes." Lead pulls the successor earlier, letting downstream work begin while the predecessor is wrapping up.
+
+Lag values inherit the diagram's `time-unit` unless suffixed (`-FF+4h->`, `-SS+2d->`), the same way activity durations work.
+
+#### Reading non-default edges in the rendered diagram
+
+The renderer paints a small midpoint label on every edge that isn't a plain FS+0 — `SS +2d`, `FF -1d`, or just `+2d` for an FS edge that only carries lag. Default edges stay visually clean so the non-default ones jump out. If you see no label on an edge, it's the default; if you see one, slow down and read it.
+
+#### Impossible leads
+
+A lead bigger than the predecessor's duration is logically impossible — the successor would have to start before the predecessor starts on an FS edge that says the successor *follows* the predecessor. The analyzer emits a warning when this happens. The schedule still computes (the constraint is clamped to A.ES), but the lead is asking for something the dependency can't deliver. Either shorten the lead or switch the type to SS.
+
+#### No diagram-level default
+
+There's deliberately no `default-edge-type` directive. Every edge declares its type inline, so copy-pasting an edge between diagrams never silently flips its semantics. If most of your edges are SS, you write `-SS->` on each — verbose by design.
+
+#### Worked example
+
+A small voyage prep showing all four levers in context:
+
+```
+pert Outfit and Set Sail
+time-unit d
+
+charter ship 3
+  -SS+1-> recruit crew
+
+recruit crew 2 3 5
+  -FF-> provision hold
+
+provision hold 4
+  -FS-1-> brief captain
+
+brief captain 0.5
+  -> set sail
+
+set sail 0
+```
+
+What each edge expresses:
+
+- `charter ship -SS+1-> recruit crew` — **start-to-start with 1-day lag.** Recruiting starts 1 day after chartering starts; the two run in parallel after that initial day. The captain doesn't want the crew arriving before the ship is even paid for.
+- `recruit crew -FF-> provision hold` — **finish-to-finish, zero lag.** Provisioning has to be done by the time the crew is fully assembled (you can't sail short on rations), but the two activities are otherwise independent — provisioning could finish first and just wait.
+- `provision hold -FS-1-> brief captain` — **finish-to-start with a 1-day lead.** The captain briefing can begin a day before provisioning fully completes — there's enough info partway through to start preparing the briefing.
+- `brief captain -> set sail` — **plain FS+0** (the default). Sailing waits for the briefing to finish, no overlap. The midpoint label is suppressed because there's nothing non-default to say.
+
+Read the diagram's midpoint labels first if you suspect lag is shifting the critical path. A `SS+5d` lag on the wrong edge can make an off-critical activity drive the project finish, and it's invisible in the duration numbers alone.
+
 ## Groups
 
 Wrap related activities in `[group-name]` to add a dashed bounding rect. Groups with a single entry and single exit are auto-classified as **hammocks** (collapsible into a super-edge); multi-entry/multi-exit groups are **clusters** (collapsible into a bounding rect).
