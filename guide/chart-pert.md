@@ -60,12 +60,14 @@ Every activity is declared on its own non-indented source-line with its duration
 | Key            | Description                                                                       | Default       |
 | -------------- | --------------------------------------------------------------------------------- | ------------- |
 | `pert`         | Required. Optional title follows.                                                 | —             |
-| `time-unit`    | One of `d`, `bd`, `w`, `m`, `q`, `y`. Used for μ/σ/ES/EF formatting.              | `d`           |
+| `time-unit`    | One of `min`, `h`, `d`, `bd`, `w`, `m`, `q`, `y`. Default unit for duration tokens and for μ/σ/ES/EF formatting. **Overrideable per-token** — see *Per-token Time Units*. | `d` |
 | `direction`    | `LR` (left-to-right) or `TB` (top-to-bottom).                                     | `LR`          |
 | `node-detail`  | `compact` shows name + duration; `full` adds μ ± σ inside the node.               | `compact`     |
-| `default-confidence` | `high` / `medium` / `low`, or an explicit `O P` factor pair. Fills missing O/P. Per-activity override via `\| confidence: low` pipe metadata. | `medium` |
+| `default-confidence` | `high` / `medium` / `low`, or an explicit `O/P` factor pair (e.g. `0.6/2.5`). Fills O/P for M-only activities. Per-activity override via `\| confidence: low` pipe metadata. See *M-only Estimates* for multipliers. | `medium` |
 | `trials`       | Monte Carlo trial count. Auto-derived from activity count when omitted.           | auto-derived  |
 | `seed`         | Deterministic PRNG seed. Auto-derived from the title (or activity names) when omitted. | auto-derived  |
+| `start-date`   | `YYYY-MM-DD` or `now`. **Forward anchor** — pins project start; ES/EF/LS/LF render as calendar dates. Mutually exclusive with `end-date`. See *Anchoring to a Calendar*. | none |
+| `end-date`     | `YYYY-MM-DD` (literal date only — `now` is a parse error). **Backward anchor** — pins the project deadline; flips percentile interpretation to *latest-safe starts*. Mutually exclusive with `start-date`. See *Anchoring to a Calendar*. | none |
 
 `trials` and `seed` exist for power users who want exact control. The defaults are set up so authors never need to think about them: the analyzer scales trials with graph size, and the seed is hashed from the title so two diagrams render with different (but each individually stable) noise.
 
@@ -80,16 +82,83 @@ gate 0                     zero-duration: marked with ◆ (sync point)
 demo                       TBD: no estimate yet (poisons descendants)
 ```
 
+### Per-token Time Units
+
+Duration tokens normally inherit the diagram-level `time-unit`. Append a unit suffix to any token to override it *for that token only*:
+
+```
+setup 5d                              # days, regardless of diagram time-unit
+research 1w 2w 4w                     # explicit weeks per O/M/P
+audit 2d 5d 2w                        # mixed: 2 days / 5 days / 2 weeks
+quick fix 30min                       # sub-day activity
+```
+
+Valid suffixes: `min`, `h`, `d`, `bd`, `w`, `m`, `q`, `y`. The analyzer normalizes everything to the diagram's `time-unit` for arithmetic, so ES / EF / LS / LF read out in one consistent unit regardless of which units you authored on individual activities.
+
+**When this matters.** A high-level plan in weeks (`time-unit w`) often has one or two short activities that read better in days (`setup 5d`) — overriding inline avoids forcing awkward fractional weeks like `0.71w`. Mixing units inside a single triple is allowed but rare — usually the three estimates share a unit.
+
 ### Three-point Estimates
 
-`name O M P` gives optimistic / most-likely / pessimistic durations. The analyzer uses the Beta-PERT formulas:
+`name O M P` gives optimistic / most-likely / pessimistic durations:
 
-- μ = (O + 4M + P) / 6
-- σ = (P − O) / 6
+- **O (optimistic)** — best case. If everything goes right, what's the fastest this could finish?
+- **M (most likely)** — your gut estimate. The single number you'd give if forced to pick one.
+- **P (pessimistic)** — worst case (not catastrophe). If normal things go wrong, what's the slowest reasonable finish?
+
+The analyzer combines these into two summary numbers per activity using the Beta-PERT formulas:
+
+- **μ (mu) = (O + 4M + P) / 6** — the **expected duration**. Your best single-number estimate, weighted toward M but pulled by the asymmetry between O and P. This is the number to use when someone asks "how long will this take?"
+- **σ (sigma) = (P − O) / 6** — the **spread**, roughly a standard deviation. How uncertain you are. A small σ means you're confident; a large σ means the duration could swing widely. High-σ activities are the ones to watch — they're where surprise schedule slips come from.
+
+**Rule of thumb:** if you doubled the gap between O and P, you didn't make the project longer — you admitted it was more uncertain. σ goes up, P95 moves out, but μ barely changes.
 
 ### M-only Estimates
 
-`name M` records only the most-likely duration. The analyzer expands O and P from the active `default-confidence` level (or a per-activity override via `| confidence: low`).
+`name M` records only the most-likely duration. The analyzer fills in O and P from the active confidence level — the `default-confidence` directive, or a per-activity `| confidence: low` override.
+
+#### Confidence multipliers
+
+Each level resolves to a pair of multipliers applied to M:
+
+| Level                | O multiplier | P multiplier | Use for |
+| -------------------- | -----------: | -----------: | ------- |
+| `high`               | × 0.9        | × 1.5        | Familiar, repeatable work where you'd be surprised to be far off. |
+| `medium` *(default)* | × 0.75       | × 3.0        | Typical software / project work where things sometimes go sideways. |
+| `low`                | × 0.5        | × 4.0        | Research, exploratory, or first-time work where the worst case is genuinely open-ended. |
+
+So for `name M` with `default-confidence medium`: O = `0.75 × M`, P = `3.0 × M`. With M = 4 that's O = 3, P = 12.
+
+The multipliers are intentionally **asymmetric** — pessimistic spreads more than optimistic. In practice, real-world tasks slip much further than they speed up (Hofstadter's Law), so encoding symmetric uncertainty would systematically under-state risk.
+
+#### Per-activity override
+
+The diagram-level `default-confidence` applies to every M-only activity, but any single activity can override it with `| confidence: <level>` pipe metadata. The override accepts the same forms as the directive — a named level or an explicit `O/P` factor pair:
+
+```
+default-confidence medium
+
+quick fix 2                            # uses medium (0.75 / 3.0)
+hard research 3 | confidence: low      # uses low    (0.5  / 4.0)
+known task 1   | confidence: high      # uses high   (0.9  / 1.5)
+custom 4       | confidence: 0.6/2.5   # explicit factors, just this activity
+```
+
+Use overrides on the handful of activities that genuinely diverge from the project's confidence default — don't mark every line. If most of your activities want a non-medium confidence, change `default-confidence` instead.
+
+#### Worked example
+
+With `M = 4 weeks`, each confidence level produces:
+
+| Level     | O    | M | P    | μ    | σ    |
+| --------- | ---- | - | ---- | ---- | ---- |
+| `high`    | 3.6  | 4 | 6.0  | 4.27 | 0.40 |
+| `medium`  | 3.0  | 4 | 12.0 | 5.17 | 1.50 |
+| `low`     | 2.0  | 4 | 16.0 | 5.67 | 2.33 |
+
+Two things worth noticing:
+
+1. **Lower confidence pushes μ up**, not just σ. Because P pulls four times harder than O (the asymmetry above), admitting you're less sure also moves your expected duration. The honest estimate is longer.
+2. **σ grows fast** — `low` is roughly 6× the σ of `high`. Your project's overall variance is the root-sum-square of activity σ on the critical path, so a single `confidence: low` activity can dominate the project's P95.
 
 ### Zero-duration Activities (Sync Points)
 
@@ -165,8 +234,6 @@ recruit crew 1 2 4
 sail 3 5 8
 ```
 
-The legacy `analysis monte-carlo` directive is reserved-but-inert: it parses with a non-blocking warning so older `.dgmo` files keep rendering.
-
 The renderer then:
 
 - Tints each activity by its **criticality index** (fraction of trials where the activity sits on the longest path). 0 → surface tint, 1 → full accent.
@@ -175,16 +242,76 @@ The renderer then:
 
 The simulator uses a deterministic mulberry32 PRNG; a given (seed, inputs) tuple produces the same output across machines.
 
+### Interpreting the Output
+
+The analysis answers three practical questions:
+
+**1. When will this finish?** The P50 / P80 / P95 percentiles in the title — *in forward or no-anchor mode*:
+
+- **P50** — 50% chance of finishing by this date. Half the time you'll be earlier, half later. Don't promise this date externally.
+- **P80** — 80% chance of finishing by this date. A reasonable date to commit to a stakeholder if you have a little slack to spare.
+- **P95** — 95% chance of finishing by this date. The "if anyone asks, no later than" date. Use for hard deadlines and SLAs.
+
+If the gap between P50 and P95 is small, the schedule is robust. If it's wide, your real risk is variance — focus on tightening the worst-case (P) estimates on high-σ activities rather than speeding up the most-likely (M).
+
+> In **backward mode** (`end-date` is set), these percentiles flip meaning — they report *latest-safe starts*, not finishes. See *Anchoring to a Calendar* below.
+
+**2. Where is the schedule fragile?** Criticality tells you which activities are on the critical path *most of the time across all the trials*:
+
+- An activity with **criticality near 1** is on the critical path in nearly every trial — slipping it slips the whole project.
+- An activity with **criticality near 0** has slack — a delay there won't move the finish date.
+- The **stripe overlay** marks the activities the project is most likely to hinge on. That's where to invest in risk reduction first.
+
+**3. What if I had to cut scope?** Look at the light-tinted activities — cutting them won't move the finish date. Cutting a saturated activity will.
+
+## Anchoring to a Calendar
+
+By default, ES / EF / LS / LF cells render as numeric offsets in the diagram's `time-unit`. Add one of two anchors to turn them into real dates:
+
+- `start-date 2026-06-01` — **forward anchor.** Pins project start. Everything counts forward from there.
+- `end-date 2026-09-15` — **backward anchor.** Pins project end (deadline). The renderer derives projectStart as `end-date − μ` and dates everything backward from the deadline.
+
+`start-date` and `end-date` are **mutually exclusive** — author one or the other. `start-date now` resolves to today's local date at parse time (share-links bake the resolved date in so recipients see what the author saw). `end-date now` is a parse error — express deadlines as concrete dates.
+
+### Forward Mode: "When will we finish?"
+
+With `start-date`, percentiles answer the most common scheduling question. P50 / P80 / P95 in the title are **finish dates** — same interpretation as the *Interpreting the Output* section above. The S-curve x-axis is finish date, y rises 0 → 1 ("chance we're done by date X").
+
+### Backward Mode: "When must we start?"
+
+This is the mode that catches people out. **Percentile meaning flips.** With `end-date`, you've committed to finishing *by* the deadline — the open question is no longer "when will we finish?" but "how late can we still start and reasonably hit that date?"
+
+P50 / P80 / P95 in the title reframe as **latest-safe starts**:
+
+- **P50 start** — start by this date for a 50% chance of hitting the deadline. Too thin to commit to anything.
+- **P80 start** — start by this date for an 80% chance. A reasonable working buffer.
+- **P95 start** — start by this date for a 95% chance. The absolute last responsible moment to begin.
+
+The S-curve flips with the framing: x-axis is candidate start date, y *falls* 1 → 0 — "chance we still hit the deadline if we start by date X." The right edge of the chart (x = `end-date`) shows the impossible "start on the deadline" scenario; the left edge shows generous buffer.
+
+The title annotation reads *"Backward-anchored from end-date YYYY-MM-DD (as of YYYY-MM-DD)"* — the second date is when the diagram was parsed, captured so a shared backward-anchored plan is auditable later.
+
+#### Past-date warning
+
+If a latest-safe-start date falls in the **past** (you needed to start before today to hit the deadline with that confidence), the row appends `(latest-safe start has passed)`. Read this as: *at that confidence level, you're already late*. There are only three responses — pull in scope, accept a lower confidence, or move the deadline.
+
+#### Ramifications of setting `end-date`
+
+- **Set `end-date` only when the deadline is the constraint, not the goal.** If you can negotiate the date, use `start-date` and read the finishes — that gives you commit-able dates. `end-date` is for "this date is fixed, work backward from it."
+- **Backward mode tells you when to start, not whether the plan fits.** If P95-start is already in the past, the analysis is telling you the plan doesn't fit the deadline at any reasonable confidence — that's a renegotiation signal, not a scheduling output.
+- **TBD activities silence the analysis.** Without estimates everywhere, `projectStart` can't be derived; all schedule cells render `?`. Finish estimating before relying on backward mode.
+- **`time-unit bd` is treated as calendar days** under any anchor (you get a warning). For real business-day scheduling, use a Gantt chart instead.
+- **`time-unit min` / `h` round to whole days** for date display under any anchor (you get a warning). Anchors are calendar-grained, not time-of-day-grained.
+
 ## Reading the Diagram
 
-| Visual | Meaning |
-| --- | --- |
-| Saturated fill | High criticality — activity is on the longest path most of the time |
-| Light tint | Low criticality — activity has slack |
-| Diagonal stripes | Criticality ≥ 0.9 (non-color signal) |
-| ★ before name | Activity is on the M-world critical path |
-| ◆ before name | Zero-duration sync point |
-| Dashed border | Group bounding rect, or TBD activity |
+| Visual | Meaning | What to do |
+| --- | --- | --- |
+| Saturated red fill | Activity is on the critical path most of the time | Protect it. Add buffer, assign your strongest people, track it closely. |
+| Light tint | Activity has slack | Don't over-invest. Cuttable if scope tightens. |
+| Diagonal stripes | Criticality ≥ 0.9 — your bottleneck | Risk-reduction effort goes here first. |
+| ◆ before name | Zero-duration sync point | A milestone or gate. Useful for tracking; adds no time to the project. |
+| Dashed border | Group bounding rect, **or** a TBD activity (no estimate) | If it's a group, just visual grouping. If it's TBD, finish estimating before relying on the analysis. |
 
 ## Tips
 
