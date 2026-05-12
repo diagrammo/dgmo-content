@@ -213,14 +213,14 @@ By default, every `->` is **Finish-to-Start with zero lag** — the successor ca
 
 For the cases where you do, the arrow carries an inline label between two dashes to override the type, the lag, or both:
 
-```
-A -> B            # FS, no lag (default)
-A -SS-> B         # Start-to-Start: B starts when A starts
-A -2d-> B         # FS with +2d lag (B starts 2 days after A finishes)
-A -SS+2d-> B      # SS with +2d lag (B starts 2 days after A starts)
-A -FF-1d-> B      # FF with a 1-day lead (B finishes 1 day before A finishes)
-A -SF+3d-> B      # SF with +3d lag (rare)
-```
+| Syntax | Type | Meaning |
+|--------|------|---------|
+| `A -> B` | FS *(default)* | B starts after A finishes — no lag |
+| `A -SS-> B` | SS | B starts when A starts |
+| `A -2d-> B` | FS with +2d lag | B starts 2 days after A finishes |
+| `A -SS+2d-> B` | SS with +2d lag | B starts 2 days after A starts |
+| `A -FF-1d-> B` | FF with 1d lead | B finishes 1 day before A finishes |
+| `A -SF+3d-> B` | SF with +3d lag | Rare — B finishes 3 days after A starts |
 
 Grammar: `-[TYPE][±LAG]->` — both pieces optional, but the label must carry at least one of them. Type names are case-insensitive (`SS`, `ss`, `Ss` all parse).
 
