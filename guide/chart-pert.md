@@ -263,26 +263,19 @@ pert Outfit and Set Sail
 time-unit d
 
 charter ship 3
-  -SS+1-> recruit crew
+  -SS+1-> recruit crew      # recruiting starts 1 day after chartering starts — parallel, staggered
 
 recruit crew 2 3 5
-  -FF-> provision hold
+  -FF-> provision hold      # provisioning must finish when recruiting finishes — sync finish
 
 provision hold 4
-  -FS-1-> brief captain
+  -FS-1-> brief captain     # briefing can begin 1 day before provisioning ends — overlap on wrap-up
 
 brief captain 0.5
-  -> set sail
+  -> set sail               # plain FS+0 — default, no midpoint label rendered
 
 set sail 0
 ```
-
-What each edge expresses:
-
-- `charter ship -SS+1-> recruit crew` — **start-to-start with 1-day lag.** Recruiting starts 1 day after chartering starts; the two run in parallel after that initial day. The captain doesn't want the crew arriving before the ship is even paid for.
-- `recruit crew -FF-> provision hold` — **finish-to-finish, zero lag.** Provisioning has to be done by the time the crew is fully assembled (you can't sail short on rations), but the two activities are otherwise independent — provisioning could finish first and just wait.
-- `provision hold -FS-1-> brief captain` — **finish-to-start with a 1-day lead.** The captain briefing can begin a day before provisioning fully completes — there's enough info partway through to start preparing the briefing.
-- `brief captain -> set sail` — **plain FS+0** (the default). Sailing waits for the briefing to finish, no overlap. The midpoint label is suppressed because there's nothing non-default to say.
 
 Read the diagram's midpoint labels first if you suspect lag is shifting the critical path. A `SS+5d` lag on the wrong edge can make an off-critical activity drive the project finish, and it's invisible in the duration numbers alone.
 
