@@ -1,28 +1,31 @@
-kanban Plunder Sprint 7
-solid-fill
+kanban Crew Tasks
 
-tag Priority
-  Low(green)
-  Urgent(red)
+tag Priority as p
+  Low(blue)
+  Medium(yellow)
   High(orange)
+  Critical(red)
 
-tag Crew as c
-  Blackbeard(red)
-  Anne Bonny(purple)
-  Calico Jack(teal)
+tag Watch as w
+  Morning(green)
+  Afternoon(yellow)
+  Night(purple)
 
-[Awaiting Orders](red)
-  Recruit gunners at Tortuga | priority: High, c: Calico Jack
-  Chart new trade route | priority: Urgent, c: Anne Bonny
-    Scout the Windward Passage
-    Avoid Royal Navy patrols
-  Resupply rum and powder | priority: Low, c: Calico Jack
+[Backlog](blue)
+  Repair the foretops'l | p: Low, w: Morning
+    Mend after the last storm
+  Reinforce the gunwales | p: Medium, w: Afternoon
 
-[Underway](orange) | wip: 2
-  Forge letters of marque | priority: High, c: Anne Bonny
-  Raid merchant convoy | priority: Urgent, c: Blackbeard
-    Three ships spotted off Nassau
+[In Progress](yellow)
+  Restock powder kegs | p: High, w: Morning
+    Last batch ran damp
+  Caulk the hull seams | p: High, w: Afternoon
+    Hold has been taking water
+
+[Blocked](red)
+  Find a new sailmaker | p: Critical, w: Morning
+    Old one took ill at last port
 
 [Done](green)
-  Bribe the harbour master | priority: High, c: Anne Bonny
-  Repair hull damage | priority: Low, c: Blackbeard
+  Inventory the hold | p: Medium, w: Night
+  Sharpen the cutlasses | p: Low, w: Night

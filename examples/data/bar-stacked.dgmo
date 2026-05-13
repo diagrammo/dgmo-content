@@ -1,15 +1,14 @@
-bar-stacked Cargo by Voyage
-solid-fill
+bar-stacked Port Revenue by Trade
+orientation-horizontal
 series
-  Rum
-  Spices
-  Silk
-  Gold
-x-label Voyage
-y-label Barrels
+  Imports(blue)
+  Exports(green)
+  Tariffs(orange)
+//x-label Port
+//y-label Revenue
 
-Voyage 1 40 20 10 30
-Voyage 2 25 35 20 20
-Voyage 3 15 10 45 30
-Voyage 4 30 25 15 30
+Port Royal 300 450  80
+Tortuga    150 200  30
+Nassau     400 350 120
+Havana     500 600 150
 

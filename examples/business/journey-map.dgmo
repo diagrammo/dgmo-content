@@ -1,74 +1,22 @@
-journey-map Stealing a Royal Navy Frigate
+journey-map First Voyage Aboard the Black Pearl
+solid-fill
 
-persona Blackbeard | color: red
-  Edward Teach, the most feared pirate in the Caribbean
-  Crew of 300 across four vessels, seeking a proper warship
+persona Squidlips Sam | color: blue
+  Greenhorn cabin boy, first time at sea
+  Sworn to the crew but quietly terrified
 
-tag Method as m
-  Cunning(purple)
-  Force(red)
-  Diplomacy(green)
-  Gold(yellow)
+[Boarding]
+  Sign the articles | 4 Hopeful
+    thought: This is the start of a legendary career
+    description: Captain reads the code aloud — pay shares, no women aboard, lights out at 8
 
-[Intelligence]
-  Hear tavern rumors of a frigate | 2, m: Cunning
-    thought: Every drunk sailor exaggerates — need to verify
-    description: A merchant captain mentions HMS Fortune docked for repairs
-  Bribe the harbormaster | 1 Nervous, m: Gold
-    pain: Harbormaster demands triple the usual rate
-    pain: He has been known to double-cross pirates before
-    thought: Can we really trust this man with our lives?
-  Send a spy disguised as a carpenter | 4 Hopeful, m: Cunning
-    description: Israel Hands poses as a shipwright seeking dock work
-    opportunity: Our spy could sabotage the ship's defenses from inside
-  Map the harbor defenses | 3, m: Cunning
-    pain: Two guard boats patrol the entrance after midnight
-    thought: The channel is narrow — one wrong move alerts the fort
+[Storm]
+  Caught in a tempest off Tortuga | 1 Terrified
+    pain: Two crewmates lost overboard before dawn
+    pain: Hold floods to the knees, pumps barely keep pace
+    thought: Maybe the merchant fleet wasn't so bad after all
 
-[Preparation]
-  Forge Royal Navy transfer orders | 2 Anxious, m: Cunning
-    pain: The Navy seal is nearly impossible to replicate
-    thought: If this forgery fails, we hang
-    opportunity: A corrupt clerk in Kingston could provide genuine blanks
-  Recruit deserters from the garrison | 3, m: Diplomacy
-    description: Three marines agree to leave the gate unlocked for a share
-    thought: Deserters are useful but never fully trustworthy
-  Stockpile weapons in fishing boats | 4, m: Force
-    description: Cutlasses and pistols hidden beneath nets and catch
-    opportunity: Pre-position boats on both sides of the harbor
-  Bribe the night watch with rum | 3, m: Gold
-    pain: One guard refuses the bribe and must be dealt with
-    thought: Violence draws attention — keep this quiet
-
-[The Heist]
-  Create a diversion at the fort | 4 Excited, m: Force
-    description: A fire ship drifts into the harbor mouth at 2 AM
-    thought: Beautiful chaos — every eye turns to the flames
-  Storm the gangway | 2 Terrified, m: Force
-    pain: The duty officer sounds an alarm before being subdued
-    pain: Two crew members wounded in the initial rush
-    thought: No turning back now
-  Overwhelm the skeleton crew | 3, m: Force
-    description: Forty pirates against eight sleepy sailors — over in minutes
-    opportunity: Offer surviving sailors a choice — join or swim
-  Cut the anchor cables | 5 Triumphant, m: Force
-    thought: The tide is with us — she slips free like a dream
-    description: HMS Fortune glides silently past the burning fire ship
-
-[Refit and Rebirth]
-  Rename her Queen Anne's Revenge | 5 Proud, m: Diplomacy
-    thought: A name to make the Royal Navy tremble
-    description: The crew cheers as the new flag rises at dawn
-  Mount forty additional cannons | 4, m: Gold
-    pain: Quality cannons cost a fortune in the black market
-    opportunity: Strip guns from our older captured vessels
-  Paint the hull pitch black | 4, m: Force
-    description: A black ship emerging from fog is worth a hundred cannons
-    thought: Fear is our greatest weapon
-  Press-gang skilled sailors | 2 Reluctant, m: Diplomacy
-    pain: Forced recruits are resentful and may mutiny
-    thought: We need navigators and gunners — volunteers are too few
-    opportunity: Offer generous articles — better terms than the Navy pays
-  First raid under the new flag | 5 Elated, m: Force
-    description: Three merchant ships surrender without a shot fired
-    thought: The legend of Blackbeard is born
+[Riches]
+  Sight a Spanish galleon | 5 Elated
+    opportunity: Heavy with silver from the Veracruz mines
+    description: First taste of plunder — three doubloons in his share

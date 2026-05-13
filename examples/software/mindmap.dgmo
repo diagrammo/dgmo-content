@@ -1,28 +1,33 @@
-mindmap Pirate Captain's Playbook
+mindmap Product Strategy
 
-Tactics
-  Ambush
-    Fog Cover | description: Strike under low visibility
-    False Colors | description: Fly a merchant flag until in range
-  Naval Combat
-    Broadside Volley
-    Boarding Action
-  Retreat
-    Shallow Waters | description: Use draft advantage over warships
-    Smoke Screen
-Crew Management
-  Recruitment
-    Tavern Press-Gang
-    Captured Sailors
-  Morale
-    Fair Shares | description: Equal division of plunder
-    Music and Rum
-  Discipline | collapsed: true
-    The Plank
-    Marooning
-Navigation
-  Dead Reckoning
-  Star Charts | description: Celestial navigation for open ocean
-  Stolen Maps
-    Spanish Galleon Routes
-    Hidden Cove Locations | description: Safe harbors for careening
+tag Priority as p
+  High(red)
+  Medium(yellow)
+  Low(green)
+
+tag Department as d
+  Engineering(blue)
+  Design(purple)
+  Marketing(orange)
+
+active-tag Priority
+
+Research | d: Marketing
+  User Interviews | p: High
+    Surveys | description: Quarterly NPS survey
+    Focus Groups
+  Competitor Analysis | d: Engineering
+    Feature Matrix
+    Pricing Review
+Development | p: High, d: Engineering
+  MVP Features
+    Auth System
+      description: Handle login, signup, OAuth flows
+    Dashboard
+  Nice-to-haves | p: Low, collapsed: true
+    Dark Mode
+    Export PDF
+Go-to-Market | d: Marketing
+  Launch Plan
+    Blog Post
+    Demo Video | description: 2-min product walkthrough

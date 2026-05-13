@@ -1,6 +1,0 @@
-sequence Boarding the Marauder
-
-Quartermaster -Hoist colors-> Crew
-Crew -Aye, captain-> Bosun
-Bosun -Heading 270-> Helm
-Helm -On course-> Quartermaster
