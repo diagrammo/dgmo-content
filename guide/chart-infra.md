@@ -84,14 +84,21 @@ Components don't have explicit types — their **role is inferred from their pro
 
 ## Settings
 
-| Key                  | Description                                          | Default  |
-| -------------------- | ---------------------------------------------------- | -------- |
-| `chart`              | Must be `infra`                                      | —        |
-| `title`              | Diagram title                                        | None     |
-| `direction-tb`       | Top-to-bottom layout (omit for left-to-right)        | off (LR) |
-| `default-latency-ms` | Latency for components without explicit `latency-ms` | `0`      |
-| `default-uptime`     | Uptime % for components without explicit `uptime`    | `100`    |
-| `animate`            | Flow animation (boolean; `no-animate` to disable)    | on       |
+| Key                   | Description                                                          | Default  |
+| --------------------- | -------------------------------------------------------------------- | -------- |
+| `chart`               | Must be `infra`                                                      | —        |
+| `title`               | Diagram title                                                        | None     |
+| `direction-tb`        | Top-to-bottom layout (omit for left-to-right)                        | off (LR) |
+| `default-latency-ms`  | Latency for components without explicit `latency-ms`                 | `0`      |
+| `default-uptime`      | Uptime % for components without explicit `uptime`                    | `100`    |
+| `default-rps`         | Fallback edge RPS when the entry node has no `rps`                   | none     |
+| `slo-availability`    | Target availability % — drives SLO highlighting on system totals     | none     |
+| `slo-p90-latency-ms`  | Target p90 latency in ms — drives SLO highlighting on system totals  | none     |
+| `slo-warning-margin`  | Margin below the SLO that triggers a warning state                   | `0.005`  |
+| `active-tag`          | Pre-select a tag dimension to filter by on render (or `none`)        | none     |
+| `animate`             | Flow animation (boolean; `no-animate` to disable)                    | on       |
+
+The universal `solid-fill` and `no-title` options also apply.
 
 ## Entry Point (Edge)
 
@@ -119,18 +126,66 @@ APIServer
 
 Names must start with a letter or underscore and can contain letters, numbers, and underscores.
 
+### Quoted names
+
+To use a label that contains spaces or reserved characters (`|`, `:`, `(`), wrap it in double quotes:
+
+```
+"Order Service"
+  max-rps 500
+
+"Payments | Stripe"
+  max-rps 200
+```
+
+### Aliases
+
+Bind a short alias with `as` and reference it from edges or group targets:
+
+```
+"Customer Orders DB" as ordersdb
+  max-rps 6000
+  latency-ms 8
+
+APIServer
+  -> ordersdb
+```
+
+Aliases must start with a letter or underscore and be at most 12 characters. They are scoped to the document.
+
 ## Connections
 
 Connect components with arrow syntax:
 
 ```
--> Target                           // unlabeled
--/api-> Target                      // labeled
--/api-> Target | split: 60%        // with traffic split
+-> Target                           // unlabeled sync
+-/api-> Target                      // labeled sync
+-/api-> Target | split: 60%         // with traffic split
 -> [Group Name]                     // to a group
+-> alias                            // to an aliased node
+~> Target                           // unlabeled async
+~event~> Target                     // labeled async
+-> Target | fanout: 5               // request amplification
 ```
 
 Connections define the directed acyclic graph (DAG) that traffic flows through. **Cycles are not allowed** — DGMO will report an error.
+
+### Sync vs. async
+
+Sync arrows (`->`) represent request/response traffic — the caller is waiting and downstream latency contributes to the caller's response time.
+
+Async arrows (`~>`) represent fire-and-forget messaging — events published to a bus, work enqueued for a worker, webhook deliveries. Async edges render with a wiggle pattern and **do not contribute to the caller's cumulative latency**. Use them for:
+
+- Pub/sub event publishing
+- Background job dispatch (before the queue node)
+- Webhook fan-out
+- Audit/log streams
+
+```
+Checkout
+  -> OrderDB                        // sync write
+  ~OrderPlaced~> EventBus           // async event
+```
 
 ## Traffic Splits
 
@@ -201,9 +256,72 @@ CDN
 
 ---
 
+## Fanout
+
+Splits divide traffic. **Fanout multiplies it.** Use `fanout: N` when a single inbound request produces N outbound requests downstream — scatter-gather queries, search shard fanout, pub/sub broadcast, retry duplication.
+
+```
+SearchAPI
+  -> SearchShards | fanout: 6
+```
+
+If SearchAPI receives 1,000 RPS, SearchShards will receive `1,000 × 6 = 6,000` RPS. Each user search produces 6 shard queries.
+
+### Formula
+
+```
+target_rps = source_post_behavior_rps × fanout
+```
+
+Fanout is applied to the **post-behavior** RPS at the source (after cache, firewall, and rate-limit reductions), just like splits.
+
+### Combining with split
+
+Splits and fanout compose. The split is applied first; then each split branch multiplies by its `fanout`:
+
+```
+EventBus
+  -> EmailService | split: 50%, fanout: 2
+  -> SmsService   | split: 50%
+```
+
+If EventBus emits 1,000 events/s:
+
+- 500 RPS → EmailService, then **×2 fanout** → EmailService receives **1,000 RPS** (one event → one email per subscriber × 2 subscribers)
+- 500 RPS → SmsService
+
+### Fan-Out badge
+
+Any source with at least one outgoing fanout edge (where `N > 1`) automatically gains a **Fan-Out** capability badge — it appears in the legend and on the node card, just like Cache, Firewall, or Queue. This makes amplification points visible at a glance.
+
+### Rules
+
+- `N` must be ≥ 1. Values below 1 are warned and clamped to 1 (use a split percentage to express attenuation).
+- Fanout works on both sync (`->`) and async (`~>`) edges.
+- The legacy `xN` suffix (e.g. `-> Shards x5`) has been removed — use `| fanout: 5` instead.
+
+---
+
 ## Component Properties
 
 Each property maps to a specific behavior in the traffic simulation. The sections below are grouped by capability.
+
+### Capability badges
+
+Diagrammo infers a component's **role** from its properties and surfaces it as a colored badge on the node card and in the legend. There are no `type:` declarations — the properties speak for themselves.
+
+| Badge            | Color   | Triggered by                                          |
+| ---------------- | ------- | ----------------------------------------------------- |
+| Cache            | Green   | `cache-hit`                                           |
+| Firewall         | Red     | `firewall-block`                                      |
+| Rate Limiter     | Yellow  | `ratelimit-rps`                                       |
+| Service          | Blue    | `max-rps`                                             |
+| Circuit Breaker  | Purple  | `cb-error-threshold` or `cb-latency-threshold-ms`     |
+| Serverless       | Cyan    | `concurrency`                                         |
+| Queue            | Purple  | `buffer`                                              |
+| Fan-Out          | Orange  | ≥ 1 outgoing edge with `fanout > 1`                   |
+
+A node can carry multiple badges (e.g. a cache that is also a rate limiter). The badge legend is computed from the diagram — nothing to declare.
 
 ### Description — `description`
 
@@ -446,12 +564,40 @@ Groups represent clusters, pods, or replica sets. Wrap components in `[Group Nam
 
 ### Group properties
 
-| Property    | Description                                   |
-| ----------- | --------------------------------------------- |
-| `instances` | Multiplier on child capacity. Can be a range. |
-| `collapsed` | Visual hint — start collapsed in the app      |
+| Property    | Description                                                  |
+| ----------- | ------------------------------------------------------------ |
+| `instances` | Multiplier on child capacity. Can be a range (e.g. `1-8`).   |
+| `collapsed` | Set to `true` to start the group collapsed. See below.       |
 
 The group's `instances` acts as a **capacity multiplier** on its children. If `APIServer` has `max-rps: 500` and the group has `instances: 3`, total capacity is `500 × 3 = 1,500 RPS`.
+
+### No nested groups
+
+A `[Group]` may contain components but **not other groups**. If you need a deeper hierarchy, model it with tags or split the diagram.
+
+### Group aliases
+
+Like nodes, groups support `as alias`:
+
+```
+[Customer Order Pods] as orders
+  instances 3
+  APIServer
+    -> ordersdb
+
+LB
+  -> orders                         // route to the group via alias
+```
+
+### Collapsed groups
+
+`collapsed true` renders the group as a single combined node rather than the bracketed cluster. The collapsed node shows:
+
+- The group label and instance count
+- The **worst child health** (overloaded > warning > normal) as the rollup color
+- A small collapse bar at the bottom of the card as a visual hint
+
+Collapsed groups still participate in traffic simulation — only the rendering changes.
 
 ### Connecting to groups
 
@@ -622,6 +768,15 @@ DGMO validates your diagram and reports diagnostics:
 | `drain-rate`              | number         | Queue          | Messages consumed per second                                         |
 | `retention-hours`         | number         | Queue          | Message retention (informational)                                    |
 | `partitions`              | number         | Queue          | Partition count (informational)                                      |
+
+### Edge metadata
+
+These appear after the arrow in pipe syntax: `-> Target | split: 60%, fanout: 3`
+
+| Metadata | Type       | Effect                                                                |
+| -------- | ---------- | --------------------------------------------------------------------- |
+| `split`  | percentage | Share of source RPS sent to this target (must sum to ≤ 100% with siblings) |
+| `fanout` | number     | RPS multiplier delivered to the target (≥ 1); see [Fanout](#fanout)   |
 
 ## Comments
 
