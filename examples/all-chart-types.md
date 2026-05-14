@@ -357,41 +357,19 @@ Calico Jack (purple)       18  6
 
 ```dgmo
 cycle The Pirate Raid Cycle
-
-circle-nodes
+solid-fill
 
 Scout | color: blue
-  Scan the **horizon** for merchant vessels
-  Consult _stolen charts_ and trade route maps
-  - Listen for harbor gossip
-  - Watch for signal flags
-  -Spotted prey-> | color: blue, width: 5
-    Relay target bearing to the helmsman
+  Spot merchant vessels from afar
 
 Pursue | color: green
-  Raise the `Jolly Roger` at close range
-  Trim sails for **maximum speed**
-  - Close distance on windward side
-  - Cut off escape routes
-  -Alongside!-> | color: green, width: 5
+  Raise the colors, trim the sails
 
 Board | color: orange
-  Swing across on grappling lines
-  Overwhelm the crew with **shock and awe**
-  - Secure the helm
-  - Disable the cannons
-  - Round up prisoners
-  -Plunder secured-> | color: orange, width: 5
-    Transfer **gold**, rum, and provisions
+  Swing across and seize the deck
 
 Celebrate | color: red
-  Divide the spoils per the _Pirate Code_
-  Patch the ship and resupply
-  - Repair hull damage
-  - Restock gunpowder
-  - Toast to fortune with `Caribbean rum`
-  -Thirst for more-> | color: red, width: 5
-    The crew grows restless for the next raid
+  Divide the spoils, then repair
 ```
 
 ---
