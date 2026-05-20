@@ -1,14 +1,14 @@
 mindmap Product Strategy
 
 tag Priority as p
-  High(red)
-  Medium(yellow)
-  Low(green)
+  High red
+  Medium yellow
+  Low green
 
 tag Department as d
-  Engineering(blue)
-  Design(purple)
-  Marketing(orange)
+  Engineering blue
+  Design purple
+  Marketing orange
 
 active-tag Priority
 

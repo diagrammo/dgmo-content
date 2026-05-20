@@ -1,14 +1,14 @@
 sitemap Pirate Bay Trading Co.
 
 tag Access
-  Public(green)
-  Crew Only(blue)
-  Captain(red)
+  Public green
+  Crew Only blue
+  Captain red
 
 tag Page
-  Landing(purple)
-  Form(orange)
-  Content(cyan)
+  Landing purple
+  Form orange
+  Content cyan
 
 Home | Access: Public, Page: Landing
   -shop-> Shop

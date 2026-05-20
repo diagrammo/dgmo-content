@@ -1,31 +1,31 @@
 kanban Crew Tasks
 
 tag Priority as p
-  Low(blue)
-  Medium(yellow)
-  High(orange)
-  Critical(red)
+  Low blue
+  Medium yellow
+  High orange
+  Critical red
 
 tag Watch as w
-  Morning(green)
-  Afternoon(yellow)
-  Night(purple)
+  Morning green
+  Afternoon yellow
+  Night purple
 
-[Backlog](blue)
+[Backlog] blue
   Repair the foretops'l | p: Low, w: Morning
     Mend after the last storm
   Reinforce the gunwales | p: Medium, w: Afternoon
 
-[In Progress](yellow)
+[In Progress] yellow
   Restock powder kegs | p: High, w: Morning
     Last batch ran damp
   Caulk the hull seams | p: High, w: Afternoon
     Hold has been taking water
 
-[Blocked](red)
+[Blocked] red
   Find a new sailmaker | p: Critical, w: Morning
     Old one took ill at last port
 
-[Done](green)
+[Done] green
   Inventory the hold | p: Medium, w: Night
   Sharpen the cutlasses | p: Low, w: Night

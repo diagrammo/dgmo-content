@@ -1,9 +1,9 @@
 line Monthly Captures by Fleet
-series Blackbeard(red), Roberts(blue), Vane(green)
+series Blackbeard red, Roberts blue, Vane green
 x-label Month
 
 era Jan -> Mar Atlantic Season
-era Mar -> Jun Caribbean Season (teal)
+era Mar -> Jun Caribbean Season teal
 
 Jan 3 5 2
 Feb 4 3 4

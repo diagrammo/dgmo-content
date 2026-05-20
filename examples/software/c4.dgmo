@@ -2,8 +2,8 @@ c4 Pirate Treasure Map System
 solid-fill
 
 tag Scope as sc
-  Crew(blue)
-  External(gray)
+  Crew blue
+  External gray
 
 Captain is a person | description Commands the fleet and plans raids
 

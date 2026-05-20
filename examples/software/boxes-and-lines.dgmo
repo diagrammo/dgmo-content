@@ -1,10 +1,10 @@
 boxes-and-lines Pirate Fleet Command
 
 tag Status as s
-  Operational(green)
-  Damaged(orange)
-  Sunk(red)
-  Building(blue) default
+  Operational green
+  Damaged orange
+  Sunk red
+  Building blue default
 
 active-tag Status
 

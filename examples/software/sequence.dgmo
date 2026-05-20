@@ -2,14 +2,14 @@ sequence Treasure Hunt App
 active-tag Concern
 
 tag Concern as c
-  Search(blue)
-  Claims(green)
-  Notifications(orange)
+  Search blue
+  Claims green
+  Notifications orange
 
 tag Layer as l
-  Frontend(teal)
-  Backend(purple)
-  Data(red)
+  Frontend teal
+  Backend purple
+  Data red
 
 User is an actor
 WebApp is a frontend | l: Frontend 

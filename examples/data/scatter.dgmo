@@ -2,7 +2,7 @@ scatter Pirate Captains
 x-label Ruthlessness
 y-label Treasure
 
-[Caribbean](red)
+[Caribbean] red
   Blackbeard   90  8500
   Calico Jack  55  3200
   Anne Bonny   70  2800
@@ -10,7 +10,7 @@ y-label Treasure
   Charles Vane 75  4100
 
 
-[Atlantic](blue)
+[Atlantic] blue
   Black Sam Bellamy   60  9200
   Bartholomew Roberts 88 11000
   Edward Low          95  5500
@@ -18,7 +18,7 @@ y-label Treasure
 
 
 
-[Indian Ocean](green)
+[Indian Ocean] green
   Henry Every  80 14000
   William Kidd 65  6800
   Thomas Tew   50  7200

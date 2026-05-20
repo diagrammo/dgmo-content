@@ -1,10 +1,10 @@
 raci Voyage Operations
 roles
-  Cap  | color: red
-  QM   | color: orange
-  Bos  | color: yellow
-  Nav  | color: blue
-  Crew | color: gray
+  Cap  red
+  QM   orange
+  Bos  yellow
+  Nav  blue
+  Crew gray
 
 [Departure] | color: teal
   Plot the course

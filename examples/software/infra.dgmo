@@ -1,9 +1,9 @@
 infra Pirate Communication Network
 
 tag Fleet as f
-  Blackbeard(red)
-  Bonny(purple)
-  Rackham(blue)
+  Blackbeard red
+  Bonny purple
+  Rackham blue
 
 Edge
   rps 200

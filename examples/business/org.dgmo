@@ -4,24 +4,24 @@ sub-node-label Crew
 show-sub-node-count
 
 tag Rank as r
-  Sailor(blue)
-  Captain(red)
-  FirstMate(orange)
-  Quartermaster(yellow)
-  Bosun(green)
-  Gunner(teal)
-  Jester(cyan)
-  Swab(purple)
+  Sailor blue
+  Captain red
+  FirstMate orange
+  Quartermaster yellow
+  Bosun green
+  Gunner teal
+  Jester cyan
+  Swab purple
 
 tag Ship as s
-  Revenge(blue)
-  Serpent(green)
-  Phantom(purple)
+  Revenge blue
+  Serpent green
+  Phantom purple
 
 tag Status as st
-  Loyal(green)
-  Turncoat(red)
-  NewRecruit(yellow)
+  Loyal green
+  Turncoat red
+  NewRecruit yellow
 
 Blackbeard| r: Captain, s: Revenge
   Anne Bonny| r: FirstMate

@@ -2,21 +2,21 @@ ring Captain's Sphere of Influence
 
 solid-fill 
 
-Captain | color: red
+Captain  red
   Final word on heading and plunder,
   keeper of the ship's charter.
 
-Quartermaster | color:orange
+Quartermaster orange
   Second-in-command, arbitrates disputes and divvies the booty
 
-Crew | color: yellow
+Crew yellow
   Deckhands, gunners, and powder
   monkeys aboard the ship.
 
-Allied Crews | color: green
+Allied Crews green
   Loose alliances kept by oath
   or shared bounty in fair seas.
 
-The Open Sea | color: blue
+The Open Sea blue
   Weather, currents, and rival
   flags beyond any captain's reach.

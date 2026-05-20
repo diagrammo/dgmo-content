@@ -1,26 +1,25 @@
 timeline The Golden Age of Piracy (1716–1722)
-scale on
 
 tag Pirate as p
-  Blackbeard(red)
-  Bonny & Rackham(purple)
-  Roberts(blue)
+  Blackbeard red
+  Bonny & Rackham purple
+  Roberts blue
 
 tag Outcome as o
-  Uncertain(yellow)
-  Victory(green)
-  Defeat(red)
+  Uncertain yellow
+  Victory green
+  Defeat red
 
 tag Theatre as t
-  Caribbean(teal)
-  Atlantic(blue)
-  Africa(orange)
+  Caribbean teal
+  Atlantic blue
+  Africa orange
 
 era 1716->1718 Nassau Republic
 era 1719->1722 Roberts Era
 
-marker 1718-07 Woodes Rogers arrives (orange)
-marker 1721-08 Roberts reaches peak (teal)
+marker 1718-07 Woodes Rogers arrives orange
+marker 1721-08 Roberts reaches peak teal
 
 1716->1717        Sails under Hornigold | p: Blackbeard, o: Victory
 1717-11->1718-06  Commands Queen Anne's Revenge |  p: Blackbeard, o: Victory, t: Atlantic

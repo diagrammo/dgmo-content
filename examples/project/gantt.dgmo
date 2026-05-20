@@ -4,12 +4,12 @@ start 1718-05-01
 today-marker 1718-05-15
 
 tag Role as r
-  Command(red)
-  Crew(blue)
-  Captives(orange)
+  Command red
+  Crew blue
+  Captives orange
 
-marker 1718-05-22 Ransom Deadline (red)
-era 1718-05-10 -> 1718-05-18 Blockade Active (blue)
+marker 1718-05-22 Ransom Deadline red
+era 1718-05-10 -> 1718-05-18 Blockade Active blue
 
 parallel
   [Preparation] | r: Command
