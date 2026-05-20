@@ -4,28 +4,28 @@
 kanban Plunder Sprint 7
 
 tag Priority
-  Urgent(red)
-  High(orange)
-  Low(green) default
+  Urgent red
+  High orange
+  Low green default
 
 tag Crew as c
-  Blackbeard(red)
-  Anne Bonny(purple)
-  Calico Jack(teal)
+  Blackbeard red
+  Anne Bonny purple
+  Calico Jack teal
 
-[Awaiting Orders](red)
+[Awaiting Orders] red
   Recruit gunners at Tortuga | priority: High, c: Calico Jack
   Chart new trade route | priority: Urgent, c: Anne Bonny
     Scout the Windward Passage
     Avoid Royal Navy patrols
   Resupply rum and powder | priority: Low, c: Calico Jack
 
-[Underway](orange) | wip: 2
+[Underway] orange | wip: 2
   Forge letters of marque | priority: High, c: Anne Bonny
   Raid merchant convoy | priority: Urgent, c: Blackbeard
     Three ships spotted off Nassau
 
-[Done](green)
+[Done] green
   Bribe the harbour master | priority: High, c: Anne Bonny
   Repair hull damage | priority: Low, c: Blackbeard
 ```
@@ -99,10 +99,10 @@ Build login | priority: High
 
 ### Card Colors
 
-Add a color suffix to a card title:
+Append a color name (lowercase) to a card title:
 
 ```
-Urgent fix(red)
+Urgent fix red
 ```
 
 ## Tag Groups
@@ -111,13 +111,13 @@ Tag groups define categories with color-coded values. They appear before columns
 
 ```
 tag Priority
-  High(red)
-  Medium(yellow)
-  Low(green) default
+  High red
+  Medium yellow
+  Low green default
 
 tag Assignee as a
-  Alice(blue)
-  Bob(purple)
+  Alice blue
+  Bob purple
 ```
 
 - `default` marks the fallback value for cards without an explicit tag
@@ -130,13 +130,13 @@ tag Assignee as a
 kanban Product Roadmap
 
 tag Status
-  Blocked(red)
-  Active(green) default
+  Blocked red
+  Active green default
 
 tag Team as t
-  Frontend(blue)
-  Backend(purple)
-  Design(yellow)
+  Frontend blue
+  Backend purple
+  Design yellow
 
 [Backlog]
 Dark mode support | t: Frontend

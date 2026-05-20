@@ -6,8 +6,8 @@ series Knots
 x-label Day
 y-label Speed
 
-era Day 1 -> Day 3 Rough Seas (red)
-era Day 3 -> Day 7 Fair Winds (blue)
+era Day 1 -> Day 3 Rough Seas red
+era Day 3 -> Day 7 Fair Winds blue
 
 Day 1 8
 Day 2 10
@@ -37,9 +37,9 @@ Annotate named time periods with a shaded background band and label:
 line U.S. Strategic Petroleum Reserve
 y-label Million Barrels
 
-era '77 -> '81 Carter (blue)
-era '81 -> '89 Reagan (red)
-era '89 -> '93 Bush (red)
+era '77 -> '81 Carter blue
+era '81 -> '89 Reagan red
+era '89 -> '93 Bush red
 
 '77 7
 '78 67
@@ -50,7 +50,7 @@ era '89 -> '93 Bush (red)
 '83 379
 ```
 
-Era syntax: `era <start> -> <end> Label (color)`
+Era syntax: `era <start> -> <end> Label color`
 
 - `start` and `end` must exactly match data point labels
 - Color is optional; omit for the palette default

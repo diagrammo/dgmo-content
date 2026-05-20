@@ -5,25 +5,25 @@ timeline The Golden Age of Piracy (1716–1722)
 scale on
 
 tag Pirate as p
-  Blackbeard(red)
-  Bonny & Rackham(purple)
-  Roberts(blue)
+  Blackbeard red
+  Bonny & Rackham purple
+  Roberts blue
 
 tag Outcome as o
-  Victory(green)
-  Defeat(red)
-  Uncertain(yellow) default
+  Victory green
+  Defeat red
+  Uncertain yellow default
 
 tag Theatre as t
-  Caribbean(teal) default
-  Atlantic(blue)
-  Africa(orange)
+  Caribbean teal default
+  Atlantic blue
+  Africa orange
 
 era 1716->1718 Nassau Republic
 era 1719->1722 Roberts Era
 
-marker 1718-07 Woodes Rogers arrives (orange)
-marker 1721-08 Roberts reaches peak (teal)
+marker 1718-07 Woodes Rogers arrives orange
+marker 1721-08 Roberts reaches peak teal
 
 1716->1717 Sails under Hornigold | p: Blackbeard, o: Victory
 1717-11->1718-06 Commands Queen Anne's Revenge | p: Blackbeard, o: Victory, t: Atlantic
@@ -45,9 +45,9 @@ sort group
 
 era YYYY->YYYY Era Name
 
-marker YYYY-MM-DD Marker Label (color)
+marker YYYY-MM-DD Marker Label color
 
-[Group Name](color)
+[Group Name] color
 YYYY->YYYY Span event description
 YYYY-MM-DD Point event description
 ```
@@ -144,22 +144,22 @@ era 1719->1722 Roberts Era
 Notable moments displayed as a dashed vertical line with a diamond indicator:
 
 ```
-marker 1718-11-22 Blackbeard Killed (red)
-marker 1720-11 Trial at Port Royal (orange)
+marker 1718-11-22 Blackbeard Killed red
+marker 1720-11 Trial at Port Royal orange
 ```
 
 Markers are not associated with groups and appear above all events. They're useful for highlighting key dates that span across all timeline tracks.
 
 ## Groups
 
-Use `[Group Name](color)` headers to organize events into colored tracks:
+Use `[Group Name] color` headers to organize events into colored tracks:
 
 ```
-[Blackbeard](red)
+[Blackbeard] red
 1716->1717 Sails under Hornigold
 1718-11-22 Killed at Ocracoke
 
-[Roberts](blue)
+[Roberts] blue
 1719-06->1720 Raids West African coast
 1722-02-10 Killed at Cape Lopez
 ```
@@ -172,18 +172,18 @@ Tag groups let you color and organize events by metadata categories like team, p
 
 ```
 tag Team
-  Engineering(blue)
-  Design(green)
-  QA(orange)
+  Engineering blue
+  Design green
+  QA orange
 ```
 
 Each entry has a name and a color. You can add `default` to an entry to apply it to untagged events when the group is active:
 
 ```
 tag Priority
-  High(red)
-  Medium(yellow) default
-  Low(gray)
+  High red
+  Medium yellow default
+  Low gray
 ```
 
 ### Tagging Events
@@ -206,14 +206,14 @@ timeline Project Roadmap
 sort tag:Team
 
 tag Team
-  Engineering(blue)
-  Design(green)
-  QA(orange)
+  Engineering blue
+  Design green
+  QA orange
 
 tag Priority
-  High(red)
-  Medium(yellow)
-  Low(gray)
+  High red
+  Medium yellow
+  Low gray
 
 2024-01->2024-06 Build API | Team: Engineering, Priority: High
 2024-03->2024-05 UX Review | Team: Design, Priority: Medium

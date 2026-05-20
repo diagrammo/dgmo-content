@@ -5,18 +5,18 @@ arc Pirate Alliances
 //order appearance | name | group | degree
 
 // Source -> Target weight
-[Caribbean](red)
+[Caribbean] red
   Blackbeard -> Bonnet 8
   Blackbeard -> Vane 5
   Blackbeard -> Hornigold 4
   Hornigold -> Bonnet 2
 
-[Women Pirates](purple)
+[Women Pirates] purple
   Bonny -> Rackham 9
   Bonny -> Read 7
   Rackham -> Vane 3
 
-[West Africa](teal)
+[West Africa] teal
   Roberts -> Davis 6
 ```
 
@@ -50,14 +50,14 @@ If weight is omitted, it defaults to 1. Arc thickness is proportional to weight.
 
 ## Node Groups
 
-Use `[Group Name](color)` headers to group nodes by color:
+Use `[Group Name] color` headers to group nodes by color:
 
 ```
-[Captains](red)
+[Captains] red
 Blackbeard -> Bonnet 8
 Blackbeard -> Vane 5
 
-[Crew](blue)
+[Crew] blue
 Bonny -> Read 7
 ```
 

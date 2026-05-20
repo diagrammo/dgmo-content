@@ -2,12 +2,12 @@
 
 ```dgmo
 line Monthly Captures by Fleet
-series Blackbeard(red), Roberts(blue), Vane(green)
+series Blackbeard red, Roberts blue, Vane green
 x-label Month
 //y-label Captures
 
 era Jan -> Mar Atlantic Season
-era Mar -> Jun Caribbean Season (teal)
+era Mar -> Jun Caribbean Season teal
 
 Jan 3 5 2
 Feb 4 3 4
@@ -21,7 +21,7 @@ Jun 3 8 2
 
 ```
 line Chart Title
-series Series1(color), Series2(color), Series3(color)
+series Series1 color, Series2 color, Series3 color
 x-label X Axis Label
 
 Label value1 value2 value3
@@ -54,11 +54,11 @@ Annotate named time periods with a shaded background band and label:
 
 ```dgmo
 line Monthly Captures by Fleet
-series Blackbeard(red), Roberts(blue)
+series Blackbeard red, Roberts blue
 x-label Month
 
-era Jan -> Mar Q1 (green)
-era Apr -> Jun Q2 (orange)
+era Jan -> Mar Q1 green
+era Apr -> Jun Q2 orange
 
 Jan 3 5
 Feb 4 3
@@ -68,7 +68,7 @@ May 5 6
 Jun 3 8
 ```
 
-Era syntax: `era <start> -> <end> Label (color)`
+Era syntax: `era <start> -> <end> Label color`
 
 - `start` and `end` must exactly match data point labels
 - Color is optional; omit for the palette default
@@ -79,6 +79,6 @@ Era syntax: `era <start> -> <end> Label (color)`
 Colors can be specified in parentheses after each series name using named colors:
 
 ```
-series Gold(yellow), Silver(gray), Bronze(orange)
-series Fleet A(red), Fleet B(blue)
+series Gold yellow, Silver gray, Bronze orange
+series Fleet A red, Fleet B blue
 ```

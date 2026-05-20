@@ -4,8 +4,8 @@
 sitemap The Salty Compass
 
 tag Auth
-  Public(green)
-  Crew Only(blue)
+  Public green
+  Crew Only blue
 
 Home | Auth: Public, description: Landing page with interactive demos
   -shop-> Shop
@@ -109,12 +109,11 @@ Home
   -explore-> Blog
 Products
   Pricing
-    -upgrade(green)-> Enterprise
+    -upgrade-> Enterprise
 ```
 
 - `-> Target` — plain arrow
 - `-label-> Target` — labeled arrow
-- `-label(color)-> Target` — labeled and colored arrow
 
 ## Metadata
 
@@ -162,8 +161,8 @@ Descriptions render as secondary text on the page card. The indented form must c
 Add a color name in parentheses after a page or group name:
 
 ```
-Home(blue)
-[Admin Section(red)]
+Home blue
+[Admin Section red]
   Dashboard
   Settings
 ```
@@ -176,13 +175,13 @@ Define color-coded tags for metadata values. Tag groups must appear before page 
 sitemap Company Site
 
 tag Status
-  Live(green)
-  Draft(yellow)
-  Deprecated(red)
+  Live green
+  Draft yellow
+  Deprecated red
 
 tag Owner
-  Marketing(blue)
-  Engineering(purple)
+  Marketing blue
+  Engineering purple
 
 Home
   status: Live
@@ -220,12 +219,12 @@ Keyboard: Tab to focus a node, Enter or Space to toggle.
 sitemap The Salty Compass
 
 tag Auth
-  Public(green)
-  Crew Only(blue)
+  Public green
+  Crew Only blue
 
 tag Status
-  Live(cyan)
-  Coming Soon(yellow)
+  Live cyan
+  Coming Soon yellow
 
 Home | Auth: Public | Status: Live
   -shop-> Shop

@@ -4,10 +4,10 @@
 boxes-and-lines Pirate Software
 
 tag Status as s
-  Done(green)
-  Doing(yellow)
-  Todo(red)
-  NA(gray) default
+  Done green
+  Doing yellow
+  Todo red
+  NA gray default
 
 active-tag Status
 
@@ -164,11 +164,11 @@ Tags add colored metadata dimensions for filtering and visual grouping.
 ### Declaring tags
 
 ```
-tag Team t Backend(blue), Frontend(green), Platform(purple)
-tag Priority p High(red), Medium(orange), Low(gray)
+tag Team as t Backend blue, Frontend green, Platform purple
+tag Priority as p High red, Medium orange, Low gray
 ```
 
-Format: `tag Name alias Value1(color), Value2(color), ...`
+Format: `tag Name as alias Value1 color, Value2 color, ...`
 
 ### Assigning tags
 
@@ -208,7 +208,7 @@ Only `//` comments are supported.
 ```dgmo
 boxes-and-lines Microservices
 
-tag Team t Backend(blue), Frontend(green), Infra(purple)
+tag Team as t Backend blue, Frontend green, Infra purple
 active-tag Team
 direction LR
 

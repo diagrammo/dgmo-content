@@ -45,10 +45,10 @@ Lines slope upward for increases and downward for decreases.
 
 ## Color Annotations
 
-Add `(color)` after the label to set a custom color:
+Append a color name (lowercase) after the label to set a custom color:
 
 ```
-Python (blue) 3 1 1
+Python blue 3 1 1
 ```
 
 ## Thousands Commas

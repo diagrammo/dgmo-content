@@ -80,7 +80,7 @@ Connect states with `->`. Add labels between dashes:
 ```
 Idle -> Active
 Idle -start-> Active
-Active -finish(green)-> Done
+Active -finish-> Done
 ```
 
 ### Indent-Based Source Inference
@@ -107,20 +107,13 @@ Chain multiple states on a single line:
 
 ## State Colors
 
-Add a color name in parentheses after a state label:
+Append a color name (lowercase) at the end of a state label:
 
 ```
-Active(green) -> Error(red)
+Active green -> Error red
 ```
 
-## Transition Colors
-
-Add a color in parentheses inside the arrow label:
-
-```
-Idle -go(green)-> Active
-Active -fail(red)-> Error
-```
+The 11 recognized colors are: `red`, `orange`, `yellow`, `green`, `blue`, `purple`, `teal`, `cyan`, `gray`, `black`, `white`. To use one as a literal label, capitalize it.
 
 ## Groups
 
@@ -129,10 +122,10 @@ Use bracket syntax `[Name]` to visually group states into regions. States indent
 ```
 state
 
-[Happy Path](green)
+[Happy Path] green
   [*] -> Processing -> Approved -> [*]
 
-[Error Handling](red)
+[Error Handling] red
   Processing -fail-> Rejected -> [*]
 ```
 

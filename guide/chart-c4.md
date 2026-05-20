@@ -179,15 +179,15 @@ Color-code elements by technology, team, or any custom category:
 
 ```
 tag Technology as tech
-  React(blue)
-  Node.js(green)
-  PostgreSQL(purple)
-  Redis(red)
+  React blue
+  Node.js green
+  PostgreSQL purple
+  Redis red
 
 tag Team as t
-  Product(blue) default
-  Data(orange)
-  Infrastructure(teal)
+  Product blue default
+  Data orange
+  Infrastructure teal
 ```
 
 Then reference tags in metadata: `container API | tech: Node.js, t: Product`.
@@ -224,15 +224,15 @@ deployment
 c4 SaaS Analytics Platform
 
 tag Technology as tech
-  React(blue)
-  Node.js(green)
-  PostgreSQL(purple)
-  Redis(red)
+  React blue
+  Node.js green
+  PostgreSQL purple
+  Redis red
 
 tag Team as t
-  Product(blue) default
-  Data(orange)
-  Infrastructure(teal)
+  Product blue default
+  Data orange
+  Infrastructure teal
 
 person End User | description: Views dashboards and creates reports
 person Account Admin | description: Manages workspace settings and members

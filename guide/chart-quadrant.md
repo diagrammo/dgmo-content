@@ -5,10 +5,10 @@ quadrant Crew Performance Assessment
 x-label Low Skill, High Skill
 y-label Low Loyalty, High Loyalty
 
-top-right Promote (green)
-top-left Train (yellow)
-bottom-left Maroon (red)
-bottom-right Watch Closely (purple)
+top-right Promote green
+top-left Train yellow
+bottom-left Maroon red
+bottom-right Watch Closely purple
 
 Quartermaster 0.9, 0.95
 Navigator 0.85, 0.8
@@ -27,10 +27,10 @@ quadrant Chart Title
 x-label Low Label, High Label
 y-label Low Label, High Label
 
-top-right Quadrant Label (color)
-top-left Quadrant Label (color)
-bottom-left Quadrant Label (color)
-bottom-right Quadrant Label (color)
+top-right Quadrant Label color
+top-left Quadrant Label color
+bottom-left Quadrant Label color
+bottom-right Quadrant Label color
 
 Item Name x, y
 ```
@@ -62,8 +62,8 @@ Item B 0.4, 0.3
 Colors can be specified in parentheses after each quadrant label:
 
 ```
-top-right Promote (green)
-top-left Train (yellow)
-bottom-left Maroon (red)
-bottom-right Watch Closely (purple)
+top-right Promote green
+top-left Train yellow
+bottom-left Maroon red
+bottom-right Watch Closely purple
 ```

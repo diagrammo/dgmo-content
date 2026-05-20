@@ -48,7 +48,7 @@ ER diagrams render database-style entity-relationship boxes with columns, data t
 er Diagram Title
 notation crowsfoot
 
-TableName (color)
+TableName color
   column_name type [constraints]
 
 SourceTable 1--* TargetTable : label
@@ -78,8 +78,8 @@ ships
 Colors are auto-assigned from the palette. Override with a color name in parentheses:
 
 ```
-ships (blue)
-treasure (red)
+ships blue
+treasure red
 ```
 
 ## Columns
@@ -187,7 +187,7 @@ This replaces crow's foot markers with text like `1`, `*`, and `0..1`.
 ```dgmo
 er Pirate Ports
 
-ports (blue)
+ports blue
   id int pk
   name varchar
   region varchar unique
@@ -198,7 +198,7 @@ ships
   home_port int fk
   cannons int
 
-captains (green)
+captains green
   id int pk
   name varchar
   ship_id int fk

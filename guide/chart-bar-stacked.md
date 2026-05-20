@@ -42,7 +42,7 @@ Voyage 2 25 35 20 20
 Colors can be specified per series:
 
 ```
-series Imports(blue), Exports(green), Tariffs(orange)
+series Imports blue, Exports green, Tariffs orange
 ```
 
 ## Variants
@@ -52,7 +52,7 @@ series Imports(blue), Exports(green), Tariffs(orange)
 ```dgmo
 bar-stacked Port Revenue by Trade
 orientation-horizontal
-series Imports(blue), Exports(green), Tariffs(orange)
+series Imports blue, Exports green, Tariffs orange
 
 Port Royal 300 450 80
 Tortuga 150 200 30

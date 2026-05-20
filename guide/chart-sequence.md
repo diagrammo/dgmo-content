@@ -274,13 +274,13 @@ Tags add color-coded metadata dimensions to sequence diagrams. Define a tag grou
 
 ```
 tag Concern as c
-  Caching(blue)
-  Auth(green)
-  BusinessLogic(purple) default
+  Caching blue
+  Auth green
+  BusinessLogic purple default
 ```
 
 - `tag Name` declares a tag group; `alias x` adds a shorthand
-- Each entry: `Value(color)` — named color for that value
+- Each entry: `Value color` — named color trails the value (lowercase)
 - `default` on an entry applies it to untagged elements when the group is active
 
 ### Attaching Tags
@@ -320,9 +320,9 @@ Set `active-tag GroupName` in settings to activate a group on load.
 sequence E-Commerce Checkout
 
 tag Layer as l
-  Frontend(teal)
-  Backend(blue)
-  Storage(purple)
+  Frontend teal
+  Backend blue
+  Storage purple
 
 [Backend]
   OrderService

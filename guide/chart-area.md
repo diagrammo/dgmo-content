@@ -5,8 +5,8 @@ area Fleet Growth Over Time
 series Ships
 x-label Year
 
-era 1710 -> 1716 Rise (green)
-era 1716 -> 1720 Decline (red)
+era 1710 -> 1716 Rise green
+era 1716 -> 1720 Decline red
 
 1710 3
 1712 5
@@ -35,8 +35,8 @@ Annotate named time periods with a shaded background band and label:
 area Fleet Growth by Era
 x-label Year
 
-era 1710 -> 1714 Early Growth (blue)
-era 1714 -> 1720 Decline (red)
+era 1710 -> 1714 Early Growth blue
+era 1714 -> 1720 Decline red
 
 1710 3
 1712 5
@@ -46,7 +46,7 @@ era 1714 -> 1720 Decline (red)
 1720 4
 ```
 
-Era syntax: `era <start> -> <end> Label (color)`
+Era syntax: `era <start> -> <end> Label color`
 
 - `start` and `end` must exactly match data point labels
 - Color is optional; omit for the palette default

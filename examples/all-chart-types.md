@@ -12,18 +12,18 @@
 ```dgmo
 arc Pirate Alliances
 
-[Caribbean](red)
+[Caribbean] red
   Blackbeard -> Bonnet:    8
   Blackbeard -> Vane:      5
   Blackbeard -> Hornigold: 4
   Hornigold  -> Bonnet:    2
 
-[Women Pirates](purple)
+[Women Pirates] purple
   Bonny   -> Rackham: 9
   Bonny   -> Read:    7
   Rackham -> Vane:    3
 
-[West Africa](teal)
+[West Africa] teal
   Roberts -> Davis:    6
   Davis   -> Roberts: 10
 ```
@@ -37,8 +37,8 @@ area Fleet Growth Over Time
 series Ships
 x-label Year
 
-era 1710 -> 1716 Rise (green)
-era 1716 -> 1720 Decline (red)
+era 1710 -> 1716 Rise green
+era 1716 -> 1720 Decline red
 
 1710  3
 1712  5
@@ -56,11 +56,11 @@ era 1716 -> 1720 Decline (red)
 bar Treasure Hauls by Port
 series Gold Doubloons
 
-Port Royal (blue)    850
-Tortuga (green)      620
-Nassau (red)        1100
-Havana (yellow)      430
-Cartagena (purple)   780
+Port Royal blue    850
+Tortuga green      620
+Nassau red        1100
+Havana yellow      430
+Cartagena purple   780
 ```
 
 ---
@@ -71,9 +71,9 @@ Cartagena (purple)   780
 bar-stacked Port Revenue by Trade
 orientation-horizontal
 series
-  Imports(blue)
-  Exports(green)
-  Tariffs(orange)
+  Imports blue
+  Exports green
+  Tariffs orange
 
 Port Royal 300 450  80
 Tortuga    150 200  30
@@ -91,13 +91,13 @@ size-label Crew
 x-label Firepower
 y-label Reputation
 
-[English Pirates](red)
+[English Pirates] red
   Blackbeard   85 90 80
   Calico Jack  45 55 35
   Anne Bonny   50 70 30
   Charles Vane 60 65 45
 
-[French Buccaneers](blue)
+[French Buccaneers] blue
   L'Olonnais         70 80 60
   Michel de Grammont 55 60 40
   Pierre le Grand    30 45 25
@@ -150,9 +150,9 @@ x-label Distance (meters)
 y-label Height (meters)
 x 0 to 250
 
-15 degrees(blue): -0.001*x^2 + 0.27*x
-30 degrees(green): -0.002*x^2 + 0.58*x
-45 degrees(red): -0.003*x^2 + 0.75*x
+15 degrees blue: -0.001*x^2 + 0.27*x
+30 degrees green: -0.002*x^2 + 0.58*x
+45 degrees red: -0.003*x^2 + 0.75*x
 ```
 
 ---
@@ -162,11 +162,11 @@ x 0 to 250
 ```dgmo
 funnel Pirate Recruitment Pipeline
 
-Port Visitors (blue)         1000
-Tavern Recruits (cyan)        500
-Crew Trials (yellow)          200
-Sworn Pirates (orange)        100
-Veteran Buccaneers (red)       50
+Port Visitors blue         1000
+Tavern Recruits cyan        500
+Crew Trials yellow          200
+Sworn Pirates orange        100
+Veteran Buccaneers red       50
 ```
 
 ---
@@ -195,8 +195,8 @@ series Knots
 x-label Day
 y-label Speed
 
-era Day 1 -> Day 3 Rough Seas (red)
-era Day 3 -> Day 7 Fair Winds (blue)
+era Day 1 -> Day 3 Rough Seas red
+era Day 3 -> Day 7 Fair Winds blue
 
 Day 1  8
 Day 2 10
@@ -213,11 +213,11 @@ Day 7  6
 
 ```dgmo
 line Monthly Captures by Fleet
-series Blackbeard(red), Roberts(blue), Vane(green)
+series Blackbeard red, Roberts blue, Vane green
 x-label Month
 
 era Jan -> Mar Atlantic Season
-era Mar -> Jun Caribbean Season (teal)
+era Mar -> Jun Caribbean Season teal
 
 Jan 3 5 2
 Feb 4 3 4
@@ -279,26 +279,26 @@ Crew Morale     75
 ```dgmo
 sankey Rum Supply Chain of the Caribbean
 
-Sugar Plantations (green)
-  Tortuga Distillery (orange) 3000
-  Nassau Distillery (orange) 2500
-  Kingston Distillery (orange) 2000
+Sugar Plantations green
+  Tortuga Distillery orange 3000
+  Nassau Distillery orange 2500
+  Kingston Distillery orange 2000
 
 Tortuga Distillery
-  Pirate Taverns (red) 2000
-  Ship Provisions (teal) 1000
+  Pirate Taverns red 2000
+  Ship Provisions teal 1000
 
 Nassau Distillery
   Pirate Taverns 1500
-  Black Market (purple) 1000
+  Black Market purple 1000
 
 Kingston Distillery
-  Royal Navy (blue) 1200
+  Royal Navy blue 1200
   Pirate Taverns 800
 
 Pirate Taverns
   Crew Morale 3500
-  Bar Fights 800 (red)
+  Bar Fights 800 red
 
 Ship Provisions -> Long Voyages 1000
 ```
@@ -312,20 +312,20 @@ scatter Pirate Captains
 x-label Ruthlessness
 y-label Treasure
 
-[Caribbean](red)
+[Caribbean] red
   Blackbeard   90  8500
   Calico Jack  55  3200
   Anne Bonny   70  2800
   Henry Morgan 85 12000
   Charles Vane 75  4100
 
-[Atlantic](blue)
+[Atlantic] blue
   Black Sam Bellamy   60  9200
   Bartholomew Roberts 88 11000
   Edward Low          95  5500
   Stede Bonnet        30  1800
 
-[Indian Ocean](green)
+[Indian Ocean] green
   Henry Every  80 14000
   William Kidd 65  6800
   Thomas Tew   50  7200
@@ -342,11 +342,11 @@ period
   1715
   1725
 
-Blackbeard (red)           40  4
-Bartholomew Roberts (blue) 12 52
-Charles Vane (orange)      20  2
-Anne Bonny (green)          8 15
-Calico Jack (purple)       18  6
+Blackbeard red           40  4
+Bartholomew Roberts blue 12 52
+Charles Vane orange      20  2
+Anne Bonny green          8 15
+Calico Jack purple       18  6
 ```
 
 ---
@@ -412,24 +412,24 @@ sub-node-label Crew
 show-sub-node-count
 
 tag Rank as r
-  Sailor(blue)
-  Captain(red)
-  FirstMate(orange)
-  Quartermaster(yellow)
-  Bosun(green)
-  Gunner(teal)
-  Jester(cyan)
-  Swab(purple)
+  Sailor blue
+  Captain red
+  FirstMate orange
+  Quartermaster yellow
+  Bosun green
+  Gunner teal
+  Jester cyan
+  Swab purple
 
 tag Ship as s
-  Revenge(blue)
-  Serpent(green)
-  Phantom(purple)
+  Revenge blue
+  Serpent green
+  Phantom purple
 
 tag Status as st
-  Loyal(green)
-  Turncoat(red)
-  NewRecruit(yellow)
+  Loyal green
+  Turncoat red
+  NewRecruit yellow
 
 Blackbeard| r: Captain, s: Revenge
   Anne Bonny| r: FirstMate
@@ -493,10 +493,10 @@ quadrant Crew Performance Assessment
 x-label Low Skill, High Skill
 y-label Low Loyalty, High Loyalty
 
-top-right Promote (green)
-top-left Train (yellow)
-bottom-left Maroon (red)
-bottom-right Watch Closely (purple)
+top-right Promote green
+top-left Train yellow
+bottom-left Maroon red
+bottom-right Watch Closely purple
 
 Quartermaster  0.9 0.95
 Navigator     0.85  0.8
@@ -603,9 +603,9 @@ Crew Welfare | quadrant: bottom-right
 ```dgmo
 venn Pirate Skill Overlap
 
-Swordsmanship(red) as sw
-Navigation(blue) as nav
-Leadership(green) as lead
+Swordsmanship red as sw
+Navigation blue as nav
+Leadership green as lead
 
 sw + nav        Sea Raiders
 nav + lead      Voyager Captains
@@ -649,12 +649,12 @@ start 1718-05-01
 today-marker 1718-05-15
 
 tag Role as r
-  Command(red)
-  Crew(blue)
-  Captives(orange)
+  Command red
+  Crew blue
+  Captives orange
 
-marker 1718-05-22 Ransom Deadline (red)
-era 1718-05-10 -> 1718-05-18 Blockade Active (blue)
+marker 1718-05-22 Ransom Deadline red
+era 1718-05-10 -> 1718-05-18 Blockade Active blue
 
 parallel
   [Preparation] | r: Command
@@ -684,32 +684,32 @@ parallel
 kanban Crew Tasks
 
 tag Priority as p
-  Low(blue)
-  Medium(yellow)
-  High(orange)
-  Critical(red)
+  Low blue
+  Medium yellow
+  High orange
+  Critical red
 
 tag Watch as w
-  Morning(green)
-  Afternoon(yellow)
-  Night(purple)
+  Morning green
+  Afternoon yellow
+  Night purple
 
-[Backlog](blue)
+[Backlog] blue
   Repair the foretops'l | p: Low, w: Morning
     Mend after the last storm
   Reinforce the gunwales | p: Medium, w: Afternoon
 
-[In Progress](yellow)
+[In Progress] yellow
   Restock powder kegs | p: High, w: Morning
     Last batch ran damp
   Caulk the hull seams | p: High, w: Afternoon
     Hold has been taking water
 
-[Blocked](red)
+[Blocked] red
   Find a new sailmaker | p: Critical, w: Morning
     Old one took ill at last port
 
-[Done](green)
+[Done] green
   Inventory the hold | p: Medium, w: Night
   Sharpen the cutlasses | p: Low, w: Night
 ```
@@ -796,25 +796,25 @@ timeline The Golden Age of Piracy (1716–1722)
 scale on
 
 tag Pirate as p
-  Blackbeard(red)
-  Bonny & Rackham(purple)
-  Roberts(blue)
+  Blackbeard red
+  Bonny & Rackham purple
+  Roberts blue
 
 tag Outcome as o
-  Uncertain(yellow)
-  Victory(green)
-  Defeat(red)
+  Uncertain yellow
+  Victory green
+  Defeat red
 
 tag Theatre as t
-  Caribbean(teal)
-  Atlantic(blue)
-  Africa(orange)
+  Caribbean teal
+  Atlantic blue
+  Africa orange
 
 era 1716->1718 Nassau Republic
 era 1719->1722 Roberts Era
 
-marker 1718-07 Woodes Rogers arrives (orange)
-marker 1721-08 Roberts reaches peak (teal)
+marker 1718-07 Woodes Rogers arrives orange
+marker 1721-08 Roberts reaches peak teal
 
 1716->1717        Sails under Hornigold | p: Blackbeard, o: Victory
 1717-11->1718-06  Commands Queen Anne's Revenge |  p: Blackbeard, o: Victory, t: Atlantic
@@ -838,10 +838,10 @@ marker 1721-08 Roberts reaches peak (teal)
 boxes-and-lines Pirate Fleet Command
 
 tag Status as s
-  Operational(green)
-  Damaged(orange)
-  Sunk(red)
-  Building(blue) default
+  Operational green
+  Damaged orange
+  Sunk red
+  Building blue default
 
 active-tag Status
 
@@ -874,8 +874,8 @@ c4 Pirate Treasure Map System
 solid-fill
 
 tag Scope as sc
-  Crew(blue)
-  External(gray)
+  Crew blue
+  External gray
 
 Captain is a person | description Commands the fleet and plans raids
 
@@ -1014,9 +1014,9 @@ direction-tb
 infra Pirate Communication Network
 
 tag Fleet as f
-  Blackbeard(red)
-  Bonny(purple)
-  Rackham(blue)
+  Blackbeard red
+  Bonny purple
+  Rackham blue
 
 Edge
   rps 200
@@ -1073,14 +1073,14 @@ RumRunner | f: Bonny
 mindmap Product Strategy
 
 tag Priority as p
-  High(red)
-  Medium(yellow)
-  Low(green)
+  High red
+  Medium yellow
+  Low green
 
 tag Department as d
-  Engineering(blue)
-  Design(purple)
-  Marketing(orange)
+  Engineering blue
+  Design purple
+  Marketing orange
 
 active-tag Priority
 
@@ -1114,14 +1114,14 @@ sequence Treasure Hunt App
 active-tag Concern
 
 tag Concern as c
-  Search(blue)
-  Claims(green)
-  Notifications(orange)
+  Search blue
+  Claims green
+  Notifications orange
 
 tag Layer as l
-  Frontend(teal)
-  Backend(purple)
-  Data(red)
+  Frontend teal
+  Backend purple
+  Data red
 
 User is an actor
 WebApp is a frontend | l: Frontend
@@ -1162,14 +1162,14 @@ else
 sitemap Pirate Bay Trading Co.
 
 tag Access
-  Public(green)
-  Crew Only(blue)
-  Captain(red)
+  Public green
+  Crew Only blue
+  Captain red
 
 tag Page
-  Landing(purple)
-  Form(orange)
-  Content(cyan)
+  Landing purple
+  Form orange
+  Content cyan
 
 Home | Access: Public, Page: Landing
   -shop-> Shop

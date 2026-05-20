@@ -59,14 +59,14 @@ Point B 45 55 35
 
 ## Category Groups
 
-Use `[Category Name](color)` headers to group points into colored categories:
+Use `[Category Name] color` headers to group points into colored categories:
 
 ```
-[English Pirates](red)
+[English Pirates] red
 Blackbeard 85 90 80
 Calico Jack 45 55 35
 
-[French Buccaneers](blue)
+[French Buccaneers] blue
 L'Olonnais 70 80 60
 ```
 
@@ -80,12 +80,12 @@ Add a third value per data point and use `sizelabel` to label the size dimension
 scatter Pirate Fleets of the Caribbean
 size-label Crew
 
-[English Pirates](red)
+[English Pirates] red
 Blackbeard 85 90 80
 Calico Jack 45 55 35
 Anne Bonny 50 70 30
 
-[French Buccaneers](blue)
+[French Buccaneers] blue
 L'Olonnais 70 80 60
 Pierre le Grand 30 45 25
 ```

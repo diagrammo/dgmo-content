@@ -6,9 +6,9 @@ x-label Distance (meters)
 y-label Height (meters)
 x 0 to 250
 
-15 degrees(blue): -0.001*x^2 + 0.27*x
-30 degrees(green): -0.002*x^2 + 0.58*x
-45 degrees(red): -0.003*x^2 + 0.75*x
+15 degrees blue: -0.001*x^2 + 0.27*x
+30 degrees green: -0.002*x^2 + 0.58*x
+45 degrees red: -0.003*x^2 + 0.75*x
 ```
 
 ## Syntax
@@ -19,7 +19,7 @@ x-label X Axis Label
 y-label Y Axis Label
 x: min to max
 
-Label(color): expression
+Label color: expression
 ```
 
 ## Metadata Keys
@@ -37,7 +37,7 @@ Label(color): expression
 Each data line defines a named function with an optional color and a math expression:
 
 ```
-Label(color): expression
+Label color: expression
 ```
 
 Expressions support:
@@ -48,9 +48,9 @@ Expressions support:
 
 ## Colors
 
-Specify colors in parentheses after the function name:
+Append a color name (lowercase) after the function name:
 
 ```
-Parabola(blue): x^2
-Linear(red): 2*x + 1
+Parabola blue: x^2
+Linear red: 2*x + 1
 ```

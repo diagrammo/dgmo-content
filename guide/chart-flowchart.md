@@ -69,20 +69,13 @@ The indented lines connect back to the last node at the parent indent level, cre
 
 ## Node Colors
 
-Add a color name in parentheses at the end of a node label:
+Append a color name (lowercase) at the end of a node label:
 
 ```
-(Start(green)) -> [Process(blue)] -> (End(red))
+(Start green) -> [Process blue] -> (End red)
 ```
 
-## Edge Colors
-
-Add a color in parentheses inside the arrow label:
-
-```
-<OK?> -yes(green)-> [Continue]
-<OK?> -no(red)-> [Abort]
-```
+The 11 recognized colors are: `red`, `orange`, `yellow`, `green`, `blue`, `purple`, `teal`, `cyan`, `gray`, `black`, `white`. To use one as a literal label, capitalize it (`Red`, `Blue`).
 
 ## Comments
 
@@ -96,7 +89,7 @@ Add a color in parentheses inside the arrow label:
 ```dgmo
 flowchart Color Demo
 
-(Start(green)) -> [Parse Input] -> <Valid?(blue)>
-  -yes(green)-> [Process(teal)] -> (Success(green))
-  -no(red)-> [Error Handler(red)] -> /Log Error(orange)/ -> (Failure(red))
+(Start green) -> [Parse Input] -> <Valid? blue>
+  -yes-> [Process teal] -> (Success green)
+  -no-> [Error Handler red] -> /Log Error orange/ -> (Failure red)
 ```

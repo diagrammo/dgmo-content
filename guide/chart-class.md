@@ -37,7 +37,7 @@ Class diagrams render UML-style boxes with three compartments per the UML spec: 
 ```
 class Diagram Title
 
-ClassName [modifier] (color)
+ClassName [modifier] color
   + publicField: type
   - privateField: type
   # protectedField: type
@@ -160,11 +160,11 @@ Service ..> Logger : uses
 
 ## Colors
 
-Colors are auto-assigned by modifier type. Override with a color name in parentheses:
+Colors are auto-assigned by modifier type. Override with a trailing color name (lowercase):
 
 ```
-Ship (red)
-Engine [abstract] (purple)
+Ship red
+Engine [abstract] purple
 ```
 
 ## Comments
@@ -182,7 +182,7 @@ Drawable [interface]
   + draw(): void
   + resize(w: number, h: number): void
 
-Shape implements Drawable [abstract] (purple)
+Shape implements Drawable [abstract] purple
   # x: number
   # y: number
   + area(): number

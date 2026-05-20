@@ -12,19 +12,19 @@ holiday
   2024-05-27 Memorial Day
 
 tag Team as t
-  Engineering(blue)
-  Design(purple)
-  QA(orange)
-  Marketing(green)
+  Engineering blue
+  Design purple
+  QA orange
+  Marketing green
 
 tag Phase as p
-  Foundation(teal)
-  Build(blue)
-  Launch(red)
+  Foundation teal
+  Build blue
+  Launch red
 
-era 2026-04-06 -> 2026-04-10 RSA Conference (purple)
+era 2026-04-06 -> 2026-04-10 RSA Conference purple
 marker 2026-03-27 Board Review
-marker 2026-05-12 Trade Show Demo (orange)
+marker 2026-05-12 Trade Show Demo orange
 
 parallel
   [Backend] | t: Engineering
@@ -167,7 +167,7 @@ Groups can be nested:
 Add a color suffix or use pipe metadata:
 
 ```
-[Backend](blue)
+[Backend] blue
 [Frontend] | t: Engineering
 ```
 
@@ -269,7 +269,7 @@ Background shaded regions spanning a time range:
 
 ```
 era 2024-01 -> 2024-06 Phase 1
-era 2024-07 -> 2024-12 Phase 2 (green)
+era 2024-07 -> 2024-12 Phase 2 green
 ```
 
 ## Markers
@@ -278,7 +278,7 @@ Vertical date markers for key milestones:
 
 ```
 marker 2024-03-01 Kickoff
-marker 2024-06-30 Demo Day (red)
+marker 2024-06-30 Demo Day red
 ```
 
 ## Tag Groups
@@ -287,13 +287,13 @@ Tag groups categorize tasks with color-coded values:
 
 ```
 tag Team as t
-  Engineering(blue)
-  Design(purple)
-  QA(orange)
+  Engineering blue
+  Design purple
+  QA orange
 
 tag Phase as p
-  Foundation(green)
-  Growth(orange)
+  Foundation green
+  Growth orange
 
 [Backend] | t: Engineering
   30bd Database Layer | p: Foundation
@@ -308,9 +308,9 @@ Use `sort: tag` (or `sort: tag:GroupName`) to organize tasks into horizontal swi
 sort tag:Team
 
 tag Team as t
-  Frontend(blue)
-  Backend(green)
-  QA(orange)
+  Frontend blue
+  Backend green
+  QA orange
 
 [Sprint 1]
   10bd API endpoints | t: Backend
@@ -341,9 +341,9 @@ critical-path
 dependencies
 
 tag Team as t
-  Engineering(blue)
-  Design(purple)
-  QA(orange)
+  Engineering blue
+  Design purple
+  QA orange
 
 era 2024-01 -> 2024-06 Phase 1
 marker 2024-03-01 Kickoff

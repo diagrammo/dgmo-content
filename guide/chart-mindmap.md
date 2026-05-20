@@ -57,11 +57,11 @@ mindmap Root
 
 ### Node Colors
 
-Add a color suffix in parentheses:
+Append a color name (lowercase) at the end of the label:
 
 ```
-Important Topic(red)
-  Sub-topic(blue)
+Important Topic red
+  Sub-topic blue
 ```
 
 ### Descriptions
@@ -125,9 +125,9 @@ Tag groups define color-coded categories. They appear before content and follow 
 mindmap Root
 
 tag Priority as p
-  High(red)
-  Medium(yellow)
-  Low(green)
+  High red
+  Medium yellow
+  Low green
 
   Task A | p: High
   Task B | p: Low
@@ -150,8 +150,8 @@ Options are placed on their own line before content:
 mindmap Root
 
 tag Priority as p
-  High(red)
-  Low(green)
+  High red
+  Low green
 
 active-tag Priority
 no-descriptions
@@ -162,17 +162,17 @@ no-descriptions
 ## Complete Example
 
 ```dgmo
-mindmap Product Strategy(blue)
+mindmap Product Strategy blue
 
 tag Priority as p
-  High(red)
-  Medium(yellow)
-  Low(green)
+  High red
+  Medium yellow
+  Low green
 
 tag Department as d
-  Engineering(blue)
-  Design(purple)
-  Marketing(orange)
+  Engineering blue
+  Design purple
+  Marketing orange
 
 active-tag Priority
 

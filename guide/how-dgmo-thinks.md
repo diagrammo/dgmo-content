@@ -41,15 +41,15 @@ When you see indentation in DGMO, read it as "belongs to."
 
 ## Meaning First, Color Second
 
-When you want to make something red, your instinct might be to reach for a color suffix: `AuthService(red)`. That works for one-offs. But DGMO encourages a different approach for anything that carries meaning.
+When you want to make something red, your instinct might be to reach for a trailing color: `AuthService red`. That works for one-offs. But DGMO encourages a different approach for anything that carries meaning.
 
 **Tags** let you separate *what something means* from *how it looks*:
 
 ```dgmo-source
 tag Priority as p
-  Critical(red)
-  Normal(green)
-  Low(gray)
+  Critical red
+  Normal green
+  Low gray
 
 API | p: Critical
 Cache | p: Low
@@ -62,7 +62,7 @@ Why go through this indirection?
 - **Filtering works.** Tags are structured metadata — you can sort, hide, and group by them.
 - **One change updates everything.** Rename "Critical" to "Urgent" in one place, not fifty nodes.
 
-Use color suffixes `(red)` for quick visual accents. Use tags when color carries meaning you'd want in a legend.
+Use trailing color names (`red`, `blue`, …) for quick visual accents. Use tags when color carries meaning you'd want in a legend.
 
 ---
 
@@ -103,7 +103,7 @@ The principle: **name things sensibly and DGMO figures out the rest.** Override 
 
 ## Palette-Aware Colors
 
-When you write `(red)`, DGMO doesn't render `#ff0000`. It renders *the red from your active palette* — a shade that harmonizes with the other nine named colors in that palette.
+When you write `red`, DGMO doesn't render `#ff0000`. It renders *the red from your active palette* — a shade that harmonizes with the other ten named colors in that palette.
 
 The allowed color names are: `red`, `orange`, `yellow`, `green`, `blue`, `purple`, `teal`, `cyan`, `gray`, `black`, `white`.
 
@@ -136,7 +136,7 @@ Content indented below the bracket line belongs to that group. Bracket grouping 
 Groups can have color suffixes and pipe metadata:
 
 ```dgmo-source
-[Backend](blue) | team: Platform
+[Backend] blue | team: Platform
   API
   Database
   Cache
@@ -154,10 +154,9 @@ DGMO uses the same small set of arrow patterns everywhere:
 | `~>` | Asynchronous | `API ~> Queue` |
 | `-label->` | Labeled edge | `-routes-> UserService` |
 | `~label~>` | Labeled async edge | `~notify~> Email` |
-| `-(color)->` | Colored edge | `-(red)-> Fallback` |
 | `<->` | Bidirectional | `A <-> B` |
 
-The label goes between the dashes (or tildes). Color goes in parens on the label. This works identically in sequence, infra, flowchart, C4, ER, class, sitemap, and boxes-and-lines diagrams.
+The label goes between the dashes (or tildes). This works identically in sequence, infra, flowchart, C4, ER, class, sitemap, and boxes-and-lines diagrams.
 
 Learn it once, use it everywhere.
 
@@ -241,7 +240,7 @@ API | description: Main gateway         // pipe metadata
 ```dgmo-source
 + name: string                          // class field type
 + sail(): void                          // class method return
-Trajectory(blue): -0.001*x^2 + 0.27*x  // function expression
+Trajectory blue: -0.001*x^2 + 0.27*x  // function expression
 ```
 
 **No colons anywhere else** — declarations, options, tags, data rows, arrows, groups, and comments are all colon-free:

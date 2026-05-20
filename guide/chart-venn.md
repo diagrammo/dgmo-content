@@ -3,9 +3,9 @@
 ```dgmo
 venn Pirate Skill Overlap
 
-Swordsmanship(red) as sw
-Navigation(blue) as nav
-Leadership(green) as lead
+Swordsmanship red as sw
+Navigation blue as nav
+Leadership green as lead
 
 sw + nav Sea Raiders
 nav + lead Voyager Captains
@@ -36,9 +36,9 @@ venn Chart Title
 Each set is defined as a name with an optional color and alias. 2 or 3 sets are supported.
 
 ```
-Swordsmanship(red) as sw
-Navigation(blue) as nav
-Leadership(green) as lead
+Swordsmanship red as sw
+Navigation blue as nav
+Leadership green as lead
 ```
 
 ### Colors
@@ -46,8 +46,8 @@ Leadership(green) as lead
 Colors can be specified in parentheses after the name:
 
 ```
-Math(blue) as m
-Science(orange) as s
+Math blue as m
+Science orange as s
 ```
 
 Supports named colors: `red`, `orange`, `yellow`, `green`, `blue`, `purple`, `teal`, `cyan`, `gray`.
@@ -57,8 +57,8 @@ Supports named colors: `red`, `orange`, `yellow`, `green`, `blue`, `purple`, `te
 Use `alias` to define a short name for intersections:
 
 ```
-Swordsmanship(red) as sw
-Navigation(blue) as nav
+Swordsmanship red as sw
+Navigation blue as nav
 ```
 
 The alias (`sw`, `nav`) is used when defining intersections. The full name is shown in the diagram.

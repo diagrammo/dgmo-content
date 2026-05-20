@@ -99,32 +99,32 @@ If no export palette is set, exports use whatever palette and theme you're curre
 
 ## Inline Color Annotations
 
-Place a color name in parentheses directly on an element to color it explicitly.
+Type a lowercase color name at the end of a label to color that element. The 11 recognized color names (`red`, `orange`, `yellow`, `green`, `blue`, `purple`, `teal`, `cyan`, `gray`, `black`, `white`) are reserved as trailing tokens — to use one as a literal label, capitalize it (`Red`, `Blue`).
 
-### Flowchart nodes and edges
+### Flowchart nodes
 
-Append `(color)` inside the node definition or on an edge label:
+Append the color inside the node shape, after the label:
 
 ```
 flowchart Request Pipeline
 
-(Start(green)) -> [Parse Input] -> <Valid?(blue)>
-  -yes(green)-> [Process(teal)] -> (Success(green))
-  -no(red)-> [Error Handler(red)] -> /Log Error(orange)/ -> (Failure(red))
+(Start green) -> [Parse Input] -> <Valid? blue>
+  -yes-> [Process teal] -> (Success green)
+  -no-> [Error Handler red] -> /Log Error orange/ -> (Failure red)
 ```
 
-Every node shape supports inline color — rounds `()`, rectangles `[]`, diamonds `<>`, parallelograms `//`, and more.
+Every node shape supports inline color — rounds `()`, rectangles `[]`, diamonds `<>`, parallelograms `//`, and more. Edges themselves take no color in flowchart, state, or sitemap — color flows through nodes only.
 
 ### Timeline eras and markers
 
 ```
 timeline Project Roadmap
 
-era 2025-01 -> 2025-06 Foundation (blue)
-era 2025-07 -> 2025-12 Growth (green)
+era 2025-01 -> 2025-06 Foundation blue
+era 2025-07 -> 2025-12 Growth green
 
-marker 2025-03 Beta Launch (orange)
-marker 2025-09 GA Release (purple)
+marker 2025-03 Beta Launch orange
+marker 2025-09 GA Release purple
 ```
 
 ---
@@ -139,13 +139,13 @@ This is the primary way to color sequence diagrams, org charts, infrastructure d
 
 ```
 tag GroupName as g
-  Value1(blue)
-  Value2(green)
-  Value3(orange) default
+  Value1 blue
+  Value2 green
+  Value3 orange default
 ```
 
 - **`alias g`** — a short alias you use when assigning metadata (optional but recommended)
-- **`(color)`** — the color for that value
+- **trailing color name** — append a lowercase color to each value
 - **`default`** — the fallback value applied to elements that have no explicit tag assignment
 
 You can define multiple tag groups in one diagram. Only one group is "active" (coloring the diagram) at a time — the active group is selected in the diagram legend.
@@ -170,15 +170,15 @@ sequence API Gateway — Infrastructure Concerns
 active-tag Concern
 
 tag Concern as c
-  Caching(blue)
-  Auth(green)
-  RateLimiting(orange)
-  BusinessLogic(purple) default
+  Caching blue
+  Auth green
+  RateLimiting orange
+  BusinessLogic purple default
 
 tag Team as t
-  Platform(teal)
-  Product(orange)
-  Security(red)
+  Platform teal
+  Product orange
+  Security red
 
 Mobile is an actor
 Gateway is a gateway | t: Platform
@@ -214,13 +214,13 @@ Org charts use tag groups to color nodes by any metadata field — location, sen
 org Acme Corp
 
 tag Location
-  NY(blue)
-  LA(yellow)
-  Remote(purple)
+  NY blue
+  LA yellow
+  Remote purple
 
 tag Status
-  FTE(green)
-  Contractor(orange)
+  FTE green
+  Contractor orange
 
 Jane Smith
   role: CEO
@@ -249,8 +249,8 @@ Jane Smith
 infra Production Traffic Flow
 
 tag Team as t
-  Backend(blue)
-  Platform(teal)
+  Backend blue
+  Platform teal
 
 CloudFront | t: Platform
   -> CloudArmor
@@ -275,9 +275,9 @@ Tags in timelines sort and color swim lanes. Use `sort tag:GroupName` to arrange
 timeline Product Roadmap 2025
 
 tag Team as t
-  Engineering(blue)
-  Design(purple)
-  Product(green)
+  Engineering blue
+  Design purple
+  Product green
 
 era 2025-01 -> 2025-06 Phase 1 - Foundation
 

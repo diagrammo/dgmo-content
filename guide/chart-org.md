@@ -6,24 +6,24 @@ sub-node-label Crew
 show-sub-node-count
 
 tag Rank as r
-  Captain(red)
-  FirstMate(orange)
-  Quartermaster(yellow)
-  Bosun(green)
-  Gunner(teal)
-  Sailor(blue) default
-  Jester(cyan)
-  Swab(purple)
+  Captain red
+  FirstMate orange
+  Quartermaster yellow
+  Bosun green
+  Gunner teal
+  Sailor blue default
+  Jester cyan
+  Swab purple
 
 tag Ship as s
-  Revenge(blue) default
-  Serpent(green)
-  Phantom(purple)
+  Revenge blue default
+  Serpent green
+  Phantom purple
 
 tag Status as st
-  Loyal(green) default
-  Turncoat(red)
-  NewRecruit(yellow)
+  Loyal green default
+  Turncoat red
+  NewRecruit yellow
 
 Blackbeard| r: Captain, s: Revenge
   Anne Bonny| r: FirstMate
@@ -135,8 +135,8 @@ Containers render as labeled boxes. They can have metadata like `goal:` and `cha
 Add a color name in parentheses:
 
 ```
-[Platform Team(blue)]
-[Frontend Team(green)]
+[Platform Team blue]
+[Frontend Team green]
 ```
 
 ## Tag Groups
@@ -147,13 +147,13 @@ Define color-coded tags for metadata values like location or status. Tag groups 
 org Acme Corp
 
 tag Location
-  NY(blue)
-  LA(yellow)
-  Remote(purple)
+  NY blue
+  LA yellow
+  Remote purple
 
 tag Status
-  FTE(green)
-  Contractor(orange)
+  FTE green
+  Contractor orange
 
 Jane Smith
   role: CEO

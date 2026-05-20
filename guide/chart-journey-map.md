@@ -111,9 +111,9 @@ Tags add color-coded dimensions like channel or touchpoint:
 
 ```
 tag Channel as ch
-  Web(blue)
-  Mobile(purple)
-  In-Person(green)
+  Web blue
+  Mobile purple
+  In-Person green
 
 [Research]
   Compare specs | 4, ch: Web
@@ -153,10 +153,10 @@ persona Tech-Savvy Shopper
   28yo developer, price-sensitive, does extensive research
 
 tag Channel as ch
-  Web(blue)
-  Mobile(purple)
-  Email(teal)
-  In-Person(green)
+  Web blue
+  Mobile purple
+  Email teal
+  In-Person green
 
 [Research]
   Compare specs | 4, ch: Web

@@ -4,9 +4,9 @@
 infra SaaS API Platform
 
 tag Team as t
-  Platform(teal) default
-  Backend(blue)
-  Data(purple)
+  Platform teal default
+  Backend blue
+  Data purple
 
 Edge
   rps 8000
@@ -636,8 +636,8 @@ Tags add metadata dimensions — team ownership, environment, region. They appea
 
 ```
 tag Team as t
-  Backend(blue)
-  Platform(teal) default
+  Backend blue
+  Platform teal default
   Data(violet)
 
 CDN | t: Platform
@@ -646,7 +646,7 @@ DB | t: Data
 ```
 
 - `tag Name alias x` — declare a tag group with optional shorthand
-- `Value(color)` — a tag value with its color
+- `Value color` — a tag value with its color (lowercase, trailing token)
 - `default` — auto-applies to components without this tag
 - `| alias: Value` — assign inline on a component
 
@@ -790,8 +790,8 @@ These appear after the arrow in pipe syntax: `-> Target | split: 60%, fanout: 3`
 infra E-Commerce Platform
 
 tag Team as t
-  Backend(blue)
-  Platform(teal) default
+  Backend blue
+  Platform teal default
   Data(violet)
 
 Edge
