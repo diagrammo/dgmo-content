@@ -74,17 +74,16 @@ In sequence diagrams, the parser recognizes common names and gives them the righ
 
 ```dgmo-source
 Redis                // cache (cylinder, dashed)
-UserService          // service (rounded rectangle)
 Kafka                // queue (horizontal cylinder)
 User                 // actor (stick figure)
-WebApp               // frontend (monitor)
+PostgresDB           // database (cylinder)
 ```
 
 You only need `is a` when the name doesn't match a pattern:
 
 ```dgmo-source
-Payments is a service       // "Payments" alone wouldn't infer
-Vault is a database         // "Vault" would infer as service
+Vault is a database         // "Vault" matches no rule, but you want database
+Notifications is a queue    // "Notifications" matches no rule
 ```
 
 In flowcharts, arrow labels infer color:

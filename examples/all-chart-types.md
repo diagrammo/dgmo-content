@@ -1124,8 +1124,8 @@ tag Layer as l
   Data red
 
 User is an actor
-WebApp is a frontend | l: Frontend
-TreasureAPI is a service | l: Backend
+WebApp | l: Frontend
+TreasureAPI | l: Backend
 MapDB is a database | l: Data
 NotifyQueue is a queue | l: Backend
 

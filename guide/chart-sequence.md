@@ -15,14 +15,14 @@ TreasureAPI -locations-> WebApp
 WebApp -Show treasure map-> User
 ```
 
-Notice that `User` renders as a stick figure, `OrderDB` as a cylinder, `WebApp` as a monitor, and `PaymentGateway` as a hexagon — all inferred automatically from the names. No declarations needed.
+Notice that `User` renders as a stick figure, `MapDB` as a cylinder, and `NotifyQueue` as a horizontal pipe — all inferred automatically from the names. Participants without a distinctive role (`WebApp`, `TreasureAPI`) fall through to the default rectangle. No declarations needed.
 
 ## Overview
 
 The sequence diagram uses an **inference-driven** syntax. Just write messages between participants and Diagrammo automatically:
 
 - **Creates participants** from their first mention — no declarations needed
-- **Infers participant shapes** from naming conventions — `User` gets a stick figure, `OrderDB` gets a cylinder, `API` gets a rounded box
+- **Infers participant shapes** from naming conventions — `User` gets a stick figure, `OrderDB` gets a cylinder, `Kafka` gets a horizontal pipe
 - **Tracks activation bars** from call stacks
 
 No `end` keywords are needed — blocks are scoped by indentation.
@@ -74,19 +74,15 @@ This creates five participants, each with a different shape — no declarations 
 
 The inference rules are checked in priority order (first match wins):
 
-| Type         | Shape               | Naming Patterns                                                                                      |
-| ------------ | ------------------- | ---------------------------------------------------------------------------------------------------- |
-| `actor`      | Stick figure        | `User`, `Customer`, `Client`, `Admin`, `Guest`, `Visitor`, `Operator`                                |
-| `database`   | Cylinder            | Names ending in `DB`; `Database`, `Store`, `Storage`, `Repo`, `Postgres`, `MySQL`, `Mongo`, `Dynamo` |
-| `cache`      | Dashed cylinder     | `Cache`, `Redis`, `Memcache`                                                                         |
-| `queue`      | Horizontal cylinder | `Queue`, `Kafka`, `RabbitMQ`, `EventBus`, `SQS`, `SNS`, `PubSub`, `Topic`, `Stream`                  |
-| `networking` | Hexagon             | `Gateway`, `Proxy`, `CDN`, `LoadBalancer`, `Firewall`, `DNS`, `Ingress`                              |
-| `frontend`   | Monitor             | `WebApp`, `Dashboard`, `MobileApp`, `Browser`, `CLI`, `Terminal`                                     |
-| `service`    | Rounded rectangle   | `Service`, `API`, `Lambda`, `Handler`, `Controller`, `Processor`, `Worker`                           |
-| `external`   | Dashed rectangle    | `External`, `ThirdParty`, `Vendor`                                                                   |
-| `default`    | Rectangle           | Anything unrecognized                                                                                |
+| Type       | Shape               | Naming Patterns                                                                                      |
+| ---------- | ------------------- | ---------------------------------------------------------------------------------------------------- |
+| `actor`    | Stick figure        | `User`, `Customer`, `Admin`, `Guest`, `Visitor`, `Operator`, Alice, Bob, Charlie                     |
+| `database` | Cylinder            | Names ending in `DB`; `Database`, `Store`, `Storage`, `Repo`, `Postgres`, `MySQL`, `Mongo`, `Dynamo` |
+| `cache`    | Dashed cylinder     | `Cache`, `Redis`, `Memcache`, `KeyDB`, `Dragonfly`, `Hazelcast`, `Valkey`                            |
+| `queue`    | Horizontal cylinder | `Queue`, `Kafka`, `RabbitMQ`, `EventBus`, `SQS`, `SNS`, `PubSub`, `Topic`, `Stream`, `Broker`        |
+| `default`  | Rectangle           | Anything unrecognized                                                                                |
 
-Names like `Router`, `Scheduler`, `Controller`, `Handler`, `Worker`, etc. are treated as services (not actors), even though they end in `-er`.
+Inference is intentionally narrow — only names whose role is unambiguous at a glance get a distinctive shape. Anything else (services, gateways, UI, third-party providers) falls through to the default rectangle.
 
 ### Explicit Declarations (Optional)
 
@@ -94,14 +90,16 @@ You only need explicit declarations when you want to **override** the inferred t
 
 ```
 // Override type when the name doesn't match conventions
-Stripe is an external
+Vault is a database
 
 // Multi-word names are accepted directly — no aliasing needed
-"Payment Gateway" is a networking
+"Order History" is a database
 
 // Control left-to-right ordering
 OrderDB position -1
 ```
+
+The keywords `service`, `frontend`, `networking`, `gateway`, and `external` were removed in dgmo 0.16.0 — they emit a parse error. Drop the `is a` clause and the participant renders as the default rectangle.
 
 ## Participant Ordering
 
@@ -288,7 +286,7 @@ tag Concern as c
 Use `| key: value` after participant declarations, message lines, or group headers:
 
 ```
-API is a service | concern: Caching, team: Platform
+API | concern: Caching, team: Platform
 User -login-> API | concern: Auth
 [Backend | concern: BusinessLogic]
   OrderAPI
