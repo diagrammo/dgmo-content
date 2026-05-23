@@ -9,13 +9,13 @@ Edge
   rps 200
   -> SignalFlags
 
-SignalFlags | f: Blackbeard
+SignalFlags f: Blackbeard
   description Flag semaphore relay — ship-to-ship messaging
   latency-ms 30000
   -> Flagship
   -> ScoutShip
 
-Flagship | f: Blackbeard
+Flagship f: Blackbeard
   description Command vessel — decrypts and routes all intelligence
   instances 1
   max-rps 50
@@ -23,14 +23,14 @@ Flagship | f: Blackbeard
   -> CarrierPigeons
   -> RumRunner
 
-ScoutShip | f: Bonny
+ScoutShip f: Bonny
   description Fast sloop for reconnaissance
   instances 2
   max-rps 30
   latency-ms 8000
   -> Flagship
 
-CarrierPigeons | f: Rackham
+CarrierPigeons f: Rackham
   description Long-range bird relay — messages to allied ports
   buffer 100
   drain-rate 12
@@ -40,12 +40,12 @@ CarrierPigeons | f: Rackham
 [Allied Ports]
   instances 3
 
-  TavernNetwork | f: Rackham
+  TavernNetwork f: Rackham
     description Dockside tavern informants across the Caribbean
     max-rps 20
     latency-ms 86400000
 
-RumRunner | f: Bonny
+RumRunner f: Bonny
   description Smuggler supply line — moves coded messages in rum barrels
   concurrency 4
   duration-ms 172800000

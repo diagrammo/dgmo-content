@@ -5,7 +5,7 @@ mindmap Product Strategy
 
 Research
   User Interviews
-    Surveys | description: Quarterly NPS survey
+    Surveys description: Quarterly NPS survey
     Focus Groups
   Competitor Analysis
     Feature Matrix
@@ -15,13 +15,13 @@ Development
     Auth System
       description: Handle login, signup, OAuth flows
     Dashboard
-  Nice-to-haves | collapsed: true
+  Nice-to-haves collapsed: true
     Dark Mode
     Export PDF
 Go-to-Market
   Launch Plan
     Blog Post
-    Demo Video | description: 2-min product walkthrough
+    Demo Video description: 2-min product walkthrough
 ```
 
 ## Overview
@@ -176,23 +176,23 @@ tag Department as d
 
 active-tag Priority
 
-Research | d: Marketing
-  User Interviews | p: High
-    Surveys | description: Quarterly NPS survey
+Research d: Marketing
+  User Interviews p: High
+    Surveys description: Quarterly NPS survey
     Focus Groups
-  Competitor Analysis | d: Engineering
+  Competitor Analysis d: Engineering
     Feature Matrix
     Pricing Review
-Development | p: High, d: Engineering
+Development p: High, d: Engineering
   MVP Features
     Auth System
       description: Handle login, signup, OAuth flows
     Dashboard
-  Nice-to-haves | p: Low, collapsed: true
+  Nice-to-haves p: Low, collapsed: true
     Dark Mode
     Export PDF
-Go-to-Market | d: Marketing
+Go-to-Market d: Marketing
   Launch Plan
     Blog Post
-    Demo Video | description: 2-min product walkthrough
+    Demo Video description: 2-min product walkthrough
 ```

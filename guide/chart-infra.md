@@ -12,26 +12,26 @@ Edge
   rps 8000
   -> CDN
 
-CDN | t: Platform
+CDN t: Platform
   description Edge cache — static assets and cacheable API responses
   cache-hit 75%
   -> WAF
 
-WAF | t: Platform
+WAF t: Platform
   description Web application firewall
   firewall-block 8%
   ratelimit-rps 20000
   -> LB
 
-LB | t: Platform
-  -/api-> [API Cluster] | split: 60%
-  -/search-> SearchAPI | split: 30%
-  -/static-> StaticCDN | split: 10%
+LB t: Platform
+  -/api-> [API Cluster] split: 60%
+  -/search-> SearchAPI split: 30%
+  -/static-> StaticCDN split: 10%
 
 [API Cluster]
   instances 3
 
-  APIServer | t: Backend
+  APIServer t: Backend
     description Core REST API — auth, billing, user data
     instances 2
     max-rps 1200
@@ -40,12 +40,12 @@ LB | t: Platform
     -> PostgreSQL
     -> JobQueue
 
-PostgreSQL | t: Data
+PostgreSQL t: Data
   max-rps 6000
   latency-ms 8
   uptime 99.999%
 
-JobQueue | t: Data
+JobQueue t: Data
   buffer 250000
   drain-rate 1200
   retention-hours 48
@@ -55,21 +55,21 @@ JobQueue | t: Data
 [Job Workers]
   instances 1-6
 
-  JobWorker | t: Backend
+  JobWorker t: Backend
     max-rps 400
     latency-ms 180
 
-SearchAPI | t: Backend
+SearchAPI t: Backend
   concurrency 800
   duration-ms 120
   cold-start-ms 700
-  -> SearchShards | fanout: 6
+  -> SearchShards fanout: 6
 
-SearchShards | t: Data
+SearchShards t: Data
   max-rps 30000
   latency-ms 3
 
-StaticCDN | t: Platform
+StaticCDN t: Platform
   cache-hit 98%
   latency-ms 4
 ```
@@ -798,22 +798,22 @@ Edge
   rps 100000
   -> CloudFront
 
-CloudFront | t: Platform
+CloudFront t: Platform
   cache-hit 80%
   -> WAF
 
-WAF | t: Platform
+WAF t: Platform
   firewall-block 5%
   -> ALB
 
-ALB | t: Platform
-  -/api-> [API Pods] | split: 60%
-  -/purchase-> [Commerce Pods] | split: 30%
-  -/static-> StaticServer | split: 10%
+ALB t: Platform
+  -/api-> [API Pods] split: 60%
+  -/purchase-> [Commerce Pods] split: 30%
+  -/static-> StaticServer split: 10%
 
 [API Pods]
   instances 3
-  APIServer | t: Backend
+  APIServer t: Backend
     description Core REST API — auth, orders, user data
     max-rps 500
     latency-ms 45
@@ -821,14 +821,14 @@ ALB | t: Platform
     -> OrderDB
 
 [Commerce Pods]
-  PurchaseMS | t: Backend
+  PurchaseMS t: Backend
     description Checkout and payment processing
     instances 1-8
     max-rps 300
     latency-ms 120
     -> OrderQueue
 
-OrderDB | t: Data
+OrderDB t: Data
   description Primary Postgres — orders and inventory
   latency-ms 8
   uptime 99.99%
@@ -839,11 +839,11 @@ OrderQueue
   retention-hours 72
   -> Worker
 
-Worker | t: Backend
+Worker t: Backend
   instances 3
   max-rps 400
   latency-ms 100
 
-StaticServer | t: Platform
+StaticServer t: Platform
   latency-ms 5
 ```

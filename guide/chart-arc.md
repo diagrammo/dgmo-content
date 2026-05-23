@@ -2,7 +2,7 @@
 
 ```dgmo
 arc Pirate Alliances
-//order appearance | name | group | degree
+//order appearance name, group, degree
 
 // Source -> Target weight
 [Caribbean] red

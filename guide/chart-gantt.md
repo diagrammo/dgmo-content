@@ -27,32 +27,32 @@ marker 2026-03-27 Board Review
 marker 2026-05-12 Trade Show Demo orange
 
 parallel
-  [Backend] | t: Engineering
-    20bd Database Schema | p: Foundation, 100%
-    15bd? Core API Endpoints | p: Foundation, 80%
+  [Backend] t: Engineering
+    20bd Database Schema p: Foundation, progress: 100
+    15bd? Core API Endpoints p: Foundation, progress: 80
       -> Frontend.API Integration
-    10bd Auth & Permissions | p: Build, 40%
+    10bd Auth & Permissions p: Build, progress: 40
       -> E2E Testing
     parallel
-      5bd Load Testing | t: QA, p: Build
-      5bd Security Audit | t: QA, p: Build
+      5bd Load Testing t: QA, p: Build
+      5bd Security Audit t: QA, p: Build
 
-  [Frontend] | t: Design
-    10bd Wireframes & Prototypes | p: Foundation, 100%
-    15bd Component Library | p: Build, 60%
-    10bd API Integration | t: Engineering, p: Build
+  [Frontend] t: Design
+    10bd Wireframes & Prototypes p: Foundation, progress: 100
+    15bd Component Library p: Build, progress: 60
+    10bd API Integration t: Engineering, p: Build
       // Blocked until Core API is stable
-    5bd Polish & Animations | p: Launch, 10%
+    5bd Polish & Animations p: Launch, progress: 10
 
-  [Marketing] | t: Marketing
-    10bd? Brand Guidelines | p: Foundation, 100%
-    15bd Landing Page | p: Build, 50%
-    5bd? Launch Campaign Prep | p: Launch
+  [Marketing] t: Marketing
+    10bd? Brand Guidelines p: Foundation, progress: 100
+    15bd Landing Page p: Build, progress: 50
+    5bd? Launch Campaign Prep p: Launch
       -> Launch Day
 
-[Integration] | t: QA
-  10bd E2E Testing | p: Launch, offset: 10bd
-  3bd Staging Deploy | p: Launch
+[Integration] t: QA
+  10bd E2E Testing p: Launch, offset: 10bd
+  3bd Staging Deploy p: Launch
   0d Launch Day
 ```
 
@@ -349,20 +349,20 @@ era 2024-01 -> 2024-06 Phase 1
 marker 2024-03-01 Kickoff
 
 parallel
-  [Backend] | t: Engineering
-    30bd Database Layer | 80%
-    10bd? Auth Module | 100%
-      -> Frontend.API Integration | offset: 2bd
+  [Backend] t: Engineering
+    30bd Database Layer progress: 80
+    10bd? Auth Module progress: 100
+      -> Frontend.API Integration offset: 2bd
     parallel
-      5bd Load Testing | t: QA
-      5bd Security Audit | t: QA
+      5bd Load Testing t: QA
+      5bd Security Audit t: QA
 
-  [Frontend] | t: Design
+  [Frontend] t: Design
     15bd Component Library
-    10bd API Integration | t: Engineering
-    5bd Polish | 30%
+    10bd API Integration t: Engineering
+    5bd Polish progress: 30
 
-[Integration] | t: QA
+[Integration] t: QA
   10bd E2E Testing
   0d Release Candidate
 ```

@@ -8,21 +8,21 @@ tag Status as s
 
 active-tag Status
 
-Flagship | s: Operational
+Flagship s: Operational
   -> [Harbor Defenses]
   -> IntelNetwork
 
 [Harbor Defenses]
-  FortCannon | s: Operational
+  FortCannon s: Operational
     -> Watchtower
-  Watchtower | s: Operational
-  SeaMines | s: Building
+  Watchtower s: Operational
+  SeaMines s: Building
 
-IntelNetwork | s: Operational
+IntelNetwork s: Operational
   -> SpyRing
   -> SignalFlags
 
-SpyRing | s: Operational
+SpyRing s: Operational
   -> [Harbor Defenses]
 
-SignalFlags | s: Damaged
+SignalFlags s: Damaged

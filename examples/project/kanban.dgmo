@@ -14,18 +14,18 @@ tag Watch as w
 [Backlog] blue
   Repair the foretops'l | p: Low, w: Morning
     Mend after the last storm
-  Reinforce the gunwales | p: Medium, w: Afternoon
+  Reinforce the gunwales p: Medium, w: Afternoon
 
 [In Progress] yellow
-  Restock powder kegs | p: High, w: Morning
+  Restock powder kegs p: High, w: Morning
     Last batch ran damp
-  Caulk the hull seams | p: High, w: Afternoon
+  Caulk the hull seams p: High, w: Afternoon
     Hold has been taking water
 
 [Blocked] red
-  Find a new sailmaker | p: Critical, w: Morning
+  Find a new sailmaker p: Critical, w: Morning
     Old one took ill at last port
 
 [Done] green
-  Inventory the hold | p: Medium, w: Night
-  Sharpen the cutlasses | p: Low, w: Night
+  Inventory the hold p: Medium, w: Night
+  Sharpen the cutlasses p: Low, w: Night

@@ -11,18 +11,18 @@ tag Status as s
 
 active-tag Status
 
-MobileApp | s:Todo
+MobileApp s:Todo
   -> API
 
-WebSite | s:Doing
+WebSite s:Doing
   -> API
 
 [Backend]
-  API | s:Doing
+  API s:Doing
     -> DB
     -> AuthVendor
 
-  DB | s:Done
+  DB s:Done
 
 AuthVendor
 ```
@@ -212,23 +212,23 @@ tag Team as t Backend blue, Frontend green, Infra purple
 active-tag Team
 direction LR
 
-WebApp | t: Frontend
+WebApp t: Frontend
   -> API Gateway
 
-API Gateway | t: Infra
+API Gateway t: Infra
   -auth-> AuthService
   -data-> DataService
 
-AuthService | t: Backend
+AuthService t: Backend
   -> UserDB
 
-DataService | t: Backend
+DataService t: Backend
   -> PostgreSQL
   -> Redis
 
-UserDB | t: Infra
-PostgreSQL | t: Infra
-Redis | t: Infra
+UserDB t: Infra
+PostgreSQL t: Infra
+Redis t: Infra
 
 [Cloud]
   [Services]

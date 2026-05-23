@@ -6,21 +6,21 @@ cycle OODA Loop
 Observe blue
   Gather raw information from the environment
   Monitor unfolding circumstances
-  -Unfold circumstances-> | color: blue
+  -Unfold circumstances-> color: blue
 
 Orient green
   Analyze and synthesize observations
   Form a mental model of the situation
-  -Form hypothesis-> | color: green
+  -Form hypothesis-> color: green
 
 Decide orange
   Select a course of action
-  -Commit to action-> | color: orange
+  -Commit to action-> color: orange
 
 Act red
   Execute the chosen course of action
   Generate results that feed back
-  -Generate feedback-> | color: red
+  -Generate feedback-> color: red
 ```
 
 ## Overview
@@ -135,7 +135,7 @@ Act
 ```dgmo
 cycle PDCA Continuous Improvement
 
-Plan | color: blue, span: 1.5
+Plan color: blue, span: 1.5
   Define objectives and processes
   Establish expected outcomes
   -Start implementation->
@@ -148,11 +148,11 @@ Do green
 Check orange
   Compare results against expectations
   Identify deviations and root causes
-  -Propose changes-> | color: orange
+  -Propose changes-> color: orange
 
 Act red
   Standardize successful changes
   Address remaining gaps
-  -Feed back into planning-> | color: red
+  -Feed back into planning-> color: red
     Begin the next improvement cycle
 ```

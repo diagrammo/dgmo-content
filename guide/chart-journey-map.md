@@ -4,16 +4,16 @@
 journey-map Coffee Shop Visit
 
 [Order]
-  Walk in | 4
-  Wait in line | 2
-  Order drink | 4
+  Walk in score: 4
+  Wait in line score: 2
+  Order drink score: 4
 
 [Wait]
-  Find a seat | 3
-  Wait for drink | 2
+  Find a seat score: 3
+  Wait for drink score: 2
 
 [Enjoy]
-  Get drink | 5
+  Get drink score: 5
 ```
 
 ## Overview
@@ -129,12 +129,12 @@ Steps at root level (no `[Phase]` brackets) render as a continuous horizontal st
 ```dgmo
 journey-map Quick Feedback
 
-Opened app | 4
-Searched for feature | 3
-Hit error | 1 Frustrated
+Opened app score: 4
+Searched for feature score: 3
+Hit error score: 1, emotion: Frustrated
   pain: No helpful error message
-Contacted support | 2
-Got resolution | 5 Relieved
+Contacted support score: 2
+Got resolution score: 5, emotion: Relieved
 ```
 
 ## Directives
@@ -159,21 +159,21 @@ tag Channel as ch
   In-Person green
 
 [Research]
-  Compare specs | 4, ch: Web
+  Compare specs score: 4, ch: Web
     description: Checked 12 laptops across 4 review sites
-  Watch reviews | 5 Engaged, ch: Mobile
-  Ask friends | 4, ch: In-Person
+  Watch reviews score: 5, emotion: Engaged, ch: Mobile
+  Ask friends score: 4, ch: In-Person
 
 [Purchase]
-  Add to cart | 3, ch: Web
-  Forced account creation | 1 Frustrated, ch: Web
+  Add to cart score: 3, ch: Web
+  Forced account creation score: 1, emotion: Frustrated, ch: Web
     pain: Wants guest checkout
     pain: Password requirements too strict
-  Complete payment | 3, ch: Web
+  Complete payment score: 3, ch: Web
 
 [Delivery]
-  Track package | 4, ch: Mobile
-  Unboxing | 5 Delighted, ch: In-Person
+  Track package score: 4, ch: Mobile
+  Unboxing score: 5, emotion: Delighted, ch: In-Person
     opportunity: Include setup guide
     thought: Excited to try it out
 ```

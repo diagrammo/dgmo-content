@@ -14,20 +14,20 @@ tag Crew as c
   Calico Jack teal
 
 [Awaiting Orders] red
-  Recruit gunners at Tortuga | priority: High, c: Calico Jack
-  Chart new trade route | priority: Urgent, c: Anne Bonny
+  Recruit gunners at Tortuga priority: High, c: Calico Jack
+  Chart new trade route priority: Urgent, c: Anne Bonny
     Scout the Windward Passage
     Avoid Royal Navy patrols
-  Resupply rum and powder | priority: Low, c: Calico Jack
+  Resupply rum and powder priority: Low, c: Calico Jack
 
-[Underway] orange | wip: 2
-  Forge letters of marque | priority: High, c: Anne Bonny
-  Raid merchant convoy | priority: Urgent, c: Blackbeard
+[Underway] orange wip: 2
+  Forge letters of marque priority: High, c: Anne Bonny
+  Raid merchant convoy priority: Urgent, c: Blackbeard
     Three ships spotted off Nassau
 
 [Done] green
-  Bribe the harbour master | priority: High, c: Anne Bonny
-  Repair hull damage | priority: Low, c: Blackbeard
+  Bribe the harbour master priority: High, c: Anne Bonny
+  Repair hull damage priority: Low, c: Blackbeard
 ```
 
 ## Overview
@@ -139,20 +139,20 @@ tag Team as t
   Design yellow
 
 [Backlog]
-Dark mode support | t: Frontend
-API rate limiting | t: Backend
+Dark mode support t: Frontend
+API rate limiting t: Backend
   Research token bucket vs sliding window
 
-[In Progress] | wip: 3
-User dashboard | t: Frontend, status: Active
+[In Progress] wip: 3
+User dashboard t: Frontend, status: Active
   Charts and metrics overview
-Auth refactor | t: Backend, status: Active
+Auth refactor t: Backend, status: Active
 
 [Review]
-Payment integration | t: Backend, status: Blocked
+Payment integration t: Backend, status: Blocked
   Waiting on Stripe webhook setup
 
 [Done]
-Onboarding flow | t: Design
-Landing page | t: Frontend
+Onboarding flow t: Design
+Landing page t: Frontend
 ```

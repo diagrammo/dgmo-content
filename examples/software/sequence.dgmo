@@ -12,18 +12,18 @@ tag Layer as l
   Data red
 
 User is an actor
-WebApp | l: Frontend
-TreasureAPI | l: Backend
-MapDB is a database | l: Data
-NotifyQueue is a queue | l: Backend
+WebApp l: Frontend
+TreasureAPI l: Backend
+MapDB is a database l: Data
+NotifyQueue is a queue l: Backend
 
 User -Search nearby loot-> WebApp
-WebApp -GET /treasures?nearby-> TreasureAPI | c: Search
+WebApp -GET /treasures?nearby-> TreasureAPI c: Search
 note
   - check location
   - use compass
   - http://example.com
-TreasureAPI -Find within 5nm-> MapDB | c: Search
+TreasureAPI -Find within 5nm-> MapDB c: Search
 MapDB -3 results-> TreasureAPI
 TreasureAPI -locations-> WebApp
 WebApp -Show treasure map-> User
@@ -31,13 +31,13 @@ WebApp -Show treasure map-> User
 == Claim ==
 
 User -Claim chest #42-> WebApp
-WebApp -POST /claim-> TreasureAPI | c: Claims
+WebApp -POST /claim-> TreasureAPI c: Claims
 if chest available
-  TreasureAPI -Set status = claimed-> MapDB | c: Claims
+  TreasureAPI -Set status = claimed-> MapDB c: Claims
   MapDB -OK-> TreasureAPI
   TreasureAPI -Claim accepted-> WebApp
   WebApp -500 doubloons earned!-> User
-  TreasureAPI ~treasure.claimed~> NotifyQueue | c: Notifications
+  TreasureAPI ~treasure.claimed~> NotifyQueue c: Notifications
 else
   TreasureAPI -409 Already claimed-> WebApp
   WebApp -Too slow, matey!-> User

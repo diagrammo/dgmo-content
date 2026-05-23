@@ -25,28 +25,28 @@ tag Status as st
   Turncoat red
   NewRecruit yellow
 
-Blackbeard| r: Captain, s: Revenge
-  Anne Bonny| r: FirstMate
+Blackbeard r: Captain, s: Revenge
+  Anne Bonny r: FirstMate
     [Gun Deck]
-      Cannonball Pete| r: Gunner
-      Smokey Jack| r: Gunner, st: NewRecruit
-      Powder Meg| r: Swab, st: NewRecruit
+      Cannonball Pete r: Gunner
+      Smokey Jack r: Gunner, st: NewRecruit
+      Powder Meg r: Swab, st: NewRecruit
     [Boarding Party]
-      Cutlass Jim| r: Bosun
+      Cutlass Jim r: Bosun
       Red Mary
-      One-Eyed Dan| st: Turncoat
-  Calico Rackham| r: Quartermaster
+      One-Eyed Dan st: Turncoat
+  Calico Rackham r: Quartermaster
     [Cargo Hold]
       Barnacle Bob
-      Slippery Sal| st: Turncoat
-  Long John| r: FirstMate, s: Serpent
+      Slippery Sal st: Turncoat
+  Long John r: FirstMate, s: Serpent
     [Rigging Crew]
-      Monkey Fist| r: Bosun
+      Monkey Fist r: Bosun
       Pegleg Pete
       Crow Jane
     [Navigation]
-      Stargazer Quinn| r: Quartermaster
-      Compass Rose| st: NewRecruit
+      Stargazer Quinn r: Quartermaster
+      Compass Rose st: NewRecruit
 ```
 
 ## Overview
@@ -190,8 +190,8 @@ Alex Chen
     goal: Core infrastructure and APIs
     charter: Platform reliability and developer experience
 
-    Alice Park | role: Senior Engineer | location: NY
-    Bob Torres | role: Junior Engineer | location: CO
+    Alice Park role: Senior Engineer, location: NY
+    Bob Torres role: Junior Engineer, location: CO
 
   [Frontend Team]
     goal: Ship new design system by Q3

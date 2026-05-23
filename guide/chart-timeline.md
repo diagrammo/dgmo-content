@@ -25,16 +25,16 @@ era 1719->1722 Roberts Era
 marker 1718-07 Woodes Rogers arrives orange
 marker 1721-08 Roberts reaches peak teal
 
-1716->1717 Sails under Hornigold | p: Blackbeard, o: Victory
+1716->1717 Sails under Hornigold p: Blackbeard, o: Victory
 1717-11->1718-06 Commands Queen Anne's Revenge | p: Blackbeard, o: Victory, t: Atlantic
-1718-05 Blockades Charleston harbor | p: Blackbeard, o: Victory
-1718-11-22 Killed at Ocracoke | p: Blackbeard, o: Defeat
-1718->1719 Rackham builds crew in Nassau | p: Bonny & Rackham, o: Victory
-1719-03->1720-10? Bonny & Rackham raid together | p: Bonny & Rackham
-1720-11 Rackham hanged at Port Royal | p: Bonny & Rackham, o: Defeat
-1719-06->1720 Raids West African coast | p: Roberts, o: Victory, t: Africa
-1720->1722 Captures 400+ ships | p: Roberts, o: Victory, t: Atlantic
-1722-02-10 Killed at Cape Lopez | p: Roberts, o: Defeat, t: Africa
+1718-05 Blockades Charleston harbor p: Blackbeard, o: Victory
+1718-11-22 Killed at Ocracoke p: Blackbeard, o: Defeat
+1718->1719 Rackham builds crew in Nassau p: Bonny & Rackham, o: Victory
+1719-03->1720-10? Bonny & Rackham raid together p: Bonny & Rackham
+1720-11 Rackham hanged at Port Royal p: Bonny & Rackham, o: Defeat
+1719-06->1720 Raids West African coast p: Roberts, o: Victory, t: Africa
+1720->1722 Captures 400+ ships p: Roberts, o: Victory, t: Atlantic
+1722-02-10 Killed at Cape Lopez p: Roberts, o: Defeat, t: Africa
 ```
 
 ## Syntax
@@ -215,10 +215,10 @@ tag Priority
   Medium yellow
   Low gray
 
-2024-01->2024-06 Build API | Team: Engineering, Priority: High
-2024-03->2024-05 UX Review | Team: Design, Priority: Medium
-2024-04->2024-07 Integration Tests | Team: QA, Priority: High
-2024-02->2024-04 Design System | Team: Design, Priority: Low
+2024-01->2024-06 Build API Team: Engineering, Priority: High
+2024-03->2024-05 UX Review Team: Design, Priority: Medium
+2024-04->2024-07 Integration Tests Team: QA, Priority: High
+2024-02->2024-04 Design System Team: Design, Priority: Low
 ```
 
 - `sort tag` — uses the first declared tag group for swimlanes

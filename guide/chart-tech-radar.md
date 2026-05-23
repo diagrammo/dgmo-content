@@ -9,54 +9,54 @@ rings
   Spyglass
   Davy Jones
 
-Tactics | quadrant: top-right
-  Ambush at Dawn | ring: Full Sail, trend: stable
+Tactics quadrant: top-right
+  Ambush at Dawn ring: Full Sail, trend: stable
     Our most reliable boarding tactic. **90% success rate** when
     approaching from the east with the sun behind us.
     - Crew morale peaks at dawn — grog hasn't worn off yet
     - Reduced cannon fire needed: *3 volleys* vs 8 at midday
-  Boarding Parties | ring: Full Sail, trend: stable
-  Decoy Flags | ring: Trial Run, trend: up
+  Boarding Parties ring: Full Sail, trend: stable
+  Decoy Flags ring: Trial Run, trend: up
     Flying false colours until within cannon range. Early results
     are promising — merchant ships drop anchor **40% more often**.
-  Smoke Screens | ring: Trial Run, trend: new
-  Kraken Diplomacy | ring: Spyglass, trend: new
+  Smoke Screens ring: Trial Run, trend: new
+  Kraken Diplomacy ring: Spyglass, trend: new
     Exploring alliances with *sea monsters*. Negotiations ongoing.
 
-Vessels | quadrant: top-left
-  Brigantine | ring: Full Sail, trend: stable
+Vessels quadrant: top-left
+  Brigantine ring: Full Sail, trend: stable
     Our workhorse. Fast, manoeuvrable, carries **18 cannons**.
     - Crew capacity: 100 pirates
     - Top speed: *11 knots* in fair wind
-  Sloop | ring: Full Sail, trend: up
-  War Galleon | ring: Trial Run, trend: up
+  Sloop ring: Full Sail, trend: up
+  War Galleon ring: Trial Run, trend: up
     Captured from the Spanish fleet. Massive firepower but
     **slow to turn** — best for convoy raids, not chases.
-  Longboat | ring: Davy Jones, trend: down
+  Longboat ring: Davy Jones, trend: down
 
-Plunder Targets | quadrant: bottom-left
-  Merchant Convoys | ring: Full Sail, trend: stable
+Plunder Targets quadrant: bottom-left
+  Merchant Convoys ring: Full Sail, trend: stable
     Core revenue stream — **78% of total plunder**. East India
     Company ships running the spice route remain most lucrative.
-  Port Raids | ring: Trial Run, trend: up
-  Rival Pirates | ring: Trial Run, trend: new
-  Royal Treasury Ships | ring: Spyglass, trend: new
+  Port Raids ring: Trial Run, trend: up
+  Rival Pirates ring: Trial Run, trend: new
+  Royal Treasury Ships ring: Spyglass, trend: new
     High risk, astronomical reward. Requires:
     - Inside information from *corrupt harbourmasters*
     - At least **3 allied ships** for the blockade
     - A really good escape plan
-  Whaling Ships | ring: Spyglass, trend: stable
-  Fishing Villages | ring: Davy Jones, trend: down
+  Whaling Ships ring: Spyglass, trend: stable
+  Fishing Villages ring: Davy Jones, trend: down
     Terrible ROI and **bad for reputation**. The parrot union
     filed a formal complaint.
 
-Crew Welfare | quadrant: bottom-right
-  Grog Rations | ring: Full Sail, trend: stable
+Crew Welfare quadrant: bottom-right
+  Grog Rations ring: Full Sail, trend: stable
     Non-negotiable. Cutting grog rations caused the *Great Mutiny of 1716*.
-  Sea Shanty Program | ring: Trial Run, trend: new
+  Sea Shanty Program ring: Trial Run, trend: new
     Hired a shanty master. Crew productivity up **25%** during
     long voyages. Signature tune: *"Yo Ho Ho and a Bottle of Rum"*.
-  Dental Plan | ring: Spyglass, trend: up
+  Dental Plan ring: Spyglass, trend: up
     Exploring options. Most crew down to **4 teeth** on average.
     Parley with a Port Royal dentist scheduled for Q3.
 ```
@@ -189,31 +189,31 @@ rings
   Scouting
   Scuttle
 
-Navigation | quadrant: top-right
-  Star Charts | ring: Battle Ready, trend: stable
-  Compass Calibration | ring: Sea Trials, trend: up
+Navigation quadrant: top-right
+  Star Charts ring: Battle Ready, trend: stable
+  Compass Calibration ring: Sea Trials, trend: up
     New lodestone from Madagascar shows **30% better accuracy**.
-  Sextant | ring: Battle Ready, trend: stable
-  Treasure Maps | ring: Scouting, trend: new
-  Celestial Tables | ring: Scouting, trend: new
+  Sextant ring: Battle Ready, trend: stable
+  Treasure Maps ring: Scouting, trend: new
+  Celestial Tables ring: Scouting, trend: new
 
-Armaments | quadrant: top-left
-  Cannon Broadside | ring: Battle Ready, trend: stable
-  Greek Fire | ring: Sea Trials, trend: new
-  Chain Shot | ring: Sea Trials, trend: up
-  Catapult | ring: Scuttle, trend: down
+Armaments quadrant: top-left
+  Cannon Broadside ring: Battle Ready, trend: stable
+  Greek Fire ring: Sea Trials, trend: new
+  Chain Shot ring: Sea Trials, trend: up
+  Catapult ring: Scuttle, trend: down
 
-Provisions | quadrant: bottom-left
-  Salted Pork | ring: Battle Ready, trend: stable
-  Citrus Rations | ring: Sea Trials, trend: up
+Provisions quadrant: bottom-left
+  Salted Pork ring: Battle Ready, trend: stable
+  Citrus Rations ring: Sea Trials, trend: up
     Reduced scurvy cases by **80%** in trial crews.
-  Rum Distillation | ring: Scouting, trend: new
-  Hardtack | ring: Scuttle, trend: down
-  Barnacle Soup | ring: Scuttle, trend: down
+  Rum Distillation ring: Scouting, trend: new
+  Hardtack ring: Scuttle, trend: down
+  Barnacle Soup ring: Scuttle, trend: down
 
-Morale | quadrant: bottom-right
-  Shore Leave | ring: Battle Ready, trend: stable
-  Sea Shanties | ring: Battle Ready, trend: up
-  Parrot Companions | ring: Scouting, trend: new
-  Plank Walking | ring: Scuttle, trend: down
+Morale quadrant: bottom-right
+  Shore Leave ring: Battle Ready, trend: stable
+  Sea Shanties ring: Battle Ready, trend: up
+  Parrot Companions ring: Scouting, trend: new
+  Plank Walking ring: Scuttle, trend: down
 ```

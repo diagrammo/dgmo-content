@@ -12,20 +12,20 @@ marker 1718-05-22 Ransom Deadline red
 era 1718-05-10 -> 1718-05-18 Blockade Active blue
 
 parallel
-  [Preparation] | r: Command
+  [Preparation] r: Command
     parallel
-      1718-05-01 -> 7d Anchor and Position Fleet | 100%
-      1718-05-03 -> 4d Deploy Prize Sloops | r: Crew, 100%
+      1718-05-01 -> 7d Anchor and Position Fleet progress: 100
+      1718-05-03 -> 4d Deploy Prize Sloops r: Crew, progress: 100
 
-  [Blockade] | r: Crew
+  [Blockade] r: Crew
     parallel
-      1718-05-06 -> 12d Seize Merchant Vessels | 80%
-      1718-05-08 -> 8d Hold Hostages | r: Captives, 60%
+      1718-05-06 -> 12d Seize Merchant Vessels progress: 80
+      1718-05-08 -> 8d Hold Hostages r: Captives, progress: 60
 
-  [Negotiations] | r: Command
+  [Negotiations] r: Command
     parallel
-      1718-05-10 -> 8d Demand Medicine Chest | 50%
-      1718-05-14 -> 6d? Threaten Executions | 40%
+      1718-05-10 -> 8d Demand Medicine Chest progress: 50
+      1718-05-14 -> 6d? Threaten Executions progress: 40
 
-  [Resolution] | r: Command
-    1718-05-20 -> 3d Receive Ransom and Release | r: Captives
+  [Resolution] r: Command
+    1718-05-20 -> 3d Receive Ransom and Release r: Captives

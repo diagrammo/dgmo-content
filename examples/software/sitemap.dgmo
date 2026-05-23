@@ -10,24 +10,24 @@ tag Page
   Form orange
   Content cyan
 
-Home | Access: Public, Page: Landing
+Home Access: Public, Page: Landing
   -shop-> Shop
   -join-> Enlist
   -map-> Treasure Map
   -> [Port Market]
 
 [Port Market]
-  Shop | Access: Public, Page: Content
+  Shop Access: Public, Page: Content
     -buy-> Checkout
 
-  Checkout | Access: Crew Only, Page: Form
+  Checkout Access: Crew Only, Page: Form
     -purchased-> Ship Log
 
 [Crew Quarters]
-  Enlist | Access: Public, Page: Form
+  Enlist Access: Public, Page: Form
     -enlisted-> Ship Log
 
-  Ship Log | Access: Crew Only, Page: Content
+  Ship Log Access: Crew Only, Page: Content
     -voyage-> Treasure Map
 
-  Treasure Map | Access: Captain, Page: Content
+  Treasure Map Access: Captain, Page: Content

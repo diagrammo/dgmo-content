@@ -4,12 +4,12 @@
 sequence Treasure Hunt App
 
 User -Search nearby loot-> WebApp
-WebApp -GET /treasures?nearby-> TreasureAPI | c: Search
+WebApp -GET /treasures?nearby-> TreasureAPI c: Search
 note
   - check location
   - use compass
   - http://example.com
-TreasureAPI -Find within 5nm-> MapDB | c: Search
+TreasureAPI -Find within 5nm-> MapDB c: Search
 MapDB -3 results-> TreasureAPI
 TreasureAPI -locations-> WebApp
 WebApp -Show treasure map-> User
