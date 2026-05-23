@@ -3,13 +3,13 @@
 ```dgmo
 raci Voyage Operations
 roles
-  Cap  | color: red
-  QM   | color: orange
-  Bos  | color: yellow
-  Nav  | color: blue
-  Crew | color: gray
+  Cap  red
+  QM   orange
+  Bos  yellow
+  Nav  blue
+  Crew gray
 
-[Departure] | color: teal
+[Departure] teal
   Plot the course
     Heading, currents, weather window
     Cap: A
@@ -20,7 +20,7 @@ roles
     Cap: C
     Crew: I
 
-[At Sea] | color: purple
+[At Sea] purple
   Stand the watch
     Bos: A
     Crew: R
@@ -47,7 +47,7 @@ The variant is **inferred from the markers used** in the chart. An optional `var
 raci Title
 [directives]                        // optional: roles, variant-*, palette, theme
 
-[Phase Label] | color: <name>       // optional bracketed phase header
+[Phase Label] color                 // optional bracketed phase header + trailing-token color
   Task name                         // 2-space indent
     Optional description line       // 4-space indent, before any role line
     Role: <markers>                 // 4-space indent, space-delimited markers
@@ -76,26 +76,26 @@ roles Cap, QM, Bos                    // inline form (name-only)
 ```
 
 ```
-roles                                 // block form — supports per-role pipe metadata
-  Cap | color: red
-  QM  | color: orange
-  Bos | color: yellow
+roles                                 // block form — supports per-role color
+  Cap red
+  QM  orange
+  Bos yellow
 ```
 
 When `roles` is present, any role used in a task assignment that wasn't declared emits the `W_RACI_UNKNOWN_ROLE` warning.
 
-Per-role color uses the universal pipe-metadata form (`| color: <name>`) and resolves through the active palette. The inline form is name-only; to color roles, use the block form.
+Per-role color uses the universal trailing-token form (`Cap red`) — same as cycle / pyramid / ring / boxes-and-lines layers. The inline form is name-only; to color roles, use the block form. The pipe form (`Cap | color: red`) is still accepted, but reserve it for when another pipe key rides along.
 
 ## Phase metadata
 
-Phase headers accept pipe metadata for per-phase styling:
+Phase headers accept a trailing-token color for per-phase styling:
 
 ```
-[Departure] | color: teal
-[At Sea] | color: purple
+[Departure] teal
+[At Sea] purple
 ```
 
-The phase bar tints to a soft mix of the color over the background. Phases without metadata fall back to a neutral gray bar.
+The phase bar tints to a soft mix of the color over the background. Phases without color fall back to a neutral gray bar.
 
 ## Directives
 

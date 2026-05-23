@@ -3,19 +3,19 @@
 ```dgmo
 pyramid Maslow's Hierarchy of Needs
 
-Self-Actualization | color: purple
+Self-Actualization purple
   Morality, creativity, acceptance of facts.
 
-Esteem | color: blue
+Esteem blue
   Respect, recognition, confidence.
 
-Love & Belonging | color: green
+Love & Belonging green
   Friendship, intimacy, family.
 
-Safety | color: yellow
+Safety yellow
   Security, employment, health.
 
-Physiological | color: orange
+Physiological orange
   Food, water, warmth, rest.
 ```
 
@@ -29,8 +29,8 @@ Pyramid diagrams show a hierarchy of stacked layers. Each layer gets a colored b
 pyramid Title
 
 LayerLabel
-LayerLabel | color: blue
-LayerLabel | color: green
+LayerLabel blue
+LayerLabel green
   Indented description
 ```
 
@@ -41,16 +41,18 @@ The first line declares the chart type and an optional title. Each non-indented,
 ```
 pyramid Roles
 
-Executives | color: purple
-Managers | color: blue
-Individual Contributors | color: green
+Executives purple
+Managers blue
+Individual Contributors green
 ```
+
+Color uses the trailing-token form. Reach for `| color: <name>` only when another pipe key (`description: …`) rides along on the same line.
 
 ### Layer Pipe Metadata
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| `color` | palette name | auto-assigned | Layer color |
+| `color` | palette name | auto-assigned | Layer color (pair with another key — for color-only, use the trailing-token form) |
 | `description` | string | — | One-liner shown beside the layer |
 
 ### Descriptions
@@ -58,7 +60,7 @@ Individual Contributors | color: green
 Indented lines under a layer add description text. Markdown inline formatting is supported (`**bold**`, `*italic*`, `` `code` ``, `[links](url)`). Bullet points with `- item` render as `• item`.
 
 ```
-Wisdom | color: purple
+Wisdom purple
   Ethical judgment, acting with insight.
   - Knowing *why* something matters
   - Acting with long-term perspective
@@ -77,10 +79,10 @@ pyramid Acquisition Funnel
 
 inverted
 
-Visitors | color: blue
-Signups | color: cyan
-Activated | color: green
-Paid | color: orange
+Visitors blue
+Signups cyan
+Activated green
+Paid orange
 ```
 
 ## Overflow Handling
@@ -97,15 +99,15 @@ When descriptions don't fit a layer's band, the renderer automatically:
 ```dgmo
 pyramid The DIKW Pyramid
 
-Wisdom | color: purple
+Wisdom purple
   Ethical judgment, acting with insight — knowing *why*.
 
-Knowledge | color: blue
+Knowledge blue
   Synthesized information — knowing *how*.
 
-Information | color: green
+Information green
   Processed data with context — knowing *what*.
 
-Data | color: yellow
+Data yellow
   Raw facts and measurements — unprocessed signals.
 ```

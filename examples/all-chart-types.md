@@ -359,16 +359,16 @@ Calico Jack purple       18  6
 cycle The Pirate Raid Cycle
 solid-fill
 
-Scout | color: blue
+Scout blue
   Spot merchant vessels from afar
 
-Pursue | color: green
+Pursue green
   Raise the colors, trim the sails
 
-Board | color: orange
+Board orange
   Swing across and seize the deck
 
-Celebrate | color: red
+Celebrate red
   Divide the spoils, then repair
 ```
 
@@ -463,23 +463,23 @@ Blackbeard| r: Captain, s: Revenge
 pyramid Pirate Crew Hierarchy
 solid-fill
 
-Captain | color: purple
+Captain purple
   Final word on heading and plunder,
   keeper of the ship's charter.
 
-Quartermaster | color: blue
+Quartermaster blue
   Second-in-command, arbitrates
   disputes, divvies the booty.
 
-Boatswain & Gunner | color: green
+Boatswain & Gunner green
   Keep the rigging tight and
   the cannons ready.
 
-Able Seamen | color: yellow
+Able Seamen yellow
   Haul lines, swab decks,
   and stand watch.
 
-Powder Monkeys | color: orange
+Powder Monkeys orange
   Ferry shot and charges to the guns
   during a broadside.
 ```
@@ -517,22 +517,22 @@ Spy            0.8  0.1
 ring Captain's Sphere of Influence
 solid-fill
 
-Captain | color: red
+Captain red
   Final word on heading and plunder,
   keeper of the ship's charter.
 
-Quartermaster | color: orange
+Quartermaster orange
   Second-in-command, arbitrates disputes and divvies the booty
 
-Crew | color: yellow
+Crew yellow
   Deckhands, gunners, and powder
   monkeys aboard the ship.
 
-Allied Crews | color: green
+Allied Crews green
   Loose alliances kept by oath
   or shared bounty in fair seas.
 
-The Open Sea | color: blue
+The Open Sea blue
   Weather, currents, and rival
   flags beyond any captain's reach.
 ```
@@ -754,13 +754,13 @@ divvy shares 1 2 3
 ```dgmo
 raci Voyage Operations
 roles
-  Cap  | color: red
-  QM   | color: orange
-  Bos  | color: yellow
-  Nav  | color: blue
-  Crew | color: gray
+  Cap  red
+  QM   orange
+  Bos  yellow
+  Nav  blue
+  Crew gray
 
-[Departure] | color: teal
+[Departure] teal
   Plot the course
     Cap: A
     Nav: R
@@ -770,7 +770,7 @@ roles
     Cap: C
     Crew: I
 
-[At Sea] | color: purple
+[At Sea] purple
   Stand the watch
     Bos: A
     Crew: R
@@ -778,7 +778,7 @@ roles
     Bos: A
     Crew: R
 
-[Landfall] | color: green
+[Landfall] green
   Negotiate with port
     Cap: A R
     QM: C

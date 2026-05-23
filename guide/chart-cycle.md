@@ -3,21 +3,21 @@
 ```dgmo
 cycle OODA Loop
 
-Observe | color: blue
+Observe blue
   Gather raw information from the environment
   Monitor unfolding circumstances
   -Unfold circumstances-> | color: blue
 
-Orient | color: green
+Orient green
   Analyze and synthesize observations
   Form a mental model of the situation
   -Form hypothesis-> | color: green
 
-Decide | color: orange
+Decide orange
   Select a course of action
   -Commit to action-> | color: orange
 
-Act | color: red
+Act red
   Execute the chosen course of action
   Generate results that feed back
   -Generate feedback-> | color: red
@@ -45,17 +45,19 @@ Every non-indented, non-directive line is a node:
 ```
 cycle Seasons
 
-Spring | color: green
-Summer | color: yellow
-Autumn | color: orange
-Winter | color: blue
+Spring green
+Summer yellow
+Autumn orange
+Winter blue
 ```
+
+Color uses the trailing-token form (`Spring green`). Reach for `| color: <name>` only when another pipe key (`span`, `description`, …) rides along — e.g. `Spring | color: green, span: 2`.
 
 ### Node Pipe Metadata
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| `color` | palette name | auto | Node fill color |
+| `color` | palette name | auto | Node fill color (pair with another key — for color-only, use the trailing-token form) |
 | `span` | positive number | `1` | Relative arc distance to next node |
 | `description` | string | — | One-liner shown below the label |
 
@@ -64,7 +66,7 @@ Winter | color: blue
 Indented lines under a node add description text. Markdown inline formatting is supported (`**bold**`, `*italic*`, `` `code` ``, `[links](url)`). Bullet points with `- item` render as `• item`.
 
 ```
-Observe | color: blue
+Observe blue
   Gather raw information from the environment
   Monitor unfolding circumstances
 ```
@@ -76,15 +78,15 @@ If both `| description: text` and indented lines exist, they concatenate (pipe f
 Edges are **implicit** — every node connects to the next, with the last wrapping to the first. The `->` syntax annotates edges with labels, descriptions, and styling:
 
 ```
-Observe | color: blue
+Observe blue
   -Unfold circumstances-> | color: blue
     Synthesize raw data into context
 
-Orient | color: green
+Orient green
   -> | width: 4
 ```
 
-Edge lines are indented under their source node. A label goes between `-` and `->`. Pipe metadata supports `color` and `width`.
+Edge lines are indented under their source node. A label goes between `-` and `->`. Pipe metadata supports `color` and `width`. Edges have no trailing-token color slot, so `| color: <name>` is the only way to color them.
 
 ### Edge Descriptions
 
@@ -138,17 +140,17 @@ Plan | color: blue, span: 1.5
   Establish expected outcomes
   -Start implementation->
 
-Do | color: green
+Do green
   Execute the plan on a small scale
   Collect data for analysis
   -Gather results->
 
-Check | color: orange
+Check orange
   Compare results against expectations
   Identify deviations and root causes
   -Propose changes-> | color: orange
 
-Act | color: red
+Act red
   Standardize successful changes
   Address remaining gaps
   -Feed back into planning-> | color: red

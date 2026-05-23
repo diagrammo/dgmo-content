@@ -6,7 +6,7 @@ roles
   Nav  blue
   Crew gray
 
-[Departure] | color: teal
+[Departure] teal
   Plot the course
     Cap: A
     Nav: R
@@ -16,7 +16,7 @@ roles
     Cap: C
     Crew: I
 
-[At Sea] | color: purple
+[At Sea] purple
   Stand the watch
     Bos: A
     Crew: R
@@ -24,7 +24,7 @@ roles
     Bos: A
     Crew: R
 
-[Landfall] | color: green
+[Landfall] green
   Negotiate with port
     Cap: A R
     QM: C

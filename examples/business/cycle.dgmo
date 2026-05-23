@@ -1,14 +1,14 @@
 cycle The Pirate Raid Cycle
 solid-fill
 
-Scout | color: blue
+Scout blue
   Spot merchant vessels from afar
 
-Pursue | color: green
+Pursue green
   Raise the colors, trim the sails
 
-Board | color: orange
+Board orange
   Swing across and seize the deck
 
-Celebrate | color: red
+Celebrate red
   Divide the spoils, then repair

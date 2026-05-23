@@ -5,21 +5,21 @@ ring Captain's Sphere of Influence
 
 solid-fill
 
-Captain | color: red
+Captain red
   Final word on heading and plunder,
   keeper of the ship's charter.
 
 Quartermaster | Second-in-command, arbitrates disputes and divvies the booty
 
-Crew | color: yellow
+Crew yellow
   Deckhands, gunners, and powder
   monkeys aboard the ship.
 
-Allied Crews | color: green
+Allied Crews green
   Loose alliances kept by oath
   or shared bounty in fair seas.
 
-The Open Sea | color: blue
+The Open Sea blue
   Weather, currents, and rival
   flags beyond any captain's reach.
 ```
@@ -36,8 +36,8 @@ ring Title
 [solid-fill]                 // optional directive
 
 LayerLabel                   // innermost first
-LayerLabel | color: blue
-LayerLabel | color: green
+LayerLabel blue
+LayerLabel green
   Indented description
 ```
 
@@ -48,17 +48,19 @@ The first line declares the chart type and an optional title. Each non-indented,
 ```
 ring Org Maturity
 
-Pilot | color: yellow
-Adoption | color: orange
-Standard | color: green
-Embedded | color: blue
+Pilot yellow
+Adoption orange
+Standard green
+Embedded blue
 ```
+
+Color uses the trailing-token form. Reach for `| color: <name>` only when another pipe key (`description: …`) rides along on the same line.
 
 ### Layer Pipe Metadata
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| `color` | palette name | auto-assigned | Ring color |
+| `color` | palette name | auto-assigned | Ring color (pair with another key — for color-only, use the trailing-token form) |
 | `description` | string | — | One-liner shown in the side description list |
 
 ### Descriptions
@@ -66,7 +68,7 @@ Embedded | color: blue
 Indented lines under a layer add description text. Markdown inline formatting is supported (`**bold**`, `*italic*`, `` `code` ``, `[links](url)`). Bullet points with `- item` render as `• item`.
 
 ```
-Crew | color: green
+Crew green
   Deckhands and gunners.
   - Standing watch
   - Working the rigging
@@ -107,18 +109,18 @@ ring OSI Layered Model
 
 solid-fill
 
-Physical | color: red
+Physical red
   Cables, voltages, signal timing.
 
-Data Link | color: orange
+Data Link orange
   Frames between adjacent nodes; MAC addressing.
 
-Network | color: yellow
+Network yellow
   IP routing across networks.
 
-Transport | color: green
+Transport green
   End-to-end reliability; TCP and UDP.
 
-Application | color: blue
+Application blue
   HTTP, SMTP, SSH — what the user sees.
 ```
