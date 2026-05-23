@@ -3,7 +3,7 @@ wireframe Pirate Crew Portal
 [Header]
   The Jolly Roger Crew Hub
   nav
-    Dashboard | active
+    Dashboard active
     Treasure Map
     Ship Log
     Crew Roster
@@ -12,7 +12,7 @@ wireframe Pirate Crew Portal
   # Ahoy, Captain!
 
   Next Raid Target  [Port Royal]
-  Estimated Loot  [5000 doubloons] | readonly
+  Estimated Loot  [5000 doubloons] readonly
 
   {The Revenge | The Serpent | The Phantom}
 
@@ -23,8 +23,8 @@ wireframe Pirate Crew Portal
   ( ) Skeleton crew
 
   (Set Sail!)
-  (Abort Mission) | ghost
+  (Abort Mission) ghost
 
   ---
 
-  New to piracy? (Read the Code) | ghost
+  New to piracy? (Read the Code) ghost

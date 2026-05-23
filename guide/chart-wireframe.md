@@ -6,7 +6,7 @@ wireframe Login Page
 [Header]
   Acme App
   nav
-    Home | active
+    Home active
     About
     Pricing
 
@@ -14,16 +14,16 @@ wireframe Login Page
   # Sign In
 
   Email  [user@example.com]
-  Password  [****] | password
+  Password  [****] password
 
   <x> Remember me
 
   (Sign In)
-  (Forgot Password?) | ghost
+  (Forgot Password?) ghost
 
   ---
 
-  New here? (Create Account) | ghost
+  New here? (Create Account) ghost
 ```
 
 ## Overview
