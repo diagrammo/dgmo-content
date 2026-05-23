@@ -3,9 +3,9 @@
 ```dgmo
 venn Pirate Skill Overlap
 
-Swordsmanship red as sw
-Navigation blue as nav
-Leadership green as lead
+Swordsmanship as sw red
+Navigation as nav blue
+Leadership as lead green
 
 sw + nav Sea Raiders
 nav + lead Voyager Captains
@@ -18,7 +18,7 @@ sw + nav + lead Legendary Pirates
 ```
 venn Chart Title
 
-<name>(<color>) alias <abbrev>
+<name> [as <alias>] [color]
 
 <A> + <B> Label
 <A> + <B> + <C> Label
@@ -33,32 +33,32 @@ venn Chart Title
 
 ## Sets
 
-Each set is defined as a name with an optional color and alias. 2 or 3 sets are supported.
+Each set is defined as a name with an optional alias and an optional color. 2 or 3 sets are supported. Modifier order follows the universal rule (§2A.2): name first, then `as <alias>`, then the trailing-token color.
 
 ```
-Swordsmanship red as sw
-Navigation blue as nav
-Leadership green as lead
+Swordsmanship as sw red
+Navigation as nav blue
+Leadership as lead green
 ```
 
 ### Colors
 
-Colors can be specified in parentheses after the name:
+Append a lowercase color word at the end of the line — after the alias if present:
 
 ```
-Math blue as m
-Science orange as s
+Math as m blue
+Science as s orange
 ```
 
-Supports named colors: `red`, `orange`, `yellow`, `green`, `blue`, `purple`, `teal`, `cyan`, `gray`.
+Supports named colors: `red`, `orange`, `yellow`, `green`, `blue`, `purple`, `teal`, `cyan`, `gray`, `black`, `white`.
 
 ### Aliases
 
-Use `alias` to define a short name for intersections:
+Use `as` to define a short name for intersections:
 
 ```
-Swordsmanship red as sw
-Navigation blue as nav
+Swordsmanship as sw red
+Navigation as nav blue
 ```
 
 The alias (`sw`, `nav`) is used when defining intersections. The full name is shown in the diagram.

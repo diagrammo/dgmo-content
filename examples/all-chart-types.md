@@ -603,9 +603,9 @@ Crew Welfare | quadrant: bottom-right
 ```dgmo
 venn Pirate Skill Overlap
 
-Swordsmanship red as sw
-Navigation blue as nav
-Leadership green as lead
+Swordsmanship as sw red
+Navigation as nav blue
+Leadership as lead green
 
 sw + nav        Sea Raiders
 nav + lead      Voyager Captains
