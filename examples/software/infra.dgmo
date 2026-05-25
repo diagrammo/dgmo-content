@@ -6,47 +6,47 @@ tag Fleet as f
   Rackham blue
 
 Edge
-  rps 200
+  rps: 200
   -> SignalFlags
 
 SignalFlags f: Blackbeard
   description: Flag semaphore relay — ship-to-ship messaging
-  latency-ms 30000
+  latency-ms: 30000
   -> Flagship
   -> ScoutShip
 
 Flagship f: Blackbeard
   description: Command vessel — decrypts and routes all intelligence
-  instances 1
-  max-rps 50
-  latency-ms 5000
+  instances: 1
+  max-rps: 50
+  latency-ms: 5000
   -> CarrierPigeons
   -> RumRunner
 
 ScoutShip f: Bonny
   description: Fast sloop for reconnaissance
-  instances 2
-  max-rps 30
-  latency-ms 8000
+  instances: 2
+  max-rps: 30
+  latency-ms: 8000
   -> Flagship
 
 CarrierPigeons f: Rackham
   description: Long-range bird relay — messages to allied ports
-  buffer 100
-  drain-rate 12
-  retention-hours 72
+  buffer: 100
+  drain-rate: 12
+  retention-hours: 72
   -> TavernNetwork
 
 [Allied Ports]
-  instances 3
+  instances: 3
 
   TavernNetwork f: Rackham
     description Dockside tavern informants across the Caribbean
-    max-rps 20
-    latency-ms 86400000
+    max-rps: 20
+    latency-ms: 86400000
 
 RumRunner f: Bonny
   description: Smuggler supply line — moves coded messages in rum barrels
-  concurrency 4
-  duration-ms 172800000
+  concurrency: 4
+  duration-ms: 172800000
   -> TavernNetwork
