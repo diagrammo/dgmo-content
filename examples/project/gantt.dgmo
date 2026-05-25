@@ -14,18 +14,18 @@ era 1718-05-10 -> 1718-05-18 Blockade Active blue
 parallel
   [Preparation] r: Command
     parallel
-      1718-05-01 -> 7d Anchor and Position Fleet progress: 100
-      1718-05-03 -> 4d Deploy Prize Sloops r: Crew, progress: 100
+      Anchor and Position Fleet start: 1718-05-01, duration: 7d, progress: 100
+      Deploy Prize Sloops start: 1718-05-03, duration: 4d, r: Crew, progress: 100
 
   [Blockade] r: Crew
     parallel
-      1718-05-06 -> 12d Seize Merchant Vessels progress: 80
-      1718-05-08 -> 8d Hold Hostages r: Captives, progress: 60
+      Seize Merchant Vessels start: 1718-05-06, duration: 12d, progress: 80
+      Hold Hostages start: 1718-05-08, duration: 8d, r: Captives, progress: 60
 
   [Negotiations] r: Command
     parallel
-      1718-05-10 -> 8d Demand Medicine Chest progress: 50
-      1718-05-14 -> 6d? Threaten Executions progress: 40
+      Demand Medicine Chest start: 1718-05-10, duration: 8d, progress: 50
+      Threaten Executions start: 1718-05-14, duration: 6d?, progress: 40
 
   [Resolution] r: Command
-    1718-05-20 -> 3d Receive Ransom and Release r: Captives
+    Receive Ransom and Release start: 1718-05-20, duration: 3d, r: Captives
