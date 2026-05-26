@@ -170,7 +170,7 @@ API | description: Main gateway, team: Platform
 API -routes-> UserService | frequency: High
 [Backend] | owner: Platform Team
 10bd Database Schema | p: Foundation, 80%
-1718-05 Blockade | p: Blackbeard
+Blockade start: 1718-05, p: Blackbeard
 Card Title | priority: High, assignee: Alice
 ```
 

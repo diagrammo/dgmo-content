@@ -816,16 +816,16 @@ era 1719->1722 Roberts Era
 marker 1718-07 Woodes Rogers arrives orange
 marker 1721-08 Roberts reaches peak teal
 
-1716->1717        Sails under Hornigold | p: Blackbeard, o: Victory
-1717-11->1718-06  Commands Queen Anne's Revenge |  p: Blackbeard, o: Victory, t: Atlantic
-1718-05           Blockades Charleston harbor | p: Blackbeard, o: Victory
-1718-11-22        Killed at Ocracoke | p: Blackbeard, o: Defeat
-1718->1719        Rackham builds crew in Nassau | p: Bonny & Rackham, o: Victory
-1719-03->1720-10? Bonny & Rackham raid together | p: Bonny & Rackham
-1720-11           Rackham hanged at Port Royal | p: Bonny & Rackham, o: Defeat
-1719-06->1720     Raids West African coast | p: Roberts, o: Victory, t: Africa
-1720->1722        Captures 400+ ships | p: Roberts, o: Victory, t: Atlantic
-1722-02-10        Killed at Cape Lopez | p: Roberts, o: Defeat, t: Africa
+Sails under Hornigold start: 1716, end: 1717, p: Blackbeard, o: Victory
+Commands Queen Anne's Revenge start: 1717-11, end: 1718-06, p: Blackbeard, o: Victory, t: Atlantic
+Blockades Charleston harbor start: 1718-05, p: Blackbeard, o: Victory
+Killed at Ocracoke start: 1718-11-22, p: Blackbeard, o: Defeat
+Rackham builds crew in Nassau start: 1718, end: 1719, p: Bonny & Rackham, o: Victory
+Bonny & Rackham raid together start: 1719-03, end: 1720-10?, p: Bonny & Rackham
+Rackham hanged at Port Royal start: 1720-11, p: Bonny & Rackham, o: Defeat
+Raids West African coast start: 1719-06, end: 1720, p: Roberts, o: Victory, t: Africa
+Captures 400+ ships start: 1720, end: 1722, p: Roberts, o: Victory, t: Atlantic
+Killed at Cape Lopez start: 1722-02-10, p: Roberts, o: Defeat, t: Africa
 ```
 
 ---

@@ -25,16 +25,16 @@ era 1719->1722 Roberts Era
 marker 1718-07 Woodes Rogers arrives orange
 marker 1721-08 Roberts reaches peak teal
 
-1716->1717 Sails under Hornigold p: Blackbeard, o: Victory
-1717-11->1718-06 Commands Queen Anne's Revenge | p: Blackbeard, o: Victory, t: Atlantic
-1718-05 Blockades Charleston harbor p: Blackbeard, o: Victory
-1718-11-22 Killed at Ocracoke p: Blackbeard, o: Defeat
-1718->1719 Rackham builds crew in Nassau p: Bonny & Rackham, o: Victory
-1719-03->1720-10? Bonny & Rackham raid together p: Bonny & Rackham
-1720-11 Rackham hanged at Port Royal p: Bonny & Rackham, o: Defeat
-1719-06->1720 Raids West African coast p: Roberts, o: Victory, t: Africa
-1720->1722 Captures 400+ ships p: Roberts, o: Victory, t: Atlantic
-1722-02-10 Killed at Cape Lopez p: Roberts, o: Defeat, t: Africa
+Sails under Hornigold start: 1716, end: 1717, p: Blackbeard, o: Victory
+Commands Queen Anne's Revenge start: 1717-11, end: 1718-06, p: Blackbeard, o: Victory, t: Atlantic
+Blockades Charleston harbor start: 1718-05, p: Blackbeard, o: Victory
+Killed at Ocracoke start: 1718-11-22, p: Blackbeard, o: Defeat
+Rackham builds crew in Nassau start: 1718, end: 1719, p: Bonny & Rackham, o: Victory
+Bonny & Rackham raid together start: 1719-03, end: 1720-10?, p: Bonny & Rackham
+Rackham hanged at Port Royal start: 1720-11, p: Bonny & Rackham, o: Defeat
+Raids West African coast start: 1719-06, end: 1720, p: Roberts, o: Victory, t: Africa
+Captures 400+ ships start: 1720, end: 1722, p: Roberts, o: Victory, t: Atlantic
+Killed at Cape Lopez start: 1722-02-10, p: Roberts, o: Defeat, t: Africa
 ```
 
 ## Syntax
@@ -48,8 +48,8 @@ era YYYY->YYYY Era Name
 marker YYYY-MM-DD Marker Label color
 
 [Group Name] color
-YYYY->YYYY Span event description
-YYYY-MM-DD Point event description
+Span event start: YYYY, end: YYYY
+Point event start: YYYY-MM-DD
 ```
 
 ## Metadata Keys
@@ -63,33 +63,35 @@ YYYY-MM-DD Point event description
 
 ## Event Format
 
+Events use name-first syntax with `start:`, `end:`, and `duration:` as reserved metadata keys.
+
 ### Point Events
 
-A single date followed by a description:
+An event name followed by `start:` and a date:
 
 ```
-1718-11-22 Killed at Ocracoke
-1720-11 Rackham hanged at Port Royal
+Killed at Ocracoke start: 1718-11-22
+Rackham hanged at Port Royal start: 1720-11
 ```
 
-### Span Events
+### Range Events
 
-A date range (start -> end) followed by a description:
+An event name with `start:` and `end:` dates:
 
 ```
-1717-11->1718-06 Commands Queen Anne's Revenge
-1720->1722 Captures 400+ ships
+Commands Queen Anne's Revenge start: 1717-11, end: 1718-06
+Captures 400+ ships start: 1720, end: 1722
 ```
 
 ### Duration Events
 
-Instead of specifying an end date, you can use a duration:
+Instead of specifying an end date, you can use `duration:`:
 
 ```
-2026-07-15->30d Film release window
-2026-06-01->2w Festival run
-2026-01->6m Award season
-2026->2y Franchise arc
+Film release window start: 2026-07-15, duration: 30d
+Festival run start: 2026-06-01, duration: 2w
+Award season start: 2026-01, duration: 6m
+Franchise arc start: 2026, duration: 2y
 ```
 
 Supported duration units:
@@ -104,31 +106,33 @@ Supported duration units:
 Decimals are supported (up to 2 places):
 
 ```
-2026-01->1.25y Fifteen months (1 year + 3 months)
-2026-01->0.5y Half year (6 months)
-2026-01-01->1.5m Six weeks (1 month + 15 days)
+Fifteen months start: 2026-01, duration: 1.25y
+Half year start: 2026-01, duration: 0.5y
+Six weeks start: 2026-01-01, duration: 1.5m
 ```
 
 The end date is calculated automatically and preserves the precision of the start date.
 
 ### Uncertain End Dates
 
-Use `->?` to indicate an uncertain or approximate end date. The bar will fade out over the last 20%:
+Add `?` to the `end:` or `duration:` value to indicate an uncertain or approximate end date. The bar will fade out over the last 20%:
 
 ```
-2026-07-15->?3m Project Alpha
-2026-01->?1.5y Long-term initiative
+Project Alpha start: 2026-07-15, duration: 3m?
+Long-term initiative start: 2026-01, duration: 1.5y?
+Rackham's crew start: 1719-03, end: 1720-10?
 ```
 
 This visually communicates that the end date is an estimate rather than a fixed deadline.
 
 ### Date Precision
 
-Dates support three levels of precision:
+Dates support four levels of precision:
 
 - Year: `1718`
 - Year-Month: `1718-05`
 - Year-Month-Day: `1718-11-22`
+- Year-Month-Day Time: `2024-01-15 14:30`
 
 ## Eras
 
@@ -156,12 +160,12 @@ Use `[Group Name] color` headers to organize events into colored tracks:
 
 ```
 [Blackbeard] red
-1716->1717 Sails under Hornigold
-1718-11-22 Killed at Ocracoke
+Sails under Hornigold start: 1716, end: 1717
+Killed at Ocracoke start: 1718-11-22
 
 [Roberts] blue
-1719-06->1720 Raids West African coast
-1722-02-10 Killed at Cape Lopez
+Raids West African coast start: 1719-06, end: 1720
+Killed at Cape Lopez start: 1722-02-10
 ```
 
 ## Tag Groups
@@ -188,11 +192,11 @@ tag Priority
 
 ### Tagging Events
 
-Add `| key: value` metadata after any event line:
+Add tag metadata after the event name alongside scheduling keys:
 
 ```
-2024-01->2024-06 Build API | Team: Engineering
-2024-03->2024-05 UX Review | Team: Design, Priority: High
+Build API start: 2024-01, end: 2024-06, Team: Engineering
+UX Review start: 2024-03, end: 2024-05, Team: Design, Priority: High
 ```
 
 Multiple tags can be separated by commas.
@@ -215,10 +219,10 @@ tag Priority
   Medium yellow
   Low gray
 
-2024-01->2024-06 Build API Team: Engineering, Priority: High
-2024-03->2024-05 UX Review Team: Design, Priority: Medium
-2024-04->2024-07 Integration Tests Team: QA, Priority: High
-2024-02->2024-04 Design System Team: Design, Priority: Low
+Build API start: 2024-01, end: 2024-06, Team: Engineering, Priority: High
+UX Review start: 2024-03, end: 2024-05, Team: Design, Priority: Medium
+Integration Tests start: 2024-04, end: 2024-07, Team: QA, Priority: High
+Design System start: 2024-02, end: 2024-04, Team: Design, Priority: Low
 ```
 
 - `sort tag` — uses the first declared tag group for swimlanes

@@ -281,7 +281,7 @@ tag Team as t
 
 era 2025-01 -> 2025-06 Phase 1 - Foundation
 
-2025-01->2025-03 Core API Development | t: Engineering
-2025-01->2025-02 Design System v1 | t: Design
-2025-02 Competitor Analysis | t: Product
+Core API Development start: 2025-01, end: 2025-03, t: Engineering
+Design System v1 start: 2025-01, end: 2025-02, t: Design
+Competitor Analysis start: 2025-02, t: Product
 ```
