@@ -11,21 +11,18 @@ tag Role as r
 marker 1718-05-22 Ransom Deadline red
 era 1718-05-10 -> 1718-05-18 Blockade Active blue
 
-parallel
-  [Preparation] r: Command
-    parallel
-      Anchor and Position Fleet start: 1718-05-01, duration: 7d, progress: 100
-      Deploy Prize Sloops start: 1718-05-03, duration: 4d, r: Crew, progress: 100
+[Preparation] r: Command
+  Anchor Fleet 7d progress: 100
+    -> Deploy Sloops 4d r: Crew, progress: 100
 
-  [Blockade] r: Crew
-    parallel
-      Seize Merchant Vessels start: 1718-05-06, duration: 12d, progress: 80
-      Hold Hostages start: 1718-05-08, duration: 8d, r: Captives, progress: 60
+[Blockade] r: Crew
+  Seize Merchants 12d progress: 80
+  Hold Hostages 8d r: Captives, progress: 60
 
-  [Negotiations] r: Command
-    parallel
-      Demand Medicine Chest start: 1718-05-10, duration: 8d, progress: 50
-      Threaten Executions start: 1718-05-14, duration: 6d?, progress: 40
+[Negotiations] r: Command
+  Demand Medicine 8d progress: 50
+    -> Threaten Executions 6d? progress: 40
 
-  [Resolution] r: Command
-    Receive Ransom and Release start: 1718-05-20, duration: 3d, r: Captives
+[Resolution] r: Command
+  Receive Ransom 3d r: Captives
+    -> Release Prisoners 0d
