@@ -86,14 +86,6 @@ Vault is a database         // "Vault" matches no rule, but you want database
 Notifications is a queue    // "Notifications" matches no rule
 ```
 
-In flowcharts, arrow labels infer color:
-
-```dgmo-source
-<Valid?>
-  -yes-> [Process]          // automatically green
-  -no-> [Show Error]        // automatically red
-```
-
 The first declared tag group auto-activates. Chart types are detected from the first line. Org hierarchy comes from indentation alone.
 
 The principle: **name things sensibly and DGMO figures out the rest.** Override only when inference gets it wrong.
@@ -132,14 +124,16 @@ Wherever you see `[Name]`, something is being grouped:
 
 Content indented below the bracket line belongs to that group. Bracket grouping works in sequence, infra, flowchart, state, org, kanban, sitemap, gantt, boxes-and-lines, timeline, and scatter/bubble diagrams. When you see brackets, read them as "these things go together."
 
-Groups can have color suffixes and metadata:
+Groups carry metadata after the closing bracket. When color rides alongside other keys, use the long form `color: <name>`:
 
 ```dgmo-source
-[Backend] blue team: Platform
+[Backend] color: blue, team: Platform
   API
   Database
   Cache
 ```
+
+For semantic coloring, lean on tag aliases — `[Backend] t: Platform` (where `t` is a declared tag alias) lets the legend drive the fill instead of hardcoding the swatch. Kanban columns and pyramid/ring phase headers are the only groups that accept a bare trailing color (`[Done] green`); elsewhere, use the `color:` key.
 
 ---
 
@@ -155,9 +149,9 @@ DGMO uses the same small set of arrow patterns everywhere:
 | `~label~>` | Labeled async edge | `~notify~> Email` |
 | `<->` | Bidirectional | `A <-> B` |
 
-The label goes between the dashes (or tildes). This works identically in sequence, infra, flowchart, C4, ER, class, sitemap, and boxes-and-lines diagrams.
+The label goes between the dashes (or tildes). `->` and `-label->` work in every chart that has edges — sequence, infra, flowchart, C4, ER, class, sitemap, boxes-and-lines, and more. The async forms (`~>`, `~label~>`) are specific to communication-style diagrams (sequence, infra, flowchart). Bidirectional `<->` is a boxes-and-lines convenience.
 
-Learn it once, use it everywhere.
+Learn the shape once, then reach for the variant the diagram type allows.
 
 ---
 
