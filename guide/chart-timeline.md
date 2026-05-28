@@ -12,10 +12,10 @@ tag Pirate as p
 tag Outcome as o
   Victory green
   Defeat red
-  Uncertain yellow default
+  Uncertain yellow
 
 tag Theatre as t
-  Caribbean teal default
+  Caribbean teal
   Atlantic blue
   Africa orange
 
@@ -25,16 +25,16 @@ era 1719->1722 Roberts Era
 marker 1718-07 Woodes Rogers arrives orange
 marker 1721-08 Roberts reaches peak teal
 
-Sails under Hornigold start: 1716, end: 1717, p: Blackbeard, o: Victory
-Commands Queen Anne's Revenge start: 1717-11, end: 1718-06, p: Blackbeard, o: Victory, t: Atlantic
-Blockades Charleston harbor start: 1718-05, p: Blackbeard, o: Victory
-Killed at Ocracoke start: 1718-11-22, p: Blackbeard, o: Defeat
-Rackham builds crew in Nassau start: 1718, end: 1719, p: Bonny & Rackham, o: Victory
-Bonny & Rackham raid together start: 1719-03, end: 1720-10?, p: Bonny & Rackham
-Rackham hanged at Port Royal start: 1720-11, p: Bonny & Rackham, o: Defeat
-Raids West African coast start: 1719-06, end: 1720, p: Roberts, o: Victory, t: Africa
-Captures 400+ ships start: 1720, end: 1722, p: Roberts, o: Victory, t: Atlantic
-Killed at Cape Lopez start: 1722-02-10, p: Roberts, o: Defeat, t: Africa
+1716 -> 1717 Sails under Hornigold p: Blackbeard, o: Victory
+1717-11 -> 1718-06 Commands Queen Anne's Revenge p: Blackbeard, o: Victory, t: Atlantic
+1718-05 Blockades Charleston harbor p: Blackbeard, o: Victory
+1718-11-22 Killed at Ocracoke p: Blackbeard, o: Defeat
+1718 -> 1719 Rackham builds crew in Nassau p: Bonny & Rackham, o: Victory
+1719-03 -> 1720-10? Bonny & Rackham raid together p: Bonny & Rackham
+1720-11 Rackham hanged at Port Royal p: Bonny & Rackham, o: Defeat
+1719-06 -> 1720 Raids West African coast p: Roberts, o: Victory, t: Africa
+1720 -> 1722 Captures 400+ ships p: Roberts, o: Victory, t: Atlantic
+1722-02-10 Killed at Cape Lopez p: Roberts, o: Defeat, t: Africa
 ```
 
 ## Syntax
@@ -48,8 +48,8 @@ era YYYY->YYYY Era Name
 marker YYYY-MM-DD Marker Label color
 
 [Group Name] color
-Span event start: YYYY, end: YYYY
-Point event start: YYYY-MM-DD
+YYYY -> YYYY Span event
+YYYY-MM-DD Point event
 ```
 
 ## Metadata Keys
@@ -63,35 +63,35 @@ Point event start: YYYY-MM-DD
 
 ## Event Format
 
-Events use name-first syntax with `start:`, `end:`, and `duration:` as reserved metadata keys.
+Events use date-first syntax. The date comes first, then the event name, then optional trailing metadata.
 
 ### Point Events
 
-An event name followed by `start:` and a date:
+A date followed by the event name:
 
 ```
-Killed at Ocracoke start: 1718-11-22
-Rackham hanged at Port Royal start: 1720-11
+1718-11-22 Killed at Ocracoke
+1720-11 Rackham hanged at Port Royal
 ```
 
 ### Range Events
 
-An event name with `start:` and `end:` dates:
+A start date, arrow, end date, then the event name:
 
 ```
-Commands Queen Anne's Revenge start: 1717-11, end: 1718-06
-Captures 400+ ships start: 1720, end: 1722
+1717-11 -> 1718-06 Commands Queen Anne's Revenge
+1720 -> 1722 Captures 400+ ships
 ```
 
 ### Duration Events
 
-Instead of specifying an end date, you can use `duration:`:
+Instead of specifying an end date, place the duration after the event name:
 
 ```
-Film release window start: 2026-07-15, duration: 30d
-Festival run start: 2026-06-01, duration: 2w
-Award season start: 2026-01, duration: 6m
-Franchise arc start: 2026, duration: 2y
+2026-07-15 Film release window 30d
+2026-06-01 Festival run 2w
+2026-01 Award season 6m
+2026 Franchise arc 2y
 ```
 
 Supported duration units:
@@ -106,21 +106,21 @@ Supported duration units:
 Decimals are supported (up to 2 places):
 
 ```
-Fifteen months start: 2026-01, duration: 1.25y
-Half year start: 2026-01, duration: 0.5y
-Six weeks start: 2026-01-01, duration: 1.5m
+2026-01 Fifteen months 1.25y
+2026-01 Half year 0.5y
+2026-01-01 Six weeks 1.5m
 ```
 
 The end date is calculated automatically and preserves the precision of the start date.
 
 ### Uncertain End Dates
 
-Add `?` to the `end:` or `duration:` value to indicate an uncertain or approximate end date. The bar will fade out over the last 20%:
+Add `?` to the end date or duration to indicate an uncertain or approximate end date. The bar will fade out over the last 20%:
 
 ```
-Project Alpha start: 2026-07-15, duration: 3m?
-Long-term initiative start: 2026-01, duration: 1.5y?
-Rackham's crew start: 1719-03, end: 1720-10?
+2026-07-15 Project Alpha 3m?
+2026-01 Long-term initiative 1.5y?
+1719-03 -> 1720-10? Rackham's crew
 ```
 
 This visually communicates that the end date is an estimate rather than a fixed deadline.
@@ -156,17 +156,21 @@ Markers are not associated with groups and appear above all events. They're usef
 
 ## Groups
 
-Use `[Group Name] color` headers to organize events into colored tracks:
+Use `[Group Name] color` headers to organize events into colored tracks. Events must be indented under the group header.
 
 ```
 [Blackbeard] red
-Sails under Hornigold start: 1716, end: 1717
-Killed at Ocracoke start: 1718-11-22
+  1716 -> 1717 Sails under Hornigold
+  1718-11-22 Killed at Ocracoke
 
 [Roberts] blue
-Raids West African coast start: 1719-06, end: 1720
-Killed at Cape Lopez start: 1722-02-10
+  1719-06 -> 1720 Raids West African coast
+  1722-02-10 Killed at Cape Lopez
 ```
+
+When `[Group]` headers are present, the timeline automatically renders as horizontal swimlanes: one labeled row per group with a `▼` collapse toggle in the header. Click any group header to collapse that group into a single date-range summary bar showing `Group Name (N events)`; click again to expand. Ungrouped events appear in an implicit `(Other)` lane at the bottom.
+
+To opt out of swimlanes and render events as a flat time-sorted list, add `sort time`.
 
 ## Tag Groups
 
@@ -181,22 +185,22 @@ tag Team
   QA orange
 ```
 
-Each entry has a name and a color. You can add `default` to an entry to apply it to untagged events when the group is active:
+Each entry has a name and a color:
 
 ```
 tag Priority
   High red
-  Medium yellow default
+  Medium yellow
   Low gray
 ```
 
 ### Tagging Events
 
-Add tag metadata after the event name alongside scheduling keys:
+Add tag metadata after the event name as trailing key-value pairs:
 
 ```
-Build API start: 2024-01, end: 2024-06, Team: Engineering
-UX Review start: 2024-03, end: 2024-05, Team: Design, Priority: High
+2024-01 -> 2024-06 Build API Team: Engineering
+2024-03 -> 2024-05 UX Review Team: Design, Priority: High
 ```
 
 Multiple tags can be separated by commas.
@@ -219,10 +223,10 @@ tag Priority
   Medium yellow
   Low gray
 
-Build API start: 2024-01, end: 2024-06, Team: Engineering, Priority: High
-UX Review start: 2024-03, end: 2024-05, Team: Design, Priority: Medium
-Integration Tests start: 2024-04, end: 2024-07, Team: QA, Priority: High
-Design System start: 2024-02, end: 2024-04, Team: Design, Priority: Low
+2024-01 -> 2024-06 Build API Team: Engineering, Priority: High
+2024-03 -> 2024-05 UX Review Team: Design, Priority: Medium
+2024-04 -> 2024-07 Integration Tests Team: QA, Priority: High
+2024-02 -> 2024-04 Design System Team: Design, Priority: Low
 ```
 
 - `sort tag` — uses the first declared tag group for swimlanes
