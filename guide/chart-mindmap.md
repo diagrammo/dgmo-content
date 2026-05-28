@@ -132,7 +132,6 @@ tag Priority as p
 | Option | Effect |
 |--------|--------|
 | `active-tag GroupName` | Set the default active tag group |
-| `no-descriptions` | Hide description text on all nodes |
 
 Options are placed on their own line before content:
 
@@ -144,7 +143,6 @@ tag Priority as p
   Low green
 
 active-tag Priority
-no-descriptions
 
   Task A p: High
 ```
