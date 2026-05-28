@@ -33,7 +33,7 @@ Cycle diagrams show a circular process flow where nodes are arranged on a circle
 cycle Title
 
 NodeLabel
-NodeLabel | color: blue, span: 2
+NodeLabel color: blue, span: 2
 ```
 
 The first line declares the chart type and title. Each top-level line declares a node. Nodes are positioned around a circle in declaration order.
@@ -51,7 +51,7 @@ Autumn orange
 Winter blue
 ```
 
-Color uses the trailing-token form (`Spring green`). Reach for `| color: <name>` only when another pipe key (`span`, `description`, …) rides along — e.g. `Spring | color: green, span: 2`.
+Color uses the trailing-token form (`Spring green`). Reach for `color: <name>` only when another metadata key (`span`, `description`, …) rides along — e.g. `Spring color: green, span: 2`.
 
 ### Node Pipe Metadata
 
@@ -71,7 +71,7 @@ Observe blue
   Monitor unfolding circumstances
 ```
 
-If both `| description: text` and indented lines exist, they concatenate (pipe first, then indented).
+If both `description: text` and indented lines exist, they concatenate (same-line first, then indented).
 
 ## Edges
 
@@ -79,14 +79,14 @@ Edges are **implicit** — every node connects to the next, with the last wrappi
 
 ```
 Observe blue
-  -Unfold circumstances-> | color: blue
+  -Unfold circumstances-> color: blue
     Synthesize raw data into context
 
 Orient green
-  -> | width: 4
+  -> width: 4
 ```
 
-Edge lines are indented under their source node. A label goes between `-` and `->`. Pipe metadata supports `color` and `width`. Edges have no trailing-token color slot, so `| color: <name>` is the only way to color them.
+Edge lines are indented under their source node. A label goes between `-` and `->`. Edge metadata supports `color` and `width`. Edges have no trailing-token color slot, so `color: <name>` is the only way to color them.
 
 ### Edge Descriptions
 
@@ -106,9 +106,9 @@ The `span` metadata controls relative arc distance between nodes. A node with `s
 ```
 cycle Weighted Process
 
-Important Step | span: 2
+Important Step span: 2
 Quick Step
-Another Step | span: 1.5
+Another Step span: 1.5
 ```
 
 ## Directives

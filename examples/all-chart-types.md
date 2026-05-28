@@ -13,19 +13,19 @@
 arc Pirate Alliances
 
 [Caribbean] red
-  Blackbeard -> Bonnet:    8
-  Blackbeard -> Vane:      5
-  Blackbeard -> Hornigold: 4
-  Hornigold  -> Bonnet:    2
+  Blackbeard -> Bonnet     8
+  Blackbeard -> Vane       5
+  Blackbeard -> Hornigold  4
+  Hornigold  -> Bonnet     2
 
 [Women Pirates] purple
-  Bonny   -> Rackham: 9
-  Bonny   -> Read:    7
-  Rackham -> Vane:    3
+  Bonny   -> Rackham 9
+  Bonny   -> Read    7
+  Rackham -> Vane    3
 
 [West Africa] teal
-  Roberts -> Davis:    6
-  Davis   -> Roberts: 10
+  Roberts -> Davis    6
+  Davis   -> Roberts 10
 ```
 
 ---
@@ -380,23 +380,23 @@ Celebrate red
 journey-map First Voyage Aboard the Black Pearl
 solid-fill
 
-persona Squidlips Sam | color: blue
+persona Squidlips Sam color: blue
   Greenhorn cabin boy, first time at sea
   Sworn to the crew but quietly terrified
 
 [Boarding]
-  Sign the articles | 4 Hopeful
+  Sign the articles score: 4, emotion: Hopeful
     thought: This is the start of a legendary career
     description: Captain reads the code aloud — pay shares, no women aboard, lights out at 8
 
 [Storm]
-  Caught in a tempest off Tortuga | 1 Terrified
+  Caught in a tempest off Tortuga score: 1, emotion: Terrified
     pain: Two crewmates lost overboard before dawn
     pain: Hold floods to the knees, pumps barely keep pace
     thought: Maybe the merchant fleet wasn't so bad after all
 
 [Riches]
-  Sight a Spanish galleon | 5 Elated
+  Sight a Spanish galleon score: 5, emotion: Elated
     opportunity: Heavy with silver from the Veracruz mines
     description: First taste of plunder — three doubloons in his share
 ```
@@ -431,28 +431,28 @@ tag Status as st
   Turncoat red
   NewRecruit yellow
 
-Blackbeard| r: Captain, s: Revenge
-  Anne Bonny| r: FirstMate
+Blackbeard r: Captain, s: Revenge
+  Anne Bonny r: FirstMate
     [Gun Deck]
-      Cannonball Pete| r: Gunner
-      Smokey Jack| r: Gunner, st: NewRecruit
-      Powder Meg| r: Swab, st: NewRecruit
+      Cannonball Pete r: Gunner
+      Smokey Jack r: Gunner, st: NewRecruit
+      Powder Meg r: Swab, st: NewRecruit
     [Boarding Party]
-      Cutlass Jim| r: Bosun
+      Cutlass Jim r: Bosun
       Red Mary
-      One-Eyed Dan| st: Turncoat
-  Calico Rackham| r: Quartermaster
+      One-Eyed Dan st: Turncoat
+  Calico Rackham r: Quartermaster
     [Cargo Hold]
       Barnacle Bob
-      Slippery Sal| st: Turncoat
-  Long John| r: FirstMate, s: Serpent
+      Slippery Sal st: Turncoat
+  Long John r: FirstMate, s: Serpent
     [Rigging Crew]
-      Monkey Fist| r: Bosun
+      Monkey Fist r: Bosun
       Pegleg Pete
       Crow Jane
     [Navigation]
-      Stargazer Quinn| r: Quartermaster
-      Compass Rose| st: NewRecruit
+      Stargazer Quinn r: Quartermaster
+      Compass Rose st: NewRecruit
 ```
 
 ---
@@ -550,49 +550,49 @@ rings
   Spyglass
   Davy Jones
 
-Tactics | quadrant: top-right
-  Ambush at Dawn | ring: Full Sail, trend: stable
+Tactics quadrant: top-right
+  Ambush at Dawn ring: Full Sail, trend: stable
     Our most reliable boarding tactic. **90% success rate** when
     approaching from the east with the sun behind us.
-  Boarding Parties | ring: Full Sail, trend: stable
+  Boarding Parties ring: Full Sail, trend: stable
     Standard 20-man teams equipped with **cutlasses**, *grappling hooks*,
     and smoke pots.
-  Decoy Flags | ring: Trial Run, trend: up
+  Decoy Flags ring: Trial Run, trend: up
     Flying false colours until within cannon range. Merchant ships
     drop anchor **40% more often** when they see a Dutch East India flag.
-  Night Raids | ring: Trial Run, trend: up
+  Night Raids ring: Trial Run, trend: up
     Blackened sails and muffled oars.
-  Ramming | ring: Davy Jones, trend: down
+  Ramming ring: Davy Jones, trend: down
     Costs more in hull repairs than it's worth.
 
-Vessels | quadrant: top-left
-  Brigantine | ring: Full Sail, trend: stable
+Vessels quadrant: top-left
+  Brigantine ring: Full Sail, trend: stable
     Our workhorse. Fast, manoeuvrable, **18 cannons**.
-  Sloop | ring: Full Sail, trend: up
+  Sloop ring: Full Sail, trend: up
     Fastest ship in the fleet. Perfect for *reconnaissance*.
-  War Galleon | ring: Trial Run, trend: up
+  War Galleon ring: Trial Run, trend: up
     Captured from the Spanish fleet. Massive firepower.
-  Longboat | ring: Davy Jones, trend: down
+  Longboat ring: Davy Jones, trend: down
     Too slow, too small, too leaky.
 
-Plunder Targets | quadrant: bottom-left
-  Merchant Convoys | ring: Full Sail, trend: stable
+Plunder Targets quadrant: bottom-left
+  Merchant Convoys ring: Full Sail, trend: stable
     Core revenue stream — **78% of total plunder**.
-  Spanish Treasure Fleets | ring: Full Sail, trend: stable
+  Spanish Treasure Fleets ring: Full Sail, trend: stable
     The **crown jewels** of piracy.
-  Port Raids | ring: Trial Run, trend: up
+  Port Raids ring: Trial Run, trend: up
     Shifting from sea-only operations.
-  Fishing Villages | ring: Davy Jones, trend: down
+  Fishing Villages ring: Davy Jones, trend: down
     Terrible ROI and **bad for reputation**.
 
-Crew Welfare | quadrant: bottom-right
-  Grog Rations | ring: Full Sail, trend: stable
+Crew Welfare quadrant: bottom-right
+  Grog Rations ring: Full Sail, trend: stable
     Non-negotiable. Current allocation: **2 pints per day** per pirate.
-  Code of Conduct | ring: Full Sail, trend: stable
+  Code of Conduct ring: Full Sail, trend: stable
     Our **Articles of Agreement** — fair share, fair vote.
-  Sea Shanty Program | ring: Trial Run, trend: new
+  Sea Shanty Program ring: Trial Run, trend: new
     Hired a shanty master from *Liverpool*. Productivity up **25%**.
-  Plank Walking | ring: Davy Jones, trend: down
+  Plank Walking ring: Davy Jones, trend: down
     Terrible for recruitment and **crew retention**.
 ```
 
@@ -656,24 +656,21 @@ tag Role as r
 marker 1718-05-22 Ransom Deadline red
 era 1718-05-10 -> 1718-05-18 Blockade Active blue
 
-parallel
-  [Preparation] | r: Command
-    parallel
-      1718-05-01 -> 7d Anchor and Position Fleet | 100%
-      1718-05-03 -> 4d Deploy Prize Sloops | r: Crew, 100%
+[Preparation] r: Command
+  Anchor Fleet 7d progress: 100
+    -> Deploy Sloops 4d r: Crew, progress: 100
 
-  [Blockade] | r: Crew
-    parallel
-      1718-05-06 -> 12d Seize Merchant Vessels | 80%
-      1718-05-08 -> 8d Hold Hostages | r: Captives, 60%
+[Blockade] r: Crew
+  Seize Merchants 12d progress: 80
+  Hold Hostages 8d r: Captives, progress: 60
 
-  [Negotiations] | r: Command
-    parallel
-      1718-05-10 -> 8d Demand Medicine Chest | 50%
-      1718-05-14 -> 6d? Threaten Executions | 40%
+[Negotiations] r: Command
+  Demand Medicine 8d progress: 50
+    -> Threaten Executions 6d? progress: 40
 
-  [Resolution] | r: Command
-    1718-05-20 -> 3d Receive Ransom and Release | r: Captives
+[Resolution] r: Command
+  Receive Ransom 3d r: Captives
+    -> Release Prisoners 0d
 ```
 
 ---
@@ -695,23 +692,23 @@ tag Watch as w
   Night purple
 
 [Backlog] blue
-  Repair the foretops'l | p: Low, w: Morning
+  Repair the foretops'l p: Low, w: Morning
     Mend after the last storm
-  Reinforce the gunwales | p: Medium, w: Afternoon
+  Reinforce the gunwales p: Medium, w: Afternoon
 
 [In Progress] yellow
-  Restock powder kegs | p: High, w: Morning
+  Restock powder kegs p: High, w: Morning
     Last batch ran damp
-  Caulk the hull seams | p: High, w: Afternoon
+  Caulk the hull seams p: High, w: Afternoon
     Hold has been taking water
 
 [Blocked] red
-  Find a new sailmaker | p: Critical, w: Morning
+  Find a new sailmaker p: Critical, w: Morning
     Old one took ill at last port
 
 [Done] green
-  Inventory the hold | p: Medium, w: Night
-  Sharpen the cutlasses | p: Low, w: Night
+  Inventory the hold p: Medium, w: Night
+  Sharpen the cutlasses p: Low, w: Night
 ```
 
 ---
@@ -816,16 +813,16 @@ era 1719->1722 Roberts Era
 marker 1718-07 Woodes Rogers arrives orange
 marker 1721-08 Roberts reaches peak teal
 
-Sails under Hornigold start: 1716, end: 1717, p: Blackbeard, o: Victory
-Commands Queen Anne's Revenge start: 1717-11, end: 1718-06, p: Blackbeard, o: Victory, t: Atlantic
-Blockades Charleston harbor start: 1718-05, p: Blackbeard, o: Victory
-Killed at Ocracoke start: 1718-11-22, p: Blackbeard, o: Defeat
-Rackham builds crew in Nassau start: 1718, end: 1719, p: Bonny & Rackham, o: Victory
-Bonny & Rackham raid together start: 1719-03, end: 1720-10?, p: Bonny & Rackham
-Rackham hanged at Port Royal start: 1720-11, p: Bonny & Rackham, o: Defeat
-Raids West African coast start: 1719-06, end: 1720, p: Roberts, o: Victory, t: Africa
-Captures 400+ ships start: 1720, end: 1722, p: Roberts, o: Victory, t: Atlantic
-Killed at Cape Lopez start: 1722-02-10, p: Roberts, o: Defeat, t: Africa
+1716 -> 1717 Sails under Hornigold p: Blackbeard, o: Victory
+1717-11 -> 1718-06 Commands Queen Anne's Revenge p: Blackbeard, o: Victory, t: Atlantic
+1718-05 Blockades Charleston harbor p: Blackbeard, o: Victory
+1718-11-22 Killed at Ocracoke p: Blackbeard, o: Defeat
+1718 -> 1719 Rackham builds crew in Nassau p: Bonny & Rackham, o: Victory
+1719-03 -> 1720-10? Bonny & Rackham raid together p: Bonny & Rackham
+1720-11 Rackham hanged at Port Royal p: Bonny & Rackham, o: Defeat
+1719-06 -> 1720 Raids West African coast p: Roberts, o: Victory, t: Africa
+1720 -> 1722 Captures 400+ ships p: Roberts, o: Victory, t: Atlantic
+1722-02-10 Killed at Cape Lopez p: Roberts, o: Defeat, t: Africa
 ```
 
 ---
@@ -845,24 +842,24 @@ tag Status as s
 
 active-tag Status
 
-Flagship | s: Operational
+Flagship s: Operational
   -> [Harbor Defenses]
   -> IntelNetwork
 
 [Harbor Defenses]
-  FortCannon | s: Operational
+  FortCannon s: Operational
     -> Watchtower
-  Watchtower | s: Operational
-  SeaMines | s: Building
+  Watchtower s: Operational
+  SeaMines s: Building
 
-IntelNetwork | s: Operational
+IntelNetwork s: Operational
   -> SpyRing
   -> SignalFlags
 
-SpyRing | s: Operational
+SpyRing s: Operational
   -> [Harbor Defenses]
 
-SignalFlags | s: Damaged
+SignalFlags s: Damaged
 ```
 
 ---

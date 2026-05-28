@@ -7,41 +7,41 @@ tag Auth
   Public green
   Crew Only blue
 
-Home | Auth: Public, description: Landing page with interactive demos
+Home Auth: Public, description: Landing page with interactive demos
   -shop-> Shop
   -voyages-> Upcoming Voyages
   -join crew-> Sign Up
   -sign in-> Login
 
 [Ship Store]
-  Shop | Auth: Public
+  Shop Auth: Public
     -> Eye Patches
     -> Flags & Banners
-  Eye Patches | Auth: Public
+  Eye Patches Auth: Public
     -add to chest-> Cart
-  Flags & Banners | Auth: Public
+  Flags & Banners Auth: Public
     -add to chest-> Cart
-  Cart | Auth: Public
+  Cart Auth: Public
     -checkout-> Checkout
-  Checkout | Auth: Crew Only
+  Checkout Auth: Crew Only
     -done-> My Orders
 
 [Voyages]
-  Upcoming Voyages | Auth: Public
+  Upcoming Voyages Auth: Public
     -details-> Voyage Detail
-  Voyage Detail | Auth: Public
+  Voyage Detail Auth: Public
     -enlist-> Sign Up
 
 [Crew Quarters]
-  Login | Auth: Public
+  Login Auth: Public
     -welcome aboard-> Dashboard
     -new pirate-> Sign Up
-  Sign Up | Auth: Public
+  Sign Up Auth: Public
     -welcome aboard-> Dashboard
-  Dashboard | Auth: Crew Only
+  Dashboard Auth: Crew Only
     description Full overview of crew activity and orders
     -> My Orders
-  My Orders | Auth: Crew Only
+  My Orders Auth: Crew Only
     -reorder-> Shop
 ```
 
@@ -129,24 +129,20 @@ Products
   owner: Product Team
 ```
 
-Metadata renders as secondary text on the page card.
-
-### Pipe Syntax
-
-For concise entries, use `|` to put metadata on a single line:
+Metadata renders as secondary text on the page card. For concise entries, put metadata on the same line as the page name:
 
 ```
-Home | status: Live | owner: Marketing
-Products | status: Draft | owner: Product Team
+Home status: Live, owner: Marketing
+Products status: Draft, owner: Product Team
 ```
 
 ## Descriptions
 
-Add a description to any page using the `description` keyword (indented) or pipe metadata:
+Add a description to any page using the `description` keyword (indented) or same-line metadata:
 
 ```
-// Pipe metadata form
-Pricing | description: Compare plans and features
+// Same-line metadata form
+Pricing description: Compare plans and features
 
 // Indented keyword form (colon optional)
 Dashboard
@@ -226,39 +222,39 @@ tag Status
   Live cyan
   Coming Soon yellow
 
-Home | Auth: Public | Status: Live
+Home Auth: Public, Status: Live
   -shop-> Shop
   -voyages-> Upcoming Voyages
   -join crew-> Sign Up
   -sign in-> Login
 
 [Ship Store]
-  Shop | Auth: Public | Status: Live
+  Shop Auth: Public, Status: Live
     -> Eye Patches
     -> Flags & Banners
-  Eye Patches | Auth: Public | Status: Live
+  Eye Patches Auth: Public, Status: Live
     -add to chest-> Cart
-  Flags & Banners | Auth: Public | Status: Coming Soon
+  Flags & Banners Auth: Public, Status: Coming Soon
     -add to chest-> Cart
-  Cart | Auth: Public | Status: Live
+  Cart Auth: Public, Status: Live
     -checkout-> Checkout
-  Checkout | Auth: Crew Only | Status: Live
+  Checkout Auth: Crew Only, Status: Live
     -done-> My Orders
 
 [Voyages]
-  Upcoming Voyages | Auth: Public | Status: Live
+  Upcoming Voyages Auth: Public, Status: Live
     -details-> Voyage Detail
-  Voyage Detail | Auth: Public | Status: Live
+  Voyage Detail Auth: Public, Status: Live
     -enlist-> Sign Up
 
 [Crew Quarters]
-  Login | Auth: Public | Status: Live
+  Login Auth: Public, Status: Live
     -welcome aboard-> Dashboard
     -new pirate-> Sign Up
-  Sign Up | Auth: Public | Status: Live
+  Sign Up Auth: Public, Status: Live
     -welcome aboard-> Dashboard
-  Dashboard | Auth: Crew Only | Status: Live
+  Dashboard Auth: Crew Only, Status: Live
     -> My Orders
-  My Orders | Auth: Crew Only | Status: Live
+  My Orders Auth: Crew Only, Status: Live
     -reorder-> Shop
 ```

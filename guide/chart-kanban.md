@@ -43,7 +43,7 @@ kanban Board Title
 
 [Column Name]
 Card Title
-Card Title | key: Value, key: Value
+Card Title key: Value, key: Value
   Freeform detail text
   Another detail line
 ```
@@ -69,10 +69,10 @@ Kanban columns model a workflow pipeline. Cards move left to right as work progr
 
 ### WIP Limits
 
-Add `| wip: N` after a column header to set a work-in-progress limit. A warning appears when the limit is exceeded:
+Add `wip: N` after a column header to set a work-in-progress limit. A warning appears when the limit is exceeded:
 
 ```
-[In Progress] | wip: 3
+[In Progress] wip: 3
 ```
 
 ## Cards
@@ -81,10 +81,10 @@ Each non-indented line within a column creates a card. Cards can have tags and d
 
 ### Tags
 
-Tags follow the card title, separated by `|`. Multiple tags are comma-separated:
+Tags follow the card title. Multiple tags are comma-separated:
 
 ```
-Build login | priority: High, assignee: Alice
+Build login priority: High, assignee: Alice
 ```
 
 ### Detail Lines
@@ -92,7 +92,7 @@ Build login | priority: High, assignee: Alice
 Indented lines under a card are freeform detail text:
 
 ```
-Build login | priority: High
+Build login priority: High
   OAuth + email/password support
   Needs design review first
 ```

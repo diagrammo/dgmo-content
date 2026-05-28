@@ -3,22 +3,22 @@
 ```dgmo
 c4 Internet Banking System
 
-person Customer | description: A customer of the bank
+Customer is a person description: A customer of the bank
 
-system Internet Banking | description: Allows customers to view accounts and make payments
+Internet Banking is a system description: Allows customers to view accounts and make payments
   -Delivers content to [HTTPS]-> Customer
   -Sends emails using [SMTP]-> Email
 
   containers
-    container Web App | description: SPA for banking features, tech: React
+    Web App is a container description: SPA for banking features, tech: React
       -Makes API calls [JSON/HTTPS]-> API
 
-    container API | description: JSON/HTTPS API backend, tech: Node.js
+    API is a container description: JSON/HTTPS API backend, tech: Node.js
       -Reads from and writes to [SQL/TCP]-> Database
 
-    container Database | description: Stores account data, tech: PostgreSQL
+    Database is a container description: Stores account data, tech: PostgreSQL
 
-system Email | description: Sendgrid email delivery
+Email is a system description: Sendgrid email delivery
   ~Sends emails to~> Customer
 
 deployment
@@ -41,31 +41,31 @@ The diagram starts at the **Context** level (people + systems). Click a system t
 ```
 c4 Diagram Title
 
-person Name | description: ...
-system Name | description: ...
+Name is a person description: ...
+Name is a system description: ...
   -label [technology]-> Target
   ~async label~> Target
 
   containers
-    container Name | tech: ..., description: ...
+    Name is a container tech: ..., description: ...
 
       components
-        component Name | tech: ..., description: ...
+        Name is a component tech: ..., description: ...
 ```
 
 ## Element Types
 
-| Type        | Description                     | Example                    |
-| ----------- | ------------------------------- | -------------------------- |
-| `person`    | User or actor                   | `person Customer`          |
-| `system`    | Top-level software system       | `system Banking`           |
-| `container` | Runtime unit within a system    | `container API`            |
-| `component` | Logical part within a container | `component AuthController` |
+| Type        | Description                     | Example                         |
+| ----------- | ------------------------------- | ------------------------------- |
+| `person`    | User or actor                   | `Customer is a person`          |
+| `system`    | Top-level software system       | `Banking is a system`           |
+| `container` | Runtime unit within a system    | `API is a container`            |
+| `component` | Logical part within a container | `AuthController is a component` |
 
-Elements are declared with their type keyword followed by a name. Add metadata after `|`:
+Elements are declared with a name followed by `is a <type>`. Add metadata after the type:
 
 ```
-system Analytics Platform | description: Multi-tenant analytics, tech: Node.js
+Analytics Platform is a system description: Multi-tenant analytics, tech: Node.js
 ```
 
 ## Shapes
@@ -73,11 +73,11 @@ system Analytics Platform | description: Multi-tenant analytics, tech: Node.js
 Shapes can be inferred from the element's technology or name, or declared explicitly:
 
 ```
-container Database is a database
-container Cache is a cache
-container Event Bus is a queue
-system AWS is a cloud
-system Stripe is an external
+Database is a container is a database
+Cache is a container is a cache
+Event Bus is a container is a queue
+AWS is a system is a cloud
+Stripe is a system is an external
 ```
 
 | Shape      | Inferred from                                             |
@@ -90,17 +90,17 @@ system Stripe is an external
 
 ## Metadata
 
-Key-value pairs on the same line with `|`, or indented below the element:
+Key-value pairs on the same line, or indented below the element:
 
 ```
-container API Gateway | tech: Node.js, team: Platform
+API Gateway is a container tech: Node.js, team: Platform
   description: REST API serving all frontends
 ```
 
 Or fully inline:
 
 ```
-container API Gateway | tech: Node.js, team: Platform, description: REST API
+API Gateway is a container tech: Node.js, team: Platform, description: REST API
 ```
 
 ## Relationships
@@ -143,13 +143,13 @@ Labels can also be placed inside the arrow:
 Systems contain containers (via `containers`), containers contain components (via `components`). Indentation defines the hierarchy:
 
 ```
-system Banking
+Banking is a system
   containers
-    container Web App
-    container API
+    Web App is a container
+    API is a container
       components
-        component AuthController
-        component PaymentService
+        AuthController is a component
+        PaymentService is a component
 ```
 
 At the **Context** level, container-level relationships are automatically rolled up to their parent system.
@@ -161,16 +161,16 @@ Organize containers or components into visual boundaries:
 ```
 containers
   [Frontend]
-    container Dashboard | tech: React
-    container Admin Console | tech: React
+    Dashboard is a container tech: React
+    Admin Console is a container tech: React
 
   [Backend]
-    container API Gateway | tech: Node.js
-    container Query Engine | tech: Node.js
+    API Gateway is a container tech: Node.js
+    Query Engine is a container tech: Node.js
 
   [Data]
-    container Database | tech: PostgreSQL
-    container Cache is a cache | tech: Redis
+    Database is a container tech: PostgreSQL
+    Cache is a container is a cache tech: Redis
 ```
 
 ## Tag Groups
@@ -190,7 +190,7 @@ tag Team as t
   Infrastructure teal
 ```
 
-Then reference tags in metadata: `container API | tech: Node.js, t: Product`.
+Then reference tags in metadata: `API is a container tech: Node.js, t: Product`.
 
 ## Deployment
 
@@ -234,50 +234,50 @@ tag Team as t
   Data orange
   Infrastructure teal
 
-person End User | description: Views dashboards and creates reports
-person Account Admin | description: Manages workspace settings and members
+End User is a person description: Views dashboards and creates reports
+Account Admin is a person description: Manages workspace settings and members
 
-system Analytics Platform | description: Multi-tenant analytics and reporting
+Analytics Platform is a system description: Multi-tenant analytics and reporting
   -Serves dashboards to [HTTPS]-> End User
   -Provides admin console to [HTTPS]-> Account Admin
   ~Sends scheduled reports via [SMTP]~> Email Service
 
   containers
     [Frontend]
-      container Dashboard App | tech: React, t: Product
+      Dashboard App is a container tech: React, t: Product
         description: Interactive data visualization SPA
         -Fetches data from [JSON/HTTPS]-> API Gateway
 
-      container Admin Console | tech: React, t: Product
+      Admin Console is a container tech: React, t: Product
         description: Workspace and user management
         -Manages settings via [JSON/HTTPS]-> API Gateway
 
     [Backend]
-      container API Gateway | tech: Node.js, t: Product
+      API Gateway is a container tech: Node.js, t: Product
         description: REST API serving all frontends
         -Reads/writes user data [SQL/TCP]-> App Database
         -Reads/writes sessions [TCP]-> Cache
         ~Submits analytics queries [AMQP]~> Query Engine
 
-      container Query Engine | tech: Node.js, t: Data
+      Query Engine is a container tech: Node.js, t: Data
         description: Processes analytics queries asynchronously
         -Runs queries against [SQL/TCP]-> Data Warehouse
         ~Publishes results [AMQP]~> Event Bus
 
     [Data]
-      container App Database | tech: PostgreSQL, t: Product
+      App Database is a container tech: PostgreSQL, t: Product
         description: Users, workspaces, and dashboard configs
 
-      container Data Warehouse | tech: PostgreSQL, t: Data
+      Data Warehouse is a container tech: PostgreSQL, t: Data
         description: Aggregated analytics data
 
-      container Cache is a cache | tech: Redis, t: Infrastructure
+      Cache is a container is a cache tech: Redis, t: Infrastructure
         description: Session store and rate limiter
 
-      container Event Bus | tech: RabbitMQ, t: Infrastructure
+      Event Bus is a container tech: RabbitMQ, t: Infrastructure
         description: Async messaging backbone
 
-system Email Service | description: Transactional email delivery
+Email Service is a system description: Transactional email delivery
   ~Delivers report emails to~> End User
 
 deployment

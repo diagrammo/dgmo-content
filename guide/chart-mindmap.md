@@ -69,8 +69,8 @@ Important Topic red
 Nodes can have descriptions shown as secondary text. Two forms:
 
 ```
-// Pipe form (single line)
-Surveys | description: Quarterly NPS survey
+// Same-line form
+Surveys description: Quarterly NPS survey
 
 // Indented form (before children)
 Auth System
@@ -80,10 +80,10 @@ Auth System
 
 ### Collapse Default
 
-Set a node's default collapsed state with pipe metadata:
+Set a node's default collapsed state with metadata:
 
 ```
-Nice-to-haves | collapsed: true
+Nice-to-haves collapsed: true
   Dark Mode
   Export PDF
 ```
@@ -107,16 +107,6 @@ Q2 Goals
 
 The diagram title is inferred from the first root's label.
 
-## Pipe Metadata
-
-Attach metadata after `|` with comma-separated `key: value` pairs:
-
-```
-Node | priority: High, status: Done
-```
-
-Tag values, descriptions, and `collapsed` are all set via pipe metadata.
-
 ## Tag Groups
 
 Tag groups define color-coded categories. They appear before content and follow the standard tag syntax:
@@ -129,8 +119,8 @@ tag Priority as p
   Medium yellow
   Low green
 
-  Task A | p: High
-  Task B | p: Low
+  Task A p: High
+  Task B p: Low
 ```
 
 - The alias (`p`) provides a shorthand for metadata keys
@@ -156,7 +146,7 @@ tag Priority as p
 active-tag Priority
 no-descriptions
 
-  Task A | p: High
+  Task A p: High
 ```
 
 ## Complete Example

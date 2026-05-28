@@ -8,7 +8,7 @@ tag Access
 tag Page
   Landing purple
   Form orange
-  Content cyan
+  Content cyan 
 
 Home Access: Public, Page: Landing
   -shop-> Shop
@@ -21,7 +21,7 @@ Home Access: Public, Page: Landing
     -buy-> Checkout
 
   Checkout Access: Crew Only, Page: Form
-    -purchased-> Ship Log
+    -purchased-> Ship Log 
 
 [Crew Quarters]
   Enlist Access: Public, Page: Form

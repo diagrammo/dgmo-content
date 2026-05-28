@@ -76,8 +76,8 @@ rings
   Ring1
   Ring2
 
-Quadrant Name | quadrant: position
-  Blip Name | ring: RingName, trend: value
+Quadrant Name quadrant: position
+  Blip Name ring: RingName, trend: value
     Description text (markdown supported)
 ```
 
@@ -113,8 +113,8 @@ rings
   Assess as x
   Hold as h
 
-Quadrant | quadrant: top-right
-  Item Name | ring: a, trend: up
+Quadrant quadrant: top-right
+  Item Name ring: a, trend: up
 ```
 
 ## Quadrants
@@ -122,10 +122,10 @@ Quadrant | quadrant: top-right
 Exactly 4 quadrants are required. Each needs a unique position:
 
 ```
-Techniques | quadrant: top-right
-Tools | quadrant: top-left
-Platforms | quadrant: bottom-left
-Languages | quadrant: bottom-right
+Techniques quadrant: top-right
+Tools quadrant: top-left
+Platforms quadrant: bottom-left
+Languages quadrant: bottom-right
 ```
 
 **Positions:** `top-left`, `top-right`, `bottom-left`, `bottom-right`
@@ -135,7 +135,7 @@ Languages | quadrant: bottom-right
 Override the default quadrant color with `color`:
 
 ```
-Tools | quadrant: top-left, color: purple
+Tools quadrant: top-left, color: purple
 ```
 
 Default colors: top-left=blue, top-right=green, bottom-left=red, bottom-right=orange.
@@ -145,8 +145,8 @@ Default colors: top-left=blue, top-right=green, bottom-left=red, bottom-right=or
 Blips are items placed on the radar. Each is indented under its quadrant and requires a `ring` reference:
 
 ```
-  Kubernetes | ring: Adopt
-  Micro Frontends | ring: Trial, trend: up
+  Kubernetes ring: Adopt
+  Micro Frontends ring: Trial, trend: up
 ```
 
 Ring matching is case-insensitive — `ring: adopt` and `ring: Adopt` both work.
@@ -169,7 +169,7 @@ Omitting `trend` renders a plain circle (same as `stable`).
 Further-indented lines below a blip become its description. Descriptions support inline markdown:
 
 ```
-  Rust | ring: Assess, trend: new
+  Rust ring: Assess, trend: new
     Evaluating for **performance-critical** services.
     Key benefits: *zero-cost abstractions* and `no GC pauses`.
     - 12x throughput improvement in image pipeline

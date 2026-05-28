@@ -244,7 +244,7 @@ Organize participants into labeled boxes in the header:
 - `[Name]` declares a named group
 - Indented names belong to the group
 - Grouped participants stay adjacent in the layout
-- Groups can carry tag metadata: `[Backend | team: Product]`
+- Groups can carry tag metadata: `[Backend] team: Product`
 
 ## Activation Bars
 
@@ -283,18 +283,18 @@ tag Concern as c
 
 ### Attaching Tags
 
-Use `| key: value` after participant declarations, message lines, or group headers:
+Use `key: value` after participant declarations, message lines, or group headers:
 
 ```
-API | concern: Caching, team: Platform
-User -login-> API | concern: Auth
-[Backend | concern: BusinessLogic]
+API concern: Caching, team: Platform
+User -login-> API concern: Auth
+[Backend] concern: BusinessLogic
   OrderAPI
   DB
 ```
 
-- Multiple tags: `| key1: val1, key2: val2`
-- Aliases work: `| c: Caching` (if `tag Concern as c` was declared)
+- Multiple tags: `key1: val1, key2: val2`
+- Aliases work: `c: Caching` (if `tag Concern as c` was declared)
 
 ### Tag Resolution
 

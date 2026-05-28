@@ -51,8 +51,8 @@ tag Priority as p
   Normal green
   Low gray
 
-API | p: Critical
-Cache | p: Low
+API p: Critical
+Cache p: Low
 ```
 
 Why go through this indirection?
@@ -132,10 +132,10 @@ Wherever you see `[Name]`, something is being grouped:
 
 Content indented below the bracket line belongs to that group. Bracket grouping works in sequence, infra, flowchart, state, org, kanban, sitemap, gantt, boxes-and-lines, timeline, and scatter/bubble diagrams. When you see brackets, read them as "these things go together."
 
-Groups can have color suffixes and pipe metadata:
+Groups can have color suffixes and metadata:
 
 ```dgmo-source
-[Backend] blue | team: Platform
+[Backend] blue team: Platform
   API
   Database
   Cache
@@ -161,20 +161,20 @@ Learn it once, use it everywhere.
 
 ---
 
-## Pipe Metadata: The Universal "And Also..."
+## Metadata: The Universal "And Also..."
 
-When you need to attach extra information to something, the pipe `|` syntax works on almost anything:
+When you need to attach extra information to something, the same `key: value` syntax works on almost anything:
 
 ```dgmo-source
-API | description: Main gateway, team: Platform
-API -routes-> UserService | frequency: High
-[Backend] | owner: Platform Team
-10bd Database Schema | p: Foundation, 80%
-Blockade start: 1718-05, p: Blackbeard
-Card Title | priority: High, assignee: Alice
+API description: Main gateway, team: Platform
+API -routes-> UserService frequency: High
+[Backend] owner: Platform Team
+Database Schema 10bd p: Foundation, progress: 80
+1718-05 Blockade p: Blackbeard
+Card Title priority: High, assignee: Alice
 ```
 
-Nodes, edges, groups, tasks, events, cards — if it exists in DGMO, you can probably pipe metadata onto it. The format is always `| key: value, key2: value2`.
+Nodes, edges, groups, tasks, events, cards — if it exists in DGMO, you can probably attach metadata to it. The format is always `key: value, key2: value2` trailing the name, or indented `key: value` lines beneath it.
 
 ---
 
@@ -231,7 +231,7 @@ Colons show up in exactly two situations:
 
 **1. Open-ended metadata** — when you're defining freeform key-value pairs:
 ```dgmo-source
-API | description: Main gateway         // pipe metadata
+API description: Main gateway           // same-line metadata
   role: Senior Engineer                 // org/C4 indented metadata
 ```
 

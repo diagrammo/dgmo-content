@@ -30,8 +30,8 @@ journey-map Title
 persona Name
 
 [Phase Name]
-  Step Name | score
-  Step Name | score Emotion
+  Step Name score: N
+  Step Name score: N, emotion: Label
 ```
 
 The first line must be `journey-map` followed by a title. Phases use bracket syntax at indent 0. Steps are indented within phases.
@@ -69,15 +69,14 @@ Steps appear indented within phases (or at indent 0 in flat mode).
 
 ### Score Syntax
 
-The score goes in the pipe, separating step name from data:
+The score is set with the `score:` key in same-line metadata:
 
 ```
-Step Name | 4                        // bare score
-Step Name | 4 Delighted              // score + emotion label
-Step Name | 4, ch: Web               // score + tag metadata
-Step Name | 4 Delighted, ch: Web     // score + label + metadata
-Step Name | score: 4, ch: Web        // explicit score key
-Step Name                            // no pipe = scoreless step
+Step Name score: 4                              // bare score
+Step Name score: 4, emotion: Delighted          // score + emotion label
+Step Name score: 4, ch: Web                     // score + tag metadata
+Step Name score: 4, emotion: Delighted, ch: Web // score + label + metadata
+Step Name                                       // no metadata = scoreless step
 ```
 
 - **Score scale**: 1–5 integer (high = good)

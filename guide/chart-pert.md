@@ -63,7 +63,7 @@ Every activity is declared on its own non-indented source-line with its duration
 | `time-unit`    | One of `min`, `h`, `d`, `bd`, `w`, `m`, `q`, `y`. Default unit for duration tokens and for μ/σ/ES/EF formatting. **Overrideable per-token** — see *Per-token Time Units*. | `d` |
 | `direction`    | `LR` (left-to-right) or `TB` (top-to-bottom).                                     | `LR`          |
 | `node-detail`  | `compact` shows name + duration; `full` adds μ ± σ inside the node.               | `compact`     |
-| `default-confidence` | `high` / `medium` / `low`, or an explicit `O/P` factor pair (e.g. `0.6/2.5`). Fills O/P for M-only activities. Per-activity override via `\| confidence: low` pipe metadata. See *M-only Estimates* for multipliers. | `medium` |
+| `default-confidence` | `high` / `medium` / `low`, or an explicit `O/P` factor pair (e.g. `0.6/2.5`). Fills O/P for M-only activities. Per-activity override via `confidence: low` metadata. See *M-only Estimates* for multipliers. | `medium` |
 | `trials`       | Monte Carlo trial count. Auto-derived from activity count when omitted.           | auto-derived  |
 | `seed`         | Deterministic PRNG seed. Auto-derived from the title (or activity names) when omitted. | auto-derived  |
 | `start-date`   | `YYYY-MM-DD` or `now`. **Forward anchor** — pins project start; ES/EF/LS/LF render as calendar dates. Mutually exclusive with `end-date`. See *Anchoring to a Calendar*. | none |
@@ -132,15 +132,15 @@ The multipliers are intentionally **asymmetric** — pessimistic spreads more th
 
 #### Per-activity override
 
-The diagram-level `default-confidence` applies to every M-only activity, but any single activity can override it with `| confidence: <level>` pipe metadata. The override accepts the same forms as the directive — a named level or an explicit `O/P` factor pair:
+The diagram-level `default-confidence` applies to every M-only activity, but any single activity can override it with `confidence: <level>` metadata. The override accepts the same forms as the directive — a named level or an explicit `O/P` factor pair:
 
 ```
 default-confidence medium
 
 quick fix 2                            # uses medium (0.75 / 3.0)
-hard research 3 | confidence: low      # uses low    (0.5  / 4.0)
-known task 1   | confidence: high      # uses high   (0.9  / 1.5)
-custom 4       | confidence: 0.6/2.5   # explicit factors, just this activity
+hard research 3 confidence: low        # uses low    (0.5  / 4.0)
+known task 1 confidence: high          # uses high   (0.9  / 1.5)
+custom 4 confidence: 0.6/2.5           # explicit factors, just this activity
 ```
 
 Use overrides on the handful of activities that genuinely diverge from the project's confidence default — don't mark every line. If most of your activities want a non-medium confidence, change `default-confidence` instead.
@@ -194,7 +194,7 @@ A bare alias source-line (`rc`) resolves to the canonical activity, so subsequen
 
 ## Edges
 
-Dependencies are written with `->` from a child line indented under the predecessor. Arrow lines may only carry a destination name (or an existing alias) — durations, `as <alias>`, and pipe metadata must live on the target's own source-line:
+Dependencies are written with `->` from a child line indented under the predecessor. Arrow lines may only carry a destination name (or an existing alias) — durations, `as <alias>`, and metadata must live on the target's own source-line:
 
 ```
 recruit crew 1 2 4

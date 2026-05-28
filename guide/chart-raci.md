@@ -84,7 +84,7 @@ roles                                 // block form — supports per-role color
 
 When `roles` is present, any role used in a task assignment that wasn't declared emits the `W_RACI_UNKNOWN_ROLE` warning.
 
-Per-role color uses the universal trailing-token form (`Cap red`) — same as cycle / pyramid / ring / boxes-and-lines layers. The inline form is name-only; to color roles, use the block form. The pipe form (`Cap | color: red`) is still accepted, but reserve it for when another pipe key rides along.
+Per-role color uses the universal trailing-token form (`Cap red`) — same as cycle / pyramid / ring / boxes-and-lines layers. The inline form is name-only; to color roles, use the block form. The same-line form (`Cap color: red`) is also accepted, but reserve it for when another metadata key rides along.
 
 ## Phase metadata
 

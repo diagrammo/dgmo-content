@@ -98,15 +98,6 @@ Alice Park
 
 Metadata renders as secondary text on the node card.
 
-### Compact Pipe Syntax
-
-For concise entries, use `|` to put metadata on a single line:
-
-```
-Alice Park | role: Senior Engineer | location: NY
-Bob Torres | role: Junior Engineer | location: CO
-```
-
 ## Containers (Teams)
 
 Use `[Team Name]` to create a container that groups its children visually:
@@ -118,14 +109,14 @@ Alex Chen
   [Platform Team]
     goal: Core infrastructure and APIs
 
-    Alice Park | role: Senior Engineer
-    Bob Torres | role: Junior Engineer
+    Alice Park role: Senior Engineer
+    Bob Torres role: Junior Engineer
 
   [Frontend Team]
     goal: Ship new design system by Q3
 
-    Carol Wu | role: Senior Engineer
-    Dave Kim | role: Junior Engineer
+    Carol Wu role: Senior Engineer
+    Dave Kim role: Junior Engineer
 ```
 
 Containers render as labeled boxes. They can have metadata like `goal:` and `charter:` which display below the container label.

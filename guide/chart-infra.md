@@ -9,18 +9,18 @@ tag Team as t
   Data purple
 
 Edge
-  rps 8000
+  rps: 8000
   -> CDN
 
 CDN t: Platform
-  description Edge cache — static assets and cacheable API responses
-  cache-hit 75%
+  description: Edge cache — static assets and cacheable API responses
+  cache-hit: 75%
   -> WAF
 
 WAF t: Platform
-  description Web application firewall
-  firewall-block 8%
-  ratelimit-rps 20000
+  description: Web application firewall
+  firewall-block: 8%
+  ratelimit-rps: 20000
   -> LB
 
 LB t: Platform
@@ -29,49 +29,49 @@ LB t: Platform
   -/static-> StaticCDN split: 10%
 
 [API Cluster]
-  instances 3
+  instances: 3
 
   APIServer t: Backend
-    description Core REST API — auth, billing, user data
-    instances 2
-    max-rps 1200
-    latency-ms 40
-    cb-error-threshold 50%
+    description: Core REST API — auth, billing, user data
+    instances: 2
+    max-rps: 1200
+    latency-ms: 40
+    cb-error-threshold: 50%
     -> PostgreSQL
     -> JobQueue
 
 PostgreSQL t: Data
-  max-rps 6000
-  latency-ms 8
-  uptime 99.999%
+  max-rps: 6000
+  latency-ms: 8
+  uptime: 99.999%
 
 JobQueue t: Data
-  buffer 250000
-  drain-rate 1200
-  retention-hours 48
-  partitions 8
+  buffer: 250000
+  drain-rate: 1200
+  retention-hours: 48
+  partitions: 8
   -> JobWorker
 
 [Job Workers]
-  instances 1-6
+  instances: 1-6
 
   JobWorker t: Backend
-    max-rps 400
-    latency-ms 180
+    max-rps: 400
+    latency-ms: 180
 
 SearchAPI t: Backend
-  concurrency 800
-  duration-ms 120
-  cold-start-ms 700
+  concurrency: 800
+  duration-ms: 120
+  cold-start-ms: 700
   -> SearchShards fanout: 6
 
 SearchShards t: Data
-  max-rps 30000
-  latency-ms 3
+  max-rps: 30000
+  latency-ms: 3
 
 StaticCDN t: Platform
-  cache-hit 98%
-  latency-ms 4
+  cache-hit: 98%
+  latency-ms: 4
 ```
 
 ## Overview
@@ -106,7 +106,7 @@ Every diagram needs exactly one **edge entry point** — the source of all inbou
 
 ```
 Edge
-  rps 100000
+  rps: 100000
   -> FirstComponent
 ```
 
@@ -118,10 +118,10 @@ A component is any named node — server, database, cache, queue, or service. Wr
 
 ```
 APIServer
-  description Handles REST API requests for the mobile app
-  max-rps 500
-  latency-ms 30
-  uptime 99.95%
+  description: Handles REST API requests for the mobile app
+  max-rps: 500
+  latency-ms: 30
+  uptime: 99.95%
 ```
 
 Names must start with a letter or underscore and can contain letters, numbers, and underscores.
@@ -132,10 +132,10 @@ To use a label that contains spaces or reserved characters (`|`, `:`, `(`), wrap
 
 ```
 "Order Service"
-  max-rps 500
+  max-rps: 500
 
 "Payments | Stripe"
-  max-rps 200
+  max-rps: 200
 ```
 
 ### Aliases
@@ -144,8 +144,8 @@ Bind a short alias with `as` and reference it from edges or group targets:
 
 ```
 "Customer Orders DB" as ordersdb
-  max-rps 6000
-  latency-ms 8
+  max-rps: 6000
+  latency-ms: 8
 
 APIServer
   -> ordersdb
@@ -160,12 +160,12 @@ Connect components with arrow syntax:
 ```
 -> Target                           // unlabeled sync
 -/api-> Target                      // labeled sync
--/api-> Target | split: 60%         // with traffic split
+-/api-> Target split: 60%           // with traffic split
 -> [Group Name]                     // to a group
 -> alias                            // to an aliased node
 ~> Target                           // unlabeled async
 ~event~> Target                     // labeled async
--> Target | fanout: 5               // request amplification
+-> Target fanout: 5                 // request amplification
 ```
 
 Connections define the directed acyclic graph (DAG) that traffic flows through. **Cycles are not allowed** — DGMO will report an error.
@@ -189,7 +189,7 @@ Checkout
 
 ## Traffic Splits
 
-When a component has multiple outbound connections, traffic is distributed across them. Add `| split: N%` after the target to declare an explicit percentage.
+When a component has multiple outbound connections, traffic is distributed across them. Add `split: N%` after the target to declare an explicit percentage.
 
 ### All splits declared
 
@@ -197,9 +197,9 @@ When every outbound edge has a split, they **must sum to 100%**. DGMO warns if t
 
 ```
 LB
-  -/api-> API | split: 60%
-  -/web-> Web | split: 30%
-  -/static-> Static | split: 10%
+  -/api-> API split: 60%
+  -/web-> Web split: 30%
+  -/static-> Static split: 10%
 ```
 
 If the LB receives 10,000 RPS after upstream behaviors: API gets 6,000, Web gets 3,000, Static gets 1,000.
@@ -223,8 +223,8 @@ When only some edges have splits, the declared percentages are used and undeclar
 
 ```
 LB
-  -/api-> API | split: 60%
-  -/web-> Web | split: 20%
+  -/api-> API split: 60%
+  -/web-> Web split: 20%
   -/health-> Health
   -/metrics-> Metrics
 ```
@@ -239,9 +239,9 @@ Split percentages apply to the **post-behavior** RPS — after cache, firewall, 
 
 ```
 CDN
-  cache-hit 50%
-  -/api-> API | split: 70%      // 3,500 RPS
-  -/static-> Static | split: 30%  // 1,500 RPS
+  cache-hit: 50%
+  -/api-> API split: 70%      // 3,500 RPS
+  -/static-> Static split: 30%  // 1,500 RPS
 ```
 
 ### Single outbound connection
@@ -250,7 +250,7 @@ A component with one outbound edge always sends 100% of its (post-behavior) traf
 
 ```
 CDN
-  cache-hit 80%
+  cache-hit: 80%
   -> API
 ```
 
@@ -262,7 +262,7 @@ Splits divide traffic. **Fanout multiplies it.** Use `fanout: N` when a single i
 
 ```
 SearchAPI
-  -> SearchShards | fanout: 6
+  -> SearchShards fanout: 6
 ```
 
 If SearchAPI receives 1,000 RPS, SearchShards will receive `1,000 × 6 = 6,000` RPS. Each user search produces 6 shard queries.
@@ -281,8 +281,8 @@ Splits and fanout compose. The split is applied first; then each split branch mu
 
 ```
 EventBus
-  -> EmailService | split: 50%, fanout: 2
-  -> SmsService   | split: 50%
+  -> EmailService split: 50%, fanout: 2
+  -> SmsService   split: 50%
 ```
 
 If EventBus emits 1,000 events/s:
@@ -298,7 +298,7 @@ Any source with at least one outgoing fanout edge (where `N > 1`) automatically 
 
 - `N` must be ≥ 1. Values below 1 are warned and clamped to 1 (use a split percentage to express attenuation).
 - Fanout works on both sync (`->`) and async (`~>`) edges.
-- The legacy `xN` suffix (e.g. `-> Shards x5`) has been removed — use `| fanout: 5` instead.
+- The legacy `xN` suffix (e.g. `-> Shards x5`) has been removed — use `fanout: 5` instead.
 
 ---
 
@@ -329,15 +329,15 @@ Add a short prose annotation to any non-edge component. The description is **dis
 
 ```
 AuthService
-  description Handles JWT issuance and session validation
-  max-rps 2000
-  latency-ms 15
+  description: Handles JWT issuance and session validation
+  max-rps: 2000
+  latency-ms: 15
 ```
 
 The description appears as a muted subtitle below the component name **only when the component is selected** (clicked). This keeps the diagram clean at rest while surfacing context on demand.
 
 - Single line — no wrapping
-- Space-separated: `description Handles auth: JWT, sessions`
+- Colon-separated value: `description: Handles auth — JWT, sessions`
 - Silently ignored on the `Edge`/`Internet` entry-point node
 
 ### Cache — `cache-hit`
@@ -346,7 +346,7 @@ A cache layer absorbs traffic before it reaches downstream. The percentage is th
 
 ```
 CDN
-  cache-hit 80%
+  cache-hit: 80%
   -> AppServer
 ```
 
@@ -364,7 +364,7 @@ Drops a percentage of inbound traffic (malicious requests, bots, blocked IPs):
 
 ```
 WAF
-  firewall-block 5%
+  firewall-block: 5%
   -> Gateway
 ```
 
@@ -378,7 +378,7 @@ Caps throughput at a fixed threshold. Excess traffic is rejected:
 
 ```
 Gateway
-  ratelimit-rps 10000
+  ratelimit-rps: 10000
   -> API
 ```
 
@@ -392,9 +392,9 @@ Define a component's throughput capacity. `max-rps` is per-instance, `instances`
 
 ```
 API
-  instances 3
-  max-rps 400
-  latency-ms 30
+  instances: 3
+  max-rps: 400
+  latency-ms: 30
 ```
 
 **Total capacity:** `max_rps × instances = 400 × 3 = 1,200 RPS`
@@ -409,9 +409,9 @@ A range like `instances: 1-8` makes DGMO compute the needed instance count:
 
 ```
 API
-  instances 1-8
-  max-rps 300
-  latency-ms 25
+  instances: 1-8
+  max-rps: 300
+  latency-ms: 25
 ```
 
 **Formula:**
@@ -429,15 +429,15 @@ Per-component response time in milliseconds. Latency accumulates along the path:
 
 ```
 CDN
-  latency-ms 5
+  latency-ms: 5
   -> API
 
 API
-  latency-ms 40
+  latency-ms: 40
   -> DB
 
 DB
-  latency-ms 8
+  latency-ms: 8
 ```
 
 A request traversing CDN → API → DB has cumulative latency of `5 + 40 + 8 = 53ms`.
@@ -450,11 +450,11 @@ Component reliability as a percentage. Uptime propagates as the **product** alon
 
 ```
 API
-  uptime 99.95%
+  uptime: 99.95%
   -> DB
 
 DB
-  uptime 99.99%
+  uptime: 99.99%
 ```
 
 End-to-end: `99.95% × 99.99% ≈ 99.94%`
@@ -467,9 +467,9 @@ Circuit breakers trip when failure conditions are met. DGMO models **closed** (n
 
 ```
 API
-  max-rps 300
-  instances 2
-  cb-error-threshold 50%
+  max-rps: 300
+  instances: 2
+  cb-error-threshold: 50%
 ```
 
 **Error-rate trigger:**
@@ -496,9 +496,9 @@ Serverless functions use a different capacity model based on concurrency and exe
 
 ```
 ProcessOrder
-  concurrency 1000
-  duration-ms 200
-  cold-start-ms 800
+  concurrency: 1000
+  duration-ms: 200
+  cold-start-ms: 800
 ```
 
 **Capacity:** `concurrency / (duration_ms / 1000) = 1000 / 0.2 = 5,000 RPS`
@@ -518,9 +518,9 @@ Queues decouple producers from consumers. They absorb traffic bursts and **reset
 
 ```
 OrderQueue
-  buffer 50000
-  drain-rate 1000
-  retention-hours 72
+  buffer: 50000
+  drain-rate: 1000
+  retention-hours: 72
   -> Worker
 ```
 
@@ -555,10 +555,10 @@ Groups represent clusters, pods, or replica sets. Wrap components in `[Group Nam
 
 ```
 [API Cluster]
-  instances 3
+  instances: 3
   APIServer
-    max-rps 500
-    latency-ms 45
+    max-rps: 500
+    latency-ms: 45
     -> DB
 ```
 
@@ -581,7 +581,7 @@ Like nodes, groups support `as alias`:
 
 ```
 [Customer Order Pods] as orders
-  instances 3
+  instances: 3
   APIServer
     -> ordersdb
 
@@ -605,7 +605,7 @@ Traffic sent to a group is distributed to its children:
 
 ```
 LB
-  -/api-> [API Cluster] | split: 60%
+  -/api-> [API Cluster] split: 60%
 ```
 
 ### Bottleneck capacity
@@ -614,12 +614,12 @@ When a group contains multiple components in a chain, the group's effective capa
 
 ```
 [Backend Pod]
-  instances 3
+  instances: 3
   API            // max-rps 500 per instance
-    max-rps 500
+    max-rps: 500
     -> Cache
   Cache          // max-rps 2000 per instance
-    max-rps 2000
+    max-rps: 2000
 ```
 
 Effective capacity: `500 × 3 = 1,500` (bottlenecked on API, not Cache).
@@ -640,15 +640,15 @@ tag Team as t
   Platform teal default
   Data(violet)
 
-CDN | t: Platform
-API | t: Backend
-DB | t: Data
+CDN t: Platform
+API t: Backend
+DB t: Data
 ```
 
 - `tag Name alias x` — declare a tag group with optional shorthand
 - `Value color` — a tag value with its color (lowercase, trailing token)
 - `default` — auto-applies to components without this tag
-- `| alias: Value` — assign inline on a component
+- `alias: Value` — assign inline on a component
 
 ---
 
@@ -771,7 +771,7 @@ DGMO validates your diagram and reports diagnostics:
 
 ### Edge metadata
 
-These appear after the arrow in pipe syntax: `-> Target | split: 60%, fanout: 3`
+These appear after the target as same-line metadata: `-> Target split: 60%, fanout: 3`
 
 | Metadata | Type       | Effect                                                                |
 | -------- | ---------- | --------------------------------------------------------------------- |

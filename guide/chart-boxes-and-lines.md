@@ -48,11 +48,11 @@ Nodes are created explicitly or implicitly when referenced in edges.
 ### Explicit nodes
 
 ```
-API Gateway | description: Main entry point
+API Gateway description: Main entry point
 UserDB
 ```
 
-A name on its own line creates a node. Pipe metadata is optional.
+A name on its own line creates a node. Same-line metadata is optional.
 
 ### Implicit nodes
 
@@ -62,13 +62,13 @@ API Gateway -routes-> UserService
 
 If `UserService` hasn't been declared yet, it's created automatically from the edge.
 
-### Pipe metadata
+### Same-line metadata
 
 ```
-API Gateway | t: Backend, description: Main entry point
+API Gateway t: Backend, description: Main entry point
 ```
 
-Metadata uses pipe syntax with `key: value` pairs separated by commas. Common keys:
+Metadata uses `key: value` pairs separated by commas. Common keys:
 
 - Tag aliases (e.g., `t: Backend` where `t` is a tag alias)
 - `description` — shown as a subtitle on the node
@@ -119,10 +119,10 @@ This is equivalent to writing three separate edge lines with `API Gateway` as th
 ### Edge metadata
 
 ```
-SessionCache <-syncs-> ProductDB | p: Medium
+SessionCache <-syncs-> ProductDB p: Medium
 ```
 
-Edges support pipe metadata, typically for tag values.
+Edges support same-line metadata, typically for tag values.
 
 ## Groups
 
@@ -172,11 +172,11 @@ Format: `tag Name as alias Value1 color, Value2 color, ...`
 
 ### Assigning tags
 
-Use the alias in pipe metadata:
+Use the alias in same-line metadata:
 
 ```
-API Gateway | t: Backend
-UserDB | t: Platform
+API Gateway t: Backend
+UserDB t: Platform
 ```
 
 ### Filtering

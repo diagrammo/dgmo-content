@@ -39,9 +39,9 @@ era 1690-01->1700-01 Buccaneers
 era 1700-01->1718-01 Golden Age
 
 [Famous Pirates]
-Henry Every retires rich start: 1694-01
-Blackbeard's last stand start: 1718-06
-Calico Jack captured start: 1720-11
+  1694-01 Henry Every retires rich
+  1718-06 Blackbeard's last stand
+  1720-11 Calico Jack captured
 ```
 
 ## Supported Types
