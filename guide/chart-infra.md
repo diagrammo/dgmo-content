@@ -795,15 +795,15 @@ tag Team as t
   Data(violet)
 
 Edge
-  rps 100000
+  rps: 100000
   -> CloudFront
 
 CloudFront t: Platform
-  cache-hit 80%
+  cache-hit: 80%
   -> WAF
 
 WAF t: Platform
-  firewall-block 5%
+  firewall-block: 5%
   -> ALB
 
 ALB t: Platform
@@ -812,38 +812,38 @@ ALB t: Platform
   -/static-> StaticServer split: 10%
 
 [API Pods]
-  instances 3
+  instances: 3
   APIServer t: Backend
-    description Core REST API — auth, orders, user data
-    max-rps 500
-    latency-ms 45
-    cb-error-threshold 50%
+    description: Core REST API — auth, orders, user data
+    max-rps: 500
+    latency-ms: 45
+    cb-error-threshold: 50%
     -> OrderDB
 
 [Commerce Pods]
   PurchaseMS t: Backend
-    description Checkout and payment processing
-    instances 1-8
-    max-rps 300
-    latency-ms 120
+    description: Checkout and payment processing
+    instances: 1-8
+    max-rps: 300
+    latency-ms: 120
     -> OrderQueue
 
 OrderDB t: Data
-  description Primary Postgres — orders and inventory
-  latency-ms 8
-  uptime 99.99%
+  description: Primary Postgres — orders and inventory
+  latency-ms: 8
+  uptime: 99.99%
 
 OrderQueue
-  buffer 50000
-  drain-rate 1000
-  retention-hours 72
+  buffer: 50000
+  drain-rate: 1000
+  retention-hours: 72
   -> Worker
 
 Worker t: Backend
-  instances 3
-  max-rps 400
-  latency-ms 100
+  instances: 3
+  max-rps: 400
+  latency-ms: 100
 
 StaticServer t: Platform
-  latency-ms 5
+  latency-ms: 5
 ```

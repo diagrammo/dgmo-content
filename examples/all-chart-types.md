@@ -874,22 +874,22 @@ tag Scope as sc
   Crew blue
   External gray
 
-Captain is a person | description Commands the fleet and plans raids
+Captain is a person description: Commands the fleet and plans raids
 
-TreasureMap is a system | description Tracks buried treasure locations and raid intelligence
+TreasureMap is a system description: Tracks buried treasure locations and raid intelligence
   -Views treasure locations-> Captain
   -Sends raid alerts [carrier pigeon]-> Lookout
 
   containers
-    ChartRoom is a container | description Interactive sea chart with treasure markers, tech Parchment
+    ChartRoom is a container description: Interactive sea chart with treasure markers, tech: Parchment
       -Queries treasure data [secret code]-> Vault
 
-    Vault is a container | description Encrypted treasure ledger and coordinates, tech Iron Chest
+    Vault is a container description: Encrypted treasure ledger and coordinates, tech: Iron Chest
       -Reads/writes [quill and ink]-> TreasureLog
 
-    TreasureLog is a container | description Stores locations, guard counts, and loot inventories, tech Leather-Bound Tome
+    TreasureLog is a container description: Stores locations, guard counts, and loot inventories, tech: Leather-Bound Tome
 
-Lookout is an external | description Crow's nest spotter on allied ships, sc: External
+Lookout is an external description: Crow's nest spotter on allied ships, sc: External
   ~Relays sightings to~> Captain
 
 deployment
@@ -1016,49 +1016,49 @@ tag Fleet as f
   Rackham blue
 
 Edge
-  rps 200
+  rps: 200
   -> SignalFlags
 
-SignalFlags | f: Blackbeard
+SignalFlags f: Blackbeard
   description: Flag semaphore relay — ship-to-ship messaging
-  latency-ms 30000
+  latency-ms: 30000
   -> Flagship
   -> ScoutShip
 
-Flagship | f: Blackbeard
+Flagship f: Blackbeard
   description: Command vessel — decrypts and routes all intelligence
-  instances 1
-  max-rps 50
-  latency-ms 5000
+  instances: 1
+  max-rps: 50
+  latency-ms: 5000
   -> CarrierPigeons
   -> RumRunner
 
-ScoutShip | f: Bonny
+ScoutShip f: Bonny
   description: Fast sloop for reconnaissance
-  instances 2
-  max-rps 30
-  latency-ms 8000
+  instances: 2
+  max-rps: 30
+  latency-ms: 8000
   -> Flagship
 
-CarrierPigeons | f: Rackham
+CarrierPigeons f: Rackham
   description: Long-range bird relay — messages to allied ports
-  buffer 100
-  drain-rate 12
-  retention-hours 72
+  buffer: 100
+  drain-rate: 12
+  retention-hours: 72
   -> TavernNetwork
 
 [Allied Ports]
-  instances 3
+  instances: 3
 
-  TavernNetwork | f: Rackham
-    description Dockside tavern informants across the Caribbean
-    max-rps 20
-    latency-ms 86400000
+  TavernNetwork f: Rackham
+    description: Dockside tavern informants across the Caribbean
+    max-rps: 20
+    latency-ms: 86400000
 
-RumRunner | f: Bonny
+RumRunner f: Bonny
   description: Smuggler supply line — moves coded messages in rum barrels
-  concurrency 4
-  duration-ms 172800000
+  concurrency: 4
+  duration-ms: 172800000
   -> TavernNetwork
 ```
 
@@ -1081,25 +1081,25 @@ tag Department as d
 
 active-tag Priority
 
-Research | d: Marketing
-  User Interviews | p: High
-    Surveys | description: Quarterly NPS survey
+Research d: Marketing
+  User Interviews p: High
+    Surveys description: Quarterly NPS survey
     Focus Groups
-  Competitor Analysis | d: Engineering
+  Competitor Analysis d: Engineering
     Feature Matrix
     Pricing Review
-Development | p: High, d: Engineering
+Development p: High, d: Engineering
   MVP Features
     Auth System
       description: Handle login, signup, OAuth flows
     Dashboard
-  Nice-to-haves | p: Low, collapsed: true
+  Nice-to-haves p: Low, collapsed: true
     Dark Mode
     Export PDF
-Go-to-Market | d: Marketing
+Go-to-Market d: Marketing
   Launch Plan
     Blog Post
-    Demo Video | description: 2-min product walkthrough
+    Demo Video description: 2-min product walkthrough
 ```
 
 ---
