@@ -32,10 +32,8 @@ The script is plain `/bin/sh` — open it in a pager (`less $(which diagrammo)`)
 
 When you first launch the desktop app, the installer tries (in order):
 
-1. `/usr/local/bin/diagrammo` — written directly if writable, otherwise via a one-time macOS admin password prompt.
-2. `~/.local/bin/diagrammo` — used as a fallback if the admin prompt is dismissed. The installer then appends one block to your shell rc files (`~/.zshrc`, `~/.bashrc`, `~/.bash_profile` — whichever exist) so `~/.local/bin` is on your `PATH`. Open a new terminal window after first install to pick up the change.
-
-You only see the admin prompt once per app version — subsequent updates reuse whichever path won the first time.
+1. `/usr/local/bin/diagrammo` — written directly when that directory is writable by your user. No admin prompt; if it's not writable, the installer skips it silently.
+2. `~/.local/bin/diagrammo` — used as a fallback whenever the primary path isn't writable. The installer then appends one block to your shell rc files (`~/.zshrc`, `~/.bashrc`, `~/.bash_profile` — whichever exist) so `~/.local/bin` is on your `PATH`. Open a new terminal window after first install to pick up the change.
 
 ## Headless / scripting use
 
