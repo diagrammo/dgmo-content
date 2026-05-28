@@ -20,23 +20,26 @@ era 2024-03-10 -> 2024-03-14 Storm Season purple
 marker 2024-02-26 Admiral Inspection
 marker 2024-04-08 Landfall orange
 
-+8bd Chart New Routes 10bd c: Navigators, p: Outfitting
+[Shipyard] c: Sailors, p: Outfitting
+  Hull Repairs 18bd progress: 100
+    -> Rigging Overhaul 7bd? progress: 100
+  Cannon Mounting 8bd c: Lookouts, progress: 100
+    -> Deck Sealing 5bd c: Lookouts, progress: 80
+  Supply Run 20bd c: Navigators, progress: 70
 
-[Shipyard] c: Sailors
-  Hull Repairs 30bd p: Outfitting, progress: 80
-  Rigging Overhaul 10bd? p: Outfitting, progress: 100
-    -5bd-> [Provisions].Cargo Loading
-  Cannon Mounting 5bd c: Lookouts, p: Voyage
-  Deck Sealing 5bd c: Lookouts, p: Voyage
++25bd [Voyage] c: Sailors, p: Voyage
+  Chart New Routes 8bd c: Navigators, progress: 60
+    -> Open Water Run 20bd progress: 15
+  Storm Watch 25bd? c: Lookouts, progress: 25
+  Daily Drills 18bd progress: 20
+    -> Mutiny Drill 3bd? progress: 0
 
-[Provisions] c: Navigators
-  Supply Run 15bd p: Outfitting
-  Cargo Loading 10bd c: Sailors, p: Voyage
-  Final Stowage 5bd p: Voyage, progress: 30
-
-[Muster] c: Lookouts
-  Crew Assembly 10bd
-  -> Set Sail 0d
++55bd [Landfall] c: Lookouts, p: Voyage
+  Recon Beach 3bd
+    -> Dig Treasure 6bd c: Sailors
+      -> Load Hold 4bd c: Sailors
+        -> Set Sail 0d
+  Guard Camp 9bd
 ```
 
 ## Overview
@@ -351,21 +354,24 @@ era 2024-03-10 -> 2024-03-14 Storm Season purple
 marker 2024-02-26 Admiral Inspection
 marker 2024-04-08 Landfall orange
 
-+8bd Chart New Routes 10bd c: Navigators, p: Outfitting
+[Shipyard] c: Sailors, p: Outfitting
+  Hull Repairs 18bd progress: 100
+    -> Rigging Overhaul 7bd? progress: 100
+  Cannon Mounting 8bd c: Lookouts, progress: 100
+    -> Deck Sealing 5bd c: Lookouts, progress: 80
+  Supply Run 20bd c: Navigators, progress: 70
 
-[Shipyard] c: Sailors
-  Hull Repairs 30bd p: Outfitting, progress: 80
-  Rigging Overhaul 10bd? p: Outfitting, progress: 100
-    -5bd-> [Provisions].Cargo Loading
-  Cannon Mounting 5bd c: Lookouts, p: Voyage
-  Deck Sealing 5bd c: Lookouts, p: Voyage
++25bd [Voyage] c: Sailors, p: Voyage
+  Chart New Routes 8bd c: Navigators, progress: 60
+    -> Open Water Run 20bd progress: 15
+  Storm Watch 25bd? c: Lookouts, progress: 25
+  Daily Drills 18bd progress: 20
+    -> Mutiny Drill 3bd? progress: 0
 
-[Provisions] c: Navigators
-  Supply Run 15bd p: Outfitting
-  Cargo Loading 10bd c: Sailors, p: Voyage
-  Final Stowage 5bd p: Voyage, progress: 30
-
-[Muster] c: Lookouts
-  Crew Assembly 10bd
-  -> Set Sail 0d
++55bd [Landfall] c: Lookouts, p: Voyage
+  Recon Beach 3bd
+    -> Dig Treasure 6bd c: Sailors
+      -> Load Hold 4bd c: Sailors
+        -> Set Sail 0d
+  Guard Camp 9bd
 ```
