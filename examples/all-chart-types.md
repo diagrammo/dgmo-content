@@ -1121,17 +1121,17 @@ tag Layer as l
   Data red
 
 User is an actor
-WebApp | l: Frontend
-TreasureAPI | l: Backend
-MapDB is a database | l: Data
-NotifyQueue is a queue | l: Backend
+WebApp l: Frontend
+TreasureAPI l: Backend
+MapDB is a database l: Data
+NotifyQueue is a queue l: Backend
 
 User -Search nearby loot-> WebApp
-WebApp -GET /treasures?nearby-> TreasureAPI | c: Search
+WebApp -GET /treasures?nearby-> TreasureAPI c: Search
 note
   - check location
   - use compass
-TreasureAPI -Find within 5nm-> MapDB | c: Search
+TreasureAPI -Find within 5nm-> MapDB c: Search
 MapDB -3 results-> TreasureAPI
 TreasureAPI -locations-> WebApp
 WebApp -Show treasure map-> User
@@ -1139,13 +1139,13 @@ WebApp -Show treasure map-> User
 == Claim ==
 
 User -Claim chest #42-> WebApp
-WebApp -POST /claim-> TreasureAPI | c: Claims
+WebApp -POST /claim-> TreasureAPI c: Claims
 if chest available
-  TreasureAPI -Set status = claimed-> MapDB | c: Claims
+  TreasureAPI -Set status = claimed-> MapDB c: Claims
   MapDB -OK-> TreasureAPI
   TreasureAPI -Claim accepted-> WebApp
   WebApp -500 doubloons earned!-> User
-  TreasureAPI ~treasure.claimed~> NotifyQueue | c: Notifications
+  TreasureAPI ~treasure.claimed~> NotifyQueue c: Notifications
 else
   TreasureAPI -409 Already claimed-> WebApp
   WebApp -Too slow, matey!-> User
@@ -1168,27 +1168,27 @@ tag Page
   Form orange
   Content cyan
 
-Home | Access: Public, Page: Landing
+Home Access: Public, Page: Landing
   -shop-> Shop
   -join-> Enlist
   -map-> Treasure Map
   -> [Port Market]
 
 [Port Market]
-  Shop | Access: Public, Page: Content
+  Shop Access: Public, Page: Content
     -buy-> Checkout
 
-  Checkout | Access: Crew Only, Page: Form
+  Checkout Access: Crew Only, Page: Form
     -purchased-> Ship Log
 
 [Crew Quarters]
-  Enlist | Access: Public, Page: Form
+  Enlist Access: Public, Page: Form
     -enlisted-> Ship Log
 
-  Ship Log | Access: Crew Only, Page: Content
+  Ship Log Access: Crew Only, Page: Content
     -voyage-> Treasure Map
 
-  Treasure Map | Access: Captain, Page: Content
+  Treasure Map Access: Captain, Page: Content
 ```
 
 ---
@@ -1240,7 +1240,7 @@ wireframe Pirate Crew Portal
 [Header]
   The Jolly Roger Crew Hub
   nav
-    Dashboard | active
+    Dashboard active
     Treasure Map
     Ship Log
     Crew Roster
@@ -1249,7 +1249,7 @@ wireframe Pirate Crew Portal
   # Ahoy, Captain!
 
   Next Raid Target  [Port Royal]
-  Estimated Loot  [5000 doubloons] | readonly
+  Estimated Loot  [5000 doubloons] readonly
 
   {The Revenge | The Serpent | The Phantom}
 
@@ -1260,9 +1260,9 @@ wireframe Pirate Crew Portal
   ( ) Skeleton crew
 
   (Set Sail!)
-  (Abort Mission) | ghost
+  (Abort Mission) ghost
 
   ---
 
-  New to piracy? (Read the Code) | ghost
+  New to piracy? (Read the Code) ghost
 ```

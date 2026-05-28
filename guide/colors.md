@@ -152,11 +152,11 @@ You can define multiple tag groups in one diagram. Only one group is "active" (c
 
 ### Assigning metadata to elements
 
-Use `| key: Value` after any element to attach metadata:
+Use `key: Value` after any element to attach metadata:
 
 ```
-Gateway | t: Platform
-Redis | c: Caching, t: Platform
+Gateway t: Platform
+Redis c: Caching, t: Platform
 ```
 
 Multiple metadata keys are separated by commas. Use the tag alias as the key.
@@ -181,18 +181,18 @@ tag Team as t
   Security red
 
 Mobile is an actor
-Gateway | t: Platform
-Redis is a cache | c: Caching, t: Platform
+Gateway t: Platform
+Redis is a cache c: Caching, t: Platform
 
-[Backend | t: Product]
+[Backend] t: Product
   UserAPI
   OrderAPI
   DB is a database
 
 == Authentication ==
 Mobile -POST /orders-> Gateway
-Gateway -verify token-> Gateway | c: Auth
-Gateway -check rate limit-> Redis | c: RateLimiting
+Gateway -verify token-> Gateway c: Auth
+Gateway -check rate limit-> Redis c: RateLimiting
 
 == Business Logic ==
 Gateway -POST /orders-> OrderAPI
@@ -200,7 +200,7 @@ OrderAPI -INSERT order-> DB
 OrderAPI -201 Created-> Gateway
 
 == Response ==
-Gateway -cache response-> Redis | c: Caching
+Gateway -cache response-> Redis c: Caching
 Gateway -201 Created-> Mobile
 ```
 
@@ -252,17 +252,17 @@ tag Team as t
   Backend blue
   Platform teal
 
-CloudFront | t: Platform
+CloudFront t: Platform
   -> CloudArmor
 
-CloudArmor | t: Platform
+CloudArmor t: Platform
   -> ALB
 
-ALB | t: Platform
+ALB t: Platform
   -/api-> [API Pods]
 
 [API Pods]
-  APIServer | t: Backend
+  APIServer t: Backend
     instances: 3
     latency-ms: 45
 ```
