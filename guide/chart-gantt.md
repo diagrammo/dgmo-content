@@ -1,368 +1,371 @@
 # Gantt Chart
 
 ```dgmo
-gantt Product Launch 2024
-start 2026-03-15
-today-marker
+gantt Voyage to Treasure Island
+start 2024-01-15
+today-marker 2024-03-01
 critical-path
-dependencies
 
-holiday
-  2024-02-19 Presidents Day
-  2024-05-27 Memorial Day
-
-tag Team as t
-  Engineering blue
-  Design purple
-  QA orange
-  Marketing green
+tag Crew as c
+  Sailors blue
+  Navigators purple
+  Lookouts orange
 
 tag Phase as p
-  Foundation teal
-  Build blue
-  Launch red
+  Outfitting green
+  Voyage orange
 
-era 2026-04-06 -> 2026-04-10 RSA Conference purple
-marker 2026-03-27 Board Review
-marker 2026-05-12 Trade Show Demo orange
+era 2024-01-15 -> 2024-02-15 Harbor Preparations
+era 2024-03-10 -> 2024-03-14 Storm Season purple
+marker 2024-02-26 Admiral Inspection
+marker 2024-04-08 Landfall orange
 
-parallel
-  [Backend] t: Engineering
-    20bd Database Schema p: Foundation, progress: 100
-    15bd? Core API Endpoints p: Foundation, progress: 80
-      -> Frontend.API Integration
-    10bd Auth & Permissions p: Build, progress: 40
-      -> E2E Testing
-    parallel
-      5bd Load Testing t: QA, p: Build
-      5bd Security Audit t: QA, p: Build
++8bd Chart New Routes 10bd c: Navigators, p: Outfitting
 
-  [Frontend] t: Design
-    10bd Wireframes & Prototypes p: Foundation, progress: 100
-    15bd Component Library p: Build, progress: 60
-    10bd API Integration t: Engineering, p: Build
-      // Blocked until Core API is stable
-    5bd Polish & Animations p: Launch, progress: 10
+[Shipyard] c: Sailors
+  Hull Repairs 30bd p: Outfitting, progress: 80
+  Rigging Overhaul 10bd? p: Outfitting, progress: 100
+    -5bd-> [Provisions].Cargo Loading
+  Cannon Mounting 5bd c: Lookouts, p: Voyage
+  Deck Sealing 5bd c: Lookouts, p: Voyage
 
-  [Marketing] t: Marketing
-    10bd? Brand Guidelines p: Foundation, progress: 100
-    15bd Landing Page p: Build, progress: 50
-    5bd? Launch Campaign Prep p: Launch
-      -> Launch Day
+[Provisions] c: Navigators
+  Supply Run 15bd p: Outfitting
+  Cargo Loading 10bd c: Sailors, p: Voyage
+  Final Stowage 5bd p: Voyage, progress: 30
 
-[Integration] t: QA
-  10bd E2E Testing p: Launch, offset: 10bd
-  3bd Staging Deploy p: Launch
-  0d Launch Day
+[Muster] c: Lookouts
+  Crew Assembly 10bd
+  -> Set Sail 0d
 ```
 
 ## Overview
 
-Gantt charts visualize project schedules as horizontal bars on a time axis. Tasks have durations, can be grouped, run in parallel, and linked with dependencies. The renderer automatically calculates dates from durations and shows critical path highlighting.
+Gantt charts visualize project schedules as horizontal bars on a time axis. Tasks have positional durations, can be grouped, run in parallel by default, and linked sequentially with arrow dependencies. The renderer automatically calculates dates and highlights the critical path.
 
-## Syntax
+## Basic Syntax
 
 ```
-gantt Project Name
+gantt Chart Title
 start 2024-01-15
 
-[Group Name]
-  30d Task label
-  10bd Another task | tag: Value
+Task Name 30bd
+Another Task 10d
 ```
 
-## Settings
+The first line declares the chart type and optional title. `start` sets the project start date. Each task line has a name followed by a duration.
 
-| Key             | Description                                             | Default   |
-| --------------- | ------------------------------------------------------- | --------- |
-| `chart`         | Must be `gantt`                                         | —         |
-| `title`         | Chart title                                             | None      |
-| `start`         | Project start date (`YYYY-MM-DD`)                       | Today     |
-| `today-marker`  | Show today marker (bare keyword or a `YYYY-MM-DD` date) | off       |
-| `critical-path` | Highlight the critical path                             | off       |
-| `dependencies`  | Show dependency arrows                                  | off       |
-| `sort`          | Task sorting: `default` or `tag` (swimlane by tag)      | `default` |
+## Duration Units
 
-## Tasks
+| Unit  | Meaning        |
+| ----- | -------------- |
+| `d`   | Calendar days  |
+| `bd`  | Business days  |
+| `w`   | Weeks          |
+| `m`   | Months         |
+| `q`   | Quarters       |
+| `y`   | Years          |
+| `h`   | Hours          |
+| `min` | Minutes        |
+| `s`   | Sprints        |
 
-Tasks are defined with a duration followed by a space and label:
-
-```
-30d Database Layer
-10bd Auth Module
-5w Long Research Phase
-```
-
-### Duration Units
-
-| Unit | Meaning       |
-| ---- | ------------- |
-| `d`  | Calendar days |
-| `bd` | Business days |
-| `w`  | Weeks         |
-| `m`  | Months        |
-| `q`  | Quarters      |
-| `y`  | Years         |
-
-### Explicit Start Dates
-
-Pin a task to a specific start date:
-
-```
-2024-03-01 -> 15bd Task starting March 1st
-```
-
-### Milestones
-
-Use `0d` for zero-duration milestones:
-
-```
-0d Release Candidate
-```
-
-### Uncertain Duration
-
-Add `?` after the unit to indicate an uncertain end date. The bar fades out over the last 20%:
-
-```
-30bd? Estimated research phase
-```
-
-### Progress
-
-Add a percentage to show task completion:
-
-```
-30bd Database Layer | 80%
-10bd Auth Module | 100%
-```
+The `s` unit activates sprint mode automatically. See the Settings section for sprint configuration.
 
 ## Groups
 
-Groups organize tasks into labeled sections using bracket syntax:
+Groups organize tasks into labeled sections using bracket syntax. Metadata on a group is inherited by all tasks inside it:
 
 ```
-[Backend]
-  30bd Database Layer
-  10bd Auth Module
+[Shipyard] c: Sailors
+  Hull Repairs 30bd
+  Rigging Overhaul 10bd
 
-[Frontend]
-  15bd Component Library
-  10bd API Integration
+[Provisions] c: Navigators
+  Supply Run 15bd
+  Cargo Loading 10bd
 ```
 
 Groups can be nested:
 
 ```
-[Backend]
-  [API]
-    10bd REST endpoints
-    5bd GraphQL layer
-  [Data]
-    15bd Schema design
+[Ship]
+  [Hull]
+    Caulking 10bd
+    Planking 15bd
+  [Rigging]
+    Mast Stepping 5bd
 ```
 
-### Group Colors
+## Scheduling Model
 
-Add a color suffix or use pipe metadata:
-
-```
-[Backend] blue
-[Frontend] | t: Engineering
-```
-
-## Parallel Blocks
-
-Use `parallel` to run groups or tasks concurrently instead of sequentially:
+**Bare siblings are parallel.** Tasks at the same indent level inside a group start at the same time:
 
 ```
-parallel
-  [Backend]
-    30bd Database Layer
-    10bd Auth Module
-
-  [Frontend]
-    15bd Component Library
-    10bd API Integration
+[Shipyard]
+  Hull Repairs 30bd
+  Cannon Mounting 5bd
+  Deck Sealing 5bd
 ```
 
-Tasks inside a `parallel` block start at the same time. Without `parallel`, groups run sequentially.
+All three tasks above start together.
+
+**Arrows create sequential dependencies.** Use `->` to chain tasks so the next one starts after the previous finishes:
+
+```
+[Muster]
+  Crew Assembly 10bd
+  -> Set Sail 0d
+```
+
+"Set Sail" starts after "Crew Assembly" finishes.
 
 ## Dependencies
 
-Use `-> TargetName` indented under a task to create a dependency. The target task won't start until the source finishes:
+### Basic arrow
+
+Indent an arrow line under a task to define a successor:
 
 ```
-[Backend]
-  10bd Auth Module
-    -> Frontend.API Integration
-
-[Frontend]
-  15bd Component Library
-  10bd API Integration
+[Tavern]
+  Recruit Crew 10bd
+    -> Training Drills 5bd
 ```
 
-Cross-group references use dot notation: `GroupName.TaskName`.
+"Training Drills" starts after "Recruit Crew" finishes.
 
-Dependencies require `dependencies` in the chart options to render arrows.
+### Cross-group references
 
-### Dependency Offset
-
-Add an **offset** to delay (or advance) the start of a dependent task relative to its predecessor. Use `| offset:` on a dependency line:
+Reference a task in another group with `[Group].Task`:
 
 ```
-[Backend]
-  10bd Auth Module
-    -> Frontend.API Integration | offset: 3bd
+[Shipyard]
+  Rigging Overhaul 10bd
+    -> [Provisions].Cargo Loading
 
-[Frontend]
-  15bd Component Library
-  10bd API Integration
+[Provisions]
+  Cargo Loading 10bd
 ```
 
-Here, "API Integration" starts **3 business days after** "Auth Module" finishes, instead of immediately.
+When the target already exists elsewhere, omit the duration to create a reference-only dependency (no new task is created).
 
-Use a negative value for **lead time** (overlap with predecessor):
+### Lag (delay after predecessor)
 
-```
-5bd Design Review
-  -> Implementation | offset: -2d
-```
-
-Offset accepts any duration unit (`d`, `bd`, `w`, `m`, `q`, `y`).
-
-### Task-Level Offset
-
-Tasks can also have an `offset:` to shift their start date relative to where they'd normally begin (after the preceding task in their group):
+Add a duration before the arrow to insert a gap:
 
 ```
-[Backend]
-  10bd API Layer
-  5bd Auth Module | offset: 3bd
+  Rigging Overhaul 10bd
+    -5bd-> [Provisions].Cargo Loading
 ```
 
-Here, "Auth Module" starts 3 business days after "API Layer" finishes instead of immediately.
+"Cargo Loading" starts 5 business days after "Rigging Overhaul" finishes.
 
-## Holidays
+### Lead (overlap with predecessor)
 
-Define non-working days inside a `holidays` block:
+Double the dash to create lead time (negative lag):
+
+```
+  Design Review 5bd
+    --2w-> Implementation 10bd
+```
+
+"Implementation" starts 2 weeks before "Design Review" finishes.
+
+## Offset Prefix
+
+Prefix a task or group with `+Nunit` to offset it from the chart start date:
+
+```
++8bd Chart New Routes 10bd
++2w [Scouting]
+  Recon Harbors 5bd
+```
+
+"Chart New Routes" starts 8 business days after the chart start. The entire "Scouting" group starts 2 weeks after chart start.
+
+## Milestones
+
+A task with `0d` duration renders as a diamond milestone marker:
+
+```
+Set Sail 0d
+Release Day 0d
+```
+
+## Uncertain Duration
+
+Append `?` to the duration unit to indicate an estimate. The bar fades out over its last 20%:
+
+```
+Rigging Overhaul 10bd?
+Treasure Hunt 30d?
+```
+
+## Progress
+
+Track completion with `progress:` metadata (0-100):
+
+```
+Hull Repairs 30bd progress: 80
+Supply Run 15bd progress: 100
+```
+
+A filled overlay shows how much of the task is complete.
+
+## Tags
+
+Tag groups categorize tasks with color-coded values. Define a block with `tag Name as alias`, then reference tags in task metadata using the alias:
+
+```
+tag Crew as c
+  Sailors blue
+  Navigators purple
+  Lookouts orange
+
+[Shipyard] c: Sailors
+  Hull Repairs 30bd
+  Cannon Mounting 5bd c: Lookouts
+```
+
+The first entry in a tag group is the default. Group-level tags are inherited by child tasks unless overridden.
+
+## Eras and Markers
+
+Eras shade a background region across a time range. Markers draw a vertical line at a single date. Both accept an optional trailing color:
+
+```
+era 2024-01-15 -> 2024-02-15 Harbor Preparations
+era 2024-03-10 -> 2024-03-14 Storm Season purple
+marker 2024-02-26 Admiral Inspection
+marker 2024-04-08 Landfall orange
+```
+
+Eras and markers also support block syntax for multiple entries:
+
+```
+era
+  2024-01-15 -> 2024-02-15 Harbor Preparations
+  2024-03-10 -> 2024-03-14 Storm Season purple
+
+marker
+  2024-02-26 Admiral Inspection
+  2024-04-08 Landfall orange
+```
+
+## Holidays and Workweek
+
+Define non-working days inside a `holiday` block. Business day durations (`bd`) automatically skip holidays and non-workdays:
 
 ```
 holiday
-  2024-12-25 Christmas
-  2024-12-31 -> 2025-01-01 New Year
-```
+  1718-12-25 Christmas
+  1718-12-31 -> 1719-01-01 New Year
 
-Business day durations (`bd`) automatically skip holidays and non-workdays.
-
-### Custom Workweek
-
-Override the default Mon–Fri workweek:
-
-```
 workweek sun-thu
 ```
 
-## Eras
-
-Background shaded regions spanning a time range:
-
-```
-era 2024-01 -> 2024-06 Phase 1
-era 2024-07 -> 2024-12 Phase 2 green
-```
-
-## Markers
-
-Vertical date markers for key milestones:
-
-```
-marker 2024-03-01 Kickoff
-marker 2024-06-30 Demo Day red
-```
-
-## Tag Groups
-
-Tag groups categorize tasks with color-coded values:
-
-```
-tag Team as t
-  Engineering blue
-  Design purple
-  QA orange
-
-tag Phase as p
-  Foundation green
-  Growth orange
-
-[Backend] | t: Engineering
-  30bd Database Layer | p: Foundation
-  10bd Auth Module | p: Foundation
-```
+The default workweek is Mon-Fri. Override with `workweek` using a day range (`sun-thu`) or comma-separated days (`mon, tue, wed, thu`).
 
 ## Swimlane Mode
 
-Use `sort: tag` (or `sort: tag:GroupName`) to organize tasks into horizontal swimlanes grouped by tag value. Each tag value gets its own collapsible lane:
+Use `sort tag:Name` to reorganize the chart into horizontal swimlanes grouped by tag value:
 
 ```
-sort tag:Team
+sort tag:Crew
 
-tag Team as t
-  Frontend blue
-  Backend green
-  QA orange
+tag Crew as c
+  Sailors blue
+  Navigators purple
 
-[Sprint 1]
-  10bd API endpoints | t: Backend
-  15bd UI components | t: Frontend
-  5bd Integration tests | t: QA
+[Shipyard] c: Sailors
+  Hull Repairs 30bd
+[Navigation] c: Navigators
+  Chart Routes 10bd
 ```
 
-In the app, click the swimlane icon on a tag pill to switch between swimlane groups.
+Each tag value gets its own collapsible lane. In the app, click the swimlane icon on a tag pill to switch between swimlane groups.
+
+## Settings
+
+| Setting          | Description                                              | Default    |
+| ---------------- | -------------------------------------------------------- | ---------- |
+| `start`          | Project start date (`YYYY-MM-DD`)                        | Today      |
+| `today-marker`   | Show today marker (bare keyword or `YYYY-MM-DD`)         | off        |
+| `critical-path`  | Highlight the critical path                              | off        |
+| `no-dependencies`| Hide dependency arrows                                   | shown      |
+| `sort`           | Task layout: `tag` or `tag:GroupName` for swimlanes      | `default`  |
+| `active-tag`     | Pre-select a tag group for filtering                     | none       |
+| `solid-fill`     | Render bars at full saturation instead of 25% tint       | off        |
+| `no-title`       | Suppress the chart banner title                          | off        |
+| `sprint-length`  | Sprint duration (`2w`, `10d`)                            | `2w`       |
+| `sprint-number`  | Which sprint the chart starts at                         | `1`        |
+| `sprint-start`   | Date that `sprint-number` begins (`YYYY-MM-DD`)          | chart start|
+
+Settings are bare keywords (no colons). Boolean settings toggle on by writing the keyword and off with `no-` prefix (e.g., `no-dependencies`).
+
+### Sprint Mode
+
+Sprint mode activates automatically when any task uses the `s` duration unit, or explicitly via `sprint-*` settings:
+
+```
+gantt Pirate Sprint Raid
+start 2026-03-01
+sprint-length 2w
+sprint-number 5
+sprint-start 2026-01-05
+
+[Scouts]
+  Recon Harbors 2s
+  Map Defenses 1s
+```
 
 ## Comments
 
-Lines starting with `//` are comments and are ignored:
+Lines starting with `//` are ignored. Comments can appear at the top level or indented under a task:
 
 ```
-[Backend]
-  30bd Database Layer
-  // This depends on schema finalization
-  10bd Auth Module
+[Shipyard]
+  Hull Repairs 30bd
+  // Blocked until dry dock is available
+  Rigging Overhaul 10bd
 ```
 
 ## Complete Example
 
 ```dgmo
-gantt Product Launch Plan
+gantt Voyage to Treasure Island
 start 2024-01-15
 today-marker 2024-03-01
 critical-path
-dependencies
 
-tag Team as t
-  Engineering blue
-  Design purple
-  QA orange
+tag Crew as c
+  Sailors blue
+  Navigators purple
+  Lookouts orange
 
-era 2024-01 -> 2024-06 Phase 1
-marker 2024-03-01 Kickoff
+tag Phase as p
+  Outfitting green
+  Voyage orange
 
-parallel
-  [Backend] t: Engineering
-    30bd Database Layer progress: 80
-    10bd? Auth Module progress: 100
-      -> Frontend.API Integration offset: 2bd
-    parallel
-      5bd Load Testing t: QA
-      5bd Security Audit t: QA
+era 2024-01-15 -> 2024-02-15 Harbor Preparations
+era 2024-03-10 -> 2024-03-14 Storm Season purple
+marker 2024-02-26 Admiral Inspection
+marker 2024-04-08 Landfall orange
 
-  [Frontend] t: Design
-    15bd Component Library
-    10bd API Integration t: Engineering
-    5bd Polish progress: 30
++8bd Chart New Routes 10bd c: Navigators, p: Outfitting
 
-[Integration] t: QA
-  10bd E2E Testing
-  0d Release Candidate
+[Shipyard] c: Sailors
+  Hull Repairs 30bd p: Outfitting, progress: 80
+  Rigging Overhaul 10bd? p: Outfitting, progress: 100
+    -5bd-> [Provisions].Cargo Loading
+  Cannon Mounting 5bd c: Lookouts, p: Voyage
+  Deck Sealing 5bd c: Lookouts, p: Voyage
+
+[Provisions] c: Navigators
+  Supply Run 15bd p: Outfitting
+  Cargo Loading 10bd c: Sailors, p: Voyage
+  Final Stowage 5bd p: Voyage, progress: 30
+
+[Muster] c: Lookouts
+  Crew Assembly 10bd
+  -> Set Sail 0d
 ```
