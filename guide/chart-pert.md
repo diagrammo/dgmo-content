@@ -146,6 +146,15 @@ custom 4 confidence: 0.6/2.5           # explicit factors, just this activity
 
 Use overrides on the handful of activities that genuinely diverge from the project's confidence default — don't mark every line. If most of your activities want a non-medium confidence, change `default-confidence` instead.
 
+The override (and any tag metadata) may also sit on its own indented line beneath the activity, intermixed with the dependency arrows — handy when the source line is already busy:
+
+```
+recruit crew 1 2 4 as rc
+  confidence: low
+  -> load powder
+```
+
+
 #### Worked example
 
 With `M = 4 weeks`, each confidence level produces:
