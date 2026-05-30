@@ -41,7 +41,7 @@ CarrierPigeons f: Rackham
   instances: 3
 
   TavernNetwork f: Rackham
-    description Dockside tavern informants across the Caribbean
+    description: Dockside tavern informants across the Caribbean
     max-rps: 20
     latency-ms: 86400000
 

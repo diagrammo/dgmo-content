@@ -39,7 +39,7 @@ Home Auth: Public, description: Landing page with interactive demos
   Sign Up Auth: Public
     -welcome aboard-> Dashboard
   Dashboard Auth: Crew Only
-    description Full overview of crew activity and orders
+    description: Full overview of crew activity and orders
     -> My Orders
   My Orders Auth: Crew Only
     -reorder-> Shop
@@ -144,9 +144,9 @@ Add a description to any page using the `description` keyword (indented) or same
 // Same-line metadata form
 Pricing description: Compare plans and features
 
-// Indented keyword form (colon optional)
+// Indented keyword form (colon required; bare "description" is deprecated)
 Dashboard
-  description Full overview of crew activity and orders
+  description: Full overview of crew activity and orders
   My Orders
 ```
 
