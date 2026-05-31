@@ -1,19 +1,24 @@
 # Journey Map
 
 ```dgmo
-journey-map Coffee Shop Visit
+journey-map Morning Coffee Run
+
+persona Maya, Remote Worker
+  31, needs caffeine + a quiet seat before her 9am standup
+
+[Arrive]
+  Spot the line out the door score: 2, emotion: Wary
+  Find the mobile-order shortcut score: 4, emotion: Hopeful
 
 [Order]
-  Walk in score: 4
-  Wait in line score: 2
-  Order drink score: 4
-
-[Wait]
-  Find a seat score: 3
-  Wait for drink score: 2
+  App crashes mid-checkout score: 1, emotion: Frustrated
+    pain: Lost her saved payment method
+  Reorder at the counter score: 3
 
 [Enjoy]
-  Get drink score: 5
+  Snag the last window seat score: 4
+  First sip, latte is perfect score: 5, emotion: Delighted
+    thought: Worth the wait — back tomorrow
 ```
 
 ## Overview
