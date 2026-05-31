@@ -413,7 +413,6 @@ tag Port as p
   Home Port red
   Friendly green
   Spanish Prize orange
-active-tag Port
 
 poi Kingston p: Home Port, size: 120
 poi Havana p: Spanish Prize, size: 90
@@ -865,8 +864,6 @@ tag Status as s
   Sunk red
   Building blue default
 
-active-tag Status
-
 Flagship s: Operational
   -> [Harbor Defenses]
   -> IntelNetwork
@@ -1104,8 +1101,6 @@ tag Department as d
   Design purple
   Marketing orange
 
-active-tag Priority
-
 Research d: Marketing
   User Interviews p: High
     Surveys description: Quarterly NPS survey
@@ -1133,7 +1128,6 @@ Go-to-Market d: Marketing
 
 ```dgmo
 sequence Treasure Hunt App
-active-tag Concern
 
 tag Concern as c
   Search blue

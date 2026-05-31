@@ -9,8 +9,6 @@ tag Status as s
   Todo red
   NA gray default
 
-active-tag Status
-
 MobileApp s:Todo
   -> API
 
@@ -181,8 +179,10 @@ UserDB t: Platform
 
 ### Filtering
 
+The **first declared tag group colors nodes automatically** — `active-tag` is only needed to pick a *different* group:
+
 ```
-active-tag Team           // color nodes by Team tag
+active-tag Priority       // color by Priority instead of the default (Team, declared first)
 hide priority:Low         // hide nodes tagged Low priority
 ```
 
@@ -191,7 +191,7 @@ hide priority:Low         // hide nodes tagged Low priority
 | Directive    | Values         | Default | Description                                 |
 | ------------ | -------------- | ------- | ------------------------------------------- |
 | `direction`  | `LR`, `TB`     | `TB`    | Layout direction (left-right or top-bottom) |
-| `active-tag` | tag group name | none    | Which tag group drives node coloring        |
+| `active-tag` | tag group name | first group | Which tag group drives node coloring; first declared is active by default, so only set this to pick another (`none` suppresses all coloring) |
 | `hide`       | `alias:value`  | none    | Hide nodes with a specific tag value        |
 | `mode`       | `shapes`       | —       | Force shape rendering mode                  |
 
@@ -209,7 +209,6 @@ Only `//` comments are supported.
 boxes-and-lines Microservices
 
 tag Team as t Backend blue, Frontend green, Infra purple
-active-tag Team
 direction LR
 
 WebApp t: Frontend

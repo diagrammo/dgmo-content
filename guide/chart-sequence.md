@@ -54,7 +54,7 @@ loop description
 | `chart`          | `sequence` (inferred from `->` content) | Optional |
 | `title`          | Diagram title                           | None     |
 | `no-activations` | Hide activation bars (on by default)    | off      |
-| `active-tag`     | Tag group to activate on load           | None     |
+| `active-tag`     | Group to color by (first declared is active by default; `none` suppresses) | first group |
 | `collapse-notes` | Collapse notes by default               | off      |
 
 ## Participants
@@ -310,7 +310,7 @@ When a tag group is active, colors are resolved in priority order:
 
 A legend is rendered automatically above participants when tag groups exist. The active group expands to show colored entry dots. In the desktop app, click a group pill to activate it — participants and messages recolor to show that dimension.
 
-Set `active-tag GroupName` in settings to activate a group on load.
+The first declared group is active by default. Set `active-tag GroupName` to activate a different group on load, or `active-tag none` to suppress coloring.
 
 ## Complete Example
 

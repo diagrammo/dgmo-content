@@ -5,7 +5,6 @@ tag Port as p
   Home Port red
   Friendly green
   Spanish Prize orange
-active-tag Port
 
 poi Kingston p: Home Port, size: 120
 poi Havana p: Spanish Prize, size: 90

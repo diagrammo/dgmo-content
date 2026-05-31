@@ -10,8 +10,6 @@ tag Department as d
   Design purple
   Marketing orange
 
-active-tag Priority
-
 Research d: Marketing
   User Interviews p: High
     Surveys description: Quarterly NPS survey

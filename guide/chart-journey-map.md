@@ -146,7 +146,7 @@ Got resolution score: 5, emotion: Relieved
 | Directive | Effect |
 |-----------|--------|
 | `no-legend` | Hide the score legend |
-| `active-tag GroupName` | Set the active tag group for coloring |
+| `active-tag GroupName` | Color by a group other than the first declared (which is active by default); `none` suppresses |
 
 ## Complete Example
 

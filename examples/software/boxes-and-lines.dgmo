@@ -6,8 +6,6 @@ tag Status as s
   Sunk red
   Building blue default
 
-active-tag Status
-
 Flagship s: Operational
   -> [Harbor Defenses]
   -> IntelNetwork

@@ -95,7 +95,7 @@ Components don't have explicit types — their **role is inferred from their pro
 | `slo-availability`    | Target availability % — drives SLO highlighting on system totals     | none     |
 | `slo-p90-latency-ms`  | Target p90 latency in ms — drives SLO highlighting on system totals  | none     |
 | `slo-warning-margin`  | Margin below the SLO that triggers a warning state                   | `0.005`  |
-| `active-tag`          | Pre-select a tag dimension to filter by on render (or `none`)        | none     |
+| `active-tag`          | Tag dimension to color by (first declared is active by default; `none` suppresses) | first group |
 | `animate`             | Flow animation (boolean; `no-animate` to disable)                    | on       |
 
 The universal `solid-fill` and `no-title` options also apply.

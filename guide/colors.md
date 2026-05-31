@@ -163,11 +163,10 @@ Multiple metadata keys are separated by commas. Use the tag alias as the key.
 
 ### Sequence diagrams
 
-Tags color participant boxes, self-messages, and message arrows. Use `active-tag` to set which tag group is shown by default.
+Tags color participant boxes, self-messages, and message arrows. The first declared group is shown by default; add `active-tag` only to pick a different group.
 
 ```
 sequence API Gateway — Infrastructure Concerns
-active-tag Concern
 
 tag Concern as c
   Caching blue

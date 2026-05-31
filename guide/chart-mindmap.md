@@ -124,16 +124,16 @@ tag Priority as p
 ```
 
 - The alias (`p`) provides a shorthand for metadata keys
-- The active tag group colors nodes by their tag value
+- The **first declared tag group is active by default** and colors nodes by their tag value — `active-tag` is only needed to pick a different group
 - Click a tag group name in the legend to activate or deactivate it
 
 ## Options
 
 | Option | Effect |
 |--------|--------|
-| `active-tag GroupName` | Set the default active tag group |
+| `active-tag GroupName` | Choose which group colors nodes (first declared is active by default; `none` suppresses coloring) |
 
-Options are placed on their own line before content:
+With a single tag group there's nothing to set — it's active automatically. `active-tag` only matters once you declare two or more groups and want one other than the first to drive the colors. Place it on its own line before content:
 
 ```
 mindmap Root
@@ -142,9 +142,13 @@ tag Priority as p
   High red
   Low green
 
-active-tag Priority
+tag Department as d
+  Engineering blue
+  Design purple
 
-  Task A p: High
+active-tag Department   // override the default (Priority, declared first)
+
+  Task A p: High, d: Engineering
 ```
 
 ## Complete Example
@@ -161,8 +165,6 @@ tag Department as d
   Engineering blue
   Design purple
   Marketing orange
-
-active-tag Priority
 
 Research d: Marketing
   User Interviews p: High

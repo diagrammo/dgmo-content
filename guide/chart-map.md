@@ -8,7 +8,6 @@ tag Port as p
   Home Port red
   Friendly green
   Spanish Prize orange
-active-tag Port
 
 poi Kingston p: Home Port, size: 120
 poi Havana p: Spanish Prize, size: 90
@@ -75,7 +74,7 @@ Texas score: 40
 
 ## Region fill — categorical (tags)
 
-Map diagrams use the universal tag model: declare a `tag` group, apply its alias as a key, and `active-tag` to colour by it.
+Map diagrams use the universal tag model: declare a `tag` group and apply its alias as a key. The first declared group colours the map automatically — you only need `active-tag` to pick a *different* group (or the score ramp; see below).
 
 ```dgmo
 map Fleet Reach
@@ -85,7 +84,6 @@ tag Waters as w
   Stronghold red
   Raiding Grounds orange
   Friendly green
-active-tag Waters
 
 Jamaica w: Stronghold
 Cuba w: Raiding Grounds
