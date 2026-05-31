@@ -42,6 +42,7 @@
     { "slug": "chart-bar-stacked", "title": "Stacked Bar Chart", "group": "data", "file": "chart-bar-stacked.md" },
 
     { "slug": "chart-journey-map", "title": "Journey Map", "group": "business", "file": "chart-journey-map.md" },
+    { "slug": "chart-map", "title": "Map Diagram", "group": "business", "file": "chart-map.md" },
     { "slug": "chart-funnel", "title": "Funnel Chart", "group": "business", "file": "chart-funnel.md" },
     { "slug": "chart-org", "title": "Org Chart", "group": "business", "file": "chart-org.md" },
     { "slug": "chart-pyramid", "title": "Pyramid Diagram", "group": "business", "file": "chart-pyramid.md" },
