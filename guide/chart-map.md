@@ -29,20 +29,20 @@ Map diagrams are geographic concept maps: highlight or score political subdivisi
 ```
 map Title
 
-[region us-states | world]     // optional — basemap is inferred
-[projection equirectangular | natural-earth | albers-usa | mercator]
-[metric Label]                 // names the score-ramp legend
+region us-states               // optional — basemap is inferred
+projection mercator            // optional — auto-picked by extent otherwise
+metric Doubloons               // names the score-ramp legend
 
-RegionName score: 42           // choropleth fill
-RegionName p: TagValue         // categorical fill (via a tag alias)
+Florida score: 42              // choropleth fill
+Texas p: Friendly              // categorical fill (via a tag alias)
 
-poi PlaceName size: 80         // a point of interest
+poi Kingston size: 80          // a point of interest
 route style: arc               // an ordered, numbered voyage
-  Stop A
-  Stop B
+  Kingston
+  Havana
 ```
 
-The first line declares the chart type and an optional title. Everything else is inferred from the places you name.
+The first line declares the chart type and an optional title. Everything else is inferred from the places you name — all three directives above are optional. `region` accepts `us-states` or `world`; `projection` accepts `equirectangular`, `natural-earth`, `albers-usa`, or `mercator` (see [How the map is chosen](#how-the-map-is-chosen)).
 
 ## How the map is chosen
 
