@@ -1,4 +1,4 @@
-# Polar Area Chart
+# Polar Area
 
 ```dgmo
 polar-area Captain's Skills

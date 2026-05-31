@@ -1,4 +1,4 @@
-# Area Chart
+# Area
 
 ```dgmo
 area Fleet Growth Over Time

@@ -1,4 +1,4 @@
-# Arc Diagram
+# Arc
 
 ```dgmo
 arc Pirate Alliances

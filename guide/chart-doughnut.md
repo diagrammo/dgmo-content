@@ -1,4 +1,4 @@
-# Doughnut Chart
+# Doughnut
 
 ```dgmo
 doughnut Plunder Distribution

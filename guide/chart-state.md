@@ -1,4 +1,4 @@
-# State Diagram
+# State
 
 ```dgmo
 state Order Lifecycle

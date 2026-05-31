@@ -1,4 +1,4 @@
-# Infrastructure Diagram
+# Infrastructure
 
 ```dgmo
 infra SaaS API Platform

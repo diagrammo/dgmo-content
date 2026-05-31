@@ -1,4 +1,4 @@
-# Sankey Diagram
+# Sankey
 
 ```dgmo
 sankey Rum Supply Chain of the Caribbean

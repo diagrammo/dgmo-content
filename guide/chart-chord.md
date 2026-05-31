@@ -1,4 +1,4 @@
-# Chord Diagram
+# Chord
 
 ```dgmo
 chord Pirate Alliance Network

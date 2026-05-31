@@ -1,4 +1,4 @@
-# Multi-Line Chart
+# Multi-Line
 
 ```dgmo
 line Monthly Captures by Fleet

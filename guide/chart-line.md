@@ -1,4 +1,4 @@
-# Line Chart
+# Line
 
 ```dgmo
 line Ship Speed Over Voyage

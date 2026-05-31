@@ -1,4 +1,4 @@
-# Cycle Diagram
+# Cycle
 
 ```dgmo
 cycle OODA Loop

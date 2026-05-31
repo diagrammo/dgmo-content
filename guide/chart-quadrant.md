@@ -1,4 +1,4 @@
-# Quadrant Chart
+# Quadrant
 
 ```dgmo
 quadrant Crew Performance Assessment

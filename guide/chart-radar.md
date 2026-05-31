@@ -1,4 +1,4 @@
-# Radar Chart
+# Radar
 
 ```dgmo
 radar Ship Combat Rating

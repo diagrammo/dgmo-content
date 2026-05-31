@@ -1,4 +1,4 @@
-# Gantt Chart
+# Gantt
 
 ```dgmo
 gantt Voyage to Treasure Island

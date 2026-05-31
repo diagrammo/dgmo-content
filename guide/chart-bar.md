@@ -1,4 +1,4 @@
-# Bar Chart
+# Bar
 
 ```dgmo
 bar Treasure Hauls by Port

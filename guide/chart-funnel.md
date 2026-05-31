@@ -1,4 +1,4 @@
-# Funnel Chart
+# Funnel
 
 ```dgmo
 funnel Pirate Recruitment Pipeline

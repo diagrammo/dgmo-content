@@ -1,4 +1,4 @@
-# Slope Chart
+# Slope
 
 ```dgmo
 slope Pirate Fleet Strength: 1715 vs 1725

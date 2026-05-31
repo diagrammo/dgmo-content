@@ -1,4 +1,4 @@
-# Stacked Bar Chart
+# Stacked Bar
 
 ```dgmo
 bar-stacked Cargo by Voyage

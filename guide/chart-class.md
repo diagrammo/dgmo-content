@@ -1,4 +1,4 @@
-# Class Diagram
+# Class
 
 ```dgmo
 class Ship Class Hierarchy

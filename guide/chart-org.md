@@ -1,4 +1,4 @@
-# Org Chart
+# Org
 
 ```dgmo
 org The Dread Fleet

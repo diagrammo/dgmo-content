@@ -1,4 +1,4 @@
-# PERT Diagram
+# PERT
 
 ```dgmo
 pert Pirate Voyage to the Atoll

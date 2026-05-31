@@ -1,4 +1,4 @@
-# Sequence Diagram
+# Sequence
 
 ```dgmo
 sequence Treasure Hunt App

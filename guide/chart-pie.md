@@ -1,4 +1,4 @@
-# Pie Chart
+# Pie
 
 ```dgmo
 pie Crew Roles Distribution

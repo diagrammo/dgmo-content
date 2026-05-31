@@ -1,4 +1,4 @@
-# Venn Diagram
+# Venn
 
 ```dgmo
 venn Pirate Skill Overlap

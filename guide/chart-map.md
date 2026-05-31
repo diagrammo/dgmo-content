@@ -1,4 +1,4 @@
-# Map Diagram
+# Map
 
 ```dgmo
 map The Brethren's Caribbean
