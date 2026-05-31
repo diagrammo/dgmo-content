@@ -1,0 +1,18 @@
+map The Brethren's Caribbean
+projection mercator
+
+tag Port as p
+  Home Port red
+  Friendly green
+  Spanish Prize orange
+active-tag Port
+
+poi Kingston p: Home Port, size: 120
+poi Havana p: Spanish Prize, size: 90
+poi Santo Domingo p: Friendly, size: 70
+
+route style: arc
+  Kingston label: Weigh anchor
+  Havana label: Raid the galleons
+  Santo Domingo label: Careen & resupply
+  Kingston
