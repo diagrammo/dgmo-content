@@ -68,6 +68,7 @@ Texas value: 40
 ```
 
 - `region-metric Label` names the ramp in the legend.
+- A trailing color on `region-metric` sets the ramp **hue** — `region-metric Doubloons (000s) blue` shades blue instead of the default red.
 - `scale <min> <max>` overrides the auto anchors.
 
 ## Region fill — categorical (tags)
@@ -91,6 +92,21 @@ Indonesia w: Friendly
 
 A region can carry **both** a `value:` and a tag (bivariate). Both are kept as selectable colouring dimensions: the legend shows the value ramp and each tag group. The value ramp fills by default whenever any region has a value; `active-tag <GroupName>` switches the fill to a tag group instead (and `active-tag <ValueLabel>` — the `region-metric` label, or `Value` — switches back to the ramp).
 
+### Direct color (highlight one region)
+
+For a quick highlight without declaring a tag group, drop a **trailing color** on the region line. It paints a flat fill, ignores the active colouring dimension, and adds no legend entry — the "just make this one stand out" escape hatch. Use tags when the colors are a legend-worthy category.
+
+```dgmo
+map Contested Waters
+region world
+
+Jamaica red
+Cuba orange
+Hispaniola green
+```
+
+A direct color wins over both the value ramp and a tag on the same region. (Put it before any metadata: `Cuba red value: 90`.)
+
 ## Points of Interest
 
 ```
@@ -105,10 +121,12 @@ poi Havana label: Spanish Main  // anchored at Havana; shows "Spanish Main"
 poi 18.0 -76.8 as cache         // positional coords (lat lon), signed
 poi Tortuga value: 200           // value: scales the marker area (a data channel)
 poi Nassau w: Raiding Grounds   // categorical colour via a tag alias
+poi Port Royal red              // direct marker colour (trailing token)
 ```
 
 - **Coordinates are positional** — two leading signed numbers, latitude then longitude. Cities never start with a number, so there's no ambiguity.
 - `value:` scales the marker area; pair it with `poi-metric Label` for a legend key.
+- A trailing color sets the marker fill directly — `poi Port Royal red` — winning over a tag colour and the default orange; no tag group needed.
 - POI properties: `label`, `value`, `style`, an applied tag alias, and `as`. There are no POI icons in v1.
 - Coord-positioned or relabeled POIs take `as <alias>` so routes and edges can reference them; named POIs are referenced by name.
 
@@ -172,4 +190,4 @@ Reserved metadata keys (need colons): `value`, `label`, `style`. `value` is the 
 
 ## Color Validation
 
-Tag colors use named palette colors only: `red`, `orange`, `yellow`, `green`, `blue`, `purple`, `teal`, `cyan`, `gray`, `black`, `white`. Value choropleths derive their ramp from the active palette automatically.
+All colors — tag values, a direct color on a region or POI, and the `region-metric` ramp hue — use named palette colors only: `red`, `orange`, `yellow`, `green`, `blue`, `purple`, `teal`, `cyan`, `gray`, `black`, `white`. A place literally named for a color keeps it via capitalization (`poi Orange` is the place; lowercase `orange` is the color). The choropleth ramp defaults to red and follows the active palette automatically.
