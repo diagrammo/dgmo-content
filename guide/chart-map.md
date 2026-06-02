@@ -2,7 +2,6 @@
 
 ```dgmo
 map The Brethren's Caribbean
-projection mercator
 
 tag Port as p
   Home Port red
@@ -21,15 +20,14 @@ route Kingston style: arc
 
 ## Overview
 
-Map diagrams are geographic concept maps: highlight or shade political subdivisions, drop points of interest (POIs), and connect them with routes or edges. They're for *sharing a concept* — territories, presence, voyages — not cartography. The map renders at a fixed, auto-fit position (no pan/zoom), and the basemap and viewport are **inferred from the content you reference**, so most maps need no directives at all. v1 boundaries are world countries and US states.
+Map diagrams are geographic concept maps: highlight or shade political subdivisions, drop points of interest (POIs), and connect them with routes or edges. They're for *sharing a concept* — territories, presence, voyages — not cartography. The map renders at a fixed, auto-fit position (no pan/zoom), and **everything is inferred from the content you reference** — basemap, viewport, projection, and ramp. A bare `map` is already the good-looking map: coastlines, mountain relief on reference maps, region and POI labels, and orientation labels all render by default. v1 boundaries are world countries and US states.
 
 ## Syntax
 
 ```
 map Title
 
-projection mercator            // optional — auto-picked by extent otherwise
-region-metric Doubloons               // names the value-ramp legend
+region-metric Doubloons        // names the value-ramp legend
 
 Florida value: 42              // choropleth fill
 Texas p: Friendly              // categorical fill (via a tag alias)
@@ -39,21 +37,22 @@ route Kingston style: arc       // ordered voyage: origin + arrow legs
   -> Havana
 ```
 
-The first line declares the chart type and an optional title. Everything else is inferred from the places you name — even the projection is optional. `projection` accepts `equirectangular`, `natural-earth`, `albers-usa`, or `mercator` (see [How the map is chosen](#how-the-map-is-chosen)).
+The first line declares the chart type and an optional title. **Type `map`, name some places, and you're done** — there is no projection, scale, or label directive to set. Cosmetic features are on by default; the only knobs are the bare `no-*` opt-outs in [Turning things off](#turning-things-off).
 
 ## How the map is chosen
 
-The renderer takes the bounding box of everything you reference — valued or tagged regions, POIs, edge endpoints — pads it, and measures the span:
+You never pick a projection — it's inferred from what you reference. The renderer takes the bounding box of everything (valued or tagged regions, POIs, edge endpoints), pads it, and measures the span:
 
 - **US-only** → `albers-usa` (conic; Alaska/Hawaii appear as insets only when you reference them).
-- **World-scale** (span ≥ ~90°) → `equirectangular`, snapped to the full Greenwich world frame.
+- **World-scale with data** (a region/POI carries a `value:` or tag) → **Equal Earth** (equal-area, so a choropleth's shading isn't distorted by the projection).
+- **World-scale reference** (no data) → **natural-earth** (the prettier curved compromise).
 - **Tight regional cluster** → `mercator`.
 
-A map whose content is **entirely US** — including one built from US cities alone — renders as the conventional US states map: every state outlined, even with no data. Name a single non-US place and it falls back to a geographic world/regional frame. The only override is `projection …`; the basemap and US scoping are always inferred from what you name.
+A map whose content is **entirely US** — including one built from US cities alone — renders as the conventional US states map: every state outlined, even with no data. Name a single non-US place and it falls back to a geographic world/regional frame. The basemap, projection, and US scoping are always inferred from what you name — there is no override.
 
 ## Region fill — value (choropleth)
 
-A subdivision name on its own line with a `value:` fills it from a single-hue tint ramp (auto min→max, ~15% floor). Subdivisions with no value or tag render as the neutral base.
+A subdivision name on its own line with a `value:` fills it from a single-hue tint ramp. The ramp **auto-fits** with no configuration: for all-non-negative data the low end anchors at **0** (so every such map shares a 0 baseline); mixed-sign data fits data-min→data-max. Subdivisions with no value or tag render as the neutral base.
 
 ```dgmo
 map Plunder by State
@@ -67,7 +66,6 @@ Texas value: 40
 
 - `region-metric Label` names the ramp in the legend.
 - A trailing color on `region-metric` sets the ramp **hue** — `region-metric Doubloons (000s) blue` shades blue instead of the default red.
-- `scale <min> <max>` overrides the auto anchors.
 
 ## Region fill — categorical (tags)
 
@@ -132,7 +130,6 @@ poi Port Royal red              // direct marker colour (trailing token)
 
 ```dgmo
 map Treasure Run
-projection mercator
 
 route Havana style: arc
   -set sail-> Kingston
@@ -154,20 +151,32 @@ Kingston -ships-> Havana value: 22   // labeled; value = thickness
 
 `~>` curves a single edge. There's no geographic path-finding — legs are straight or arced.
 
-## Labels, Legend & Chrome
+## Labels & Legend
+
+Region and POI labels are **on by default** and render **on the map** (export-safe). Region labels fit themselves automatically: the full name shows when it fits, a US-state two-letter abbreviation is tried when it doesn't, and the label hides rather than overlap or spill onto the ocean (`full → abbrev → hide`). POI labels are collision-managed, escalating from inline → leader line → numbered pin in dense clusters. Markers never move. Narrow embeds (a wide map in a column under ~480px) prefer abbreviations and drop reference relief, as if zoomed out.
+
+The only label/legend directives name a channel or attribute the data:
 
 | Directive | Effect |
 |-----------|--------|
-| `subtitle Text` | Subtitle under the title. |
-| `caption Text` | Caption below the map. |
+| `caption Text` | Caption below the map (data-source attribution; travels with the exported image). |
 | `region-metric Label` | Names the region value-ramp legend. |
 | `poi-metric Label` | Names the POI value (marker size) channel. |
 | `flow-metric Label` | Names the edge/leg value (thickness) channel. |
-| `no-legend` | Suppresses the whole legend block. |
-| `region-labels full \| abbrev \| off` | On-map subdivision names (default `off`). |
-| `poi-labels off \| auto \| all` | On-map POI labels (default `auto`). |
+| `active-tag Group` | Which tag group leads when several are present. |
 
-Labels render **on the map** (export-safe), escalating from inline → leader line → numbered pin in dense clusters. Markers never move.
+## Turning things off
+
+Everything cosmetic is on by default. The only switch is a bare `no-*` opt-out — there are no positive opt-in flags. A plain, data-journalism look is the four basemap flags together.
+
+| Flag | Turns off |
+|------|-----------|
+| `no-coastline` | Coastal water-lines. |
+| `no-relief` | Mountain-range relief shading. |
+| `no-context-labels` | Orientation labels (water bodies + nearby countries). |
+| `no-region-labels` | On-map subdivision names. |
+| `no-poi-labels` | On-map POI labels. |
+| `no-legend` | The whole legend block. |
 
 ## Name Resolution
 
@@ -180,7 +189,7 @@ Labels render **on the map** (export-safe), escalating from inline → leader li
 
 ## Directives & Reserved Keys
 
-Directives (no colon): `projection`, `region-metric`, `poi-metric`, `flow-metric`, `scale`, `region-labels`, `poi-labels`, `locale`, `active-tag`, `no-legend`, `relief`, `subtitle`, `caption`.
+The full directive set is 12, no colons. Six name intent the renderer can't infer — `region-metric`, `poi-metric`, `flow-metric`, `locale`, `active-tag`, `caption` — and six are the `no-*` cosmetic opt-outs — `no-legend`, `no-coastline`, `no-relief`, `no-context-labels`, `no-region-labels`, `no-poi-labels`. There is no `projection`, `scale`, `subtitle`, or `surface` directive, and the cosmetic features have no positive opt-in form.
 
 Reserved metadata keys (need colons): `value`, `label`, `style`. `value` is the single numeric channel — it renders as region shade, POI marker size, or edge thickness depending on the element.
 
