@@ -1,5 +1,6 @@
 map The Brethren's Caribbean
 projection mercator
+coastline
 
 tag Port as p
   Home Port red
