@@ -28,7 +28,6 @@ Map diagrams are geographic concept maps: highlight or shade political subdivisi
 ```
 map Title
 
-region us-states               // optional — basemap is inferred
 projection mercator            // optional — auto-picked by extent otherwise
 region-metric Doubloons               // names the value-ramp legend
 
@@ -40,17 +39,17 @@ route Kingston style: arc       // ordered voyage: origin + arrow legs
   -> Havana
 ```
 
-The first line declares the chart type and an optional title. Everything else is inferred from the places you name — all three directives above are optional. `region` accepts `us-states` or `world`; `projection` accepts `equirectangular`, `natural-earth`, `albers-usa`, or `mercator` (see [How the map is chosen](#how-the-map-is-chosen)).
+The first line declares the chart type and an optional title. Everything else is inferred from the places you name — even the projection is optional. `projection` accepts `equirectangular`, `natural-earth`, `albers-usa`, or `mercator` (see [How the map is chosen](#how-the-map-is-chosen)).
 
 ## How the map is chosen
 
 The renderer takes the bounding box of everything you reference — valued or tagged regions, POIs, edge endpoints — pads it, and measures the span:
 
-- **US-only** → `albers-usa` (conic, with Alaska/Hawaii insets).
+- **US-only** → `albers-usa` (conic; Alaska/Hawaii appear as insets only when you reference them).
 - **World-scale** (span ≥ ~90°) → `equirectangular`, snapped to the full Greenwich world frame.
 - **Tight regional cluster** → `mercator`.
 
-Directives only matter to *override* this. `region us-states` forces the US state mesh + US scoping (handy on a POI-only US map). `projection …` forces a projection. `region world` is currently inert — world is already the default.
+A map whose content is **entirely US** — including one built from US cities alone — renders as the conventional US states map: every state outlined, even with no data. Name a single non-US place and it falls back to a geographic world/regional frame. The only override is `projection …`; the basemap and US scoping are always inferred from what you name.
 
 ## Region fill — value (choropleth)
 
@@ -58,7 +57,6 @@ A subdivision name on its own line with a `value:` fills it from a single-hue ti
 
 ```dgmo
 map Plunder by State
-region us-states
 region-metric Doubloons (000s)
 
 Florida value: 92
@@ -77,7 +75,6 @@ Map diagrams use the universal tag model: declare a `tag` group and apply its al
 
 ```dgmo
 map Fleet Reach
-region world
 
 tag Waters as w
   Stronghold red
@@ -98,7 +95,6 @@ For a quick highlight without declaring a tag group, drop a **trailing color** o
 
 ```dgmo
 map Contested Waters
-region world
 
 Jamaica red
 Cuba orange
@@ -177,14 +173,14 @@ Labels render **on the map** (export-safe), escalating from inline → leader li
 
 - Admin units use **ISO 3166** — geometry is keyed by code, so `United States`, `USA`, and `US` all resolve alike.
 - Cities use **GeoNames** with alias/accent matching, population ranking, and did-you-mean hints.
-- `default-country` / `default-state <ISO>` scopes bare city resolution (inferred from content if unset).
+- `locale <ISO>` sets a default scope for bare names — a country (`locale US`) or subdivision (`locale US-GA`, which prefers cities in that state). Inferred from content if unset.
 - **Disambiguate once:** add a trailing ISO code at first mention — `San Jose CR` (country) or `Portland US-OR` (subdivision) — then use the bare name. Two same-named cities → give each an `as <alias>`.
 - The country-vs-state collision (`Georgia` = country `GE` or US state `US-GA`) is resolved by ISO code (`US-GA value: 5`) or name + scope (`Georgia US value: 5`).
 - Positional coordinates are the escape hatch for anything missing or ambiguous.
 
 ## Directives & Reserved Keys
 
-Directives (no colon): `region`, `projection`, `region-metric`, `poi-metric`, `flow-metric`, `scale`, `region-labels`, `poi-labels`, `default-country`, `default-state`, `active-tag`, `no-legend`, `subtitle`, `caption`.
+Directives (no colon): `projection`, `region-metric`, `poi-metric`, `flow-metric`, `scale`, `region-labels`, `poi-labels`, `locale`, `active-tag`, `no-legend`, `relief`, `subtitle`, `caption`.
 
 Reserved metadata keys (need colons): `value`, `label`, `style`. `value` is the single numeric channel — it renders as region shade, POI marker size, or edge thickness depending on the element.
 
