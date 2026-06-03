@@ -96,7 +96,7 @@ map Contested Waters
 
 Jamaica red
 Cuba orange
-Hispaniola green
+Haiti green
 ```
 
 A direct color wins over both the value ramp and a tag on the same region. (Put it before any metadata: `Cuba red value: 90`.)
@@ -110,12 +110,15 @@ poi <name | <lat> <lon>> [as <alias>] [<key>: <value>, …]
 ```dgmo
 map Crew Outposts
 
-poi Kingston                    // label defaults to "Kingston"
-poi Havana label: Spanish Main  // anchored at Havana; shows "Spanish Main"
-poi 18.0 -76.8 as cache         // positional coords (lat lon), signed
-poi Tortuga value: 200           // value: scales the marker area (a data channel)
-poi Nassau w: Raiding Grounds   // categorical colour via a tag alias
-poi Port Royal red              // direct marker colour (trailing token)
+tag Waters as w
+  Raiding Grounds red
+
+poi Kingston                       // label defaults to "Kingston"
+poi Havana label: Spanish Main     // anchored at Havana; shows "Spanish Main"
+poi 18.0 -76.8 as cache            // positional coords (lat lon), signed
+poi Santo Domingo value: 200       // value: scales the marker area (a data channel)
+poi Port-au-Prince w: Raiding Grounds  // categorical colour via a tag alias
+poi 17.94 -76.84 as portroyal red  // direct marker colour (trailing token)
 ```
 
 - **Coordinates are positional** — two leading signed numbers, latitude then longitude. Cities never start with a number, so there's no ambiguity.
@@ -142,9 +145,9 @@ Native `->` edges handle any other connection:
 ```dgmo
 map Supply Lines
 
-dcw                     // hub/star — indented edges share the source
+poi Havana as hub       // hub/star — indented edges share the source
   -> Kingston
-  -> Havana
+  -> Santo Domingo
 
 Kingston -ships-> Havana value: 22   // labeled; value = thickness
 ```

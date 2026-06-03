@@ -407,7 +407,6 @@ persona Squidlips Sam color: blue
 
 ```dgmo
 map The Brethren's Caribbean
-projection mercator
 
 tag Port as p
   Home Port red
