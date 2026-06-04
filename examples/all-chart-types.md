@@ -662,6 +662,43 @@ fishing       35
 
 # Project
 
+## DACI
+
+```dgmo
+raci Captain's Council Decisions
+variant-daci
+roles
+  Captain
+  Quartermaster
+  Navigator
+  Bosun
+
+[Raid Planning]
+  Choose the next prize
+    Navigator: D
+    Captain: A
+    Quartermaster: C
+    Bosun: I
+  Set the attack heading
+    Navigator: D A
+    Captain: C
+  Divide the boarding parties
+    Bosun: D
+    Captain: A
+    Quartermaster: C
+
+[Provisioning]
+  Ration the grog
+    Quartermaster: D A
+    Bosun: C
+  Restock the powder
+    Quartermaster: D
+    Captain: A
+    Bosun: I
+```
+
+---
+
 ## Gantt Chart
 
 ```dgmo
@@ -804,6 +841,38 @@ roles
   Inventory the take
     QM: A R
     Crew: I
+```
+
+---
+
+## RASCI
+
+```dgmo
+rasci Voyage Preparation
+roles
+  Captain
+  Quartermaster
+  Bosun
+  Cook
+  Surgeon
+
+[Outfitting]
+  Provision the hold
+    Quartermaster: A R
+    Cook: S
+    Captain: C
+  Mend the sails
+    Bosun: A R
+    Quartermaster: C
+
+[At Sea]
+  Tend the wounded
+    Surgeon: A R
+    Cook: S
+    Captain: I
+  Stand the night watch
+    Bosun: A R
+    Quartermaster: S
 ```
 
 ---
