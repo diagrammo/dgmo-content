@@ -58,12 +58,12 @@ Phases group steps into logical stages:
 
 ```
 [Research]
-  Compare specs | 4
-  Watch reviews | 5
+  Compare specs score: 4
+  Watch reviews score: 5
 
 [Purchase]
-  Add to cart | 3
-  Complete payment | 3
+  Add to cart score: 3
+  Complete payment score: 3
 ```
 
 Phases are optional — steps can appear at root level for a flat continuous flow.
@@ -93,7 +93,7 @@ Step Name                                       // no metadata = scoreless step
 Deeper-indented lines under a step add context:
 
 ```
-  Forced account creation | 1 Frustrated
+  Forced account creation score: 1, emotion: Frustrated
     pain: Wants guest checkout
     opportunity: Add guest checkout option
     thought: Why do I need an account?
@@ -120,11 +120,11 @@ tag Channel as ch
   In-Person green
 
 [Research]
-  Compare specs | 4, ch: Web
-  Ask friends | 4, ch: In-Person
+  Compare specs score: 4, ch: Web
+  Ask friends score: 4, ch: In-Person
 ```
 
-Reference tag values in step pipes via the alias.
+Reference tag values in step metadata via the alias.
 
 ## Flat Mode
 

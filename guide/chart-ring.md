@@ -54,9 +54,11 @@ Standard green
 Embedded blue
 ```
 
-Color uses the trailing-token form. Reach for `| color: <name>` only when another pipe key (`description: …`) rides along on the same line.
+Color uses the trailing-token form. Reach for `color: <name>` only when another key (`description: …`) rides along on the same line.
 
-### Layer Pipe Metadata
+### Layer Metadata
+
+Same-line metadata uses `key: value` pairs after the layer label:
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
@@ -74,12 +76,10 @@ Crew green
   - Working the rigging
 ```
 
-If both `| description: text` and indented lines exist, they concatenate (pipe first, then indented).
-
-The shorthand form — bare text after `|` with no `key:` prefix — is taken as the description directly:
+If both a same-line `description: text` and indented lines exist, they concatenate (same-line first, then indented):
 
 ```
-Quartermaster | Second-in-command, divvies the booty
+Quartermaster description: Second-in-command, divvies the booty
 ```
 
 ## Directives
