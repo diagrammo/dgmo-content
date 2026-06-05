@@ -58,7 +58,7 @@ Cache p: Low
 Why go through this indirection?
 
 - **Colors become meaningful.** Red means "Critical," not just red. The legend self-documents.
-- **Palettes stay intact.** Switching from Nord to Dracula adjusts all your colors harmoniously. Direct hex codes would break this.
+- **Palettes stay intact.** Switching from Nord to Gruvbox adjusts all your colors harmoniously. Direct hex codes would break this.
 - **Filtering works.** Tags are structured metadata — you can sort, hide, and group by them.
 - **One change updates everything.** Rename "Critical" to "Urgent" in one place, not fifty nodes.
 
@@ -100,7 +100,7 @@ The allowed color names are: `red`, `orange`, `yellow`, `green`, `blue`, `purple
 
 That's the complete list. No hex codes, no CSS keywords, no custom colors. This is a deliberate constraint:
 
-- Every palette (Nord, Dracula, Catppuccin, Gruvbox, etc.) defines its own version of these eleven names
+- Every palette (Nord, Catppuccin, Gruvbox, Tokyo Night, etc.) defines its own version of these eleven names
 - Switching palettes recolors your entire diagram coherently
 - Diagrams always look good regardless of which palette or theme is active
 - No one accidentally picks colors that clash or become invisible on certain backgrounds
