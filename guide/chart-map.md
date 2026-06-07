@@ -186,7 +186,8 @@ Everything cosmetic is on by default. The only switch is a bare `no-*` opt-out �
 - `locale <ISO>` sets a default scope for bare names — a country (`locale US`) or subdivision (`locale US-GA`, which prefers cities in that state). Inferred from content if unset.
 - **Disambiguate once:** add a trailing ISO code at first mention — `San Jose CR` (country) or `Portland US-OR` (subdivision) — then use the bare name. Two same-named cities → give each an `as <alias>`.
 - The country-vs-state collision (`Georgia` = country `GE` or US state `US-GA`) is resolved by ISO code (`US-GA value: 5`) or name + scope (`Georgia US value: 5`).
-- Positional coordinates are the escape hatch for anything missing or ambiguous.
+- **Airport codes:** a three-letter **IATA code** resolves to that airport — `poi JFK`, `route JFK -> LAX` — for large international hubs and all US scheduled-commercial airports. Case-insensitive, resolved by code only (not by airport name), and the marker label is the code. A code that is also a city name yields the **city** (the airport is the lower-precedence match); an unknown code suggests the `as <CODE>` coordinates escape.
+- Positional coordinates are the escape hatch for anything missing or ambiguous (including forcing an airport over a same-named city: `poi 54.56 55.87 as UFA`).
 
 ## Directives & Reserved Keys
 
