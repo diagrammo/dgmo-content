@@ -1,5 +1,3 @@
-# Timeline
-
 ```dgmo
 timeline The Golden Age of Piracy (1716–1722)
 scale on

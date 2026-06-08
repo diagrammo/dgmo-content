@@ -1,5 +1,3 @@
-# Org
-
 ```dgmo
 org The Dread Fleet
 sub-node-label Crew

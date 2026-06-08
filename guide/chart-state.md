@@ -1,5 +1,3 @@
-# State
-
 ```dgmo
 state Order Lifecycle
 

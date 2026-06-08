@@ -1,5 +1,3 @@
-# Gantt
-
 ```dgmo
 gantt Voyage to Treasure Island
 start 2024-01-15

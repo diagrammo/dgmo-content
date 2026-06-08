@@ -1,5 +1,3 @@
-# Mind Map
-
 ```dgmo
 mindmap Product Strategy
 

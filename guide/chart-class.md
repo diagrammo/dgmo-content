@@ -1,5 +1,3 @@
-# Class
-
 ```dgmo
 class Ship Class Hierarchy
 

@@ -1,5 +1,3 @@
-# Sequence
-
 ```dgmo
 sequence Treasure Hunt App
 

@@ -1,5 +1,3 @@
-# Flowchart
-
 ```dgmo
 flowchart Pirate's Code
 

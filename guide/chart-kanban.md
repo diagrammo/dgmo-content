@@ -1,5 +1,3 @@
-# Kanban Board
-
 ```dgmo
 kanban Plunder Sprint 7
 

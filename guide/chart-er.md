@@ -1,5 +1,3 @@
-# Entity Relationship
-
 ```dgmo
 er Pirate Fleet
 
