@@ -1,5 +1,3 @@
-# Ring
-
 ```dgmo
 ring Captain's Sphere of Influence
 

@@ -1,5 +1,3 @@
-# Cycle
-
 ```dgmo
 cycle OODA Loop
 

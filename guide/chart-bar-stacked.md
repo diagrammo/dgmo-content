@@ -1,5 +1,3 @@
-# Stacked Bar
-
 ```dgmo
 bar-stacked Cargo by Voyage
 series Rum, Spices, Silk, Gold

@@ -1,5 +1,3 @@
-# Word Cloud
-
 ```dgmo
 wordcloud Pirate Skills
 

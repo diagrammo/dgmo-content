@@ -1,5 +1,3 @@
-# Function Plot
-
 ```dgmo
 function Cannonball Trajectories by Elevation
 x-label Distance (meters)

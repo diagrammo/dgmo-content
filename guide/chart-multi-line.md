@@ -1,5 +1,3 @@
-# Multi-Line
-
 ```dgmo
 line Monthly Captures by Fleet
 series Blackbeard red, Roberts blue, Vane green

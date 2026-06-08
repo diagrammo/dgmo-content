@@ -1,5 +1,3 @@
-# Boxes and Lines
-
 ```dgmo
 boxes-and-lines Pirate Software
 

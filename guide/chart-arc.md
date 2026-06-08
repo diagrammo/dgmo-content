@@ -1,5 +1,3 @@
-# Arc
-
 ```dgmo
 arc Pirate Alliances
 //order appearance name, group, degree

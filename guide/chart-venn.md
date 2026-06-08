@@ -1,5 +1,3 @@
-# Venn
-
 ```dgmo
 venn Pirate Skill Overlap
 
