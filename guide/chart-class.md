@@ -1,31 +1,3 @@
-```dgmo
-class Ship Class Hierarchy
-
-Vessel [interface]
-  + sail(): void
-  + anchor(): void
-
-Ship implements Vessel [abstract]
-  # name: string
-  # crew: number
-  + getName(): string
-
-Galleon extends Ship
-  - cannons: number
-  + fire(): void
-
-Sloop extends Ship
-  - speed: number
-  + flee(): void
-
-ShipType [enum]
-  Galleon
-  Sloop
-  Frigate
-
-Ship -> ShipType : has type
-```
-
 ## Overview
 
 Class diagrams render UML-style boxes with three compartments per the UML spec: name, attributes, and methods. Classes connect via relationships like inheritance, composition, and association. Layout is automatic via Dagre.

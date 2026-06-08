@@ -1,22 +1,3 @@
-```dgmo
-wordcloud Pirate Skills
-
-swordsmanship 95
-navigation 88
-seamanship 85
-gunnery 80
-leadership 75
-cartography 70
-intimidation 68
-sailing 65
-plundering 60
-knot-tying 55
-lookout 50
-cooking 45
-carpentry 40
-fishing 35
-```
-
 ## Syntax
 
 ```

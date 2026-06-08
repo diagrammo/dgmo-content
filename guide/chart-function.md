@@ -1,14 +1,3 @@
-```dgmo
-function Cannonball Trajectories by Elevation
-x-label Distance (meters)
-y-label Height (meters)
-x 0 to 250
-
-15 degrees blue: -0.001*x^2 + 0.27*x
-30 degrees green: -0.002*x^2 + 0.58*x
-45 degrees red: -0.003*x^2 + 0.75*x
-```
-
 ## Syntax
 
 ```

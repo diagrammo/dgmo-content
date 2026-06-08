@@ -1,33 +1,3 @@
-```dgmo
-c4 Internet Banking System
-
-Customer is a person description: A customer of the bank
-
-Internet Banking is a system description: Allows customers to view accounts and make payments
-  -Delivers content to [HTTPS]-> Customer
-  -Sends emails using [SMTP]-> Email
-
-  containers
-    Web App is a container description: SPA for banking features, tech: React
-      -Makes API calls [JSON/HTTPS]-> API
-
-    API is a container description: JSON/HTTPS API backend, tech: Node.js
-      -Reads from and writes to [SQL/TCP]-> Database
-
-    Database is a container description: Stores account data, tech: PostgreSQL
-
-Email is a system description: Sendgrid email delivery
-  ~Sends emails to~> Customer
-
-deployment
-  Vercel is a cloud
-    container Web App
-  Railway
-    container API
-  Neon is a database
-    container Database
-```
-
 ## Overview
 
 C4 diagrams model software architecture at multiple zoom levels, following the [C4 model](https://c4model.com). Define people, systems, containers, and components — then drill down from context to detail. Relationships use the same arrow syntax as sequence diagrams.

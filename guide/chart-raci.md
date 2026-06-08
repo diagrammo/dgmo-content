@@ -1,32 +1,3 @@
-```dgmo
-raci Voyage Operations
-roles
-  Cap  red
-  QM   orange
-  Bos  yellow
-  Nav  blue
-  Crew gray
-
-[Departure] teal
-  Plot the course
-    Heading, currents, weather window
-    Cap: A
-    Nav: R
-    QM: C
-  Provision the hold
-    QM: A R
-    Cap: C
-    Crew: I
-
-[At Sea] purple
-  Stand the watch
-    Bos: A
-    Crew: R
-  Sight the next port
-    Nav: A R
-    Cap: C
-```
-
 ## Overview
 
 A RACI matrix maps **tasks** against **roles** and tags each cell with a marker indicating that role's responsibility for that task. The `raci` chart type covers three variants — RACI, RASCI, and DACI — with author-time linting against the structural rules of each.

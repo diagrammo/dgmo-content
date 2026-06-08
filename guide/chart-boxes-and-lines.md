@@ -1,28 +1,3 @@
-```dgmo
-boxes-and-lines Pirate Software
-
-tag Status as s
-  Done green
-  Doing yellow
-  Todo red
-  NA gray default
-
-MobileApp s:Todo
-  -> API
-
-WebSite s:Doing
-  -> API
-
-[Backend]
-  API s:Doing
-    -> DB
-    -> AuthVendor
-
-  DB s:Done
-
-AuthVendor
-```
-
 ## Overview
 
 Boxes and lines is a general-purpose node-edge diagram for modeling systems, architectures, and relationships. Nodes are connected with labeled arrows, organized into nested groups, and annotated with color-coded tags.

@@ -1,18 +1,3 @@
-```dgmo
-sequence Treasure Hunt App
-
-User -Search nearby loot-> WebApp
-WebApp -GET /treasures?nearby-> TreasureAPI c: Search
-note
-  - check location
-  - use compass
-  - http://example.com
-TreasureAPI -Find within 5nm-> MapDB c: Search
-MapDB -3 results-> TreasureAPI
-TreasureAPI -locations-> WebApp
-WebApp -Show treasure map-> User
-```
-
 Notice that `User` renders as a stick figure, `MapDB` as a cylinder, and `NotifyQueue` as a horizontal pipe — all inferred automatically from the names. Participants without a distinctive role (`WebApp`, `TreasureAPI`) fall through to the default rectangle. No declarations needed.
 
 ## Overview

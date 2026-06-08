@@ -1,16 +1,3 @@
-```dgmo
-venn Pirate Skill Overlap
-
-Swordsmanship as sw red
-Navigation as nav blue
-Leadership as lead green
-
-sw + nav Sea Raiders
-nav + lead Voyager Captains
-sw + lead Buccaneer Chiefs
-sw + nav + lead Legendary Pirates
-```
-
 ## Syntax
 
 ```

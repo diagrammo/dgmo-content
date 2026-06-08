@@ -1,26 +1,3 @@
-```dgmo
-cycle OODA Loop
-
-Observe blue
-  Gather raw information from the environment
-  Monitor unfolding circumstances
-  -Unfold circumstances-> color: blue
-
-Orient green
-  Analyze and synthesize observations
-  Form a mental model of the situation
-  -Form hypothesis-> color: green
-
-Decide orange
-  Select a course of action
-  -Commit to action-> color: orange
-
-Act red
-  Execute the chosen course of action
-  Generate results that feed back
-  -Generate feedback-> color: red
-```
-
 ## Overview
 
 Cycle diagrams show a circular process flow where nodes are arranged on a circle and directed edges connect each to the next, with the last wrapping back to the first. They are ideal for OODA loops, PDCA cycles, product lifecycles, continuous improvement processes, and any workflow that repeats.

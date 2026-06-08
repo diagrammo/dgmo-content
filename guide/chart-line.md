@@ -1,21 +1,3 @@
-```dgmo
-line Ship Speed Over Voyage
-series Knots
-x-label Day
-y-label Speed
-
-era Day 1 -> Day 3 Rough Seas red
-era Day 3 -> Day 7 Fair Winds blue
-
-Day 1 8
-Day 2 10
-Day 3 7
-Day 4 12
-Day 5 9
-Day 6 11
-Day 7 6
-```
-
 ## Syntax
 
 ```
