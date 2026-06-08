@@ -1,3 +1,33 @@
+```dgmo
+kanban Plunder Sprint 7
+
+tag Priority
+  Urgent red
+  High orange
+  Low green default
+
+tag Crew as c
+  Blackbeard red
+  Anne Bonny purple
+  Calico Jack teal
+
+[Awaiting Orders] red
+  Recruit gunners at Tortuga priority: High, c: Calico Jack
+  Chart new trade route priority: Urgent, c: Anne Bonny
+    Scout the Windward Passage
+    Avoid Royal Navy patrols
+  Resupply rum and powder priority: Low, c: Calico Jack
+
+[Underway] orange wip: 2
+  Forge letters of marque priority: High, c: Anne Bonny
+  Raid merchant convoy priority: Urgent, c: Blackbeard
+    Three ships spotted off Nassau
+
+[Done] green
+  Bribe the harbour master priority: High, c: Anne Bonny
+  Repair hull damage priority: Low, c: Blackbeard
+```
+
 ## Overview
 
 Kanban boards visualize work items as cards organized into columns. Columns typically represent workflow stages (To Do, In Progress, Done). Cards can carry tags for color-coded categorization and freeform detail text.

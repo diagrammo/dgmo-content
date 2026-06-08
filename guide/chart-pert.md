@@ -1,3 +1,32 @@
+```dgmo
+pert Pirate Voyage to the Atoll
+time-unit w
+default-confidence medium
+
+voyage approved 0
+  -> recruit crew
+
+[outfit ship]
+  recruit crew 1 2 4 as rc
+    -> load powder
+  careen hull 1.5
+    -> load powder
+  load powder 0.5 1 2
+    -> sail to atoll
+
+sail to atoll 5
+  -> count gold
+  -> repair hull
+
+count gold 1 2 3
+  -> divvy shares
+
+repair hull 3
+  -> divvy shares
+
+divvy shares 1 2 3
+```
+
 ## Overview
 
 A PERT diagram (Program Evaluation Review Technique) is an Activity-on-Node project network. Each activity carries a duration estimate — three-point (O / M / P), single-number (M-only), or zero (a sync point) — and the analyzer computes earliest/latest start/finish times, slack, the M-world critical path, and (when at least one activity has a three-point estimate) a probability-weighted criticality index plus P50/P80/P95 completion percentiles.

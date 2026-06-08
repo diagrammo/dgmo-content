@@ -1,3 +1,22 @@
+```dgmo
+pyramid Maslow's Hierarchy of Needs
+
+Self-Actualization purple
+  Morality, creativity, acceptance of facts.
+
+Esteem blue
+  Respect, recognition, confidence.
+
+Love & Belonging green
+  Friendship, intimacy, family.
+
+Safety yellow
+  Security, employment, health.
+
+Physiological orange
+  Food, water, warmth, rest.
+```
+
 ## Overview
 
 Pyramid diagrams show a hierarchy of stacked layers. Each layer gets a colored band with a label and an optional description. Source order reads apex-first — the first layer in the file is the narrowest (visual top), the last is the widest (visual bottom). Use `inverted` to flip into a funnel orientation.

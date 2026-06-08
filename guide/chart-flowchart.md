@@ -1,3 +1,12 @@
+```dgmo
+flowchart Pirate's Code
+
+(Sail Ho!) -> <Friend or Foe?>
+  -friend-> [Check Logs~] -> /Trade Rum/ -> [Celebrate]
+  -foe-> [Fire Cannons] -> [[Claim Loot]] -> [Celebrate]
+[Celebrate]->(Sail On)
+```
+
 ## Overview
 
 Flowcharts use an indent-based syntax with shaped nodes and labeled arrows. Nodes are created automatically from their shape delimiters — just write the flow and Diagrammo handles the layout.

@@ -1,3 +1,27 @@
+```dgmo
+ring Captain's Sphere of Influence
+
+solid-fill
+
+Captain red
+  Final word on heading and plunder,
+  keeper of the ship's charter.
+
+Quartermaster description: "Second-in-command, arbitrates disputes and divvies the booty"
+
+Crew yellow
+  Deckhands, gunners, and powder
+  monkeys aboard the ship.
+
+Allied Crews green
+  Loose alliances kept by oath
+  or shared bounty in fair seas.
+
+The Open Sea blue
+  Weather, currents, and rival
+  flags beyond any captain's reach.
+```
+
 ## Overview
 
 Ring diagrams show concentric layers of nested or hierarchical categories. Source order reads core-out: the first layer in the file is the innermost element (rendered as a filled disc), the last layer is the outermost ring. Min 2 layers, max 15.

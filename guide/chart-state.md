@@ -1,3 +1,36 @@
+```dgmo
+state Order Lifecycle
+
+[*] -> Pending
+
+Pending
+  -submit-> Validating
+
+Validating
+  -approved-> Processing
+  -rejected-> Cancelled
+
+[Fulfillment]
+  Processing
+    -pack-> Shipping
+    -out of stock-> Cancelled
+
+  Shipping
+    -delivered-> Delivered
+    -lost-> Refunded
+
+[Resolution]
+  Delivered
+    -return request-> Returning
+
+  Returning
+    -received-> Refunded
+
+Cancelled -> [*]
+Refunded -> [*]
+Delivered -> [*]
+```
+
 ## Overview
 
 State diagrams model states and transitions. Write states as plain text and connect them with `->` arrows. Diagrammo handles the layout automatically. Use `[*]` for start/end pseudostates and indent lines to chain transitions from a parent state.

@@ -1,3 +1,48 @@
+```dgmo
+sitemap The Salty Compass
+
+tag Auth
+  Public green
+  Crew Only blue
+
+Home Auth: Public, description: Landing page with interactive demos
+  -shop-> Shop
+  -voyages-> Upcoming Voyages
+  -join crew-> Sign Up
+  -sign in-> Login
+
+[Ship Store]
+  Shop Auth: Public
+    -> Eye Patches
+    -> Flags & Banners
+  Eye Patches Auth: Public
+    -add to chest-> Cart
+  Flags & Banners Auth: Public
+    -add to chest-> Cart
+  Cart Auth: Public
+    -checkout-> Checkout
+  Checkout Auth: Crew Only
+    -done-> My Orders
+
+[Voyages]
+  Upcoming Voyages Auth: Public
+    -details-> Voyage Detail
+  Voyage Detail Auth: Public
+    -enlist-> Sign Up
+
+[Crew Quarters]
+  Login Auth: Public
+    -welcome aboard-> Dashboard
+    -new pirate-> Sign Up
+  Sign Up Auth: Public
+    -welcome aboard-> Dashboard
+  Dashboard Auth: Crew Only
+    description: Full overview of crew activity and orders
+    -> My Orders
+  My Orders Auth: Crew Only
+    -reorder-> Shop
+```
+
 ## Overview
 
 Sitemap diagrams visualize website structure as a hierarchy of pages. Indentation defines the parent-child relationship between pages. Pages can be grouped into containers, connected with arrows, and annotated with metadata and color-coded tag groups.

@@ -1,3 +1,23 @@
+```dgmo
+arc Pirate Alliances
+//order appearance name, group, degree
+
+// Source -> Target weight
+[Caribbean] red
+  Blackbeard -> Bonnet 8
+  Blackbeard -> Vane 5
+  Blackbeard -> Hornigold 4
+  Hornigold -> Bonnet 2
+
+[Women Pirates] purple
+  Bonny -> Rackham 9
+  Bonny -> Read 7
+  Rackham -> Vane 3
+
+[West Africa] teal
+  Roberts -> Davis 6
+```
+
 ## Syntax
 
 ```

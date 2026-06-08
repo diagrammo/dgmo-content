@@ -1,3 +1,41 @@
+```dgmo
+er Pirate Fleet
+
+ships
+  id int pk
+  name varchar
+  ship_type varchar
+  cannons int
+  1-aboard-* crew_members
+  1-1 captains
+  1-carries-* treasure
+
+captains
+  id int pk
+  name varchar
+  ship_id int fk
+  bounty int
+  ?-frequents-1 ports
+
+crew_members
+  id int pk
+  name varchar
+  ship_id int fk
+  role varchar nullable
+
+treasure
+  id int pk
+  name varchar
+  value int
+  ship_id int fk nullable
+
+ports
+  id int pk
+  name varchar
+  region varchar unique
+  1-docks-* ships
+```
+
 ## Overview
 
 ER diagrams render database-style entity-relationship boxes with columns, data types, and constraint icons. Tables connect via relationships with crow's foot cardinality markers. Layout is automatic via Dagre.

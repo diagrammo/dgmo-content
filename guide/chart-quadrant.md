@@ -1,3 +1,23 @@
+```dgmo
+quadrant Crew Performance Assessment
+x-label Low Skill, High Skill
+y-label Low Loyalty, High Loyalty
+
+top-right Promote green
+top-left Train yellow
+bottom-left Maroon red
+bottom-right Watch Closely purple
+
+Quartermaster 0.9, 0.95
+Navigator 0.85, 0.8
+Gunner 0.7, 0.6
+Surgeon 0.8, 0.75
+Boatswain 0.6, 0.85
+Cook 0.4, 0.9
+New Recruit 0.2, 0.5
+Troublemaker 0.65, 0.2
+```
+
 ## Syntax
 
 ```

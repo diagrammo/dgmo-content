@@ -1,3 +1,30 @@
+```dgmo
+sankey Rum Supply Chain of the Caribbean
+
+Sugar Plantations green
+  Tortuga Distillery orange 3000
+  Nassau Distillery orange 2500
+  Kingston Distillery orange 2000
+
+Tortuga Distillery
+  Pirate Taverns red 2000
+  Ship Provisions teal 1000
+
+Nassau Distillery
+  Pirate Taverns 1500
+  Black Market purple 1000
+
+Kingston Distillery
+  Royal Navy blue 1200
+  Pirate Taverns 800
+
+Pirate Taverns
+  Crew Morale 3500
+  Bar Fights 800 red
+
+Ship Provisions -> Long Voyages 1000
+```
+
 ## Syntax
 
 ### Arrow syntax

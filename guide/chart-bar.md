@@ -1,3 +1,14 @@
+```dgmo
+bar Treasure Hauls by Port
+series Gold Doubloons
+
+Port Royal 850
+Tortuga 620
+Nassau 1100
+Havana 430
+Cartagena 780
+```
+
 ## Syntax
 
 ```

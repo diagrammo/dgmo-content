@@ -1,3 +1,13 @@
+```dgmo
+bar-stacked Cargo by Voyage
+series Rum, Spices, Silk, Gold
+
+Voyage 1 40 20 10 30
+Voyage 2 25 35 20 20
+Voyage 3 15 10 45 30
+Voyage 4 30 25 15 30
+```
+
 ## Syntax
 
 ```

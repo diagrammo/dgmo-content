@@ -1,3 +1,27 @@
+```dgmo
+mindmap Product Strategy
+
+Research
+  User Interviews
+    Surveys description: Quarterly NPS survey
+    Focus Groups
+  Competitor Analysis
+    Feature Matrix
+    Pricing Review
+Development
+  MVP Features
+    Auth System
+      description: Handle login, signup, OAuth flows
+    Dashboard
+  Nice-to-haves collapsed: true
+    Dark Mode
+    Export PDF
+Go-to-Market
+  Launch Plan
+    Blog Post
+    Demo Video description: 2-min product walkthrough
+```
+
 ## Overview
 
 Mind maps visualize hierarchical information radiating from a central concept. Each branch represents a subtopic, with deeper nesting for finer detail. Mind maps are useful for brainstorming, project planning, knowledge organization, and breaking down complex topics.

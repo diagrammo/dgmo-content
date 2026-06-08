@@ -1,3 +1,21 @@
+```dgmo
+map The Brethren's Caribbean
+
+tag Port as p
+  Home Port red
+  Friendly green
+  Spanish Prize orange
+
+poi Kingston p: Home Port, value: 120
+poi Havana p: Spanish Prize, value: 90
+poi Santo Domingo p: Friendly, value: 70
+
+route Kingston style: arc
+  -weigh anchor-> Havana
+  -raid the galleons-> Santo Domingo
+  -careen & resupply-> Kingston
+```
+
 ## Overview
 
 Map diagrams are geographic concept maps: highlight or shade political subdivisions, drop points of interest (POIs), and connect them with routes or edges. They're for *sharing a concept* — territories, presence, voyages — not cartography. The map renders at a fixed, auto-fit position (no pan/zoom), and **everything is inferred from the content you reference** — basemap, viewport, projection, and ramp. A bare `map` is already the good-looking map: coastlines, mountain relief on reference maps, region and POI labels, and orientation labels all render by default. v1 boundaries are world countries and US states.

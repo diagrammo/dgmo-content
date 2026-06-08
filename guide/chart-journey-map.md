@@ -1,3 +1,24 @@
+```dgmo
+journey-map Morning Coffee Run
+
+persona Maya, Remote Worker
+  31, needs caffeine + a quiet seat before her 9am standup
+
+[Arrive]
+  Spot the line out the door score: 2, emotion: Wary
+  Find the mobile-order shortcut score: 4, emotion: Hopeful
+
+[Order]
+  App crashes mid-checkout score: 1, emotion: Frustrated
+    pain: Lost her saved payment method
+  Reorder at the counter score: 3
+
+[Enjoy]
+  Snag the last window seat score: 4
+  First sip, latte is perfect score: 5, emotion: Delighted
+    thought: Worth the wait — back tomorrow
+```
+
 ## Overview
 
 Journey maps visualize a user's experience across a process or service, plotting emotional highs and lows as a continuous curve. Each step has a score (1–5, high is good) that drives the emotion landscape. Phases group related steps, annotations capture pain points, opportunities, and thoughts, and tags add cross-cutting dimensions like channel or touchpoint.

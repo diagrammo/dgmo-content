@@ -1,3 +1,29 @@
+```dgmo
+wireframe Login Page
+
+[Header]
+  Acme App
+  nav
+    Home active
+    About
+    Pricing
+
+[Main]
+  # Sign In
+
+  Email  [user@example.com]
+  Password  [****] password
+
+  <x> Remember me
+
+  (Sign In)
+  (Forgot Password?) ghost
+
+  ---
+
+  New here? (Create Account) ghost
+```
+
 ## Overview
 
 Wireframe diagrams use **visual-mnemonic syntax** where bracket characters communicate the element type. The source text reads as a wireframe even before rendering.
