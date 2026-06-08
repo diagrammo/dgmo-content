@@ -94,7 +94,7 @@ Vault is a database
 "Order History" is a database
 
 // Control left-to-right ordering
-OrderDB position -1
+OrderDB position: -1
 ```
 
 The keywords `service`, `frontend`, `networking`, `gateway`, and `external` were removed in dgmo 0.16.0 — they emit a parse error. Drop the `is a` clause and the participant renders as the default rectangle.
@@ -111,7 +111,7 @@ Participants are laid out left-to-right based on **first appearance in messages*
 **Groups affect ordering:** members of the same group always stay adjacent (see [Groups](#groups) below). The group is placed where its first member would naturally appear.
 
 **Priority (highest wins):**
-1. Explicit `position N`
+1. Explicit `position: N`
 2. Group adjacency
 3. First appearance in messages
 
@@ -120,7 +120,7 @@ Participants are laid out left-to-right based on **first appearance in messages*
 sequence
 User -placeOrder-> OrderService
 OrderService -save-> OrderDB
-OrderDB position -1
+OrderDB position: -1
 ```
 
 ## Messages
