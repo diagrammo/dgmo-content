@@ -174,6 +174,23 @@ notation labels
 
 This replaces crow's foot markers with text like `1`, `*`, and `0..1`.
 
+## Notes
+
+Attach a hide-able annotation to a table with `note <Table> text`. The note floats beside the table as a folded-corner box (it never moves the table). Indent lines below the heading for a multi-line body with bullets and inline markdown; end the heading with a lowercase color word to recolor it. `no-notes` suppresses every note.
+
+```
+er
+ships
+  id int pk
+  name varchar
+
+note ships the flagship table — every voyage starts here
+note ships red
+  Tracks:
+  - one **captain** per hull
+  - the crew manifest
+```
+
 ## Comments
 
 ```

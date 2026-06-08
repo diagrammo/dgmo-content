@@ -165,6 +165,22 @@ Ship red
 Engine [abstract] purple
 ```
 
+## Notes
+
+Attach a hide-able annotation to a class with `note <ClassName> text`. The note floats beside the class as a folded-corner box (it never moves the class). Indent lines below the heading for a multi-line body with bullets and inline markdown; end the heading with a lowercase color word to recolor it. `no-notes` suppresses every note.
+
+```
+class
+Ship
+  + sail(): void
+
+note Ship the flagship — heaviest hull in the fleet
+note Ship red
+  Carries:
+  - **boarding crews**
+  - the captain's log
+```
+
 ## Comments
 
 ```

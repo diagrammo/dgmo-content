@@ -218,6 +218,22 @@ Flagship -> Sloop
 | `box-metric`  | `<Label> [color]` | none        | Names the numeric value dimension and optional ramp hue |
 | `show-values` | (flag)            | off         | Print each box's `value:` number as text    |
 
+## Notes
+
+Attach a hide-able annotation to a box with `note <Box> text`. The note floats beside the box as a folded-corner box (it never moves the box) and respects the diagram's `direction`. Indent lines below the heading for a multi-line body with bullets and inline markdown; end the heading with a lowercase color word to recolor it. `no-notes` suppresses every note.
+
+```
+boxes-and-lines
+Flagship
+  -> Harbor
+
+note Flagship the admiral sails here — command and control
+note Flagship green
+  Holds:
+  - the **war council**
+  - the charts
+```
+
 ## Comments
 
 ```
