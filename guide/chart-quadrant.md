@@ -1,5 +1,3 @@
-# Quadrant
-
 ```dgmo
 quadrant Crew Performance Assessment
 x-label Low Skill, High Skill

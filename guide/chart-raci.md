@@ -1,5 +1,3 @@
-# RACI Matrix
-
 ```dgmo
 raci Voyage Operations
 roles

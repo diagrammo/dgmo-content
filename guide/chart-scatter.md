@@ -1,5 +1,3 @@
-# Scatter Plot
-
 ```dgmo
 scatter Cannon Range vs Powder Charge
 x-label Powder (lbs)

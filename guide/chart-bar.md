@@ -1,5 +1,3 @@
-# Bar
-
 ```dgmo
 bar Treasure Hauls by Port
 series Gold Doubloons

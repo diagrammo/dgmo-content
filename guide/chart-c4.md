@@ -1,5 +1,3 @@
-# C4
-
 ```dgmo
 c4 Internet Banking System
 

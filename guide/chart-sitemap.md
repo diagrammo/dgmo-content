@@ -1,5 +1,3 @@
-# Sitemap
-
 ```dgmo
 sitemap The Salty Compass
 

@@ -1,5 +1,3 @@
-# Pyramid
-
 ```dgmo
 pyramid Maslow's Hierarchy of Needs
 

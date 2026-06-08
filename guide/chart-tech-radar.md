@@ -1,5 +1,3 @@
-# Technology Radar
-
 ```dgmo
 tech-radar Pirate Operations Radar — Q2 1718
 

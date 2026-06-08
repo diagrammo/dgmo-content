@@ -1,5 +1,3 @@
-# Journey Map
-
 ```dgmo
 journey-map Morning Coffee Run
 

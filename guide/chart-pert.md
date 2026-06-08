@@ -1,5 +1,3 @@
-# PERT
-
 ```dgmo
 pert Pirate Voyage to the Atoll
 time-unit w

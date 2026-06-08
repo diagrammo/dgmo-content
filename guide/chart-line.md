@@ -1,5 +1,3 @@
-# Line
-
 ```dgmo
 line Ship Speed Over Voyage
 series Knots

@@ -1,5 +1,3 @@
-# Wireframe
-
 ```dgmo
 wireframe Login Page
 

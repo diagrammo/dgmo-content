@@ -1,5 +1,3 @@
-# Area
-
 ```dgmo
 area Fleet Growth Over Time
 series Ships
