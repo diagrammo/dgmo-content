@@ -26,7 +26,7 @@ roles
 
 [Landfall] green
   Negotiate with port
-    Cap: A R
+    Cap: R A
     QM: C
   Inventory the take
     QM: A R

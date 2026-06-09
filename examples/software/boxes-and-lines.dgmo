@@ -6,7 +6,7 @@ tag Status as s
   Sunk red
   Building blue default
 
-box-metric Crew blue
+box-metric Crew red green
 show-values
 active-tag Status
 
