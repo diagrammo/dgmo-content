@@ -83,7 +83,7 @@ Step Name                                       // no metadata = scoreless step
 ```
 
 - **Score scale**: 1–5 integer (high = good)
-- **Emotion label**: optional single word after the score (e.g., `Frustrated`, `Delighted`, `Neutral`)
+- **Emotion label**: optional single word after the score (e.g., `Frustrated`, `Delighted`, `Neutral`). It renders as a caption beside the step's face on the curve — naming the *specific* feeling the score alone can't convey (anxious vs. bored both score low).
 - **Scoreless steps**: render as cards but produce no emotion curve point
 
 ## Annotations
