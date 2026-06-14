@@ -5,25 +5,20 @@ tag Concern as c
   Claims green
   Notifications orange
 
-tag Layer as l
-  Frontend teal
-  Backend purple
-  Data red
-
 User is an actor
-WebApp l: Frontend
-TreasureAPI l: Backend
-MapDB is a database l: Data
-NotifyQueue is a queue l: Backend
+
+[Treasure Service]
+  TreasureAPI
+  MapDB is a database
+  NotifyQueue is a queue
 
 User -Search nearby loot-> WebApp
 WebApp -GET /treasures?nearby-> TreasureAPI c: Search
+TreasureAPI -Find within 5nm-> MapDB c: Search
 note
   - check location
   - use compass
-  - http://example.com
-TreasureAPI -Find within 5nm-> MapDB c: Search
-MapDB -3 results-> TreasureAPI 
+MapDB -3 results-> TreasureAPI
 TreasureAPI -locations-> WebApp
 WebApp -Show treasure map-> User
 
@@ -34,9 +29,9 @@ WebApp -POST /claim-> TreasureAPI c: Claims
 if chest available
   TreasureAPI -Set status = claimed-> MapDB c: Claims
   MapDB -OK-> TreasureAPI
+  TreasureAPI ~treasure.claimed~> NotifyQueue c: Notifications
   TreasureAPI -Claim accepted-> WebApp
   WebApp -500 doubloons earned!-> User
-  TreasureAPI ~treasure.claimed~> NotifyQueue c: Notifications
 else
   TreasureAPI -409 Already claimed-> WebApp
   WebApp -Too slow, matey!-> User
