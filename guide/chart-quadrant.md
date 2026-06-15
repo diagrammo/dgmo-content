@@ -8,14 +8,14 @@ top-left Train yellow
 bottom-left Maroon red
 bottom-right Watch Closely purple
 
-Quartermaster 0.9, 0.95
-Navigator 0.85, 0.8
-Gunner 0.7, 0.6
-Surgeon 0.8, 0.75
-Boatswain 0.6, 0.85
-Cook 0.4, 0.9
-New Recruit 0.2, 0.5
-Troublemaker 0.65, 0.2
+Quartermaster 0.9 0.95
+Navigator 0.85 0.8
+Gunner 0.7 0.6
+Surgeon 0.8 0.75
+Boatswain 0.6 0.85
+Cook 0.4 0.9
+New Recruit 0.2 0.5
+Troublemaker 0.65 0.2
 ```
 
 ## Syntax
@@ -30,7 +30,7 @@ top-left Quadrant Label color
 bottom-left Quadrant Label color
 bottom-right Quadrant Label color
 
-Item Name x, y
+Item Name x y
 ```
 
 ## Metadata Keys
@@ -51,8 +51,8 @@ Item Name x, y
 Each data point specifies X and Y coordinates between 0 and 1:
 
 ```
-Item A 0.9, 0.95
-Item B 0.4, 0.3
+Item A 0.9 0.95
+Item B 0.4 0.3
 ```
 
 ## Quadrant Colors

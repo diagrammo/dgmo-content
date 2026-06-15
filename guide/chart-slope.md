@@ -51,6 +51,6 @@ Append a color name (lowercase) after the label to set a custom color:
 Python blue 3 1 1
 ```
 
-## Thousands Commas
+## Numeric Values
 
-Values can contain thousands commas: `Revenue 1,000 2,500`
+Values are space-separated and written without thousands commas: `Revenue 1000 2500`. Underscores may be used as digit-group separators if desired (`Revenue 1_000 2_500`).
