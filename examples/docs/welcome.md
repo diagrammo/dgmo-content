@@ -52,5 +52,6 @@ era 1700-01->1718-01 Golden Age
 
 ## Learn More
 
+- Embed a diagram saved in another file with `![[file.dgmo]]` — see [[embedding-diagrams]]
 - Desktop app: [diagrammo.app](https://diagrammo.app)
 - CLI: `npm install -g @diagrammo/dgmo`
