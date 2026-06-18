@@ -3,10 +3,10 @@
 Keep a diagram in its own `.dgmo` file and pull it into any Markdown note with
 the Obsidian-style embed syntax — put `![[the-file.dgmo]]` on its own line:
 
-![[treasure-hunt-flow.dgmo]]
+![[chests-by-voyage.dgmo]]
 
 The note above holds only a **reference**. The diagram lives in
-`treasure-hunt-flow.dgmo`, right next to this file. Edit that file once and every
+`chests-by-voyage.dgmo`, right next to this file. Edit that file once and every
 note that embeds it updates. Hover the diagram and click the ↗ button to open the
 source in the editor.
 
@@ -14,7 +14,7 @@ source in the editor.
 
 - Put `![[path/to/diagram.dgmo]]` on its own line — that's the whole syntax.
 - The path resolves relative to **this note's folder**, so a sibling file is
-  just `![[treasure-hunt-flow.dgmo]]`, and a file one folder up is
+  just `![[chests-by-voyage.dgmo]]`, and a file one folder up is
   `![[../Data/bar.dgmo]]`.
 - Only `.dgmo` targets are embedded. Other `![[...]]` links are left untouched.
 
