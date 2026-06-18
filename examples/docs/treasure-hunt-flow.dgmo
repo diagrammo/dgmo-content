@@ -1,0 +1,21 @@
+flowchart Treasure Hunt
+direction-tb
+
+[Start]  Receive a treasure map
+{Read}   Can you read the map?
+[Decode] Decode the cipher
+[Sail]   Set sail for the island
+{Found}  Found the X?
+[Search] Search the next cove
+[Dig]    Dig for the chest
+[Loot]   Haul the loot aboard
+
+(Start) -> (Read)
+(Read) -No-> (Decode)
+(Decode) -> (Sail)
+(Read) -Yes-> (Sail)
+(Sail) -> (Found)
+(Found) -No-> (Search)
+(Search) -> (Found)
+(Found) -Yes-> (Dig)
+(Dig) -> (Loot)
