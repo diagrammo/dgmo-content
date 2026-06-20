@@ -2,9 +2,9 @@
 sequence Treasure Hunt App
 
 tag Tier as t
-  Client teal
+  Client green
   Service blue
-  Data purple
+  Data red
 
 User
 WebApp t: Client
