@@ -1,19 +1,31 @@
 ```dgmo
 sequence Treasure Hunt App
 
+tag Tier as t
+  Client teal
+  Service blue
+  Data purple
+
+User
+WebApp t: Client
+TreasureAPI t: Service
+GeoService t: Service
+MapDB t: Data
+
 User -Search nearby loot-> WebApp
 WebApp -GET /treasures?nearby-> TreasureAPI
+TreasureAPI -resolve location-> GeoService
+GeoService -lat/long-> TreasureAPI
 note
   - check location
-  - use compass
-  - http://example.com
+  - rank by distance
 TreasureAPI -Find within 5nm-> MapDB
 MapDB -3 results-> TreasureAPI
 TreasureAPI -locations-> WebApp
 WebApp -Show treasure map-> User
 ```
 
-Notice that `User` renders as a stick figure and `MapDB` as a cylinder — both inferred automatically from the names. Participants without a distinctive role (`WebApp`, `TreasureAPI`) fall through to the default rectangle. No declarations needed.
+Two things are happening here. **Shapes are inferred from names** — `User` becomes a stick figure and `MapDB` a cylinder, while `WebApp`, `TreasureAPI`, and `GeoService` fall through to the default rectangle. And the **`Tier` tag group adds color** — each participant is shaded by layer (client, service, data), so a request's path through the stack reads at a glance. The human `User` stays neutral, outside the system tiers.
 
 ## Overview
 
