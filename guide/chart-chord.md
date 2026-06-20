@@ -1,5 +1,3 @@
-# Chord
-
 ```dgmo
 chord Pirate Alliance Network
 

@@ -1,5 +1,3 @@
-# Heatmap
-
 ```dgmo
 heatmap Pirate Activity by Sea Region
 columns Jan, Feb, Mar, Apr, May, Jun

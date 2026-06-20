@@ -1,5 +1,3 @@
-# Pie
-
 ```dgmo
 pie Crew Roles Distribution
 

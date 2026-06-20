@@ -1,5 +1,3 @@
-# Doughnut
-
 ```dgmo
 doughnut Plunder Distribution
 
