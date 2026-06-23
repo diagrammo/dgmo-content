@@ -10,10 +10,10 @@ poi Kingston p: Home Port, value: 120
 poi Havana p: Spanish Prize, value: 90
 poi Santo Domingo p: Friendly, value: 70
 
-route Kingston style: arc
-  -weigh anchor-> Havana
-  -raid the galleons-> Santo Domingo
-  -careen & resupply-> Kingston
+route Kingston
+  ~weigh anchor~> Havana
+  ~raid the galleons~> Santo Domingo
+  ~careen & resupply~> Kingston
 ```
 
 ## Overview
@@ -31,8 +31,8 @@ Florida value: 42              // choropleth fill
 Texas p: Friendly              // categorical fill (via a tag alias)
 
 poi Kingston value: 80          // a point of interest
-route Kingston style: arc       // ordered voyage: origin + arrow legs
-  -> Havana
+route Kingston                  // ordered voyage: origin + arrow legs
+  ~> Havana                     // ~> = arc leg, -> = straight leg
 ```
 
 The first line declares the chart type and an optional title. **Type `map`, name some places, and you're done** — there is no projection, scale, or label directive to set. Cosmetic features are on by default; the only knobs are the bare `no-*` opt-outs in [Turning things off](#turning-things-off).
@@ -127,15 +127,15 @@ poi 17.94 -76.84 as portroyal red  // direct marker colour (trailing token)
 
 ## Routes & Connectors
 
-`route <origin>` starts an ordered, auto-numbered voyage; each indented line is a `-> destination` **leg** that continues from the previous stop. A leg is an edge — the in-arrow text labels it, `value:` sets its thickness, and `->`/`~>` (or the header `style: arc`) sets its shape. A tag or `label:` on a leg line decorates the *destination* stop. Repeat the origin as the last destination to close a loop (drawn without a second marker). The origin gets a distinct marker; to size an intermediate stop, declare it as a `poi`.
+`route <origin>` starts an ordered, auto-numbered voyage; each indented line is an `<arrow> destination` **leg** that continues from the previous stop, using the same indented arrow idiom as a sitemap. A leg is an edge — the in-arrow text labels it, `value:` sets its thickness, and the arrow glyph alone sets its shape (`-…->` straight, `~…~>` arc, mixable per leg). The arrow is required — a bare destination errors. A tag or `label:` on a leg line decorates the *destination* stop. Repeat the origin as the last destination to close a loop (drawn without a second marker). The origin gets a distinct marker; to size an intermediate stop, declare it as a `poi`.
 
 ```dgmo
 map Treasure Run
 
-route Havana style: arc
-  -set sail-> Kingston
-  -take on crew-> Santo Domingo
-  -bury the chest-> Havana
+route Havana
+  ~set sail~> Kingston
+  ~take on crew~> Santo Domingo
+  ~bury the chest~> Havana
 ```
 
 Native `->` edges handle any other connection:
