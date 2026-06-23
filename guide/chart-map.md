@@ -92,11 +92,11 @@ tag Tier as t
 
 Japan t: Developed
 South Korea t: Developed
-Singapore t: Developed
 China t: Emerging
 India t: Emerging
 Indonesia t: Emerging
 Thailand t: Emerging
+Malaysia t: Emerging
 Vietnam t: Frontier
 Philippines t: Frontier
 Bangladesh t: Frontier
