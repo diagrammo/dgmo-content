@@ -1,19 +1,26 @@
 ```dgmo
-map The Brethren's Caribbean
+map US Population by State
+region-metric Residents (millions) blue
 
-tag Port as p
-  Home Port red
-  Friendly green
-  Spanish Prize orange
-
-poi Kingston p: Home Port, value: 120
-poi Havana p: Spanish Prize, value: 90
-poi Santo Domingo p: Friendly, value: 70
-
-route Kingston
-  ~weigh anchor~> Havana
-  ~raid the galleons~> Santo Domingo
-  ~careen & resupply~> Kingston
+California value: 39
+Texas value: 30
+Florida value: 23
+New York value: 20
+Pennsylvania value: 13
+Illinois value: 13
+Ohio value: 12
+Georgia US value: 11
+North Carolina value: 11
+Michigan value: 10
+New Jersey value: 9
+Virginia value: 9
+Washington value: 8
+Arizona value: 7
+Tennessee value: 7
+Massachusetts value: 7
+Indiana value: 7
+Colorado value: 6
+Maryland value: 6
 ```
 
 ## Overview
@@ -25,14 +32,14 @@ Map diagrams are geographic concept maps: highlight or shade political subdivisi
 ```
 map Title
 
-region-metric Doubloons        // names the value-ramp legend
+region-metric Output           // names the value-ramp legend
 
 Florida value: 42              // choropleth fill
 Texas p: Friendly              // categorical fill (via a tag alias)
 
-poi Kingston value: 80          // a point of interest
-route Kingston                  // ordered voyage: origin + arrow legs
-  ~> Havana                     // ~> = arc leg, -> = straight leg
+poi Tokyo value: 80             // a point of interest
+route Tokyo                     // ordered voyage: origin + arrow legs
+  ~> Singapore                  // ~> = arc leg, -> = straight leg
 ```
 
 The first line declares the chart type and an optional title. **Type `map`, name some places, and you're done** — there is no projection, scale, or label directive to set. Cosmetic features are on by default; the only knobs are the bare `no-*` opt-outs in [Turning things off](#turning-things-off).
@@ -53,34 +60,53 @@ A map whose content is **entirely US** — including one built from US cities al
 A subdivision name on its own line with a `value:` fills it from a single-hue tint ramp. The ramp **auto-fits** with no configuration: for all-non-negative data the low end anchors at **0** (so every such map shares a 0 baseline); mixed-sign data fits data-min→data-max. Subdivisions with no value or tag render as the neutral base.
 
 ```dgmo
-map Plunder by State
-region-metric Doubloons (000s)
+map World Coffee Production
+region-metric Bags (millions)
 
-Florida value: 92
-Georgia US value: 78
-Louisiana value: 64
-Texas value: 40
+Brazil value: 69
+Vietnam value: 29
+Colombia value: 14
+Indonesia value: 12
+Ethiopia value: 8
+Honduras value: 6
+India value: 6
+Uganda value: 6
+Mexico value: 4
+Peru value: 4
 ```
 
 - `region-metric Label` names the ramp in the legend.
-- A trailing color on `region-metric` sets the ramp **hue** — `region-metric Doubloons (000s) blue` shades blue instead of the default red.
+- A trailing color on `region-metric` sets the ramp **hue** — `region-metric Bags (millions) blue` shades blue instead of the default red.
 
 ## Region fill — categorical (tags)
 
 Map diagrams use the universal tag model: declare a `tag` group and apply its alias as a key. The first declared group colours the map automatically — you only need `active-tag` to pick a *different* group (or the value ramp; see below).
 
 ```dgmo
-map Fleet Reach
+map World Trade Blocs
 
-tag Waters as w
-  Stronghold red
-  Raiding Grounds orange
-  Friendly green
+tag Bloc as b
+  EU blue
+  USMCA green
+  ASEAN orange
+  Mercosur purple
+  African Union teal
 
-Jamaica w: Stronghold
-Cuba w: Raiding Grounds
-Madagascar w: Stronghold
-Indonesia w: Friendly
+Germany b: EU
+France b: EU
+Spain b: EU
+Poland b: EU
+United States b: USMCA
+Mexico b: USMCA
+Canada b: USMCA
+Indonesia b: ASEAN
+Thailand b: ASEAN
+Vietnam b: ASEAN
+Brazil b: Mercosur
+Argentina b: Mercosur
+Nigeria b: African Union
+Kenya b: African Union
+South Africa b: African Union
 ```
 
 A region can carry **both** a `value:` and a tag (bivariate). Both are kept as selectable colouring dimensions: the legend shows the value ramp and each tag group. The value ramp fills by default whenever any region has a value; `active-tag <GroupName>` switches the fill to a tag group instead (and `active-tag <ValueLabel>` — the `region-metric` label, or `Value` — switches back to the ramp).
@@ -90,14 +116,16 @@ A region can carry **both** a `value:` and a tag (bivariate). Both are kept as s
 For a quick highlight without declaring a tag group, drop a **trailing color** on the region line. It paints a flat fill, ignores the active colouring dimension, and adds no legend entry — the "just make this one stand out" escape hatch. Use tags when the colors are a legend-worthy category.
 
 ```dgmo
-map Contested Waters
+map World's Largest Economies
 
-Jamaica red
-Cuba orange
-Haiti green
+United States blue
+China red
+Germany green
+Japan orange
+India purple
 ```
 
-A direct color wins over both the value ramp and a tag on the same region. (Put it before any metadata: `Cuba red value: 90`.)
+A direct color wins over both the value ramp and a tag on the same region. (Put it before any metadata: `China red value: 90`.)
 
 ## Points of Interest
 
@@ -106,22 +134,22 @@ poi <name | <lat> <lon>> [as <alias>] [<key>: <value>, …]
 ```
 
 ```dgmo
-map Crew Outposts
+map Global Offices
 
-tag Waters as w
-  Raiding Grounds red
+tag Network as n
+  Headquarters red
 
-poi Kingston                       // label defaults to "Kingston"
-poi Havana label: Spanish Main     // anchored at Havana; shows "Spanish Main"
-poi 18.0 -76.8 as cache            // positional coords (lat lon), signed
-poi Santo Domingo value: 200       // value: scales the marker area (a data channel)
-poi Port-au-Prince w: Raiding Grounds  // categorical colour via a tag alias
-poi 17.94 -76.84 as portroyal red  // direct marker colour (trailing token)
+poi Tokyo                          // label defaults to "Tokyo"
+poi New York City label: Americas HQ   // anchored at New York City; shows "Americas HQ"
+poi 51.5 -0.13 as london           // positional coords (lat lon), signed
+poi Singapore value: 200           // value: scales the marker area (a data channel)
+poi Sydney n: Headquarters         // categorical colour via a tag alias
+poi 19.43 -99.13 as mexico teal    // direct marker colour (trailing token)
 ```
 
 - **Coordinates are positional** — two leading signed numbers, latitude then longitude. Cities never start with a number, so there's no ambiguity.
 - `value:` scales the marker area; pair it with `poi-metric Label` for a legend key.
-- A trailing color sets the marker fill directly — `poi Port Royal red` — winning over a tag colour and the default orange; no tag group needed.
+- A trailing color sets the marker fill directly — `poi Mumbai red` — winning over a tag colour and the default orange; no tag group needed.
 - POI properties: `label`, `value`, `style`, an applied tag alias, and `as`. There are no POI icons in v1.
 - Coord-positioned or relabeled POIs take `as <alias>` so routes and edges can reference them; named POIs are referenced by name.
 
@@ -130,24 +158,26 @@ poi 17.94 -76.84 as portroyal red  // direct marker colour (trailing token)
 `route <origin>` starts an ordered, auto-numbered voyage; each indented line is an `<arrow> destination` **leg** that continues from the previous stop, using the same indented arrow idiom as a sitemap. A leg is an edge — the in-arrow text labels it, `value:` sets its thickness, and the arrow glyph alone sets its shape (`-…->` straight, `~…~>` arc, mixable per leg). The arrow is required — a bare destination errors. A tag or `label:` on a leg line decorates the *destination* stop. Repeat the origin as the last destination to close a loop (drawn without a second marker). The origin gets a distinct marker; to size an intermediate stop, declare it as a `poi`.
 
 ```dgmo
-map Treasure Run
+map Round-the-World Route
 
-route Havana
-  ~set sail~> Kingston
-  ~take on crew~> Santo Domingo
-  ~bury the chest~> Havana
+route London
+  ~nonstop~> Dubai
+  ~red-eye~> Singapore
+  ~morning hop~> Tokyo
+  ~transpacific~> San Francisco
+  ~final leg~> London
 ```
 
 Native `->` edges handle any other connection:
 
 ```dgmo
-map Supply Lines
+map Cargo Network
 
-poi Havana as hub       // hub/star — indented edges share the source
-  -> Kingston
-  -> Santo Domingo
+poi Rotterdam as hub    // hub/star — indented edges share the source
+  -> New York City
+  -> Shanghai
 
-Kingston -ships-> Havana value: 22   // labeled; value = thickness
+Shanghai -ships-> Rotterdam value: 22   // labeled; value = thickness
 ```
 
 `~>` curves a single edge. There's no geographic path-finding — legs are straight or arced.
