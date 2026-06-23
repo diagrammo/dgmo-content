@@ -83,30 +83,23 @@ Peru value: 4
 Map diagrams use the universal tag model: declare a `tag` group and apply its alias as a key. The first declared group colours the map automatically — you only need `active-tag` to pick a *different* group (or the value ramp; see below).
 
 ```dgmo
-map World Trade Blocs
+map Asia-Pacific Markets
 
-tag Bloc as b
-  EU blue
-  USMCA green
-  ASEAN orange
-  Mercosur purple
-  African Union teal
+tag Tier as t
+  Developed blue
+  Emerging green
+  Frontier orange
 
-Germany b: EU
-France b: EU
-Spain b: EU
-Poland b: EU
-United States b: USMCA
-Mexico b: USMCA
-Canada b: USMCA
-Indonesia b: ASEAN
-Thailand b: ASEAN
-Vietnam b: ASEAN
-Brazil b: Mercosur
-Argentina b: Mercosur
-Nigeria b: African Union
-Kenya b: African Union
-South Africa b: African Union
+Japan t: Developed
+South Korea t: Developed
+Singapore t: Developed
+China t: Emerging
+India t: Emerging
+Indonesia t: Emerging
+Thailand t: Emerging
+Vietnam t: Frontier
+Philippines t: Frontier
+Bangladesh t: Frontier
 ```
 
 A region can carry **both** a `value:` and a tag (bivariate). Both are kept as selectable colouring dimensions: the legend shows the value ramp and each tag group. The value ramp fills by default whenever any region has a value; `active-tag <GroupName>` switches the fill to a tag group instead (and `active-tag <ValueLabel>` — the `region-metric` label, or `Value` — switches back to the ramp).
@@ -116,16 +109,16 @@ A region can carry **both** a `value:` and a tag (bivariate). Both are kept as s
 For a quick highlight without declaring a tag group, drop a **trailing color** on the region line. It paints a flat fill, ignores the active colouring dimension, and adds no legend entry — the "just make this one stand out" escape hatch. Use tags when the colors are a legend-worthy category.
 
 ```dgmo
-map World's Largest Economies
+map Caribbean Cruise Line
 
-United States blue
-China red
-Germany green
-Japan orange
-India purple
+Bahamas blue
+Cuba orange
+Jamaica green
+Dominican Republic red
+Haiti purple
 ```
 
-A direct color wins over both the value ramp and a tag on the same region. (Put it before any metadata: `China red value: 90`.)
+A direct color wins over both the value ramp and a tag on the same region. (Put it before any metadata: `Cuba orange value: 90`.)
 
 ## Points of Interest
 
@@ -134,17 +127,17 @@ poi <name | <lat> <lon>> [as <alias>] [<key>: <value>, …]
 ```
 
 ```dgmo
-map Global Offices
+map European Offices
 
 tag Network as n
   Headquarters red
 
-poi Tokyo                          // label defaults to "Tokyo"
-poi New York City label: Americas HQ   // anchored at New York City; shows "Americas HQ"
-poi 51.5 -0.13 as london           // positional coords (lat lon), signed
-poi Singapore value: 200           // value: scales the marker area (a data channel)
-poi Sydney n: Headquarters         // categorical colour via a tag alias
-poi 19.43 -99.13 as mexico teal    // direct marker colour (trailing token)
+poi Paris                          // label defaults to "Paris"
+poi Berlin label: DACH Region      // anchored at Berlin; shows "DACH Region"
+poi 41.9 12.5 as rome              // positional coords (lat lon), signed
+poi Madrid value: 200              // value: scales the marker area (a data channel)
+poi Amsterdam n: Headquarters      // categorical colour via a tag alias
+poi 59.33 18.07 as stockholm teal  // direct marker colour (trailing token)
 ```
 
 - **Coordinates are positional** — two leading signed numbers, latitude then longitude. Cities never start with a number, so there's no ambiguity.
@@ -158,26 +151,26 @@ poi 19.43 -99.13 as mexico teal    // direct marker colour (trailing token)
 `route <origin>` starts an ordered, auto-numbered voyage; each indented line is an `<arrow> destination` **leg** that continues from the previous stop, using the same indented arrow idiom as a sitemap. A leg is an edge — the in-arrow text labels it, `value:` sets its thickness, and the arrow glyph alone sets its shape (`-…->` straight, `~…~>` arc, mixable per leg). The arrow is required — a bare destination errors. A tag or `label:` on a leg line decorates the *destination* stop. Repeat the origin as the last destination to close a loop (drawn without a second marker). The origin gets a distinct marker; to size an intermediate stop, declare it as a `poi`.
 
 ```dgmo
-map Round-the-World Route
+map South America Tour
 
-route London
-  ~nonstop~> Dubai
-  ~red-eye~> Singapore
-  ~morning hop~> Tokyo
-  ~transpacific~> San Francisco
-  ~final leg~> London
+route Bogotá
+  ~Andes hop~> Lima
+  ~down the coast~> Santiago
+  ~over the pampas~> Buenos Aires
+  ~north again~> São Paulo
+  ~home leg~> Bogotá
 ```
 
 Native `->` edges handle any other connection:
 
 ```dgmo
-map Cargo Network
+map Asia Trade Hub
 
-poi Rotterdam as hub    // hub/star — indented edges share the source
-  -> New York City
-  -> Shanghai
+poi Singapore as hub    // hub/star — indented edges share the source
+  -> Tokyo
+  -> Mumbai
 
-Shanghai -ships-> Rotterdam value: 22   // labeled; value = thickness
+Mumbai -ships-> Singapore value: 22   // labeled; value = thickness
 ```
 
 `~>` curves a single edge. There's no geographic path-finding — legs are straight or arced.
