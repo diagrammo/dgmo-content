@@ -40,6 +40,7 @@
     { "slug": "chart-scatter", "title": "Scatter Plot", "group": "data", "file": "chart-scatter.md" },
     { "slug": "chart-slope", "title": "Slope", "group": "data", "file": "chart-slope.md" },
     { "slug": "chart-bar-stacked", "title": "Stacked Bar", "group": "data", "file": "chart-bar-stacked.md" },
+    { "slug": "chart-treemap", "title": "Treemap", "group": "data", "file": "chart-treemap.md" },
 
     { "slug": "chart-journey-map", "title": "Journey Map", "group": "business", "file": "chart-journey-map.md" },
     { "slug": "chart-map", "title": "Map", "group": "business", "file": "chart-map.md" },
