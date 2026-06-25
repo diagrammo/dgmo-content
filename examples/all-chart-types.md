@@ -1438,3 +1438,29 @@ wireframe Pirate Crew Portal
 
   New to piracy? (Read the Code) ghost
 ```
+
+---
+
+## Event Line
+
+```dgmo
+event-line A Short History of the Web
+no-scale
+
+tag Theme as t
+  Protocol blue
+  Browser green
+  Platform purple
+
+[The Early Web]
+1991 WorldWideWeb  t: Protocol
+  Tim Berners-Lee publishes the first website at CERN.
+1993 Mosaic  t: Browser
+  The first popular graphical browser.
+
+[The App Era] collapsed: true
+2005 Ajax  t: Platform
+  Pages update without a reload.
+2014 HTML5  t: Standard
+  The living standard — video, canvas, semantics.
+```
