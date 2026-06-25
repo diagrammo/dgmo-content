@@ -589,6 +589,36 @@ The Open Sea blue
 
 ---
 
+## Swimlane
+
+```dgmo
+swimlane Expense Approval
+direction LR
+
+lane Employee gray
+lane Manager blue
+lane Finance green
+
+[Submit]
+  Employee
+    File Expense
+[Review]
+  Manager
+    <Approve>
+    (!Rejected)
+[Pay]
+  Finance
+    Reimburse
+    (Paid) success
+
+File Expense -> <Approve>
+<Approve>
+  -deny-> (!Rejected)
+  -approve-> Reimburse -> (Paid)
+```
+
+---
+
 ## Tech Radar
 
 ```dgmo
@@ -1342,6 +1372,34 @@ BattleStations
 
 Captured -> [*]
 Sinking -> [*]
+```
+
+---
+
+## Version Control
+
+```dgmo
+version-control Feature Branch Workflow
+
+main
+  Initial commit
+  Add README
+
+develop from main
+  Set up CI
+  Add test suite
+
+feature/login from develop
+  Login form
+  Form validation
+
+develop
+  merge feature/login
+  Address review notes
+
+main
+  merge develop tag: v1.0.0
+  Hotfix typo type: highlight
 ```
 
 ---

@@ -23,6 +23,7 @@
     { "slug": "chart-sequence", "title": "Sequence", "group": "software", "file": "chart-sequence.md" },
     { "slug": "chart-sitemap", "title": "Sitemap", "group": "software", "file": "chart-sitemap.md" },
     { "slug": "chart-state", "title": "State", "group": "software", "file": "chart-state.md" },
+    { "slug": "chart-version-control", "title": "Version Control", "group": "software", "file": "chart-version-control.md" },
     { "slug": "chart-wireframe", "title": "Wireframe", "group": "software", "file": "chart-wireframe.md" },
 
     { "slug": "chart-area", "title": "Area", "group": "data", "file": "chart-area.md" },
@@ -50,6 +51,7 @@
     { "slug": "chart-quadrant", "title": "Quadrant", "group": "business", "file": "chart-quadrant.md" },
     { "slug": "chart-ring", "title": "Ring", "group": "business", "file": "chart-ring.md" },
     { "slug": "chart-sankey", "title": "Sankey", "group": "business", "file": "chart-sankey.md" },
+    { "slug": "chart-swimlane", "title": "Swimlane", "group": "business", "file": "chart-swimlane.md" },
     { "slug": "chart-tech-radar", "title": "Technology Radar", "group": "business", "file": "chart-tech-radar.md" },
     { "slug": "chart-venn", "title": "Venn", "group": "business", "file": "chart-venn.md" },
     { "slug": "chart-wordcloud", "title": "Word Cloud", "group": "business", "file": "chart-wordcloud.md" },
