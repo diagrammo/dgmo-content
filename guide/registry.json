@@ -50,6 +50,7 @@
     { "slug": "chart-quadrant", "title": "Quadrant", "group": "business", "file": "chart-quadrant.md" },
     { "slug": "chart-ring", "title": "Ring", "group": "business", "file": "chart-ring.md" },
     { "slug": "chart-sankey", "title": "Sankey", "group": "business", "file": "chart-sankey.md" },
+    { "slug": "chart-swimlane", "title": "Swimlane", "group": "business", "file": "chart-swimlane.md" },
     { "slug": "chart-tech-radar", "title": "Technology Radar", "group": "business", "file": "chart-tech-radar.md" },
     { "slug": "chart-venn", "title": "Venn", "group": "business", "file": "chart-venn.md" },
     { "slug": "chart-wordcloud", "title": "Word Cloud", "group": "business", "file": "chart-wordcloud.md" },
