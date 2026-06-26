@@ -9,22 +9,22 @@ tag Theme as t
   Standard orange
 
 [The Early Web]
-1991 WorldWideWeb  t: Protocol
-  Tim Berners-Lee publishes the first website at **CERN**.
-1993 Mosaic  t: Browser
-  The first popular *graphical* browser.
+  1991 WorldWideWeb  t: Protocol
+    Tim Berners-Lee publishes the first website at **CERN**.
+  1993 Mosaic  t: Browser
+    The first popular *graphical* browser.
 
 [The Standards Era] collapsed: true
-1995 JavaScript  t: Platform
-  Brendan Eich writes the language in ten days.
-1996 CSS  t: Standard
-  Styling splits from structure.
+  1995 JavaScript  t: Platform
+    Brendan Eich writes the language in ten days.
+  1996 CSS  t: Standard
+    Styling splits from structure.
 
 [The App Era]
-2005 Ajax  t: Platform
-  `XMLHttpRequest` updates pages without a reload.
-2014 HTML5  t: Standard
-  The living standard — video, canvas, semantics.
+  2005 Ajax  t: Platform
+    `XMLHttpRequest` updates pages without a reload.
+  2014 HTML5  t: Standard
+    The living standard — video, canvas, semantics.
 ```
 
 ## Overview
@@ -51,26 +51,26 @@ By default events are placed **to scale by date**. Add `no-scale` to space them 
 
 ## Eras
 
-Group a contiguous run of events into a labeled section of the spine with a `[Name]` bracket:
+Group a run of events into a labeled section of the spine with a `[Name]` bracket, then **indent the events beneath it** — the same nesting used by org charts and version-control graphs:
 
 ```
 [The 1960s]
-1961 First event
-  ...
-1969 Another event
+  1961 First event
+    ...
+  1969 Another event
 
 [The 1970s]
-...
+  ...
 ```
 
-Events stay at indent 0 and belong to the most-recently opened `[Name]` until the next one. An era draws as a bracket on the side opposite the cards, labeled with its name.
+An event belongs to the era it is indented under; its description sits one level deeper still. Dedent back to the left margin (indent 0) for an event that sits **outside** any era. An era draws as a bracket on the side opposite the cards, labeled with its name.
 
 Add `collapsed: true` to fold an era into a single summary card — its name as the title and a bulleted list of its member events — while a small bracket stays on the spine marking the era's span. In the desktop app you can click an era to collapse or expand it live.
 
 ```
 [The Standards Era] collapsed: true
-1995 JavaScript  t: Platform
-1996 CSS  t: Standard
+  1995 JavaScript  t: Platform
+  1996 CSS  t: Standard
 ```
 
 ## Directives

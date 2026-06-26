@@ -1453,16 +1453,16 @@ tag Theme as t
   Platform purple
 
 [The Early Web]
-1991 WorldWideWeb  t: Protocol
-  Tim Berners-Lee publishes the first website at CERN.
-1993 Mosaic  t: Browser
-  The first popular graphical browser.
+  1991 WorldWideWeb  t: Protocol
+    Tim Berners-Lee publishes the first website at CERN.
+  1993 Mosaic  t: Browser
+    The first popular graphical browser.
 
 [The App Era] collapsed: true
-2005 Ajax  t: Platform
-  Pages update without a reload.
-2014 HTML5  t: Standard
-  The living standard — video, canvas, semantics.
+  2005 Ajax  t: Platform
+    Pages update without a reload.
+  2014 HTML5  t: Standard
+    The living standard — video, canvas, semantics.
 ```
 
 ---
