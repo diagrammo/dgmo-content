@@ -1464,3 +1464,26 @@ tag Theme as t
 2014 HTML5  t: Standard
   The living standard — video, canvas, semantics.
 ```
+
+---
+
+## Block
+
+```dgmo
+block Web Service Architecture
+
+tag Layer as l
+  Edge blue
+  Service green
+  Data orange
+
+[Clients] l: Edge
+  [Browser] [Mobile] [CLI]
+
+[Backend] l: Service
+  [Auth] [Orders]
+  [Inventory] [Billing]
+
+[Data] l: Data collapsed
+  [Postgres] [Redis]
+```

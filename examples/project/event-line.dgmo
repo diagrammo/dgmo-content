@@ -1,0 +1,27 @@
+event-line Product Milestones
+no-scale
+
+tag Track as t
+  Product blue
+  Growth green
+  Funding purple
+
+[Early Days]
+2019-03 Idea sketched  t: Product
+  A weekend prototype becomes a real plan.
+2019-09 Private beta  t: Product
+  First fifty users kick the tires.
+
+[Scaling Up]
+2020-06 Seed round  t: Funding
+  **$2M** raised to grow the team.
+2021-01 Public launch  t: Product
+  Open to everyone, no waitlist.
+2021-11 100k users  t: Growth
+  Word of mouth does the heavy lifting.
+
+[Going Long]
+2023-04 Series A  t: Funding
+  Expansion into new markets.
+2024-08 1M users  t: Growth
+  A milestone years in the making.
