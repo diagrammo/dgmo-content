@@ -27,6 +27,49 @@ y-label Y Axis Label
 Label value
 ```
 
+## Filled Area — `fill`
+
+Add `fill` to shade the area under the line.
+
+```dgmo
+line Monthly Revenue
+fill
+x-label Month
+y-label USD (thousands)
+
+Jan 42
+Feb 55
+Mar 61
+Apr 78
+```
+
+> The former standalone `area` chart type was removed in 1.0 — use `line` + `fill`.
+
+## Multiple Series — `series` block
+
+Plot several series on one chart with a `series` block. Indent one line per
+series (name plus optional color); each data row then carries one value per
+series, in declaration order.
+
+```dgmo
+line Weekly Active Users
+series
+  Free blue
+  Pro green
+  Team orange
+x-label Week
+y-label Users (thousands)
+
+Week 1  8.2  1.1  0.3
+Week 2  9.5  1.6  0.5
+Week 3 11.8  2.4  0.9
+Week 4 13.4  3.3  1.4
+```
+
+A short one-line form is tolerated: `series Free Pro Team`.
+
+> The former standalone `multi-line` chart type was removed in 1.0 — use `line` + a `series` block.
+
 ## Era Bands
 
 Annotate named time periods with a shaded background band and label:
