@@ -1496,6 +1496,7 @@ tag Layer as l
 > should be `pie`). It's included to show how Diagrammo reports a mistake, so you
 > know what to look for when a diagram doesn't render.
 
+<!-- dgmo-expect-error -->
 ```dgmo
 piechart Quarterly Revenue
   Q1 40

@@ -70,7 +70,14 @@ function extractFences(text) {
   const re = /```dgmo(?![\w-])[^\n]*\n([\s\S]*?)```/g;
   let m;
   while ((m = re.exec(text)) !== null) {
-    const openLine = text.slice(0, m.index).split('\n').length; // line of ```dgmo
+    const before = text.slice(0, m.index);
+    const openLine = before.split('\n').length; // line of ```dgmo
+    // Skip fences flagged as intentionally-invalid demos: a
+    // `<!-- dgmo-expect-error -->` marker in the markdown just before the fence.
+    // These render as real diagrams (to show the error UI) but must not fail the
+    // build's strict validation. The marker is renderer-invisible (an HTML
+    // comment), unlike a `dgmo-source` lang token which would stop it rendering.
+    if (/<!--\s*dgmo-expect-error\s*-->/.test(before.slice(-200))) continue;
     out.push({ code: m[1], baseLine: openLine + 1 });
   }
   return out;
