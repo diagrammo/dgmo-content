@@ -6,25 +6,25 @@ tag Status as s
   Sunk red
   Building blue default
 
-box-metric Crew red green
+heat Crew red green
 show-values
 active-tag Status
 
-Flagship s: Operational, value: 120
+Flagship s: Operational, heat: 120
   -> [Harbor Defenses]
   -> IntelNetwork
 
 [Harbor Defenses]
-  FortCannon s: Operational, value: 40
+  FortCannon s: Operational, heat: 40
     -> Watchtower
-  Watchtower s: Operational, value: 12
-  SeaMines s: Building, value: 6
+  Watchtower s: Operational, heat: 12
+  SeaMines s: Building, heat: 6
 
-IntelNetwork s: Operational, value: 35
+IntelNetwork s: Operational, heat: 35
   -> SpyRing
   -> SignalFlags
 
-SpyRing s: Operational, value: 18
+SpyRing s: Operational, heat: 18
   -> [Harbor Defenses]
 
-SignalFlags s: Damaged, value: 8
+SignalFlags s: Damaged, heat: 8
