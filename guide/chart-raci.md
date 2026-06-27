@@ -57,11 +57,12 @@ Three-level indentation: phase → task → role assignment / description. Phase
 
 ## Variant resolution
 
-The parser resolves the variant in this order:
+The variant is inferred from the markers you use:
 
-1. **Explicit lock.** If a `variant-raci`, `variant-rasci`, or `variant-daci` directive is present, the chart locks to that variant.
-2. **Inference from markers.** Any `D` → DACI. Any `S` → RASCI. Otherwise → RACI.
-3. **Mixed-marker conflict.** If both `D` and `S` appear without a lock, fires `E_RACI_MIXED_VARIANTS` with a hint to add a `variant-*` directive.
+1. Any `D` marker → **DACI**.
+2. Any `S` marker → **RASCI**.
+3. Otherwise → **RACI**.
+4. **Mixed-marker conflict.** If both `D` and `S` appear, fires `E_RACI_MIXED_VARIANTS` — a chart can't be both DACI and RASCI.
 
 The resolved variant is shown in the rendered chart's header label.
 
@@ -99,7 +100,6 @@ The phase bar tints to a soft mix of the color over the background. Phases witho
 
 | Directive | Effect |
 |-----------|--------|
-| `variant-raci`, `variant-rasci`, `variant-daci` | Lock the chart to a specific variant. Markers outside the alphabet error. At most one per chart. |
 | `roles` | Declare column order (inline or block form). Required to enable the unknown-role warning. |
 | `palette`, `theme`, `active-tag` | Universal options. |
 
@@ -126,4 +126,4 @@ roles Cap, Nav, QM, Bos
     Bos: I
 ```
 
-The `D` markers infer DACI without a `variant-*` directive. To lock the variant explicitly (for empty/sparse charts, or to catch a typo'd marker that would otherwise flip inference), add `variant-daci` after the title line.
+The `D` markers make this a DACI chart by inference — no directive needed.
