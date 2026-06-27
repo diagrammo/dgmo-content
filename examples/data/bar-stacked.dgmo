@@ -1,8 +1,8 @@
-bar-stacked Port Revenue by Trade
+bar Port Revenue by Trade
 orientation-horizontal
-series
+stack
   Imports blue
-  Exports green 
+  Exports green
   Tariffs orange
 //x-label Port
 //y-label Revenue
@@ -11,4 +11,3 @@ Port Royal 300 450  80
 Tortuga    150 200  30
 Nassau     400 350 120
 Havana     500 600 150
-

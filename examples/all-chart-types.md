@@ -33,7 +33,8 @@ arc Pirate Alliances
 ## Area Chart
 
 ```dgmo
-area Fleet Growth Over Time
+line Fleet Growth Over Time
+fill
 series Ships
 x-label Year
 
@@ -68,9 +69,9 @@ Cartagena purple   780
 ## Bar Chart (Stacked)
 
 ```dgmo
-bar-stacked Port Revenue by Trade
+bar Port Revenue by Trade
 orientation-horizontal
-series
+stack
   Imports blue
   Exports green
   Tariffs orange
@@ -130,7 +131,8 @@ Rackham -> Roberts 100
 ## Doughnut Chart
 
 ```dgmo
-doughnut Plunder Distribution
+pie Plunder Distribution
+hole
 solid-fill
 
 Captain's Share 40

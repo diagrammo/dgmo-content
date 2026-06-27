@@ -46,7 +46,7 @@ era 1700-01->1718-01 Golden Age
 
 ## Supported Types
 
-**Charts:** area, bar, bar-stacked, bubble, doughnut, funnel, heatmap, line, multi-line, pie, polar-area, radar, scatter
+**Charts:** area, bar, bubble, doughnut, funnel, heatmap, line, multi-line, pie, polar-area, radar, scatter
 
 **Diagrams:** arc, chord, flowchart, function, org, quadrant, sankey, sequence, slope, timeline, venn, wordcloud
 
