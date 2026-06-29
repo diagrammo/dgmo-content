@@ -43,7 +43,8 @@ event-line Title
   - a bullet point
 ```
 
-- **Event = a line.** An optional **leading ISO date** (`YYYY`, `YYYY-MM`, `YYYY-MM-DD`, optionally `… HH:MM`) comes first, then the title. The date is optional — a bare title works too.
+- **Event = a line.** An optional **leading ISO date** (`YYYY`, `YYYY-MM`, `YYYY-MM-DD`, optionally `… HH:MM` or `… HH:MM:SS`) comes first, then the title. The date is optional — a bare title works too. The caption is **formatted for reading** (`2008-09-02` → `Sep 2, 2008`).
+- **Ancient dates.** Suffix a year with `BCE`/`BC` for pre–Common-Era events (`753 BCE Rome founded`); `CE`/`AD` are positive no-ops. Displays as `753 BCE`. Great for history threads.
 - **Description** = the **indented body** beneath the event. Lines starting with `- ` become bullets; `**bold**`, `*italic*`, `` `code` `` and `[links](url)` all render.
 - **Tags** color the events. Declare a `tag <Group> as <alias>` block before the first event, then add `alias: Value` as trailing metadata on an event line. Named colors only; the dot, leader, and card pick up the tag color.
 

@@ -83,41 +83,46 @@ A start date, arrow, end date, then the event name:
 
 ### Duration Events
 
-Instead of specifying an end date, place the duration after the event name:
+Instead of specifying an end date, add a `duration:` value after the event name:
 
 ```
-2026-07-15 Film release window 30d
-2026-06-01 Festival run 2w
-2026-01 Award season 6m
-2026 Franchise arc 2y
+2026-07-15 Film release window duration: 30d
+2026-06-01 Festival run duration: 2w
+2026-01 Award season duration: 6m
+2026 Franchise arc duration: 2y
 ```
+
+> `duration:` is the canonical (and only) form. A bare trailing duration-like token is **not** treated as a duration — it just becomes part of the event name, so `2026-07-15 Film release window 30d` is a point event titled "Film release window 30d", and `1918 42d Street Parade` is titled "42d Street Parade". This keeps names that happen to start with a duration-like word unambiguous; always use `duration:` to apply a duration.
 
 Supported duration units:
 
-| Unit | Meaning |
-| ---- | ------- |
-| `d`  | Days    |
-| `w`  | Weeks   |
-| `m`  | Months  |
-| `y`  | Years   |
+| Unit  | Meaning |
+| ----- | ------- |
+| `s`   | Seconds |
+| `min` | Minutes |
+| `h`   | Hours   |
+| `d`   | Days    |
+| `w`   | Weeks   |
+| `m`   | Months  |
+| `y`   | Years   |
 
 Decimals are supported (up to 2 places):
 
 ```
-2026-01 Fifteen months 1.25y
-2026-01 Half year 0.5y
-2026-01-01 Six weeks 1.5m
+2026-01 Fifteen months duration: 1.25y
+2026-01 Half year duration: 0.5y
+2026-01-01 Six weeks duration: 1.5m
 ```
 
 The end date is calculated automatically and preserves the precision of the start date.
 
 ### Uncertain End Dates
 
-Add `?` to the end date or duration to indicate an uncertain or approximate end date. The bar will fade out over the last 20%:
+Add `?` to the end date or duration value to indicate an uncertain or approximate end date. The bar will fade out over the last 20%:
 
 ```
-2026-07-15 Project Alpha 3m?
-2026-01 Long-term initiative 1.5y?
+2026-07-15 Project Alpha duration: 3m?
+2026-01 Long-term initiative duration: 1.5y?
 1719-03 -> 1720-10? Rackham's crew
 ```
 
@@ -125,12 +130,38 @@ This visually communicates that the end date is an estimate rather than a fixed 
 
 ### Date Precision
 
-Dates support four levels of precision:
+Dates support these levels of precision:
 
 - Year: `1718`
 - Year-Month: `1718-05`
 - Year-Month-Day: `1718-11-22`
 - Year-Month-Day Time: `2024-01-15 14:30`
+- Year-Month-Day Time with seconds: `2024-01-15 14:30:45`
+
+Hours are `0–23`, minutes and seconds `0–59`. Sub-minute spans get second-level axis ticks automatically, so launch sequences, race splits, or incident postmortems read cleanly:
+
+```dgmo
+timeline Launch Sequence
+2024-01-15 10:00:00 Ignition
+2024-01-15 10:00:08 Liftoff
+2024-01-15 10:00:45 Max-Q
+2024-01-15 10:02:30 Stage separation
+```
+
+### BCE / Ancient Dates
+
+Suffix a year with `BCE` (or `BC`) for pre–Common-Era dates. `CE`/`AD` are accepted as positive no-ops. The marker is what distinguishes an ancient year from a stray number, so 1–3 digit years are fine here (a bare `753` is not a date). Dates display normalized as `753 BCE`, and ranges may cross the boundary:
+
+```dgmo
+timeline Ancient Rome
+753 BCE Rome founded
+509 BCE Republic begins
+44 BCE Caesar assassinated
+27 BCE -> 14 CE Reign of Augustus
+476 CE Western Empire falls
+```
+
+Numbering is astronomical-naive (`N BCE` maps to internal year `-N`), so events order correctly but there is no special year-0 adjustment.
 
 ## Eras
 
