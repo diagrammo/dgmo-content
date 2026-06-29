@@ -76,6 +76,20 @@ In the desktop app you can also **click a legend entry to mute that category** �
   1996 CSS  t: Standard
 ```
 
+## Future events (TBD)
+
+Not everything on a timeline has happened yet. Write the literal **`TBD`** (case-insensitive) in place of the date for an event that isn't scheduled:
+
+```
+2024-09-01 1.0 Launch  t: Content
+TBD Console Port  t: Engine
+  Ship to consoles once certification lands.
+TBD Sequel Greenlit  t: Content
+  Depends on 1.0 reception — no date yet.
+```
+
+A `TBD` event reads as **pending**: a hollow dot, a faded leader, and a `TBD` caption (a faded shelf edge in `no-box`). On a to-scale timeline its spot is **inferred from its neighbors** — a `TBD` with a real date *after* it slots into that gap, while a **trailing** `TBD` (nothing dated after it) parks past the last real date and the spine trails off dashed into the open horizon. `TBD` events never trigger date warnings, so you can mix shipped and planned work in one chart.
+
 ## Directives
 
 | Directive | Effect |
