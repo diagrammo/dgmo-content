@@ -18,22 +18,28 @@ arc Pirate Alliances
   Roberts -> Davis 6
 ```
 
+The arc chart visualizes relationships between nodes. The same data renders two
+ways — as a linear **arc** diagram (default) or as a circular **chord** diagram —
+controlled by a single `layout` directive. They are one chart type, not two.
+
 ## Syntax
 
 ```
 arc Chart Title
 order appearance
+layout arc
 
 Source -> Target weight
 ```
 
 ## Metadata Keys
 
-| Key     | Description                                                         | Required |
-| ------- | ------------------------------------------------------------------- | -------- |
-| `chart` | Must be `arc`                                                       | Yes      |
-| `title` | Chart title displayed above the chart                               | No       |
-| `order` | Node ordering: `appearance` (default), `name`, `group`, or `degree` | No       |
+| Key      | Description                                                         | Required |
+| -------- | ------------------------------------------------------------------- | -------- |
+| `chart`  | Must be `arc` (`chord` is accepted and renders the circular layout) | Yes      |
+| `title`  | Chart title displayed above the chart                               | No       |
+| `order`  | Node ordering: `appearance` (default), `name`, `group`, or `degree` | No       |
+| `layout` | `arc` (default, linear) or `chord` (circular)                       | No       |
 
 ## Data Format
 
@@ -44,7 +50,7 @@ Source -> Target weight
 Source -> Target
 ```
 
-If weight is omitted, it defaults to 1. Arc thickness is proportional to weight.
+If weight is omitted, it defaults to 1. Arc/chord thickness is proportional to weight.
 
 ## Node Groups
 
@@ -67,3 +73,25 @@ Nodes inherit the color of the group in which they first appear.
 - `name` — nodes sorted alphabetically
 - `group` — nodes sorted by group, then by appearance within group
 - `degree` — nodes sorted by number of connections (most connected first)
+
+## Chord Layout
+
+Add `layout chord` to arrange the nodes around a circle instead of along a line.
+The chord ribbons' width represents connection strength. Groups, ordering, and
+weights all carry over.
+
+```dgmo
+arc Pirate Alliance Network
+layout chord
+
+Blackbeard -> Bonnet 150
+Blackbeard -> Vane 80
+Blackbeard -> Hornigold 120
+Bonnet -> Rackham 40
+Vane -> Rackham 60
+Rackham -> Bonny 200
+Bonny -> Read 180
+Roberts -> Davis 90
+Roberts -> Anstis 70
+Hornigold -> Bonnet 50
+```

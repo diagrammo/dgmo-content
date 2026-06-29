@@ -72,7 +72,7 @@ L'Olonnais 70 80 60
 
 ### Bubble Chart
 
-Add a third value per data point and use `sizelabel` to label the size dimension:
+Add a third value per data point and use `size-label` to label the size dimension:
 
 ```dgmo
 scatter Pirate Fleets of the Caribbean
