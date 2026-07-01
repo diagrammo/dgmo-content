@@ -1,0 +1,21 @@
+line Tortuga Rum Barrels in Stores
+fill
+series Barrels
+x-label Month
+y-label Barrels in Hold
+
+era Jan -> Apr Raiding Season red
+era Apr -> Aug Dry Spell blue
+
+Jan 320
+Feb 410
+Mar 505
+Apr 618
+May 470
+Jun 355
+Jul 210
+Aug 140
+Sep 260
+Oct 430
+Nov 560
+Dec 690

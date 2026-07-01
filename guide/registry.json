@@ -28,7 +28,7 @@
     { "slug": "chart-wireframe", "title": "Wireframe", "group": "software", "file": "chart-wireframe.md" },
 
     { "slug": "chart-bar", "title": "Bar", "group": "data", "file": "chart-bar.md" },
-    { "slug": "chart-cycle", "title": "Cycle", "group": "data", "file": "chart-cycle.md" },
+    { "slug": "chart-cycle", "title": "Cycle", "group": "business", "file": "chart-cycle.md" },
     { "slug": "chart-function", "title": "Function Plot", "group": "data", "file": "chart-function.md" },
     { "slug": "chart-heatmap", "title": "Heatmap", "group": "data", "file": "chart-heatmap.md" },
     { "slug": "chart-line", "title": "Line", "group": "data", "file": "chart-line.md" },

@@ -1,0 +1,45 @@
+c4 Harbor Authority — Manifest API Components
+
+tag Technology as tech
+  Express blue
+  TypeScript green
+  PostgreSQL purple
+  Redis red
+
+Ship Captain is a person
+  description: Files cargo manifests and books berths
+  -Files manifests via [HTTPS]-> Manifest API
+
+Harbor Authority is a system
+  description: Manages berths, manifests, and tolls for the port
+
+  containers
+    Manifest API is a container tech: Express
+      description: Core API for berths, manifests, and tolls
+
+      components
+        Berth Controller is a component tech: Express
+          description: Handles berth booking and release requests
+          -Validates payloads with-> Manifest Validator
+          -Reads and writes berths via-> Ledger Repository
+
+        Manifest Validator is a component tech: TypeScript
+          description: Checks cargo manifests against port rules
+
+        Toll Calculator is a component tech: TypeScript
+          description: Tallies doubloon tolls per berth and cargo
+          -Persists receipts via-> Ledger Repository
+
+        Tide Gateway is a component tech: TypeScript
+          description: Wraps calls to the external tide almanac
+          -Caches forecasts in-> Chart Cache
+
+        Ledger Repository is a component tech: TypeScript
+          description: Data-access layer over the harbor ledger
+          -Reads and writes [SQL/TCP]-> Harbor Ledger
+
+    Harbor Ledger is a container is a database tech: PostgreSQL
+      description: Berths, manifests, tariffs, and toll receipts
+
+    Chart Cache is a container is a cache tech: Redis
+      description: Tide tables and berth-availability cache

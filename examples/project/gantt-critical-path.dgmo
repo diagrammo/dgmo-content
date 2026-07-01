@@ -1,0 +1,31 @@
+gantt Voyage to Cutlass Cay — Critical Path
+start 1718-06-01
+today-marker 1718-06-20
+critical-path
+
+tag Crew as c
+  Sailors blue
+  Navigators purple
+  Lookouts orange
+  Quartermaster green
+
+era 1718-06-01 -> 1718-06-14 Harbor Fitting purple
+marker 1718-06-18 Tide Window orange
+
+[Shipyard] c: Sailors
+  Hull Repairs 12bd progress: 100
+    -> Rigging Overhaul 8bd progress: 90
+      -> Sea Trials 4bd progress: 40
+  Cannon Mounting 6bd c: Lookouts, progress: 100
+  Deck Sealing 5bd c: Lookouts, progress: 80
+
+[Provisions] c: Quartermaster
+  Salt the Meat 4bd progress: 100
+  Fill the Water Casks 3bd progress: 100
+  Load the Hold 5bd? progress: 50
+
++16bd [Departure] c: Navigators
+  Chart the Course 5bd progress: 30
+    -> Clear the Harbor 2bd progress: 0
+      -> Set Sail 0d
+  Muster the Crew 4bd c: Sailors, progress: 20

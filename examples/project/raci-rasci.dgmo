@@ -1,0 +1,44 @@
+raci Crew Responsibilities — Boarding Raid
+roles
+  Cap  red
+  QM   orange
+  Bos  yellow
+  Nav  blue
+  Gun  purple
+  Crew gray
+
+[Approach] teal
+  Spot the prize
+    Cap: A
+    Nav: R
+    Bos: S
+    Crew: I
+  Close the distance
+    Nav: A R
+    Cap: C
+    Bos: S
+
+[Boarding] purple
+  Fire a warning shot
+    Gun: A R
+    Cap: C
+    Crew: S
+  Swing the grappling lines
+    Bos: A R
+    Crew: S
+    Cap: I
+  Storm the deck
+    Cap: A
+    Bos: R
+    Crew: S
+    Gun: S
+
+[Plunder] green
+  Secure the captives
+    QM: A
+    Crew: R
+    Bos: S
+  Tally the take
+    QM: A R
+    Cap: C
+    Crew: S

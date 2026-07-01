@@ -1,0 +1,33 @@
+c4 Buccaneer Bay Harbor Authority — System Context
+
+tag Scope as sc
+  Internal blue
+  External gray
+
+Harbormaster is a person sc: Internal
+  description: Assigns berths and settles harbor tolls
+  -Schedules berths using-> Harbor Authority
+  -Reviews toll receipts in-> Harbor Authority
+
+Ship Captain is a person sc: Internal
+  description: Requests moorings and files cargo manifests
+  -Files cargo manifests via-> Harbor Authority
+
+Customs Officer is a person sc: Internal
+  description: Inspects cargo and assesses duties on incoming loot
+  -Inspects manifests through-> Harbor Authority
+
+Harbor Authority is a system sc: Internal
+  description: Manages berth scheduling, cargo manifests, and toll collection for the port
+  -Fetches tide and squall forecasts from [HTTPS]-> Tide Almanac
+  -Settles doubloon tolls through [REST]-> Coin Exchange
+  ~Dispatches berth and duty notices via~> Pigeon Post
+
+Tide Almanac is a system is an external sc: External
+  description: Third-party tide tables and storm forecasts
+
+Coin Exchange is a system is an external sc: External
+  description: Clearing house that settles doubloon payments between crews
+
+Pigeon Post is a system is an external sc: External
+  description: Carrier-pigeon dispatch service for harbor notices

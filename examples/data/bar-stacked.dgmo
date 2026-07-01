@@ -1,0 +1,14 @@
+bar Plunder by Voyage
+x-label Voyage
+y-label Doubloons
+
+stack
+  Gold red
+  Silver orange
+  Spices yellow
+  Rum green
+
+Spanish Main 480 320 210 150
+Barbary Coast 360 290 340 180
+Windward Passage 520 410 160 240
+Coral Run 300 260 380 200

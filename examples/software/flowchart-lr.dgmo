@@ -1,0 +1,10 @@
+flowchart Boarding a Merchant Ship
+direction-lr
+
+(Spot Sail green) -> [Hoist Colors] -> <In Range?>
+  -yes-> [Fire Warning Shot] -> <Surrender?>
+  -no-> [Give Chase] -> <In Range?>
+
+<Surrender?>
+  -strikes-> [Board Peacefully] -> [[Take the Cargo]] -> (Sail Away green)
+  -fights-> [Grapple and Board red] -> [Storm the Deck] -> [[Take the Cargo]]

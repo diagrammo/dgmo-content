@@ -1,0 +1,13 @@
+arc Pirate Alliance Network
+order degree
+
+// `order degree` places the most-connected pirates first, so the busiest
+// hubs of the alliance web sit at the center of the arc.
+Blackbeard -> Bonnet 8
+Blackbeard -> Vane 5
+Blackbeard -> Hornigold 4
+Bonny -> Rackham 9
+Bonny -> Read 7
+Rackham -> Vane 3
+Hornigold -> Bonnet 2
+Roberts -> Davis 6

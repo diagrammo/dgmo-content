@@ -1,0 +1,45 @@
+sequence Prize Ledger — Protocols & Ownership
+active-tag Protocol
+
+tag Protocol as p
+  REST blue
+  gRPC green
+  Async orange
+  SQL purple
+
+tag Crew as c
+  Bridge teal
+  Gunnery red
+  Purser green
+  Ledger blue
+
+Captain is an actor
+HelmSvc c: Bridge
+GunnerySvc c: Gunnery
+PurserSvc c: Purser
+LedgerDB is a database c: Ledger
+SignalBus is a queue
+
+== Sight the Prize ==
+Captain -POST /pursuit-> HelmSvc p: REST
+HelmSvc -plotIntercept(bearing)-> GunnerySvc p: gRPC
+GunnerySvc -UPDATE shot_log-> LedgerDB p: SQL
+LedgerDB -ok-> GunnerySvc
+GunnerySvc -guns ranged-> HelmSvc
+
+== Take the Prize ==
+HelmSvc -boardAndClaim(hold)-> PurserSvc p: REST
+PurserSvc -confirmed-> HelmSvc
+
+== Log the Haul ==
+HelmSvc -INSERT prize-> LedgerDB p: SQL
+HelmSvc ~PrizeClaimed~> SignalBus p: Async
+
+parallel Pipe the Word
+  SignalBus ~tally~> PurserSvc p: Async
+  SignalBus ~archive~> LedgerDB p: Async
+
+PurserSvc -countDoubloons-> PurserSvc
+PurserSvc ~ShareDivided~> SignalBus p: Async
+SignalBus ~share update~> HelmSvc p: Async
+HelmSvc -shares posted-> Captain p: REST

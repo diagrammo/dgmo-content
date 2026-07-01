@@ -1,0 +1,41 @@
+sequence Treasure Voyage — Crew Roles
+
+tag Deck as d
+  Command green
+  Navigation blue
+  Gunnery red
+
+Captain is an actor d: Command
+
+[Bridge]
+  Quartermaster d: Command
+  Navigator d: Navigation
+
+[Gun Deck]
+  Bosun d: Gunnery
+  PowderMonkey d: Gunnery
+
+[Hold]
+  Manifest is a database
+  TreasureVault is a database
+
+== Set Course ==
+Captain -plot a heading-> Navigator
+Navigator -read the charts-> Manifest
+Manifest -last known bearing-> Navigator
+Navigator -course laid in-> Captain
+
+== Engage ==
+Captain -beat to quarters-> Quartermaster
+Quartermaster -run out the guns-> Bosun
+loop until the enemy strikes
+  Bosun -load and fire-> PowderMonkey
+  PowderMonkey -powder ready-> Bosun
+Bosun -enemy struck her colors-> Quartermaster
+
+== Plunder ==
+Captain -secure the spoils-> Quartermaster
+Quartermaster -log the haul-> Manifest
+Quartermaster -stow the gold-> TreasureVault
+TreasureVault -vault sealed-> Quartermaster
+Quartermaster -hold secured, Captain-> Captain

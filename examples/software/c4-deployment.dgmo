@@ -1,0 +1,53 @@
+c4 Buccaneer Bay Harbor Authority — Deployment
+
+tag Technology as tech
+  React blue
+  Node.js green
+  Python orange
+  PostgreSQL purple
+  Redis red
+  Kafka teal
+
+Harbor Authority is a system
+  description: Manages berths, manifests, and tolls for the port
+
+  containers
+    Dock Board is a container tech: React
+      description: Berth scheduling console for captains
+
+    Toll Desk is a container tech: React
+      description: Customs and duty-assessment console
+
+    Manifest API is a container tech: Node.js
+      description: Core API for berths, manifests, and tolls
+
+    Berth Scheduler is a container tech: Node.js
+      description: Assigns moorings by draft, tide, and cargo
+
+    Duty Service is a container tech: Python
+      description: Calculates cargo duties on incoming loot
+
+    Harbor Ledger is a container is a database tech: PostgreSQL
+      description: Berths, manifests, tariffs, and toll receipts
+
+    Chart Cache is a container is a cache tech: Redis
+      description: Tide tables and berth-availability cache
+
+    Signal Bus is a container is a queue tech: Kafka
+      description: Async backbone for berth and duty events
+
+deployment
+  Harbor Cloud is a cloud
+    Lighthouse CDN
+      container Dock Board
+      container Toll Desk
+    Galleon Cluster
+      container Manifest API
+      container Berth Scheduler
+      container Duty Service
+    Ledger Vault is a database
+      container Harbor Ledger
+    Cache Hold is a cache
+      container Chart Cache
+    Signal Tower is a queue
+      container Signal Bus

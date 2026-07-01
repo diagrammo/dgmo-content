@@ -1,0 +1,17 @@
+scatter Pirate Fleets of the Caribbean
+x-label Ruthlessness
+y-label Plunder (chests)
+size-label Crew
+
+[English Pirates] red
+  Blackbeard    90  85  300
+  Calico Jack   55  32  110
+  Anne Bonny    70  28   90
+
+[French Buccaneers] blue
+  L'Olonnais         80  60  220
+  Pierre le Grand    45  25   70
+
+[Welsh Privateers] green
+  Henry Morgan  85  120  470
+  Bartholomew Roberts  88  110  510

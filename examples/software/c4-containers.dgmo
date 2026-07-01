@@ -1,0 +1,69 @@
+c4 Buccaneer Bay Harbor Authority — Containers
+
+tag Technology as tech
+  React blue
+  Node.js green
+  Python orange
+  PostgreSQL purple
+  Redis red
+  Kafka teal
+
+Ship Captain is a person
+  description: Requests moorings and files cargo manifests
+  -Books berths via [HTTPS]-> Dock Board
+
+Customs Officer is a person
+  description: Inspects cargo and assesses duties on incoming loot
+  -Assesses duties via [HTTPS]-> Toll Desk
+
+Harbor Authority is a system
+  description: Manages berths, manifests, and tolls for the port
+  -Fetches tide forecasts from [HTTPS]-> Tide Almanac
+  -Settles doubloon tolls through [REST]-> Coin Exchange
+  ~Dispatches notices via~> Pigeon Post
+
+  containers
+    [Quarterdeck]
+      Dock Board is a container tech: React
+        description: Berth scheduling console for captains
+        -Books berths through [JSON/HTTPS]-> Manifest API
+
+      Toll Desk is a container tech: React
+        description: Customs and duty-assessment console
+        -Reads manifests through [JSON/HTTPS]-> Manifest API
+
+    [Below Deck]
+      Manifest API is a container tech: Node.js
+        description: Core API for berths, manifests, and tolls
+        -Reads and writes [SQL/TCP]-> Harbor Ledger
+        -Caches availability in [RESP]-> Chart Cache
+        ~Publishes berth events to~> Signal Bus
+        ~Requests duty calc from~> Duty Service
+
+      Berth Scheduler is a container tech: Node.js
+        description: Assigns moorings by draft, tide, and cargo
+        -Reads and writes [SQL/TCP]-> Harbor Ledger
+        ~Consumes berth events from~> Signal Bus
+
+      Duty Service is a container tech: Python
+        description: Calculates cargo duties on incoming loot
+        -Reads tariff tables from [SQL/TCP]-> Harbor Ledger
+
+    [Hold]
+      Harbor Ledger is a container is a database tech: PostgreSQL
+        description: Berths, manifests, tariffs, and toll receipts
+
+      Chart Cache is a container is a cache tech: Redis
+        description: Tide tables and berth-availability cache
+
+      Signal Bus is a container is a queue tech: Kafka
+        description: Async backbone for berth and duty events
+
+Tide Almanac is a system is an external
+  description: Third-party tide tables and storm forecasts
+
+Coin Exchange is a system is an external
+  description: Settles doubloon tolls between crews
+
+Pigeon Post is a system is an external
+  description: Carrier-pigeon dispatch for harbor notices
