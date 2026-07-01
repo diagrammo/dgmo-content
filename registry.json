@@ -13,7 +13,24 @@
         "relationships"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "arc diagram",
+          "kind": "trigger"
+        },
+        {
+          "text": "relationship chart",
+          "kind": "trigger"
+        },
+        {
+          "text": "connection arcs",
+          "kind": "trigger"
+        },
+        {
+          "text": "network arcs",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -37,7 +54,12 @@
       "family": "data",
       "intent": [],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "ordered arc",
+          "kind": "synonym"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -51,7 +73,96 @@
         "compare-values"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "bar chart",
+          "kind": "trigger"
+        },
+        {
+          "text": "categorical comparison",
+          "kind": "trigger"
+        },
+        {
+          "text": "bar graph",
+          "kind": "trigger"
+        },
+        {
+          "text": "revenue by region",
+          "kind": "trigger"
+        },
+        {
+          "text": "quarterly revenue",
+          "kind": "trigger"
+        },
+        {
+          "text": "quarterly sales",
+          "kind": "trigger"
+        },
+        {
+          "text": "compare revenue",
+          "kind": "trigger"
+        },
+        {
+          "text": "revenue across",
+          "kind": "trigger"
+        },
+        {
+          "text": "votes for",
+          "kind": "trigger"
+        },
+        {
+          "text": "headcount by",
+          "kind": "trigger"
+        },
+        {
+          "text": "average salary",
+          "kind": "trigger"
+        },
+        {
+          "text": "top 10",
+          "kind": "trigger"
+        },
+        {
+          "text": "sold the most",
+          "kind": "trigger"
+        },
+        {
+          "text": "for each category",
+          "kind": "trigger"
+        },
+        {
+          "text": "by category",
+          "kind": "trigger"
+        },
+        {
+          "text": "across products",
+          "kind": "trigger"
+        },
+        {
+          "text": "compare across",
+          "kind": "trigger"
+        },
+        {
+          "text": "values for each",
+          "kind": "trigger"
+        },
+        {
+          "text": "count by",
+          "kind": "trigger"
+        },
+        {
+          "text": "number of",
+          "kind": "trigger"
+        },
+        {
+          "text": "stacked bar",
+          "kind": "trigger"
+        },
+        {
+          "text": "composite bar",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -63,7 +174,24 @@
       "family": "data",
       "intent": [],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "grouped",
+          "kind": "synonym"
+        },
+        {
+          "text": "clustered",
+          "kind": "synonym"
+        },
+        {
+          "text": "grouped bar",
+          "kind": "synonym"
+        },
+        {
+          "text": "clustered bar",
+          "kind": "synonym"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -75,7 +203,16 @@
       "family": "data",
       "intent": [],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "horizontal",
+          "kind": "synonym"
+        },
+        {
+          "text": "horizontal bar",
+          "kind": "synonym"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -87,7 +224,20 @@
       "family": "data",
       "intent": [],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "stacked",
+          "kind": "synonym"
+        },
+        {
+          "text": "stacked bar",
+          "kind": "synonym"
+        },
+        {
+          "text": "composite bar",
+          "kind": "synonym"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -101,7 +251,44 @@
         "relationships"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "block diagram",
+          "kind": "trigger"
+        },
+        {
+          "text": "block layout",
+          "kind": "trigger"
+        },
+        {
+          "text": "grid of blocks",
+          "kind": "trigger"
+        },
+        {
+          "text": "system layout",
+          "kind": "trigger"
+        },
+        {
+          "text": "architecture grid",
+          "kind": "trigger"
+        },
+        {
+          "text": "hardware layout",
+          "kind": "trigger"
+        },
+        {
+          "text": "nested blocks",
+          "kind": "trigger"
+        },
+        {
+          "text": "block-beta",
+          "kind": "trigger"
+        },
+        {
+          "text": "components grid",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -115,7 +302,36 @@
         "relationships"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "boxes and lines",
+          "kind": "trigger"
+        },
+        {
+          "text": "boxes and arrows",
+          "kind": "trigger"
+        },
+        {
+          "text": "nodes and edges",
+          "kind": "trigger"
+        },
+        {
+          "text": "generic diagram",
+          "kind": "trigger"
+        },
+        {
+          "text": "general-purpose network",
+          "kind": "trigger"
+        },
+        {
+          "text": "high level",
+          "kind": "trigger"
+        },
+        {
+          "text": "connect",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -141,7 +357,40 @@
         "relationships"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "c4 diagram",
+          "kind": "trigger"
+        },
+        {
+          "text": "system context",
+          "kind": "trigger"
+        },
+        {
+          "text": "container diagram",
+          "kind": "trigger"
+        },
+        {
+          "text": "component diagram",
+          "kind": "trigger"
+        },
+        {
+          "text": "architecture overview",
+          "kind": "trigger"
+        },
+        {
+          "text": "software architecture",
+          "kind": "trigger"
+        },
+        {
+          "text": "microservices",
+          "kind": "trigger"
+        },
+        {
+          "text": "microservice architecture",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -153,7 +402,16 @@
       "family": "software",
       "intent": [],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "component diagram",
+          "kind": "synonym"
+        },
+        {
+          "text": "c4 level 3",
+          "kind": "synonym"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -165,7 +423,16 @@
       "family": "software",
       "intent": [],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "container diagram",
+          "kind": "synonym"
+        },
+        {
+          "text": "c4 level 2",
+          "kind": "synonym"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -177,7 +444,16 @@
       "family": "software",
       "intent": [],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "system context",
+          "kind": "synonym"
+        },
+        {
+          "text": "c4 level 1",
+          "kind": "synonym"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -189,7 +465,12 @@
       "family": "software",
       "intent": [],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "deployment diagram",
+          "kind": "synonym"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -203,7 +484,28 @@
         "relationships"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "uml class",
+          "kind": "trigger"
+        },
+        {
+          "text": "class hierarchy",
+          "kind": "trigger"
+        },
+        {
+          "text": "class diagram",
+          "kind": "trigger"
+        },
+        {
+          "text": "inheritance tree",
+          "kind": "trigger"
+        },
+        {
+          "text": "oop structure",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -230,7 +532,24 @@
         "flow-process"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "loop",
+          "kind": "trigger"
+        },
+        {
+          "text": "cycle",
+          "kind": "trigger"
+        },
+        {
+          "text": "flywheel",
+          "kind": "trigger"
+        },
+        {
+          "text": "cyclical",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -242,7 +561,16 @@
       "family": "business",
       "intent": [],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "counterclockwise",
+          "kind": "synonym"
+        },
+        {
+          "text": "anticlockwise",
+          "kind": "synonym"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -256,7 +584,32 @@
         "relationships"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "database schema",
+          "kind": "trigger"
+        },
+        {
+          "text": "er diagram",
+          "kind": "trigger"
+        },
+        {
+          "text": "entity relationship",
+          "kind": "trigger"
+        },
+        {
+          "text": "data model",
+          "kind": "trigger"
+        },
+        {
+          "text": "tables and relationships",
+          "kind": "trigger"
+        },
+        {
+          "text": "foreign keys",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -268,7 +621,16 @@
       "family": "software",
       "intent": [],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "labeled relationships",
+          "kind": "synonym"
+        },
+        {
+          "text": "labelled er",
+          "kind": "synonym"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -282,7 +644,44 @@
         "trend-over-time"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "event line",
+          "kind": "trigger"
+        },
+        {
+          "text": "annotated timeline",
+          "kind": "trigger"
+        },
+        {
+          "text": "narrative timeline",
+          "kind": "trigger"
+        },
+        {
+          "text": "history of",
+          "kind": "trigger"
+        },
+        {
+          "text": "infographic timeline",
+          "kind": "trigger"
+        },
+        {
+          "text": "story timeline",
+          "kind": "trigger"
+        },
+        {
+          "text": "not to scale timeline",
+          "kind": "trigger"
+        },
+        {
+          "text": "key events",
+          "kind": "trigger"
+        },
+        {
+          "text": "ancient history",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -296,7 +695,44 @@
         "flow-process"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "flowchart",
+          "kind": "trigger"
+        },
+        {
+          "text": "flow chart",
+          "kind": "trigger"
+        },
+        {
+          "text": "decision tree",
+          "kind": "trigger"
+        },
+        {
+          "text": "if-then diagram",
+          "kind": "trigger"
+        },
+        {
+          "text": "process flow with decisions",
+          "kind": "trigger"
+        },
+        {
+          "text": "process flow",
+          "kind": "trigger"
+        },
+        {
+          "text": "steps to",
+          "kind": "trigger"
+        },
+        {
+          "text": "end to end",
+          "kind": "trigger"
+        },
+        {
+          "text": "ci pipeline",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -344,7 +780,16 @@
       "family": "software",
       "intent": [],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "left to right",
+          "kind": "synonym"
+        },
+        {
+          "text": "horizontal flowchart",
+          "kind": "synonym"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -370,7 +815,36 @@
         "trend-over-time"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "function plot",
+          "kind": "trigger"
+        },
+        {
+          "text": "mathematical plot",
+          "kind": "trigger"
+        },
+        {
+          "text": "equation chart",
+          "kind": "trigger"
+        },
+        {
+          "text": "graph y=f(x)",
+          "kind": "trigger"
+        },
+        {
+          "text": "cartesian",
+          "kind": "trigger"
+        },
+        {
+          "text": "y equals",
+          "kind": "trigger"
+        },
+        {
+          "text": "x squared",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -384,7 +858,44 @@
         "part-to-whole"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "funnel",
+          "kind": "trigger"
+        },
+        {
+          "text": "conversion funnel",
+          "kind": "trigger"
+        },
+        {
+          "text": "sales funnel",
+          "kind": "trigger"
+        },
+        {
+          "text": "user funnel",
+          "kind": "trigger"
+        },
+        {
+          "text": "pipeline stages",
+          "kind": "trigger"
+        },
+        {
+          "text": "drop-off funnel",
+          "kind": "trigger"
+        },
+        {
+          "text": "sales pipeline",
+          "kind": "trigger"
+        },
+        {
+          "text": "qualified leads",
+          "kind": "trigger"
+        },
+        {
+          "text": "closed deals",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -398,7 +909,28 @@
         "schedule"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "gantt chart",
+          "kind": "trigger"
+        },
+        {
+          "text": "project schedule",
+          "kind": "trigger"
+        },
+        {
+          "text": "sprint plan",
+          "kind": "trigger"
+        },
+        {
+          "text": "project timeline",
+          "kind": "trigger"
+        },
+        {
+          "text": "project milestones",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -410,7 +942,12 @@
       "family": "project",
       "intent": [],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "critical path",
+          "kind": "synonym"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -436,7 +973,36 @@
         "distribution"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "heatmap",
+          "kind": "trigger"
+        },
+        {
+          "text": "intensity matrix",
+          "kind": "trigger"
+        },
+        {
+          "text": "activity heatmap",
+          "kind": "trigger"
+        },
+        {
+          "text": "correlation matrix",
+          "kind": "trigger"
+        },
+        {
+          "text": "distribution of",
+          "kind": "trigger"
+        },
+        {
+          "text": "heat grid",
+          "kind": "trigger"
+        },
+        {
+          "text": "busiest hours",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -450,7 +1016,44 @@
         "relationships"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "infrastructure diagram",
+          "kind": "trigger"
+        },
+        {
+          "text": "traffic flow",
+          "kind": "trigger"
+        },
+        {
+          "text": "request path",
+          "kind": "trigger"
+        },
+        {
+          "text": "rps",
+          "kind": "trigger"
+        },
+        {
+          "text": "capacity planning",
+          "kind": "trigger"
+        },
+        {
+          "text": "network topology",
+          "kind": "trigger"
+        },
+        {
+          "text": "cloud",
+          "kind": "trigger"
+        },
+        {
+          "text": "requests flow",
+          "kind": "trigger"
+        },
+        {
+          "text": "message queue",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -476,7 +1079,48 @@
         "concept-framework"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "user journey",
+          "kind": "trigger"
+        },
+        {
+          "text": "customer journey",
+          "kind": "trigger"
+        },
+        {
+          "text": "customer experience",
+          "kind": "trigger"
+        },
+        {
+          "text": "customer path",
+          "kind": "trigger"
+        },
+        {
+          "text": "customer touchpoints",
+          "kind": "trigger"
+        },
+        {
+          "text": "cx flow",
+          "kind": "trigger"
+        },
+        {
+          "text": "ux journey",
+          "kind": "trigger"
+        },
+        {
+          "text": "onboarding flow",
+          "kind": "trigger"
+        },
+        {
+          "text": "persona journey",
+          "kind": "trigger"
+        },
+        {
+          "text": "empathy map",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -490,7 +1134,32 @@
         "schedule"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "kanban board",
+          "kind": "trigger"
+        },
+        {
+          "text": "task board",
+          "kind": "trigger"
+        },
+        {
+          "text": "workflow columns",
+          "kind": "trigger"
+        },
+        {
+          "text": "todo doing done",
+          "kind": "trigger"
+        },
+        {
+          "text": "agile board",
+          "kind": "trigger"
+        },
+        {
+          "text": "backlog",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -504,7 +1173,92 @@
         "trend-over-time"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "line chart",
+          "kind": "trigger"
+        },
+        {
+          "text": "trend over time",
+          "kind": "trigger"
+        },
+        {
+          "text": "time series",
+          "kind": "trigger"
+        },
+        {
+          "text": "sales trend",
+          "kind": "trigger"
+        },
+        {
+          "text": "sales over time",
+          "kind": "trigger"
+        },
+        {
+          "text": "monthly",
+          "kind": "trigger"
+        },
+        {
+          "text": "yearly",
+          "kind": "trigger"
+        },
+        {
+          "text": "weekly",
+          "kind": "trigger"
+        },
+        {
+          "text": "month over month",
+          "kind": "trigger"
+        },
+        {
+          "text": "grew",
+          "kind": "trigger"
+        },
+        {
+          "text": "growth of",
+          "kind": "trigger"
+        },
+        {
+          "text": "changed since",
+          "kind": "trigger"
+        },
+        {
+          "text": "price movement",
+          "kind": "trigger"
+        },
+        {
+          "text": "over time",
+          "kind": "trigger"
+        },
+        {
+          "text": "over the past",
+          "kind": "trigger"
+        },
+        {
+          "text": "over the last",
+          "kind": "trigger"
+        },
+        {
+          "text": "daily",
+          "kind": "trigger"
+        },
+        {
+          "text": "per day",
+          "kind": "trigger"
+        },
+        {
+          "text": "throughout the year",
+          "kind": "trigger"
+        },
+        {
+          "text": "filled line",
+          "kind": "trigger"
+        },
+        {
+          "text": "cumulative trend",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -516,7 +1270,20 @@
       "family": "data",
       "intent": [],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "area",
+          "kind": "synonym"
+        },
+        {
+          "text": "area chart",
+          "kind": "synonym"
+        },
+        {
+          "text": "filled line",
+          "kind": "synonym"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -540,7 +1307,20 @@
       "family": "data",
       "intent": [],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "multi series",
+          "kind": "synonym"
+        },
+        {
+          "text": "multiple lines",
+          "kind": "synonym"
+        },
+        {
+          "text": "multi-line",
+          "kind": "synonym"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -554,7 +1334,64 @@
         "geospatial"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "world map",
+          "kind": "trigger"
+        },
+        {
+          "text": "us states map",
+          "kind": "trigger"
+        },
+        {
+          "text": "map with cities",
+          "kind": "trigger"
+        },
+        {
+          "text": "store locations",
+          "kind": "trigger"
+        },
+        {
+          "text": "office locations",
+          "kind": "trigger"
+        },
+        {
+          "text": "locations worldwide",
+          "kind": "trigger"
+        },
+        {
+          "text": "located",
+          "kind": "trigger"
+        },
+        {
+          "text": "worldwide",
+          "kind": "trigger"
+        },
+        {
+          "text": "cruise",
+          "kind": "trigger"
+        },
+        {
+          "text": "trip",
+          "kind": "trigger"
+        },
+        {
+          "text": "shipping",
+          "kind": "trigger"
+        },
+        {
+          "text": "sailing",
+          "kind": "trigger"
+        },
+        {
+          "text": "by us state",
+          "kind": "trigger"
+        },
+        {
+          "text": "by country",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -640,7 +1477,44 @@
         "hierarchy"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "mind map",
+          "kind": "trigger"
+        },
+        {
+          "text": "brainstorm diagram",
+          "kind": "trigger"
+        },
+        {
+          "text": "concept map",
+          "kind": "trigger"
+        },
+        {
+          "text": "idea tree",
+          "kind": "trigger"
+        },
+        {
+          "text": "radial ideas",
+          "kind": "trigger"
+        },
+        {
+          "text": "concept",
+          "kind": "trigger"
+        },
+        {
+          "text": "taxonomy",
+          "kind": "trigger"
+        },
+        {
+          "text": "nested categories",
+          "kind": "trigger"
+        },
+        {
+          "text": "idea branch",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -654,7 +1528,36 @@
         "hierarchy"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "org chart",
+          "kind": "trigger"
+        },
+        {
+          "text": "organization chart",
+          "kind": "trigger"
+        },
+        {
+          "text": "reporting structure",
+          "kind": "trigger"
+        },
+        {
+          "text": "hierarchy chart",
+          "kind": "trigger"
+        },
+        {
+          "text": "team structure",
+          "kind": "trigger"
+        },
+        {
+          "text": "reports to",
+          "kind": "trigger"
+        },
+        {
+          "text": "who reports to",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -681,7 +1584,60 @@
         "schedule"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "pert chart",
+          "kind": "trigger"
+        },
+        {
+          "text": "pert diagram",
+          "kind": "trigger"
+        },
+        {
+          "text": "project network",
+          "kind": "trigger"
+        },
+        {
+          "text": "critical path method",
+          "kind": "trigger"
+        },
+        {
+          "text": "monte carlo schedule",
+          "kind": "trigger"
+        },
+        {
+          "text": "schedule risk",
+          "kind": "trigger"
+        },
+        {
+          "text": "estimate uncertainty",
+          "kind": "trigger"
+        },
+        {
+          "text": "project simulation",
+          "kind": "trigger"
+        },
+        {
+          "text": "task dependencies",
+          "kind": "trigger"
+        },
+        {
+          "text": "task dependency network",
+          "kind": "trigger"
+        },
+        {
+          "text": "finish",
+          "kind": "trigger"
+        },
+        {
+          "text": "start",
+          "kind": "trigger"
+        },
+        {
+          "text": "milestone",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -695,7 +1651,52 @@
         "part-to-whole"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "pie chart",
+          "kind": "trigger"
+        },
+        {
+          "text": "part to whole",
+          "kind": "trigger"
+        },
+        {
+          "text": "percentage breakdown",
+          "kind": "trigger"
+        },
+        {
+          "text": "market share",
+          "kind": "trigger"
+        },
+        {
+          "text": "fraction of",
+          "kind": "trigger"
+        },
+        {
+          "text": "percentage of",
+          "kind": "trigger"
+        },
+        {
+          "text": "breakdown of",
+          "kind": "trigger"
+        },
+        {
+          "text": "composition of",
+          "kind": "trigger"
+        },
+        {
+          "text": "share each",
+          "kind": "trigger"
+        },
+        {
+          "text": "donut chart",
+          "kind": "trigger"
+        },
+        {
+          "text": "doughnut chart",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -707,7 +1708,20 @@
       "family": "data",
       "intent": [],
       "produces": "hole",
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "donut",
+          "kind": "synonym"
+        },
+        {
+          "text": "doughnut",
+          "kind": "synonym"
+        },
+        {
+          "text": "ring chart",
+          "kind": "synonym"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -721,7 +1735,16 @@
         "compare-values"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "polar area",
+          "kind": "trigger"
+        },
+        {
+          "text": "radial bar chart",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -735,7 +1758,48 @@
         "hierarchy"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "pyramid diagram",
+          "kind": "trigger"
+        },
+        {
+          "text": "layered hierarchy",
+          "kind": "trigger"
+        },
+        {
+          "text": "maslow hierarchy",
+          "kind": "trigger"
+        },
+        {
+          "text": "dikw pyramid",
+          "kind": "trigger"
+        },
+        {
+          "text": "layered model",
+          "kind": "trigger"
+        },
+        {
+          "text": "level",
+          "kind": "trigger"
+        },
+        {
+          "text": "pyramid",
+          "kind": "trigger"
+        },
+        {
+          "text": "tiers",
+          "kind": "trigger"
+        },
+        {
+          "text": "hierarchy of evidence",
+          "kind": "trigger"
+        },
+        {
+          "text": "self-actualization",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -747,7 +1811,16 @@
       "family": "business",
       "intent": [],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "inverted pyramid",
+          "kind": "synonym"
+        },
+        {
+          "text": "funnel pyramid",
+          "kind": "synonym"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -762,7 +1835,48 @@
         "correlation"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "quadrant",
+          "kind": "trigger"
+        },
+        {
+          "text": "2x2 matrix",
+          "kind": "trigger"
+        },
+        {
+          "text": "priority matrix",
+          "kind": "trigger"
+        },
+        {
+          "text": "quadrant chart",
+          "kind": "trigger"
+        },
+        {
+          "text": "impact effort matrix",
+          "kind": "trigger"
+        },
+        {
+          "text": "effort versus impact",
+          "kind": "trigger"
+        },
+        {
+          "text": "positioning matrix",
+          "kind": "trigger"
+        },
+        {
+          "text": "effort against impact",
+          "kind": "trigger"
+        },
+        {
+          "text": "against impact",
+          "kind": "trigger"
+        },
+        {
+          "text": "risk versus reward",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -776,7 +1890,56 @@
         "schedule"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "raci",
+          "kind": "trigger"
+        },
+        {
+          "text": "raci matrix",
+          "kind": "trigger"
+        },
+        {
+          "text": "responsibility matrix",
+          "kind": "trigger"
+        },
+        {
+          "text": "responsibility assignment",
+          "kind": "trigger"
+        },
+        {
+          "text": "who does what",
+          "kind": "trigger"
+        },
+        {
+          "text": "accountability matrix",
+          "kind": "trigger"
+        },
+        {
+          "text": "accountable",
+          "kind": "trigger"
+        },
+        {
+          "text": "who owns",
+          "kind": "trigger"
+        },
+        {
+          "text": "who approves",
+          "kind": "trigger"
+        },
+        {
+          "text": "who is informed",
+          "kind": "trigger"
+        },
+        {
+          "text": "decision matrix",
+          "kind": "trigger"
+        },
+        {
+          "text": "driver approver",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -788,7 +1951,16 @@
       "family": "project",
       "intent": [],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "rasci",
+          "kind": "synonym"
+        },
+        {
+          "text": "responsible accountable",
+          "kind": "synonym"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -802,7 +1974,48 @@
         "compare-values"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "radar chart",
+          "kind": "trigger"
+        },
+        {
+          "text": "spider chart",
+          "kind": "trigger"
+        },
+        {
+          "text": "multi-dimensional metrics",
+          "kind": "trigger"
+        },
+        {
+          "text": "compare on attributes",
+          "kind": "trigger"
+        },
+        {
+          "text": "comparing",
+          "kind": "trigger"
+        },
+        {
+          "text": "across dimensions",
+          "kind": "trigger"
+        },
+        {
+          "text": "dimensions",
+          "kind": "trigger"
+        },
+        {
+          "text": "rate each",
+          "kind": "trigger"
+        },
+        {
+          "text": "skill levels",
+          "kind": "trigger"
+        },
+        {
+          "text": "competencies",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -814,7 +2027,16 @@
       "family": "data",
       "intent": [],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "multi series radar",
+          "kind": "synonym"
+        },
+        {
+          "text": "overlaid radar",
+          "kind": "synonym"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -828,7 +2050,32 @@
         "concept-framework"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "ring diagram",
+          "kind": "trigger"
+        },
+        {
+          "text": "concentric rings",
+          "kind": "trigger"
+        },
+        {
+          "text": "circle hierarchy",
+          "kind": "trigger"
+        },
+        {
+          "text": "circles of influence",
+          "kind": "trigger"
+        },
+        {
+          "text": "nested circles",
+          "kind": "trigger"
+        },
+        {
+          "text": "concentric",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -843,7 +2090,40 @@
         "part-to-whole"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "sankey diagram",
+          "kind": "trigger"
+        },
+        {
+          "text": "flow allocation",
+          "kind": "trigger"
+        },
+        {
+          "text": "budget flow",
+          "kind": "trigger"
+        },
+        {
+          "text": "energy flow",
+          "kind": "trigger"
+        },
+        {
+          "text": "traffic allocation",
+          "kind": "trigger"
+        },
+        {
+          "text": "flows from",
+          "kind": "trigger"
+        },
+        {
+          "text": "splits into",
+          "kind": "trigger"
+        },
+        {
+          "text": "comes from",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -858,7 +2138,40 @@
         "correlation"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "scatter plot",
+          "kind": "trigger"
+        },
+        {
+          "text": "correlation plot",
+          "kind": "trigger"
+        },
+        {
+          "text": "bubble chart",
+          "kind": "trigger"
+        },
+        {
+          "text": "2d data points",
+          "kind": "trigger"
+        },
+        {
+          "text": "correlation between",
+          "kind": "trigger"
+        },
+        {
+          "text": "plot",
+          "kind": "trigger"
+        },
+        {
+          "text": "height and weight",
+          "kind": "trigger"
+        },
+        {
+          "text": "correlate",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -870,7 +2183,16 @@
       "family": "data",
       "intent": [],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "bubble",
+          "kind": "synonym"
+        },
+        {
+          "text": "bubble chart",
+          "kind": "synonym"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -884,7 +2206,76 @@
         "interaction"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "sequence diagram",
+          "kind": "trigger"
+        },
+        {
+          "text": "message flow",
+          "kind": "trigger"
+        },
+        {
+          "text": "api call flow",
+          "kind": "trigger"
+        },
+        {
+          "text": "request lifecycle",
+          "kind": "trigger"
+        },
+        {
+          "text": "interaction diagram",
+          "kind": "trigger"
+        },
+        {
+          "text": "call sequence",
+          "kind": "trigger"
+        },
+        {
+          "text": "login flow",
+          "kind": "trigger"
+        },
+        {
+          "text": "authentication flow",
+          "kind": "trigger"
+        },
+        {
+          "text": "logging in",
+          "kind": "trigger"
+        },
+        {
+          "text": "request flow",
+          "kind": "trigger"
+        },
+        {
+          "text": "oauth",
+          "kind": "trigger"
+        },
+        {
+          "text": "oauth flow",
+          "kind": "trigger"
+        },
+        {
+          "text": "request",
+          "kind": "trigger"
+        },
+        {
+          "text": "response",
+          "kind": "trigger"
+        },
+        {
+          "text": "message",
+          "kind": "trigger"
+        },
+        {
+          "text": "handshake",
+          "kind": "trigger"
+        },
+        {
+          "text": "services talk to",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -896,7 +2287,16 @@
       "family": "software",
       "intent": [],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "grouped sequence",
+          "kind": "synonym"
+        },
+        {
+          "text": "sequence sections",
+          "kind": "synonym"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -908,7 +2308,12 @@
       "family": "software",
       "intent": [],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "protocol sequence",
+          "kind": "synonym"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -934,7 +2339,44 @@
         "hierarchy"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "sitemap",
+          "kind": "trigger"
+        },
+        {
+          "text": "site structure",
+          "kind": "trigger"
+        },
+        {
+          "text": "page hierarchy",
+          "kind": "trigger"
+        },
+        {
+          "text": "navigation structure",
+          "kind": "trigger"
+        },
+        {
+          "text": "app navigation",
+          "kind": "trigger"
+        },
+        {
+          "text": "website pages",
+          "kind": "trigger"
+        },
+        {
+          "text": "site pages",
+          "kind": "trigger"
+        },
+        {
+          "text": "api endpoints",
+          "kind": "trigger"
+        },
+        {
+          "text": "folder structure",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -949,7 +2391,32 @@
         "trend-over-time"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "slope chart",
+          "kind": "trigger"
+        },
+        {
+          "text": "before and after",
+          "kind": "trigger"
+        },
+        {
+          "text": "two-period change",
+          "kind": "trigger"
+        },
+        {
+          "text": "delta chart",
+          "kind": "trigger"
+        },
+        {
+          "text": "shift comparison",
+          "kind": "trigger"
+        },
+        {
+          "text": "versus last year",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -963,7 +2430,40 @@
         "interaction"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "state diagram",
+          "kind": "trigger"
+        },
+        {
+          "text": "state machine",
+          "kind": "trigger"
+        },
+        {
+          "text": "state transitions",
+          "kind": "trigger"
+        },
+        {
+          "text": "lifecycle diagram",
+          "kind": "trigger"
+        },
+        {
+          "text": "status transitions",
+          "kind": "trigger"
+        },
+        {
+          "text": "states from",
+          "kind": "trigger"
+        },
+        {
+          "text": "stage",
+          "kind": "trigger"
+        },
+        {
+          "text": "lifecycle",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -977,7 +2477,44 @@
         "flow-process"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "swimlane",
+          "kind": "trigger"
+        },
+        {
+          "text": "swim lane",
+          "kind": "trigger"
+        },
+        {
+          "text": "swimlane diagram",
+          "kind": "trigger"
+        },
+        {
+          "text": "cross-functional flowchart",
+          "kind": "trigger"
+        },
+        {
+          "text": "BPMN diagram",
+          "kind": "trigger"
+        },
+        {
+          "text": "process by role",
+          "kind": "trigger"
+        },
+        {
+          "text": "handoffs between teams",
+          "kind": "trigger"
+        },
+        {
+          "text": "cross-team process",
+          "kind": "trigger"
+        },
+        {
+          "text": "lanes",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -991,7 +2528,28 @@
         "concept-framework"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "tech radar",
+          "kind": "trigger"
+        },
+        {
+          "text": "technology radar",
+          "kind": "trigger"
+        },
+        {
+          "text": "tech adoption",
+          "kind": "trigger"
+        },
+        {
+          "text": "adopt trial assess hold",
+          "kind": "trigger"
+        },
+        {
+          "text": "tech choices",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -1018,7 +2576,64 @@
         "schedule"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "event timeline",
+          "kind": "trigger"
+        },
+        {
+          "text": "historical timeline",
+          "kind": "trigger"
+        },
+        {
+          "text": "era chart",
+          "kind": "trigger"
+        },
+        {
+          "text": "period chart",
+          "kind": "trigger"
+        },
+        {
+          "text": "project history",
+          "kind": "trigger"
+        },
+        {
+          "text": "timeline",
+          "kind": "trigger"
+        },
+        {
+          "text": "milestone timeline",
+          "kind": "trigger"
+        },
+        {
+          "text": "milestones",
+          "kind": "trigger"
+        },
+        {
+          "text": "roadmap",
+          "kind": "trigger"
+        },
+        {
+          "text": "key dates",
+          "kind": "trigger"
+        },
+        {
+          "text": "ancient history timeline",
+          "kind": "trigger"
+        },
+        {
+          "text": "BCE timeline",
+          "kind": "trigger"
+        },
+        {
+          "text": "launch sequence",
+          "kind": "trigger"
+        },
+        {
+          "text": "second-by-second timeline",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -1045,7 +2660,52 @@
         "hierarchy"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "treemap",
+          "kind": "trigger"
+        },
+        {
+          "text": "tree map",
+          "kind": "trigger"
+        },
+        {
+          "text": "nested rectangles",
+          "kind": "trigger"
+        },
+        {
+          "text": "hierarchical rectangles",
+          "kind": "trigger"
+        },
+        {
+          "text": "rectangles sized by value",
+          "kind": "trigger"
+        },
+        {
+          "text": "proportional rectangles",
+          "kind": "trigger"
+        },
+        {
+          "text": "disk usage",
+          "kind": "trigger"
+        },
+        {
+          "text": "folder sizes",
+          "kind": "trigger"
+        },
+        {
+          "text": "space breakdown",
+          "kind": "trigger"
+        },
+        {
+          "text": "portfolio allocation",
+          "kind": "trigger"
+        },
+        {
+          "text": "size by category",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -1084,7 +2744,32 @@
         "relationships"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "venn diagram",
+          "kind": "trigger"
+        },
+        {
+          "text": "set overlap",
+          "kind": "trigger"
+        },
+        {
+          "text": "intersection of",
+          "kind": "trigger"
+        },
+        {
+          "text": "shared traits",
+          "kind": "trigger"
+        },
+        {
+          "text": "overlapping circles",
+          "kind": "trigger"
+        },
+        {
+          "text": "overlap between",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -1098,7 +2783,48 @@
         "interaction"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "git graph",
+          "kind": "trigger"
+        },
+        {
+          "text": "gitgraph",
+          "kind": "trigger"
+        },
+        {
+          "text": "git branches",
+          "kind": "trigger"
+        },
+        {
+          "text": "branch and merge",
+          "kind": "trigger"
+        },
+        {
+          "text": "commit history",
+          "kind": "trigger"
+        },
+        {
+          "text": "version control graph",
+          "kind": "trigger"
+        },
+        {
+          "text": "git history",
+          "kind": "trigger"
+        },
+        {
+          "text": "branching diagram",
+          "kind": "trigger"
+        },
+        {
+          "text": "merge diagram",
+          "kind": "trigger"
+        },
+        {
+          "text": "git workflow",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -1112,7 +2838,28 @@
         "concept-framework"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "wireframe",
+          "kind": "trigger"
+        },
+        {
+          "text": "ui mockup",
+          "kind": "trigger"
+        },
+        {
+          "text": "screen layout",
+          "kind": "trigger"
+        },
+        {
+          "text": "page layout",
+          "kind": "trigger"
+        },
+        {
+          "text": "low-fidelity mockup",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -1126,7 +2873,32 @@
         "distribution"
       ],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "word cloud",
+          "kind": "trigger"
+        },
+        {
+          "text": "tag cloud",
+          "kind": "trigger"
+        },
+        {
+          "text": "term frequency",
+          "kind": "trigger"
+        },
+        {
+          "text": "keyword frequency",
+          "kind": "trigger"
+        },
+        {
+          "text": "common words",
+          "kind": "trigger"
+        },
+        {
+          "text": "frequent words",
+          "kind": "trigger"
+        }
+      ],
       "guidance": null,
       "description": null
     }
