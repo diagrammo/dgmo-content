@@ -36,7 +36,7 @@ Source -> Target weight
 
 | Key      | Description                                                         | Required |
 | -------- | ------------------------------------------------------------------- | -------- |
-| `chart`  | Must be `arc` (`chord` is accepted and renders the circular layout) | Yes      |
+| `chart`  | Must be `arc` — the circular ("chord") layout is selected with `layout chord`, not a separate keyword | Yes      |
 | `title`  | Chart title displayed above the chart                               | No       |
 | `order`  | Node ordering: `appearance` (default), `name`, `group`, or `degree` | No       |
 | `layout` | `arc` (default, linear) or `chord` (circular)                       | No       |

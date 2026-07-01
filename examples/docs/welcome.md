@@ -47,7 +47,7 @@ era 1700-01->1718-01 Golden Age
 
 **Charts:** bar, bubble, funnel, heatmap, line, pie, polar-area, radar, scatter
 
-**Diagrams:** arc, chord, flowchart, function, org, quadrant, sankey, sequence, slope, timeline, venn, wordcloud
+**Diagrams:** arc, flowchart, function, org, quadrant, sankey, sequence, slope, timeline, venn, wordcloud
 
 ## Learn More
 

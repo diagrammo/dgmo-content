@@ -156,7 +156,7 @@ y-label Reputation
 
 ---
 
-## Chord (arc layout)
+## Arc — Chord Layout
 
 ```dgmo
 arc Pirate Alliance Network

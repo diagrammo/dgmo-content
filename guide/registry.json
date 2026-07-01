@@ -12,7 +12,7 @@
     { "slug": "colors", "title": "Colors", "group": "getting-started", "file": "colors.md" },
     { "slug": "how-dgmo-thinks", "title": "How DGMO Thinks", "group": "getting-started", "file": "how-dgmo-thinks.md" },
 
-    { "slug": "chart-arc", "title": "Arc / Chord", "group": "data", "file": "chart-arc.md" },
+    { "slug": "chart-arc", "title": "Arc (with Chord layout)", "group": "data", "file": "chart-arc.md" },
     { "slug": "chart-block", "title": "Block", "group": "software", "file": "chart-block.md" },
     { "slug": "chart-boxes-and-lines", "title": "Boxes and Lines", "group": "software", "file": "chart-boxes-and-lines.md" },
     { "slug": "chart-c4", "title": "C4", "group": "software", "file": "chart-c4.md" },
