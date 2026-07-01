@@ -8,7 +8,6 @@ A bar chart:
 
 ```dgmo
 bar Treasure Hauls by Port
-series Gold Doubloons
 
 Port Royal 850
 Tortuga 620
