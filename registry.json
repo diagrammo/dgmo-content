@@ -1,0 +1,2532 @@
+{
+  "$schema": "./registry.schema.json",
+  "version": 1,
+  "note": "Canonical entity table. See docs/registry-entity-model.md. Hand-curated via the console Entity Workspace; bootstrapped by scripts/bootstrap-registry.mjs.",
+  "entities": [
+    {
+      "id": "arc",
+      "kind": "type",
+      "base": null,
+      "name": "Arc (with Chord layout)",
+      "family": "data",
+      "intent": [
+        "relationships"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "arc-chord",
+      "kind": "variant",
+      "base": "arc",
+      "name": "Chord",
+      "family": "data",
+      "intent": [],
+      "produces": "layout chord",
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "arc-ordered",
+      "kind": "variant",
+      "base": "arc",
+      "name": "Ordered",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "bar",
+      "kind": "type",
+      "base": null,
+      "name": "Bar",
+      "family": "data",
+      "intent": [
+        "compare-values"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "bar-grouped",
+      "kind": "variant",
+      "base": "bar",
+      "name": "Grouped",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "bar-horizontal",
+      "kind": "variant",
+      "base": "bar",
+      "name": "Horizontal",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "bar-stacked",
+      "kind": "variant",
+      "base": "bar",
+      "name": "Stacked",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "block",
+      "kind": "type",
+      "base": null,
+      "name": "Block",
+      "family": "software",
+      "intent": [
+        "relationships"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "boxes-and-lines",
+      "kind": "type",
+      "base": null,
+      "name": "Boxes and Lines",
+      "family": "software",
+      "intent": [
+        "relationships"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "boxes-and-lines-diverging",
+      "kind": "variant",
+      "base": "boxes-and-lines",
+      "name": "Diverging",
+      "family": "software",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "c4",
+      "kind": "type",
+      "base": null,
+      "name": "C4",
+      "family": "software",
+      "intent": [
+        "relationships"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "c4-components",
+      "kind": "variant",
+      "base": "c4",
+      "name": "Components",
+      "family": "software",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "c4-containers",
+      "kind": "variant",
+      "base": "c4",
+      "name": "Containers",
+      "family": "software",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "c4-context",
+      "kind": "variant",
+      "base": "c4",
+      "name": "Context",
+      "family": "software",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "c4-deployment",
+      "kind": "variant",
+      "base": "c4",
+      "name": "Deployment",
+      "family": "software",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "class",
+      "kind": "type",
+      "base": null,
+      "name": "Class",
+      "family": "software",
+      "intent": [
+        "relationships"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "class-full",
+      "kind": "variant",
+      "base": "class",
+      "name": "Full",
+      "family": "software",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "cycle",
+      "kind": "type",
+      "base": null,
+      "name": "Cycle",
+      "family": "business",
+      "intent": [
+        "concept-framework",
+        "flow-process"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "cycle-counterclockwise",
+      "kind": "variant",
+      "base": "cycle",
+      "name": "Counterclockwise",
+      "family": "business",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "er",
+      "kind": "type",
+      "base": null,
+      "name": "Entity Relationship",
+      "family": "software",
+      "intent": [
+        "relationships"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "er-labels",
+      "kind": "variant",
+      "base": "er",
+      "name": "Labels",
+      "family": "software",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "event-line",
+      "kind": "type",
+      "base": null,
+      "name": "Event Line",
+      "family": "project",
+      "intent": [
+        "trend-over-time"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "flowchart",
+      "kind": "type",
+      "base": null,
+      "name": "Flowchart",
+      "family": "software",
+      "intent": [
+        "flow-process"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "flowchart-decision",
+      "kind": "variant",
+      "base": "flowchart",
+      "name": "Decision",
+      "family": "software",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "flowchart-groups",
+      "kind": "variant",
+      "base": "flowchart",
+      "name": "Groups",
+      "family": "software",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "flowchart-loop",
+      "kind": "variant",
+      "base": "flowchart",
+      "name": "Loop",
+      "family": "software",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "flowchart-lr",
+      "kind": "variant",
+      "base": "flowchart",
+      "name": "Lr",
+      "family": "software",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "flowchart-shapes",
+      "kind": "variant",
+      "base": "flowchart",
+      "name": "Shapes",
+      "family": "software",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "function",
+      "kind": "type",
+      "base": null,
+      "name": "Function Plot",
+      "family": "data",
+      "intent": [
+        "trend-over-time"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "funnel",
+      "kind": "type",
+      "base": null,
+      "name": "Funnel",
+      "family": "business",
+      "intent": [
+        "part-to-whole"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "gantt",
+      "kind": "type",
+      "base": null,
+      "name": "Gantt",
+      "family": "project",
+      "intent": [
+        "schedule"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "gantt-critical-path",
+      "kind": "variant",
+      "base": "gantt",
+      "name": "Critical Path",
+      "family": "project",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "gantt-sprints",
+      "kind": "variant",
+      "base": "gantt",
+      "name": "Sprints",
+      "family": "project",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "heatmap",
+      "kind": "type",
+      "base": null,
+      "name": "Heatmap",
+      "family": "data",
+      "intent": [
+        "distribution"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "infra",
+      "kind": "type",
+      "base": null,
+      "name": "Infrastructure",
+      "family": "software",
+      "intent": [
+        "relationships"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "infra-full",
+      "kind": "variant",
+      "base": "infra",
+      "name": "Full",
+      "family": "software",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "journey-map",
+      "kind": "type",
+      "base": null,
+      "name": "Journey Map",
+      "family": "business",
+      "intent": [
+        "concept-framework"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "kanban",
+      "kind": "type",
+      "base": null,
+      "name": "Kanban Board",
+      "family": "project",
+      "intent": [
+        "schedule"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "line",
+      "kind": "type",
+      "base": null,
+      "name": "Line",
+      "family": "data",
+      "intent": [
+        "trend-over-time"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "line-area",
+      "kind": "variant",
+      "base": "line",
+      "name": "Area",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "line-dual-axis",
+      "kind": "variant",
+      "base": "line",
+      "name": "Dual Axis",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "line-multi-series",
+      "kind": "variant",
+      "base": "line",
+      "name": "Multi Series",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "map",
+      "kind": "type",
+      "base": null,
+      "name": "Map",
+      "family": "business",
+      "intent": [
+        "geospatial"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "map-categorical",
+      "kind": "variant",
+      "base": "map",
+      "name": "Categorical",
+      "family": "business",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "map-choropleth",
+      "kind": "variant",
+      "base": "map",
+      "name": "Choropleth",
+      "family": "business",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "map-choropleth-diverging",
+      "kind": "variant",
+      "base": "map",
+      "name": "Choropleth Diverging",
+      "family": "business",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "map-pois",
+      "kind": "variant",
+      "base": "map",
+      "name": "Pois",
+      "family": "business",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "map-route",
+      "kind": "variant",
+      "base": "map",
+      "name": "Route",
+      "family": "business",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "map-subnational-zoom",
+      "kind": "variant",
+      "base": "map",
+      "name": "Subnational Zoom",
+      "family": "business",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "mindmap",
+      "kind": "type",
+      "base": null,
+      "name": "Mind Map",
+      "family": "software",
+      "intent": [
+        "hierarchy"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "org",
+      "kind": "type",
+      "base": null,
+      "name": "Org",
+      "family": "business",
+      "intent": [
+        "hierarchy"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "org-teams",
+      "kind": "variant",
+      "base": "org",
+      "name": "Teams",
+      "family": "business",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "pert",
+      "kind": "type",
+      "base": null,
+      "name": "PERT",
+      "family": "project",
+      "intent": [
+        "flow-process",
+        "schedule"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "pie",
+      "kind": "type",
+      "base": null,
+      "name": "Pie",
+      "family": "data",
+      "intent": [
+        "part-to-whole"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "pie-donut",
+      "kind": "variant",
+      "base": "pie",
+      "name": "Donut",
+      "family": "data",
+      "intent": [],
+      "produces": "hole",
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "polar-area",
+      "kind": "type",
+      "base": null,
+      "name": "Polar Area",
+      "family": "data",
+      "intent": [
+        "compare-values"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "pyramid",
+      "kind": "type",
+      "base": null,
+      "name": "Pyramid",
+      "family": "business",
+      "intent": [
+        "hierarchy"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "pyramid-inverted",
+      "kind": "variant",
+      "base": "pyramid",
+      "name": "Inverted",
+      "family": "business",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "quadrant",
+      "kind": "type",
+      "base": null,
+      "name": "Quadrant",
+      "family": "business",
+      "intent": [
+        "concept-framework",
+        "correlation"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "raci",
+      "kind": "type",
+      "base": null,
+      "name": "RACI Matrix",
+      "family": "project",
+      "intent": [
+        "schedule"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "raci-rasci",
+      "kind": "variant",
+      "base": "raci",
+      "name": "Rasci",
+      "family": "project",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "radar",
+      "kind": "type",
+      "base": null,
+      "name": "Radar",
+      "family": "data",
+      "intent": [
+        "compare-values"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "radar-multi-series",
+      "kind": "variant",
+      "base": "radar",
+      "name": "Multi Series",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "ring",
+      "kind": "type",
+      "base": null,
+      "name": "Ring",
+      "family": "business",
+      "intent": [
+        "concept-framework"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "sankey",
+      "kind": "type",
+      "base": null,
+      "name": "Sankey",
+      "family": "business",
+      "intent": [
+        "flow-process",
+        "part-to-whole"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "scatter",
+      "kind": "type",
+      "base": null,
+      "name": "Scatter Plot",
+      "family": "data",
+      "intent": [
+        "distribution",
+        "correlation"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "scatter-bubble",
+      "kind": "variant",
+      "base": "scatter",
+      "name": "Bubble",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "sequence",
+      "kind": "type",
+      "base": null,
+      "name": "Sequence",
+      "family": "software",
+      "intent": [
+        "interaction"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "sequence-groups",
+      "kind": "variant",
+      "base": "sequence",
+      "name": "Groups",
+      "family": "software",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "sequence-protocols",
+      "kind": "variant",
+      "base": "sequence",
+      "name": "Protocols",
+      "family": "software",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "sequence-tags",
+      "kind": "variant",
+      "base": "sequence",
+      "name": "Tags",
+      "family": "software",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "sitemap",
+      "kind": "type",
+      "base": null,
+      "name": "Sitemap",
+      "family": "software",
+      "intent": [
+        "hierarchy"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "slope",
+      "kind": "type",
+      "base": null,
+      "name": "Slope",
+      "family": "data",
+      "intent": [
+        "compare-values",
+        "trend-over-time"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "state",
+      "kind": "type",
+      "base": null,
+      "name": "State",
+      "family": "software",
+      "intent": [
+        "interaction"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "swimlane",
+      "kind": "type",
+      "base": null,
+      "name": "Swimlane",
+      "family": "business",
+      "intent": [
+        "flow-process"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "tech-radar",
+      "kind": "type",
+      "base": null,
+      "name": "Technology Radar",
+      "family": "business",
+      "intent": [
+        "concept-framework"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "tech-radar-dense",
+      "kind": "variant",
+      "base": "tech-radar",
+      "name": "Dense",
+      "family": "business",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "timeline",
+      "kind": "type",
+      "base": null,
+      "name": "Timeline",
+      "family": "project",
+      "intent": [
+        "trend-over-time",
+        "schedule"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "timeline-grouped",
+      "kind": "variant",
+      "base": "timeline",
+      "name": "Grouped",
+      "family": "project",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "treemap",
+      "kind": "type",
+      "base": null,
+      "name": "Treemap",
+      "family": "data",
+      "intent": [
+        "part-to-whole",
+        "hierarchy"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "treemap-heat",
+      "kind": "variant",
+      "base": "treemap",
+      "name": "Heat",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "treemap-tags",
+      "kind": "variant",
+      "base": "treemap",
+      "name": "Tags",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "venn",
+      "kind": "type",
+      "base": null,
+      "name": "Venn",
+      "family": "business",
+      "intent": [
+        "concept-framework",
+        "relationships"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "version-control",
+      "kind": "type",
+      "base": null,
+      "name": "Version Control",
+      "family": "software",
+      "intent": [
+        "interaction"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "wireframe",
+      "kind": "type",
+      "base": null,
+      "name": "Wireframe",
+      "family": "software",
+      "intent": [
+        "concept-framework"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "wordcloud",
+      "kind": "type",
+      "base": null,
+      "name": "Word Cloud",
+      "family": "business",
+      "intent": [
+        "distribution"
+      ],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    }
+  ],
+  "examples": [
+    {
+      "id": "arc",
+      "entity": "arc",
+      "file": "examples/data/arc.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "arc-ordered",
+      "entity": "arc-ordered",
+      "file": "examples/data/arc-ordered.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "bar",
+      "entity": "bar",
+      "file": "examples/data/bar.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "bar-grouped",
+      "entity": "bar-grouped",
+      "file": "examples/data/bar-grouped.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "bar-horizontal",
+      "entity": "bar-horizontal",
+      "file": "examples/data/bar-horizontal.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "bar-solid-fill",
+      "entity": "bar",
+      "file": "examples/data/bar-solid-fill.dgmo",
+      "isPrimary": false,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "bar-stacked",
+      "entity": "bar-stacked",
+      "file": "examples/data/bar-stacked.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "block",
+      "entity": "block",
+      "file": "examples/software/block.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "boxes-and-lines",
+      "entity": "boxes-and-lines",
+      "file": "examples/software/boxes-and-lines.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "entity": "c4",
+      "file": "examples/software/c4.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "c4-components",
+      "entity": "c4-components",
+      "file": "examples/software/c4-components.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "c4-containers",
+      "entity": "c4-containers",
+      "file": "examples/software/c4-containers.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "c4-context",
+      "entity": "c4-context",
+      "file": "examples/software/c4-context.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "c4-deployment",
+      "entity": "c4-deployment",
+      "file": "examples/software/c4-deployment.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "class",
+      "entity": "class",
+      "file": "examples/software/class.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "cycle",
+      "entity": "cycle",
+      "file": "examples/business/cycle.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "cycle-circle-nodes",
+      "entity": "cycle",
+      "file": "examples/business/cycle-circle-nodes.dgmo",
+      "isPrimary": false,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "cycle-counterclockwise",
+      "entity": "cycle-counterclockwise",
+      "file": "examples/business/cycle-counterclockwise.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "er",
+      "entity": "er",
+      "file": "examples/software/er.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "er-labels",
+      "entity": "er-labels",
+      "file": "examples/software/er-labels.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "event-line",
+      "entity": "event-line",
+      "file": "examples/project/event-line.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "flowchart",
+      "entity": "flowchart",
+      "file": "examples/software/flowchart.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "flowchart-lr",
+      "entity": "flowchart-lr",
+      "file": "examples/software/flowchart-lr.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "function",
+      "entity": "function",
+      "file": "examples/data/function.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "function-shade",
+      "entity": "function",
+      "file": "examples/data/function-shade.dgmo",
+      "isPrimary": false,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "funnel",
+      "entity": "funnel",
+      "file": "examples/business/funnel.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "gantt",
+      "entity": "gantt",
+      "file": "examples/project/gantt.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "gantt-critical-path",
+      "entity": "gantt-critical-path",
+      "file": "examples/project/gantt-critical-path.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "heatmap",
+      "entity": "heatmap",
+      "file": "examples/data/heatmap.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "infra",
+      "entity": "infra",
+      "file": "examples/software/infra.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "journey-map",
+      "entity": "journey-map",
+      "file": "examples/business/journey-map.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "kanban",
+      "entity": "kanban",
+      "file": "examples/project/kanban.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "line",
+      "entity": "line",
+      "file": "examples/data/line.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "line-area",
+      "entity": "line-area",
+      "file": "examples/data/line-area.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "line-multi-series",
+      "entity": "line-multi-series",
+      "file": "examples/data/line-multi-series.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "map",
+      "entity": "map",
+      "file": "examples/business/map.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "mindmap",
+      "entity": "mindmap",
+      "file": "examples/software/mindmap.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "org",
+      "entity": "org",
+      "file": "examples/business/org.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "pert",
+      "entity": "pert",
+      "file": "examples/project/pert.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "pie",
+      "entity": "pie",
+      "file": "examples/data/pie.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "pie-donut",
+      "entity": "pie-donut",
+      "file": "examples/data/pie-donut.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "pie-no-center-total",
+      "entity": "pie",
+      "file": "examples/data/pie-no-center-total.dgmo",
+      "isPrimary": false,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "polar-area",
+      "entity": "polar-area",
+      "file": "examples/data/polar-area.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "pyramid",
+      "entity": "pyramid",
+      "file": "examples/business/pyramid.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "pyramid-inverted",
+      "entity": "pyramid-inverted",
+      "file": "examples/business/pyramid-inverted.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "quadrant",
+      "entity": "quadrant",
+      "file": "examples/business/quadrant.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "raci",
+      "entity": "raci",
+      "file": "examples/project/raci.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "raci-rasci",
+      "entity": "raci-rasci",
+      "file": "examples/project/raci-rasci.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "radar",
+      "entity": "radar",
+      "file": "examples/data/radar.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "radar-multi-series",
+      "entity": "radar-multi-series",
+      "file": "examples/data/radar-multi-series.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "ring",
+      "entity": "ring",
+      "file": "examples/business/ring.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "sankey",
+      "entity": "sankey",
+      "file": "examples/business/sankey.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "scatter",
+      "entity": "scatter",
+      "file": "examples/data/scatter.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "scatter-bubble",
+      "entity": "scatter-bubble",
+      "file": "examples/data/scatter-bubble.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "sequence",
+      "entity": "sequence",
+      "file": "examples/software/sequence.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "sequence-groups",
+      "entity": "sequence-groups",
+      "file": "examples/software/sequence-groups.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "sequence-protocols",
+      "entity": "sequence-protocols",
+      "file": "examples/software/sequence-protocols.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "sitemap",
+      "entity": "sitemap",
+      "file": "examples/software/sitemap.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "slope",
+      "entity": "slope",
+      "file": "examples/data/slope.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "state",
+      "entity": "state",
+      "file": "examples/software/state.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "swimlane",
+      "entity": "swimlane",
+      "file": "examples/business/swimlane.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "tech-radar",
+      "entity": "tech-radar",
+      "file": "examples/business/tech-radar.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "timeline",
+      "entity": "timeline",
+      "file": "examples/project/timeline.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "treemap",
+      "entity": "treemap",
+      "file": "examples/data/treemap.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "venn",
+      "entity": "venn",
+      "file": "examples/business/venn.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "version-control",
+      "entity": "version-control",
+      "file": "examples/software/version-control.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "wireframe",
+      "entity": "wireframe",
+      "file": "examples/software/wireframe.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "wordcloud",
+      "entity": "wordcloud",
+      "file": "examples/business/wordcloud.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    }
+  ]
+}

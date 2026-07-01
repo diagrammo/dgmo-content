@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://diagrammo.app/registry.schema.json",
+  "title": "Diagrammo Registry — canonical entity table",
+  "description": "See docs/registry-entity-model.md. entity = type|variant (same shape); example demonstrates an entity; placement routes an example to a surface.",
+  "type": "object",
+  "required": ["version", "entities", "examples"],
+  "additionalProperties": true,
+  "properties": {
+    "$schema": { "type": "string" },
+    "version": { "type": "integer" },
+    "note": { "type": "string" },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "kind", "base", "name", "family", "intent", "produces", "keywords", "guidance", "description"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "kind": { "enum": ["type", "variant"] },
+          "base": { "type": ["string", "null"] },
+          "name": { "type": "string" },
+          "family": { "enum": ["data", "business", "software", "project"] },
+          "intent": { "type": "array", "items": { "type": "string" } },
+          "produces": { "type": ["string", "null"] },
+          "keywords": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["text", "kind"],
+              "properties": {
+                "text": { "type": "string" },
+                "kind": { "enum": ["synonym", "trigger"] },
+                "weight": { "type": "number" }
+              }
+            }
+          },
+          "guidance": { "type": ["string", "null"] },
+          "description": { "type": ["string", "null"] }
+        },
+        "allOf": [
+          {
+            "comment": "types have no base; variants must have one",
+            "if": { "properties": { "kind": { "const": "type" } } },
+            "then": { "properties": { "base": { "type": "null" } } },
+            "else": { "properties": { "base": { "type": "string" } } }
+          }
+        ]
+      }
+    },
+    "examples": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "entity", "file", "isPrimary", "status", "placements"],
+        "properties": {
+          "id": { "type": "string" },
+          "entity": { "type": "string" },
+          "file": { "type": "string", "pattern": "^examples/.+\\.dgmo$" },
+          "isPrimary": { "type": "boolean" },
+          "status": { "enum": ["draft", "approved", "needs-work"] },
+          "placements": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["surface", "role"],
+              "properties": {
+                "surface": { "enum": ["new-file", "docs", "obsidian", "docusaurus", "gallery", "compare", "ai"] },
+                "role": { "enum": ["starter", "docs", "sampler"] }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
