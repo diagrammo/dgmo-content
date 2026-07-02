@@ -32,7 +32,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Network relationships"
     },
     {
       "id": "arc-chord",
@@ -164,7 +164,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Categorical comparisons for 3 - 5 figures"
     },
     {
       "id": "bar-grouped",
@@ -333,7 +333,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "General-purpose node-edge diagrams with groups and tags"
     },
     {
       "id": "boxes-and-lines-diverging",
@@ -392,7 +392,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "System architecture (context, container, component, deployment)"
     },
     {
       "id": "c4-components",
@@ -507,7 +507,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "UML class hierarchies"
     },
     {
       "id": "class-full",
@@ -551,7 +551,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Cyclical process visualization (PDCA, OODA, DevOps loops)"
     },
     {
       "id": "cycle-counterclockwise",
@@ -611,7 +611,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Database schemas and relationships"
     },
     {
       "id": "er-labels",
@@ -734,7 +734,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Decision trees and process flows"
     },
     {
       "id": "flowchart-decision",
@@ -846,7 +846,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Mathematical expressions"
     },
     {
       "id": "funnel",
@@ -897,7 +897,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Conversion pipeline"
     },
     {
       "id": "gantt",
@@ -932,7 +932,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Project scheduling with task dependencies and milestones"
     },
     {
       "id": "gantt-critical-path",
@@ -1004,7 +1004,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Matrix intensity visualization"
     },
     {
       "id": "infra",
@@ -1055,7 +1055,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Infrastructure traffic flow with RPS computation"
     },
     {
       "id": "infra-full",
@@ -1122,7 +1122,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "User experience flow with emotion scores, phases, and annotations"
     },
     {
       "id": "kanban",
@@ -1161,7 +1161,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Task board columns"
     },
     {
       "id": "line",
@@ -1393,7 +1393,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Geographic concept map: highlight/score regions, drop points of interest, connect with routes or edges"
     },
     {
       "id": "map-categorical",
@@ -1516,7 +1516,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Radial hierarchy of ideas branching from a central topic"
     },
     {
       "id": "org",
@@ -1559,7 +1559,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Reporting hierarchy"
     },
     {
       "id": "org-teams",
@@ -1639,7 +1639,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Project network with three-point estimates, critical path, and uncertainty (Beta-PERT, Monte Carlo)"
     },
     {
       "id": "pie",
@@ -1801,7 +1801,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Stacked hierarchy of layers with descriptions (Maslow, DIKW)"
     },
     {
       "id": "pyramid-inverted",
@@ -1878,7 +1878,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "2x2 positioning matrix"
     },
     {
       "id": "raci",
@@ -1941,7 +1941,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Tasks × roles responsibility matrix with constraint linting"
     },
     {
       "id": "raci-rasci",
@@ -2077,7 +2077,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Concentric rings showing nested or hierarchical categories (read core-out)"
     },
     {
       "id": "sankey",
@@ -2125,7 +2125,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Flow / allocation visualization"
     },
     {
       "id": "scatter",
@@ -2173,7 +2173,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "2D data points or bubble chart"
     },
     {
       "id": "scatter-bubble",
@@ -2277,7 +2277,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Message request and response interaction flows"
     },
     {
       "id": "sequence-groups",
@@ -2378,7 +2378,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Site / app navigation structure"
     },
     {
       "id": "slope",
@@ -2418,7 +2418,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Change between 2 time periods"
     },
     {
       "id": "state",
@@ -2465,7 +2465,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "State machine / lifecycle transitions"
     },
     {
       "id": "swimlane",
@@ -2551,7 +2551,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Technology adoption quadrants (adopt/trial/assess/hold)"
     },
     {
       "id": "tech-radar-dense",
@@ -2635,7 +2635,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Events, eras, and date ranges"
     },
     {
       "id": "timeline-grouped",
@@ -2771,7 +2771,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Set overlaps"
     },
     {
       "id": "version-control",
@@ -2861,7 +2861,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Low-fidelity UI layout with panels, controls, and annotations"
     },
     {
       "id": "wordcloud",
@@ -2900,7 +2900,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Term frequency visualization"
     }
   ],
   "examples": [
