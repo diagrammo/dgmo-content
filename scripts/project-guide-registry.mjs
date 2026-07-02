@@ -18,6 +18,7 @@
  *   --check    exit 1 if guide/registry.json differs from the projection (CI)
  */
 import { readFile, writeFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -65,11 +66,17 @@ const current = await readFile(GUIDE, 'utf8');
 const dropped = existingChartOrder.filter((s) => !chartPages.has(s));
 const added = [...chartPages.keys()].filter((s) => !existingChartOrder.includes(s));
 
+// Docs coverage: every projected chart page must have its markdown on disk, so a
+// new registry type can't ship a nav entry that 404s.
+const missingDocs = projectedChart.filter((p) => !existsSync(join(CONTENT_ROOT, 'guide', p.file))).map((p) => p.file);
+
 if (CHECK) {
-  if (text === current) {
+  if (text === current && missingDocs.length === 0) {
     console.log('✓ guide/registry.json in sync with registry.json');
     process.exit(0);
   }
+  if (missingDocs.length) console.error(`✗ guide pages missing markdown on disk: ${missingDocs.join(', ')}`);
+  if (text === current) process.exit(1);
   console.error('✗ guide/registry.json is STALE — run: node scripts/project-guide-registry.mjs');
   if (dropped.length) console.error(`  chart pages no longer in registry: ${dropped.join(', ')}`);
   if (added.length) console.error(`  registry types missing a guide page: ${added.join(', ')}`);
@@ -80,4 +87,5 @@ await writeFile(GUIDE, text, 'utf8');
 console.log(`guide/registry.json projected: ${projectedChart.length} chart pages, ${nonChart.length} doc pages`);
 if (dropped.length) console.log(`  dropped (stale): ${dropped.join(', ')}`);
 if (added.length) console.log(`  added (new type): ${added.join(', ')}`);
+if (missingDocs.length) console.log(`  ⚠ guide pages missing markdown: ${missingDocs.join(', ')}`);
 if (text === current) console.log('  (no change — already in sync)');
