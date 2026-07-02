@@ -20,6 +20,7 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const guards = [
   { name: 'registry integrity', script: 'check-registry.mjs', args: [] },
   { name: 'guide projection', script: 'project-guide-registry.mjs', args: ['--check'] },
+  { name: 'guidance projection', script: 'project-guidance-to-reference.mjs', args: ['--check'] },
   { name: 'example categories', script: 'check-example-categories.mjs', args: [] },
 ];
 
