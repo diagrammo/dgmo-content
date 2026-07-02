@@ -7,7 +7,7 @@
       "id": "arc",
       "kind": "type",
       "base": null,
-      "name": "Arc (with Chord layout)",
+      "name": "Arc",
       "family": "data",
       "intent": [
         "relationships"
