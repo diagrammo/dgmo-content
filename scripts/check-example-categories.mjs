@@ -1,17 +1,18 @@
 #!/usr/bin/env node
-// Guard: an example file's directory (data/business/software/project) must match
-// its chart type's canonical family — guide/registry.json `group`. This is the
-// one remaining physical copy of family; this check keeps it from drifting.
+// Guard: an example file lives in the folder named for its BASE TYPE
+// (examples/pie/pie-donut.dgmo). Family is no longer in the path — it lives only
+// in registry.json (Part 3 of the registry model). This replaces the old
+// folder==family check; it keeps the physical layout aligned with the model.
 //
 // Usage: node scripts/check-example-categories.mjs [contentRoot]
 // contentRoot defaults to the dir this script lives under (dgmo-content).
 
-import { readFileSync, readdirSync, existsSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync, statSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = process.argv[2] ?? join(dirname(fileURLToPath(import.meta.url)), '..');
-const registryPath = join(root, 'guide', 'registry.json');
+const registryPath = join(root, 'registry.json');
 const examplesDir = join(root, 'examples');
 
 if (!existsSync(registryPath) || !existsSync(examplesDir)) {
@@ -20,45 +21,44 @@ if (!existsSync(registryPath) || !existsSync(examplesDir)) {
 }
 
 const registry = JSON.parse(readFileSync(registryPath, 'utf8'));
-const groupOf = new Map(); // chart id -> group
-for (const p of registry.pages ?? []) {
-  if (p.slug?.startsWith('chart-')) groupOf.set(p.slug.slice('chart-'.length), p.group);
-}
-const chartIds = [...groupOf.keys()];
+const typeIds = registry.entities.filter((e) => e.kind === 'type').map((e) => e.id);
 
-// Longest chart id that `stem` is (id) or starts with (id-<variant>).
+// Longest type id that `stem` is (id) or starts with (id-<variant>).
 function baseType(stem) {
   let best = null;
-  for (const id of chartIds) {
+  for (const id of typeIds) {
     if ((stem === id || stem.startsWith(`${id}-`)) && (!best || id.length > best.length)) best = id;
   }
   return best;
 }
 
-// Categorized example dirs; `docs` holds prose/embed assets, not corpus examples.
-const CAT_DIRS = ['data', 'business', 'software', 'project'];
+// `docs` holds prose + embed-target fixtures, not corpus examples — skip it.
+const SKIP_DIRS = new Set(['docs']);
 let errors = 0;
 let checked = 0;
 
-for (const dir of CAT_DIRS) {
+for (const dir of readdirSync(examplesDir)) {
   const abs = join(examplesDir, dir);
-  if (!existsSync(abs)) continue;
+  if (SKIP_DIRS.has(dir) || !statSync(abs).isDirectory()) continue;
   for (const file of readdirSync(abs)) {
     if (!file.endsWith('.dgmo')) continue;
     const stem = file.slice(0, -'.dgmo'.length);
     const type = baseType(stem);
-    if (!type) continue; // custom-named fixture — no canonical family to check
+    if (!type) {
+      console.error(`✗ examples/${dir}/${file} — filename matches no chart type`);
+      errors++;
+      continue;
+    }
     checked++;
-    const expected = groupOf.get(type);
-    if (expected && expected !== dir) {
-      console.error(`✗ examples/${dir}/${file} — ${type} belongs in "${expected}" (registry group), not "${dir}"`);
+    if (type !== dir) {
+      console.error(`✗ examples/${dir}/${file} — ${stem} belongs in "${type}/" (its base type), not "${dir}/"`);
       errors++;
     }
   }
 }
 
 if (errors > 0) {
-  console.error(`\n${errors} example(s) in the wrong category folder.`);
+  console.error(`\n${errors} example(s) in the wrong folder.`);
   process.exit(1);
 }
-console.log(`✓ ${checked} example(s) match their registry category.`);
+console.log(`✓ ${checked} example(s) sit in their base-type folder.`);

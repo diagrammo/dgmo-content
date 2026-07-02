@@ -2907,7 +2907,7 @@
     {
       "id": "arc",
       "entity": "arc",
-      "file": "examples/data/arc.dgmo",
+      "file": "examples/arc/arc.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -2928,7 +2928,7 @@
     {
       "id": "arc-ordered",
       "entity": "arc-ordered",
-      "file": "examples/data/arc-ordered.dgmo",
+      "file": "examples/arc/arc-ordered.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -2949,7 +2949,7 @@
     {
       "id": "bar",
       "entity": "bar",
-      "file": "examples/data/bar.dgmo",
+      "file": "examples/bar/bar.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -2970,7 +2970,7 @@
     {
       "id": "bar-grouped",
       "entity": "bar-grouped",
-      "file": "examples/data/bar-grouped.dgmo",
+      "file": "examples/bar/bar-grouped.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -2991,7 +2991,7 @@
     {
       "id": "bar-horizontal",
       "entity": "bar-horizontal",
-      "file": "examples/data/bar-horizontal.dgmo",
+      "file": "examples/bar/bar-horizontal.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3012,7 +3012,7 @@
     {
       "id": "bar-solid-fill",
       "entity": "bar",
-      "file": "examples/data/bar-solid-fill.dgmo",
+      "file": "examples/bar/bar-solid-fill.dgmo",
       "isPrimary": false,
       "status": "draft",
       "placements": [
@@ -3025,7 +3025,7 @@
     {
       "id": "bar-stacked",
       "entity": "bar-stacked",
-      "file": "examples/data/bar-stacked.dgmo",
+      "file": "examples/bar/bar-stacked.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3046,7 +3046,7 @@
     {
       "id": "block",
       "entity": "block",
-      "file": "examples/software/block.dgmo",
+      "file": "examples/block/block.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3067,7 +3067,7 @@
     {
       "id": "boxes-and-lines",
       "entity": "boxes-and-lines",
-      "file": "examples/software/boxes-and-lines.dgmo",
+      "file": "examples/boxes-and-lines/boxes-and-lines.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3088,7 +3088,7 @@
     {
       "id": "c4",
       "entity": "c4",
-      "file": "examples/software/c4.dgmo",
+      "file": "examples/c4/c4.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3109,7 +3109,7 @@
     {
       "id": "c4-components",
       "entity": "c4-components",
-      "file": "examples/software/c4-components.dgmo",
+      "file": "examples/c4/c4-components.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3130,7 +3130,7 @@
     {
       "id": "c4-containers",
       "entity": "c4-containers",
-      "file": "examples/software/c4-containers.dgmo",
+      "file": "examples/c4/c4-containers.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3151,7 +3151,7 @@
     {
       "id": "c4-context",
       "entity": "c4-context",
-      "file": "examples/software/c4-context.dgmo",
+      "file": "examples/c4/c4-context.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3172,7 +3172,7 @@
     {
       "id": "c4-deployment",
       "entity": "c4-deployment",
-      "file": "examples/software/c4-deployment.dgmo",
+      "file": "examples/c4/c4-deployment.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3193,7 +3193,7 @@
     {
       "id": "class",
       "entity": "class",
-      "file": "examples/software/class.dgmo",
+      "file": "examples/class/class.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3214,7 +3214,7 @@
     {
       "id": "cycle",
       "entity": "cycle",
-      "file": "examples/business/cycle.dgmo",
+      "file": "examples/cycle/cycle.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3235,7 +3235,7 @@
     {
       "id": "cycle-circle-nodes",
       "entity": "cycle",
-      "file": "examples/business/cycle-circle-nodes.dgmo",
+      "file": "examples/cycle/cycle-circle-nodes.dgmo",
       "isPrimary": false,
       "status": "draft",
       "placements": [
@@ -3248,7 +3248,7 @@
     {
       "id": "cycle-counterclockwise",
       "entity": "cycle-counterclockwise",
-      "file": "examples/business/cycle-counterclockwise.dgmo",
+      "file": "examples/cycle/cycle-counterclockwise.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3269,7 +3269,7 @@
     {
       "id": "er",
       "entity": "er",
-      "file": "examples/software/er.dgmo",
+      "file": "examples/er/er.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3290,7 +3290,7 @@
     {
       "id": "er-labels",
       "entity": "er-labels",
-      "file": "examples/software/er-labels.dgmo",
+      "file": "examples/er/er-labels.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3311,7 +3311,7 @@
     {
       "id": "event-line",
       "entity": "event-line",
-      "file": "examples/project/event-line.dgmo",
+      "file": "examples/event-line/event-line.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3332,7 +3332,7 @@
     {
       "id": "flowchart",
       "entity": "flowchart",
-      "file": "examples/software/flowchart.dgmo",
+      "file": "examples/flowchart/flowchart.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3353,7 +3353,7 @@
     {
       "id": "flowchart-lr",
       "entity": "flowchart-lr",
-      "file": "examples/software/flowchart-lr.dgmo",
+      "file": "examples/flowchart/flowchart-lr.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3374,7 +3374,7 @@
     {
       "id": "function",
       "entity": "function",
-      "file": "examples/data/function.dgmo",
+      "file": "examples/function/function.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3395,7 +3395,7 @@
     {
       "id": "function-shade",
       "entity": "function",
-      "file": "examples/data/function-shade.dgmo",
+      "file": "examples/function/function-shade.dgmo",
       "isPrimary": false,
       "status": "draft",
       "placements": [
@@ -3408,7 +3408,7 @@
     {
       "id": "funnel",
       "entity": "funnel",
-      "file": "examples/business/funnel.dgmo",
+      "file": "examples/funnel/funnel.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3429,7 +3429,7 @@
     {
       "id": "gantt",
       "entity": "gantt",
-      "file": "examples/project/gantt.dgmo",
+      "file": "examples/gantt/gantt.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3450,7 +3450,7 @@
     {
       "id": "gantt-critical-path",
       "entity": "gantt-critical-path",
-      "file": "examples/project/gantt-critical-path.dgmo",
+      "file": "examples/gantt/gantt-critical-path.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3471,7 +3471,7 @@
     {
       "id": "heatmap",
       "entity": "heatmap",
-      "file": "examples/data/heatmap.dgmo",
+      "file": "examples/heatmap/heatmap.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3492,7 +3492,7 @@
     {
       "id": "infra",
       "entity": "infra",
-      "file": "examples/software/infra.dgmo",
+      "file": "examples/infra/infra.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3513,7 +3513,7 @@
     {
       "id": "journey-map",
       "entity": "journey-map",
-      "file": "examples/business/journey-map.dgmo",
+      "file": "examples/journey-map/journey-map.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3534,7 +3534,7 @@
     {
       "id": "kanban",
       "entity": "kanban",
-      "file": "examples/project/kanban.dgmo",
+      "file": "examples/kanban/kanban.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3555,7 +3555,7 @@
     {
       "id": "line",
       "entity": "line",
-      "file": "examples/data/line.dgmo",
+      "file": "examples/line/line.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3576,7 +3576,7 @@
     {
       "id": "line-area",
       "entity": "line-area",
-      "file": "examples/data/line-area.dgmo",
+      "file": "examples/line/line-area.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3597,7 +3597,7 @@
     {
       "id": "line-multi-series",
       "entity": "line-multi-series",
-      "file": "examples/data/line-multi-series.dgmo",
+      "file": "examples/line/line-multi-series.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3618,7 +3618,7 @@
     {
       "id": "map",
       "entity": "map",
-      "file": "examples/business/map.dgmo",
+      "file": "examples/map/map.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3639,7 +3639,7 @@
     {
       "id": "mindmap",
       "entity": "mindmap",
-      "file": "examples/software/mindmap.dgmo",
+      "file": "examples/mindmap/mindmap.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3660,7 +3660,7 @@
     {
       "id": "org",
       "entity": "org",
-      "file": "examples/business/org.dgmo",
+      "file": "examples/org/org.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3681,7 +3681,7 @@
     {
       "id": "pert",
       "entity": "pert",
-      "file": "examples/project/pert.dgmo",
+      "file": "examples/pert/pert.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3702,7 +3702,7 @@
     {
       "id": "pie",
       "entity": "pie",
-      "file": "examples/data/pie.dgmo",
+      "file": "examples/pie/pie.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3723,7 +3723,7 @@
     {
       "id": "pie-donut",
       "entity": "pie-donut",
-      "file": "examples/data/pie-donut.dgmo",
+      "file": "examples/pie/pie-donut.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3744,7 +3744,7 @@
     {
       "id": "pie-no-center-total",
       "entity": "pie",
-      "file": "examples/data/pie-no-center-total.dgmo",
+      "file": "examples/pie/pie-no-center-total.dgmo",
       "isPrimary": false,
       "status": "draft",
       "placements": [
@@ -3757,7 +3757,7 @@
     {
       "id": "polar-area",
       "entity": "polar-area",
-      "file": "examples/data/polar-area.dgmo",
+      "file": "examples/polar-area/polar-area.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3778,7 +3778,7 @@
     {
       "id": "pyramid",
       "entity": "pyramid",
-      "file": "examples/business/pyramid.dgmo",
+      "file": "examples/pyramid/pyramid.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3799,7 +3799,7 @@
     {
       "id": "pyramid-inverted",
       "entity": "pyramid-inverted",
-      "file": "examples/business/pyramid-inverted.dgmo",
+      "file": "examples/pyramid/pyramid-inverted.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3820,7 +3820,7 @@
     {
       "id": "quadrant",
       "entity": "quadrant",
-      "file": "examples/business/quadrant.dgmo",
+      "file": "examples/quadrant/quadrant.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3841,7 +3841,7 @@
     {
       "id": "raci",
       "entity": "raci",
-      "file": "examples/project/raci.dgmo",
+      "file": "examples/raci/raci.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3862,7 +3862,7 @@
     {
       "id": "raci-rasci",
       "entity": "raci-rasci",
-      "file": "examples/project/raci-rasci.dgmo",
+      "file": "examples/raci/raci-rasci.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3883,7 +3883,7 @@
     {
       "id": "radar",
       "entity": "radar",
-      "file": "examples/data/radar.dgmo",
+      "file": "examples/radar/radar.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3904,7 +3904,7 @@
     {
       "id": "radar-multi-series",
       "entity": "radar-multi-series",
-      "file": "examples/data/radar-multi-series.dgmo",
+      "file": "examples/radar/radar-multi-series.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3925,7 +3925,7 @@
     {
       "id": "ring",
       "entity": "ring",
-      "file": "examples/business/ring.dgmo",
+      "file": "examples/ring/ring.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3946,7 +3946,7 @@
     {
       "id": "sankey",
       "entity": "sankey",
-      "file": "examples/business/sankey.dgmo",
+      "file": "examples/sankey/sankey.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3967,7 +3967,7 @@
     {
       "id": "scatter",
       "entity": "scatter",
-      "file": "examples/data/scatter.dgmo",
+      "file": "examples/scatter/scatter.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3988,7 +3988,7 @@
     {
       "id": "scatter-bubble",
       "entity": "scatter-bubble",
-      "file": "examples/data/scatter-bubble.dgmo",
+      "file": "examples/scatter/scatter-bubble.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -4009,7 +4009,7 @@
     {
       "id": "sequence",
       "entity": "sequence",
-      "file": "examples/software/sequence.dgmo",
+      "file": "examples/sequence/sequence.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -4030,7 +4030,7 @@
     {
       "id": "sequence-groups",
       "entity": "sequence-groups",
-      "file": "examples/software/sequence-groups.dgmo",
+      "file": "examples/sequence/sequence-groups.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -4051,7 +4051,7 @@
     {
       "id": "sequence-protocols",
       "entity": "sequence-protocols",
-      "file": "examples/software/sequence-protocols.dgmo",
+      "file": "examples/sequence/sequence-protocols.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -4072,7 +4072,7 @@
     {
       "id": "sitemap",
       "entity": "sitemap",
-      "file": "examples/software/sitemap.dgmo",
+      "file": "examples/sitemap/sitemap.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -4093,7 +4093,7 @@
     {
       "id": "slope",
       "entity": "slope",
-      "file": "examples/data/slope.dgmo",
+      "file": "examples/slope/slope.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -4114,7 +4114,7 @@
     {
       "id": "state",
       "entity": "state",
-      "file": "examples/software/state.dgmo",
+      "file": "examples/state/state.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -4135,7 +4135,7 @@
     {
       "id": "swimlane",
       "entity": "swimlane",
-      "file": "examples/business/swimlane.dgmo",
+      "file": "examples/swimlane/swimlane.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -4156,7 +4156,7 @@
     {
       "id": "tech-radar",
       "entity": "tech-radar",
-      "file": "examples/business/tech-radar.dgmo",
+      "file": "examples/tech-radar/tech-radar.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -4177,7 +4177,7 @@
     {
       "id": "timeline",
       "entity": "timeline",
-      "file": "examples/project/timeline.dgmo",
+      "file": "examples/timeline/timeline.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -4198,7 +4198,7 @@
     {
       "id": "treemap",
       "entity": "treemap",
-      "file": "examples/data/treemap.dgmo",
+      "file": "examples/treemap/treemap.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -4219,7 +4219,7 @@
     {
       "id": "venn",
       "entity": "venn",
-      "file": "examples/business/venn.dgmo",
+      "file": "examples/venn/venn.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -4240,7 +4240,7 @@
     {
       "id": "version-control",
       "entity": "version-control",
-      "file": "examples/software/version-control.dgmo",
+      "file": "examples/version-control/version-control.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -4261,7 +4261,7 @@
     {
       "id": "wireframe",
       "entity": "wireframe",
-      "file": "examples/software/wireframe.dgmo",
+      "file": "examples/wireframe/wireframe.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -4282,7 +4282,7 @@
     {
       "id": "wordcloud",
       "entity": "wordcloud",
-      "file": "examples/business/wordcloud.dgmo",
+      "file": "examples/wordcloud/wordcloud.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
