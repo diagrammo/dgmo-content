@@ -2937,10 +2937,6 @@
           "role": "docs"
         },
         {
-          "surface": "new-file",
-          "role": "starter"
-        },
-        {
           "surface": "obsidian",
           "role": "sampler"
         }
@@ -3160,10 +3156,6 @@
           "role": "docs"
         },
         {
-          "surface": "new-file",
-          "role": "starter"
-        },
-        {
           "surface": "obsidian",
           "role": "sampler"
         }
@@ -3257,10 +3249,6 @@
           "role": "docs"
         },
         {
-          "surface": "new-file",
-          "role": "starter"
-        },
-        {
           "surface": "obsidian",
           "role": "sampler"
         }
@@ -3297,10 +3285,6 @@
         {
           "surface": "docs",
           "role": "docs"
-        },
-        {
-          "surface": "new-file",
-          "role": "starter"
         },
         {
           "surface": "obsidian",
@@ -3360,10 +3344,6 @@
         {
           "surface": "docs",
           "role": "docs"
-        },
-        {
-          "surface": "new-file",
-          "role": "starter"
         },
         {
           "surface": "obsidian",
@@ -3457,10 +3437,6 @@
         {
           "surface": "docs",
           "role": "docs"
-        },
-        {
-          "surface": "new-file",
-          "role": "starter"
         },
         {
           "surface": "obsidian",
@@ -3604,10 +3580,6 @@
         {
           "surface": "docs",
           "role": "docs"
-        },
-        {
-          "surface": "new-file",
-          "role": "starter"
         },
         {
           "surface": "obsidian",
@@ -3871,10 +3843,6 @@
           "role": "docs"
         },
         {
-          "surface": "new-file",
-          "role": "starter"
-        },
-        {
           "surface": "obsidian",
           "role": "sampler"
         }
@@ -3911,10 +3879,6 @@
         {
           "surface": "docs",
           "role": "docs"
-        },
-        {
-          "surface": "new-file",
-          "role": "starter"
         },
         {
           "surface": "obsidian",
@@ -4039,10 +4003,6 @@
           "role": "docs"
         },
         {
-          "surface": "new-file",
-          "role": "starter"
-        },
-        {
           "surface": "obsidian",
           "role": "sampler"
         }
@@ -4058,10 +4018,6 @@
         {
           "surface": "docs",
           "role": "docs"
-        },
-        {
-          "surface": "new-file",
-          "role": "starter"
         },
         {
           "surface": "obsidian",
