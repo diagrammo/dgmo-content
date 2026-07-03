@@ -169,6 +169,35 @@ services
 
 The default mode is resolved from the source — **tags declared → tag**; else **any heat present → heat**; else **branch** (each top-level branch a distinct hue, tinted with depth). The desktop app adds a runtime tag/heat/branch switcher in the legend — live preview only, it never edits the source.
 
+## Radial mode — sunburst / hierarchical pie
+
+Add a bare `radial` line and the same hierarchy renders as a **sunburst** — a hierarchical, multi-ring pie. The center disc is the whole (the chart title + grand total), the first ring is your top-level groups, and each outer ring breaks a group into its parts. It's the familiar "slices of a circle" read of the exact same data a treemap shows as rectangles:
+
+```dgmo
+treemap Plunder Spend ($k)
+radial
+
+tag Crew as t
+  Deck blue
+  Guns orange
+  Stores green
+
+Sailing & Rigging t: Deck
+  Rigging 320
+  Helm 180
+  Lookout 140
+Cannon Battery t: Guns
+  Powder 90
+  Shot 130
+Provisions t: Stores
+  Rum 110
+  Hardtack 70
+```
+
+Everything carries over: tags, the `heat` ramp, and `no-values` / `no-percent` / `no-legend`. `no-headers` has no effect (a sunburst has no header bars). An arc's **angle** is its share of the whole (`value ÷ grand total`); the **radius** is just depth and carries no magnitude — so slices are laid out in **source order** (not value-sorted), and very thin arcs drop their inline label to avoid clutter.
+
+**When to reach for radial vs. rectangular:** use the sunburst for **shallow trees (≈3 levels or fewer)** and when you want the "part of a whole" circle. For **deep trees or precise magnitude comparison, prefer the rectangular treemap** — because radius carries no magnitude, deep sunbursts thin out and the eye over-weights the outer rings. For flat, single-level data with no hierarchy, use the [pie chart](chart-pie.md) instead.
+
 ## Interactivity
 
 In the desktop app, containers carry a focus icon and are **drillable** — click anywhere in a region to zoom into it (its box stays as context), and click its header again to zoom back out. A drilled branch keeps the color it had when expanded. Static export renders the whole tree.
