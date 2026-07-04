@@ -9,16 +9,16 @@
       "label": "Software"
     },
     {
-      "id": "data",
-      "label": "Data"
+      "id": "project",
+      "label": "Project"
     },
     {
       "id": "business",
       "label": "Business"
     },
     {
-      "id": "project",
-      "label": "Project"
+      "id": "data",
+      "label": "Data"
     }
   ],
   "pages": [
