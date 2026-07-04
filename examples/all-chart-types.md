@@ -1530,6 +1530,7 @@ tag Theme as t
   Protocol blue
   Browser green
   Platform purple
+  Standard orange
 
 [The Early Web]
   1991 WorldWideWeb  t: Protocol
