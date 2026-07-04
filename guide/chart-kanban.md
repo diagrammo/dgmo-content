@@ -122,6 +122,28 @@ tag Assignee as a
 - `alias` provides a short name for the tag (e.g., `a` instead of `assignee`)
 - Colors are shown as dots on each card
 
+## Swimlanes
+
+Slice the board into horizontal swimlanes by a tag group with `lane-by GroupName`. Each tag value gets its own lane, so cards split into rows (by owner, team, priority) while keeping their columns:
+
+```
+kanban Sprint Board
+lane-by Team
+
+tag Team as t
+  Frontend blue
+  Backend purple
+
+[To Do]
+Login page t: Frontend
+Rate limiting t: Backend
+
+[Done]
+Landing page t: Frontend
+```
+
+It's named `lane-by` rather than `swimlane` because `swimlane` is its own chart type. This directive is persisted from the app's swimlane picker, so it lives in the source and every renderer honors it.
+
 ## Complete Example
 
 ```dgmo

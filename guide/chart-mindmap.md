@@ -86,7 +86,7 @@ Nice-to-haves collapsed: true
   Export PDF
 ```
 
-Collapsed nodes show a drill-bar indicating hidden children. Click to expand.
+Collapsed nodes show a drill-bar indicating hidden children. Click to expand. Because `collapsed: true` lives in the source, it's portable view-state: every renderer (app, CLI, remark-dgmo, Obsidian, code-fence embeds) reproduces the collapsed view from the `.dgmo` alone. In the app, collapsing or expanding a node writes or removes this marker in the source.
 
 ## Multi-Root
 
@@ -130,6 +130,22 @@ tag Priority as p
 | Option | Effect |
 |--------|--------|
 | `active-tag GroupName` | Choose which group colors nodes (first declared is active by default; `none` suppresses coloring) |
+| `color-by-depth` | Bare flag — color nodes by their depth in the tree instead of by tag (off by default) |
+
+`color-by-depth` is persisted from the app's **Depth Colors** toggle. Add it on its own line to shade each level of the tree a different color:
+
+```
+mindmap Root
+color-by-depth
+
+Strategy
+  Research
+    Interviews
+  Development
+    MVP
+```
+
+Because it lives in the source, a shared or exported diagram keeps depth coloring on, and every renderer honors it.
 
 With a single tag group there's nothing to set — it's active automatically. `active-tag` only matters once you declare two or more groups and want one other than the first to drive the colors. Place it on its own line before content:
 

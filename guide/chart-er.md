@@ -174,6 +174,22 @@ notation labels
 
 This replaces crow's foot markers with text like `1`, `*`, and `0..1`.
 
+## Semantic Colors
+
+By default, ER diagrams tint columns by their key role — primary keys and foreign keys get distinct semantic colors so the schema's structure reads at a glance. Add `no-semantic-colors` on its own line to turn this off and render every column neutral:
+
+```
+er
+no-semantic-colors
+
+ships
+  id int pk
+  name varchar
+  home_port int fk
+```
+
+This directive is persisted from the app's **Semantic colors** toggle, so it lives in the `.dgmo` source — a shared or exported diagram keeps whichever choice you made, and every renderer honors it.
+
 ## Notes
 
 Attach a hide-able annotation to a table with `note <Table> text`. The note floats beside the table as a folded-corner box (it never moves the table). Indent lines below the heading for a multi-line body with bullets and inline markdown; end the heading with a lowercase color word to recolor it. `no-notes` suppresses every note.

@@ -268,10 +268,10 @@ The default workweek is Mon-Fri. Override with `workweek` using a day range (`su
 
 ## Swimlane Mode
 
-Use `sort tag:Name` to reorganize the chart into horizontal swimlanes grouped by tag value:
+Use `lane-by GroupName` to reorganize the chart into horizontal swimlanes grouped by tag value:
 
 ```
-sort tag:Crew
+lane-by Crew
 
 tag Crew as c
   Sailors blue
@@ -283,7 +283,7 @@ tag Crew as c
   Chart Routes 10bd
 ```
 
-Each tag value gets its own collapsible lane. In the app, click the swimlane icon on a tag pill to switch between swimlane groups.
+Each tag value gets its own collapsible lane. It's named `lane-by` rather than `swimlane` because `swimlane` is its own chart type. `sort tag:GroupName` is an accepted back-compat spelling of the same thing. This directive is persisted from the app's swimlane picker, so it lives in the source and every renderer honors it. In the app, click the swimlane icon on a tag pill to switch between swimlane groups.
 
 ## Settings
 

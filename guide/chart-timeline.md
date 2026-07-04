@@ -236,11 +236,11 @@ Multiple tags can be separated by commas.
 
 ### Tag-Based Swimlanes
 
-Use `sort: tag` or `sort: tag:GroupName` to arrange events into swimlanes by tag value:
+Use `lane-by GroupName` to arrange events into swimlanes by tag value:
 
 ```dgmo
 timeline Project Roadmap
-sort tag:Team
+lane-by Team
 
 tag Team
   Engineering blue
@@ -258,8 +258,11 @@ tag Priority
 2024-02 -> 2024-04 Design System Team: Design, Priority: Low
 ```
 
-- `sort tag` — uses the first declared tag group for swimlanes
-- `sort tag:GroupName` — uses a specific tag group (aliases work: `sort tag:t` resolves to `sort tag:Team`)
+- `lane-by GroupName` — the swimlane axis; uses that tag group for lanes (aliases work: `lane-by t` resolves to `lane-by Team`)
+- It's named `lane-by` rather than `swimlane` because `swimlane` is its own chart type
+- `sort tag:GroupName` and `swimlanes` are accepted back-compat spellings
+
+This directive is persisted from the app's swimlane picker, so it lives in the source and every renderer honors it.
 
 ### Interactive Legend
 
