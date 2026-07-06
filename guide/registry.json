@@ -121,7 +121,7 @@
     {
       "slug": "chart-mindmap",
       "title": "Mind Map",
-      "group": "software",
+      "group": "business",
       "intent": [
         "hierarchy"
       ],

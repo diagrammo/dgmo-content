@@ -1472,7 +1472,7 @@
       "kind": "type",
       "base": null,
       "name": "Mind Map",
-      "family": "software",
+      "family": "business",
       "intent": [
         "hierarchy"
       ],
@@ -2706,7 +2706,7 @@
           "kind": "trigger"
         }
       ],
-      "guidance": "Put the unit in the title (`Cloud Spend ($)`) — there is no currency/format directive. Reach for `depth N` once a tree goes past ~3 levels (deeper subtrees collapse to a drillable block) and `other-below N` to fold a long tail of tiny categories into one **Other** box. Pick the color mode to match intent: tags for categories, `heat` for a gain/loss heatmap, branch for zero-config structure.",
+      "guidance": "Put the unit in the title (`Cloud Spend ($)`) — there is no currency/format directive. Reach for `depth N` once a tree goes past ~3 levels (deeper subtrees collapse to a drillable block) and `other-below N` to fold a long tail of tiny categories into one **Other** box. Pick the color mode to match intent: tags for categories, `heat` for a gain/loss heatmap, branch for zero-config structure. Add `radial` to render a **sunburst / hierarchical pie** — best for shallow trees where you want \"share of a circle\"; keep the rectangular default for deep trees or precise magnitude comparison.",
       "description": null
     },
     {
