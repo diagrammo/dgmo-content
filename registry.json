@@ -2381,6 +2381,49 @@
       "description": "Site / app navigation structure"
     },
     {
+      "id": "sketch",
+      "kind": "type",
+      "base": null,
+      "name": "Sketch",
+      "family": "software",
+      "intent": [
+        "relationships"
+      ],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "sketch",
+          "kind": "trigger"
+        },
+        {
+          "text": "whiteboard",
+          "kind": "trigger"
+        },
+        {
+          "text": "free-form boxes",
+          "kind": "trigger"
+        },
+        {
+          "text": "canvas diagram",
+          "kind": "trigger"
+        },
+        {
+          "text": "rough architecture sketch",
+          "kind": "trigger"
+        },
+        {
+          "text": "drag and drop diagram",
+          "kind": "trigger"
+        },
+        {
+          "text": "place shapes on a canvas",
+          "kind": "trigger"
+        }
+      ],
+      "guidance": "Sketch is a GUI-authored format — the desktop and web canvas editors generate this markup, so hand-writing it is the exception. If you generate it anyway: keep it SMALL (sketches read best under ~15 shapes), and either omit `at:` everywhere (shapes flow into rows) or use integer half-slot coordinates with shapes at least 2 half-slots apart on one axis. Alias any shape an edge references (`as con`). Never write `size:`, colors, fonts, or a `shape:` outside the closed set (database, queue, cloud, person, document, note). In sketch, `~` dashed means secondary emphasis, NOT async. Categorize with a tag group instead of reaching for more shape kinds — kind-of-thing is meaning, and meaning lives in tags. Reach for `sketch` when the drawing itself is the content; reach for `boxes-and-lines` when topology should auto-lay-out.",
+      "description": "GUI-first constrained canvas — place shapes, connect, tag"
+    },
+    {
       "id": "slope",
       "kind": "type",
       "base": null,
@@ -4029,6 +4072,27 @@
       "id": "sitemap",
       "entity": "sitemap",
       "file": "examples/sitemap/sitemap.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "sketch",
+      "entity": "sketch",
+      "file": "examples/sketch/sketch.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [

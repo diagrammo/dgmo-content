@@ -65,6 +65,15 @@
       "file": "chart-block.md"
     },
     {
+      "slug": "chart-sketch",
+      "title": "Sketch",
+      "group": "software",
+      "intent": [
+        "relationships"
+      ],
+      "file": "chart-sketch.md"
+    },
+    {
       "slug": "chart-boxes-and-lines",
       "title": "Boxes and Lines",
       "group": "software",
