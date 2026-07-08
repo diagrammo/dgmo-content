@@ -1210,23 +1210,11 @@ ports
 flowchart Mutiny Resolution
 direction-tb
 
-[Sail] Set sail under the captain
-{Trouble?} Discontent in the crew?
-[Hold]   Hold steady, stay loyal
-{Vote}   Crew vote called
-[Mutiny] Seize the ship
-[Maroon] Maroon the captain
-[New]    Elect a new captain
-
-(Sail) -> (Trouble?)
-(Trouble?) -No-> (Sail)
-(Trouble?) -Yes-> (Vote)
-(Vote) -Stay-> (Hold)
-(Vote) -Mutiny-> (Mutiny)
-(Mutiny) -> (Maroon)
-(Maroon) -> (New)
-(New) -> (Sail)
-(Hold) -> (Sail)
+(Weigh Anchor) -> [Set Sail] -> <Crew Discontent?>
+  -no-> (Reach Port)
+  -yes-> [Call a Vote] -> <Vote Outcome?>
+    -loyal-> [Hold Steady] -> (Reach Port)
+    -mutiny-> [Seize the Ship] -> [Maroon the Captain] -> (Elect New Captain)
 ```
 
 ---
