@@ -2511,6 +2511,57 @@
       "description": "State machine / lifecycle transitions"
     },
     {
+      "id": "family",
+      "kind": "type",
+      "base": null,
+      "name": "Family",
+      "family": "business",
+      "intent": [
+        "relationships"
+      ],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "family tree",
+          "kind": "trigger"
+        },
+        {
+          "text": "genealogy",
+          "kind": "trigger"
+        },
+        {
+          "text": "ancestry",
+          "kind": "trigger"
+        },
+        {
+          "text": "ancestors",
+          "kind": "trigger"
+        },
+        {
+          "text": "descendants",
+          "kind": "trigger"
+        },
+        {
+          "text": "pedigree",
+          "kind": "trigger"
+        },
+        {
+          "text": "lineage",
+          "kind": "trigger"
+        },
+        {
+          "text": "bloodline",
+          "kind": "trigger"
+        },
+        {
+          "text": "dynasty",
+          "kind": "trigger"
+        }
+      ],
+      "guidance": "Two line shapes carry the whole tree: a **person line** (`Anne b: 1665, sex: f`) and a **union line** (`Anne + Jack m: 1701`), with children indented under the union. Declare each person **standalone** with their full metadata — per-side metadata on a union line is unsupported and re-stating a name just re-references the same person. Set `sex:` so cards color (m→blue, f→purple), but **treat the legend as the real sex channel**: blue and purple separate weakly under the 25% tint, so where color-vision matters distinguish with a `tag` group (labeled legend entries) instead. Reuse a name in a second union for remarriage (one card, two bars); a lone person with indented children is a single parent; a bare trailing `adopted` token marks an adopted child.",
+      "description": "Genealogy / family tree — people, unions, and descent"
+    },
+    {
       "id": "swimlane",
       "kind": "type",
       "base": null,
@@ -4135,6 +4186,27 @@
       "id": "state",
       "entity": "state",
       "file": "examples/state/state.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "family",
+      "entity": "family",
+      "file": "examples/family/family.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [

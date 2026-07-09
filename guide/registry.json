@@ -450,6 +450,15 @@
         "trend-over-time"
       ],
       "file": "chart-event-line.md"
+    },
+    {
+      "slug": "chart-family",
+      "title": "Family",
+      "group": "business",
+      "intent": [
+        "relationships"
+      ],
+      "file": "chart-family.md"
     }
   ]
 }

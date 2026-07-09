@@ -1,0 +1,30 @@
+family The Blackwater Buccaneers
+
+tag Allegiance as flag
+  Founders green
+  Brethren red
+  Crown blue
+
+Redbeard b: 1638, d: 1701, sex: m, occupation: Captain, military: Sacked three ports, flag: Founders
+Blackheart Bess b: 1642, d: 1699, sex: f, occupation: Quartermaster, flag: Founders
+
+Redbeard + Blackheart Bess m: 1660
+  Anne b: 1662, sex: f, occupation: Pirate King, flag: Brethren
+  Mad Mary b: 1665, sex: f, occupation: Powder Monkey
+
+"Long John Silver" b: 1658, sex: m, occupation: Cook
+One-Eyed Pete b: 1660, d: 1712, sex: m, occupation: Bosun, flag: Crown
+
+Anne + "Long John Silver" m: 1685
+  Young Jack b: 1686, sex: m, occupation: Navigator
+  Grace b: 1689, sex: f, occupation: Sailmaker, flag: Brethren
+
+Anne + One-Eyed Pete m: 1698
+  Sally b: 1699, sex: f, occupation: Lookout
+
+Mad Mary sex: f
+  Tom b: 1690, sex: m, occupation: Cabin Boy
+
+Young Jack + Calico Kate m: 1712
+  Ned b: 1713, sex: m, occupation: Gunner
+  Pearl b: 1715, sex: f, occupation: Cartographer adopted

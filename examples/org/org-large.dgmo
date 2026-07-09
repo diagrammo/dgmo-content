@@ -1,4 +1,5 @@
 org The Grand Corsair Armada
+active-tag rank
 solid-fill
 sub-node-label Crew
 show-sub-node-count

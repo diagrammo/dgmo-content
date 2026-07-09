@@ -1,5 +1,6 @@
 event-line Product Milestones
-no-scale
+//no-scale
+no-box
 
 tag Track as t
   Product blue
