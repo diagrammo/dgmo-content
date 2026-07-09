@@ -1622,7 +1622,7 @@ tag Crew
   Deck
   Hold
 
-Spyglass Feed shape: cloud, at: 0 0, crew: Deck
+Spyglass Feed shape: database, at: 0 0, crew: Deck
   -sightings-> con
 Captain's Console as con at: 2 0, crew: Deck
   -orders-> bq

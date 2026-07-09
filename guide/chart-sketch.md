@@ -5,7 +5,7 @@ tag Crew
   Deck
   Hold
 
-Spyglass Feed shape: cloud, at: 0 0, crew: Deck
+Spyglass Feed shape: database, at: 0 0, crew: Deck
   -sightings-> con
 Captain's Console as con at: 2 0, crew: Deck
   -orders-> bq
@@ -31,7 +31,7 @@ Reach for `sketch` when the drawing _is_ the content. Reach for `boxes-and-lines
 ```
 sketch Title
 
-Spyglass Feed shape: cloud, at: 0 0    // a bare name + same-line metadata
+Spyglass Feed shape: database, at: 0 0    // a bare name + same-line metadata
 Captain's Console as con at: 2 0       // `as` gives it a handle for edges
   -orders-> con                        // an edge, indented under its source
 ```
@@ -40,18 +40,17 @@ The first line declares the chart type and an optional title. Each top-level lin
 
 ## Shapes
 
-A shape is a **bare name** with optional same-line `key: value` metadata. `shape:` morphs it from the default rectangle:
+Every shape renders as an **org-style card**: a header with the name, a rule, and a row per tag the shape carries (`Group: value`). A shape is a **bare name** with optional same-line `key: value` metadata. `shape:` sets a small **type badge** in the card header:
 
-| Value      | Looks like                          |
-| ---------- | ----------------------------------- |
-| `database` | cylinder                            |
-| `queue`    | pill / capsule                      |
-| `cloud`    | cloud                               |
-| `person`   | card with a torso-head icon         |
-| `document` | page with a wavy bottom             |
-| `note`     | sticky card with left-aligned text  |
+| Value      | Header badge                                |
+| ---------- | ------------------------------------------- |
+| `database` | cylinder                                    |
+| `queue`    | capsule                                     |
+| `person`   | torso-head                                  |
+| `document` | page with a wavy bottom                     |
+| `note`     | sticky card, left-aligned text (no header)  |
 
-A rectangle is the default and is never written. Every shape is the same fixed size — there is no resizing; the label always fits (it shrinks, then wraps, then ellipsizes). Kind-of-thing is meaning, and meaning lives in tags — so the shape set stays small on purpose.
+A rectangle is the default (no badge) and is never written. Every card is the same fixed size — there is no resizing; the name fits on one line (it shrinks, then ellipsizes). Kind-of-thing is a hint; meaning lives in tags — so the shape set stays small on purpose.
 
 ## Coordinates
 
