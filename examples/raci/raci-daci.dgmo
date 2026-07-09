@@ -1,0 +1,29 @@
+raci Captain's Council Decisions
+roles
+  Captain
+  Quartermaster
+  Navigator
+  Bosun
+
+[Raid Planning]
+  Choose the next prize
+    Navigator: D
+    Captain: A
+    Quartermaster: C
+    Bosun: I
+  Set the attack heading
+    Navigator: D A
+    Captain: C
+  Divide the boarding parties
+    Bosun: D
+    Captain: A
+    Quartermaster: C
+
+[Provisioning]
+  Ration the grog
+    Quartermaster: D A
+    Bosun: C
+  Restock the powder
+    Quartermaster: D
+    Captain: A
+    Bosun: I

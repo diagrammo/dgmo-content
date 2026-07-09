@@ -7,6 +7,7 @@
  *   1. check-registry            registry.json structural integrity + gaps
  *   2. project-guide --check     guide/registry.json is a faithful projection
  *   3. check-example-categories  every example sits in its registry category
+ *   4. build-all-chart-types     all-chart-types.md matches its .dgmo sources
  *
  * The MCP trigger-vocabulary guard lives in the sibling repo (it owns
  * triggers.json): run `pnpm -C ../dgmo-mcp check:triggers` there. It's not
@@ -22,6 +23,7 @@ const guards = [
   { name: 'guide projection', script: 'project-guide-registry.mjs', args: ['--check'] },
   { name: 'guidance projection', script: 'project-guidance-to-reference.mjs', args: ['--check'] },
   { name: 'example categories', script: 'check-example-categories.mjs', args: [] },
+  { name: 'all-chart-types showcase', script: 'build-all-chart-types.mjs', args: ['--check'] },
 ];
 
 let failed = 0;

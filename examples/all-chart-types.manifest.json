@@ -1,0 +1,81 @@
+{
+  "$comment": "Curation surface for examples/all-chart-types.md. Diagram SOURCE lives only in the referenced .dgmo files — this file just selects, orders, groups, and labels them. Edit a .dgmo to fix a diagram; edit this to change which/where/what-it's-called. Regenerate with: node scripts/build-all-chart-types.mjs",
+  "header": "examples/all-chart-types.header.md",
+  "footer": "examples/all-chart-types.footer.md",
+  "sections": [
+    {
+      "title": "Data",
+      "blocks": [
+        { "heading": "Arc Diagram", "file": "examples/arc/arc.dgmo" },
+        { "heading": "Area Chart (line + fill)", "file": "examples/line/line-area.dgmo" },
+        { "heading": "Bar Chart", "file": "examples/bar/bar.dgmo" },
+        { "heading": "Bar Chart (stacked)", "file": "examples/bar/bar-stacked.dgmo" },
+        { "heading": "Bubble Chart (scatter + size)", "file": "examples/scatter/scatter-bubble.dgmo" },
+        { "heading": "Arc — Chord Layout", "file": "examples/arc/arc-chord.dgmo" },
+        { "heading": "Doughnut Chart (pie + hole)", "file": "examples/pie/pie-donut.dgmo" },
+        { "heading": "Function Plot", "file": "examples/function/function.dgmo" },
+        { "heading": "Funnel Chart", "file": "examples/funnel/funnel.dgmo" },
+        { "heading": "Heatmap", "file": "examples/heatmap/heatmap.dgmo" },
+        { "heading": "Line Chart", "file": "examples/line/line.dgmo" },
+        { "heading": "Line Chart (Multi-series)", "file": "examples/line/line-multi-series.dgmo" },
+        { "heading": "Pie Chart", "file": "examples/pie/pie.dgmo" },
+        { "heading": "Polar Area Chart", "file": "examples/polar-area/polar-area.dgmo" },
+        { "heading": "Radar Chart", "file": "examples/radar/radar.dgmo" },
+        { "heading": "Sankey Diagram", "file": "examples/sankey/sankey.dgmo" },
+        { "heading": "Scatter Plot", "file": "examples/scatter/scatter.dgmo" },
+        { "heading": "Slope Chart", "file": "examples/slope/slope.dgmo" },
+        { "heading": "Treemap", "file": "examples/treemap/treemap.dgmo" },
+        { "heading": "Sunburst (treemap radial)", "file": "examples/treemap/treemap-radial.dgmo" }
+      ]
+    },
+    {
+      "title": "Business",
+      "blocks": [
+        { "heading": "Cycle Diagram", "file": "examples/cycle/cycle.dgmo" },
+        { "heading": "Family", "file": "examples/family/family.dgmo" },
+        { "heading": "Journey Map", "file": "examples/journey-map/journey-map.dgmo" },
+        { "heading": "Map", "file": "examples/map/map.dgmo" },
+        { "heading": "Org Chart", "file": "examples/org/org.dgmo" },
+        { "heading": "Pyramid Diagram", "file": "examples/pyramid/pyramid.dgmo" },
+        { "heading": "Quadrant Chart", "file": "examples/quadrant/quadrant.dgmo" },
+        { "heading": "Ring Diagram", "file": "examples/ring/ring.dgmo" },
+        { "heading": "Swimlane", "file": "examples/swimlane/swimlane.dgmo" },
+        { "heading": "Tech Radar", "file": "examples/tech-radar/tech-radar.dgmo" },
+        { "heading": "Venn Diagram", "file": "examples/venn/venn.dgmo" },
+        { "heading": "Word Cloud", "file": "examples/wordcloud/wordcloud.dgmo" }
+      ]
+    },
+    {
+      "title": "Project",
+      "blocks": [
+        { "heading": "DACI", "file": "examples/raci/raci-daci.dgmo" },
+        { "heading": "Gantt Chart", "file": "examples/gantt/gantt.dgmo" },
+        { "heading": "Kanban Board", "file": "examples/kanban/kanban.dgmo" },
+        { "heading": "PERT", "file": "examples/pert/pert.dgmo" },
+        { "heading": "RACI Matrix", "file": "examples/raci/raci.dgmo" },
+        { "heading": "RASCI", "file": "examples/raci/raci-rasci.dgmo" },
+        { "heading": "Timeline", "file": "examples/timeline/timeline.dgmo" }
+      ]
+    },
+    {
+      "title": "Software",
+      "blocks": [
+        { "heading": "Boxes and Lines", "file": "examples/boxes-and-lines/boxes-and-lines.dgmo" },
+        { "heading": "C4 Architecture", "file": "examples/c4/c4.dgmo" },
+        { "heading": "Class Diagram", "file": "examples/class/class.dgmo" },
+        { "heading": "Entity Relationship", "file": "examples/er/er.dgmo" },
+        { "heading": "Flowchart", "file": "examples/flowchart/flowchart.dgmo" },
+        { "heading": "Infrastructure Diagram", "file": "examples/infra/infra.dgmo" },
+        { "heading": "Mindmap", "file": "examples/mindmap/mindmap.dgmo" },
+        { "heading": "Sequence Diagram", "file": "examples/sequence/sequence.dgmo" },
+        { "heading": "Sitemap", "file": "examples/sitemap/sitemap.dgmo" },
+        { "heading": "State Diagram", "file": "examples/state/state.dgmo" },
+        { "heading": "Version Control", "file": "examples/version-control/version-control.dgmo" },
+        { "heading": "Wireframe", "file": "examples/wireframe/wireframe.dgmo" },
+        { "heading": "Event Line", "file": "examples/event-line/event-line.dgmo" },
+        { "heading": "Block", "file": "examples/block/block.dgmo" },
+        { "heading": "Sketch", "file": "examples/sketch/sketch.dgmo" }
+      ]
+    }
+  ]
+}
