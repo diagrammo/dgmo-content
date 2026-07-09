@@ -1,0 +1,106 @@
+org The Grand Corsair Armada
+solid-fill
+sub-node-label Crew
+show-sub-node-count
+
+tag Rank as r
+  Admiral red
+  Commodore orange
+  Captain yellow
+  FirstMate green
+  Quartermaster teal
+  Bosun blue
+  Gunner purple
+  Navigator cyan
+  Swab gray
+
+tag Ship as s
+  Leviathan blue
+  Kraken green
+  Tempest purple
+  Maelstrom orange
+  Banshee red
+
+tag Status as st
+  Loyal green
+  Turncoat red
+  NewRecruit yellow
+
+Admiral Vane r: Admiral, s: Leviathan
+  Commodore Hollows r: Commodore, s: Leviathan
+    Captain Ironsides r: Captain, s: Leviathan
+      Mad Morgan r: FirstMate
+        [Gun Deck]
+          Cannonball Pete r: Gunner
+          Smokey Jack r: Gunner, st: NewRecruit
+          Powder Meg r: Swab
+          Flint Barlow r: Gunner
+          Sooty Ned r: Swab, st: Turncoat
+        [Boarding Party]
+          Cutlass Jim r: Bosun
+          Red Mary r: Swab
+          One-Eyed Dan st: Turncoat
+          Grim Tobias r: Swab
+      Salty Bess r: Quartermaster
+        [Cargo Hold]
+          Barnacle Bob r: Swab
+          Slippery Sal st: Turncoat
+          Crate Willie r: Swab
+    Captain Dunmore r: Captain, s: Kraken
+      Longshanks Kate r: FirstMate, st: NewRecruit
+        [Rigging Crew]
+          Monkey Fist r: Bosun
+          Pegleg Pete r: Swab
+          Crow Jane r: Swab
+          Halyard Hugh r: Bosun
+        [Navigation]
+          Stargazer Quinn r: Navigator
+          Compass Rose r: Navigator, st: NewRecruit
+          Sextant Sam r: Swab
+      Deadeye Doyle r: Quartermaster
+        [Powder Store]
+          Fuse Fenwick r: Gunner
+          Keg Kelby r: Swab
+  Commodore Ashgrove r: Commodore, s: Tempest
+    Captain Rourke r: Captain, s: Tempest
+      Thunder Tess r: FirstMate
+        [Foredeck]
+          Rope Rankin r: Bosun
+          Tar Timmons r: Swab
+          Splice Sorrel r: Swab, st: NewRecruit
+        [Sick Bay]
+          Leech Lorne r: Swab
+          Bandage Bink r: Swab
+      Ledger Locke r: Quartermaster
+        [Purser Office]
+          Coin Crabbe r: Swab
+          Tally Tuggs r: Swab, st: Turncoat
+    Captain Wren r: Captain, s: Maelstrom
+      Gale Gunderson r: FirstMate, st: NewRecruit
+        [Sailmaker Loft]
+          Canvas Cobb r: Bosun
+          Needle Nan r: Swab
+          Grommet Gil r: Swab
+        [Watch Crew]
+          Lookout Lem r: Navigator
+          Nightglass Nia r: Navigator
+          Bell Barrow r: Swab
+      Anchor Ames r: Quartermaster
+        [Chain Locker]
+          Rust Riddle r: Swab
+          Hook Halloran r: Bosun
+  Captain Sabre r: Captain, s: Banshee
+    Whisper Wilde r: FirstMate
+      [Shadow Crew]
+        Silent Cade r: Bosun
+        Cloak Cora r: Swab, st: Turncoat
+        Murk Mallory r: Swab
+        Dagger Dov r: Gunner
+      [Signal Deck]
+        Flag Fergus r: Navigator
+        Lantern Lise r: Swab
+    Ember Ashby r: Quartermaster
+      [Galley]
+        Broth Beaumont r: Swab
+        Hardtack Hollis r: Swab
+        Grease Greta r: Swab
