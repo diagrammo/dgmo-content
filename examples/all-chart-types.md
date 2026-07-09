@@ -1,3 +1,5 @@
+<!-- GENERATED — do not edit. Author examples/all-chart-types.src.md (![[…]] embeds), then run: node scripts/expand-dgmo-embeds.mjs examples/all-chart-types.src.md examples/all-chart-types.md -->
+
 # Diagrammo — All Chart Types
 
 > Every `dgmo` code fence below renders a different chart type, and the prose

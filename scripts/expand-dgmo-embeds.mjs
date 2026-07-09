@@ -32,15 +32,21 @@ if (!src || !out) {
 const EMBED = /^!\[\[\s*([^|\]]+?\.dgmo)\s*(?:\|[^\]]*)?\]\]\s*$/;
 const srcDir = dirname(resolve(src));
 
-const expanded = readFileSync(src, 'utf8')
-  .split('\n')
-  .map((line) => {
-    const m = line.match(EMBED);
-    if (!m) return line;
-    const body = readFileSync(resolve(srcDir, m[1].trim()), 'utf8').replace(/\s+$/, '');
-    return '```dgmo\n' + body + '\n```';
-  })
-  .join('\n');
+const BANNER =
+  '<!-- GENERATED — do not edit. Author examples/all-chart-types.src.md (![[…]] embeds), ' +
+  'then run: node scripts/expand-dgmo-embeds.mjs examples/all-chart-types.src.md examples/all-chart-types.md -->\n\n';
+
+const expanded =
+  BANNER +
+  readFileSync(src, 'utf8')
+    .split('\n')
+    .map((line) => {
+      const m = line.match(EMBED);
+      if (!m) return line;
+      const body = readFileSync(resolve(srcDir, m[1].trim()), 'utf8').replace(/\s+$/, '');
+      return '```dgmo\n' + body + '\n```';
+    })
+    .join('\n');
 
 if (check) {
   let current = '';
