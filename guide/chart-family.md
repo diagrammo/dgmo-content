@@ -124,6 +124,66 @@ Anne + Jack m: 1701
 
 A literal person actually **named** "Adopted" must be **quoted** (`"Adopted"`) so the token reads as a name rather than the flag.
 
+## Divorce
+
+A union line ending in a **bare `divorced` token** marks a dissolved marriage; its marriage bar renders **dashed**. The token is union-level and sits after any `m:` year — children still attach:
+
+```dgmo
+family Divorce
+
+Alice + Bob m: 1980 divorced
+  Carol b: 1982
+  Dave b: 1985
+```
+
+## Deceased
+
+A person carrying a **death year (`d:`)** is automatically marked with a muted **dagger (†)** before their name — the standard genealogy convention. It's derived: there's no flag to set. Living people (no `d:`) are left unmarked.
+
+## Unknown or Private People
+
+A bare **`?`** where a name is expected renders an **anonymous placeholder** — a muted, dashed, name-only card — for a gap in the tree (an unknown parent, a private individual). Each `?` is a **distinct** person; two `?` never merge:
+
+```dgmo
+family Unknown Parent
+
+? + Mary Read
+  Anne Bonny b: 1697, sex: f
+```
+
+## Generation Labels
+
+Add the option `generations` to draw a left gutter with **Roman-numeral** row labels (`Gen I`, `Gen II`, …) — handy for orienting a deep tree:
+
+```dgmo
+family Generations
+
+generations
+
+Jack + Grace
+  Ned + Anne
+    Tom
+```
+
+## Highlighting a Lineage
+
+The directive `highlight <name>` **dims** everyone **outside** that person's bloodline — their ancestors, descendants, and the spouses of that line stay fully lit while collateral relatives (siblings, cousins, in-laws) fade. Use it to trace one line through a large tree:
+
+```dgmo
+family Lineage
+
+highlight Anne
+
+Jack + Grace
+  Anne + Ned
+    Tom
+  Mabel
+```
+
+## Ordering
+
+Within a union, children are automatically ordered **eldest → left** by their birth year (`b:`). Children without a `b:` keep their declaration order and follow the dated ones.
+
 ## Colors
 
 When a person carries `sex:`, their card takes a default color: `m` → blue, `f` → purple, unset → gray (a named-palette color at 25% tint). An explicit **tag** or an inline **`(color)`** on the person overrides the sex color.
