@@ -293,6 +293,61 @@
       "description": null
     },
     {
+      "id": "body",
+      "kind": "type",
+      "base": null,
+      "name": "Body",
+      "family": "life",
+      "intent": [
+        "part-to-whole"
+      ],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "anatomy",
+          "kind": "trigger"
+        },
+        {
+          "text": "human body",
+          "kind": "trigger"
+        },
+        {
+          "text": "muscle",
+          "kind": "trigger"
+        },
+        {
+          "text": "muscle groups",
+          "kind": "trigger"
+        },
+        {
+          "text": "musculature",
+          "kind": "trigger"
+        },
+        {
+          "text": "muscular system",
+          "kind": "trigger"
+        },
+        {
+          "text": "workout",
+          "kind": "trigger"
+        },
+        {
+          "text": "exercise",
+          "kind": "trigger"
+        },
+        {
+          "text": "fitness",
+          "kind": "trigger"
+        },
+        {
+          "text": "body diagram",
+          "kind": "trigger"
+        }
+      ],
+      "guidance": "Reach for `body` when the drawing IS the human figure — colour muscle groups over a skin layer to show which parts a workout targets, where an injury sits, or how the musculature is organised. Choose the figure with `male`/`female` and `front`/`back`; each named muscle group takes a tag so the legend carries the meaning. Best for fitness, medical, exercise, and educational diagrams — not for generic part-to-whole (that's `pie`/`treemap`).",
+      "description": "Human anatomy figure — colorable muscle groups over a skin layer"
+    },
+    {
       "id": "boxes-and-lines",
       "kind": "type",
       "base": null,
