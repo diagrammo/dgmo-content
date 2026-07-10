@@ -142,7 +142,7 @@ A person carrying a **death year (`d:`)** is automatically marked with a muted *
 
 ## Unknown or Private People
 
-A bare **`?`** where a name is expected renders an **anonymous placeholder** — a muted, dashed, name-only card — for a gap in the tree (an unknown parent, a private individual). Each `?` is a **distinct** person; two `?` never merge:
+A bare **`?`** where a name is expected renders an **anonymous placeholder** — a faint, solid-bordered, name-only card — for a gap in the tree (an unknown parent, a private individual). Each `?` is a **distinct** person; two `?` never merge:
 
 ```dgmo
 family Unknown Parent
