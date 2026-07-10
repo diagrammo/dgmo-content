@@ -153,7 +153,7 @@ family Unknown Parent
 
 ## Generation Labels
 
-Add the option `generations` to draw a left gutter with **Roman-numeral** row labels (`Gen I`, `Gen II`, …) — handy for orienting a deep tree:
+Add the option `generations` to draw a left gutter with **Roman-numeral** row labels (`Gen I`, `Gen II`, …) plus **subtle zebra shading** behind alternating generations — handy for orienting a deep tree and seeing who shares a generation:
 
 ```dgmo
 family Generations
