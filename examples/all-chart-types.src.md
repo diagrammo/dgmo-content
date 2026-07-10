@@ -140,6 +140,10 @@ const plunder = ships.reduce((sum, s) => sum + s.gold, 0);
 
 ## Business
 
+### Body
+
+![[body/body.dgmo]]
+
 ### Cycle Diagram
 
 ![[cycle/cycle.dgmo]]

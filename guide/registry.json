@@ -463,6 +463,15 @@
         "relationships"
       ],
       "file": "chart-family.md"
+    },
+    {
+      "slug": "chart-body",
+      "title": "Body",
+      "group": "life",
+      "intent": [
+        "part-to-whole"
+      ],
+      "file": "chart-body.md"
     }
   ]
 }
