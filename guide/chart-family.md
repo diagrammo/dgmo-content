@@ -138,7 +138,7 @@ Alice + Bob m: 1980 divorced
 
 ## Deceased
 
-A person carrying a **death year (`d:`)** is automatically marked with a muted **dagger (†)** before their name — the standard genealogy convention. It's derived: there's no flag to set. Living people (no `d:`) are left unmarked.
+A person carrying a **death year (`d:`)** is automatically marked with a muted **dagger (†)** before their name — the standard genealogy convention. It's derived: there's no flag to set. Living people (no `d:`) are left unmarked. Prefer no marker? Add the `no-daggers` option to turn it off (the death year still shows in the year row).
 
 ## Unknown or Private People
 
