@@ -64,21 +64,19 @@ const plunder = ships.reduce((sum, s) => sum + s.gold, 0);
 
 ```dgmo
 arc Pirate Alliances
-//order appearance name, group, degree
 
-// Source -> Target weight
 [Caribbean] red
   Blackbeard -> Bonnet    8
   Blackbeard -> Vane      5
   Blackbeard -> Hornigold 4
   Hornigold  -> Bonnet    2
 
-[Women Pirates] purple
+[Women Pirates] green
   Bonny   -> Rackham 9
   Bonny   -> Read    7
   Rackham -> Vane    3
 
-[West Africa] teal
+[West Africa] blue
   Roberts -> Davis    6
   Davis   -> Roberts 10
 ```
@@ -134,10 +132,10 @@ stack
   Spices yellow
   Rum green
 
-Spanish Main 480 320 210 150
-Barbary Coast 360 290 340 180
+Spanish Main     480 320 210 150
+Barbary Coast    360 290 340 180
 Windward Passage 520 410 160 240
-Coral Run 300 260 380 200
+Coral Run        300 260 380 200
 ```
 
 ### Bubble Chart (scatter + size)
@@ -491,7 +489,7 @@ Mad Mary sex: f
 
 Young Jack + Calico Kate m: 1712
   Ned b: 1713, sex: m, occupation: Gunner
-  Pearl b: 1715, sex: f, occupation: Cartographer adopted
+  Pearl adopted, b: 1715, sex: f, occupation: Cartographer
 ```
 
 ### Journey Map
@@ -1205,6 +1203,8 @@ deployment
 ```dgmo
 class Ship Class Hierarchy
 
+solid-fill 
+
 interface Vessel
   + sail(): void
   + anchor(): void
@@ -1560,7 +1560,8 @@ wireframe Pirate Crew Portal
 
 ```dgmo
 event-line Product Milestones
-no-scale
+//no-scale
+no-box
 
 tag Track as t
   Product blue
@@ -1599,6 +1600,7 @@ tag Track as t
 ```dgmo
 block Web Service Architecture
 
+solid-fill
 
 tag Layer as l
   Edge blue

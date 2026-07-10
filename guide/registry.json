@@ -19,6 +19,10 @@
     {
       "id": "data",
       "label": "Data"
+    },
+    {
+      "id": "life",
+      "label": "Life"
     }
   ],
   "pages": [
@@ -454,7 +458,7 @@
     {
       "slug": "chart-family",
       "title": "Family",
-      "group": "business",
+      "group": "life",
       "intent": [
         "relationships"
       ],

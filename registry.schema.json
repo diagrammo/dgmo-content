@@ -21,7 +21,7 @@
           "kind": { "enum": ["type", "variant"] },
           "base": { "type": ["string", "null"] },
           "name": { "type": "string" },
-          "family": { "enum": ["data", "business", "software", "project"] },
+          "family": { "enum": ["data", "business", "software", "project", "life"] },
           "intent": { "type": "array", "items": { "type": "string" } },
           "produces": { "type": ["string", "null"] },
           "keywords": {
