@@ -472,6 +472,33 @@
         "part-to-whole"
       ],
       "file": "chart-body.md"
+    },
+    {
+      "slug": "chart-goal",
+      "title": "Goal",
+      "group": "life",
+      "intent": [
+        "part-to-whole"
+      ],
+      "file": "chart-goal.md"
+    },
+    {
+      "slug": "chart-countdown",
+      "title": "Countdown",
+      "group": "life",
+      "intent": [
+        "change-over-time"
+      ],
+      "file": "chart-countdown.md"
+    },
+    {
+      "slug": "chart-bracket",
+      "title": "Bracket",
+      "group": "life",
+      "intent": [
+        "hierarchy"
+      ],
+      "file": "chart-bracket.md"
     }
   ]
 }

@@ -1,0 +1,21 @@
+bracket AL Playoffs
+rounds Wild Card, Division, Championship
+
+tag Ticketing as tk
+  MLB Ballpark blue
+  Ticketmaster orange
+
+[American League]
+  seed 1 Blue Jays tk: MLB Ballpark
+  seed 2 Mariners tk: Ticketmaster
+  seed 3 Yankees tk: MLB Ballpark
+  seed 4 Red Sox tk: Ticketmaster
+  seed 5 Tigers tk: Ticketmaster
+  seed 6 Guardians tk: MLB Ballpark
+  Guardians beats Yankees 2-1
+    Guardians stun the 3-seed — **walk-off** in the 11th.
+    - Wild Card MVP: José Ramírez
+  Red Sox beats Tigers 2-1 @ Red Sox
+  Blue Jays beats Red Sox 3-1
+  Mariners beats Guardians 3-2
+  Blue Jays beats Mariners 4-3

@@ -2617,6 +2617,49 @@
       "description": "Genealogy / family tree — people, unions, and descent"
     },
     {
+      "id": "countdown",
+      "kind": "type",
+      "base": null,
+      "name": "Countdown",
+      "family": "life",
+      "intent": [
+        "change-over-time"
+      ],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "countdown",
+          "kind": "trigger"
+        },
+        {
+          "text": "days until",
+          "kind": "trigger"
+        },
+        {
+          "text": "time until",
+          "kind": "trigger"
+        },
+        {
+          "text": "count down to",
+          "kind": "trigger"
+        },
+        {
+          "text": "days remaining",
+          "kind": "trigger"
+        },
+        {
+          "text": "launch countdown",
+          "kind": "trigger"
+        },
+        {
+          "text": "deadline",
+          "kind": "trigger"
+        }
+      ],
+      "guidance": "The only dynamic chart — it ticks every second and is accurate on every load, so use it for a live \"N days until X\" widget, not a static report. Keep the title to the event (`Trip to Japan`); the target date renders as a caption automatically. `target` is a space-separated `key value` directive (no colon): a bare date (`2026-08-21`) counts to the viewer's local midnight, a datetime or offset is honored. Default `units days` reads best for weeks/months out; use `units full` for a launch-day `Nd HH:MM:SS` clock. Set `expired` to the celebration text (`🚀 Shipped!`); after the target passes every live surface shows it and the tick stops. On images (PNG export, `.svg` via `<img>`, GitHub camo) it can't tick and shows the whole-day count baked at export time — the correct fallback.",
+      "description": "Live \"N days until X\" that ticks every second and is accurate on every load — trip dates, launches, deadlines; the only dynamic chart type"
+    },
+    {
       "id": "swimlane",
       "kind": "type",
       "base": null,

@@ -152,6 +152,30 @@ const plunder = ships.reduce((sum, s) => sum + s.gold, 0);
 
 ![[family/family.dgmo]]
 
+### Goal
+
+![[goal/goal.dgmo]]
+
+### Goal (gauge)
+
+![[goal/goal-gauge.dgmo]]
+
+### Countdown
+
+![[countdown/countdown.dgmo]]
+
+### Countdown (recurring, numbered)
+
+![[countdown/countdown-anniversary.dgmo]]
+
+### Bracket
+
+![[bracket/bracket.dgmo]]
+
+### Bracket (seeded, two sides)
+
+![[bracket/bracket-seeded.dgmo]]
+
 ### Journey Map
 
 ![[journey-map/journey-map.dgmo]]
