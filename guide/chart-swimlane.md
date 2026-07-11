@@ -2,26 +2,17 @@
 swimlane Expense Approval
 direction LR
 
-lane Employee gray
-lane Manager blue
-lane Finance green
-
 [Submit]
-  Employee
-    File Expense
+  lane Employee gray
+    File Expense -> <Approve>
 [Review]
-  Manager
+  lane Manager blue
     <Approve>
-    (!Rejected)
+      -deny-> (!Rejected)
+      -approve-> Reimburse
 [Pay]
-  Finance
-    Reimburse
-    (Paid) success
-
-File Expense -> <Approve>
-<Approve>
-  -deny-> (!Rejected)
-  -approve-> Reimburse -> (Paid)
+  lane Finance green
+    Reimburse -> (Paid) success
 ```
 
 ## Overview
@@ -37,17 +28,14 @@ swimlane Title
 direction LR
 
 lane Role A color
+  First Step -> Second Step
 lane Role B color
-
-Role A
-  First Step
-Role B
   Second Step
-
-First Step -> Second Step
 ```
 
-A swimlane file has three parts: **lane declarations**, a **structure block** (which nodes live in which lane), and a **flow block** (the edges connecting them). Node names are global and must be unique.
+A swimlane is a set of **lane blocks**. A `lane` line declares a lane **and opens its block**: the indented lines beneath it are that lane's nodes and their outgoing edges, written inline. There is **no separate flow block** — a node and its wiring live together under the lane that owns it.
+
+A node is owned by the lane where it appears as a **line-head** (a bare node, or the source of an arrow); everywhere else the same name is a **reference**. References may point forward, to a node declared later or in another lane. Names are **lane-scoped**, so two lanes can each hold a `Review`; a bare reference resolves in its own lane first, then across all lanes — qualify it `Lane.Node` when a name is shared.
 
 ## Direction
 
@@ -57,11 +45,14 @@ A swimlane file has three parts: **lane declarations**, a **structure block** (w
 
 ```
 lane Customer gray
+  Open Ticket -> Investigate
 lane Support blue
+  Investigate -> Resolve
 lane Engineering red
+  Resolve
 ```
 
-Each `lane` declares a row (or column in TB) with a name and a color. Lane order top-to-bottom matches declaration order.
+Each `lane` declares a row (or column in TB) with a name and a color, and opens its block for the nodes/edges beneath it. Lane order matches first-appearance order; re-opening a lane later (or under another phase) resumes it.
 
 ## Node shapes
 
@@ -72,15 +63,7 @@ swimlane Shapes
 direction LR
 
 lane Flow blue
-
-Flow
-  Task
-  <Decision>
-  <+ Parallel>
-  [[Subprocess]]
-  (Done) success
-
-Task -> <Decision> -> <+ Parallel> -> [[Subprocess]] -> (Done)
+  Task -> <Decision> -> <+ Parallel> -> [[Subprocess]] -> (Done) success
 ```
 
 | Wrapper | Shape | Meaning |
@@ -90,6 +73,8 @@ Task -> <Decision> -> <+ Parallel> -> [[Subprocess]] -> (Done)
 | `<+ Name>` | diamond with `+` | parallel gateway (fork / join) |
 | `[[Name]]` | double-bordered box | subprocess |
 | `(Name)` | circle | terminal (start / end event) |
+
+A **bare** task name used as an edge target must be declared somewhere as a line-head — a typo'd target (`Approve -> Reimburze`) is flagged, not silently created. A **delimited** endpoint (`(Done)`, `<Gate>`, `[[Sub]]`) is created automatically the first time it's referenced, so terminals and gateways need no separate declaration.
 
 ### Terminals
 
@@ -105,41 +90,32 @@ A bare `(Name)` is a neutral terminal. Add a trailing keyword or `!` prefix to t
 
 ## Phases
 
-Wrap the structure block in `[Phase]` headers to group the flow into stages. Under each phase, indent the lane, then indent its nodes:
+Wrap lane blocks in `[Phase]` headers to group the flow into stages. Under each phase, indent the `lane` blocks, then their nodes:
 
 ```dgmo
 swimlane Hiring
 direction LR
 
-lane Candidate gray
-lane Recruiter blue
-lane Team green
-
 [Apply]
-  Candidate
-    Submit
+  lane Candidate gray
+    Submit -> <Phone Screen>
 [Screen]
-  Recruiter
+  lane Recruiter blue
     <Phone Screen>
-    (!Rejected)
-  Team
-    Interview
+      -no-> (!Rejected)
+      -yes-> Interview
+  lane Team green
+    Interview -> Send Offer
 [Offer]
-  Recruiter
-    Send Offer
-    (Hired) success
-
-Submit -> <Phone Screen>
-<Phone Screen>
-  -no-> (!Rejected)
-  -yes-> Interview -> Send Offer -> (Hired)
+  lane Recruiter blue
+    Send Offer -> (Hired) success
 ```
 
-Phases appear as labeled bands with subtle zebra striping behind the flow. A lane may appear under more than one phase.
+Phases appear as labeled bands with subtle zebra striping behind the flow. A lane may appear under more than one phase (Recruiter, above, spans Screen and Offer).
 
 ## Flow
 
-The flow block lists edges with `->`. Chain steps on one line, and indent branches under a shared source:
+Edges use `->`, written inline under the lane that owns the source. Chain steps on one line, and indent branches under a shared source:
 
 ```
 <Gate>
@@ -177,25 +153,19 @@ swimlane Build
 direction LR
 
 lane CI teal
-
-CI
-  Compile
+  Compile -> <+ Fork>
   <+ Fork>
-  Unit Tests
-  Lint
-  <+ Join>
+    -> Unit Tests
+    -> Lint
+  Unit Tests -> <+ Join>
+  Lint -> <+ Join>
+  <+ Join> -> Package
   Package
-
-Compile -> <+ Fork>
-<+ Fork>
-  -> Unit Tests -> <+ Join>
-  -> Lint -> <+ Join>
-<+ Join> -> Package
 ```
 
 ## Tags
 
-Tag groups add a second dimension — color a node by a category like risk or priority, independent of its lane. Declare the group, then apply it to a node with `alias: value`:
+Tag groups add a second dimension — color a node by a category like risk or priority, independent of its lane. Declare the group, then apply it to a node with `alias: value` (on the node's declaration or on a reference):
 
 ```dgmo
 swimlane Triage
@@ -206,12 +176,8 @@ tag Risk as r
   high red
 
 lane Ops blue
-
-Ops
-  Assess
+  Assess -> Patch
   Patch r: high
-
-Assess -> Patch
 ```
 
 ## Complete example
@@ -221,28 +187,17 @@ swimlane Incident Response
 direction TB
 
 lane Monitoring orange
+  Alert Fires -> <Ack in 5m>
 lane On-Call red
-lane Engineering blue
-lane Comms purple
-
-Monitoring
-  Alert Fires
-On-Call
   <Ack in 5m>
-  Triage
-Engineering
-  [[Mitigate]]
+    -no ack-> (!Escalate)
+    -acked-> Triage
+  Triage -> [[Mitigate]]
+lane Engineering blue
+  [[Mitigate]] -> <Resolved>
   <Resolved>
-Comms
-  Notify Status Page
-  (Closed) success
-  (!Escalate)
-
-Alert Fires -> <Ack in 5m>
-<Ack in 5m>
-  -no ack-> (!Escalate)
-  -acked-> Triage -> [[Mitigate]] -> <Resolved>
-<Resolved>
-  -still down-> [[Mitigate]]
-  -recovered-> Notify Status Page -> (Closed)
+    -still down-> [[Mitigate]]
+    -recovered-> Notify Status Page
+lane Comms purple
+  Notify Status Page -> (Closed) success
 ```
