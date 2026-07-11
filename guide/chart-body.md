@@ -79,26 +79,41 @@ calves
 
 ## Parts
 
-A **bare line** is a catalog muscle name for the active figure. Order does not matter — the figure is fixed; you are just choosing which muscles to light up.
+A **bare line** is a catalog name for the active figure. Order does not matter — the figure is fixed; you are just choosing what to light up. Which names are valid depends on the **view** (front vs back). An unknown name emits a warning and is skipped; the rest of the diagram still renders.
 
-- **Front muscles** — `neck`, `trapezius`, `chest`, `deltoids`, `biceps`, `triceps`, `forearm`, `abs`, `obliques`, `quadriceps`, `adductors`, `calves`, `tibialis`.
-- **Back muscles** — `trapezius`, `rear-delts`, `triceps`, `lats`, `lower-back`, `forearm`, `glutes`, `hamstring`, `calves`.
-- **Fine heads** also resolve — `vastus-lateralis`, `rectus-femoris`, `biceps-femoris`, `serratus-anterior`, and the other individual heads named in the catalog.
+### Muscles (muscle form)
 
-An unknown muscle name emits a warning and is skipped; the rest of the diagram still renders.
+**Front** — `neck`, `trapezius`, `deltoids`, `chest`, `serratus-anterior`, `biceps`, `triceps`, `forearm`, `abs`, `obliques`, `quadriceps`, `adductors`, `knees`, `tibialis`, `calves`, `hands`, `feet`, `ankles`. Female front also splits the shoulder into `front-delts` / `side-delts`.
+
+**Back** — `neck`, `trapezius`, `deltoids`, `rear-delts`, `lats`, `infraspinatus`, `teres`, `upper-back`, `lower-back`, `erector-spinae`, `quadratus-lumborum`, `triceps`, `forearm`, `gluteal`, `adductors`, `hamstring`, `calves`, `hands`, `feet`.
+
+**Fine heads** (either view, where the art splits them) — `abs-upper`, `abs-lower`, `forearm-flexors`, `forearm-extensors`, `vastus-lateralis`, `vastus-medialis`, `rectus-femoris`, `triceps-lateral`, `triceps-medial`, `triceps-long`, `glute-maximus`, `glute-medius`, `biceps-femoris`, `semitendinosus`, `semimembranosus`, `gastrocnemius-lateral`, `gastrocnemius-medial`, `soleus`.
+
+### Surface landmarks (skin form)
+
+In `skin` form you can also point at **surface features** — leader-only dots, no fill:
+
+**Face / head (front)** — `forehead`, `eye`, `nose`, `cheek`, `ear`, `mouth`, `jaw`, `chin`.
+**Torso (front)** — `throat`, `collarbone`, `sternum`, `belly`, `navel`, `hip`, `groin`.
+**Back** — `nape`, `ear`, `shoulder-blade`, `spine`, `hip`, `tailbone`.
+**Limbs (either view)** — `shoulder`, `elbow`, `wrist`, `hand`, `thigh`, `knee`, `shin`, `calf`, `foot`.
 
 ## Aliases
 
-Names accept **gym shorthand or formal anatomy** — both resolve to the same catalog muscle:
+Names accept **gym shorthand, formal anatomy, or plain-English surface words** — all resolve to the same catalog entry:
 
 | You type | Resolves to |
 |----------|-------------|
 | `pecs`, `pectoralis-major` | `chest` |
-| `quads` | `quadriceps` |
-| `glutes` | `gluteal` |
-| `lats` | `latissimus-dorsi` |
-| `delts` | `deltoids` |
+| `quads`, `quadriceps-femoris` | `quadriceps` |
+| `glutes`, `butt` | `gluteal` |
+| `lats`, `latissimus-dorsi` | `lats` |
+| `delts`, `shoulders` | `deltoids` |
 | `traps` | `trapezius` |
+| `hams` | `hamstring` |
+| `abs`, `rectus-abdominis` | `abs` |
+| `thigh` | `quadriceps` (front) / `hamstring` (back) |
+| `foot` → `feet`, `hand` → `hands`, `knee` → `knees`, `shin` → `tibialis` | region |
 
 ```dgmo
 body Gym Shorthand
@@ -108,6 +123,24 @@ front
 pecs
 delts
 quads
+```
+
+## Left / right
+
+Prefix any part with `left` or `right` to call out **one side only** (the figure's own anatomical side — on a front view `right` is the pec on the left of the image). It scopes both the fill and the leader, so a one-sided injury highlights one side alone. Works on muscles and surface landmarks.
+
+```dgmo
+body Injury Report
+skin
+
+tag Status as s
+  Torn red
+  Sore orange
+
+right pec    s: Torn
+  Bench tear
+left biceps  s: Sore
+right knee   s: Sore
 ```
 
 ## Tags & Color
