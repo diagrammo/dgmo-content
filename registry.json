@@ -2617,6 +2617,103 @@
       "description": "Genealogy / family tree — people, unions, and descent"
     },
     {
+      "id": "goal",
+      "kind": "type",
+      "base": null,
+      "name": "Goal",
+      "family": "life",
+      "intent": [
+        "part-to-whole"
+      ],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "goal",
+          "kind": "trigger"
+        },
+        {
+          "text": "progress toward a target",
+          "kind": "trigger"
+        },
+        {
+          "text": "how close am i",
+          "kind": "trigger"
+        },
+        {
+          "text": "percent complete",
+          "kind": "trigger"
+        },
+        {
+          "text": "completion percentage",
+          "kind": "trigger"
+        },
+        {
+          "text": "kpi tile",
+          "kind": "trigger"
+        },
+        {
+          "text": "fundraising thermometer",
+          "kind": "trigger"
+        },
+        {
+          "text": "quota",
+          "kind": "trigger"
+        },
+        {
+          "text": "target vs actual",
+          "kind": "trigger"
+        },
+        {
+          "text": "progress bar",
+          "kind": "trigger"
+        }
+      ],
+      "guidance": "A single progress-toward-a-target reading — one `now` against one `target`, answering \"how close am I?\". Reach for it for a KPI tile, a fundraising thermometer, a quarterly quota, or a completion percentage; there is no time axis, series, or milestones (use `line` for a trend, `countdown` for a live deadline). Put the **unit in the title** (`Marathon Fund ($)`, `Grog Barrel Fill (L)`) — there is no format/currency directive. `now` and `target` are **space-separated `key value`** directives, no colon (`now 6400` / `target 10000`); the percent is `now / target` and values auto-compact (`6.4k`, `1.2M`). Pick the face for the story with a bare flag on its own line: the default progress **bar** for a plain KPI, `thermometer` for fundraising/fill-the-tank framings, `gauge` for a speedometer/quota dial — all three read the same value pair. The fill is **auto traffic-light** by completion (`< 50%` red, `50–80%` orange, `≥ 80%` green; over-target stays green) so the color already reads the number's health — leave it unless you have reason to override with a trailing color on the title line (`goal Marathon Fund ($) green`) or `no-auto-color` (flat palette color). Over-target clamps the fill at 100% while the `%` label stays truthful (`120%`). Add a `note` — inline (`note Still waiting on three crews`) or a block header on its own line with an indented body — to caption the number with context (who's still owed, what's left); it takes simple markdown (`**bold**`, `*italic*`, `` `code` ``) and `- ` bullets. `solid-fill` for a bolder fill; `no-percent` / `no-value` / `no-title` / `no-note` to drop labels.",
+      "description": "Single progress-toward-a-target value (now vs target) as a bar, thermometer, or gauge — KPIs, fundraising, quotas"
+    },
+    {
+      "id": "goal-thermometer",
+      "kind": "variant",
+      "base": "goal",
+      "name": "Thermometer",
+      "family": "life",
+      "intent": [],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "thermometer goal",
+          "kind": "synonym"
+        },
+        {
+          "text": "fundraising thermometer",
+          "kind": "synonym"
+        }
+      ],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "goal-gauge",
+      "kind": "variant",
+      "base": "goal",
+      "name": "Gauge",
+      "family": "life",
+      "intent": [],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "gauge",
+          "kind": "synonym"
+        },
+        {
+          "text": "dial",
+          "kind": "synonym"
+        }
+      ],
+      "guidance": null,
+      "description": null
+    },
+    {
       "id": "countdown",
       "kind": "type",
       "base": null,
@@ -4319,6 +4416,70 @@
         {
           "surface": "obsidian",
           "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "goal",
+      "entity": "goal",
+      "file": "examples/goal/goal.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "goal-thermometer",
+      "entity": "goal-thermometer",
+      "file": "examples/goal/goal-thermometer.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "goal-gauge",
+      "entity": "goal-gauge",
+      "file": "examples/goal/goal-gauge.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "goal-no-auto-color",
+      "entity": "goal",
+      "file": "examples/goal/goal-no-auto-color.dgmo",
+      "isPrimary": false,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
         }
       ]
     },

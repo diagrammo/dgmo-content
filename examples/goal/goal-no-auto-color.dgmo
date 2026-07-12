@@ -1,0 +1,8 @@
+goal Cannon Readiness
+now 15
+target 20
+no-auto-color
+note
+  Traffic-light bands **off** — the fill takes the flat palette color instead of
+  going green at 75%. Reach for `no-auto-color` when the red/orange/green coding
+  fights a themed dashboard.
