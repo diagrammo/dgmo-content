@@ -8,7 +8,51 @@ target 10000
 
 A goal chart is a single **progress-toward-a-target** reading: one `now` value against one `target`, answering "how close am I?" at a glance. Reach for it for a KPI tile, a fundraising thermometer, a quarterly quota, or a completion percentage — anywhere one number racing toward one goal is the whole story. It has no time axis, no series, and no milestones; for a running clock use `countdown`, for a value over time use `line`.
 
-## Syntax
+## The three faces
+
+The face is the heart of a goal chart. The same `now`/`target` pair can be drawn three ways — **progress bar**, **thermometer**, or **gauge** — and the one you pick sets the whole mood of the reading. Choose the face first, then fill in the numbers. Select it with a **bare flag on its own line** (no colon, no value); omit the flag for the default bar.
+
+### Progress bar (default)
+
+The workhorse. A horizontal rounded fill — compact, honest, unmistakable. Reach for it for a plain KPI tile, a dashboard cell, or anywhere the number just needs to read at a glance. No flag needed.
+
+```dgmo
+goal Doubloons Plundered ($)
+now 6400
+target 10000
+```
+
+### Thermometer
+
+A vertical tube with a bulb; the column climbs as you fill it. This is the **"fill it up" face** — fundraising drives, tank/barrel levels, a stretch goal you're pouring into. It reads as a physical thing filling, which is why the classic charity fundraiser thermometer works.
+
+```dgmo
+goal Grog Barrel Fill (L)
+thermometer
+now 34
+target 50
+```
+
+### Gauge
+
+A semicircular dial with a needle sweeping an arc. This is the **"how's it running" face** — speedometers, utilization, capacity, quota attainment. The needle position gives an instant instrument-panel read, and it **pins at the max** when you blow past the target.
+
+```dgmo
+goal Voyage Quota (chests)
+gauge
+now 64
+target 100
+```
+
+> All three faces read the **same** `now`/`target` pair — the flag only changes the drawing, never the meaning. The percent, the traffic-light color, the labels, and the note all behave identically across faces.
+
+| Flag          | Face        | Reach for it when…                          |
+| ------------- | ----------- | ------------------------------------------- |
+| *(none)*      | Progress bar | a plain KPI / dashboard number.             |
+| `thermometer` | Thermometer  | fundraising or a "fill it up" framing.      |
+| `gauge`       | Gauge        | a speedometer / utilization / quota feel.   |
+
+## Values (`now` / `target`)
 
 ```
 goal Title with unit, e.g. "Marathon Fund ($)"
@@ -20,38 +64,15 @@ The first line declares the chart type and a title. Put the **unit in the title*
 
 The percent is simply `now / target`. Values auto-compact for display (`6.4k`, `1.2M`).
 
-## Faces
+## Color
 
-A bare-flag directive on its own line picks the render face (omit it for the default bar):
+By default the fill is **auto traffic-light** by completion: `< 50%` red, `50–80%` orange, `≥ 80%` green (over-target stays green) — so the color already reads the health of the number. Precedence:
 
-```dgmo
-goal Grog Barrel Fill (L)
-thermometer
-now 34
-target 50
-```
+1. A trailing color word on the title line (`goal Marathon Fund ($) green`) always wins.
+2. Otherwise the auto band color (needs a `target`).
+3. `no-auto-color` disables the bands and falls back to the flat palette series color.
 
-```dgmo
-goal Voyage Quota (chests)
-gauge
-now 64
-target 100
-```
-
-| Flag          | Face                                             |
-| ------------- | ------------------------------------------------ |
-| *(none)*      | Progress bar — horizontal rounded fill (default). |
-| `thermometer` | Vertical tube + bulb, column rises with progress. |
-| `gauge`       | Semicircular dial with a needle and value arc.    |
-
-All three read the **same** `now`/`target` pair — the flag only changes the drawing.
-
-## Over-target & edge cases
-
-- **Over target** (`now > target`): the fill clamps at 100% but the % label stays truthful (`120%`); the gauge needle pins at the max.
-- **Negative `now`**: the fill clamps to 0%, the label stays honest.
-- **Missing / non-positive `target`**: flagged as an error, but the chart still renders a 0% shell.
-- **Missing `now`**: treated as 0 with a warning.
+The fill is a light 25% tint of the resolved color; add `solid-fill` for full saturation.
 
 ## Note
 
@@ -69,17 +90,14 @@ note
   Top us off to `50L` and the shanties start.
 ```
 
-The body supports simple inline markdown (`**bold**`, `*italic*`, `` `code` ``), `- `/`* ` bullets, and blank-line gaps. It renders in the left column for `thermometer`/`gauge` and under the bar for the default face. `no-note` hides it even when authored.
+The body supports simple inline markdown (`**bold**`, `*italic*`, `` `code` ``), `- `/`* ` bullets, and blank-line gaps. It renders in the **left column** for `thermometer`/`gauge` and **under the bar** for the default face. `no-note` hides it even when authored.
 
-## Color
+## Over-target & edge cases
 
-By default the fill is **auto traffic-light** by completion: `< 50%` red, `50–80%` orange, `≥ 80%` green (over-target stays green) — so the color already reads the health of the number. Precedence:
-
-1. A trailing color word on the title line (`goal Marathon Fund ($) green`) always wins.
-2. Otherwise the auto band color (needs a `target`).
-3. `no-auto-color` disables the bands and falls back to the flat palette series color.
-
-The fill is a light 25% tint of the resolved color; add `solid-fill` for full saturation.
+- **Over target** (`now > target`): the fill clamps at 100% but the % label stays truthful (`120%`); the gauge needle pins at the max.
+- **Negative `now`**: the fill clamps to 0%, the label stays honest.
+- **Missing / non-positive `target`**: flagged as an error, but the chart still renders a 0% shell.
+- **Missing `now`**: treated as 0 with a warning.
 
 ## Directives
 
@@ -98,8 +116,8 @@ The fill is a light 25% tint of the resolved color; add `solid-fill` for full sa
 
 ## Tips
 
+- **Pick the face first** — it carries more meaning than any directive. Bar for a KPI, thermometer for "fill it up", gauge for "how's it running".
 - Keep the unit in the **title** (`($)`, `(L)`, `(chests)`) — a goal has no unit directive.
 - One value only: a goal has no children. Indented lines are ignored with a warning — **except** an indented `note` block body.
 - Let the **traffic-light** color do the work: red/orange/green already signals whether the number is healthy. Only pin a trailing color or add `no-auto-color` when the band coding fights your dashboard.
-- Use `thermometer` for fundraising and "fill it up" framings, `gauge` for a speedometer/utilization feel, and the default bar for a plain KPI tile.
 - Reach for `goal` when one number chases one target; use `line` for a trend and `countdown` for a deadline.
