@@ -2566,6 +2566,53 @@
       "description": "State machine / lifecycle transitions"
     },
     {
+      "id": "bracket",
+      "kind": "type",
+      "base": null,
+      "name": "Bracket",
+      "family": "life",
+      "intent": [
+        "hierarchy"
+      ],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "tournament bracket",
+          "kind": "trigger"
+        },
+        {
+          "text": "playoff bracket",
+          "kind": "trigger"
+        },
+        {
+          "text": "single elimination",
+          "kind": "trigger"
+        },
+        {
+          "text": "bracket",
+          "kind": "trigger"
+        },
+        {
+          "text": "playoff tree",
+          "kind": "trigger"
+        },
+        {
+          "text": "knockout tournament",
+          "kind": "trigger"
+        },
+        {
+          "text": "march madness bracket",
+          "kind": "trigger"
+        },
+        {
+          "text": "elimination bracket",
+          "kind": "trigger"
+        }
+      ],
+      "guidance": "A single-elimination tournament bracket: winners auto-advance rightward toward a championship. Reach for it for playoff trees, knockout draws, and seeded fields. Two ways to author: seed the field for a **day-0 skeleton** (`seed 1 Team A`, `seed 2 Team B` …) and let matches fill in, or list results casually as `A beats B` / `A vs B` lines and let winners flow forward. Name the columns with `rounds` (comma-separated, e.g. `rounds Quarterfinals, Semifinals, Final`) or an indented `rounds` block with per-round colors. The two sides mirror inward to the final. Color a competitor's box outline with a `tag` group; `accent` overrides the winner highlight (default blue). `single-elim` is the default; opt-outs are `no-round` (hide column labels) and `no-legend`.",
+      "description": "Single-elimination tournament bracket — winners auto-advance to a championship"
+    },
+    {
       "id": "family",
       "kind": "type",
       "base": null,
