@@ -520,6 +520,11 @@ Young Jack + Calico Kate m: 1712
 goal Doubloons Plundered ($)
 now 6400
 target 10000
+note
+  **Welcome aboard, matey!** The hold's filling nicely — `6.4k` of `10k` doubloons.
+  - *Tortuga* raid — counted and stowed
+  - **Port Royal** — first mate swears it's *almost* tallied
+  The bar rides **orange** at 64%; cross `80%` and she turns green.
 ```
 
 ### Goal (gauge)
