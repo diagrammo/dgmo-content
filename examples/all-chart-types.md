@@ -550,8 +550,17 @@ target 2099-08-21
 countdown Ship's Commissioning
 every year on Jun 14
 since 2019
-since-label anniversary
-since-style eyebrow
+since-label Nth Anniversary
+```
+
+### Clock
+
+```dgmo
+clock Crew standups
+
+London        Europe/London        as Quartermaster
+New York      America/New_York     as Dani (NY)
+Los Angeles   America/Los_Angeles  as West coast
 ```
 
 ### Bracket

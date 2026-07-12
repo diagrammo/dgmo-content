@@ -499,6 +499,15 @@
         "hierarchy"
       ],
       "file": "chart-bracket.md"
+    },
+    {
+      "slug": "chart-clock",
+      "title": "Clock",
+      "group": "life",
+      "intent": [
+        "change-over-time"
+      ],
+      "file": "chart-clock.md"
     }
   ]
 }

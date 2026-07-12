@@ -403,6 +403,53 @@
       "description": null
     },
     {
+      "id": "bracket",
+      "kind": "type",
+      "base": null,
+      "name": "Bracket",
+      "family": "life",
+      "intent": [
+        "hierarchy"
+      ],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "tournament bracket",
+          "kind": "trigger"
+        },
+        {
+          "text": "playoff bracket",
+          "kind": "trigger"
+        },
+        {
+          "text": "single elimination",
+          "kind": "trigger"
+        },
+        {
+          "text": "bracket",
+          "kind": "trigger"
+        },
+        {
+          "text": "playoff tree",
+          "kind": "trigger"
+        },
+        {
+          "text": "knockout tournament",
+          "kind": "trigger"
+        },
+        {
+          "text": "march madness bracket",
+          "kind": "trigger"
+        },
+        {
+          "text": "elimination bracket",
+          "kind": "trigger"
+        }
+      ],
+      "guidance": "A single-elimination tournament bracket: winners auto-advance rightward toward a championship. Reach for it for playoff trees, knockout draws, and seeded fields. Two ways to author: seed the field for a **day-0 skeleton** (`seed 1 Team A`, `seed 2 Team B` …) and let matches fill in, or list results casually as `A beats B` / `A vs B` lines and let winners flow forward. Name the columns with `rounds` (comma-separated, e.g. `rounds Quarterfinals, Semifinals, Final`) or an indented `rounds` block with per-round colors. The two sides mirror inward to the final. Color a competitor's box outline with a `tag` group; `accent` overrides the winner highlight (default blue). `single-elim` is the default; opt-outs are `no-round` (hide column labels) and `no-legend`.",
+      "description": "Single-elimination tournament bracket — winners auto-advance to a championship"
+    },
+    {
       "id": "c4",
       "kind": "type",
       "base": null,
@@ -577,6 +624,104 @@
       "description": null
     },
     {
+      "id": "clock",
+      "kind": "type",
+      "base": null,
+      "name": "Clock",
+      "family": "life",
+      "intent": [
+        "change-over-time"
+      ],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "world clock",
+          "kind": "trigger"
+        },
+        {
+          "text": "time zones",
+          "kind": "trigger"
+        },
+        {
+          "text": "what time is it in",
+          "kind": "trigger"
+        },
+        {
+          "text": "current time",
+          "kind": "trigger"
+        },
+        {
+          "text": "team hours",
+          "kind": "trigger"
+        },
+        {
+          "text": "working hours across time zones",
+          "kind": "trigger"
+        },
+        {
+          "text": "clock",
+          "kind": "synonym"
+        },
+        {
+          "text": "timezone",
+          "kind": "synonym"
+        },
+        {
+          "text": "local time",
+          "kind": "synonym"
+        },
+        {
+          "text": "meeting time overlap",
+          "kind": "synonym"
+        }
+      ],
+      "guidance": "A live world clock — one panel per person or place, each showing the CURRENT time in its zone and ticking every second, accurate the instant the page loads. Reach for it to answer \"what time is it for the crew right now\": a distributed team's local times, a single collaborator's clock, or the overlap window for scheduling a call. The first line declares the type and a title (`Crew standups`). Each entry is one line, `<place> <IANA/Zone> [as <label>]`: a human-readable place, then a real IANA zone (`Europe/London`, `America/New_York`, `America/Los_Angeles`, `Asia/Tokyo`) — never a bare offset like `GMT+1`, which doesn't track daylight saving. Use `as <label>` to name the person or role behind a zone (`New York America/New_York as Dani (NY)`); the label becomes the caption. The single-clock case is common and encouraged — one title, one entry (`clock Dani` / `New York America/New_York`). Global directives are flat, no colon: `analog` for analog dials (digital is the default face), `time-24` for a 24-hour readout (12h am/pm is the default), and optional context bands `hours 9-17` + `days mon-fri` (the window accepts `HH:MM` and am/pm, e.g. `hours 8:30-17:15`) to shade each zone's working window so out-of-hours people read at a glance. `no-sun` hides the sunrise/sundown indicator (on by default). Add `hours`/`days` only when the point is scheduling overlap; drop them for a plain \"current time\" widget. Zones are **colorized by default** (`color-by`, default `place` — a distinct palette accent per place); reach for a semantic mode when color should *mean* something: `color-by time` or `color-by daylight` make an at-a-glance world board read as day-vs-night (order the zones west→east so the daylight sweeps across), and `color-by work` turns a standup/team board green/amber/grey by availability — it needs `hours` set. A hand-set per-zone color (`London Europe/London as UK team purple`) is a **defined** shade that always wins over the dimension, so you can pin one zone and let the rest follow. `color-by none` goes neutral. On image surfaces (PNG, `.svg` via `<img>`, GitHub camo) it can't tick and bakes the time at export — the correct graceful fallback.",
+      "description": "Live world clocks — current local time for people or places across time zones, ticking every second; single person or whole-team overlap"
+    },
+    {
+      "id": "countdown",
+      "kind": "type",
+      "base": null,
+      "name": "Countdown",
+      "family": "life",
+      "intent": [
+        "change-over-time"
+      ],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "countdown",
+          "kind": "trigger"
+        },
+        {
+          "text": "days until",
+          "kind": "trigger"
+        },
+        {
+          "text": "time until",
+          "kind": "trigger"
+        },
+        {
+          "text": "count down to",
+          "kind": "trigger"
+        },
+        {
+          "text": "days remaining",
+          "kind": "trigger"
+        },
+        {
+          "text": "launch countdown",
+          "kind": "trigger"
+        },
+        {
+          "text": "deadline",
+          "kind": "trigger"
+        }
+      ],
+      "guidance": "The only dynamic chart — it ticks every second and is accurate on every load, so use it for a live \"N days until X\" widget, not a static report. Keep the title to the event (`Trip to Japan`); the target date renders as a caption automatically. `target` is a space-separated `key value` directive (no colon): a bare date (`2026-08-21`) counts to the viewer's local midnight, a datetime or offset is honored. Default `units days` reads best for weeks/months out; use `units full` for a launch-day `Nd HH:MM:SS` clock. Set `expired` to the celebration text (`🚀 Shipped!`); after the target passes every live surface shows it and the tick stops. On images (PNG export, `.svg` via `<img>`, GitHub camo) it can't tick and shows the whole-day count baked at export time — the correct fallback.",
+      "description": "Live \"N days until X\" that ticks every second and is accurate on every load — trip dates, launches, deadlines; the only dynamic chart type"
+    },
+    {
       "id": "cycle",
       "kind": "type",
       "base": null,
@@ -739,6 +884,57 @@
       ],
       "guidance": "an event line is the annotated *narrative* timeline (Super Bowl halftime shows, \"a history of X\") — reach for it over `timeline` when each event carries a real description, and over `timeline` when the spacing should NOT be to scale. Keep to ~5–25 events; lead each with a terse title and write a sentence or two of body; color by category with a tag group.",
       "description": null
+    },
+    {
+      "id": "family",
+      "kind": "type",
+      "base": null,
+      "name": "Family",
+      "family": "life",
+      "intent": [
+        "relationships"
+      ],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "family tree",
+          "kind": "trigger"
+        },
+        {
+          "text": "genealogy",
+          "kind": "trigger"
+        },
+        {
+          "text": "ancestry",
+          "kind": "trigger"
+        },
+        {
+          "text": "ancestors",
+          "kind": "trigger"
+        },
+        {
+          "text": "descendants",
+          "kind": "trigger"
+        },
+        {
+          "text": "pedigree",
+          "kind": "trigger"
+        },
+        {
+          "text": "lineage",
+          "kind": "trigger"
+        },
+        {
+          "text": "bloodline",
+          "kind": "trigger"
+        },
+        {
+          "text": "dynasty",
+          "kind": "trigger"
+        }
+      ],
+      "guidance": "Two line shapes carry the whole tree: a **person line** (`Anne b: 1665, sex: f`) and a **union line** (`Anne + Jack m: 1701`), with children indented under the union. Declare each person **standalone** with their full metadata — per-side metadata on a union line is unsupported and re-stating a name just re-references the same person. Set `sex:` so cards color (m→blue, f→purple), but **treat the legend as the real sex channel**: blue and purple separate weakly under the 25% tint, so where color-vision matters distinguish with a `tag` group (labeled legend entries) instead. Reuse a name in a second union for remarriage (one card, two bars); a lone person with indented children is a single parent; a bare trailing `adopted` token marks an adopted child.",
+      "description": "Genealogy / family tree — people, unions, and descent"
     },
     {
       "id": "flowchart",
@@ -1015,6 +1211,103 @@
       "intent": [],
       "produces": null,
       "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "goal",
+      "kind": "type",
+      "base": null,
+      "name": "Goal",
+      "family": "life",
+      "intent": [
+        "part-to-whole"
+      ],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "goal",
+          "kind": "trigger"
+        },
+        {
+          "text": "progress toward a target",
+          "kind": "trigger"
+        },
+        {
+          "text": "how close am i",
+          "kind": "trigger"
+        },
+        {
+          "text": "percent complete",
+          "kind": "trigger"
+        },
+        {
+          "text": "completion percentage",
+          "kind": "trigger"
+        },
+        {
+          "text": "kpi tile",
+          "kind": "trigger"
+        },
+        {
+          "text": "fundraising thermometer",
+          "kind": "trigger"
+        },
+        {
+          "text": "quota",
+          "kind": "trigger"
+        },
+        {
+          "text": "target vs actual",
+          "kind": "trigger"
+        },
+        {
+          "text": "progress bar",
+          "kind": "trigger"
+        }
+      ],
+      "guidance": "A single progress-toward-a-target reading — one `now` against one `target`, answering \"how close am I?\". Reach for it for a KPI tile, a fundraising thermometer, a quarterly quota, or a completion percentage; there is no time axis, series, or milestones (use `line` for a trend, `countdown` for a live deadline). Put the **unit in the title** (`Marathon Fund ($)`, `Grog Barrel Fill (L)`) — there is no format/currency directive. `now` and `target` are **space-separated `key value`** directives, no colon (`now 6400` / `target 10000`); the percent is `now / target` and values auto-compact (`6.4k`, `1.2M`). Pick the face for the story with a bare flag on its own line: the default progress **bar** for a plain KPI, `thermometer` for fundraising/fill-the-tank framings, `gauge` for a speedometer/quota dial — all three read the same value pair. The fill is **auto traffic-light** by completion (`< 50%` red, `50–80%` orange, `≥ 80%` green; over-target stays green) so the color already reads the number's health — leave it unless you have reason to override with a trailing color on the title line (`goal Marathon Fund ($) green`) or `no-auto-color` (flat palette color). Over-target clamps the fill at 100% while the `%` label stays truthful (`120%`). Add a `note` — inline (`note Still waiting on three crews`) or a block header on its own line with an indented body — to caption the number with context (who's still owed, what's left); it takes simple markdown (`**bold**`, `*italic*`, `` `code` ``) and `- ` bullets. `solid-fill` for a bolder fill; `no-percent` / `no-value` / `no-title` / `no-note` to drop labels.",
+      "description": "Single progress-toward-a-target value (now vs target) as a bar, thermometer, or gauge — KPIs, fundraising, quotas"
+    },
+    {
+      "id": "goal-gauge",
+      "kind": "variant",
+      "base": "goal",
+      "name": "Gauge",
+      "family": "life",
+      "intent": [],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "gauge",
+          "kind": "synonym"
+        },
+        {
+          "text": "dial",
+          "kind": "synonym"
+        }
+      ],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "goal-thermometer",
+      "kind": "variant",
+      "base": "goal",
+      "name": "Thermometer",
+      "family": "life",
+      "intent": [],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "thermometer goal",
+          "kind": "synonym"
+        },
+        {
+          "text": "fundraising thermometer",
+          "kind": "synonym"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -2566,244 +2859,6 @@
       "description": "State machine / lifecycle transitions"
     },
     {
-      "id": "bracket",
-      "kind": "type",
-      "base": null,
-      "name": "Bracket",
-      "family": "life",
-      "intent": [
-        "hierarchy"
-      ],
-      "produces": null,
-      "keywords": [
-        {
-          "text": "tournament bracket",
-          "kind": "trigger"
-        },
-        {
-          "text": "playoff bracket",
-          "kind": "trigger"
-        },
-        {
-          "text": "single elimination",
-          "kind": "trigger"
-        },
-        {
-          "text": "bracket",
-          "kind": "trigger"
-        },
-        {
-          "text": "playoff tree",
-          "kind": "trigger"
-        },
-        {
-          "text": "knockout tournament",
-          "kind": "trigger"
-        },
-        {
-          "text": "march madness bracket",
-          "kind": "trigger"
-        },
-        {
-          "text": "elimination bracket",
-          "kind": "trigger"
-        }
-      ],
-      "guidance": "A single-elimination tournament bracket: winners auto-advance rightward toward a championship. Reach for it for playoff trees, knockout draws, and seeded fields. Two ways to author: seed the field for a **day-0 skeleton** (`seed 1 Team A`, `seed 2 Team B` …) and let matches fill in, or list results casually as `A beats B` / `A vs B` lines and let winners flow forward. Name the columns with `rounds` (comma-separated, e.g. `rounds Quarterfinals, Semifinals, Final`) or an indented `rounds` block with per-round colors. The two sides mirror inward to the final. Color a competitor's box outline with a `tag` group; `accent` overrides the winner highlight (default blue). `single-elim` is the default; opt-outs are `no-round` (hide column labels) and `no-legend`.",
-      "description": "Single-elimination tournament bracket — winners auto-advance to a championship"
-    },
-    {
-      "id": "family",
-      "kind": "type",
-      "base": null,
-      "name": "Family",
-      "family": "life",
-      "intent": [
-        "relationships"
-      ],
-      "produces": null,
-      "keywords": [
-        {
-          "text": "family tree",
-          "kind": "trigger"
-        },
-        {
-          "text": "genealogy",
-          "kind": "trigger"
-        },
-        {
-          "text": "ancestry",
-          "kind": "trigger"
-        },
-        {
-          "text": "ancestors",
-          "kind": "trigger"
-        },
-        {
-          "text": "descendants",
-          "kind": "trigger"
-        },
-        {
-          "text": "pedigree",
-          "kind": "trigger"
-        },
-        {
-          "text": "lineage",
-          "kind": "trigger"
-        },
-        {
-          "text": "bloodline",
-          "kind": "trigger"
-        },
-        {
-          "text": "dynasty",
-          "kind": "trigger"
-        }
-      ],
-      "guidance": "Two line shapes carry the whole tree: a **person line** (`Anne b: 1665, sex: f`) and a **union line** (`Anne + Jack m: 1701`), with children indented under the union. Declare each person **standalone** with their full metadata — per-side metadata on a union line is unsupported and re-stating a name just re-references the same person. Set `sex:` so cards color (m→blue, f→purple), but **treat the legend as the real sex channel**: blue and purple separate weakly under the 25% tint, so where color-vision matters distinguish with a `tag` group (labeled legend entries) instead. Reuse a name in a second union for remarriage (one card, two bars); a lone person with indented children is a single parent; a bare trailing `adopted` token marks an adopted child.",
-      "description": "Genealogy / family tree — people, unions, and descent"
-    },
-    {
-      "id": "goal",
-      "kind": "type",
-      "base": null,
-      "name": "Goal",
-      "family": "life",
-      "intent": [
-        "part-to-whole"
-      ],
-      "produces": null,
-      "keywords": [
-        {
-          "text": "goal",
-          "kind": "trigger"
-        },
-        {
-          "text": "progress toward a target",
-          "kind": "trigger"
-        },
-        {
-          "text": "how close am i",
-          "kind": "trigger"
-        },
-        {
-          "text": "percent complete",
-          "kind": "trigger"
-        },
-        {
-          "text": "completion percentage",
-          "kind": "trigger"
-        },
-        {
-          "text": "kpi tile",
-          "kind": "trigger"
-        },
-        {
-          "text": "fundraising thermometer",
-          "kind": "trigger"
-        },
-        {
-          "text": "quota",
-          "kind": "trigger"
-        },
-        {
-          "text": "target vs actual",
-          "kind": "trigger"
-        },
-        {
-          "text": "progress bar",
-          "kind": "trigger"
-        }
-      ],
-      "guidance": "A single progress-toward-a-target reading — one `now` against one `target`, answering \"how close am I?\". Reach for it for a KPI tile, a fundraising thermometer, a quarterly quota, or a completion percentage; there is no time axis, series, or milestones (use `line` for a trend, `countdown` for a live deadline). Put the **unit in the title** (`Marathon Fund ($)`, `Grog Barrel Fill (L)`) — there is no format/currency directive. `now` and `target` are **space-separated `key value`** directives, no colon (`now 6400` / `target 10000`); the percent is `now / target` and values auto-compact (`6.4k`, `1.2M`). Pick the face for the story with a bare flag on its own line: the default progress **bar** for a plain KPI, `thermometer` for fundraising/fill-the-tank framings, `gauge` for a speedometer/quota dial — all three read the same value pair. The fill is **auto traffic-light** by completion (`< 50%` red, `50–80%` orange, `≥ 80%` green; over-target stays green) so the color already reads the number's health — leave it unless you have reason to override with a trailing color on the title line (`goal Marathon Fund ($) green`) or `no-auto-color` (flat palette color). Over-target clamps the fill at 100% while the `%` label stays truthful (`120%`). Add a `note` — inline (`note Still waiting on three crews`) or a block header on its own line with an indented body — to caption the number with context (who's still owed, what's left); it takes simple markdown (`**bold**`, `*italic*`, `` `code` ``) and `- ` bullets. `solid-fill` for a bolder fill; `no-percent` / `no-value` / `no-title` / `no-note` to drop labels.",
-      "description": "Single progress-toward-a-target value (now vs target) as a bar, thermometer, or gauge — KPIs, fundraising, quotas"
-    },
-    {
-      "id": "goal-thermometer",
-      "kind": "variant",
-      "base": "goal",
-      "name": "Thermometer",
-      "family": "life",
-      "intent": [],
-      "produces": null,
-      "keywords": [
-        {
-          "text": "thermometer goal",
-          "kind": "synonym"
-        },
-        {
-          "text": "fundraising thermometer",
-          "kind": "synonym"
-        }
-      ],
-      "guidance": null,
-      "description": null
-    },
-    {
-      "id": "goal-gauge",
-      "kind": "variant",
-      "base": "goal",
-      "name": "Gauge",
-      "family": "life",
-      "intent": [],
-      "produces": null,
-      "keywords": [
-        {
-          "text": "gauge",
-          "kind": "synonym"
-        },
-        {
-          "text": "dial",
-          "kind": "synonym"
-        }
-      ],
-      "guidance": null,
-      "description": null
-    },
-    {
-      "id": "countdown",
-      "kind": "type",
-      "base": null,
-      "name": "Countdown",
-      "family": "life",
-      "intent": [
-        "change-over-time"
-      ],
-      "produces": null,
-      "keywords": [
-        {
-          "text": "countdown",
-          "kind": "trigger"
-        },
-        {
-          "text": "days until",
-          "kind": "trigger"
-        },
-        {
-          "text": "time until",
-          "kind": "trigger"
-        },
-        {
-          "text": "count down to",
-          "kind": "trigger"
-        },
-        {
-          "text": "days remaining",
-          "kind": "trigger"
-        },
-        {
-          "text": "launch countdown",
-          "kind": "trigger"
-        },
-        {
-          "text": "deadline",
-          "kind": "trigger"
-        }
-      ],
-      "guidance": "The only dynamic chart — it ticks every second and is accurate on every load, so use it for a live \"N days until X\" widget, not a static report. Keep the title to the event (`Trip to Japan`); the target date renders as a caption automatically. `target` is a space-separated `key value` directive (no colon): a bare date (`2026-08-21`) counts to the viewer's local midnight, a datetime or offset is honored. Default `units days` reads best for weeks/months out; use `units full` for a launch-day `Nd HH:MM:SS` clock. Set `expired` to the celebration text (`🚀 Shipped!`); after the target passes every live surface shows it and the tick stops. On images (PNG export, `.svg` via `<img>`, GitHub camo) it can't tick and shows the whole-day count baked at export time — the correct fallback.",
-      "description": "Live \"N days until X\" that ticks every second and is accurate on every load — trip dates, launches, deadlines; the only dynamic chart type"
-    },
-    {
       "id": "swimlane",
       "kind": "type",
       "base": null,
@@ -3397,9 +3452,51 @@
       ]
     },
     {
+      "id": "body",
+      "entity": "body",
+      "file": "examples/body/body.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
       "id": "boxes-and-lines",
       "entity": "boxes-and-lines",
       "file": "examples/boxes-and-lines/boxes-and-lines.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "bracket",
+      "entity": "bracket",
+      "file": "examples/bracket/bracket.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3540,6 +3637,48 @@
       ]
     },
     {
+      "id": "clock",
+      "entity": "clock",
+      "file": "examples/clock/clock.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "countdown",
+      "entity": "countdown",
+      "file": "examples/countdown/countdown.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
       "id": "cycle",
       "entity": "cycle",
       "file": "examples/cycle/cycle.dgmo",
@@ -3632,6 +3771,27 @@
       "id": "event-line",
       "entity": "event-line",
       "file": "examples/event-line/event-line.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "family",
+      "entity": "family",
+      "file": "examples/family/family.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -3767,6 +3927,70 @@
       "id": "gantt-critical-path",
       "entity": "gantt-critical-path",
       "file": "examples/gantt/gantt-critical-path.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "goal",
+      "entity": "goal",
+      "file": "examples/goal/goal.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "goal-gauge",
+      "entity": "goal-gauge",
+      "file": "examples/goal/goal-gauge.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "goal-no-auto-color",
+      "entity": "goal",
+      "file": "examples/goal/goal-no-auto-color.dgmo",
+      "isPrimary": false,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "goal-thermometer",
+      "entity": "goal-thermometer",
+      "file": "examples/goal/goal-thermometer.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -4442,91 +4666,6 @@
         {
           "surface": "obsidian",
           "role": "sampler"
-        }
-      ]
-    },
-    {
-      "id": "family",
-      "entity": "family",
-      "file": "examples/family/family.dgmo",
-      "isPrimary": true,
-      "status": "draft",
-      "placements": [
-        {
-          "surface": "docs",
-          "role": "docs"
-        },
-        {
-          "surface": "new-file",
-          "role": "starter"
-        },
-        {
-          "surface": "obsidian",
-          "role": "sampler"
-        }
-      ]
-    },
-    {
-      "id": "goal",
-      "entity": "goal",
-      "file": "examples/goal/goal.dgmo",
-      "isPrimary": true,
-      "status": "draft",
-      "placements": [
-        {
-          "surface": "docs",
-          "role": "docs"
-        },
-        {
-          "surface": "new-file",
-          "role": "starter"
-        },
-        {
-          "surface": "obsidian",
-          "role": "sampler"
-        }
-      ]
-    },
-    {
-      "id": "goal-thermometer",
-      "entity": "goal-thermometer",
-      "file": "examples/goal/goal-thermometer.dgmo",
-      "isPrimary": true,
-      "status": "draft",
-      "placements": [
-        {
-          "surface": "docs",
-          "role": "docs"
-        },
-        {
-          "surface": "obsidian",
-          "role": "sampler"
-        }
-      ]
-    },
-    {
-      "id": "goal-gauge",
-      "entity": "goal-gauge",
-      "file": "examples/goal/goal-gauge.dgmo",
-      "isPrimary": true,
-      "status": "draft",
-      "placements": [
-        {
-          "surface": "docs",
-          "role": "docs"
-        }
-      ]
-    },
-    {
-      "id": "goal-no-auto-color",
-      "entity": "goal",
-      "file": "examples/goal/goal-no-auto-color.dgmo",
-      "isPrimary": false,
-      "status": "draft",
-      "placements": [
-        {
-          "surface": "docs",
-          "role": "docs"
         }
       ]
     },
