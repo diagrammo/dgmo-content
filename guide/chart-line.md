@@ -70,6 +70,40 @@ A short one-line form is tolerated: `series Free Pro Team`.
 
 > The former standalone `multi-line` chart type was removed in 1.0 — use `line` + a `series` block.
 
+## Y-Axis Scaling — auto-fit by default, `no-auto-y` to opt out
+
+A line chart **auto-fits its y-axis to the data**: the axis spans a padded window
+around the min→max of all series (not a forced 0 baseline), so a tightly-clustered,
+high-valued series fills the plot instead of hugging the top of a 0-based scale.
+
+```dgmo
+line Squat Est. 1RM (lbs)
+x-label Week
+y-label lbs
+
+Week 1 315
+Week 2 330
+Week 3 350
+Week 4 365
+Week 5 380
+Week 6 395
+```
+
+Add `no-auto-y` to force the axis back to a **0 baseline** (magnitude honesty):
+
+```dgmo
+line Squat Est. 1RM (lbs)
+no-auto-y
+y-label lbs
+
+Week 1 315
+Week 6 395
+```
+
+> Auto-fit is **line only**. Bar charts always anchor at 0 — a bar's length
+> encodes magnitude, so a floating baseline would mislead. `no-auto-y` is ignored
+> on non-line charts.
+
 ## Era Bands
 
 Annotate named time periods with a shaded background band and label:
@@ -108,6 +142,7 @@ Era syntax: `era <start> -> <end> Label color`
 | `x-label` | Label for the X axis                      | No       |
 | `y-label` | Label for the Y axis                      | No       |
 | `color`   | Override the line color                   | No       |
+| `no-auto-y` | Anchor the y-axis at 0 (opt out of auto-fit) | No    |
 
 ## Data Format
 
