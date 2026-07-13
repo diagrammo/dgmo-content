@@ -1,6 +1,6 @@
 ```dgmo
-countdown Voyage to Tortuga
-target 2099-08-21
+countdown Trip to Japan
+target 2027-04-15
 ```
 
 ## Overview
@@ -11,7 +11,7 @@ A countdown is the only **dynamic** dgmo chart: a single "N days until X" that r
 
 ```
 countdown Title, e.g. "Trip to Japan"
-target 2026-08-21     // the future instant — space-separated, no colon
+target 2027-04-15     // the future instant — space-separated, no colon
 units human           // human (default): "1 year, 2 months"
 expired Now!          // optional; shown once the target passes
 ```
@@ -33,9 +33,9 @@ The literal `target now` resolves at render time (→ immediately expired) — h
 For anything that repeats — a birthday, an anniversary, a standing meeting — use an `every` rule instead of `target`. The countdown resolves to the **next** occurrence and **rolls forward** on its own when the day passes, so it never goes stale and needs no year:
 
 ```dgmo
-countdown Crew Muster
-every month on 3rd Tuesday at 18:00
-on-day Tonight! 🍺
+countdown Monthly All-Hands
+every month on 1st Monday at 10:00
+on-day Today!
 ```
 
 The rule is a single line, `every <cadence> [on <instant>] [at <time>] [from <anchor>]`:
@@ -53,9 +53,9 @@ Weekday and month names are a fixed vocabulary, so the editor autocompletes them
 `since` turns a recurring countdown into a numbered one — a 7th anniversary — counting `resolvedYear − since`:
 
 ```dgmo
-countdown Ship's Commissioning
+countdown Wedding Anniversary
 every year on Jun 14
-since 2019
+since 2015
 since-label Nth Anniversary
 ```
 
@@ -64,10 +64,10 @@ since-label Nth Anniversary
 ## Units & display
 
 ```dgmo
-countdown Ship Sails at Dawn
-target 2099-09-01T06:00
+countdown Rocket Launch
+target 2026-09-01T09:30
 units full
-expired ⚓ Anchors aweigh!
+expired 🚀 Liftoff!
 ```
 
 `units human` (the default) reads the way people speak: the coarse **top-two units including years** as the hero ("1 year, 2 months") with the finer remainder ("3 days") in a small sub-line beneath. Leading zero units are dropped and the hero auto-shrinks so it never collides with the title. `units days` opts back to the raw whole-day count ("437 days", **ceil** — a target later today reads "1 day", not "0"). Other modes: `full` (`Nd HH:MM:SS`), `clock` (total `HH:MM:SS`, may pass 24h), `weeks`, and `words`. Shape them with `round up|down|nearest`, `fields d,h,m,s` (drop `s` for a calm widget), and `lang en`.
