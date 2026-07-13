@@ -1,10 +1,41 @@
 ```dgmo
-bracket Buccaneer Brawl
+bracket World Series
+rounds Wild Card, Division, Championship
 
-Black Pearl beats Sea Serpent 5-3
-Salty Dog beats Kraken 4-2
-Black Pearl beats Salty Dog 2-1
+tag Entry as e
+  Division Winner blue
+  Wild Card orange
+
+[American League]
+  seed 1 Blue Jays e: Division Winner
+  seed 2 Mariners e: Division Winner
+  seed 3 Guardians e: Division Winner
+  seed 4 Yankees e: Wild Card
+  seed 5 Red Sox e: Wild Card
+  seed 6 Tigers e: Wild Card
+  Tigers beats Guardians 2-1
+  Yankees beats Red Sox 2-1
+  Blue Jays beats Yankees 3-1
+  Mariners beats Tigers 3-2
+  Blue Jays beats Mariners 4-3
+
+[National League]
+  seed 1 Brewers e: Division Winner
+  seed 2 Phillies e: Division Winner
+  seed 3 Dodgers e: Division Winner
+  seed 4 Cubs e: Wild Card
+  seed 5 Padres e: Wild Card
+  seed 6 Reds e: Wild Card
+  Dodgers beats Reds 2-0
+  Cubs beats Padres 2-1
+  Brewers beats Cubs 3-2
+  Dodgers beats Phillies 3-1
+  Dodgers beats Brewers 4-0
+
+Dodgers beats Blue Jays 4-3
 ```
+
+The real 2025 postseason: two six-team leagues mirror inward from **Wild Card** to **Championship**, and the cross-league final at indent 0 (`Dodgers beats Blue Jays`) becomes the **World Series** in the center. Lower seeds toppling higher ones are auto-flagged **UPSET** (Tigers, then the Dodgers' run through the 2- and 1-seeds), and the champion gets a star.
 
 ## Overview
 
@@ -105,15 +136,16 @@ The center column is labeled with the bracket title (`Grand Line Cup`) — the d
 A bracket box has two things to color, so each gets its own job: the **fill** shows win/loss automatically, and the **outline** is yours to assign. Tag competitors with the same `tag` grammar every other chart uses, and the outline colors by that tag — with a legend for free:
 
 ```dgmo
-bracket AL Playoffs
+bracket AL Wild Card
+rounds Wild Card, Division
 
-tag Ticketing as tk
-  MLB Ballpark blue
-  Ticketmaster orange
+tag Entry as e
+  Division Winner blue
+  Wild Card orange
 
-seed 1 Blue Jays tk: MLB Ballpark
-seed 2 Yankees tk: Ticketmaster
-Yankees beats Blue Jays 3-2
+seed 3 Guardians e: Division Winner
+seed 6 Tigers e: Wild Card
+Tigers beats Guardians 2-1
 ```
 
 In a casual (no-seed) bracket, tag a team with a **roster line** — a name plus metadata, no `beats`/`vs`:
