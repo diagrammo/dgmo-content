@@ -45,6 +45,28 @@ Los Angeles   America/Los_Angeles  as West coast
 
 The label is optional — drop it when the place already says everything.
 
+## Zone reference
+
+**Any** real IANA zone works for the time itself. The zones below are the curated set that also get a placed **sunrise/sundown** line and full `color-by daylight`/`time` support — reach for the nearest one to your city. A zone outside this list still ticks the correct time; it just skips the sun line. Bare offsets (`GMT+1`, `UTC+5`) are never valid — only `UTC` itself.
+
+**North America** — `America/New_York`, `America/Detroit`, `America/Toronto`, `America/Montreal`, `America/Chicago`, `America/Winnipeg`, `America/Mexico_City`, `America/Denver`, `America/Phoenix`, `America/Edmonton`, `America/Los_Angeles`, `America/Vancouver`, `America/Tijuana`, `America/Anchorage`, `America/Adak`, `Pacific/Honolulu`, `America/Halifax`, `America/St_Johns`, `America/Havana`, `America/Panama`, `America/Guatemala`, `America/Costa_Rica`
+
+**South America** — `America/Bogota`, `America/Lima`, `America/Caracas`, `America/La_Paz`, `America/Santiago`, `America/Argentina/Buenos_Aires`, `America/Montevideo`, `America/Asuncion`, `America/Sao_Paulo`, `America/Bahia`, `America/Manaus`, `America/Guayaquil`
+
+**Europe** — `Europe/London`, `Europe/Dublin`, `Europe/Lisbon`, `Europe/Madrid`, `Europe/Paris`, `Europe/Brussels`, `Europe/Amsterdam`, `Europe/Berlin`, `Europe/Zurich`, `Europe/Rome`, `Europe/Vienna`, `Europe/Prague`, `Europe/Warsaw`, `Europe/Stockholm`, `Europe/Oslo`, `Europe/Copenhagen`, `Europe/Helsinki`, `Europe/Athens`, `Europe/Bucharest`, `Europe/Budapest`, `Europe/Kyiv`, `Europe/Istanbul`, `Europe/Moscow`, `Europe/Reykjavik`
+
+**Africa** — `Africa/Casablanca`, `Africa/Lagos`, `Africa/Accra`, `Africa/Algiers`, `Africa/Tunis`, `Africa/Cairo`, `Africa/Johannesburg`, `Africa/Nairobi`, `Africa/Addis_Ababa`, `Africa/Khartoum`, `Africa/Kinshasa`, `Africa/Dakar`, `Africa/Harare`, `Indian/Mauritius`
+
+**Middle East / West & Central Asia** — `Asia/Jerusalem`, `Asia/Beirut`, `Asia/Amman`, `Asia/Riyadh`, `Asia/Qatar`, `Asia/Dubai`, `Asia/Baghdad`, `Asia/Tehran`, `Asia/Baku`, `Asia/Yerevan`, `Asia/Tbilisi`, `Asia/Karachi`, `Asia/Tashkent`, `Asia/Almaty`
+
+**South & Southeast Asia** — `Asia/Kolkata`, `Asia/Colombo`, `Asia/Kathmandu`, `Asia/Dhaka`, `Asia/Yangon`, `Asia/Bangkok`, `Asia/Ho_Chi_Minh`, `Asia/Jakarta`, `Asia/Kuala_Lumpur`, `Asia/Singapore`, `Asia/Manila`
+
+**East Asia** — `Asia/Hong_Kong`, `Asia/Shanghai`, `Asia/Taipei`, `Asia/Seoul`, `Asia/Tokyo`, `Asia/Ulaanbaatar`, `Asia/Vladivostok`
+
+**Australia / Pacific** — `Australia/Perth`, `Australia/Adelaide`, `Australia/Darwin`, `Australia/Brisbane`, `Australia/Sydney`, `Australia/Melbourne`, `Australia/Hobart`, `Pacific/Auckland`, `Pacific/Fiji`, `Pacific/Guam`, `Pacific/Port_Moresby`, `Pacific/Tongatapu`
+
+**UTC** — `UTC`
+
 ## Single clock
 
 The single-clock case is common and encouraged: one title, one entry. It reads as a personal "here's my local time" chip.
