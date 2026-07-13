@@ -138,15 +138,31 @@ const plunder = ships.reduce((sum, s) => sum + s.gold, 0);
 
 ![[treemap/treemap-radial.dgmo]]
 
-## Business
+## Life
 
 ### Body
 
 ![[body/body.dgmo]]
 
-### Cycle Diagram
+### Bracket
 
-![[cycle/cycle.dgmo]]
+![[bracket/bracket.dgmo]]
+
+### Bracket (seeded, two sides)
+
+![[bracket/bracket-seeded.dgmo]]
+
+### Clock
+
+![[clock/clock.dgmo]]
+
+### Countdown
+
+![[countdown/countdown.dgmo]]
+
+### Countdown (recurring, numbered)
+
+![[countdown/countdown-anniversary.dgmo]]
 
 ### Family
 
@@ -160,25 +176,11 @@ const plunder = ships.reduce((sum, s) => sum + s.gold, 0);
 
 ![[goal/goal-gauge.dgmo]]
 
-### Countdown
+## Business
 
-![[countdown/countdown.dgmo]]
+### Cycle Diagram
 
-### Countdown (recurring, numbered)
-
-![[countdown/countdown-anniversary.dgmo]]
-
-### Clock
-
-![[clock/clock.dgmo]]
-
-### Bracket
-
-![[bracket/bracket.dgmo]]
-
-### Bracket (seeded, two sides)
-
-![[bracket/bracket-seeded.dgmo]]
+![[cycle/cycle.dgmo]]
 
 ### Journey Map
 
