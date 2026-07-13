@@ -12,11 +12,11 @@ A countdown is the only **dynamic** dgmo chart: a single "N days until X" that r
 ```
 countdown Title, e.g. "Trip to Japan"
 target 2026-08-21     // the future instant — space-separated, no colon
-units days            // days (default) or full
+units human           // human (default): "1 year, 2 months"
 expired Now!          // optional; shown once the target passes
 ```
 
-The first line declares the chart type and the event title. `target`, `units`, and `expired` are space-separated `key value` directives (like gantt's `start-date`): no colon. The target date renders as a caption automatically.
+The first line declares the chart type and the event title. `target`, `units`, and `expired` are space-separated `key value` directives (like gantt's `start-date`): no colon. The target date renders as a caption automatically, and a **calendar band** below the header pictures the wait (see *The calendar band*).
 
 ## Target formats
 
@@ -56,11 +56,10 @@ Weekday and month names are a fixed vocabulary, so the editor autocompletes them
 countdown Ship's Commissioning
 every year on Jun 14
 since 2019
-since-label anniversary
-since-style eyebrow
+since-label Nth Anniversary
 ```
 
-`since-style` picks how loud the ordinal is: **`eyebrow`** (default) keeps the day-count the hero with a quiet "7TH ANNIVERSARY" above it; `headline` makes the ordinal the big number; `tenure` adds a "N years" chip; `inline` renders one sentence. `since-label` names the noun (defaults from the title).
+`since-label` is a free-form eyebrow template: **`Nth`** becomes the ordinal word (`7th`) and **`N`** the bare number (`7`), so `since-label Nth Anniversary` renders a quiet "7TH ANNIVERSARY" above the day-count, and `since-label Year N` renders "YEAR 7". Any phrasing works. It defaults to `Nth <title>`. The tokens are case-sensitive, so ordinary words with an "n" are left alone.
 
 ## Units & display
 
@@ -71,7 +70,22 @@ units full
 expired ⚓ Anchors aweigh!
 ```
 
-`units days` (the default) shows whole days and uses **ceil**, so a target later today reads "1 day", not "0". Other modes: `full` (`Nd HH:MM:SS`), `clock` (total `HH:MM:SS`, may pass 24h), `weeks`, and `words` ("in 6 weeks"). Shape them with `round up|down|nearest`, `fields d,h,m,s` (drop `s` for a calm widget), and `lang en`.
+`units human` (the default) reads the way people speak: the coarse **top-two units including years** as the hero ("1 year, 2 months") with the finer remainder ("3 days") in a small sub-line beneath. Leading zero units are dropped and the hero auto-shrinks so it never collides with the title. `units days` opts back to the raw whole-day count ("437 days", **ceil** — a target later today reads "1 day", not "0"). Other modes: `full` (`Nd HH:MM:SS`), `clock` (total `HH:MM:SS`, may pass 24h), `weeks`, and `words`. Shape them with `round up|down|nearest`, `fields d,h,m,s` (drop `s` for a calm widget), and `lang en`.
+
+## The calendar band
+
+Below the header, every date-bearing countdown draws a **calendar band** — a "you-are-here → event" picture whose resolution auto-tightens as the day nears, so the same reading holds from years out to the final week:
+
+- **> 1 year** — a row of 12 month rectangles per year.
+- **~3–12 months** — one rectangle per month (the same idiom, un-grouped), muted fill with only the now- and target-months dated.
+- **≤ ~3 months** — real side-by-side month calendars with day numbers.
+- **< 7 days** — a seven-day "boarding-pass" strip ending on the event.
+
+Two markers hold everywhere: **today** (a solid blue chip — shifted to teal if your accent is itself blue) and the **event day** (a solid accent chip); the span between fills an accent "remaining" tint and elapsed cells fade to gray. Every shape carries a solid border and the same color convention across all tiers. Add `no-visual` to suppress the band and collapse to the header alone.
+
+## Timed targets — the pivot
+
+When the `target` carries a **time** (`2026-08-21T18:00`, or a recurring `at 18:00`) the event instant is a **pivot**, not a stop. Days out, the human hero keeps its phrase and a live `HH:MM:SS` clock rides the sub-line. On the final day the hero becomes that ticking clock and the band turns into three **ring gauges** — hours · minutes · seconds. Past the instant the same clock and rings keep ticking **up**, the caption flipping "to go" → "ago". `expired <text>` still wins when set, freezing a fixed message instead of counting up.
 
 ## The footer & the "as of" stamp
 
@@ -79,8 +93,8 @@ Every countdown bakes an **in-chart footer** stating exactly what it resolved to
 
 ## When it passes
 
-For a one-shot `target`, once it passes the `expired` text (default `"Now!"`) replaces the number and that countdown stops ticking — no negative counts. Set it to your celebration: `expired 🚀 Shipped!`. Recurring blocks don't expire — they roll forward to the next occurrence.
+For a one-shot `target`, set `expired` to your celebration (`expired 🚀 Shipped!`) — once the target passes it freezes that message and stops ticking. Without an `expired` text a timed one-shot instead counts **up** past the instant (the pivot above); an all-day one reads "N ago". Recurring blocks don't expire — they roll forward to the next occurrence.
 
 ## Live vs. baked
 
-On any live surface (the app, the web editor, a docs site, an Obsidian note, a shared page) the countdown ticks every second and is accurate the instant the page loads. On image surfaces that can't run JavaScript — a PNG export, an `.svg` opened via `<img>`, a GitHub camo-proxied image — it shows the whole-day count baked at export time. That is the correct graceful fallback, not a bug: images can't tick.
+On any live surface (the app, the web editor, a docs site, an Obsidian note, a shared page) the countdown ticks every second and is accurate the instant the page loads. On image surfaces that can't run JavaScript — a PNG export, an `.svg` opened via `<img>`, a GitHub camo-proxied image — it shows the human hero and calendar band baked at export time. That is the correct graceful fallback, not a bug: images can't tick.
