@@ -51,15 +51,6 @@
       "file": "how-dgmo-thinks.md"
     },
     {
-      "slug": "chart-arc",
-      "title": "Arc",
-      "group": "data",
-      "intent": [
-        "relationships"
-      ],
-      "file": "chart-arc.md"
-    },
-    {
       "slug": "chart-block",
       "title": "Block",
       "group": "software",
@@ -67,15 +58,6 @@
         "relationships"
       ],
       "file": "chart-block.md"
-    },
-    {
-      "slug": "chart-sketch",
-      "title": "Sketch",
-      "group": "software",
-      "intent": [
-        "relationships"
-      ],
-      "file": "chart-sketch.md"
     },
     {
       "slug": "chart-boxes-and-lines",
@@ -132,15 +114,6 @@
       "file": "chart-infra.md"
     },
     {
-      "slug": "chart-mindmap",
-      "title": "Mind Map",
-      "group": "business",
-      "intent": [
-        "hierarchy"
-      ],
-      "file": "chart-mindmap.md"
-    },
-    {
       "slug": "chart-sequence",
       "title": "Sequence",
       "group": "software",
@@ -157,6 +130,15 @@
         "hierarchy"
       ],
       "file": "chart-sitemap.md"
+    },
+    {
+      "slug": "chart-sketch",
+      "title": "Sketch",
+      "group": "software",
+      "intent": [
+        "relationships"
+      ],
+      "file": "chart-sketch.md"
     },
     {
       "slug": "chart-state",
@@ -186,13 +168,60 @@
       "file": "chart-wireframe.md"
     },
     {
-      "slug": "chart-bar",
-      "title": "Bar",
-      "group": "data",
+      "slug": "chart-event-line",
+      "title": "Event Line",
+      "group": "project",
       "intent": [
-        "compare-values"
+        "trend-over-time"
       ],
-      "file": "chart-bar.md"
+      "file": "chart-event-line.md"
+    },
+    {
+      "slug": "chart-gantt",
+      "title": "Gantt",
+      "group": "project",
+      "intent": [
+        "schedule"
+      ],
+      "file": "chart-gantt.md"
+    },
+    {
+      "slug": "chart-kanban",
+      "title": "Kanban Board",
+      "group": "project",
+      "intent": [
+        "schedule"
+      ],
+      "file": "chart-kanban.md"
+    },
+    {
+      "slug": "chart-pert",
+      "title": "PERT",
+      "group": "project",
+      "intent": [
+        "flow-process",
+        "schedule"
+      ],
+      "file": "chart-pert.md"
+    },
+    {
+      "slug": "chart-raci",
+      "title": "RACI Matrix",
+      "group": "project",
+      "intent": [
+        "schedule"
+      ],
+      "file": "chart-raci.md"
+    },
+    {
+      "slug": "chart-timeline",
+      "title": "Timeline",
+      "group": "project",
+      "intent": [
+        "trend-over-time",
+        "schedule"
+      ],
+      "file": "chart-timeline.md"
     },
     {
       "slug": "chart-cycle",
@@ -205,88 +234,13 @@
       "file": "chart-cycle.md"
     },
     {
-      "slug": "chart-function",
-      "title": "Function Plot",
-      "group": "data",
-      "intent": [
-        "trend-over-time"
-      ],
-      "file": "chart-function.md"
-    },
-    {
-      "slug": "chart-heatmap",
-      "title": "Heatmap",
-      "group": "data",
-      "intent": [
-        "distribution"
-      ],
-      "file": "chart-heatmap.md"
-    },
-    {
-      "slug": "chart-line",
-      "title": "Line",
-      "group": "data",
-      "intent": [
-        "trend-over-time"
-      ],
-      "file": "chart-line.md"
-    },
-    {
-      "slug": "chart-pie",
-      "title": "Pie",
-      "group": "data",
+      "slug": "chart-funnel",
+      "title": "Funnel",
+      "group": "business",
       "intent": [
         "part-to-whole"
       ],
-      "file": "chart-pie.md"
-    },
-    {
-      "slug": "chart-polar-area",
-      "title": "Polar Area",
-      "group": "data",
-      "intent": [
-        "compare-values"
-      ],
-      "file": "chart-polar-area.md"
-    },
-    {
-      "slug": "chart-radar",
-      "title": "Radar",
-      "group": "data",
-      "intent": [
-        "compare-values"
-      ],
-      "file": "chart-radar.md"
-    },
-    {
-      "slug": "chart-scatter",
-      "title": "Scatter Plot",
-      "group": "data",
-      "intent": [
-        "distribution",
-        "correlation"
-      ],
-      "file": "chart-scatter.md"
-    },
-    {
-      "slug": "chart-slope",
-      "title": "Slope",
-      "group": "data",
-      "intent": [
-        "compare-values",
-        "trend-over-time"
-      ],
-      "file": "chart-slope.md"
-    },
-    {
-      "slug": "chart-treemap",
-      "title": "Treemap",
-      "group": "data",
-      "intent": [
-        "part-to-whole",
-        "hierarchy"
-      ],
-      "file": "chart-treemap.md"
+      "file": "chart-funnel.md"
     },
     {
       "slug": "chart-journey-map",
@@ -307,13 +261,13 @@
       "file": "chart-map.md"
     },
     {
-      "slug": "chart-funnel",
-      "title": "Funnel",
+      "slug": "chart-mindmap",
+      "title": "Mind Map",
       "group": "business",
       "intent": [
-        "part-to-whole"
+        "hierarchy"
       ],
-      "file": "chart-funnel.md"
+      "file": "chart-mindmap.md"
     },
     {
       "slug": "chart-org",
@@ -400,69 +354,106 @@
       "file": "chart-wordcloud.md"
     },
     {
-      "slug": "chart-gantt",
-      "title": "Gantt",
-      "group": "project",
-      "intent": [
-        "schedule"
-      ],
-      "file": "chart-gantt.md"
-    },
-    {
-      "slug": "chart-kanban",
-      "title": "Kanban Board",
-      "group": "project",
-      "intent": [
-        "schedule"
-      ],
-      "file": "chart-kanban.md"
-    },
-    {
-      "slug": "chart-pert",
-      "title": "PERT",
-      "group": "project",
-      "intent": [
-        "flow-process",
-        "schedule"
-      ],
-      "file": "chart-pert.md"
-    },
-    {
-      "slug": "chart-raci",
-      "title": "RACI Matrix",
-      "group": "project",
-      "intent": [
-        "schedule"
-      ],
-      "file": "chart-raci.md"
-    },
-    {
-      "slug": "chart-timeline",
-      "title": "Timeline",
-      "group": "project",
-      "intent": [
-        "trend-over-time",
-        "schedule"
-      ],
-      "file": "chart-timeline.md"
-    },
-    {
-      "slug": "chart-event-line",
-      "title": "Event Line",
-      "group": "project",
-      "intent": [
-        "trend-over-time"
-      ],
-      "file": "chart-event-line.md"
-    },
-    {
-      "slug": "chart-family",
-      "title": "Family",
-      "group": "life",
+      "slug": "chart-arc",
+      "title": "Arc",
+      "group": "data",
       "intent": [
         "relationships"
       ],
-      "file": "chart-family.md"
+      "file": "chart-arc.md"
+    },
+    {
+      "slug": "chart-bar",
+      "title": "Bar",
+      "group": "data",
+      "intent": [
+        "compare-values"
+      ],
+      "file": "chart-bar.md"
+    },
+    {
+      "slug": "chart-function",
+      "title": "Function Plot",
+      "group": "data",
+      "intent": [
+        "trend-over-time"
+      ],
+      "file": "chart-function.md"
+    },
+    {
+      "slug": "chart-heatmap",
+      "title": "Heatmap",
+      "group": "data",
+      "intent": [
+        "distribution"
+      ],
+      "file": "chart-heatmap.md"
+    },
+    {
+      "slug": "chart-line",
+      "title": "Line",
+      "group": "data",
+      "intent": [
+        "trend-over-time"
+      ],
+      "file": "chart-line.md"
+    },
+    {
+      "slug": "chart-pie",
+      "title": "Pie",
+      "group": "data",
+      "intent": [
+        "part-to-whole"
+      ],
+      "file": "chart-pie.md"
+    },
+    {
+      "slug": "chart-polar-area",
+      "title": "Polar Area",
+      "group": "data",
+      "intent": [
+        "compare-values"
+      ],
+      "file": "chart-polar-area.md"
+    },
+    {
+      "slug": "chart-radar",
+      "title": "Radar",
+      "group": "data",
+      "intent": [
+        "compare-values"
+      ],
+      "file": "chart-radar.md"
+    },
+    {
+      "slug": "chart-scatter",
+      "title": "Scatter Plot",
+      "group": "data",
+      "intent": [
+        "distribution",
+        "correlation"
+      ],
+      "file": "chart-scatter.md"
+    },
+    {
+      "slug": "chart-slope",
+      "title": "Slope",
+      "group": "data",
+      "intent": [
+        "compare-values",
+        "trend-over-time"
+      ],
+      "file": "chart-slope.md"
+    },
+    {
+      "slug": "chart-treemap",
+      "title": "Treemap",
+      "group": "data",
+      "intent": [
+        "part-to-whole",
+        "hierarchy"
+      ],
+      "file": "chart-treemap.md"
     },
     {
       "slug": "chart-body",
@@ -472,24 +463,6 @@
         "part-to-whole"
       ],
       "file": "chart-body.md"
-    },
-    {
-      "slug": "chart-goal",
-      "title": "Goal",
-      "group": "life",
-      "intent": [
-        "part-to-whole"
-      ],
-      "file": "chart-goal.md"
-    },
-    {
-      "slug": "chart-countdown",
-      "title": "Countdown",
-      "group": "life",
-      "intent": [
-        "change-over-time"
-      ],
-      "file": "chart-countdown.md"
     },
     {
       "slug": "chart-bracket",
@@ -508,6 +481,33 @@
         "change-over-time"
       ],
       "file": "chart-clock.md"
+    },
+    {
+      "slug": "chart-countdown",
+      "title": "Countdown",
+      "group": "life",
+      "intent": [
+        "change-over-time"
+      ],
+      "file": "chart-countdown.md"
+    },
+    {
+      "slug": "chart-family",
+      "title": "Family",
+      "group": "life",
+      "intent": [
+        "relationships"
+      ],
+      "file": "chart-family.md"
+    },
+    {
+      "slug": "chart-goal",
+      "title": "Goal",
+      "group": "life",
+      "intent": [
+        "part-to-whole"
+      ],
+      "file": "chart-goal.md"
     }
   ]
 }
