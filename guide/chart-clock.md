@@ -1,6 +1,6 @@
 ```dgmo
 clock Dani
-New York   America/New_York
+New York
 ```
 
 ## Overview
@@ -24,30 +24,53 @@ time-24               // optional; 24-hour readout (12h am/pm is the default)
 hours 9-17            // optional working window (24h; also 8:30-17:15 or am/pm)
 days mon-fri         // optional working days
 no-sun               // optional; hide the sunrise/sundown line (on by default)
+direction tb         // optional; tb = vertical stack (default), lr = horizontal strip
 
-London   Europe/London      as UK team    // <place> <IANA/Zone> [as <label>]
+London as UK team    // <anchor> [as <label>] [color]
 ```
 
-The first line declares the chart type and the title. The global directives (`analog`, `time-24`, `hours`, `days`, `no-sun`, `no-title`, `direction lr`, `color-by`) are flat lines — **no colon, no indentation**. Each **entry** is a single line: a human-readable place, a real IANA zone, and an optional `as <label>`.
+The first line declares the chart type and the title. The global directives (`analog`, `time-24`, `hours`, `days`, `no-sun`, `no-title`, `direction lr`, `color-by`) are flat lines — **no colon, no indentation**. Each **entry** is a single line: an **anchor** that names the zone, an optional `as <label>`, and an optional trailing palette color.
 
-## Zones and labels
+## Anchors — how you name a zone
 
-Always use a real **IANA time-zone name** (`Europe/London`, `America/New_York`, `America/Los_Angeles`, `Asia/Tokyo`, `Australia/Sydney`) — never a bare offset like `GMT+1`, because IANA zones track daylight saving automatically while a raw offset silently drifts twice a year.
+An entry starts with exactly **one anchor**, and the anchor is all you need — the panel figures out the zone from it. There are three forms, resolved in this order:
 
-The place is what shows on the panel; use `as <label>` to name the **person or role** behind a zone:
+1. **A city name** — the everyday case. Write the place the way you'd say it (`London`, `NYC`, `Bombay`, `Los Angeles`) and the gazetteer resolves it to the canonical zone and displays the canonical city. If a name is ambiguous the chart errors and lists the candidates so you can pick; an unknown name is skipped with a did-you-mean hint.
+2. **An IANA zone id** — anything containing a `/` (`Europe/London`, `America/New_York`, `Asia/Tokyo`). Reach for this when you want to be exact, or when the city you mean isn't in the gazetteer. IANA zones track daylight saving automatically.
+3. **A UTC/GMT offset** — a **fixed** zone that never observes DST: `UTC`, `UTC+1`, `UTC-7`, `UTC+5:30`, `GMT+2`. Use it for servers, log timestamps, or "UTC on the wall" panels. Because the offset is pinned it shows a small **"no DST"** marker and draws no sun line — there's no city on Earth it's tied to.
+
+So the plainest entry is just a city:
 
 ```dgmo
 clock Crew standups
-London        Europe/London        as Quartermaster
-New York      America/New_York     as Dani (NY)
-Los Angeles   America/Los_Angeles  as West coast
+London
+New York
+Los Angeles
 ```
 
-The label is optional — drop it when the place already says everything.
+## Labels
+
+`as <label>` renames the panel; default the label to the resolved city (or the offset). Use it to name the **person or role** behind a zone:
+
+```dgmo
+clock Crew standups
+London        as Quartermaster
+New York      as Dani (NY)
+Los Angeles   as West coast
+```
+
+The label is optional — drop it when the city already says everything. You can mix all three anchor forms freely:
+
+```dgmo
+clock Bridge watch
+Los Angeles          as West coast
+Europe/London        as Quartermaster
+UTC                  as Servers
+```
 
 ## Zone reference
 
-**Any** real IANA zone works for the time itself. The zones below are the curated set that also get a placed **sunrise/sundown** line and full `color-by daylight`/`time` support — reach for the nearest one to your city. A zone outside this list still ticks the correct time; it just skips the sun line. Bare offsets (`GMT+1`, `UTC+5`) are never valid — only `UTC` itself.
+**Any** real IANA zone (or a city that resolves to one) works for the time itself. The zones below are the curated set that also get a placed **sunrise/sundown** line and full `color-by daylight`/`time` support — reach for the nearest one to your city. A zone outside this list still ticks the correct time; it just skips the sun line. Fixed **UTC/GMT offsets** (`UTC`, `UTC+1`, `UTC+5:30`, `GMT-3`) are also valid anchors, but as pinned offsets they carry a "no DST" marker and never draw a sun line.
 
 **North America** — `America/New_York`, `America/Detroit`, `America/Toronto`, `America/Montreal`, `America/Chicago`, `America/Winnipeg`, `America/Mexico_City`, `America/Denver`, `America/Phoenix`, `America/Edmonton`, `America/Los_Angeles`, `America/Vancouver`, `America/Tijuana`, `America/Anchorage`, `America/Adak`, `Pacific/Honolulu`, `America/Halifax`, `America/St_Johns`, `America/Havana`, `America/Panama`, `America/Guatemala`, `America/Costa_Rica`
 
@@ -65,7 +88,7 @@ The label is optional — drop it when the place already says everything.
 
 **Australia / Pacific** — `Australia/Perth`, `Australia/Adelaide`, `Australia/Darwin`, `Australia/Brisbane`, `Australia/Sydney`, `Australia/Melbourne`, `Australia/Hobart`, `Pacific/Auckland`, `Pacific/Fiji`, `Pacific/Guam`, `Pacific/Port_Moresby`, `Pacific/Tongatapu`
 
-**UTC** — `UTC`
+**Fixed offsets** — `UTC`, `UTC+1`, `UTC-7`, `UTC+5:30`, `GMT+2` (no DST, no sun line)
 
 ## Single clock
 
@@ -73,7 +96,7 @@ The single-clock case is common and encouraged: one title, one entry. It reads a
 
 ```dgmo
 clock Dani
-New York   America/New_York
+New York
 ```
 
 ## Analog vs digital
@@ -84,10 +107,43 @@ The default face is **digital** — the current time as text. Add the bare `anal
 clock Bridge watch
 analog
 time-24
-London      Europe/London        as UK team
-New York    America/New_York     as Dani (NY)
-Sydney      Australia/Sydney     as Night watch
+London      as UK team
+New York    as Dani (NY)
+Sydney      as Night watch
 ```
+
+## Layout & orientation
+
+**The board is a vertical stack by default — there is no directive to turn "vertical" on, and none is needed.** One clock per horizontal row (clock face on the left, place in the middle, status on the right), rows running top-to-bottom. This is the right shape for a scannable list — a sidebar of teammates, a tall Obsidian panel — and it grows downward as you add zones. So the plainest board is already the vertical one:
+
+```dgmo
+clock Crew standups
+London        as Quartermaster
+New York      as Dani (NY)
+Los Angeles   as West coast
+```
+
+If you want to say "vertical" out loud in the source — for a shared file where the orientation should be obvious, or so a search for the word lands on it — spell it `direction tb` (top-to-bottom). It is an explicit synonym for the default and changes nothing about the render:
+
+```dgmo
+clock Crew standups
+direction tb
+London        as Quartermaster
+New York      as Dani (NY)
+Los Angeles   as West coast
+```
+
+Add `direction lr` to flip the board **horizontal instead**: each zone becomes its own column (time on top, place and details stacked below), columns sitting side by side left-to-right. Reach for it when the board is a wide banner across the top of a page rather than a list — a handful of zones read at a glance in a single strip.
+
+```dgmo
+clock Crew standups
+direction lr
+London        as UK team
+New York      as Dani (NY)
+Tokyo         as Deckhand
+```
+
+So `direction` takes exactly two values: `tb` (the default vertical stack) and `lr` (the horizontal strip). It composes with everything else (`analog`, `color-by`, `hours`): in `lr` mode the color tint fills each **column** instead of each row, and analog dials sit at the top of their column. Keep the zone count small (three or four) in `lr` mode so the columns stay wide enough to read; longer lists are better as the vertical stack.
 
 ## Working hours
 
@@ -97,10 +153,10 @@ Add a working window with `hours <start>-<end>` and optional `days <range>` to s
 clock When can the crew muster
 hours 9-17
 days mon-fri
-London        Europe/London        as Quartermaster
-New York      America/New_York     as Dani (NY)
-Los Angeles   America/Los_Angeles  as West coast
-Tokyo         Asia/Tokyo           as Deckhand
+London        as Quartermaster
+New York      as Dani (NY)
+Los Angeles   as West coast
+Tokyo         as Deckhand
 ```
 
 ## Sunrise & sundown
@@ -119,9 +175,9 @@ A clock board is **colorized by default** — colorful out of the box. `color-by
   hours 9-17
   days mon-fri
   color-by work
-  London        Europe/London        as Quartermaster
-  New York      America/New_York     as Dani (NY)
-  Tokyo         Asia/Tokyo           as Deckhand
+  London        as Quartermaster
+  New York      as Dani (NY)
+  Tokyo         as Deckhand
   ```
 
 - **`daylight`** — warm where the sun is currently up, cool where it is down, off the same solar math as the `sun` line. A quick day-vs-night read.
@@ -130,14 +186,14 @@ A clock board is **colorized by default** — colorful out of the box. `color-by
   ```dgmo
   clock Follow the sun
   color-by time
-  Los Angeles   America/Los_Angeles  as West coast
-  London        Europe/London        as Quartermaster
-  Tokyo         Asia/Tokyo           as Deckhand
+  Los Angeles   as West coast
+  London        as Quartermaster
+  Tokyo         as Deckhand
   ```
 
 - **`none`** — neutral greyscale.
 
-A hand-set **per-zone color always wins over the dimension**: a **defined** shade — a trailing color on the entry (`London Europe/London as UK team purple`) — keeps that zone purple while the rest follow the dimension. `color-by` only fills the zones you didn't color yourself.
+A hand-set **per-zone color always wins over the dimension**: a **defined** shade — a trailing color on the entry (`London as UK team purple`) — keeps that zone purple while the rest follow the dimension. `color-by` only fills the zones you didn't color yourself.
 
 ## Live vs. baked
 
