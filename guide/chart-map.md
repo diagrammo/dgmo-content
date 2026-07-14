@@ -143,8 +143,41 @@ poi 59.33 18.07 as stockholm teal  // direct marker colour (trailing token)
 - **Coordinates are positional** — two leading signed numbers, latitude then longitude. Cities never start with a number, so there's no ambiguity.
 - `size:` scales the marker area; pair it with `poi-size Label` for a legend key.
 - A trailing color sets the marker fill directly — `poi Mumbai red` — winning over a tag colour and the default orange; no tag group needed.
-- POI properties: `label`, `size`, `style`, an applied tag alias, and `as`. There are no POI icons in v1.
+- POI properties: `label`, `size`, `style`, `clock`, an applied tag alias, and `as`. There are no POI icons in v1.
 - Coord-positioned or relabeled POIs take `as <alias>` so routes and edges can reference them; named POIs are referenced by name.
+
+## Live local-time cards
+
+Flag a POI with `clock` and it grows a small card above the marker showing the **current local time** at that place — a live world-clock pinned to the map, for "where is everyone right now" office/team maps. The card reads out the big local time (seconds and am/pm bracketing the hour), a status dot, and the weekday *only* when it differs from the viewer's. Cards tick live in the browser; the CLI and PNG export bake a snapshot of the moment they render.
+
+```dgmo
+map Follow-the-Sun Support Desk
+
+hours 9-17
+days mon-fri
+
+poi San Francisco clock label: West Coast
+poi London clock label: EMEA
+poi Singapore clock label: APAC
+poi Sydney clock label: Pacific
+```
+
+- **`clock` (bare flag)** — the POI's IANA time zone is derived from the gazetteer, so a named city needs no zone. Peel it anywhere on the line (`poi Tokyo clock, size: 80`).
+- **`clock: <zone>` (valued)** — names the zone explicitly. **Required for a bare-coordinate pin** (no gazetteer entry to derive from), and an override on a named city. Takes an IANA id (`clock: Asia/Tokyo`) or a fixed offset (`clock: UTC+9`, DST-blind). A zone that contradicts a known city's real zone warns but is honored.
+- **`label:` names the office** — a multi-word display name lives on `label:`, not `as` (the map's `as` alias is a single ≤12-char token that doesn't render).
+- **`hours 9-17` + `days mon-fri`** — header directives that set one availability window applied to every clock pin, each evaluated **in its own local zone**. They drive the status dot: open, closing soon, or closed. Ranges accept `9-17`, `9am-5pm`, or `8:30-5:15`; `days` takes `mon-fri` or a list like `mon,wed,fri`. `days` needs `hours` to have any effect.
+
+A bare-coordinate pin needs the valued form to place its zone:
+
+```dgmo
+map Field Team Clocks
+
+hours 8-16
+days mon-fri
+
+poi Denver clock                                  // zone from the gazetteer
+poi 39.74 -104.98 as field clock: America/Denver  // coord pin — zone required
+```
 
 ## Routes & Connectors
 
@@ -214,9 +247,9 @@ Everything cosmetic is on by default. The only switch is a bare `no-*` opt-out �
 
 ## Directives & Reserved Keys
 
-The full directive set is 12, no colons. Six name intent the renderer can't infer — `region-heat`, `poi-size`, `flow-width`, `locale`, `active-tag`, `caption` — and six are the `no-*` cosmetic opt-outs — `no-legend`, `no-coastline`, `no-relief`, `no-context-labels`, `no-region-labels`, `no-poi-labels`. There is no `projection`, `scale`, `subtitle`, or `surface` directive, and the cosmetic features have no positive opt-in form.
+The directive set has no colons. Eight name intent the renderer can't infer — `region-heat`, `poi-size`, `flow-width`, `locale`, `active-tag`, `caption`, plus `hours`/`days` (the clock availability window) — and six are the `no-*` cosmetic opt-outs — `no-legend`, `no-coastline`, `no-relief`, `no-context-labels`, `no-region-labels`, `no-poi-labels`. There is no `projection`, `scale`, `subtitle`, or `surface` directive, and the cosmetic features have no positive opt-in form.
 
-Reserved metadata keys (need colons): `heat`, `size`, `width`, `label`, `style`. The numeric channel splits by element kind — regions use `heat:` (choropleth shade), POIs use `size:` (marker area), and edges/legs use `width:` (line thickness).
+Reserved metadata keys (need colons): `heat`, `size`, `width`, `label`, `style`, `clock`. The numeric channel splits by element kind — regions use `heat:` (choropleth shade), POIs use `size:` (marker area), and edges/legs use `width:` (line thickness). `clock` is unusual — it works bare (a flag, deriving the zone) or valued (`clock: <zone>`).
 
 ## Color Validation
 
