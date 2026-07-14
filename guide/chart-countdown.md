@@ -28,6 +28,18 @@ The first line declares the chart type and the event title. `target`, `units`, a
 
 The literal `target now` resolves at render time (→ immediately expired) — handy for previewing the `expired` state.
 
+## Pinning to a timezone
+
+By default the count is **viewer-local**: a bare date, an offset-free datetime, and a recurring `at` time all resolve against whatever clock the viewer's machine is set to — so the same countdown reads differently in New York and Mumbai, and drifts if you travel. Add a `tz` line to **pin** those authored times to one IANA zone, so every viewer sees the same remaining time and it never shifts when the machine moves zones:
+
+```dgmo
+countdown Ship's launch
+target 2026-09-01T18:00
+tz America/New_York
+```
+
+`tz <zone>` is a space-separated directive (no colon), taking any IANA zone name — `America/New_York`, `Asia/Kolkata`, `Europe/London`, or `UTC`. With it set, the footer shows the in-zone time plus a `UTC±` offset tag so the anchor is unambiguous. An explicit ISO offset already baked into `target` (`2026-09-01T09:00-07:00`) is absolute on its own and needs no `tz`.
+
 ## Recurring events
 
 For anything that repeats — a birthday, an anniversary, a standing meeting — use an `every` rule instead of `target`. The countdown resolves to the **next** occurrence and **rolls forward** on its own when the day passes, so it never goes stale and needs no year:
@@ -38,15 +50,62 @@ every month on 1st Monday at 10:00
 on-day Today!
 ```
 
-The rule is a single line, `every <cadence> [on <instant>] [at <time>] [from <anchor>]`:
+The rule is a single line, `every <cadence> [on <instant>] [at <time>] [from <anchor>]`. The cadence sets how often; the optional `on` picks *which* day within that period, `at` picks the time, and `from` anchors an interval. Every cadence has a worked example below.
 
-- `every year on Aug 21` — an annual month + day.
-- `every month on 3rd Tuesday` / `every month on last Friday` — the nth (or last) weekday of each month.
-- `every week on Friday` — a weekday each week.
-- `every 2 weeks from 2026-07-03` — a fixed interval anchored to a date.
-- `at 18:00` — a 24h time (default midnight). `on-day <text>` shows on the occurrence day.
+### Annual — `every year`
 
-Weekday and month names are a fixed vocabulary, so the editor autocompletes them and a typo is a named error — never a silent wrong date. Free prose is rejected with the fix: `every Friday 6pm` → `✕ "6pm": use 24h time (18:00)` → `↳ every week on Friday at 18:00`. A block has **either** `target` **or** `every`, never both. Single nth/last weekday only (no `2nd and 4th Wednesday`). Times are the viewer's local clock.
+The workhorse: a fixed month + day, no year, so it never expires. Ideal for birthdays, holidays, and anniversaries.
+
+```dgmo
+countdown Mom's Birthday
+every year on Aug 21
+on-day 🎂 Today!
+```
+
+The month is a fixed name (`Jan`…`Dec`, full or abbreviated) and the day is a plain number. `on-day 🎂 Today!` swaps the header for that phrase on the day itself (see roll-forward below).
+
+### Monthly — `every month on <nth> <weekday>`
+
+Picks the nth (or `last`) weekday of every month — the shape of most standing meetings. Combine with `at` for a time and `tz` to pin it.
+
+```dgmo
+countdown Sprint Review
+every month on 3rd Tuesday at 14:00
+tz America/New_York
+on-day Live now
+```
+
+`1st`…`5th` and `last` are the only ordinals; the weekday is a fixed name. Single weekday only — `2nd and 4th Wednesday` is not expressible in one block. A month with no 5th of a given weekday simply skips to the next month that has one.
+
+### Weekly — `every week on <weekday>`
+
+A standing weekday. Add `at` for a time; without it the whole day counts as the occurrence.
+
+```dgmo
+countdown Friday Deploy Freeze
+every week on Friday at 17:00
+on-day 🧊 Frozen
+```
+
+### Fixed interval — `every N <days|weeks|months> from <anchor>`
+
+An interval cadence repeats every N units measured from an anchor date — use it when the rhythm isn't tied to a calendar name (every 10 days, every other Friday counted from a known start). The `from` anchor is **required** here, because "every 2 weeks" is meaningless without a starting point:
+
+```dgmo
+countdown Payday
+every 2 weeks from 2026-07-03
+on-day 💸 Payday
+```
+
+`every day` is the same family and likewise needs an anchor (`every day from 2026-07-01`). The singular form drops the `N`: `every month from 2026-01-31` is `N = 1` — one month past the anchor, then the next, and so on.
+
+### Timing, roll-forward, and expiry
+
+- **`at <time>`** is 24-hour, default midnight. `at 18:00` makes the occurrence a precise instant; **omit it and the occurrence is the whole day** — the countdown reads "Today!" (or your `on-day` text) from local midnight to midnight, then rolls to the next occurrence. A *timed* occurrence instead rolls the exact second it passes and, on its final day, pivots into a live `HH:MM:SS` clock (see *Timed targets*).
+- **`on-day <text>`** replaces the header on the occurrence day/instant — a party phrase, a "Live now" flag, an emoji.
+- **Roll-forward is automatic and needs no year.** After an occurrence passes, the block re-resolves to the next one on the next load; recurring blocks never enter the `expired` state (`expired` is for one-shot `target`s only). The in-chart footer always states the resolved instant (`→ Tue Aug 21 2026 · in 39 days`), so a mistaken rule shows a visibly wrong date.
+
+Weekday and month names are a fixed vocabulary, so the editor autocompletes them and a typo is a named error — never a silent wrong date. Free prose is rejected with the fix: `every Friday 6pm` → `✕ "6pm": use 24h time (18:00)` → `↳ every week on Friday at 18:00`. A block has **either** `target` **or** `every`, never both. Times are the viewer's local clock unless a `tz` line pins them.
 
 ## Numbering with `since`
 

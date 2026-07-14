@@ -1,3 +1,4 @@
 countdown Monthly All-Hands
 every month on 1st Monday at 10:00
+tz America/New_York
 on-day Today!
