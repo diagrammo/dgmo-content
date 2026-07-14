@@ -1,6 +1,6 @@
 # Writing Dates
 
-Every chart type that reads dates — **gantt, timeline, event-line, countdown, and pert** — shares one date grammar. Write dates however feels natural; Diagrammo normalizes them internally, so the rendered output is identical no matter which form you type.
+Every chart type that reads dates — [gantt](/docs/chart-gantt), [timeline](/docs/chart-timeline), [event-line](/docs/chart-event-line), [countdown](/docs/chart-countdown), and [pert](/docs/chart-pert) — shares one date grammar. Write dates however feels natural; Diagrammo normalizes them internally, so the rendered output is identical no matter which form you type.
 
 ## Formats
 
@@ -16,7 +16,7 @@ All of these mean the same day:
 | `July 4, 2026`       | Jul 4, 2026  | full natural form                      |
 | `4 Jul 2026`         | Jul 4, 2026  | day-first natural form                 |
 
-Datetimes work where the chart supports a time: `2026-07-04 14:30`. Timeline also accepts era-signed years like `753 BCE` and `14 CE`.
+Datetimes work where the chart supports a time: `2026-07-04 14:30`. [Timeline](/docs/chart-timeline) also accepts era-signed years like `753 BCE` and `14 CE`.
 
 ## Numeric dates are US month-first
 
@@ -33,18 +33,18 @@ Leave the year off a date and Diagrammo fills it in, in this order:
 
 1. **A year on the date itself** always wins.
 2. **A `year 2026` line** anywhere in the chart sets the base year for every bare date below it.
-3. **A neighbouring dated row.** Timelines and event lines carry the year forward from the last full date and roll into the next year when a month falls earlier (a November start followed by a January row lands in the next year). Gantt and PERT anchor every bare date to the project's start date.
+3. **A neighbouring dated row.** [Timeline](/docs/chart-timeline) and [event-line](/docs/chart-event-line) carry the year forward from the last full date and roll into the next year when a month falls earlier (a November start followed by a January row lands in the next year). [Gantt](/docs/chart-gantt) and [PERT](/docs/chart-pert) anchor every bare date to the project's start date.
 4. **This year**, as a last resort — only if the chart has no full date at all. You'll see a gentle hint suggesting you add `year 2026` so the chart looks the same next January.
 
-So a gantt only needs the year once:
+So you only write the year once — one `year` line covers every bare date below it:
 
 ```dgmo
-gantt Launch
+event-line Launch Week
 year 2026
-start Jan 6
-  Design 2w
-  Build 3w
-  Launch start: 7/1
+  Mar 3 Kickoff
+  3/10 Beta opens
+  03-24 Press embargo lifts
+  Apr 2 Public launch
 ```
 
 ## Directives
@@ -57,4 +57,4 @@ These work in any date-bearing chart, and it doesn't matter whether they appear 
 | `date-order dmy`   | numeric slash/dash dates read day-first (default is US month-first) |
 | `no-current-year`  | a chart with no year anywhere is an error instead of assuming this year — use it when output must be reproducible |
 
-Era, marker, and holiday bands (gantt and timeline) accept the same formats. Existing charts written in ISO keep working unchanged — this is an addition, not a migration.
+Era, marker, and holiday bands ([gantt](/docs/chart-gantt) and [timeline](/docs/chart-timeline)) accept the same formats. Existing charts written in ISO keep working unchanged — this is an addition, not a migration.
