@@ -27,6 +27,8 @@ repair hull 3
 divvy shares 1 2 3
 ```
 
+> **Dates** — `start-date` and `end-date` accept any date format (`2026-06-01`, `6/1/2026`, `Jun 1, 2026`) as well as `start-date now`. See [Writing Dates](/docs/writing-dates).
+
 ## Overview
 
 A PERT diagram (Program Evaluation Review Technique) is an Activity-on-Node project network. Each activity carries a duration estimate — three-point (O / M / P), single-number (M-only), or zero (a sync point) — and the analyzer computes earliest/latest start/finish times, slack, the M-world critical path, and (when at least one activity has a three-point estimate) a probability-weighted criticality index plus P50/P80/P95 completion percentiles.

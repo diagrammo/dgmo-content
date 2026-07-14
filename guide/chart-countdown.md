@@ -3,6 +3,8 @@ countdown Trip to Japan
 target 2027-04-15
 ```
 
+> **Dates** — the `target` accepts any date format (`2026-07-04`, `7/4/2026`, `July 4, 2026`) as well as `now`. See [Writing Dates](/docs/writing-dates).
+
 ## Overview
 
 A countdown is the only **dynamic** dgmo chart: a single "N days until X" that recomputes against the viewer's clock on every load and ticks every second on any live surface. Reach for it as a live widget — a blog sidebar, an Obsidian note, a shared page — for a trip date, a product launch, or a deadline. It is distinct from `goal` (§goal): a goal measures `now` against a `target`; a countdown counts down to one future instant. For a value over time use `line`.

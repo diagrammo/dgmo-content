@@ -45,6 +45,12 @@
       "file": "colors.md"
     },
     {
+      "slug": "writing-dates",
+      "title": "Writing Dates",
+      "group": "getting-started",
+      "file": "writing-dates.md"
+    },
+    {
       "slug": "how-dgmo-thinks",
       "title": "How DGMO Thinks",
       "group": "getting-started",

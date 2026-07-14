@@ -35,6 +35,8 @@ marker 1721-08 Roberts reaches peak teal
 1722-02-10 Killed at Cape Lopez p: Roberts, o: Defeat, t: Africa
 ```
 
+> **Dates** — timeline accepts any date format for events, eras, and markers (`1716`, `1/15`, `Jul 4`, `753 BCE`). A bare month-day inherits its year from a `year 2026` line or the surrounding rows. See [Writing Dates](/docs/writing-dates).
+
 ## Syntax
 
 ```

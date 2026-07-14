@@ -40,6 +40,8 @@ marker 2024-04-08 Landfall orange
   Guard Camp 9bd
 ```
 
+> **Dates** — gantt accepts any date format (`2024-01-15`, `1/15`, `Jan 15`) for `start`, task `start:`, eras, markers, and holidays. Add a `year 2024` line to write the year just once. See [Writing Dates](/docs/writing-dates).
+
 ## Overview
 
 Gantt charts visualize project schedules as horizontal bars on a time axis. Tasks have positional durations, can be grouped, run in parallel by default, and linked sequentially with arrow dependencies. The renderer automatically calculates dates and highlights the critical path.

@@ -27,6 +27,8 @@ tag Theme as t
     The living standard — video, canvas, semantics.
 ```
 
+> **Dates** — event dates accept any format (`2026-03-20`, `3/20`, `Mar 20`); a bare month-day inherits its year from a `year 2026` line or the surrounding events. See [Writing Dates](/docs/writing-dates).
+
 ## Overview
 
 An **event line** is the annotated, narrative timeline every infographic reaches for: a horizontal spine of point events, each a dot with a date caption and a leader line up to an org-style card holding a title and a short description. Cards auto-alternate above and below the spine to pack densely. Think "a history of the web", "company milestones", "how a bill becomes law", or "a mission timeline".
