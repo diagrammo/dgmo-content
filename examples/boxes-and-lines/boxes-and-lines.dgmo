@@ -2,8 +2,7 @@ boxes-and-lines Pirate Fleet Command
 
 tag Status as s
   Operational green
-  Damaged orange
-  Sunk red
+  Damaged red
   Building blue default
 
 heat Crew red green

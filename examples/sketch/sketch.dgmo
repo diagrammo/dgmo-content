@@ -6,17 +6,17 @@ tag Crew
 
 Spyglass Feed shape: database, at: 0 0, crew: Deck
   -sightings-> con
-Captain's Console as con at: 2 0, crew: Deck
-  -orders-> bq
-  -supplies-> armory
-Divvy Service as dvy at: 4 0, crew: Hold
+Divvy Service as dvy at: 14 0, crew: Hold
   -entries-> ledger
 
-[Below Decks] at: 2 2, crew: Hold
+[Below Decks] crew: Hold
+  Captain's Console as con at: -3 -2, crew: Deck
+    -orders-> bq
+    -supplies-> armory
   Booty Queue as bq shape: queue, at: 0 0
     ~haul~> dvy
   Ship Ledger as ledger shape: database, at: 2 0
 
-[Armory] as armory at: 0 2, collapsed
-  Powder Store at: 0 0
-  Cutlass Rack at: 0 1
+[Armory] as armory at: 3 0, collapsed
+  Powder Store
+  Cutlass Rack

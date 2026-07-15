@@ -217,31 +217,6 @@
       "description": null
     },
     {
-      "id": "bar-stacked",
-      "kind": "variant",
-      "base": "bar",
-      "name": "Stacked",
-      "family": "data",
-      "intent": [],
-      "produces": null,
-      "keywords": [
-        {
-          "text": "stacked",
-          "kind": "synonym"
-        },
-        {
-          "text": "stacked bar",
-          "kind": "synonym"
-        },
-        {
-          "text": "composite bar",
-          "kind": "synonym"
-        }
-      ],
-      "guidance": null,
-      "description": null
-    },
-    {
       "id": "block",
       "kind": "type",
       "base": null,
@@ -1648,31 +1623,6 @@
       "description": null
     },
     {
-      "id": "line-multi-series",
-      "kind": "variant",
-      "base": "line",
-      "name": "Multi Series",
-      "family": "data",
-      "intent": [],
-      "produces": null,
-      "keywords": [
-        {
-          "text": "multi series",
-          "kind": "synonym"
-        },
-        {
-          "text": "multiple lines",
-          "kind": "synonym"
-        },
-        {
-          "text": "multi-line",
-          "kind": "synonym"
-        }
-      ],
-      "guidance": null,
-      "description": null
-    },
-    {
       "id": "map",
       "kind": "type",
       "base": null,
@@ -2368,27 +2318,6 @@
       "description": null
     },
     {
-      "id": "radar-multi-series",
-      "kind": "variant",
-      "base": "radar",
-      "name": "Multi Series",
-      "family": "data",
-      "intent": [],
-      "produces": null,
-      "keywords": [
-        {
-          "text": "multi series radar",
-          "kind": "synonym"
-        },
-        {
-          "text": "overlaid radar",
-          "kind": "synonym"
-        }
-      ],
-      "guidance": null,
-      "description": null
-    },
-    {
       "id": "ring",
       "kind": "type",
       "base": null,
@@ -2522,27 +2451,6 @@
       ],
       "guidance": "label both axes with units; group points into categories with `[Category] color` brackets (points indented under each) so clusters read at a glance — scatter colors by bracketed category, not by a tag group; reach for a second category only when the comparison is the point; keep marker labels off unless a few outliers need calling out.",
       "description": "2D data points or bubble chart"
-    },
-    {
-      "id": "scatter-bubble",
-      "kind": "variant",
-      "base": "scatter",
-      "name": "Bubble",
-      "family": "data",
-      "intent": [],
-      "produces": null,
-      "keywords": [
-        {
-          "text": "bubble",
-          "kind": "synonym"
-        },
-        {
-          "text": "bubble chart",
-          "kind": "synonym"
-        }
-      ],
-      "guidance": null,
-      "description": null
     },
     {
       "id": "sequence",
@@ -3410,27 +3318,6 @@
       ]
     },
     {
-      "id": "bar-stacked",
-      "entity": "bar-stacked",
-      "file": "examples/bar/bar-stacked.dgmo",
-      "isPrimary": true,
-      "status": "draft",
-      "placements": [
-        {
-          "surface": "docs",
-          "role": "docs"
-        },
-        {
-          "surface": "new-file",
-          "role": "starter"
-        },
-        {
-          "surface": "obsidian",
-          "role": "sampler"
-        }
-      ]
-    },
-    {
       "id": "block",
       "entity": "block",
       "file": "examples/block/block.dgmo",
@@ -4131,23 +4018,6 @@
       ]
     },
     {
-      "id": "line-multi-series",
-      "entity": "line-multi-series",
-      "file": "examples/line/line-multi-series.dgmo",
-      "isPrimary": true,
-      "status": "draft",
-      "placements": [
-        {
-          "surface": "docs",
-          "role": "docs"
-        },
-        {
-          "surface": "obsidian",
-          "role": "sampler"
-        }
-      ]
-    },
-    {
       "id": "map",
       "entity": "map",
       "file": "examples/map/map.dgmo",
@@ -4430,23 +4300,6 @@
       ]
     },
     {
-      "id": "radar-multi-series",
-      "entity": "radar-multi-series",
-      "file": "examples/radar/radar-multi-series.dgmo",
-      "isPrimary": true,
-      "status": "draft",
-      "placements": [
-        {
-          "surface": "docs",
-          "role": "docs"
-        },
-        {
-          "surface": "obsidian",
-          "role": "sampler"
-        }
-      ]
-    },
-    {
       "id": "ring",
       "entity": "ring",
       "file": "examples/ring/ring.dgmo",
@@ -4492,27 +4345,6 @@
       "id": "scatter",
       "entity": "scatter",
       "file": "examples/scatter/scatter.dgmo",
-      "isPrimary": true,
-      "status": "draft",
-      "placements": [
-        {
-          "surface": "docs",
-          "role": "docs"
-        },
-        {
-          "surface": "new-file",
-          "role": "starter"
-        },
-        {
-          "surface": "obsidian",
-          "role": "sampler"
-        }
-      ]
-    },
-    {
-      "id": "scatter-bubble",
-      "entity": "scatter-bubble",
-      "file": "examples/scatter/scatter-bubble.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -4834,6 +4666,23 @@
         {
           "surface": "obsidian",
           "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "map-route",
+      "entity": "map-route",
+      "file": "examples/map/map-route.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
         }
       ]
     }

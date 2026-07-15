@@ -1,19 +1,12 @@
-map The Brethren's Caribbean
+map Follow-the-Sun Support Desk
 
-tag Port as p
-  Home Port red
-  Friendly green
-  Spanish Prize orange
+hours 9-17
+days mon-fri
 
-tag Passage as l
-  Open Sea blue
-  Coastal Run teal
+poi San Francisco clock label: West
+poi Denver US-CO clock label: Central
+poi Miami clock label: East 
 
-poi Kingston p: Home Port, size: 120
-poi Havana p: Spanish Prize, size: 90
-poi Santo Domingo p: Friendly, size: 70
-
-route Kingston
-  ~weigh anchor~> Havana l: Open Sea
-  ~raid the galleons~> Santo Domingo l: Coastal Run
-  ~careen & resupply~> Kingston l: Open Sea
+route Houston
+  ~> Chicago
+  ~> Washington 

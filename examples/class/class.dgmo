@@ -1,7 +1,5 @@
 class Ship Class Hierarchy
 
-solid-fill 
-
 interface Vessel
   + sail(): void
   + anchor(): void

@@ -1,0 +1,26 @@
+scatter Pirate Captains
+x-label Ruthlessness
+y-label Treasure
+
+[Caribbean] red
+  Blackbeard   90  8500
+  Calico Jack  55  3200
+  Anne Bonny   70  2800
+  Henry Morgan 85 12000
+  Charles Vane 75  4100
+
+
+[Atlantic] blue
+  Black Sam Bellamy   60  9200
+  Bartholomew Roberts 88 11000
+  Edward Low          95  5500
+  Stede Bonnet        30  1800
+
+
+
+[Indian Ocean] green
+  Henry Every  80 14000
+  William Kidd 65  6800
+  Thomas Tew   50  7200
+
+

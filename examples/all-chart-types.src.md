@@ -70,14 +70,6 @@ const plunder = ships.reduce((sum, s) => sum + s.gold, 0);
 
 ![[bar/bar.dgmo]]
 
-### Bar Chart (stacked)
-
-![[bar/bar-stacked.dgmo]]
-
-### Bubble Chart (scatter + size)
-
-![[scatter/scatter-bubble.dgmo]]
-
 ### Arc — Chord Layout
 
 ![[arc/arc-chord.dgmo]]
@@ -101,10 +93,6 @@ const plunder = ships.reduce((sum, s) => sum + s.gold, 0);
 ### Line Chart
 
 ![[line/line.dgmo]]
-
-### Line Chart (Multi-series)
-
-![[line/line-multi-series.dgmo]]
 
 ### Pie Chart
 
@@ -147,10 +135,6 @@ const plunder = ships.reduce((sum, s) => sum + s.gold, 0);
 ### Bracket
 
 ![[bracket/bracket.dgmo]]
-
-### Bracket (seeded, two sides)
-
-![[bracket/bracket-seeded.dgmo]]
 
 ### Clock
 
