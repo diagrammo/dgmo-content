@@ -297,7 +297,7 @@ Each tag value gets its own collapsible lane. It's named `lane-by` rather than `
 | `no-dependencies`| Hide dependency arrows                                   | shown      |
 | `sort`           | Task layout: `tag` or `tag:GroupName` for swimlanes      | `default`  |
 | `active-tag`     | Group to color by (first declared is active by default; `none` suppresses) | first group |
-| `solid-fill`     | Render bars at full saturation instead of 25% tint       | off        |
+| `fill-solid`     | Render bars at full saturation instead of 25% tint       | off        |
 | `no-title`       | Suppress the chart banner title                          | off        |
 | `sprint-length`  | Sprint duration (`2w`, `10d`)                            | `2w`       |
 | `sprint-number`  | Which sprint the chart starts at                         | `1`        |

@@ -96,7 +96,7 @@ Components don't have explicit types — their **role is inferred from their pro
 | `active-tag`          | Tag dimension to color by (first declared is active by default; `none` suppresses) | first group |
 | `animate`             | Flow animation (boolean; `no-animate` to disable)                    | on       |
 
-The universal `solid-fill` and `no-title` options also apply.
+The universal `fill-solid` and `no-title` options also apply.
 
 ## Entry Point (Edge)
 

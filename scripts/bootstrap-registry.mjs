@@ -33,7 +33,7 @@ const OUT = join(CONTENT_ROOT, 'registry.json');
  * produces → the directive/block that makes the variant; null when unverified.
  */
 const VARIANTS = {
-  bar: { variants: ['stacked', 'grouped', 'horizontal'], features: ['solid-fill'] },
+  bar: { variants: ['stacked', 'grouped', 'horizontal'], features: ['fill-solid'] },
   line: { variants: ['area', 'multi-series', 'dual-axis'] },
   pie: { variants: [{ id: 'donut', produces: 'hole' }], features: ['no-center-total'] },
   radar: { variants: ['multi-series'] },

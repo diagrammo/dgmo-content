@@ -58,7 +58,7 @@ Linear red: 2*x + 1
 
 ## Filled Area — `fill`
 
-Add `fill` to shade the area below each curve down to the baseline — the same directive as `line` + `fill`. The fill is a translucent 25% tint of each curve's color; add `solid-fill` for opaque bands.
+Add `fill` to shade the area below each curve down to the baseline — the same directive as `line` + `fill`. The fill is a translucent 25% tint of each curve's color; add `fill-solid` for opaque bands.
 
 ```
 function Trajectories

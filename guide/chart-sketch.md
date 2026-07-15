@@ -98,7 +98,7 @@ Spyglass Feed at: 0 0, crew: Deck
 | Directive   | Effect                        |
 | ----------- | ----------------------------- |
 | `no-legend` | Hide the tag legend.          |
-| `solid-fill`| Fill shapes with solid color. |
+| `fill-solid`| Fill shapes with solid color. |
 
 ## Tips
 

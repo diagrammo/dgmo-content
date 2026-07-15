@@ -1,7 +1,7 @@
 ```dgmo
 ring Captain's Sphere of Influence
 
-solid-fill
+fill-solid
 
 Captain red
   Final word on heading and plunder,
@@ -31,7 +31,7 @@ Ring diagrams show concentric layers of nested or hierarchical categories. Sourc
 ```
 ring Title
 
-[solid-fill]                 // optional directive
+[fill-solid]                 // optional directive
 
 LayerLabel                   // innermost first
 LayerLabel blue
@@ -84,7 +84,7 @@ Quartermaster description: Second-in-command, divvies the booty
 
 | Directive | Effect |
 |-----------|--------|
-| `solid-fill` | Render rings with the full intent color instead of the default 25% tint. |
+| `fill-solid` | Render rings with the full intent color instead of the default 25% tint. |
 
 `inverted` is **not** valid on ring diagrams (rings are rotationally symmetric — visual inversion is meaningless). Using it emits an error-severity diagnostic and the line is discarded.
 
@@ -105,7 +105,7 @@ Unknown color names emit an error-severity diagnostic with a "Did you mean…?" 
 ```dgmo
 ring OSI Layered Model
 
-solid-fill
+fill-solid
 
 Physical red
   Cables, voltages, signal timing.

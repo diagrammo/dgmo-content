@@ -72,7 +72,7 @@ By default the fill is **auto traffic-light** by completion: `< 50%` red, `50–
 2. Otherwise the auto band color (needs a `target`).
 3. `no-auto-color` disables the bands and falls back to the flat palette series color.
 
-The fill is a light 25% tint of the resolved color; add `solid-fill` for full saturation.
+The fill is a light 25% tint of the resolved color; add `fill-solid` for full saturation.
 
 ## Note
 
@@ -109,7 +109,7 @@ The body supports simple inline markdown (`**bold**`, `*italic*`, `` `code` ``),
 | `note <text>` / `note` + body | Free-text caption (inline or indented block). |
 | `no-percent`           | Hide the `%` label.                              |
 | `no-value`             | Hide the raw `now / target` label.               |
-| `solid-fill`           | Full-saturation fill instead of the 25% tint.    |
+| `fill-solid`           | Full-saturation fill instead of the 25% tint.    |
 | `no-title`             | Hide the banner title.                           |
 | `no-note`              | Suppress the `note` block even if authored.      |
 | `no-auto-color`        | Disable the traffic-light bands; use palette color. |
