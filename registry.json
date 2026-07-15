@@ -3869,9 +3869,9 @@
       ]
     },
     {
-      "id": "function-shade",
+      "id": "function-fill",
       "entity": "function",
-      "file": "examples/function/function-shade.dgmo",
+      "file": "examples/function/function-fill.dgmo",
       "isPrimary": false,
       "status": "draft",
       "placements": [

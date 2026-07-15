@@ -198,14 +198,14 @@ Navigation Charts  30
 ### Function Plot
 
 ```dgmo
-function Cannonball Trajectories by Elevation
-x-label Distance (meters)
-y-label Height (meters)
-x 0 to 250
+function Trig & Exponential Curves
+x-label x
+y-label f(x)
+x 0 to 10
 
-15 degrees blue: -0.001*x^2 + 0.27*x
-30 degrees green: -0.002*x^2 + 0.58*x
-45 degrees red: -0.003*x^2 + 0.75*x
+Sine blue: sin(x)
+Cosine green: cos(x)
+Exponential decay red: exp(-x/4)
 ```
 
 ### Funnel Chart

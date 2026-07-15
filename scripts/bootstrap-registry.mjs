@@ -40,7 +40,7 @@ const VARIANTS = {
   scatter: { variants: ['bubble'] },
   arc: { variants: ['ordered', { id: 'chord', produces: 'layout chord' }] },
   treemap: { variants: ['heat', 'tags'] },
-  function: { features: ['shade'] },
+  function: { features: ['fill'] },
   pyramid: { variants: ['inverted'] },
   cycle: { variants: ['counterclockwise'], features: ['circle-nodes'] },
   org: { variants: ['teams'] },

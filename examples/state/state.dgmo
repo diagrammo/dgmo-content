@@ -1,16 +1,23 @@
 state Ship Battle Lifecycle
-solid-fill
 
 [*] -> Sailing
 
 Sailing
   -enemy spotted-> BattleStations
 
-BattleStations
-  -in range-> Engaging
-  -enemy retreats-> Sailing
+[Losses] gray
+  Captured -> [*]
+  Sinking -> [*]
 
-[Combat]
+[Aftermath] teal
+  Victorious
+    -loot taken-> Sailing
+
+  Retreating
+    -escaped-> Sailing
+    -caught-> Captured
+
+[Combat] red
   Engaging
     -alongside-> Boarding
     -hull breach-> Sinking
@@ -20,13 +27,6 @@ BattleStations
     -crew wins-> Victorious
     -crew loses-> Captured
 
-[Aftermath]
-  Victorious
-    -loot taken-> Sailing
-
-  Retreating
-    -escaped-> Sailing
-    -caught-> Captured
-
-Captured -> [*]
-Sinking -> [*]
+BattleStations
+  -in range-> Engaging
+  -enemy retreats-> Sailing
