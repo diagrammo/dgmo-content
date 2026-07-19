@@ -90,7 +90,7 @@ note
   Top us off to `50L` and the shanties start.
 ```
 
-The body supports simple inline markdown (`**bold**`, `*italic*`, `` `code` ``), `- `/`* ` bullets, and blank-line gaps. It renders in the **left column** for `thermometer`/`gauge` and **under the bar** for the default face. `no-note` hides it even when authored.
+The body supports simple inline markdown (`**bold**`, `*italic*`, `` `code` ``), `- `/`* ` bullets, and blank-line gaps. It renders in the **left column** for `thermometer`/`gauge` and **under the bar** for the default face. `no-notes` hides it even when authored.
 
 ## Over-target & edge cases
 
@@ -111,7 +111,7 @@ The body supports simple inline markdown (`**bold**`, `*italic*`, `` `code` ``),
 | `no-value`             | Hide the raw `now / target` label.               |
 | `fill-solid`           | Full-saturation fill instead of the 25% tint.    |
 | `no-title`             | Hide the banner title.                           |
-| `no-note`              | Suppress the `note` block even if authored.      |
+| `no-notes`             | Suppress the `note` block even if authored.      |
 | `no-auto-color`        | Disable the traffic-light bands; use palette color. |
 
 ## Tips

@@ -13,7 +13,7 @@ Development
     Auth System
       description: Handle login, signup, OAuth flows
     Dashboard
-  Nice-to-haves collapsed: true
+  Nice-to-haves collapsed
     Dark Mode
     Export PDF
 Go-to-Market
@@ -78,15 +78,15 @@ Auth System
 
 ### Collapse Default
 
-Set a node's default collapsed state with metadata:
+Set a node's default collapsed state with a trailing `collapsed` flag on the node line:
 
 ```
-Nice-to-haves collapsed: true
+Nice-to-haves collapsed
   Dark Mode
   Export PDF
 ```
 
-Collapsed nodes show a drill-bar indicating hidden children. Click to expand. Because `collapsed: true` lives in the source, it's portable view-state: every renderer (app, CLI, remark-dgmo, Obsidian, code-fence embeds) reproduces the collapsed view from the `.dgmo` alone. In the app, collapsing or expanding a node writes or removes this marker in the source.
+Collapsed nodes show a drill-bar indicating hidden children. Click to expand. Because the `collapsed` flag lives in the source, it's portable view-state: every renderer (app, CLI, remark-dgmo, Obsidian, code-fence embeds) reproduces the collapsed view from the `.dgmo` alone. In the app, collapsing or expanding a node writes or removes this marker in the source.
 
 ## Multi-Root
 
@@ -192,7 +192,7 @@ Development p: High, d: Engineering
     Auth System
       description: Handle login, signup, OAuth flows
     Dashboard
-  Nice-to-haves p: Low, collapsed: true
+  Nice-to-haves p: Low, collapsed
     Dark Mode
     Export PDF
 Go-to-Market d: Marketing

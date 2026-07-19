@@ -589,7 +589,7 @@ LB
 
 ### Collapsed groups
 
-`collapsed: true` renders the group as a single combined node rather than the bracketed cluster. The collapsed node shows:
+A trailing `collapsed` flag on the group line (`[Backend] collapsed`) renders the group as a single combined node rather than the bracketed cluster. The collapsed node shows:
 
 - The group label and instance count
 - The **worst child health** (overloaded > warning > normal) as the rollup color

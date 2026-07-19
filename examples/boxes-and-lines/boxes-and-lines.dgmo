@@ -6,7 +6,6 @@ tag Status as s
   Building blue default
 
 heat Crew red green
-show-values
 active-tag Status
 
 Flagship s: Operational, heat: 120

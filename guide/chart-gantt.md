@@ -1,6 +1,6 @@
 ```dgmo
 gantt Voyage to Treasure Island
-start 2024-01-15
+start-date 2024-01-15
 today-marker 2024-03-01
 critical-path
 
@@ -40,7 +40,7 @@ marker 2024-04-08 Landfall orange
   Guard Camp 9bd
 ```
 
-> **Dates** — gantt accepts any date format (`2024-01-15`, `1/15`, `Jan 15`) for `start`, task `start:`, eras, markers, and holidays. Add a `year 2024` line to write the year just once. See [Writing Dates](/docs/writing-dates).
+> **Dates** — gantt accepts any date format (`2024-01-15`, `1/15`, `Jan 15`) for `start-date`, task `start:`, eras, markers, and holidays. Add a `year 2024` line to write the year just once. See [Writing Dates](/docs/writing-dates).
 
 ## Overview
 
@@ -50,13 +50,13 @@ Gantt charts visualize project schedules as horizontal bars on a time axis. Task
 
 ```
 gantt Chart Title
-start 2024-01-15
+start-date 2024-01-15
 
 Task Name 30bd
 Another Task 10d
 ```
 
-The first line declares the chart type and optional title. `start` sets the project start date. Each task line has a name followed by a duration.
+The first line declares the chart type and optional title. `start-date` sets the project start date. Each task line has a name followed by a duration.
 
 ## Duration Units
 
@@ -70,9 +70,9 @@ The first line declares the chart type and optional title. `start` sets the proj
 | `y`   | Years          |
 | `h`   | Hours          |
 | `min` | Minutes        |
-| `s`   | Sprints        |
+| `sp`  | Sprints        |
 
-The `s` unit activates sprint mode automatically. See the Settings section for sprint configuration.
+The `sp` unit activates sprint mode automatically. See the Settings section for sprint configuration.
 
 ## Groups
 
@@ -291,7 +291,7 @@ Each tag value gets its own collapsible lane. It's named `lane-by` rather than `
 
 | Setting          | Description                                              | Default    |
 | ---------------- | -------------------------------------------------------- | ---------- |
-| `start`          | Project start date (`YYYY-MM-DD`)                        | Today      |
+| `start-date`     | Project start date (`YYYY-MM-DD`)                        | Today      |
 | `today-marker`   | Show today marker (bare keyword or `YYYY-MM-DD`)         | off        |
 | `critical-path`  | Highlight the critical path                              | off        |
 | `no-dependencies`| Hide dependency arrows                                   | shown      |
@@ -307,18 +307,18 @@ Settings are bare keywords (no colons). Boolean settings toggle on by writing th
 
 ### Sprint Mode
 
-Sprint mode activates automatically when any task uses the `s` duration unit, or explicitly via `sprint-*` settings:
+Sprint mode activates automatically when any task uses the `sp` duration unit, or explicitly via `sprint-*` settings:
 
 ```
 gantt Pirate Sprint Raid
-start 2026-03-01
+start-date 2026-03-01
 sprint-length 2w
 sprint-number 5
 sprint-start 2026-01-05
 
 [Scouts]
-  Recon Harbors 2s
-  Map Defenses 1s
+  Recon Harbors 2sp
+  Map Defenses 1sp
 ```
 
 ## Comments
@@ -336,7 +336,7 @@ Lines starting with `//` are ignored. Comments can appear at the top level or in
 
 ```dgmo
 gantt Voyage to Treasure Island
-start 2024-01-15
+start-date 2024-01-15
 today-marker 2024-03-01
 critical-path
 

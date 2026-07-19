@@ -91,11 +91,11 @@ main
 
 ## Direction
 
-`LR` (default) draws horizontal lanes with the newest commit on the right — the iconic git-graph look. `TB` (or `BT`) draws column lanes, the `git log` view.
+`direction-lr` (default) draws horizontal lanes with the newest commit on the right — the iconic git-graph look. `direction-tb` draws column lanes, the `git log` view.
 
 ```dgmo
 version-control Top-Down
-direction TB
+direction-tb
 
 main
   Release
@@ -169,7 +169,7 @@ main
 
 | Directive | Effect |
 | --------- | ------ |
-| `direction LR` \| `TB` \| `BT` | Lane orientation. `LR` (default) is newest-right; `TB`/`BT` is the git-log column view. |
+| `direction-lr` \| `direction-tb` | Lane orientation. `direction-lr` (default) is newest-right; `direction-tb` is the git-log column view. |
 | `no-labels` | Hide commit messages. |
 | `no-lanes` | Hide the branch lane lines. |
 | `no-head` | Hide the auto HEAD marker. |

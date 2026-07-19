@@ -1,5 +1,5 @@
 swimlane Weekly Publishing
-direction LR
+direction-lr
 
 lane Writer gray
   Draft Post -> Review

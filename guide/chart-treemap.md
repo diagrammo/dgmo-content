@@ -129,7 +129,7 @@ Crypto
 
 Ramp colors are optional and **data-aware**: signed data (crossing 0) gets a diverging `red · neutral · green` ramp with the midpoint pinned at 0; one-sign data gets a sequential `neutral · accent` ramp. Override with `heat <Label> low high` (named palette colors only — hex is rejected).
 
-A diagram can carry **both** tags and heat. The default color mode resolves **tag → heat → branch**; in the desktop app the legend offers a switcher to recolor live between them.
+A diagram can carry **both** tags and heat. The resting color mode resolves **heat → tag → branch** — a value ramp outranks a tag group when both are present. In the desktop app the legend offers a switcher to recolor live between them; `active-tag <Group|HeatLabel>` pins the resting dimension in the source so the choice travels with the file.
 
 ## Directives
 
@@ -137,7 +137,8 @@ A diagram can carry **both** tags and heat. The default color mode resolves **ta
 |-----------|--------|
 | `heat <Label> [low] [high]` | Name (and optionally color) the value ramp; pairs with the `heat:` key. |
 | `depth N` | Render N levels deep; deeper subtrees collapse to a drillable solid block. A render budget, not a data limit — the full tree is always drillable, and static export renders it whole. |
-| `no-values` | Hide value labels. |
+| `active-tag <Group\|HeatLabel\|none>` | Pin which dimension colors the tiles at rest — a tag group name, the `heat` label to force the ramp, or `none` to suppress tinting. Defaults to heat when present, else the first tag group. |
+| `no-value` | Hide value labels. |
 | `no-percent` | Hide percentage labels. |
 | `no-headers` | Hide parent header bars. |
 | `no-legend` | Hide the legend. |
@@ -194,7 +195,7 @@ Provisions t: Stores
   Hardtack 70
 ```
 
-Everything carries over: tags, the `heat` ramp, and `no-values` / `no-percent` / `no-legend`. `no-headers` has no effect (a sunburst has no header bars). An arc's **angle** is its share of the whole (`value ÷ grand total`); the **radius** is just depth and carries no magnitude — so slices are laid out in **source order** (not value-sorted), and very thin arcs drop their inline label to avoid clutter.
+Everything carries over: tags, the `heat` ramp, `active-tag`, and `no-value` / `no-percent` / `no-legend`. `no-headers` has no effect (a sunburst has no header bars). An arc's **angle** is its share of the whole (`value ÷ grand total`); the **radius** is just depth and carries no magnitude — so slices are laid out in **source order** (not value-sorted), and very thin arcs drop their inline label to avoid clutter.
 
 **When to reach for radial vs. rectangular:** use the sunburst for **shallow trees (≈3 levels or fewer)** and when you want the "part of a whole" circle. For **deep trees or precise magnitude comparison, prefer the rectangular treemap** — because radius carries no magnitude, deep sunbursts thin out and the eye over-weights the outer rings. For flat, single-level data with no hierarchy, use the [pie chart](chart-pie.md) instead.
 

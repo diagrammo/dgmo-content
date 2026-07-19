@@ -191,7 +191,6 @@ Boxes can carry a numeric measure that drives a continuous color ramp — a chor
 ```dgmo
 boxes-and-lines Fleet Crews
 heat Crew blue
-show-values
 
 Flagship heat: 120
 Frigate heat: 40
@@ -205,18 +204,18 @@ Flagship -> Sloop
 - The ramp anchors at `0` for all-non-negative data, else at the data minimum.
 - **Active dimension:** the heat ramp is the resting-active dimension whenever any box has a `heat:` (so heat shading works in static export with no interaction). `active-tag <tag-group>` switches to a tag group; `active-tag none` suppresses all tinting; `active-tag <metric>` forces the heat ramp. On a name collision between a tag group and the heat label, the tag group wins.
 - When the heat ramp is active, every box tints along the min→max ramp and the legend shows a gradient capsule. Boxes without a `heat:` get a neutral fill.
-- `show-values` additionally prints each box's number as text (independent of which dimension is active).
+- Each box's number is printed as text by default, independent of which dimension is active. Add `no-value` to suppress the numbers and let the color carry the measure alone.
 
 ## Options
 
 | Directive     | Values            | Default     | Description                                 |
 | ------------- | ----------------- | ----------- | ------------------------------------------- |
-| `direction`   | `LR`, `TB`        | `TB`        | Layout direction (left-right or top-bottom) |
+| `direction-lr` \| `direction-tb` | (flag)  | `direction-lr` | Layout direction (left-right or top-bottom) |
 | `active-tag`  | tag group name    | first group | Which tag group drives node coloring; first declared is active by default, so only set this to pick another (`none` suppresses all coloring, a heat label forces the heat ramp) |
 | `hide`        | `alias:value`     | none        | Hide nodes with a specific tag value        |
 | `mode`        | `shapes`          | —           | Force shape rendering mode                  |
 | `heat`        | `<Label> [color]` | none        | Names the numeric heat dimension and optional ramp hue |
-| `show-values` | (flag)            | off         | Print each box's `heat:` number as text     |
+| `no-value`    | (flag)            | off         | Suppress each box's `heat:` number (values print by default) |
 
 ## Notes
 
@@ -248,7 +247,7 @@ Only `//` comments are supported.
 boxes-and-lines Microservices
 
 tag Team as t Backend blue, Frontend green, Infra purple
-direction LR
+direction-lr
 
 WebApp t: Frontend
   -> API Gateway

@@ -1,6 +1,6 @@
 ```dgmo
 swimlane Expense Approval
-direction LR
+direction-lr
 
 [Submit]
   lane Employee gray
@@ -25,7 +25,7 @@ The layout is automatic: steps that hand off to another lane stack vertically be
 
 ```
 swimlane Title
-direction LR
+direction-lr
 
 lane Role A color
   First Step -> Second Step
@@ -39,7 +39,7 @@ A node is owned by the lane where it appears as a **line-head** (a bare node, or
 
 ## Direction
 
-`direction LR` (default) runs the flow left-to-right with lanes as horizontal rows. `direction TB` transposes it — the flow runs downward and lanes become vertical columns.
+`direction-lr` (default) runs the flow left-to-right with lanes as horizontal rows. `direction-tb` transposes it — the flow runs downward and lanes become vertical columns.
 
 ## Lanes
 
@@ -60,7 +60,7 @@ Shapes mirror flowchart conventions and are inferred from the node name's wrappe
 
 ```dgmo
 swimlane Shapes
-direction LR
+direction-lr
 
 lane Flow blue
   Task -> <Decision> -> <+ Parallel> -> [[Subprocess]] -> (Done) success
@@ -94,7 +94,7 @@ Wrap lane blocks in `[Phase]` headers to group the flow into stages. Under each 
 
 ```dgmo
 swimlane Hiring
-direction LR
+direction-lr
 
 [Apply]
   lane Candidate gray
@@ -150,7 +150,7 @@ A parallel gateway (`<+ Name>`) forks the flow into concurrent branches that lat
 
 ```dgmo
 swimlane Build
-direction LR
+direction-lr
 
 lane CI teal
   Compile -> <+ Fork>
@@ -169,7 +169,7 @@ Tag groups add a second dimension — color a node by a category like risk or pr
 
 ```dgmo
 swimlane Triage
-direction LR
+direction-lr
 
 tag Risk as r
   low green
@@ -184,7 +184,7 @@ lane Ops blue
 
 ```dgmo
 swimlane Incident Response
-direction TB
+direction-tb
 
 lane Monitoring orange
   Alert Fires -> <Ack in 5m>

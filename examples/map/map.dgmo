@@ -1,7 +1,7 @@
 map Follow-the-Sun Support Desk
 
 hours 9-17
-days mon-fri
+workweek mon-fri
 
 poi San Francisco clock label: West
 poi Denver US-CO clock label: Central

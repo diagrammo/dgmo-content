@@ -11,7 +11,7 @@ A clock is a live **world clock**: one panel per person or place, each showing t
 
 - **A single person or place** — the common case: one title, one entry. "What time is it for Dani in New York."
 - **A distributed team** — a panel per teammate so you can see, at a glance, who is in their working hours.
-- **Scheduling overlap** — add a working window (`hours`, `days`) to shade each zone's on-hours and find the meeting slot where everyone overlaps.
+- **Scheduling overlap** — add a working window (`hours`, `workweek`) to shade each zone's on-hours and find the meeting slot where everyone overlaps.
 
 For a fixed future instant ("N days until launch") use `countdown` instead — a clock always shows *now*.
 
@@ -22,14 +22,14 @@ clock Title, e.g. "Crew standups"
 analog                // optional; analog dials (digital is the default face)
 time-24               // optional; 24-hour readout (12h am/pm is the default)
 hours 9-17            // optional working window (24h; also 8:30-17:15 or am/pm)
-days mon-fri         // optional working days
-no-sun               // optional; hide the sunrise/sundown line (on by default)
-direction tb         // optional; tb = vertical stack (default), lr = horizontal strip
+workweek mon-fri      // optional working days
+no-sun                // optional; hide the sunrise/sundown line (on by default)
+direction-tb          // optional; vertical stack (default) — direction-lr for a horizontal strip
 
 London as UK team    // <anchor> [as <label>] [color]
 ```
 
-The first line declares the chart type and the title. The global directives (`analog`, `time-24`, `hours`, `days`, `no-sun`, `no-title`, `direction lr`, `color-by`) are flat lines — **no colon, no indentation**. Each **entry** is a single line: an **anchor** that names the zone, an optional `as <label>`, and an optional trailing palette color.
+The first line declares the chart type and the title. The global directives (`analog`, `time-24`, `hours`, `workweek`, `no-sun`, `no-title`, `direction-lr`, `color-by`) are flat lines — **no colon, no indentation**. Each **entry** is a single line: an **anchor** that names the zone, an optional `as <label>`, and an optional trailing palette color.
 
 ## Anchors — how you name a zone
 
@@ -123,36 +123,36 @@ New York      as Dani (NY)
 Los Angeles   as West coast
 ```
 
-If you want to say "vertical" out loud in the source — for a shared file where the orientation should be obvious, or so a search for the word lands on it — spell it `direction tb` (top-to-bottom). It is an explicit synonym for the default and changes nothing about the render:
+If you want to say "vertical" out loud in the source — for a shared file where the orientation should be obvious, or so a search for the word lands on it — spell it `direction-tb` (top-to-bottom). It is an explicit synonym for the default and changes nothing about the render:
 
 ```dgmo
 clock Crew standups
-direction tb
+direction-tb
 London        as Quartermaster
 New York      as Dani (NY)
 Los Angeles   as West coast
 ```
 
-Add `direction lr` to flip the board **horizontal instead**: each zone becomes its own column (time on top, place and details stacked below), columns sitting side by side left-to-right. Reach for it when the board is a wide banner across the top of a page rather than a list — a handful of zones read at a glance in a single strip.
+Add `direction-lr` to flip the board **horizontal instead**: each zone becomes its own column (time on top, place and details stacked below), columns sitting side by side left-to-right. Reach for it when the board is a wide banner across the top of a page rather than a list — a handful of zones read at a glance in a single strip.
 
 ```dgmo
 clock Crew standups
-direction lr
+direction-lr
 London        as UK team
 New York      as Dani (NY)
 Tokyo         as Deckhand
 ```
 
-So `direction` takes exactly two values: `tb` (the default vertical stack) and `lr` (the horizontal strip). It composes with everything else (`analog`, `color-by`, `hours`): in `lr` mode the color tint fills each **column** instead of each row, and analog dials sit at the top of their column. Keep the zone count small (three or four) in `lr` mode so the columns stay wide enough to read; longer lists are better as the vertical stack.
+So direction is a pair of bare flags: `direction-tb` (the default vertical stack) and `direction-lr` (the horizontal strip). It composes with everything else (`analog`, `color-by`, `hours`): in `direction-lr` mode the color tint fills each **column** instead of each row, and analog dials sit at the top of their column. Keep the zone count small (three or four) in `direction-lr` mode so the columns stay wide enough to read; longer lists are better as the vertical stack.
 
 ## Working hours
 
-Add a working window with `hours <start>-<end>` and optional `days <range>` to shade each zone's on-hours, so an out-of-hours teammate reads at a glance and the overlap window is obvious. The window is 24-hour by default but also accepts `HH:MM` and am/pm (`hours 8:30-17:15`, `hours 9am-6pm`). Reach for this only when the point is scheduling; drop it for a plain "current time" widget.
+Add a working window with `hours <start>-<end>` and optional `workweek <range>` to shade each zone's on-hours, so an out-of-hours teammate reads at a glance and the overlap window is obvious. The window is 24-hour by default but also accepts `HH:MM` and am/pm (`hours 8:30-17:15`, `hours 9am-6pm`). Reach for this only when the point is scheduling; drop it for a plain "current time" widget.
 
 ```dgmo
 clock When can the crew muster
 hours 9-17
-days mon-fri
+workweek mon-fri
 London        as Quartermaster
 New York      as Dani (NY)
 Los Angeles   as West coast
@@ -168,12 +168,12 @@ The sunrise/sundown indicator is drawn on each panel by default so a zone in the
 A clock board is **colorized by default** — colorful out of the box. `color-by <dimension>` chooses how the zones are colored; the zone's time and label render in a solid color and its lane gets a soft tint of it. Omit the directive and you get `place`; `color-by none` goes neutral.
 
 - **`place`** (the default) — each place gets a distinct palette accent, an identity color with no meaning. Use it when you just want the rows to read apart.
-- **`work`** — green while a zone is inside its `hours`/`days` window, amber in the last hour before close, grey when off. Needs `hours` set; reach for it on a standup or team board where availability is the story.
+- **`work`** — green while a zone is inside its `hours`/`workweek` window, amber in the last hour before close, grey when off. Needs `hours` set; reach for it on a standup or team board where availability is the story.
 
   ```dgmo
   clock Crew availability
   hours 9-17
-  days mon-fri
+  workweek mon-fri
   color-by work
   London        as Quartermaster
   New York      as Dani (NY)

@@ -52,7 +52,8 @@ Active -> [*]
 | -------------- | ----------------------------------------------- | ------- |
 | `chart`        | Must be `state`                                 | —       |
 | `title`        | Diagram title                                   | None    |
-| `direction-tb` | Top-to-bottom layout (default is left-to-right) | `TB`    |
+| `direction-tb` | Top-to-bottom layout (default is left-to-right) | off (LR) |
+| `no-legend`    | Hide the tag legend                             | off     |
 
 ## States
 
@@ -112,6 +113,25 @@ Active green -> Error red
 ```
 
 The 11 recognized colors are: `red`, `orange`, `yellow`, `green`, `blue`, `purple`, `teal`, `cyan`, `gray`, `black`, `white`. To use one as a literal label, capitalize it.
+
+## Tag Groups
+
+States can carry tag groups — the same `tag <Group> as <alias>` declaration used across DGMO. Declare the group before the transitions, then attach a value to any state with `alias: Value` metadata. The first declared group colors the states and drives the legend:
+
+```dgmo
+state Order Lifecycle
+
+tag Owner as o
+  Warehouse blue
+  Finance green
+
+[*] -> Placed
+Placed o: Warehouse -picked-> Packed
+Packed o: Warehouse -invoiced-> Billed
+Billed o: Finance -> [*]
+```
+
+A tagged state takes its group's color; untagged states stay neutral gray. Tag coloring and an explicit trailing color name are alternatives — the trailing color wins on the state that carries it. Add `no-legend` to drop the legend for a slide embed.
 
 ## Groups
 

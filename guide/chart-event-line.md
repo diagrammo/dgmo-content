@@ -14,7 +14,7 @@ tag Theme as t
   1993 Mosaic  t: Browser
     The first popular *graphical* browser.
 
-[The Standards Era] collapsed: true
+[The Standards Era] collapsed
   1995 JavaScript  t: Platform
     Brendan Eich writes the language in ten days.
   1996 CSS  t: Standard
@@ -68,12 +68,12 @@ Group a run of events into a labeled section of the spine with a `[Name]` bracke
 
 An event belongs to the era it is indented under; its description sits one level deeper still. Dedent back to the left margin (indent 0) for an event that sits **outside** any era. An era draws as a bracket on the side opposite the cards, labeled with its name.
 
-Add `collapsed: true` to fold an era into a single summary card — its name as the title and a bulleted list of its member events — while a small bracket stays on the spine marking the era's span. In the desktop app you can click an era to collapse or expand it live; when several eras are collapsed, each summary card centers over its own spine bracket so a later era sits visibly right of an earlier one.
+Add a trailing `collapsed` flag to the era line to fold it into a single summary card — its name as the title and a bulleted list of its member events — while a small bracket stays on the spine marking the era's span. In the desktop app you can click an era to collapse or expand it live; when several eras are collapsed, each summary card centers over its own spine bracket so a later era sits visibly right of an earlier one.
 
 In the desktop app you can also **click a legend entry to mute that category** — its event cards collapse to bare dots on the spine (hover a dot to peek its card), so a busy timeline quiets to just the categories you care about; muted members also drop from any collapsed era's bullet list. Both the era toggle and the legend mute are live preview only and never edit your source.
 
 ```
-[The Standards Era] collapsed: true
+[The Standards Era] collapsed
   1995 JavaScript  t: Platform
   1996 CSS  t: Standard
 ```

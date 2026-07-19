@@ -12,7 +12,7 @@ tag Hold as h
   Cargo yellow
 
 Treasure w: Priceless, h: Treasury
-  Gold collapsed: true
+  Gold collapsed
     Doubloons description: Spanish-minted, coin of the realm
     Ingots
     Rings
@@ -28,21 +28,21 @@ Spirits w: Prized, h: Galley
     Spiced Rum
     Grog description: Watered rum, the crew's daily ration
   Whiskey
-  Wine w: Prized, collapsed: true
+  Wine w: Prized, collapsed
     Port
     Madeira
-Ships w: Priceless, collapsed: true
+Ships w: Priceless, collapsed
   Galleons description: Fat treasure haulers
   Sloops
   Frigates
-Armaments w: Prized, h: Armory, collapsed: true
+Armaments w: Prized, h: Armory, collapsed
   Cannons w: Priceless
     Powder w: Prized
     Shot
   Cutlasses
   Muskets
 Dry Goods w: Trifling, h: Cargo
-  Spices w: Prized, collapsed: true
+  Spices w: Prized, collapsed
     Nutmeg
     Pepper
     Cloves

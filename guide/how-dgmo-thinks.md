@@ -205,7 +205,7 @@ Configuration goes at the top of the diagram as plain keywords:
 
 ```dgmo-source
 gantt Product Launch
-start 2026-03-15
+start-date 2026-03-15
 today-marker
 critical-path
 no-dependencies
@@ -213,9 +213,10 @@ active-tag Team
 ```
 
 - **Boolean options**: bare keyword turns it on, `no-` prefix turns it off (`activations` / `no-activations`)
-- **Value options**: keyword followed by the value, space-separated (`start 2026-03-15`)
+- **Value options**: keyword followed by the value, space-separated (`start-date 2026-03-15`)
 - No YAML, no JSON, no nested config blocks
 - Options must appear before diagram content
+- A few toggles are **universal** — every chart that renders the corresponding surface accepts them. `no-legend` hides the legend (data charts included), `no-title` drops the banner title, and `no-value` suppresses per-item value labels.
 
 ---
 
@@ -239,11 +240,11 @@ Trajectory blue: -0.001*x^2 + 0.27*x  // function expression
 **No colons anywhere else** — declarations, options, tags, data rows, arrows, groups, and comments are all colon-free:
 ```dgmo-source
 bar Revenue by Quarter                  // declaration: no colon
-tag Team as t                        // tag: no colon
-start 2026-03-15                        // option: no colon
+tag Team as t                           // tag: no colon
+start-date 2026-03-15                   // option: no colon
 Gold 3500 4200 5100                     // data row: no colon
 id int pk                               // ER column: no colon
-latency-ms 50                           // infra property: no colon
+default-rps 100                         // infra option: no colon
 ```
 
 The intuition: **if DGMO already knows what the fields are, spaces are enough. Colons appear only when you're defining something freeform or need an unambiguous separator.**
