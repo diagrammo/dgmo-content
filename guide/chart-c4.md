@@ -268,7 +268,7 @@ Header directives, written at indent 0 above the content:
 
 | `direction-tb` \| `direction-lr` | (flag) | Layout flow. Default is left-to-right. |
 
-`layout <value>` is **parse-accepted but inert** on C4 — it will not change the rendered layout. Don't rely on it. Options are only recognized in the header region, above the first element; an option line written after content becomes an "Unexpected content" error.
+`layout` is **rejected** on C4 — it errors, because there is a single layered layout with no algorithm to select. To change orientation use `direction-tb` (default) or `direction-lr`. Options are only recognized in the header region, above the first element; an option line written after content becomes an "Unexpected content" error.
 
 ### The `import` metadata key
 

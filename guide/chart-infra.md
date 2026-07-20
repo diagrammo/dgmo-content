@@ -145,6 +145,7 @@ Orders
 
 | Key                   | Written as              | Description                                                          | Default  |
 | --------------------- | ----------------------- | -------------------------------------------------------------------- | -------- |
+| `default-rps`         | `default-rps 8000`      | Fallback entry RPS when the `Edge`/`Internet` node omits `rps:`      | none     |
 | `default-latency-ms`  | `default-latency-ms 15` | Latency for components without explicit `latency-ms`                 | `0`      |
 | `default-uptime`      | `default-uptime 99.95`  | Uptime % for components without explicit `uptime`                    | `100`    |
 | `slo-availability`    | `slo-availability 99.9%`| Target availability % — drives SLO highlighting on system totals     | none     |
@@ -159,7 +160,7 @@ The three `slo-*` keys can *also* be written as properties on an individual comp
 
 The title is the rest of line 1 — there is no `title` directive.
 
-> **`default-rps` is accepted but has no effect.** It parses without complaint and appears in editor completions, but nothing reads it: the entry RPS comes only from the `rps:` property on the `Edge`/`Internet` node. Set `rps:` there instead. There is also no `layout` setting on infra — writing `layout LR` creates a component named `layout LR`.
+> **`default-rps <n>`** sets the fallback entry RPS used when the `Edge`/`Internet` node has no explicit `rps:` property. An explicit `rps:` on the edge (and the app's RPS slider) still wins. There is no `layout` setting on infra — writing `layout LR` creates a component named `layout LR`.
 
 ## Entry Point (Edge)
 
