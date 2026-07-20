@@ -136,7 +136,7 @@ But a diff cannot show you an edge crossing something it shouldn't, a label that
 
 ## GitHub does not render `.dgmo`
 
-State this plainly, because it's the first thing an engineer runs into: **GitHub renders Mermaid fences natively in Markdown; it does not render DGMO.** A ```` ```dgmo ```` fence in a README shows up as a code block. There is no GitHub-side integration and none is coming from your end — it's a decision only GitHub can make.
+State this plainly, because it's the first thing an engineer runs into: **GitHub renders Mermaid fences natively in Markdown; it does not render DGMO.** A `dgmo` fence in a README shows up as a code block. There is no GitHub-side integration and none is coming from your end — it's a decision only GitHub can make.
 
 The workarounds, in order of how well they work:
 
