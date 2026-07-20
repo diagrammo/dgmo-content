@@ -21,9 +21,17 @@ persona Maya, Remote Worker
 
 ## Overview
 
-Journey maps visualize a user's experience across a process or service, plotting emotional highs and lows as a continuous curve. Each step has a score (1–5, high is good) that drives the emotion landscape. Phases group related steps, annotations capture pain points, opportunities, and thoughts, and tags add cross-cutting dimensions like channel or touchpoint.
+A journey map charts **one person's experience** across the stages of a process or service, plotting the emotional highs and lows as a continuous curve so pain points and gaps in the experience stand out. Each step carries a score (1–5, high is good) that drives the curve; phases group related steps, annotations capture pain points, opportunities, and thoughts, and tags add cross-cutting dimensions like channel or touchpoint. Reach for it for UX research, customer-experience mapping, and service design.
 
-Journey maps are ideal for UX research, customer experience mapping, service design, and identifying friction points.
+**The scores are subjective ratings you assigned — not measurements.** A 4 is "this felt pretty good to Maya," arrived at from research, interviews, or judgement. The renderer draws them as a smooth continuous curve, which is exactly what a chart of measured data looks like, so readers will assume the numbers were collected rather than authored. Say where they came from in the caption or surrounding text, and don't put anything with real units on this scale. If your numbers *are* measurements — completion rates, task times, survey percentages — plot them with [`line`](chart-line.md) instead, where the axis carries a unit and the reader can see what was counted.
+
+## When to use
+
+- **`journey-map`** — the subject is one person, the y-value is how they *felt* at each step, and you want the friction to be visible.
+- **[`line`](chart-line.md)** — the numbers are real measurements with units. A journey map strips the units and converts data into a mood rating.
+- **[`event-line`](chart-event-line.md)** — you're narrating events in the world rather than tracking how one person felt step by step.
+- **[`swimlane`](chart-swimlane.md)** — the story is several teams handing work to each other, not one person's feelings.
+- **[`wireframe`](chart-wireframe.md)** — the question is what the screens actually *contain*, not how the experience feels.
 
 ## Syntax
 
@@ -48,7 +56,25 @@ persona Tech-Savvy Shopper
   28yo developer, price-sensitive, does extensive research
 ```
 
-Name is everything after `persona `. Indented lines add description text. Only one persona per diagram.
+Indented lines add description text. Only one persona per diagram.
+
+The name is everything after `persona ` **except a trailing color token**, which
+is peeled off and used to color the persona card. `persona Maya green` is a
+persona named "Maya" drawn in green, not a persona named "Maya green" — so if
+your protagonist is genuinely called Green or Rose, use the explicit form below.
+
+```
+// trailing color token
+persona Maya green
+// explicit key — same result
+persona Maya color: green
+// no color; the whole string is the name
+persona Maya, Remote Worker
+```
+
+Both forms accept the named palette colors (`red`, `orange`, `yellow`, `green`,
+`blue`, `purple`, `teal`, `cyan`, …) — see [Colors](colors.md). Steps have no
+trailing-color form; color a step by giving it a tag (see *Tag Groups*).
 
 ## Phases
 
@@ -75,14 +101,19 @@ Steps appear indented within phases (or at indent 0 in flat mode).
 The score is set with the `score:` key in same-line metadata:
 
 ```
-Step Name score: 4                              // bare score
-Step Name score: 4, emotion: Delighted          // score + emotion label
-Step Name score: 4, ch: Web                     // score + tag metadata
-Step Name score: 4, emotion: Delighted, ch: Web // score + label + metadata
-Step Name                                       // no metadata = scoreless step
+// bare score
+Step Name score: 4
+// score + emotion label
+Step Name score: 4, emotion: Delighted
+// score + tag metadata
+Step Name score: 4, ch: Web
+// score + label + metadata
+Step Name score: 4, emotion: Delighted, ch: Web
+// no metadata = scoreless step
+Step Name
 ```
 
-- **Score scale**: 1–5 integer (high = good)
+- **Score scale**: 1–5 integer (high = good). It is a *rating you assigned*, not a measurement — see the Overview.
 - **Emotion label**: optional single word after the score (e.g., `Frustrated`, `Delighted`, `Neutral`). It renders as a caption beside the step's face on the curve — naming the *specific* feeling the score alone can't convey (anxious vs. bored both score low).
 - **Scoreless steps**: render as cards but produce no emotion curve point
 
@@ -179,3 +210,30 @@ tag Channel as ch
     opportunity: Include setup guide
     thought: Excited to try it out
 ```
+
+## Appearance
+
+Every chart accepts the universal appearance directives:
+
+| Directive | Effect |
+| --------- | ------ |
+| `fill-tint` | Soft tinted fills (default). |
+| `fill-solid` | Saturated solid fills. |
+| `fill-outline` | Outline only — hollows the faces and drops the emotion gradient band. |
+| `no-title` | Hide the title line. |
+| `no-legend` | Hide the legend. |
+
+Colors come from the active palette — see [Colors](colors.md). Set the palette and light/dark theme at render time with `--palette <name>` and `--theme light|dark|transparent`.
+
+## Common mistakes
+
+- **Scores are a subjective 1–5 emotion rating**, drawn as a continuous curve that reads like measured data. Say so in the surrounding text if the audience might take the curve literally.
+- **A trailing `//` note destroys the score.** The step falls off the emotion curve entirely, and the warning that says so is easy to read past because the step still appears in its stage.
+- **A score outside 1–5 is rejected, not clamped** — the step loses its score and drops off the curve.
+- **Steps must be indented under a `[Stage]`.** Notes such as `pain:` and `thought:` go one step deeper still, under the step they belong to.
+- Anything that renders but looks wrong: [Troubleshooting](troubleshooting.md) is organised by symptom.
+
+## Next
+
+- **Related:** [`line`](chart-line.md) · [`event-line`](chart-event-line.md) · [`swimlane`](chart-swimlane.md) · [`wireframe`](chart-wireframe.md)
+- **Then:** [Colors & palettes](colors.md)

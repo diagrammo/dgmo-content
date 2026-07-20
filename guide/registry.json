@@ -57,6 +57,30 @@
       "file": "how-dgmo-thinks.md"
     },
     {
+      "slug": "glossary",
+      "title": "Glossary",
+      "group": "getting-started",
+      "file": "glossary.md"
+    },
+    {
+      "slug": "troubleshooting",
+      "title": "Troubleshooting",
+      "group": "getting-started",
+      "file": "troubleshooting.md"
+    },
+    {
+      "slug": "exporting",
+      "title": "Exporting Diagrams",
+      "group": "getting-started",
+      "file": "exporting.md"
+    },
+    {
+      "slug": "diagrams-in-your-repo",
+      "title": "Diagrams in Your Repo",
+      "group": "getting-started",
+      "file": "diagrams-in-your-repo.md"
+    },
+    {
       "slug": "chart-block",
       "title": "Block",
       "group": "software",

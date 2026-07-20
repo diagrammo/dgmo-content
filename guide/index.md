@@ -16,10 +16,12 @@ The name "DGMO" is shorthand for "Diagrammo" — shorter to type, easier to use 
 
 - **Create a new file** using the file tree on the left, or press **Cmd + N**
 - **Write diagram code** in the editor — the preview updates in real time
-- **Export** your diagrams as PNG or SVG
+- **Export** your diagrams as PNG or SVG — see [Exporting diagrams](exporting.md) for format choice, transparent backgrounds, and palettes
 - **Browse the sidebar** to explore all chart types and features
 
-Every diagram starts with the chart type on the first line, followed by your data and options. For example:
+Working in a codebase? [Diagrams in your repo](diagrams-in-your-repo.md) covers committing `.dgmo` files alongside your code, rendering and checking them in CI, and reviewing diagram changes in a pull request.
+
+Every diagram starts with the chart type on the first line, followed by your data and settings. For example:
 
 ```
 bar Q1 Sales
@@ -28,6 +30,19 @@ Jan 42
 Feb 58
 Mar 71
 ```
+
+New to all of this? Two pages are worth reading before the chart-type guides:
+
+- **[How DGMO Thinks](how-dgmo-thinks.md)** — the handful of ideas every chart type shares, including [how indentation works](how-dgmo-thinks.md#how-indentation-works)
+- **[Glossary](glossary.md)** — plain-language definitions of the words the guides use: directive, metadata, tag group, alias, leaf, and the rest
+
+And when something comes out wrong, **[Troubleshooting](troubleshooting.md)** is organised by symptom — "my numbers are wrong", "a row vanished", "the label is wrong" — rather than by error code.
+
+### One thing to know early
+
+**No errors does not mean the diagram is correct.** It means the file could be read. DGMO is forgiving by design — a typo usually produces a diagram rather than a complaint, so a stray space can quietly turn part of a number into part of a label and nothing will flag it.
+
+Always look at the render: check the labels, the axis range, and the totals against what you meant to enter. [What a clean check does and doesn't tell you](how-dgmo-thinks.md#what-a-clean-check-does-and-doesnt-tell-you) walks through the specific ways this goes wrong and what to check for each, and [Troubleshooting](troubleshooting.md) lists the symptoms and their causes.
 
 ## The Diagrammo Ecosystem
 

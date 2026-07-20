@@ -3,19 +3,29 @@ countdown Trip to Japan
 target 2027-04-15
 ```
 
-> **Dates** — the `target` accepts any date format (`2026-07-04`, `7/4/2026`, `July 4, 2026`) as well as `now`. See [Writing Dates](/docs/writing-dates).
+> **Dates** — the `target` accepts any date format (`2026-07-04`, `7/4/2026`, `July 4, 2026`) as well as `now`. See [Writing Dates](writing-dates.md).
 
 ## Overview
 
-A countdown is the only **dynamic** dgmo chart: a single "N days until X" that recomputes against the viewer's clock on every load and ticks every second on any live surface. Reach for it as a live widget — a blog sidebar, an Obsidian note, a shared page — for a trip date, a product launch, or a deadline. It is distinct from `goal` (§goal): a goal measures `now` against a `target`; a countdown counts down to one future instant. For a value over time use `line`.
+A countdown is the only **dynamic** dgmo chart: a single "N days until X" that recomputes against the viewer's clock on every load and ticks every second on any live surface. Reach for it as a live widget — a blog sidebar, an Obsidian note, a shared page — for a trip date, a product launch, or a deadline: "how many days until the trip."
+
+## When to use
+
+- **`countdown`** — the thing running out is **time**, and there is exactly one future moment to count toward (or one recurring occurrence to roll forward to).
+- **[`goal`](chart-goal.md)** — progress toward a **number**, not a date. `goal` has no time dimension, so a deadline drawn as a goal bar implies you are 60% *done* when you are really 60% *out of time*.
+- **[`gantt`](chart-gantt.md)** — many tasks against a schedule, with durations and dependencies, rather than one date.
+- **[`clock`](chart-clock.md)** — what time it is *right now* for people in different places, rather than how long is left.
 
 ## Syntax
 
 ```
 countdown Title, e.g. "Trip to Japan"
-target 2027-04-15     // the future instant — space-separated, no colon
-units human           // human (default): "1 year, 2 months"
-expired Now!          // optional; shown once the target passes
+// target — the future instant; space-separated, no colon
+target 2027-04-15
+// units — human (default) renders "1 year, 2 months"
+units human
+// expired — optional; shown once the target passes
+expired Now!
 ```
 
 The first line declares the chart type and the event title. `target`, `units`, and `expired` are space-separated `key value` directives (like gantt's `start-date`): no colon. The target date renders as a caption automatically, and a **calendar band** below the header pictures the wait (see *The calendar band*).
@@ -131,7 +141,29 @@ units full
 expired 🚀 Liftoff!
 ```
 
-`units human` (the default) reads the way people speak: the coarse **top-two units including years** as the hero ("1 year, 2 months") with the finer remainder ("3 days") in a small sub-line beneath. Leading zero units are dropped and the hero auto-shrinks so it never collides with the title. `units days` opts back to the raw whole-day count ("437 days", **ceil** — a target later today reads "1 day", not "0"). Other modes: `full` (`Nd HH:MM:SS`), `clock` (total `HH:MM:SS`, may pass 24h), `weeks`, and `words`. Shape them with `round up|down|nearest`, `fields d,h,m,s` (drop `s` for a calm widget), and `lang en`.
+`units human` (the default) reads the way people speak: the coarse **top-two units including years** as the hero ("1 year, 2 months") with the finer remainder ("3 days") in a small sub-line beneath. Leading zero units are dropped and the hero auto-shrinks so it never collides with the title. `units days` opts back to the raw whole-day count ("437 days", **ceil** — a target later today reads "1 day", not "0"). Other modes: `full` (`Nd HH:MM:SS`), `clock` (total `HH:MM:SS`, may pass 24h), `weeks`, `words`, and `compound` (every non-zero unit spelled out in one run, coarsest first). Shape them with `round up|down|nearest`, `fields d,h,m,s` (drop `s` for a calm widget), and `lang en`.
+
+## Date directives
+
+`target`, `every`, and `from` all take liberal date input, and two directives control how it is read:
+
+| Directive | Effect |
+| --------- | ------ |
+| `date-order mdy` | numeric slash/dash dates read month-first (the default) |
+| `date-order dmy` | numeric slash/dash dates read day-first, so `3/4/2027` is 3 April |
+| `year 2027` | base year for a bare month-day date, so the block doesn't drift when the calendar turns |
+
+See [Writing Dates](writing-dates.md).
+
+## Captions with `note`
+
+`note <text>` adds a markdown caption beneath the countdown — a line of context the header has no room for. Give it an inline value, an indented body block, or both:
+
+```dgmo
+countdown Ship's launch
+target 2026-09-01T18:00
+note Doors open an hour early — **bring the manifest**.
+```
 
 ## The calendar band
 
@@ -159,3 +191,20 @@ For a one-shot `target`, set `expired` to your celebration (`expired 🚀 Shippe
 ## Live vs. baked
 
 On any live surface (the app, the web editor, a docs site, an Obsidian note, a shared page) the countdown ticks every second and is accurate the instant the page loads. On image surfaces that can't run JavaScript — a PNG export, an `.svg` opened via `<img>`, a GitHub camo-proxied image — it shows the human hero and calendar band baked at export time. That is the correct graceful fallback, not a bug: images can't tick.
+
+## Appearance
+
+A countdown is a single figure with no legend and no title line to suppress, so of the universal appearance directives it accepts the fill family:
+
+| Directive | Effect |
+| --------- | ------ |
+| `fill-tint` | Soft tinted fills (default). |
+| `fill-solid` | Saturated solid fills. |
+| `fill-outline` | Outline only, no fill. |
+
+The mode carries through the calendar band and the ring gauges. Colors come from the active palette — see [Colors](colors.md). Set the palette and light/dark theme at render time with `--palette <name>` and `--theme light|dark|transparent`.
+
+## Next
+
+- **Related:** [`goal`](chart-goal.md) · [`gantt`](chart-gantt.md) · [`clock`](chart-clock.md)
+- **Then:** [Colors & palettes](colors.md) · [Writing dates](writing-dates.md)

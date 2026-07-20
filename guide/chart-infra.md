@@ -1,4 +1,46 @@
 ```dgmo
+infra Storefront
+
+Internet
+  rps: 10000
+  -> CDN
+
+CDN
+  cache-hit: 80%
+  -> Api
+
+Api
+  max-rps: 1500
+  latency-ms: 40
+```
+
+Ten lines, and the chart has already done arithmetic you didn't write. `Internet` is the entry point and the only place a traffic number is declared. The CDN serves 80% from cache, so `Api` receives 2,000 RPS — not 10,000. `Api` tops out at 1,500, so it renders **overloaded**, and its availability drops to 75% because a quarter of requests have nowhere to go.
+
+That is the whole point of the chart type: you declare properties you can justify, and the traffic, latency, and availability figures are derived. Change `cache-hit` to `90%` and the overload disappears.
+
+## Overview
+
+Infrastructure diagrams model system topology as a **directed traffic flow graph**. You declare components, wire them together, and set behavioral properties — DGMO computes downstream RPS, latency percentiles, availability, circuit breaker states, and queue metrics automatically.
+
+Unlike static architecture diagrams, infra diagrams are **live simulations**. Change the entry RPS or switch a scenario and every downstream metric updates.
+
+Components don't have explicit types — their **role is inferred from their properties**. A node with `cache-hit` is a cache. One with `buffer` is a queue. One with `concurrency` is serverless.
+
+> **The numbers on this chart are computed, not drawn.** Every downstream RPS, latency percentile, availability figure, and queue depth is derived from the properties you set. If you type in plausible-looking guesses, the chart publishes authoritative-looking derived metrics that nobody measured — and being wrong here means being wrong about capacity. Only reach for `infra` when the inputs are real.
+
+## When to use
+
+- **`infra`** — you want the tool to *calculate* traffic, latency, availability, and failure propagation from properties you can actually justify. The point is sizing and stressing the system.
+- **[`boxes-and-lines`](chart-boxes-and-lines.md)** — you just want to *show* components and their connections. No computation, no numbers to defend. This is the right choice for most architecture pictures, and the one to use if you'd be guessing at the RPS.
+- **[`c4`](chart-c4.md)** — the audience is trying to understand the architecture, and you need to zoom from "the whole system" into "inside this service" across context/container/component levels.
+- **[`sequence`](chart-sequence.md)** — you're tracing *one request's* conversation between parties, rather than modelling sustained traffic volume across components.
+- **[`sankey`](chart-sankey.md)** — you're showing amounts flowing between buckets, not components that handle traffic.
+
+## A full simulation
+
+The same model with groups, tags, queues, serverless, circuit breakers, and fanout:
+
+```dgmo
 infra SaaS API Platform
 
 tag Team as t
@@ -72,31 +114,52 @@ StaticCDN t: Platform
   latency-ms: 4
 ```
 
-## Overview
-
-Infrastructure diagrams model system topology as a **directed traffic flow graph**. You declare components, wire them together, and set behavioral properties — DGMO computes downstream RPS, latency percentiles, availability, circuit breaker states, and queue metrics automatically.
-
-Unlike static architecture diagrams, infra diagrams are **live simulations**. Change the entry RPS or switch a scenario and every downstream metric updates.
-
-Components don't have explicit types — their **role is inferred from their properties**. A node with `cache-hit` is a cache. One with `buffer` is a queue. One with `concurrency` is serverless.
-
 ## Settings
 
-| Key                   | Description                                                          | Default  |
-| --------------------- | -------------------------------------------------------------------- | -------- |
-| `chart`               | Must be `infra`                                                      | —        |
-| `title`               | Diagram title                                                        | None     |
-| `direction-tb`        | Top-to-bottom layout (omit for left-to-right)                        | off (LR) |
-| `default-latency-ms`  | Latency for components without explicit `latency-ms`                 | `0`      |
-| `default-uptime`      | Uptime % for components without explicit `uptime`                    | `100`    |
-| `default-rps`         | Fallback edge RPS when the entry node has no `rps`                   | none     |
-| `slo-availability`    | Target availability % — drives SLO highlighting on system totals     | none     |
-| `slo-p90-latency-ms`  | Target p90 latency in ms — drives SLO highlighting on system totals  | none     |
-| `slo-warning-margin`  | Margin below the SLO that triggers a warning state                   | `0.005`  |
-| `active-tag`          | Tag dimension to color by (first declared is active by default; `none` suppresses) | first group |
-| `animate`             | Flow animation (boolean; `no-animate` to disable)                    | on       |
+Settings go at the top of the file, at indent 0, above the components.
 
-The universal `fill-solid` and `no-title` options also apply.
+> **Settings take no colon.** A setting is written `key value`, separated by a space. This is the opposite of a component property, which *requires* a colon (`latency-ms: 50`). Getting it backwards is the most common infra mistake — see [Common mistakes](#common-mistakes) for what it does to your diagram.
+
+```dgmo
+infra Checkout Path
+default-latency-ms 15
+default-uptime 99.95
+slo-availability 99.9%
+slo-p90-latency-ms 250
+slo-warning-margin 0.02
+
+Internet
+  rps: 5000
+  -> Gateway
+
+Gateway
+  ratelimit-rps: 4000
+  latency-ms: 5
+  -> Orders
+
+Orders
+  max-rps: 6000
+  latency-ms: 60
+  uptime: 99.99%
+```
+
+| Key                   | Written as              | Description                                                          | Default  |
+| --------------------- | ----------------------- | -------------------------------------------------------------------- | -------- |
+| `default-latency-ms`  | `default-latency-ms 15` | Latency for components without explicit `latency-ms`                 | `0`      |
+| `default-uptime`      | `default-uptime 99.95`  | Uptime % for components without explicit `uptime`                    | `100`    |
+| `slo-availability`    | `slo-availability 99.9%`| Target availability % — drives SLO highlighting on system totals     | none     |
+| `slo-p90-latency-ms`  | `slo-p90-latency-ms 250`| Target p90 latency in ms — drives SLO highlighting on system totals  | none     |
+| `slo-warning-margin`  | `slo-warning-margin 0.02` | Fraction below the SLO that triggers a warning state instead of a breach | `0.05` |
+| `active-tag`          | `active-tag Team`       | Tag dimension to color by (first declared is active by default; `none` suppresses) | first group |
+| `direction-lr` / `direction-tb` | `direction-tb` | Layout flow. Bare keyword, no value.                                  | `direction-lr` |
+
+The universal appearance flags (`fill-tint`, `fill-solid`, `fill-outline`, `no-title`, `no-legend`) are also bare keywords written here — see [Appearance](#appearance).
+
+The three `slo-*` keys can *also* be written as properties on an individual component, in their colon form (`slo-availability: 99.9%` indented under a node). A component-level value overrides the diagram-wide setting for that node. This dual role is why the colonized top-level form fails so confusingly — the colon form is real syntax, just not at indent 0.
+
+The title is the rest of line 1 — there is no `title` directive.
+
+> **`default-rps` is accepted but has no effect.** It parses without complaint and appears in editor completions, but nothing reads it: the entry RPS comes only from the `rps:` property on the `Edge`/`Internet` node. Set `rps:` there instead. There is also no `layout` setting on infra — writing `layout LR` creates a component named `layout LR`.
 
 ## Entry Point (Edge)
 
@@ -155,16 +218,16 @@ Aliases must start with a letter or underscore and be at most 12 characters. The
 
 Connect components with arrow syntax:
 
-```
--> Target                           // unlabeled sync
--/api-> Target                      // labeled sync
--/api-> Target split: 60%           // with traffic split
--> [Group Name]                     // to a group
--> alias                            // to an aliased node
-~> Target                           // unlabeled async
-~event~> Target                     // labeled async
--> Target fanout: 5                 // request amplification
-```
+| Form                       | Meaning                |
+| -------------------------- | ---------------------- |
+| `-> Target`                | unlabeled sync         |
+| `-/api-> Target`           | labeled sync           |
+| `-/api-> Target split: 60%`| with traffic split     |
+| `-> [Group Name]`          | to a group             |
+| `-> alias`                 | to an aliased node     |
+| `~> Target`                | unlabeled async        |
+| `~event~> Target`          | labeled async          |
+| `-> Target fanout: 5`      | request amplification  |
 
 Connections define the directed acyclic graph (DAG) that traffic flows through. **Cycles are not allowed** — DGMO will report an error.
 
@@ -181,8 +244,10 @@ Async arrows (`~>`) represent fire-and-forget messaging — events published to 
 
 ```
 Checkout
-  -> OrderDB                        // sync write
-  ~OrderPlaced~> EventBus           // async event
+  // sync write
+  -> OrderDB
+  // async event
+  ~OrderPlaced~> EventBus
 ```
 
 ## Traffic Splits
@@ -191,7 +256,9 @@ When a component has multiple outbound connections, traffic is distributed acros
 
 ### All splits declared
 
-When every outbound edge has a split, they **must sum to 100%**. DGMO warns if they don't.
+When every outbound **sync** edge has a split, they must sum to 100%. DGMO warns if they don't, naming the component and the actual total.
+
+Async (`~>`) edges are excluded from that sum entirely. They model derived streams — an event published per request, an audit record — so each async edge receives the source's full post-behavior RPS rather than a share of it. A component that writes to a database and publishes an event sends 100% to both, and needs no split annotation to do so.
 
 ```
 LB
@@ -238,8 +305,10 @@ Split percentages apply to the **post-behavior** RPS — after cache, firewall, 
 ```
 CDN
   cache-hit: 50%
-  -/api-> API split: 70%      // 3,500 RPS
-  -/static-> Static split: 30%  // 1,500 RPS
+  // 3,500 RPS
+  -/api-> API split: 70%
+  // 1,500 RPS
+  -/static-> Static split: 30%
 ```
 
 ### Single outbound connection
@@ -584,7 +653,8 @@ Like nodes, groups support `as alias`:
     -> ordersdb
 
 LB
-  -> orders                         // route to the group via alias
+  // route to the group via alias
+  -> orders
 ```
 
 ### Collapsed groups
@@ -613,10 +683,12 @@ When a group contains multiple components in a chain, the group's effective capa
 ```
 [Backend Pod]
   instances: 3
-  API            // max-rps 500 per instance
+  // max-rps 500 per instance
+  API
     max-rps: 500
     -> Cache
-  Cache          // max-rps 2000 per instance
+  // max-rps 2000 per instance
+  Cache
     max-rps: 2000
 ```
 
@@ -636,14 +708,14 @@ Tags add metadata dimensions — team ownership, environment, region. They appea
 tag Team as t
   Backend blue
   Platform teal default
-  Data(violet)
+  Data purple
 
 CDN t: Platform
 API t: Backend
 DB t: Data
 ```
 
-- `tag Name alias x` — declare a tag group with optional shorthand
+- `tag Name as x` — declare a tag group with an optional shorthand alias
 - `Value color` — a tag value with its color (lowercase, trailing token)
 - `default` — auto-applies to components without this tag
 - `alias: Value` — assign inline on a component
@@ -782,6 +854,56 @@ These appear after the target as same-line metadata: `-> Target split: 60%, fano
 // This line is ignored by the parser
 ```
 
+## Common mistakes
+
+### Putting a colon on a top-level setting
+
+Every component property takes a colon, so writing a setting the same way is the natural guess — and it fails badly:
+
+```
+slo-availability: 99.9%
+```
+
+At indent 0 this does **not** set the SLO. The name is split at the hyphen: DGMO creates a component named `slo-` carrying an unknown property `availability`, then reports that the component is unreachable. The diagnostics never mention the colon:
+
+```
+Unknown metadata key "availability".
+'slo-' is unreachable from an 'internet'/'edge' entry — no request traffic flows to it…
+```
+
+Every hyphenated setting fails the same way — `default-rps: 1000` yields a component named `default-`. The rule: **settings are `key value`, properties are `key: value`.** If a phantom component appears with a truncated, hyphen-ending name, you colonized a setting.
+
+### Trusting the numbers because it validated
+
+A clean validate means the file **parsed**, not that the model is right. Nothing checks whether your `rps`, `latency-ms`, or `uptime` figures resemble reality, and this is the one chart type that publishes derived numbers as if they were measured. Read the rendered RPS and availability on each node and confirm they match what you expect before sharing the diagram — a modelling error here looks exactly like a correct answer.
+
+### Reading the p90 badge as this component's latency
+
+The p90 shown on a node is the **cumulative** latency of the worst-weighted path from the entry point *up to and including* that node — not the time spent inside it. A node with `latency-ms: 5` can display a p90 of 2.5s because everything upstream of it is slow. The per-component figure is the one you wrote; the badge is the journey.
+
+### Assuming a sync fan-out means "both, every time"
+
+Two sync (`->`) edges out of one component **divide** its traffic; they do not duplicate it. If every request really does hit both targets, an even split under-reports each one by half:
+
+```
+Checkout
+  -> OrderDB
+  -> Ledger
+```
+
+At 1,000 RPS into `Checkout`, `OrderDB` and `Ledger` each show 500. If each checkout writes to both, that is wrong — use `fanout: 2` on the amplifying edge, or model the second write as an async (`~>`) edge if it is genuinely fire-and-forget. Async edges are treated as derived streams: they receive the source's full post-behavior RPS and are excluded from the split sum.
+
+### Trailing comments on a property line
+
+Comments are **full-line only**. A `//` after content is absorbed into the value:
+
+```
+CDN
+  // static assets and cacheable API responses
+  cache-hit: 75%
+  -> Api
+```
+
 ## Complete Example
 
 ```dgmo
@@ -790,7 +912,7 @@ infra E-Commerce Platform
 tag Team as t
   Backend blue
   Platform teal default
-  Data(violet)
+  Data purple
 
 Edge
   rps: 100000
@@ -845,3 +967,22 @@ Worker t: Backend
 StaticServer t: Platform
   latency-ms: 5
 ```
+
+## Appearance
+
+Every chart accepts the universal appearance directives:
+
+| Directive | Effect |
+| --------- | ------ |
+| `fill-tint` | Soft tinted fills (default). |
+| `fill-solid` | Saturated solid fills. |
+| `fill-outline` | Outline only, no fill. |
+| `no-title` | Hide the title line. |
+| `no-legend` | Hide the legend. |
+
+Colors come from the active palette — see [Colors](colors.md). Set the palette and light/dark theme at render time with `--palette <name>` and `--theme light|dark|transparent`.
+
+## Next
+
+- **Related:** [`boxes-and-lines`](chart-boxes-and-lines.md) · [`c4`](chart-c4.md) · [`sequence`](chart-sequence.md) · [`sankey`](chart-sankey.md)
+- **Then:** [Colors & palettes](colors.md)

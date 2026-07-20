@@ -46,6 +46,12 @@ There are two ways to author, and Diagrammo picks between them automatically:
 - **Casual** — just list the results. The round structure is inferred from who beat whom.
 - **Seeded** — declare the field with `seed` lines and the full bracket skeleton renders on **day 0**, before a single game is played, with unplayed matchups shown as dashed **TBD** slots.
 
+## When to use
+
+- **`bracket`** — competitors get *eliminated* and winners auto-advance up a single-elimination tree.
+- [`flowchart`](chart-flowchart.md) — the branches are decisions a person makes, not contestants losing and dropping out. Bracket layout rewrites any other branching semantic into a tournament claim, and it won't render decision logic.
+- [`org`](chart-org.md) — everyone stays and the tree is about reporting upward, not about pairs being knocked out.
+
 ## Casual brackets
 
 The body is a list of match lines. Each decided game reads left-to-right — **the winner is on the left of `beats`**:
@@ -192,9 +198,63 @@ When a lower seed beats a higher one, the match is auto-flagged **UPSET**, and t
 
 `single-elim` is the default. `double-elim` is reserved — it parses today but renders the winners' side only with a "not yet supported" note; a losers'-bracket grammar is planned.
 
+## Options
+
+| Directive | Effect |
+| --------- | ------ |
+| `seeded` | Force seeded (day-0 skeleton) mode without writing a `seed` line. Any `seed N Name` line turns it on implicitly. |
+| `rounds A, B, C` | Name the round columns inline, from the entry round inward. |
+| `rounds` (bare) | Header of an **indented block** — one `Name [color]` per line — when you want to tint individual rounds. |
+| `no-rounds` | Drop the round header strip entirely. `no-round` is accepted as the same flag. |
+| `accent <color>` | Legacy alias for the title-line trailing color that sets the winner accent. A color on line 1 wins over it. |
+| `single-elim` \| `double-elim` | Bracket format. `single-elim` is the default; see [Format](#format). |
+| `no-legend` | Hide the legend strip while keeping the tag coloring. |
+| `fill-tint` \| `fill-solid` \| `fill-outline` | Fill treatment — see [Appearance](#appearance). |
+
+The indented `rounds` block colors each round column:
+
+```dgmo
+bracket Grog Cup
+rounds
+  Opening Skirmish blue
+  Semifinal orange
+  Final red
+
+Black Pearl beats Sea Serpent 5-3
+Salty Dog beats Kraken 4-2
+Black Pearl beats Salty Dog 6-5
+```
+
 ## Tips
 
 - **Winner on the left, always.** The score is decoration; the word order is the truth.
 - **Reuse names exactly** to advance a competitor — `Black Pearl` ≠ `The Black Pearl`.
 - **Don't hand-place byes** — a competitor first seen in a later round is slotted there automatically.
 - **Seed for a preview, list results for a recap.** One `seed` line flips the whole bracket into day-0 skeleton mode.
+
+## Appearance
+
+Bracket accepts these universal appearance directives:
+
+| Directive | Effect |
+| --------- | ------ |
+| `fill-tint` | Soft tinted fills (default). |
+| `fill-solid` | Saturated solid fills. |
+| `fill-outline` | Outline only, no fill. |
+| `no-legend` | Hide the legend. |
+
+The fill family is mutually exclusive — the last one written wins. Bracket has no `no-title` directive; the center column is labeled with the bracket title, so leave the title off line 1 if you don't want one.
+
+Colors come from the active palette — see [Colors](colors.md). Set the palette and light/dark theme at render time with `--palette <name>` and `--theme light|dark|transparent`.
+
+## Common mistakes
+
+- **Bracket branches mean elimination, and winners auto-advance.** Any other branching semantic gets rewritten by the layout into a tournament claim. Use [`flowchart`](chart-flowchart.md) or [`org`](chart-org.md) for branching that is not a knockout.
+- **A result naming a competitor you never seeded is silently ignored.** The match simply never draws. If a round is missing, check the spelling of both names against the seed lines.
+- **Seeds and results belong inside a bracket group** and in round order — a result written before the competitors exist has nothing to attach to.
+- Anything that renders but looks wrong: [Troubleshooting](troubleshooting.md) is organised by symptom.
+
+## Next
+
+- **Related:** [`flowchart`](chart-flowchart.md) · [`org`](chart-org.md)
+- **Then:** [Colors & palettes](colors.md)

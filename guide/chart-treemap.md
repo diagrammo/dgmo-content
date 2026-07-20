@@ -22,7 +22,18 @@ G&A
 
 ## Overview
 
-Treemaps show a hierarchy's proportions as nested rectangles — each leaf's area is its value, and parents auto-sum their children. They're the fastest way to read "what's big and what's small" across a whole tree at once: budgets, cloud bills, disk usage, portfolios, headcount, taxonomies. The layout is squarified, so cells keep readable aspect ratios instead of thin slivers.
+Treemaps show a hierarchy's proportions as nested rectangles — each leaf's area is its value, and parents auto-sum their children. They're the fastest way to read "what's big and what's small" across a whole tree at once: budgets, cloud bills, disk usage, portfolios, headcount, taxonomies. Reach for one when your categories contain sub-categories you also want sized, and the breakdown of the total is the question. The layout is squarified, so cells keep readable aspect ratios instead of thin slivers.
+
+## When to use
+
+- **`treemap`** — a hierarchy where the leaves have numbers, and both *containment* and *size* matter.
+- **[`pie`](chart-pie.md)** — one flat, single-level list with no hierarchy, where the reader should read exact shares of a whole.
+- **[`bar`](chart-bar.md)** — one flat list of a handful of items that need to be read precisely. Rectangle areas are harder to compare than bar lengths.
+- **[`sankey`](chart-sankey.md)** — the money *moves* from source to destination rather than simply being split up.
+- **[`ring`](chart-ring.md)** — the layers are levels of scope with no meaningful size attached.
+- **[`mindmap`](chart-mindmap.md)** — the leaves are just labels, with no values to size them by.
+- **[`org`](chart-org.md)** — the nesting is about *authority* — who reports to whom — not size and containment.
+- **[`sitemap`](chart-sitemap.md)** — the nesting is navigation between real pages, not proportion of a total.
 
 ## Syntax
 
@@ -30,7 +41,8 @@ Treemaps show a hierarchy's proportions as nested rectangles — each leaf's are
 treemap Title with units, e.g. "Cloud Spend ($)"
 
 Parent
-  Leaf 320          // a bare trailing number is the leaf's size
+  // a bare trailing number is the leaf's size
+  Leaf 320
   Leaf 180
 Another Parent
   Leaf 110
@@ -41,7 +53,7 @@ The first line declares the chart type and an optional title. **Put units in the
 ## Hierarchy & Value
 
 - **Indentation sets the hierarchy** (the mind-map / org model). Nest as deep as you like.
-- A **bare trailing number on a leaf is its size** (`Platform 320`). No thousands commas; `1_000` is fine.
+- A **bare trailing number on a leaf is its size** (`Platform 320`). Thousands separators are fine — `1,240,000` and `1_240_000` both read as 1240000. To keep a label that ends in a digit, quote it: `"Region 2" 400`.
 - **Parents auto-sum** their descendants — a number on a branch line is ignored (with a warning); the sum always wins.
 - A leaf with **no value** is treated as 0 (and warns); a **negative** value is an error.
 
@@ -230,3 +242,29 @@ Infra sq: Infra
   Observability 75 heat: 5.6
   Cost Controls 50 heat: 2.3
 ```
+
+## Appearance
+
+Alongside the treemap-specific `no-*` opt-outs, every chart accepts the universal appearance directives:
+
+| Directive | Effect |
+| --------- | ------ |
+| `fill-tint` | Soft tinted fills (default). |
+| `fill-solid` | Saturated solid fills. |
+| `fill-outline` | Outline only, no fill. |
+| `no-legend` | Hide the legend. |
+
+Colors come from the active palette — see [Colors](colors.md). Set the palette and light/dark theme at render time with `--palette <name>` and `--theme light|dark|transparent`.
+
+## Common mistakes
+
+- **Indent a leaf one step too deep and its sibling becomes a branch.** A branch's size is the sum of its children, so the sibling's own number stops counting and the parent total silently shrinks. The warning says the trailing number is ignored — that is the symptom, and a misplaced indent is usually the cause.
+- **A trailing `//` note leaves the leaf with no value**, and a valueless leaf renders at zero size — present in the model, invisible on screen. The warning quotes the number back at you because it read the whole line, comment included, as one long label.
+- **In same-line metadata, a comma separates pairs.** `heat: 1,200` reads as a heat of 1. Use `heat: 1_200`. Grouped numbers are fine in ordinary values.
+- **Adding a heat column recolors the whole chart.** Heat outranks tags and branch inheritance, so introducing it overrides colors you set elsewhere.
+- Anything that renders but looks wrong: [Troubleshooting](troubleshooting.md) is organised by symptom.
+
+## Next
+
+- **Related:** [`pie`](chart-pie.md) · [`bar`](chart-bar.md) · [`sankey`](chart-sankey.md) · [`ring`](chart-ring.md) · [`mindmap`](chart-mindmap.md) · [`org`](chart-org.md) · [`sitemap`](chart-sitemap.md)
+- **Then:** [Colors & palettes](colors.md)

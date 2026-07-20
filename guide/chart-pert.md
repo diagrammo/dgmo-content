@@ -27,13 +27,21 @@ repair hull 3
 divvy shares 1 2 3
 ```
 
-> **Dates** — `start-date` and `end-date` accept any date format (`2026-06-01`, `6/1/2026`, `Jun 1, 2026`) as well as `start-date now`. See [Writing Dates](/docs/writing-dates).
+> **Dates** — `start-date` and `end-date` accept any date format (`2026-06-01`, `6/1/2026`, `Jun 1, 2026`) as well as `start-date now`. See [Writing Dates](writing-dates.md).
 
 ## Overview
 
 A PERT diagram (Program Evaluation Review Technique) is an Activity-on-Node project network. Each activity carries a duration estimate — three-point (O / M / P), single-number (M-only), or zero (a sync point) — and the analyzer computes earliest/latest start/finish times, slack, the M-world critical path, and (when at least one activity has a three-point estimate) a probability-weighted criticality index plus P50/P80/P95 completion percentiles.
 
 Use it when you want to plan work that has uncertainty and parallelism: launches, expeditions, refactors, releases. Critical-path activities saturate toward the palette accent; off-critical activities stay closer to the surface tint.
+
+**PERT exists to carry uncertainty.** If you already know your start and end dates, you don't need it — a [`gantt`](chart-gantt.md) bar asserts a known start and finish, which is the honest picture when the dates really are known. Feed uncertain estimates into gantt bars and you project a precision you don't have. PERT is the other way round: it takes three-point estimates and tells you what could slip and by how much.
+
+## When to use
+
+- **`pert`** — your estimates are uncertain, work runs in parallel, and you need to know what could slip.
+- **[`gantt`](chart-gantt.md)** — you know your dates and just want the schedule laid out on a calendar. Gantt is also the right tool for real business-day scheduling, resource rows, and anything where the bar chart *is* the deliverable.
+- **[`flowchart`](chart-flowchart.md)** — the boxes are just steps with no time attached, and there's nothing to add up.
 
 ## Syntax
 
@@ -60,8 +68,9 @@ Every activity is declared on its own non-indented source-line with its duration
 | Key            | Description                                                                       | Default       |
 | -------------- | --------------------------------------------------------------------------------- | ------------- |
 | `pert`         | Required. Optional title follows.                                                 | —             |
-| `time-unit`    | One of `min`, `h`, `d`, `bd`, `w`, `m`, `q`, `y`. Default unit for duration tokens and for μ/σ/ES/EF formatting. **Overrideable per-token** — see *Per-token Time Units*. | `d` |
-| `direction`    | `LR` (left-to-right) or `TB` (top-to-bottom).                                     | `LR`          |
+| `time-unit`    | One of `min`, `h`, `d`, `bd`, `w`, `m`, `q`, `y`, `sp`. Default unit for duration tokens and for μ/σ/ES/EF formatting. **Overrideable per-token** — see *Per-token Time Units*. `sp` (sprints) also switches the schedule cells to sprint labels — see *Sprint Mode*. | `d` |
+| `direction-lr` | Bare flag — left-to-right layout.                                                 | on            |
+| `direction-tb` | Bare flag — top-to-bottom layout.                                                 | off           |
 | `node-detail`  | `compact` shows name + duration; `full` adds μ ± σ inside the node.               | `compact`     |
 | `no-analysis`  | Bare flag — hide the analysis layer (tornado + S-curve). The layer renders by default whenever Monte Carlo runs; this suppresses it for a network-only view. The desktop editor's **Analysis** toggle overrides it for the live view. See *Analysis Widgets*. | layer shown |
 | `default-confidence` | `high` / `medium` / `low`, or an explicit `O/P` factor pair (e.g. `0.6/2.5`). Fills O/P for M-only activities. Per-activity override via `confidence: low` metadata. See *M-only Estimates* for multipliers. | `medium` |
@@ -69,6 +78,12 @@ Every activity is declared on its own non-indented source-line with its duration
 | `seed`         | Deterministic PRNG seed. Auto-derived from the title (or activity names) when omitted. | auto-derived  |
 | `start-date`   | `YYYY-MM-DD` or `now`. **Forward anchor** — pins project start; ES/EF/LS/LF render as calendar dates. Mutually exclusive with `end-date`. See *Anchoring to a Calendar*. | none |
 | `end-date`     | `YYYY-MM-DD` (literal date only — `now` is a parse error). **Backward anchor** — pins the project deadline; flips percentile interpretation to *latest-safe starts*. Mutually exclusive with `start-date`. See *Anchoring to a Calendar*. | none |
+| `sprint-length` | Sprint duration, in `d` or `w` (e.g. `2w`, `10d`); must be a whole number of days. Turns on sprint mode. See *Sprint Mode*. | `2w` when sprint mode is active |
+| `sprint-number` | Positive integer — which sprint the project starts at.                          | `1`           |
+| `sprint-start`  | Calendar date the starting sprint begins (`2026-06-01`, `6/1/2026`, `Jun 1`).    | none          |
+| `scrubber-trials` | Trial count for the editor's fast duration scrubber. Values under 100 warn.    | `300`         |
+| `active-tag`   | Which declared tag group colors the nodes; `none` suppresses. See *Tag Groups*.   | first declared |
+| `year` / `date-order` / `no-current-year` | Universal date-reading directives, applied to `start-date`, `end-date`, and `sprint-start`. See *Date Directives*. | — |
 
 `trials` and `seed` exist for power users who want exact control. The defaults are set up so authors never need to think about them: the analyzer scales trials with graph size, and the seed is hashed from the title so two diagrams render with different (but each individually stable) noise.
 
@@ -77,10 +92,10 @@ Every activity is declared on its own non-indented source-line with its duration
 Each activity is declared on its own non-indented source-line. The duration estimate follows the name:
 
 ```
-research 2 3 5             three-point: O M P
-prototype 5                M-only: O and P fill from default-confidence
-gate 0                     zero-duration: marked with ◆ (sync point)
-demo                       TBD: no estimate yet (poisons descendants)
+research 2 3 5             # three-point: O M P
+prototype 5                # M-only: O and P fill from default-confidence
+gate 0                     # zero-duration: marked with ◆ (sync point)
+demo                       # TBD: no estimate yet (poisons descendants)
 ```
 
 ### Per-token Time Units
@@ -115,7 +130,7 @@ The analyzer combines these into two summary numbers per activity using the Beta
 
 ### M-only Estimates
 
-`name M` records only the most-likely duration. The analyzer fills in O and P from the active confidence level — the `default-confidence` directive, or a per-activity `| confidence: low` override.
+`name M` records only the most-likely duration. The analyzer fills in O and P from the active confidence level — the `default-confidence` directive, or a per-activity `confidence: low` override.
 
 #### Confidence multipliers
 
@@ -407,6 +422,98 @@ If the gap between P50 and P95 is small, the schedule is robust. If it's wide, y
 
 **3. What if I had to cut scope?** Look at the light-tinted (green/blue/surface) activities — cutting them won't move the finish date. Cutting a red or orange activity will.
 
+## Tag Groups
+
+PERT uses the universal tag model. Declare a `tag` group before the activities,
+then apply its alias as metadata on any activity's source-line (or on its own
+indented line beneath, alongside the arrows). Tags are an **annotation layer** —
+they never affect the schedule maths, only how the network is colored and
+legended, so you can slice a plan by owning team or workstream without touching
+a single estimate.
+
+```dgmo
+pert Release Train
+time-unit w
+active-tag Crew
+
+tag Crew as c
+  Platform blue
+  Mobile green
+  Ops orange
+
+spec the api 1 c: Platform
+  -> build the api
+
+build the api 2 3 5 c: Platform
+  -> ship it
+
+wire up the app 1 2 4 c: Mobile
+  -> ship it
+
+ship it 0.5 c: Ops
+```
+
+- The **first declared group is active by default**; `active-tag <GroupName>`
+  picks a different one, and `active-tag none` suppresses tag coloring entirely.
+- With tag coloring active, node fill shows the tag rather than the criticality
+  band — the criticality reading moves to the tornado and the analysis layer.
+
+## Sprint Mode
+
+Teams that plan in sprints rather than calendar dates can have the schedule
+cells read out as **sprint labels** (`S5`, `S6`) instead of numeric offsets or
+dates. Sprint mode turns on either way:
+
+- **Implicitly** — set `time-unit sp` and author durations in sprints.
+- **Explicitly** — set any `sprint-*` directive, whatever the `time-unit`.
+
+| Directive | Meaning |
+|-----------|---------|
+| `sprint-length <duration>` | How long one sprint is. Takes `d` or `w` only, must be positive, and must resolve to a whole number of days — `2w` and `10d` are fine, `1.5d` is not. Defaults to `2w`. |
+| `sprint-number <N>` | Which sprint the project starts at, so a mid-year plan reads `S14` rather than `S1`. Positive integer; defaults to `1`. |
+| `sprint-start <date>` | The calendar date that starting sprint begins, so sprint labels can be tied back to real dates. |
+
+```dgmo
+pert Q3 Delivery
+time-unit sp
+sprint-length 2w
+sprint-number 5
+sprint-start 2026-06-01
+
+groom backlog 1
+  -> build feature
+
+build feature 1 2 3
+  -> harden
+
+harden 1
+  -> release
+
+release 0
+```
+
+Sprint length matters for more than labels: it's the conversion factor between
+sprint durations and everything else, so an activity written as `3d` inside a
+sprint-mode plan is normalized through `sprint-length` before the analyzer adds
+it up. Set `sprint-length` to your team's real cadence rather than leaving the
+default if it isn't two weeks.
+
+## Date Directives
+
+`start-date`, `end-date`, and `sprint-start` all accept liberal date input —
+`2026-06-01`, `6/1/2026`, `Jun 1, 2026`, or bare `Jun 1`. Three universal
+directives control how those strings are read:
+
+| Directive | Effect |
+|-----------|--------|
+| `year <YYYY>` | Base year for bare month-day dates, so `Jun 1` is unambiguous and the diagram renders the same next January. |
+| `date-order mdy` \| `dmy` | How numeric slash and dash dates read. `mdy` (US, month first) is the default; `dmy` reads day first. |
+| `no-current-year` | Turn a fully bare date with no year anywhere into an error instead of quietly assuming the current year. |
+
+Pin `year` on any plan you intend to keep — it's the difference between a
+reproducible diagram and one that silently re-dates itself. See
+[Writing Dates](writing-dates.md).
+
 ## Anchoring to a Calendar
 
 By default, ES / EF / LS / LF cells render as numeric offsets in the diagram's `time-unit`. Add one of two anchors to turn them into real dates:
@@ -462,3 +569,25 @@ If a latest-safe-start date falls in the **past** (you needed to start before to
 - For deterministic Monte Carlo across edits, pin `seed N` explicitly. Otherwise the auto-derived seed changes if the title (or activity names) change.
 - TBD activities (no estimate) "poison" their descendants — slack stays `null` and the renderer marks them gray. Resolve TBDs before relying on the analysis.
 - `confidence: low` widens O/P spreads; `confidence: high` tightens them. Use per-activity overrides for tasks with unusual variance.
+
+## Appearance
+
+Every chart accepts the universal appearance directives:
+
+| Directive | Effect |
+| --------- | ------ |
+| `fill-tint` | Soft tinted fills (default). |
+| `fill-solid` | Saturated solid fills. |
+| `fill-outline` | Outline only, no fill. |
+| `no-title` | Hide the title line. |
+| `no-legend` | Hide the legend. |
+
+Note that on a PERT network the fill normally carries the criticality band, so
+`fill-outline` trades that reading for a cleaner structural picture. Colors come
+from the active palette — see [Colors](colors.md). Set the palette and light/dark
+theme at render time with `--palette <name>` and `--theme light|dark|transparent`.
+
+## Next
+
+- **Related:** [`gantt`](chart-gantt.md) · [`flowchart`](chart-flowchart.md)
+- **Then:** [Colors & palettes](colors.md) · [Writing dates](writing-dates.md)

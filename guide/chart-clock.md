@@ -5,28 +5,33 @@ New York
 
 ## Overview
 
-A clock is a live **world clock**: one panel per person or place, each showing the **current** local time in its zone and ticking every second, accurate the instant the page loads. Reach for it to answer "what time is it for the crew right now" — a distributed team's local times, a single collaborator's clock, or the window where everyone's awake for a call. Like `countdown` (§countdown) it is one of the **dynamic** dgmo charts: it recomputes against the viewer's system clock on every load. Use it as a live widget in a blog sidebar, an Obsidian note, or a shared page.
+A clock is a live **world clock**: one panel per person or place, each showing the **current** local time in its zone and ticking every second, accurate the instant the page loads. Reach for it to answer "what time is it for the crew right now" — a distributed team's local times, a single collaborator's clock, or the window where everyone's awake for a call. Like [`countdown`](chart-countdown.md) it is one of the **dynamic** dgmo charts: it recomputes against the viewer's system clock on every load. Use it as a live widget in a blog sidebar, an Obsidian note, or a shared page.
 
-## When to use it
+## When to use
 
-- **A single person or place** — the common case: one title, one entry. "What time is it for Dani in New York."
-- **A distributed team** — a panel per teammate so you can see, at a glance, who is in their working hours.
-- **Scheduling overlap** — add a working window (`hours`, `workweek`) to shade each zone's on-hours and find the meeting slot where everyone overlaps.
-
-For a fixed future instant ("N days until launch") use `countdown` instead — a clock always shows *now*.
+- **`clock`** — you want to know what time it is *right now* for people in different places: one person's local time, a panel per teammate on a distributed team, or a working window (`hours`, `workweek`) shaded across zones so the meeting slot where everyone overlaps is obvious.
+- **[`countdown`](chart-countdown.md)** — you're counting toward one fixed future moment ("N days until launch"). A clock always shows *now* and never counts down.
+- **[`map`](chart-map.md)** — the question is *where* they are, not *when*. A clock names places but draws no geography.
 
 ## Syntax
 
 ```
 clock Title, e.g. "Crew standups"
-analog                // optional; analog dials (digital is the default face)
-time-24               // optional; 24-hour readout (12h am/pm is the default)
-hours 9-17            // optional working window (24h; also 8:30-17:15 or am/pm)
-workweek mon-fri      // optional working days
-no-sun                // optional; hide the sunrise/sundown line (on by default)
-direction-tb          // optional; vertical stack (default) — direction-lr for a horizontal strip
+// optional; analog dials (digital is the default face)
+analog
+// optional; 24-hour readout (12h am/pm is the default)
+time-24
+// optional working window (24h; also 8:30-17:15 or am/pm)
+hours 9-17
+// optional working days
+workweek mon-fri
+// optional; hide the sunrise/sundown line (on by default)
+no-sun
+// optional; vertical stack (default) — direction-lr for a horizontal strip
+direction-tb
 
-London as UK team    // <anchor> [as <label>] [color]
+// an entry is <anchor> [as <label>] [color]
+London as UK team
 ```
 
 The first line declares the chart type and the title. The global directives (`analog`, `time-24`, `hours`, `workweek`, `no-sun`, `no-title`, `direction-lr`, `color-by`) are flat lines — **no colon, no indentation**. Each **entry** is a single line: an **anchor** that names the zone, an optional `as <label>`, and an optional trailing palette color.
@@ -143,11 +148,11 @@ New York      as Dani (NY)
 Tokyo         as Deckhand
 ```
 
-So direction is a pair of bare flags: `direction-tb` (the default vertical stack) and `direction-lr` (the horizontal strip). It composes with everything else (`analog`, `color-by`, `hours`): in `direction-lr` mode the color tint fills each **column** instead of each row, and analog dials sit at the top of their column. Keep the zone count small (three or four) in `direction-lr` mode so the columns stay wide enough to read; longer lists are better as the vertical stack.
+So direction is a pair of bare flags: `direction-tb` (the default vertical stack) and `direction-lr` (the horizontal strip). The older key-and-value spelling still parses — `direction lr` (or its `direction columns` alias) matches `direction-lr`, and `direction tb` matches `direction-tb` — but the bare flags are the form to write. It composes with everything else (`analog`, `color-by`, `hours`): in `direction-lr` mode the color tint fills each **column** instead of each row, and analog dials sit at the top of their column. Keep the zone count small (three or four) in `direction-lr` mode so the columns stay wide enough to read; longer lists are better as the vertical stack.
 
 ## Working hours
 
-Add a working window with `hours <start>-<end>` and optional `workweek <range>` to shade each zone's on-hours, so an out-of-hours teammate reads at a glance and the overlap window is obvious. The window is 24-hour by default but also accepts `HH:MM` and am/pm (`hours 8:30-17:15`, `hours 9am-6pm`). Reach for this only when the point is scheduling; drop it for a plain "current time" widget.
+Add a working window with `hours <start>-<end>` and optional `workweek <range>` to shade each zone's on-hours, so an out-of-hours teammate reads at a glance and the overlap window is obvious. The window is 24-hour by default but also accepts `HH:MM` and am/pm (`hours 8:30-17:15`, `hours 9am-6pm`). The working days accept a range or a list (`workweek mon-fri`, `workweek mon,wed,fri`); `days` is an accepted alias for `workweek` and behaves identically. Reach for this only when the point is scheduling; drop it for a plain "current time" widget.
 
 ```dgmo
 clock When can the crew muster
@@ -198,3 +203,21 @@ A hand-set **per-zone color always wins over the dimension**: a **defined** shad
 ## Live vs. baked
 
 On any live surface (the app, the web editor, a docs site, an Obsidian note, a shared page) the clock ticks every second and is accurate the instant the page loads. On an image surface that can't run JavaScript — a PNG export, an `.svg` opened via `<img>`, a GitHub camo-proxied image — it shows the time baked at export. That is the correct graceful fallback, not a bug: images can't tick.
+
+## Appearance
+
+Every chart accepts the universal appearance directives:
+
+| Directive | Effect |
+| --------- | ------ |
+| `fill-tint` | Soft tinted fills (default). |
+| `fill-solid` | Saturated solid fills. |
+| `fill-outline` | Outline only, no fill. |
+| `no-title` | Hide the title line. |
+
+The fill family sets how each zone's lane is filled: `fill-tint` is the soft default, `fill-solid` saturates the lane behind the time, and `fill-outline` drops the fill for a bordered-only board. Colors come from the active palette — see [Colors](colors.md). Set the palette and light/dark theme at render time with `--palette <name>` and `--theme light|dark|transparent`.
+
+## Next
+
+- **Related:** [`countdown`](chart-countdown.md) · [`map`](chart-map.md)
+- **Then:** [Colors & palettes](colors.md)

@@ -27,13 +27,19 @@ tag Theme as t
     The living standard — video, canvas, semantics.
 ```
 
-> **Dates** — event dates accept any format (`2026-03-20`, `3/20`, `Mar 20`); a bare month-day inherits its year from a `year 2026` line or the surrounding events. See [Writing Dates](/docs/writing-dates).
+> **Dates** — event dates accept any format (`2026-03-20`, `3/20`, `Mar 20`); a bare month-day inherits its year from a `year 2026` line or the surrounding events. See [Writing Dates](writing-dates.md).
 
 ## Overview
 
 An **event line** is the annotated, narrative timeline every infographic reaches for: a horizontal spine of point events, each a dot with a date caption and a leader line up to an org-style card holding a title and a short description. Cards auto-alternate above and below the spine to pack densely. Think "a history of the web", "company milestones", "how a bill becomes law", or "a mission timeline".
 
 It is distinct from the [Timeline](chart-timeline.md) chart: `timeline` is a strict, to-scale date axis with eras, markers, and range bars; `event-line` is **point events with rich prose**, optionally **not to scale** for the storytelling look.
+
+## When to use
+
+- **`event-line`** — each event needs a paragraph of story, and you'd rather pack the cards densely than honor the real gaps between dates.
+- **[`timeline`](chart-timeline.md)** — the *spacing* between dates is the finding. With `no-scale` an event line is deliberately **not to scale**, so a reader who assumes horizontal distance means elapsed time will read acceleration, clustering, and long quiet gaps that aren't there. If pacing is the story, use `timeline`.
+- **[`journey-map`](chart-journey-map.md)** — you're tracking how one person *felt* step by step, not narrating events in the world.
 
 ## Syntax
 
@@ -68,7 +74,7 @@ Group a run of events into a labeled section of the spine with a `[Name]` bracke
 
 An event belongs to the era it is indented under; its description sits one level deeper still. Dedent back to the left margin (indent 0) for an event that sits **outside** any era. An era draws as a bracket on the side opposite the cards, labeled with its name.
 
-Add a trailing `collapsed` flag to the era line to fold it into a single summary card — its name as the title and a bulleted list of its member events — while a small bracket stays on the spine marking the era's span. In the desktop app you can click an era to collapse or expand it live; when several eras are collapsed, each summary card centers over its own spine bracket so a later era sits visibly right of an earlier one.
+Add a trailing bare `collapsed` flag to the era line to fold it into a single summary card — its name as the title and a bulleted list of its member events — while a small bracket stays on the spine marking the era's span. In the desktop app you can click an era to collapse or expand it live; when several eras are collapsed, each summary card centers over its own spine bracket so a later era sits visibly right of an earlier one.
 
 In the desktop app you can also **click a legend entry to mute that category** — its event cards collapse to bare dots on the spine (hover a dot to peek its card), so a busy timeline quiets to just the categories you care about; muted members also drop from any collapsed era's bullet list. Both the era toggle and the legend mute are live preview only and never edit your source.
 
@@ -77,6 +83,8 @@ In the desktop app you can also **click a legend entry to mute that category** �
   1995 JavaScript  t: Platform
   1996 CSS  t: Standard
 ```
+
+The bare flag is canonical and composes with an era color in either order (`[Era] blue collapsed`, `[Era] collapsed blue`). The metadata form `[Era] collapsed: true` is also accepted, and `collapsed: false` spells out the default.
 
 ## Future events (TBD)
 
@@ -101,8 +109,38 @@ A `TBD` event reads as **pending**: a hollow dot, a faded leader, and a `TBD` ca
 | `no-box` | card-less slide style: a tag-colored label, a rule, and the description — no box |
 | `no-legend` | hide the tag legend |
 
+### Date directives
+
+| Directive | Effect |
+| --------- | ------ |
+| `year 2026` | base year for bare month-day dates, so the chart renders the same next January |
+| `date-order mdy` | numeric slash/dash dates read month-first (the default) |
+| `date-order dmy` | numeric slash/dash dates read day-first |
+| `no-current-year` | a fully bare date (no year anywhere in the file) becomes an error instead of silently assuming this year |
+
+These may sit anywhere in the file — they are read before the dates they govern. See [Writing Dates](writing-dates.md).
+
+## Appearance
+
+Every chart accepts the universal appearance directives:
+
+| Directive | Effect |
+| --------- | ------ |
+| `fill-tint` | Soft tinted fills (default). |
+| `fill-solid` | Saturated solid fills. |
+| `fill-outline` | Outline only, no fill. |
+| `no-title` | Hide the title line. |
+| `no-legend` | Hide the legend. |
+
+Colors come from the active palette — see [Colors](colors.md). Set the palette and light/dark theme at render time with `--palette <name>` and `--theme light|dark|transparent`.
+
 ## Tips
 
 - Event lines read best with **5–25 events**. For longer histories, group events into **eras** and collapse the ones you're not focused on.
 - Use `no-scale` for explainer and history threads; keep the default date scale for mission timelines and project histories where the real gaps matter.
 - Reach for `no-box` when dropping the line into a slide.
+
+## Next
+
+- **Related:** [`timeline`](chart-timeline.md) · [`journey-map`](chart-journey-map.md)
+- **Then:** [Colors & palettes](colors.md) · [Writing dates](writing-dates.md)

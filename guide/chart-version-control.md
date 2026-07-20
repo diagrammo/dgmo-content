@@ -26,7 +26,7 @@ main
 
 A version-control graph draws a commit history as parallel **branch lanes** — the git branch-and-merge picture you see in GitKraken, `git log --graph`, or a GitHub network view. It's the right diagram for explaining a **branching strategy** (GitFlow, trunk-based, release trains), onboarding docs, and pull-request walkthroughs.
 
-The name is deliberately tool-neutral: commits, branches, and merges are universal to git, Mercurial, and SVN. It shows **topology** — who branched from whom and what merged where — not wall-clock time. For real dates use `timeline` or `gantt`.
+The name is deliberately tool-neutral: commits, branches, and merges are universal to git, Mercurial, and SVN. It shows **topology** — who branched from whom and what merged where — not wall-clock time. For real dates use [`timeline`](chart-timeline.md) or [`gantt`](chart-gantt.md).
 
 The grammar is **keyword-less**: a bare top-level line is a branch, a bare indented line is a commit. Re-naming a branch resumes it, so there is no `checkout` to track. Only `merge` and `cherry-pick` are verbs you have to type.
 
@@ -35,14 +35,18 @@ The grammar is **keyword-less**: a bare top-level line is a branch, a bare inden
 ```
 version-control Title
 
-main                    // a bare top-level line is a BRANCH (the first is the trunk)
-  Initial commit        // a bare indented line is a COMMIT — the text is the message
+// a bare top-level line is a BRANCH (the first is the trunk)
+main
+  // a bare indented line is a COMMIT — the text is the message
+  Initial commit
   Add README
 
-develop from main       // `from` sets the branch point
+// `from` sets the branch point
+develop from main
   Set up CI
 
-main                    // naming a branch again RESUMES it (this replaces `checkout`)
+// naming a branch again RESUMES it (this replaces `checkout`)
+main
   merge develop tag: v1.0.0
 ```
 
@@ -176,6 +180,32 @@ main
 
 ## When to use
 
-- **`version-control`** — branch/merge topology: how work flows across branches.
-- **`timeline` / `gantt`** — when real dates and durations matter (`version-control` is topology, not a calendar).
-- **`flowchart` / `sequence`** — control flow or message passing, not commit history.
+- **`version-control`** — branch/merge topology: how work flows across branches, splitting into parallel tracks that later rejoin.
+- **[`timeline`](chart-timeline.md)** — the events run in one line and the real dates between them matter. `version-control` is topology, not a calendar.
+- **[`gantt`](chart-gantt.md)** — real durations and dependencies on a schedule.
+- **[`flowchart`](chart-flowchart.md)** — the rules a person follows, not an actual commit history. A flowchart cannot express parallel lanes rejoining.
+- **[`sequence`](chart-sequence.md)** — parties passing messages to each other, not commits landing on branches.
+
+## Appearance
+
+Each branch gets its own lane color automatically, assigned in declaration order. Set one explicitly with a trailing color token on the branch line — after `from` and `order:` if present:
+
+```dgmo
+version-control Branch Colors
+
+main
+  Init
+release/2.0 from main purple
+  Freeze for QA
+hotfix from main order: 3 red
+  Patch CVE-2026-1 type: highlight
+```
+
+Commits, merge nodes, tag pills, and `ref` pointers inherit their lane's color; ghosted commits and `origin/…` refs are drawn faded against it. Colors come from the active palette — see [Colors](colors.md). Set the palette and light/dark theme at render time with `--palette <name>` and `--theme light|dark|transparent`.
+
+The universal fill family (`fill-tint` / `fill-solid` / `fill-outline`) and `no-title` do not apply here — a commit graph draws dots and lanes rather than filled shapes. Use `no-labels`, `no-lanes`, and `no-head` above to subtract detail.
+
+## Next
+
+- **Related:** [`timeline`](chart-timeline.md) · [`gantt`](chart-gantt.md) · [`flowchart`](chart-flowchart.md) · [`sequence`](chart-sequence.md)
+- **Then:** [Colors & palettes](colors.md)

@@ -29,6 +29,20 @@ Boxes and lines is a general-purpose node-edge diagram for modeling systems, arc
 
 Unlike more specialized diagram types (infra for traffic simulation, C4 for system context), boxes-and-lines is intentionally flexible. Node shapes are inferred from names — a node called "UserDB" renders as a cylinder, "Redis" as a diamond, "OrderQueue" as a hexagon.
 
+Reach for it for system and component overviews, status-tagged architecture sketches, and quick wiring when you don't want to place anything by hand. The layout is computed for you — **box position carries no meaning**, so don't read adjacency into it.
+
+## When to use
+
+- **`boxes-and-lines`** — you want to show which things exist and which talk to which, and you want the tool to arrange the boxes for you.
+- [`block`](chart-block.md) — *where* each box sits is meaning you control. Position here is auto-layout and carries none; swapping the two either invents adjacency semantics or throws yours away.
+- [`sketch`](chart-sketch.md) — you'd rather drag shapes around on a canvas than write the diagram out as text.
+- [`c4`](chart-c4.md) — you need to zoom from "the whole system" into "inside this service." C4 also asserts a specific abstraction level, so mixing levels there is worse than an untyped diagram; `boxes-and-lines` is right when one flat picture is enough.
+- [`infra`](chart-infra.md) — you want the tool to *calculate* traffic, latency, and downstream failure. `boxes-and-lines` only draws what you write; it computes nothing.
+- [`flowchart`](chart-flowchart.md) — the boxes are *steps that happen* rather than *things that exist*.
+- [`class`](chart-class.md) — the boxes need to list fields and methods, not just names.
+- [`er`](chart-er.md) — you need primary keys and how many rows link to how many.
+- [`arc`](chart-arc.md) — there are so many links that the boxes-and-arrows turn into spaghetti and you mainly want to see who is most connected.
+
 ## Declaration
 
 ```
@@ -88,15 +102,19 @@ Node shapes are inferred from names:
 ### Directed edges
 
 ```
-A -> B                    // unlabeled
-A -routes-> B             // labeled
+// unlabeled
+A -> B
+// labeled
+A -routes-> B
 ```
 
 ### Bidirectional edges
 
 ```
-A <-syncs-> B             // bidirectional with label
-A <-> B                   // bidirectional unlabeled
+// bidirectional with label
+A <-syncs-> B
+// bidirectional unlabeled
+A <-> B
 ```
 
 ### Indented shorthand
@@ -180,8 +198,10 @@ UserDB t: Platform
 The **first declared tag group colors nodes automatically** — `active-tag` is only needed to pick a *different* group:
 
 ```
-active-tag Priority       // color by Priority instead of the default (Team, declared first)
-hide priority:Low         // hide nodes tagged Low priority
+// color by Priority instead of the default (Team, declared first)
+active-tag Priority
+// hide nodes tagged Low priority
+hide priority:Low
 ```
 
 ## Heat metric (numeric ramp)
@@ -213,9 +233,15 @@ Flagship -> Sloop
 | `direction-lr` \| `direction-tb` | (flag)  | `direction-lr` | Layout direction (left-right or top-bottom) |
 | `active-tag`  | tag group name    | first group | Which tag group drives node coloring; first declared is active by default, so only set this to pick another (`none` suppresses all coloring, a heat label forces the heat ramp) |
 | `hide`        | `alias:value`     | none        | Hide nodes with a specific tag value        |
-| `mode`        | `shapes`          | —           | Force shape rendering mode                  |
 | `heat`        | `<Label> [color]` | none        | Names the numeric heat dimension and optional ramp hue |
 | `no-value`    | (flag)            | off         | Suppress each box's `heat:` number (values print by default) |
+| `show-values` | (flag)            | —           | Legacy no-op — values already print by default. Kept so older files still parse. |
+| `no-notes`    | (flag)            | off         | Suppress every `note` annotation            |
+| `no-title`    | (flag)            | off         | Hide the title line                         |
+| `no-legend`   | (flag)            | off         | Hide the legend                             |
+| `fill-tint` \| `fill-solid` \| `fill-outline` | (flag) | `fill-tint` | Fill treatment — see [Appearance](#appearance) |
+
+`heat`, `no-value`, `show-values`, `active-tag`, and the appearance flags are **pre-content** directives: write them above the first node.
 
 ## Notes
 
@@ -278,3 +304,22 @@ Redis t: Infra
 
 Redis <-cache-> DataService
 ```
+
+## Appearance
+
+Every chart accepts the universal appearance directives:
+
+| Directive | Effect |
+| --------- | ------ |
+| `fill-tint` | Soft tinted fills (default). |
+| `fill-solid` | Saturated solid fills. |
+| `fill-outline` | Outline only, no fill. |
+| `no-title` | Hide the title line. |
+| `no-legend` | Hide the legend. |
+
+Colors come from the active palette — see [Colors](colors.md). Set the palette and light/dark theme at render time with `--palette <name>` and `--theme light|dark|transparent`.
+
+## Next
+
+- **Related:** [`block`](chart-block.md) · [`sketch`](chart-sketch.md) · [`c4`](chart-c4.md) · [`infra`](chart-infra.md) · [`flowchart`](chart-flowchart.md) · [`class`](chart-class.md) · [`er`](chart-er.md) · [`arc`](chart-arc.md)
+- **Then:** [Colors & palettes](colors.md)

@@ -1,6 +1,5 @@
 ```dgmo
 timeline The Golden Age of Piracy (1716–1722)
-scale on
 
 tag Pirate as p
   Blackbeard red
@@ -35,7 +34,19 @@ marker 1721-08 Roberts reaches peak teal
 1722-02-10 Killed at Cape Lopez p: Roberts, o: Defeat, t: Africa
 ```
 
-> **Dates** — timeline accepts any date format for events, eras, and markers (`1716`, `1/15`, `Jul 4`, `753 BCE`). A bare month-day inherits its year from a `year 2026` line or the surrounding rows. See [Writing Dates](/docs/writing-dates).
+> **Dates** — timeline accepts any date format for events, eras, and markers (`1716`, `1/15`, `Jul 4`, `753 BCE`). A bare month-day inherits its year from a `year 2026` line or the surrounding rows. See [Writing Dates](writing-dates.md).
+
+## Overview
+
+A timeline places dated events along a real chronological axis, so the *spacing* between them is part of the message — a three-year gap looks like a three-year gap, and a burst of activity looks like a burst. Reach for it to narrate history, lay out milestones, or show when each thing happened when the pacing itself is the finding: acceleration, quiet stretches, clustering. Events can be single dates or spans, grouped into eras and marked with key moments, and every event needs a date the chart can place.
+
+## When to use
+
+- **`timeline`** — a list of dated things that happened, drawn to scale, where the distance between dates should be felt.
+- **[`event-line`](chart-event-line.md)** — same list of events, but each one carries a paragraph of story. `event-line` is deliberately **not to scale** — use it when the prose matters more than the spacing, and use `timeline` when the spacing matters more than the prose.
+- **[`line`](chart-line.md)** — the thing that changed is a *number* you measured over time, not a list of occurrences.
+- **[`gantt`](chart-gantt.md)** — planning work that hasn't happened yet, with dependencies and a schedule, rather than recording what already did.
+- **[`version-control`](chart-version-control.md)** — the events split into parallel tracks that later rejoin. A timeline runs in one line of time.
 
 ## Syntax
 
@@ -52,14 +63,18 @@ YYYY -> YYYY Span event
 YYYY-MM-DD Point event
 ```
 
-## Metadata Keys
+## Directives
 
-| Key         | Description                                                                                           | Required |
-| ----------- | ----------------------------------------------------------------------------------------------------- | -------- |
-| `chart`     | Must be `timeline`                                                                                    | Yes      |
-| `title`     | Chart title displayed above the chart                                                                 | No       |
-| `sort`      | Event ordering: `time` (default), `group`, `tag`, or `tag:GroupName`                                  | No       |
-| `swimlanes` | Show shaded backgrounds per group (boolean; `no-swimlanes` to disable). Works best with `sort group`. | No       |
+Written at the top level, one per line, after the `timeline Title` line.
+
+| Directive | Effect |
+| --------- | ------ |
+| `sort time \| group \| tag \| tag:GroupName` | Event ordering. `time` is the default and also opts out of swimlanes. |
+| `lane-by <GroupName>` | Arrange events into swimlanes by tag value. Equivalent to `sort tag:<GroupName>`; aliases resolve. |
+| `swimlanes` | Force lane backgrounds per group. Accepted back-compat spelling alongside `lane-by`. |
+| `active-tag <GroupName>` | Pin which declared tag group colors the events at rest, so the choice travels with the file. |
+| `no-scale` | Drop the date axis and its scale. The scale is **on by default** — this is the opt-out; there is no `scale` directive to turn it on. |
+| `year <YYYY>` | Default year for bare month-day dates below it. |
 
 ## Event Format
 
@@ -268,4 +283,30 @@ This directive is persisted from the app's swimlane picker, so it lives in the s
 
 ### Interactive Legend
 
-When tag groups are declared, a legend appears above the chart. Click a tag group pill to activate it — events are colored by that group's values. The swimlane tag group controls the spatial layout; the active tag group controls the coloring. These can be set independently.
+When tag groups are declared, a legend appears above the chart. Click a tag group pill to activate it — events are colored by that group's values. The swimlane tag group controls the spatial layout; the active tag group controls the coloring. These can be set independently. Use `active-tag <GroupName>` to pin the coloring dimension in the source, and `no-legend` to suppress the legend band entirely.
+
+## Appearance
+
+Every chart accepts the universal appearance directives:
+
+| Directive | Effect |
+| --------- | ------ |
+| `fill-tint` | Soft tinted fills (default). |
+| `fill-solid` | Saturated solid fills. |
+| `fill-outline` | Outline only, no fill. |
+| `no-title` | Hide the title line. |
+| `no-legend` | Hide the legend. |
+
+Colors come from the active palette — see [Colors](colors.md). Set the palette and light/dark theme at render time with `--palette <name>` and `--theme light|dark|transparent`.
+
+## Common mistakes
+
+- **Timeline is to scale; [`event-line`](chart-event-line.md) is not.** If you want an ordered sequence of milestones without the gaps between them mattering, `event-line` is the honest choice. Reach for `timeline` when the pacing — clustering, acceleration, dead stretches — is part of the point.
+- **Entries are sorted by date, not by file order.** If an entry appears somewhere unexpected on the axis, its date is not what you think it is.
+- **Check the first and last dates on the rendered axis** against the span you meant to cover. A malformed date changes the range without complaint.
+- Anything that renders but looks wrong: [Troubleshooting](troubleshooting.md) is organised by symptom.
+
+## Next
+
+- **Related:** [`event-line`](chart-event-line.md) · [`line`](chart-line.md) · [`gantt`](chart-gantt.md) · [`version-control`](chart-version-control.md)
+- **Then:** [Colors & palettes](colors.md) · [Writing dates](writing-dates.md)

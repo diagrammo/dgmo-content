@@ -61,9 +61,16 @@ Crew Welfare quadrant: bottom-right
 
 ## Overview
 
-Technology radars visualize how an organization adopts and evaluates technologies, practices, or strategies. Inspired by the [ThoughtWorks Technology Radar](https://www.thoughtworks.com/radar), each radar arranges items ("blips") into concentric rings indicating adoption stage, grouped by quadrant categories.
+A tech radar sorts technologies, tools, or practices into "use it / try it / watch it / avoid it" — concentric rings of adoption stage, split into quadrant categories. Reach for it to decide and communicate which tools a team should adopt, which are still on trial, and which to retire, and to track that maturity picture as it shifts quarter to quarter. Inspired by the [ThoughtWorks Technology Radar](https://www.thoughtworks.com/radar), each item is a "blip" placed in one ring and one quadrant, optionally carrying a trend indicator and a description.
 
 Click any quadrant label to drill down into a detail view with expanded blip descriptions. Click the "Blip Legend" toggle to show or hide the numbered reference listing below the radar.
+
+## When to use
+
+- **`tech-radar`** — sorting technologies into adopt / trial / assess / hold rings, with a confidence or maturity judgement attached to each.
+- **[`quadrant`](chart-quadrant.md)** — you are placing items on two axes *you* name, and there are no adoption rings.
+- **[`kanban`](chart-kanban.md)** — you are tracking work moving through stages, not rating the maturity of tools.
+- **[`raci`](chart-raci.md)** — you are assigning ownership of tasks to people, not confidence to technologies.
 
 ## Syntax
 
@@ -79,12 +86,18 @@ Quadrant Name quadrant: position
     Description text (markdown supported)
 ```
 
-## Settings
+## Directives
 
-| Key | Description | Default |
-| --- | ----------- | ------- |
-| `chart` | Must be `tech-radar` | — |
-| `title` | Radar title | None |
+Written at the top level, one per line, after the `tech-radar Title` line.
+
+| Directive | Effect |
+| --------- | ------ |
+| `no-blip-legend` | Suppress the numbered blip reference listing below the radar. The listing is **on by default** — this is the opt-out. |
+| `show-blip-legend` | Accepted for backward compatibility; the listing is already on, so this does nothing. |
+| `fill-tint` | Soft tinted fills (default). |
+| `fill-solid` | Saturated solid fills. |
+| `fill-outline` | Outline only, no fill. |
+| `no-title` | Hide the title line. |
 
 ## Rings
 
@@ -215,3 +228,23 @@ Morale quadrant: bottom-right
   Parrot Companions ring: Scouting, trend: new
   Plank Walking ring: Scuttle, trend: down
 ```
+
+## Appearance
+
+Every chart accepts the universal appearance directives:
+
+| Directive | Effect |
+| --------- | ------ |
+| `fill-tint` | Soft tinted fills (default). |
+| `fill-solid` | Saturated solid fills. |
+| `fill-outline` | Outline only, no fill. |
+| `no-title` | Hide the title line. |
+
+The radar's legend is the numbered blip listing, so use `no-blip-legend` rather than the universal `no-legend` to suppress it.
+
+Quadrant colors default to blue, green, red, and orange going clockwise from top-left, and each blip inherits its quadrant's color. Override a quadrant with `color: <name>` on its declaration. Colors come from the active palette — see [Colors](colors.md). Set the palette and light/dark theme at render time with `--palette <name>` and `--theme light|dark|transparent`.
+
+## Next
+
+- **Related:** [`quadrant`](chart-quadrant.md) · [`kanban`](chart-kanban.md) · [`raci`](chart-raci.md)
+- **Then:** [Colors & palettes](colors.md)

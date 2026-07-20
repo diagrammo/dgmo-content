@@ -1,50 +1,30 @@
 ```dgmo
-gantt Voyage to Treasure Island
-start-date 2024-01-15
-today-marker 2024-03-01
-critical-path
+gantt Ship Refit
+start-date 2026-03-02
 
-tag Crew as c
-  Sailors blue
-  Navigators purple
-  Lookouts orange
-
-tag Phase as p
-  Outfitting green
-  Voyage orange
-
-era 2024-01-15 -> 2024-02-15 Harbor Preparations
-era 2024-03-10 -> 2024-03-14 Storm Season purple
-marker 2024-02-26 Admiral Inspection
-marker 2024-04-08 Landfall orange
-
-[Shipyard] c: Sailors, p: Outfitting
-  Hull Repairs 18bd progress: 100
-    -> Rigging Overhaul 7bd? progress: 100
-  Cannon Mounting 8bd c: Lookouts, progress: 100
-    -> Deck Sealing 5bd c: Lookouts, progress: 80
-  Supply Run 20bd c: Navigators, progress: 70
-
-+25bd [Voyage] c: Sailors, p: Voyage
-  Chart New Routes 8bd c: Navigators, progress: 60
-    -> Open Water Run 20bd progress: 15
-  Storm Watch 25bd? c: Lookouts, progress: 25
-  Daily Drills 18bd progress: 20
-    -> Mutiny Drill 3bd? progress: 0
-
-+55bd [Landfall] c: Lookouts, p: Voyage
-  Recon Beach 3bd
-    -> Dig Treasure 6bd c: Sailors
-      -> Load Hold 4bd c: Sailors
-        -> Set Sail 0d
-  Guard Camp 9bd
+Haul Out 5bd
+Hull Repairs 10bd
+  -> Repaint Hull 4bd
+Provision Stores 6bd
 ```
 
-> **Dates** — gantt accepts any date format (`2024-01-15`, `1/15`, `Jan 15`) for `start-date`, task `start:`, eras, markers, and holidays. Add a `year 2024` line to write the year just once. See [Writing Dates](/docs/writing-dates).
+That is a whole gantt chart. A title line, the date the project starts, and one line per task: a name and a duration. Tasks written at the same level run **in parallel**; an indented `->` line makes a task wait for the one above it. Everything else in this guide — groups, tags, milestones, eras, the critical path — is optional decoration on that shape. See [Complete Example](#complete-example) for what a fully dressed schedule looks like.
+
+> **Dates** — gantt accepts any date format (`2024-01-15`, `1/15`, `Jan 15`) for `start-date`, task `start:`, eras, markers, and holidays. Add a `year 2024` line to write the year just once. See [Writing Dates](writing-dates.md).
 
 ## Overview
 
-Gantt charts visualize project schedules as horizontal bars on a time axis. Tasks have positional durations, can be grouped, run in parallel by default, and linked sequentially with arrow dependencies. The renderer automatically calculates dates and highlights the critical path.
+Lays tasks along a timeline as bars, with dependencies, milestones, and a critical path — the standard for project scheduling and tracking. Reach for it for project schedules and timelines, task dependencies and milestones, or tracking progress against a plan. A gantt bar asserts a **known start and end date**; tasks run in parallel by default, chain with arrow dependencies, and the dates and critical path are calculated for you.
+
+## When to use
+
+- **`gantt`** — you know your dates (or your durations), and you want the schedule: what starts when, what blocks what, what's on the critical path.
+- **[`pert`](chart-pert.md)** — your estimates are genuinely uncertain and the question is *what could slip*. Gantt bars project false precision on guessed dates; `pert` exists to carry three-point estimates, slack, and P50/P80/P95.
+- **[`kanban`](chart-kanban.md)** — only *what stage* each item is in matters, not *when* it happens. Kanban needs no dates.
+- **[`timeline`](chart-timeline.md)** — you're recording what already happened rather than planning work with dependencies.
+- **[`countdown`](chart-countdown.md)** — there's one date and the only question is how long is left, not a task list.
+- **[`goal`](chart-goal.md)** — you want a single "% there" reading rather than the task list and dates behind it.
+- **[`version-control`](chart-version-control.md)** — the parallel tracks are branches that split and rejoin. That's topology, not a calendar; `gantt` places work on real dates.
 
 ## Basic Syntax
 
@@ -203,6 +183,10 @@ Rigging Overhaul 10bd?
 Treasure Hunt 30d?
 ```
 
+The `?` is a **visual hedge, not a model**. The bar still occupies one definite span, the dependent tasks still start on one definite date, and the critical path is still computed as if the number were certain. It is the right tool for "this one is a bit soft" on a schedule that is otherwise known.
+
+If your estimates are *genuinely* uncertain — if the real question is how much the project could slip — use [`pert`](chart-pert.md) instead. PERT carries three-point estimates (optimistic / most likely / pessimistic), computes slack per task, and reports P50/P80/P95 completion dates. A gantt chart of guessed durations publishes a confident-looking schedule that nobody has any basis for believing.
+
 ## Progress
 
 Track completion with `progress:` metadata (0-100):
@@ -332,6 +316,39 @@ Lines starting with `//` are ignored. Comments can appear at the top level or in
   Rigging Overhaul 10bd
 ```
 
+## Common mistakes
+
+### Writing a date into the task name
+
+A task line is `Name` then `duration`. The duration is read from the **last token**, and everything before it becomes the name — so a bare date in the middle is absorbed into the name and changes nothing about the schedule:
+
+```
+Provision Ship 2026-03-01 5d
+```
+
+That creates a task literally named `Provision Ship 2026-03-01`, starting at the chart start date, not in March. **It validates clean** — nothing warns you. The tell is the task label on the rendered bar and a timeline that begins on the wrong date.
+
+To pin a task to a real date, use the full key-value form, where both the duration and the start are named:
+
+```
+Provision Ship duration: 5d, start: 2026-03-01
+```
+
+Mixing the two forms does not work: in `Provision Ship 5d start: 2026-03-01` the `5d` is absorbed into the name. Either write both keys, or use the [offset prefix](#offset-prefix) (`+2m Provision Ship 5d`) to place the task relative to the chart start.
+
+### Publishing guesses as a schedule
+
+A gantt bar asserts a definite start and end. The `?` suffix fades the bar's tail but changes no arithmetic — dependent tasks and the critical path are still computed as if the number were certain. If the real question is *how much could this slip*, use [`pert`](chart-pert.md), which carries three-point estimates and reports P50/P80/P95. See [Uncertain Duration](#uncertain-duration).
+
+### Trailing comments on a task line
+
+Comments are **full-line only**. A `//` placed after content is absorbed into the value rather than stripped:
+
+```
+// Blocked until the dry dock frees up
+Hull Repairs 30bd
+```
+
 ## Complete Example
 
 ```dgmo
@@ -375,3 +392,22 @@ marker 2024-04-08 Landfall orange
         -> Set Sail 0d
   Guard Camp 9bd
 ```
+
+## Appearance
+
+Every chart accepts the universal appearance directives:
+
+| Directive | Effect |
+| --------- | ------ |
+| `fill-tint` | Soft tinted fills (default). |
+| `fill-solid` | Saturated solid fills. |
+| `fill-outline` | Outline only, no fill. |
+| `no-title` | Hide the title line. |
+| `no-legend` | Hide the legend. |
+
+Colors come from the active palette — see [Colors](colors.md). Set the palette and light/dark theme at render time with `--palette <name>` and `--theme light|dark|transparent`.
+
+## Next
+
+- **Related:** [`pert`](chart-pert.md) · [`kanban`](chart-kanban.md) · [`timeline`](chart-timeline.md) · [`countdown`](chart-countdown.md) · [`goal`](chart-goal.md)
+- **Then:** [Colors & palettes](colors.md) · [Writing dates](writing-dates.md)

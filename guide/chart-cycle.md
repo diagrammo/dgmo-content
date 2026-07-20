@@ -23,7 +23,13 @@ Act red
 
 ## Overview
 
-Cycle diagrams show a circular process flow where nodes are arranged on a circle and directed edges connect each to the next, with the last wrapping back to the first. They are ideal for OODA loops, PDCA cycles, product lifecycles, continuous improvement processes, and any workflow that repeats.
+A **cycle** arranges stages in a closed loop where the last step feeds back into the first — the shape of a recurring process that never terminates. Reach for it for OODA and PDCA loops, product lifecycles, continuous-improvement frameworks, retro cadences, and any workflow that repeats. You list the stages in order and the loop is drawn for you: nodes sit around a circle and the arrows connect each to the next, with the last wrapping back to the start.
+
+## When to use
+
+- **`cycle`** — the process loops forever with no exit, and the loop itself is the point.
+- **[`flowchart`](chart-flowchart.md)** — the process *ends*, or it branches on decisions. A cycle has no branches and no terminating step.
+- **[`state`](chart-state.md)** — the boxes are conditions something *is in* rather than steps you *do*, specific events flip between them, and you can go backwards. A cycle is a fixed loop always walked one direction.
 
 ## Syntax
 
@@ -51,7 +57,7 @@ Winter blue
 
 Color uses the trailing-token form (`Spring green`). Reach for `color: <name>` only when another metadata key (`span`, `description`, …) rides along — e.g. `Spring color: green, span: 2`.
 
-### Node Pipe Metadata
+### Node Metadata Keys
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
@@ -114,7 +120,6 @@ Another Step span: 1.5
 | Directive | Effect |
 |-----------|--------|
 | `direction-counterclockwise` | Reverse cycle direction (default: clockwise) |
-| `no-descriptions` | Hide description text on all nodes and edges |
 | `circle-nodes` | Render nodes as circles instead of rounded rectangles |
 
 ```
@@ -154,3 +159,21 @@ Act red
   -Feed back into planning-> color: red
     Begin the next improvement cycle
 ```
+
+## Appearance
+
+Every chart accepts the universal appearance directives:
+
+| Directive | Effect |
+| --------- | ------ |
+| `fill-tint` | Soft tinted fills (default). |
+| `fill-solid` | Saturated solid fills. |
+| `fill-outline` | Outline only, no fill. |
+| `no-title` | Hide the title line. |
+
+Colors come from the active palette — see [Colors](colors.md). Set the palette and light/dark theme at render time with `--palette <name>` and `--theme light|dark|transparent`.
+
+## Next
+
+- **Related:** [`flowchart`](chart-flowchart.md) · [`state`](chart-state.md)
+- **Then:** [Colors & palettes](colors.md)

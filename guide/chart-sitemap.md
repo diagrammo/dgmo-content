@@ -45,7 +45,14 @@ Home Auth: Public, description: Landing page with interactive demos
 
 ## Overview
 
-Sitemap diagrams visualize website structure as a hierarchy of pages. Indentation defines the parent-child relationship between pages. Pages can be grouped into containers, connected with arrows, and annotated with metadata and color-coded tag groups.
+A sitemap lays out the pages of a site and the links between them — for planning site structure and navigation before or during a build. Indentation defines the parent-child relationship between pages. Pages can be grouped into containers, connected with arrows, and annotated with metadata and color-coded tag groups, so things like access level per page read at a glance.
+
+## When to use
+
+- **`sitemap`** — the boxes are actual pages a visitor can navigate between, and you care how they link.
+- **[`mindmap`](chart-mindmap.md)** — the branches are just topics or ideas, with no navigable structure implied.
+- **[`wireframe`](chart-wireframe.md)** — you want to show what's on *one* page rather than which pages exist.
+- **[`treemap`](chart-treemap.md)** — the nesting is proportion of a total rather than navigation.
 
 ## Syntax
 
@@ -62,9 +69,7 @@ Page Name
 | Key            | Description                                   | Default  |
 | -------------- | --------------------------------------------- | -------- |
 | `chart`        | Must be `sitemap`                             | —        |
-| `title`        | Diagram title                                 | None     |
 | `direction-tb` | Top-to-bottom layout (omit for left-to-right) | off (LR) |
-| `hide`         | Comma-separated metadata to hide              | None     |
 
 ## Pages
 
@@ -152,7 +157,7 @@ Descriptions render as secondary text on the page card. The indented form must c
 
 ## Node Colors
 
-Add a color name in parentheses after a page or group name:
+Append a color name (lowercase) after a page name. For a group, the color goes inside the brackets, after the group label:
 
 ```
 Home blue
@@ -256,3 +261,22 @@ Home Auth: Public, Status: Live
   My Orders Auth: Crew Only, Status: Live
     -reorder-> Shop
 ```
+
+## Appearance
+
+Every chart accepts the universal appearance directives:
+
+| Directive | Effect |
+| --------- | ------ |
+| `fill-tint` | Soft tinted fills (default). |
+| `fill-solid` | Saturated solid fills. |
+| `fill-outline` | Outline only, no fill. |
+| `no-title` | Hide the title line. |
+| `no-legend` | Hide the legend. |
+
+Colors come from the active palette — see [Colors](colors.md). Set the palette and light/dark theme at render time with `--palette <name>` and `--theme light|dark|transparent`.
+
+## Next
+
+- **Related:** [`mindmap`](chart-mindmap.md) · [`wireframe`](chart-wireframe.md) · [`treemap`](chart-treemap.md)
+- **Then:** [Colors & palettes](colors.md)

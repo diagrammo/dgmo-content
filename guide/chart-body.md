@@ -24,6 +24,12 @@ Body diagrams annotate a **human figure** by muscle name. Name the muscles that 
 
 The layout is automatic. Muscles you name are filled and given a gutter label with a leader line; a legend maps each tag color to its meaning.
 
+## When to use
+
+- **`body`** — you are labeling parts of a person, and the underlying picture needs to be a human figure.
+- [`map`](chart-map.md) — you are labeling parts of the Earth rather than parts of a person.
+- [`block`](chart-block.md) — the surface is an arrangement you define yourself, not a fixed anatomical figure.
+
 ## Syntax
 
 ```
@@ -200,6 +206,8 @@ A **bare indented line** beneath a part is a note (the same shape as a `pyramid`
 ## Options
 
 - `no-legend` — hide the tag legend.
+- `no-title` — hide the title line.
+- `fill-tint` \| `fill-solid` \| `fill-outline` — fill treatment for the highlighted muscles. Mutually exclusive; the last one written wins.
 
 ## Complete Example
 
@@ -228,3 +236,22 @@ adductors    g: Lower
 calves       g: Lower
 tibialis     g: Lower
 ```
+
+## Appearance
+
+Body accepts these universal appearance directives:
+
+| Directive | Effect |
+| --------- | ------ |
+| `fill-tint` | Soft tinted fills (default). |
+| `fill-solid` | Saturated solid fills. |
+| `fill-outline` | Outline only, no fill. |
+| `no-title` | Hide the title line. |
+| `no-legend` | Hide the legend. |
+
+Colors come from the active palette — see [Colors](colors.md). Set the palette and light/dark theme at render time with `--palette <name>` and `--theme light|dark|transparent`.
+
+## Next
+
+- **Related:** [`map`](chart-map.md) · [`block`](chart-block.md)
+- **Then:** [Colors & palettes](colors.md)

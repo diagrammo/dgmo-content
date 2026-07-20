@@ -2,6 +2,74 @@
 
 A guide to the design principles behind the DGMO language. Understanding these themes will help you write diagrams faster and make better use of the language's features.
 
+New to the vocabulary? The [Glossary](glossary.md) defines the words the chart-type guides use — directive, metadata, tag group, alias, leaf, and the rest.
+
+---
+
+## What a Clean Check Does and Doesn't Tell You
+
+When the editor reports no problems, it is telling you one thing: **the file could be read.** It is not telling you the diagram is right.
+
+DGMO is deliberately forgiving. Rather than reject a line it does not recognise, it usually finds *some* reading for it — a stray word becomes part of a label, an unfamiliar setting becomes a data row. That forgiveness is what lets you type freely without fighting the parser. The cost is that a mistake often produces a diagram rather than an error.
+
+Here is what that looks like in practice.
+
+**A label can absorb your data.** Type an accidental space inside a number:
+
+```
+bar Doubloons by Month
+
+Jan 42
+Feb 5 8
+Mar 71
+```
+
+No errors. But the middle bar is now labeled "Feb 5" with a value of 8, not 58. The chart is drawn, the axis has quietly rescaled, and nothing is flagged.
+
+**A mistyped setting becomes content.** Directives are ordinary words on ordinary lines, so a typo in one does not look like a typo:
+
+```
+bar Doubloons by Month
+
+wibble-wobble 4
+Jan 42
+```
+
+No errors — and a bar called "wibble-wobble" is now sitting in your chart. Note the shape of this trap: it is the **number** that does it. A misspelling on its own (`wibblewobble`) is caught and reported; a misspelling followed by a value looks exactly like a data row, so it becomes one. Count your bars.
+
+**Dates can end up somewhere other than where you meant.** A gantt task takes its duration from the last word on the line, and everything before that becomes the name:
+
+```
+gantt Voyage Plan
+
+Provision Ship 2026-03-01 5d
+```
+
+No errors. But the task is now named "Provision Ship 2026-03-01", and because nothing told the chart when to begin, the timeline starts in January rather than March. The intended version sets the start once, at the top:
+
+```dgmo
+gantt Voyage Plan
+start-date 2026-03-01
+
+Provision Ship 5d
+Recruit Crew 5d
+```
+
+**Numbers get normalised without comment.** Percentages in a pie chart are recalculated from whatever you supply, so three values of 30 each display as 33%. If you expected them to add up to 100 and they don't, the chart will not say so.
+
+### What to check instead
+
+A clean check is the floor, not the finish line. After any edit, spend ten seconds on the picture:
+
+- **Read the labels.** If one has a number stuck to it, a value has been swallowed.
+- **Look at the axis.** Does its range match the numbers you believe you entered? A rescaled axis is the fastest sign that a value was misread.
+- **Count the items.** Are there more shapes than you wrote, or fewer? An extra one usually means a directive or a stray line became content.
+- **Check the totals.** Add up the values you meant to enter and compare them against what the chart reports.
+- **Check the span.** On anything time-based, confirm the first and last dates are the ones you intended, and that the overall length is what you asked for.
+- **Read the warnings, not only the errors.** A warning means something *was* drawn but probably not what you meant — an item with no value, a number that was ignored, a setting that does not apply. Warnings catch several of these cases; the mistakes above are the ones that slip past even those.
+
+The rule of thumb: a clean check means "I understood you." Only the render can tell you whether it understood you *correctly*.
+
 ---
 
 ## Indent, Don't Repeat
@@ -36,6 +104,126 @@ This isn't just a shorthand — it's how DGMO thinks about ownership and hierarc
 - **Sequence** — participants indented under groups
 
 When you see indentation in DGMO, read it as "belongs to."
+
+---
+
+## How Indentation Works
+
+Every guide on this site shows you indented examples. None of them tell you the rules. Here they are.
+
+### How many spaces?
+
+**Any number, as long as you are consistent.** DGMO counts *steps*, not spaces. It looks at each line and asks "is this deeper, shallower, or the same as the line above?" — never "how many spaces is this?"
+
+These three files draw exactly the same chart:
+
+```dgmo
+org Crew
+
+Blackbeard
+  Anne Bonny
+    Mary Read
+```
+
+```dgmo
+org Crew
+
+Blackbeard
+    Anne Bonny
+        Mary Read
+```
+
+```dgmo
+org Crew
+
+Blackbeard
+ Anne Bonny
+  Mary Read
+```
+
+Two spaces per level is the convention used throughout these guides, and it is what the app writes. There is nothing special about the number two — pick a step size and stay with it.
+
+Because only the steps count, you cannot indent "half a level." Going from no indent to four spaces in one jump is one step deeper, exactly the same as going to two spaces. There is no way to land between levels.
+
+### Do tabs work?
+
+**Yes.** A file indented entirely with tabs draws the same chart as a file indented entirely with two spaces:
+
+```dgmo
+org Crew
+
+Blackbeard
+	Anne Bonny
+		Mary Read
+```
+
+**But do not mix tabs and spaces in the same file.** A tab counts as four columns. So if you indent one line with two spaces and the next with a tab, the tab line is *deeper* — it becomes a child of the line above rather than its sibling, and nothing warns you. This is the one indentation mistake that silently changes your diagram.
+
+Most editors show tabs and spaces identically, which is exactly why this bites. If a line lands in the wrong place and the file looks correct on screen, suspect a stray tab.
+
+### What does a deeper indent mean?
+
+This is the part worth reading twice: **a deeper indent means different things depending on what is on the line.** DGMO looks at the shape of the indented line to decide.
+
+**A plain name means a child.** The indented thing belongs to the thing above, and the hierarchy is the diagram:
+
+```dgmo
+org Crew
+
+Blackbeard
+  Anne Bonny
+  Calico Jack
+```
+
+Anne Bonny and Calico Jack report to Blackbeard. This is how org, sitemap, mindmap, treemap, family, and C4 read indentation.
+
+**A line starting with an arrow means a connection, and the line above is where it starts from:**
+
+```dgmo
+boxes-and-lines Ports
+
+Nassau
+  -sails-> Tortuga
+  -sails-> Port Royal
+```
+
+Both arrows leave Nassau. The indented lines are not children of Nassau — Tortuga and Port Royal are separate things, drawn beside it, joined to it by lines. Writing `Nassau -sails-> Tortuga` twice would give you the same diagram; indenting saves you repeating the name.
+
+Chart types that read indented arrows this way: boxes-and-lines, infra, flowchart, C4, ER, class, sitemap, gantt, PERT, swimlane, cycle, sketch, and map routes.
+
+**A line containing `key: value` means a fact about the line above:**
+
+```dgmo
+org Crew
+
+Blackbeard
+  role: Captain
+  Anne Bonny
+    role: Quartermaster
+```
+
+`role: Captain` does not add a crew member called "role" — the colon tells DGMO this is a detail about Blackbeard. Note the second `role:` is indented one step further, under Anne Bonny, because that is who it belongs to. Metadata attaches to whatever it is indented beneath.
+
+That last point is the one to watch. If you put `role: Quartermaster` at the *same* depth as `Anne Bonny` rather than one step deeper, it attaches to Blackbeard instead. The file still reads fine; the diagram is wrong.
+
+**Content under a bracket line belongs to that group:**
+
+```dgmo
+kanban Voyage Board
+
+[To Do]
+  Swab the deck
+  Hoist the sail
+```
+
+So one indent step can mean "is a child of," "starts an arrow from," "is a fact about," or "goes inside." The chart-type guide for whatever you are drawing tells you which of these it uses.
+
+### Things that do not matter
+
+- **Blank lines.** You can leave a blank line in the middle of an indented block to space things out. It does not end the block.
+- **Trailing spaces** at the end of a line.
+- **Indenting a comment.** A `//` line can sit at any depth.
+- **Indentation in flat data charts.** A bar or pie chart is a list, not a tree, so indenting its rows changes nothing. It also gains you nothing.
 
 ---
 
@@ -199,9 +387,9 @@ If you find yourself wanting to control exact positions, you're probably fightin
 
 ---
 
-## Options Are Simple Toggles
+## Directives Are Simple Toggles
 
-Configuration goes at the top of the diagram as plain keywords:
+Configuration goes at the top of the diagram as plain keywords. The chart-type guides call these lines **directives**; this page has historically called them **options**. They are the same thing — if you have learned one word you already know the other.
 
 ```dgmo-source
 gantt Product Launch

@@ -25,21 +25,36 @@ Maryland heat: 6
 
 ## Overview
 
-Map diagrams are geographic concept maps: highlight or shade political subdivisions, drop points of interest (POIs), and connect them with routes or edges. They're for *sharing a concept* — territories, presence, voyages — not cartography. The map renders at a fixed, auto-fit position (no pan/zoom), and **everything is inferred from the content you reference** — basemap, viewport, projection, and ramp. A bare `map` is already the good-looking map: coastlines, mountain relief on reference maps, region and POI labels, and orientation labels all render by default. v1 boundaries are world countries and US states.
+Map diagrams put your data on a **real geographic map** — shaded regions, points of interest, and routes — for anything where *where* is the organizing dimension: data shaded by region, offices and sites pinned as points, voyages and flows drawn between them. Map diagrams are geographic concept maps: highlight or shade political subdivisions, drop points of interest (POIs), and connect them with routes or edges. They're for *sharing a concept* — territories, presence, voyages — not cartography. The map renders at a fixed, auto-fit position (no pan/zoom), and **everything is inferred from the content you reference** — basemap, viewport, projection, and ramp. A bare `map` is already the good-looking map: coastlines, mountain relief on reference maps, region and POI labels, and orientation labels all render by default. v1 boundaries are world countries and US states.
+
+## When to use
+
+- **`map`** — the positions correspond to real places on Earth, and losing the geography would lose the point.
+- **[`clock`](chart-clock.md)** — if the question is only *when* ("what time is it for them right now?"), a clock answers it directly. A map answers *where they are*; it grows live time cards as a side channel, not as its subject.
+- **[`heatmap`](chart-heatmap.md)** — the rows and columns are named categories and the geography is irrelevant. Conversely, if your rows are states or countries, a grid throws away the adjacency the reader came for — use the map.
+- **[`scatter`](chart-scatter.md)** — the two dimensions are just numbers, not latitude and longitude.
+- **[`arc`](chart-arc.md)** — the endpoints of your connections are abstract. Use the map when they have real locations.
+- **[`body`](chart-body.md)** — you're labeling parts of a person rather than parts of the Earth.
 
 ## Syntax
 
 ```
 map Title
 
-region-heat Output             // names the heat-ramp legend
+// names the heat-ramp legend
+region-heat Output
 
-Florida heat: 42               // choropleth fill
-Texas p: Friendly              // categorical fill (via a tag alias)
+// choropleth fill
+Florida heat: 42
+// categorical fill (via a tag alias)
+Texas p: Friendly
 
-poi Tokyo size: 80              // a point of interest
-route Tokyo                     // ordered voyage: origin + arrow legs
-  ~> Singapore                  // ~> = arc leg, -> = straight leg
+// a point of interest
+poi Tokyo size: 80
+// ordered voyage: origin + arrow legs
+route Tokyo
+  // ~> = arc leg, -> = straight leg
+  ~> Singapore
 ```
 
 The first line declares the chart type and an optional title. **Type `map`, name some places, and you're done** — there is no projection, scale, or label directive to set. Cosmetic features are on by default; the only knobs are the bare `no-*` opt-outs in [Turning things off](#turning-things-off).
@@ -132,12 +147,18 @@ map European Offices
 tag Network as n
   Headquarters red
 
-poi Paris                          // label defaults to "Paris"
-poi Berlin label: DACH Region      // anchored at Berlin; shows "DACH Region"
-poi 41.9 12.5 as rome              // positional coords (lat lon), signed
-poi Madrid size: 200               // size: scales the marker area (a data channel)
-poi Amsterdam n: Headquarters      // categorical colour via a tag alias
-poi 59.33 18.07 as stockholm teal  // direct marker colour (trailing token)
+// label defaults to "Paris"
+poi Paris
+// anchored at Berlin; shows "DACH Region"
+poi Berlin label: DACH Region
+// positional coords (lat lon), signed
+poi 41.9 12.5 as rome
+// size: scales the marker area (a data channel)
+poi Madrid size: 200
+// categorical colour via a tag alias
+poi Amsterdam n: Headquarters
+// direct marker colour (trailing token)
+poi 59.33 18.07 as stockholm teal
 ```
 
 - **Coordinates are positional** — two leading signed numbers, latitude then longitude. Cities never start with a number, so there's no ambiguity.
@@ -175,8 +196,10 @@ map Field Team Clocks
 hours 8-16
 workweek mon-fri
 
-poi Denver clock                                  // zone from the gazetteer
-poi 39.74 -104.98 as field clock: America/Denver  // coord pin — zone required
+// zone from the gazetteer
+poi Denver clock
+// coord pin — zone required
+poi 39.74 -104.98 as field clock: America/Denver
 ```
 
 ## Routes & Connectors
@@ -199,14 +222,38 @@ Native `->` edges handle any other connection:
 ```dgmo
 map Asia Trade Hub
 
-poi Singapore as hub    // hub/star — indented edges share the source
+// hub/star — indented edges share the source
+poi Singapore as hub
   -> Tokyo
   -> Mumbai
 
-Mumbai -ships-> Singapore width: 22   // labeled; width = thickness
+// labeled; width = thickness
+Mumbai -ships-> Singapore width: 22
 ```
 
 `~>` curves a single edge. There's no geographic path-finding — legs are straight or arced.
+
+### Edge arrows
+
+| Arrow | Meaning |
+|-------|---------|
+| `A -> B` | Directed, straight. |
+| `A ~> B` | Directed, arced. |
+| `A -- B` | **Undirected** — a plain link with no arrowhead, for "these two are connected" rather than "this flows to that". |
+| `A -label-> B` | Any of the above with an inline label between the dashes (`~label~>` for the arced form). |
+
+Both endpoints must be non-empty; a malformed arrow is an error naming the line.
+
+```dgmo
+map Undersea Cable Landings
+
+poi Lisbon
+poi Casablanca
+poi Dakar
+
+Lisbon -- Casablanca
+Casablanca -- Dakar
+```
 
 ## Labels & Legend
 
@@ -224,7 +271,7 @@ The only label/legend directives name a channel or attribute the data:
 
 ## Turning things off
 
-Everything cosmetic is on by default. The only switch is a bare `no-*` opt-out — there are no positive opt-in flags. A plain, data-journalism look is the four basemap flags together.
+Everything cosmetic is on by default. The only switch is a bare `no-*` opt-out — there are no positive opt-in flags.
 
 | Flag | Turns off |
 |------|-----------|
@@ -232,8 +279,16 @@ Everything cosmetic is on by default. The only switch is a bare `no-*` opt-out �
 | `no-relief` | Mountain-range relief shading. |
 | `no-context-labels` | Orientation labels (water bodies + nearby countries). |
 | `no-region-labels` | On-map subdivision names. |
+| `no-region-heat-value` | The heat value printed under each shaded region (keeps the name). |
 | `no-poi-labels` | On-map POI labels. |
+| `no-cities` | The subtle reference city dots scattered across the basemap. |
+| `no-colorize` | Automatic per-region coloring — forces the plain green-land reference dress. |
+| `no-cluster-pois` | POI clustering: coincident markers always fan out instead of collapsing into a count badge. |
 | `no-legend` | The whole legend block. |
+| `no-title` | The title banner. |
+
+The four basemap flags for a plain, data-journalism look are `no-coastline`,
+`no-relief`, `no-context-labels`, and `no-cities`.
 
 ## Name Resolution
 
@@ -247,10 +302,50 @@ Everything cosmetic is on by default. The only switch is a bare `no-*` opt-out �
 
 ## Directives & Reserved Keys
 
-The directive set has no colons. Eight name intent the renderer can't infer — `region-heat`, `poi-size`, `flow-width`, `locale`, `active-tag`, `caption`, plus `hours`/`workweek` (the clock availability window) — and six are the `no-*` cosmetic opt-outs — `no-legend`, `no-coastline`, `no-relief`, `no-context-labels`, `no-region-labels`, `no-poi-labels`. There is no `projection`, `scale`, `subtitle`, or `surface` directive, and the cosmetic features have no positive opt-in form.
+The directive set has no colons, and splits in two.
+
+**Naming intent the renderer can't infer** — `region-heat`, `poi-size`,
+`flow-width`, `locale`, `active-tag`, `caption`, plus `hours` and `workweek`
+(the clock availability window; `days` is accepted as a spelling of `workweek`).
+
+**Cosmetic opt-outs**, all bare flags — `no-legend`, `no-title`, `no-coastline`,
+`no-relief`, `no-context-labels`, `no-region-labels`, `no-region-heat-value`,
+`no-poi-labels`, `no-cities`, `no-colorize`, `no-cluster-pois`. See
+[Turning things off](#turning-things-off).
+
+There is no `projection`, `scale`, `subtitle`, or `surface` directive, and the
+cosmetic features have no positive opt-in form.
 
 Reserved metadata keys (need colons): `heat`, `size`, `width`, `label`, `style`, `clock`. The numeric channel splits by element kind — regions use `heat:` (choropleth shade), POIs use `size:` (marker area), and edges/legs use `width:` (line thickness). `clock` is unusual — it works bare (a flag, deriving the zone) or valued (`clock: <zone>`).
 
 ## Color Validation
 
 All colors — tag values, a direct color on a region or POI, and the `region-heat` ramp hue — use named palette colors only: `red`, `orange`, `yellow`, `green`, `blue`, `purple`, `teal`, `cyan`, `gray`, `black`, `white`. A place literally named for a color keeps it via capitalization (`poi Orange` is the place; lowercase `orange` is the color). The choropleth ramp defaults to red and follows the active palette automatically.
+
+## Appearance
+
+Map opts out of the universal fill family — a map's tint *is* its data, so
+`fill-tint` / `fill-solid` / `fill-outline` would fight the choropleth. The
+universal switches it does take:
+
+| Directive | Effect |
+| --------- | ------ |
+| `no-title` | Hide the title line. |
+| `no-legend` | Hide the legend. |
+
+Everything else cosmetic is a map-specific `no-*` flag — see
+[Turning things off](#turning-things-off). Colors come from the active palette —
+see [Colors](colors.md). Set the palette and light/dark theme at render time with
+`--palette <name>` and `--theme light|dark|transparent`.
+
+## Common mistakes
+
+- **Place tokens must resolve.** An unrecognized name is a hard error naming the token, not a silent omission — use the suggested lookup, an ISO code, or coordinates rather than guessing at a spelling.
+- **A city is not a region.** Region syntax colors an administrative area; a city is a point of interest and needs the point syntax. Writing a city where a region is expected fails the lookup.
+- **Reach for [`heatmap`](chart-heatmap.md) instead** when the geography is incidental and you are really comparing rows against columns.
+- Anything that renders but looks wrong: [Troubleshooting](troubleshooting.md) is organised by symptom.
+
+## Next
+
+- **Related:** [`clock`](chart-clock.md) · [`heatmap`](chart-heatmap.md) · [`scatter`](chart-scatter.md) · [`arc`](chart-arc.md) · [`body`](chart-body.md)
+- **Then:** [Colors & palettes](colors.md)

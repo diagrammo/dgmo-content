@@ -1,14 +1,75 @@
 # Colors
 
-Diagrammo has **11 named colors**. Use them anywhere a color is accepted — directly on an element (`Node red`) or through a tag group that maps metadata to color across a whole chart. You never write hex codes.
+Diagrammo has a small, closed set of named colors — `red`, `orange`, `yellow`, `green`, `blue`, `purple`, `teal`, `cyan`, plus the neutrals `gray`, `black`, and `white`. Use them anywhere a color is accepted, and never write hex codes. There is no way to add a twelfth name; `crimson`, `navy`, and `#3b6ea5` are all rejected.
 
-The actual shade is resolved from the **active palette**, so the same `blue` looks different in Slate than in Nord — but it's always that palette's considered version of the hue, never a clashing primary. `black` and `white` are theme-stable: each palette picks near-darkest / near-lightest values that stay distinct from the canvas.
+The actual shade is resolved from the **active palette**, so the same `blue` looks different in Slate than in Nord — but it's always that palette's considered version of the hue, never a clashing primary. `black` and `white` are theme-relative: each palette picks near-darkest / near-lightest values that stay distinct from the canvas, which means `black` is the strongest mark you can make on a light theme and nearly invisible on a dark one. `white` is the exact reverse. Neither is a fixed ink.
 
-See the full [Slate palette](https://diagrammo.app/palette) for the brand defaults.
+The active palette is chosen at render time, not in the diagram source — `--palette <name>` on the command line, or the palette picker in the app. The palettes that ship are `slate` (the default), `nord`, `atlas`, `blueprint`, `catppuccin`, `tidewater`, and `tokyo-night`. See [Exporting diagrams](exporting.md) for how to set it, along with the light/dark/transparent theme.
+
+## Choosing a color
+
+Naming a color is easy. Deciding *which* one is the actual work, and the answer is almost always about how hard you want an element to push.
+
+### What advances, what recedes
+
+Every palette is tuned so no series shouts, so the differences are smaller than in a raw RGB set — but they are consistent, and they are theme-dependent:
+
+- **`gray` is the recede color, in every palette and both themes.** It carries the least color of any hue name — measurably so; in every shipped palette, in both themes, `gray` is the lowest-saturation entry of the eight hues plus itself. That is *why* it recedes: it has no hue competing for attention, so it reads as context rather than as a category. It is not necessarily the palest color; Nord's light `gray` is quite dark. Gray means "still here, not the point."
+- **`blue`, `purple`, and `red` advance on a light theme.** In every shipped palette, the strongest-contrasting non-neutral against a light canvas is one of these three. If one element must be read first, it belongs on one of them.
+- **`yellow` is the weakest color on a light theme and one of the strongest on a dark one.** In nearly every palette, `yellow` has the lowest contrast against a light canvas of any non-neutral, and the highest against a dark one. `red` runs the opposite way — solid on light, and the *weakest* non-neutral on dark in nearly every palette. **Never put your most important series on `yellow` if the chart might be exported light, or on `red` if it might be exported dark** — and re-check any color-carried emphasis after switching themes, because the ranking genuinely changes.
+- **`orange`, `green`, `teal`, and `cyan` are the middle.** Reliable for categories that need to be told apart, unreliable for "look here first."
+
+### What gray is for
+
+`gray` is the background voice. Use it for the elements a chart needs in order to be honest but doesn't want to argue about:
+
+- the comparison baseline — last year's line, the control group, the plan you're measuring against
+- the residual bucket — "Other", "Uncategorized", everything below the fold
+- the parts of a structure that provide context rather than carrying the message
+
+Doing this deliberately is the single highest-leverage color decision available, because it is what makes everything else look emphasized without you having to shout.
+
+### Building emphasis
+
+Emphasis is contrast *within* one chart, so it has to come from the per-element channel:
+
+```dgmo
+treemap Fleet Cargo by Hold
+
+tag Emphasis as e
+  Focus blue
+  Context gray
+
+Rum 320 e: Focus
+Silk 210 e: Context
+Spice 180 e: Context
+Salt 140 e: Context
+```
+
+A **tag group** is the general-purpose tool: declare the group once, then attach a value to each element. It maps meaning to color across the whole chart and adds a labeled legend, so the emphasis is explained rather than merely applied. Where a chart type takes a bare color token on an element or a series, that works too and is quicker; tag groups are the form that works nearly everywhere. See [How DGMO thinks](how-dgmo-thinks.md) for where each form applies.
+
+**One caution:** color is a scarce resource and emphasis spends it. If three of five elements are "emphasized", none of them are.
+
+### The limit you will hit
+
+`fill-tint`, `fill-solid`, and `fill-outline` are **chart-wide** — they set the fill treatment for the entire diagram, not per element. That makes them a *tone* control, not an emphasis control. You cannot solid-fill one bar and outline the rest, so the thing emphasis actually requires — contrast within a single chart — is not available from the fill family. Build emphasis from color choice and tag groups instead.
+
+For genuine emphasis — pushing one element back without recoloring it — two chart types ship a **`dim` / `highlight`** directive that fades everything else while preserving each element's own hue (a red flow that recedes is still red). [`sankey`](chart-sankey.md) has both `dim <name>` and `highlight <name>`; [`family`](chart-family.md) has `highlight <name>`, which dims everyone outside one person's bloodline. Both bake into the exported image — no hover needed. On every other chart type there is no de-emphasis directive yet, so "recede" there still means assigning `gray`.
+
+### Accessibility
+
+**Treat color as a secondary channel, never the only one.** Palettes are tuned for a single perceived weight, which is good for looking calm and bad for telling hues apart under color-vision deficiency — `blue` and `purple` in particular sit close in hue and separate weakly under deuteranopia, and tinted fills push them closer still.
+
+The rule that follows, stated for `family` and true everywhere: **the legend, not the hue, is the guaranteed channel**, because its entries carry text. So when accessibility matters:
+
+- Carry the distinction on a **tag group**, which produces labeled legend entries, rather than on bare color tokens which may not.
+- Separate important categories by **lightness as well as hue** — pair a light-theme strong color (`blue`, `purple`, `red`) against `gray`, not `blue` against `teal`.
+- Keep the number of color-carried categories small. Beyond a handful, no palette separates reliably for anyone.
+- Check the chart in both light and dark, since the contrast ranking flips between them.
 
 ## Named Colors
 
-Every name, shown across all seven palettes:
+Every name, shown across the palettes that ship:
 
 <table style="width:100%;table-layout:fixed">
 <tr><th style="text-align:left;width:12.5%">Name</th><th style="font-size:11px;font-weight:600">Slate</th><th style="font-size:11px;font-weight:600">Nord</th><th style="font-size:11px;font-weight:600">Atlas</th><th style="font-size:11px;font-weight:600">Blueprint</th><th style="font-size:11px;font-weight:600">Catppuccin</th><th style="font-size:11px;font-weight:600">Tidewater</th><th style="font-size:11px;font-weight:600">Tokyo Night</th></tr>

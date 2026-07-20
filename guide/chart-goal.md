@@ -6,7 +6,17 @@ target 10000
 
 ## Overview
 
-A goal chart is a single **progress-toward-a-target** reading: one `now` value against one `target`, answering "how close am I?" at a glance. Reach for it for a KPI tile, a fundraising thermometer, a quarterly quota, or a completion percentage — anywhere one number racing toward one goal is the whole story. It has no time axis, no series, and no milestones; for a running clock use `countdown`, for a value over time use `line`.
+A goal chart is a single **progress-toward-a-target** reading: one `now` value against one `target`, answering "how close am I?" at a glance. Reach for it for a KPI tile, a fundraising thermometer, a quarterly quota, or a completion percentage — anywhere one number racing toward one goal is the whole story. It has no time axis, no series, and no milestones.
+
+## When to use
+
+- **`goal`** — one number racing toward one target, and "how close am I?" is the whole question.
+- **[`countdown`](chart-countdown.md)** — the thing running out is *time*, not a quantity. A deadline drawn as a goal bar implies you're 60% **done** when you're really 60% **out of time** — `goal` has no time dimension at all.
+- **[`bar`](chart-bar.md)** — you're comparing several numbers against each other rather than one number against its target.
+- **[`funnel`](chart-funnel.md)** — you have several sequential stages each losing volume, not one aggregate reading.
+- **[`gantt`](chart-gantt.md)** — you want the task list and dates behind the percentage, not the single "% there" reading.
+- **[`kanban`](chart-kanban.md)** — you're tracking many individual items sitting in various stages rather than one rolled-up number.
+- **[`line`](chart-line.md)** — the point is the value's trend over time.
 
 ## The three faces
 
@@ -56,8 +66,10 @@ target 100
 
 ```
 goal Title with unit, e.g. "Marathon Fund ($)"
-now 6400          // current value  — space-separated, no colon
-target 10000      // goal value     — must be > 0
+// now — the current value; space-separated, no colon
+now 6400
+// target — the goal value; must be > 0
+target 10000
 ```
 
 The first line declares the chart type and a title. Put the **unit in the title** — there's no `format` or `currency` directive. `now` and `target` are space-separated `key value` directives (like gantt's `start-date`): no colon. Values accept `_` separators (`10_000`) but not thousands commas.
@@ -90,7 +102,7 @@ note
   Top us off to `50L` and the shanties start.
 ```
 
-The body supports simple inline markdown (`**bold**`, `*italic*`, `` `code` ``), `- `/`* ` bullets, and blank-line gaps. It renders in the **left column** for `thermometer`/`gauge` and **under the bar** for the default face. `no-notes` hides it even when authored.
+The body supports simple inline markdown (`**bold**`, `*italic*`, `` `code` ``), `- `/`* ` bullets, and blank-line gaps. It renders in the **left column** for `thermometer`/`gauge` and **under the bar** for the default face. `no-notes` hides it even when authored — that plural spelling is canonical; the singular `no-note` is accepted as a legacy alias and does the same thing.
 
 ## Over-target & edge cases
 
@@ -120,4 +132,23 @@ The body supports simple inline markdown (`**bold**`, `*italic*`, `` `code` ``),
 - Keep the unit in the **title** (`($)`, `(L)`, `(chests)`) — a goal has no unit directive.
 - One value only: a goal has no children. Indented lines are ignored with a warning — **except** an indented `note` block body.
 - Let the **traffic-light** color do the work: red/orange/green already signals whether the number is healthy. Only pin a trailing color or add `no-auto-color` when the band coding fights your dashboard.
-- Reach for `goal` when one number chases one target; use `line` for a trend and `countdown` for a deadline.
+- Reach for `goal` when one number chases one target; use [`line`](chart-line.md) for a trend and [`countdown`](chart-countdown.md) for a deadline.
+
+## Appearance
+
+Every chart accepts the universal appearance directives:
+
+| Directive | Effect |
+| --------- | ------ |
+| `fill-tint` | Soft tinted fills (default). |
+| `fill-solid` | Saturated solid fills. |
+| `fill-outline` | Outline only, no fill. |
+| `no-title` | Hide the title line. |
+| `no-legend` | Hide the legend. |
+
+Colors come from the active palette — see [Colors](colors.md). Set the palette and light/dark theme at render time with `--palette <name>` and `--theme light|dark|transparent`.
+
+## Next
+
+- **Related:** [`countdown`](chart-countdown.md) · [`bar`](chart-bar.md) · [`funnel`](chart-funnel.md) · [`gantt`](chart-gantt.md) · [`kanban`](chart-kanban.md) · [`line`](chart-line.md)
+- **Then:** [Colors & palettes](colors.md)

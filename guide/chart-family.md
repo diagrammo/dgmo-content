@@ -26,6 +26,12 @@ Family diagrams show a **genealogy** — people, the couples (unions) they form,
 
 The layout is automatic: generations stack into rows, spouses share a row joined by a marriage bar, and children drop from the bar on a shared bus.
 
+## When to use
+
+- **`family`** — people pair up and have children together, and both parents need to appear.
+- **[`org`](chart-org.md)** — every box has exactly one parent above it and nobody pairs up. `org` is strictly single-parent, so genealogy drawn as an org chart silently deletes one parent from every union — a factual error about lineage, not a styling problem.
+- **[`arc`](chart-arc.md)** — the links are some other relationship entirely (collaboration, correspondence, citation) rather than marriages and births.
+
 ## Syntax
 
 ```
@@ -76,7 +82,7 @@ Anne + Jack m: 1701
   Tom b: 1704, sex: m
 ```
 
-- Each side is a **bare name** — quoting (`"Long John Silver"`), `as`-aliasing, and a trailing `(color)` all work on a side.
+- Each side is a **bare name** — quoting (`"Long John Silver"`), `as`-aliasing, and a bare trailing palette color word all work on a side.
 - **Per-side metadata is not supported.** To give a partner a birth year or sex, declare them as a standalone person line; the union then re-references them by name.
 - The only **union-level** key is `m` (marriage year); it renders on the marriage bar, not on either person.
 
@@ -186,7 +192,7 @@ Within a union, children are automatically ordered **eldest → left** by their 
 
 ## Colors
 
-When a person carries `sex:`, their card takes a default color: `m` → blue, `f` → purple, unset → gray (a named-palette color at 25% tint). An explicit **tag** or an inline **`(color)`** on the person overrides the sex color.
+When a person carries `sex:`, their card takes a default color: `m` → blue, `f` → purple, unset → gray (a named-palette color at 25% tint). An explicit **tag**, or a bare palette color word as the last token on the person line, overrides the sex color.
 
 **Treat the legend, not the hue, as the sex channel.** Slate blue and purple sit close in hue and desaturate further under the 25% tint, so they separate weakly under deuteranopia. The legend is the guaranteed, readable sex channel — its entries carry text labels. Where color-vision accessibility matters, distinguish the sexes (or any other facet) with **tags** rather than relying on the fill; the fill is a convenience, not the primary signal.
 
@@ -228,3 +234,22 @@ Young Jack + Calico Kate m: 1712
 ```
 
 This exercises the declaration, a union with children, remarriage (one card / two bars), a single parent, an adopted child, a child who becomes a parent, sex-driven color, a tag override, and a quoted partner name.
+
+## Appearance
+
+Every chart accepts the universal appearance directives:
+
+| Directive | Effect |
+| --------- | ------ |
+| `fill-tint` | Soft tinted fills (default). |
+| `fill-solid` | Saturated solid fills. |
+| `fill-outline` | Outline only, no fill. |
+| `no-title` | Hide the title line. |
+| `no-legend` | Hide the legend. |
+
+Colors come from the active palette — see [Colors](colors.md). Set the palette and light/dark theme at render time with `--palette <name>` and `--theme light|dark|transparent`.
+
+## Next
+
+- **Related:** [`org`](chart-org.md) · [`arc`](chart-arc.md)
+- **Then:** [Colors & palettes](colors.md)

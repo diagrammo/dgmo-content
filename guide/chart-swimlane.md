@@ -21,6 +21,14 @@ Swimlane diagrams show a **cross-functional process** — who does what, in what
 
 The layout is automatic: steps that hand off to another lane stack vertically beneath their predecessor instead of marching diagonally, so diagrams stay compact and readable.
 
+## When to use
+
+- **`swimlane`** — the order of the work matters **and** it matters *who* does each step. Handoffs across teams are the finding.
+- **[`flowchart`](chart-flowchart.md)** — the same actor does everything, or who does it is irrelevant. A flowchart has no concept of ownership.
+- **[`sequence`](chart-sequence.md)** — the parties send messages back and forth to each other. Swimlane is a handoff down a chain; sequence is a conversation.
+- **[`raci`](chart-raci.md)** — you only need who owns what, with no order to the work.
+- **[`journey-map`](chart-journey-map.md)** — the subject is one person's experience and how they felt at each step, not several teams' handoffs.
+
 ## Syntax
 
 ```
@@ -201,3 +209,18 @@ lane Engineering blue
 lane Comms purple
   Notify Status Page -> (Closed) success
 ```
+
+## Appearance
+
+| Directive | Effect |
+| --------- | ------ |
+| `fill-tint` | Soft tinted fills (default). |
+| `fill-solid` | Saturated solid fills. |
+| `fill-outline` | Outline only, no fill. |
+
+Lane colors are the trailing token on each `lane` line, and tag groups recolor nodes independently of their lane. Colors come from the active palette — see [Colors](colors.md). Set the palette and light/dark theme at render time with `--palette <name>` and `--theme light|dark|transparent`.
+
+## Next
+
+- **Related:** [`flowchart`](chart-flowchart.md) · [`sequence`](chart-sequence.md) · [`raci`](chart-raci.md) · [`journey-map`](chart-journey-map.md)
+- **Then:** [Colors & palettes](colors.md)

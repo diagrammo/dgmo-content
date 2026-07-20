@@ -24,16 +24,27 @@ Divvy Service as dvy at: 4 0, crew: Hold
 
 A sketch is a **GUI-first constrained canvas** — you place uniformly-sized shapes on a snap grid, draw arrows between them, and attribute meaning through tags. It's the one chart type built for getting an idea out of your head spatially rather than describing it in markup: the desktop and web apps open a sketch straight into a canvas editor, and the markup below is _generated_. It looks like dgmo and diffs like dgmo — but you never have to write it. The renderer, not you, guarantees the result never looks ugly; you own placement, connection, naming, and meaning.
 
-Reach for `sketch` when the drawing _is_ the content. Reach for `boxes-and-lines` when you want the engine to lay out a graph for you, or `block` when a strict grid is the message.
+Reach for `sketch` when the drawing _is_ the content.
+
+## When to use
+
+- **`sketch`** — you want to place shapes freely on a canvas and eyeball the arrangement yourself.
+- **[`boxes-and-lines`](chart-boxes-and-lines.md)** — you'd rather write the diagram out as text and let the engine lay the graph out for you.
+- **[`block`](chart-block.md)** — everything should snap into a tidy grid, and that strict arrangement is the message.
+- **[`wireframe`](chart-wireframe.md)** — you're drawing a *screen* with buttons, fields, and nav rather than shapes and arrows.
+- **[`quadrant`](chart-quadrant.md)** — position means a rating on two named axes, not layout.
 
 ## Syntax
 
 ```
 sketch Title
 
-Spyglass Feed shape: database, at: 0 0    // a bare name + same-line metadata
-Captain's Console as con at: 2 0       // `as` gives it a handle for edges
-  -orders-> con                        // an edge, indented under its source
+// a bare name + same-line metadata
+Spyglass Feed shape: database, at: 0 0
+  // an edge, indented under its source
+  -orders-> con
+// `as` gives it a handle for edges
+Captain's Console as con at: 2 0
 ```
 
 The first line declares the chart type and an optional title. Each top-level line is one shape; brackets `[Below Decks]` mean exactly one thing — a box.
@@ -58,14 +69,15 @@ A rectangle is the default (no badge) and is never written. Every card is the sa
 
 ## Lines
 
-Edges are indented under their source shape and target an alias (or an unambiguous label). There are six forms:
+Edges are indented under their source shape and target an alias (or an unambiguous label). The forms are:
 
-```
-  -label->      // one arrowhead
-  <-label->     // both ends
-  -label-       // no heads
-  ~label~>      // dashed twins of each — dashed = "secondary", not async
-```
+| Form        | Meaning        |
+| ----------- | -------------- |
+| `-label->`  | one arrowhead  |
+| `<-label->` | both ends      |
+| `-label-`   | no heads       |
+
+Each has a dashed twin written with `~` in place of `-` (`~label~>`). Dashed means "secondary", not async.
 
 Unlabeled headless lines are written `--` and `~~`. There are no left-pointing arrows — write the edge from the other side. A tag on the edge's tail (`-haul-> dvy crew: Hold`) colors the whole line.
 
@@ -93,16 +105,53 @@ tag Crew
 Spyglass Feed at: 0 0, crew: Deck
 ```
 
-## Directives
+## Descriptions
 
-| Directive   | Effect                        |
-| ----------- | ----------------------------- |
-| `no-legend` | Hide the tag legend.          |
-| `fill-solid`| Fill shapes with solid color. |
+Indent one or more `>` lines under a shape to give it a description block. Lines accumulate, and the text renders in the card body below the tag rows:
+
+```dgmo
+sketch Plunder Pipeline
+
+Spyglass Feed shape: database, at: 0 0
+  > Watches the horizon for sail.
+  > Emits a sighting per contact.
+Captain's Console at: 2 0
+  > Where the orders get given.
+```
+
+Add `no-descriptions` at the top level to hide every description block without deleting the text — useful when the same file has to serve both a detailed view and a compact embed:
+
+```dgmo
+sketch Plunder Pipeline
+no-descriptions
+
+Spyglass Feed shape: database, at: 0 0
+  > Watches the horizon for sail.
+Captain's Console at: 2 0
+```
 
 ## Tips
 
 - **Let the app write it.** Sketch is GUI-authored — open a `.dgmo` file that starts with `sketch` in the desktop or web app and the canvas editor takes over.
 - **Keep it small.** Sketches read best under ~15 shapes; embeds shrink past ~30, and that pressure is a feature.
-- **Categorize with tags, not more shapes** — the seven-shape set is deliberately narrow. Color the axis that sorts your shapes into kinds (crew, tier, trust zone) with one tag group.
+- **Categorize with tags, not more shapes** — the shape set is deliberately narrow. Color the axis that sorts your shapes into kinds (crew, tier, trust zone) with one tag group.
 - **`~` means secondary, not async** — it's a softer stroke, unlike infra's async arrows.
+
+## Appearance
+
+Every chart accepts the universal appearance directives:
+
+| Directive | Effect |
+| --------- | ------ |
+| `fill-tint` | Soft tinted fills (default). |
+| `fill-solid` | Saturated solid fills. |
+| `fill-outline` | Outline only, no fill. |
+| `no-title` | Hide the title line. |
+| `no-legend` | Hide the legend. |
+
+Colors come from the active palette — see [Colors](colors.md). Set the palette and light/dark theme at render time with `--palette <name>` and `--theme light|dark|transparent`.
+
+## Next
+
+- **Related:** [`boxes-and-lines`](chart-boxes-and-lines.md) · [`block`](chart-block.md) · [`wireframe`](chart-wireframe.md) · [`quadrant`](chart-quadrant.md)
+- **Then:** [Colors & palettes](colors.md)

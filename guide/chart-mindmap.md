@@ -24,7 +24,14 @@ Go-to-Market
 
 ## Overview
 
-Mind maps visualize hierarchical information radiating from a central concept. Each branch represents a subtopic, with deeper nesting for finer detail. Mind maps are useful for brainstorming, project planning, knowledge organization, and breaking down complex topics.
+A mind map radiates a central topic outward into branches and sub-branches. Each branch is a subtopic, with deeper nesting for finer detail. Reach for it when you're brainstorming around a topic, breaking one idea down into its parts, organizing knowledge, or outlining notes — anywhere the structure is "what belongs under what" and the leaves are just labels.
+
+## When to use
+
+- **`mindmap`** — the boxes are ideas you're breaking down, and nesting is the whole structure.
+- **[`org`](chart-org.md)** — the boxes are people or teams with real reporting lines, not ideas.
+- **[`sitemap`](chart-sitemap.md)** — a visitor can actually navigate between these; they're pages that link, not topics.
+- **[`treemap`](chart-treemap.md)** — the leaves have numbers you want sized, so containment should encode proportion rather than just grouping.
 
 **Interactive features:** Click nodes to navigate to their source line. Collapse and expand subtrees by clicking nodes with children. Toggle tag group coloring and depth-based coloring via the legend controls.
 
@@ -160,7 +167,8 @@ tag Department as d
   Engineering blue
   Design purple
 
-active-tag Department   // override the default (Priority, declared first)
+// override the default (Priority, declared first)
+active-tag Department
 
   Task A p: High, d: Engineering
 ```
@@ -200,3 +208,22 @@ Go-to-Market d: Marketing
     Blog Post
     Demo Video description: 2-min product walkthrough
 ```
+
+## Appearance
+
+Every chart accepts the universal appearance directives:
+
+| Directive | Effect |
+| --------- | ------ |
+| `fill-tint` | Soft tinted fills (default). |
+| `fill-solid` | Saturated solid fills. |
+| `fill-outline` | Outline only, no fill. |
+| `no-title` | Hide the title line. |
+| `no-legend` | Hide the legend. |
+
+Colors come from the active palette — see [Colors](colors.md). Set the palette and light/dark theme at render time with `--palette <name>` and `--theme light|dark|transparent`.
+
+## Next
+
+- **Related:** [`org`](chart-org.md) · [`sitemap`](chart-sitemap.md) · [`treemap`](chart-treemap.md)
+- **Then:** [Colors & palettes](colors.md)
