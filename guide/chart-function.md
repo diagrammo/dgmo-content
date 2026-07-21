@@ -68,11 +68,12 @@ Linear red: 2*x + 1
 
 ## Shading the area below a curve
 
-Function curves are drawn as stroked lines only — this chart type has no area fill. If you need the region under a series shaded down to the baseline, plot the same data with [`line`](chart-line.md) and its `fill` directive.
+Add the `fill` directive to shade the band between each curve and the y=0 baseline — the same directive the [`line`](chart-line.md) chart uses. The band is a soft 25% tint by default; add `fill-solid` for an opaque fill. (`fill-outline` is ignored here — hollowing the band would erase it.)
 
 ```dgmo
 function Trajectories
 x 0 to 250
+fill
 
 15 degrees blue: -0.001*x^2 + 0.27*x
 30 degrees green: -0.002*x^2 + 0.58*x
