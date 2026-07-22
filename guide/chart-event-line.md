@@ -100,6 +100,19 @@ TBD Sequel Greenlit  t: Content
 
 A `TBD` event reads as **pending**: a hollow dot, a faded leader, and a `TBD` caption (a faded shelf edge in `no-box`). On a to-scale timeline its spot is **inferred from its neighbors** — a `TBD` with a real date *after* it slots into that gap, while a **trailing** `TBD` (nothing dated after it) parks past the last real date and the spine trails off dashed into the open horizon. `TBD` events never trigger date warnings, so you can mix shipped and planned work in one chart.
 
+## The now marker
+
+Mark "today" on the timeline with a `now` line:
+
+```
+event-line Platform Roadmap
+now 2025-06
+2024-01 Auth rebuild
+2025-11 Team spaces
+```
+
+`now` alone tracks the **current date** — the marker slides as time passes. `now <date>` **pins** it to an explicit date (deterministic, snapshot-safe); a trailing token overrides the caption (`now 2025-06 Today`). It renders as a palette-**red** diamond planted on the spine with a small `now` tab, plus a dotted "today line" that fades out near the axis — hover the marker in the desktop app to extend the line full-height. Because it rides the date axis it is drawn **only on a to-scale timeline** (every event dated); under `no-scale` it is ignored. A `now` past the last dated event rides out onto a trailing-`TBD` open horizon if there is one, else clamps to the last event.
+
 ## Directives
 
 | Directive | Effect |
@@ -108,6 +121,7 @@ A `TBD` event reads as **pending**: a hollow dot, a faded leader, and a `TBD` ca
 | `side above` / `side below` | place all cards on one side instead of alternating |
 | `no-box` | card-less slide style: a tag-colored label, a rule, and the description — no box |
 | `no-legend` | hide the tag legend |
+| `now` / `now <date>` | mark "today" — a red pin + dotted today-line (to-scale only; see [The now marker](#the-now-marker)) |
 
 ### Date directives
 
