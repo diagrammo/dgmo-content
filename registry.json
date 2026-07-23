@@ -2351,6 +2351,10 @@
         {
           "text": "concentric",
           "kind": "trigger"
+        },
+        {
+          "text": "ring",
+          "kind": "trigger"
         }
       ],
       "guidance": "Order rings core→outward by hierarchy, not by size — band thickness is uniform and carries no proportional meaning (use pie/funnel for part-of-whole). Keep any value you want read at a glance in the ring’s own label.",
@@ -3263,6 +3267,19 @@
       ]
     },
     {
+      "id": "bar-fill-solid",
+      "entity": "bar",
+      "file": "examples/bar/bar-fill-solid.dgmo",
+      "isPrimary": false,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
       "id": "bar-grouped",
       "entity": "bar-grouped",
       "file": "examples/bar/bar-grouped.dgmo",
@@ -3301,19 +3318,6 @@
         {
           "surface": "obsidian",
           "role": "sampler"
-        }
-      ]
-    },
-    {
-      "id": "bar-fill-solid",
-      "entity": "bar",
-      "file": "examples/bar/bar-fill-solid.dgmo",
-      "isPrimary": false,
-      "status": "draft",
-      "placements": [
-        {
-          "surface": "docs",
-          "role": "docs"
         }
       ]
     },
@@ -4039,6 +4043,23 @@
       ]
     },
     {
+      "id": "map-route",
+      "entity": "map-route",
+      "file": "examples/map/map-route.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        }
+      ]
+    },
+    {
       "id": "mindmap",
       "entity": "mindmap",
       "file": "examples/mindmap/mindmap.dgmo",
@@ -4666,23 +4687,6 @@
         {
           "surface": "obsidian",
           "role": "sampler"
-        }
-      ]
-    },
-    {
-      "id": "map-route",
-      "entity": "map-route",
-      "file": "examples/map/map-route.dgmo",
-      "isPrimary": true,
-      "status": "draft",
-      "placements": [
-        {
-          "surface": "docs",
-          "role": "docs"
-        },
-        {
-          "surface": "new-file",
-          "role": "starter"
         }
       ]
     }
