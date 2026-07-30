@@ -26,6 +26,23 @@ const { render, validate } = await import(
   pathToFileURL(requireFromCwd.resolve('@diagrammo/dgmo'))
 );
 
+// A fence whose body is a CLOUD REFERENCE (`cloud <id>`, `![[cloud:<id>]]`, or a
+// share URL) names a diagram that lives in Diagrammo Cloud — there is no source
+// here to validate, and `render()` would reject `cloud` as an unknown chart
+// type. The build resolves and renders it for real (remark-dgmo fetches the
+// source, and fails the build loudly if the reference is bad), so skipping it
+// here loses no coverage; NOT skipping it makes every referencing document
+// unbuildable. Optional import: an older `@diagrammo/dgmo` has no such subpath,
+// and this script must keep working against it.
+let parseCloudReference = () => null;
+try {
+  ({ parseCloudReference } = await import(
+    pathToFileURL(requireFromCwd.resolve('@diagrammo/dgmo/cloud-reference'))
+  ));
+} catch {
+  // Pre-0.57 dgmo — no references to skip.
+}
+
 // Quiet jsdom's "Not implemented: HTMLCanvasElement getContext()" noise — it's a
 // headless-environment limitation (some chart types draw to a canvas for layout),
 // not a dgmo problem. We handle those types via the parse-only fallback below.
@@ -78,6 +95,8 @@ function extractFences(text) {
     // build's strict validation. The marker is renderer-invisible (an HTML
     // comment), unlike a `dgmo-source` lang token which would stop it rendering.
     if (/<!--\s*dgmo-expect-error\s*-->/.test(before.slice(-200))) continue;
+    // A cloud reference has no local source to check — see the import above.
+    if (parseCloudReference(m[1])) continue;
     out.push({ code: m[1], baseLine: openLine + 1 });
   }
   return out;
