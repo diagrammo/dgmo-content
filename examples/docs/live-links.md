@@ -24,18 +24,12 @@ https://online.diagrammo.app/d/dgm_01KYRFCJZ2BHS18XRBEAZ0Y120
 ````
 
 That is the entire setup. There is no option to switch on and no key to
-configure — a `dgmo` fence holding a link is recognised as one. Two shorter
-spellings do the same job once you have the diagram's id:
+configure — a `dgmo` fence holding a link is recognised as one. Once you have
+the diagram's id there is a shorter spelling that does the same job:
 
 ````markdown
 ```dgmo
 live-link dgm_01KYRFCJZ2BHS18XRBEAZ0Y120
-```
-````
-
-````markdown
-```dgmo
-![[live-link:dgm_01KYRFCJZ2BHS18XRBEAZ0Y120]]
 ```
 ````
 
