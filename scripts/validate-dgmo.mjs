@@ -43,6 +43,28 @@ try {
   // Pre-0.57 dgmo — no references to skip.
 }
 
+// `render()` reads nothing from disk or the network on its own, so a `map`
+// chart obtains its basemap ONLY from the `mapData` option. Without it every
+// map in the corpus fails with `E_MAP_DATA_NOT_SUPPLIED` — which is what broke
+// `pnpm build:web` on 2026-08-05, since this validator sits between the dgmo
+// build and `vite build`.
+//
+// `loadMapData` is the loader meant for exactly this caller: Node, allowed to
+// touch the filesystem, and invoked only when the content really is a map, so
+// the other 363 diagrams in the corpus pay nothing for it.
+//
+// Optional, matching the import above: an older `@diagrammo/dgmo` has no such
+// export and did not need one, and this script must keep working against it.
+let loadMapData;
+try {
+  ({ loadMapData } = await import(
+    pathToFileURL(requireFromCwd.resolve('@diagrammo/dgmo/advanced'))
+  ));
+} catch {
+  // No `advanced` subpath, or no loader in it — maps were self-loading then.
+}
+const renderOptions = loadMapData ? { mapData: loadMapData } : undefined;
+
 // Quiet jsdom's "Not implemented: HTMLCanvasElement getContext()" noise — it's a
 // headless-environment limitation (some chart types draw to a canvas for layout),
 // not a dgmo problem. We handle those types via the parse-only fallback below.
@@ -124,7 +146,7 @@ for (const { file, baseLine, code } of sources) {
   const rel = relative(process.cwd(), file);
   let diagnostics;
   try {
-    ({ diagnostics } = await render(code));
+    ({ diagnostics } = await render(code, renderOptions));
   } catch {
     // Some chart types (e.g. wordcloud) need a real canvas to lay out and throw
     // under headless jsdom — they render fine in the app/site browser. Degrade to
