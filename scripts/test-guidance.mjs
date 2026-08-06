@@ -13,7 +13,7 @@
  *
  *   node scripts/test-guidance.mjs <type> [--n 2] [--out DIR]
  *
- * Needs the `dgmo` CLI (../dgmo/dist/cli.cjs) and `claude` on PATH. Output is
+ * Needs the `dgmo` CLI (../dgmo/cli/dist/cli.cjs) and `claude` on PATH. Output is
  * gitignored; open the printed index.html to compare.
  */
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
@@ -26,7 +26,7 @@ const ROOT = join(HERE, '..');
 const REGISTRY = join(ROOT, 'registry.json');
 const REF = join(ROOT, '../dgmo/docs/language-reference.md');
 const PROMPTS = join(ROOT, '../dgmo-mcp/tools/guidance-studio/prompts.json');
-const DGMO_CLI = join(ROOT, '../dgmo/dist/cli.cjs');
+const DGMO_CLI = join(ROOT, '../dgmo/cli/dist/cli.cjs');
 
 const argv = process.argv.slice(2);
 const type = argv.find((a) => !a.startsWith('--'));
