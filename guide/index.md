@@ -66,7 +66,7 @@ brew install dgmo
 Or run directly with npx:
 
 ```bash
-npx @diagrammo/dgmo diagram.dgmo
+npx @diagrammo/dgmo-cli diagram.dgmo
 ```
 
 ### JavaScript / TypeScript Library

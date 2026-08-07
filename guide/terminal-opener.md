@@ -47,7 +47,7 @@ brew install dgmo
 Or with npm:
 
 ```
-npm install -g @diagrammo/dgmo
+npm install -g @diagrammo/dgmo-cli
 ```
 
 `dgmo` renders directly to `.svg` / `.png` / share URLs, supports stdin input, and has no UI dependency. Full reference at [diagrammo.app/docs](https://diagrammo.app/docs/).

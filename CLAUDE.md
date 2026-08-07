@@ -6,7 +6,7 @@ Shared content for the DGMO ecosystem — no build, no package, no dependencies.
 
 - **Marketing site** — git submodule at `diagrammo_app_site/content/`. Its build runs `git submodule update --init --remote content`, so the site builds from this repo's **latest `main`, not the pinned commit**. Push content changes here first or they don't ship.
 - **Desktop app + web editor** — symlink `diagrammo-app/packages/content/` → `../../dgmo-content`. Not a submodule; there is nothing to bump.
-- 🔴 **Pushing here no longer ships anything to the site.** `.github/workflows/dispatch-site-deploy.yml` still repository-dispatches on `examples/**` or `guide/**`, but the site repo's Actions are billing-blocked — its jobs have not started since 2026-07-27, so the dispatch lands and nothing runs. A content change reaches production only when someone runs `pnpm build && npx wrangler deploy` in `diagrammo_app_site` afterwards. Checked 2026-07-31.
+- ⚠️ **The billing block that made pushing here a no-op is over.** `.github/workflows/dispatch-site-deploy.yml` repository-dispatches on `examples/**` or `guide/**`, and the site repo's Actions started running again on 2026-08-01 — the note here said otherwise until 2026-08-06. Whether a given push actually reaches production is still worth confirming rather than assuming; the manual path is `pnpm build && npx wrangler deploy` in `diagrammo_app_site`.
 
 ## Content rules
 
