@@ -111,7 +111,7 @@ now 2025-06
 2025-11 Team spaces
 ```
 
-`now` alone tracks the **current date** — the marker slides as time passes. `now <date>` **pins** it to an explicit date (deterministic, snapshot-safe); a trailing token overrides the caption (`now 2025-06 Today`). It renders as a palette-**red** diamond planted on the spine with a small `now` tab, plus a dotted "today line" that fades out near the axis — hover the marker in the desktop app to extend the line full-height. Because it rides the date axis it is drawn **only on a to-scale timeline** (every event dated); under `no-scale` it is ignored. A `now` past the last dated event rides out onto a trailing-`TBD` open horizon if there is one, else clamps to the last event.
+`now` alone tracks the **current date** — the marker slides as time passes. `now <date>` **pins** it to an explicit date (deterministic, snapshot-safe); a trailing token overrides the caption (`now 2025-06 Today`). It renders as a palette-**red** diamond planted on the spine with a small tab, plus a dotted "today line" that fades out near the axis. **The tab prints the date the pin resolved to** — `Jun 2025` for the pinned example above, today's date for a bare `now` — so a reader can tell a diagram that redraws from a picture of one that stopped — hover the marker in the desktop app to extend the line full-height. Because it rides the date axis it is drawn **only on a to-scale timeline** (every event dated); under `no-scale` it is ignored. A `now` past the last dated event rides out onto a trailing-`TBD` open horizon if there is one, else clamps to the last event.
 
 ## Directives
 
@@ -121,7 +121,7 @@ now 2025-06
 | `side above` / `side below` | place all cards on one side instead of alternating |
 | `no-box` | card-less slide style: a tag-colored label, a rule, and the description — no box |
 | `no-legend` | hide the tag legend |
-| `now` / `now <date>` | mark "today" — a red pin + dotted today-line (to-scale only; see [The now marker](#the-now-marker)) |
+| `now` / `now <date>` | mark "today" — a red pin captioned with its date, plus a dotted today-line (to-scale only; see [The now marker](#the-now-marker)) |
 
 ### Date directives
 
