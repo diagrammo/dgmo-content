@@ -319,6 +319,27 @@ In the app, click a node that has children to focus it. Click again to collapse 
 
 Keyboard: Tab to focus a node, Enter or Space to toggle.
 
+## Focus (subtree drill-down)
+
+The `focus` option re-roots the chart to one person's (or team's) subtree. The
+pruned ancestors draw as a breadcrumb trail above the new root, so the context
+survives without the rest of the org:
+
+```
+org The Dread Fleet
+focus Anne Bonny
+```
+
+Names match case-insensitively; the first match in source order wins. An
+unknown name warns and the whole chart renders. In the app, the crosshair icon
+that appears when you hover a card writes this option for you — and clicking
+empty canvas removes it — so a focused view travels with the file into
+exports, share links and embeds.
+
+Note the distinction from metadata: `focus Anne Bonny` at the top of the file
+is this option; `focus: APIs` indented under a person is ordinary metadata
+(the colon is what separates them).
+
 ## Complete Example
 
 ```dgmo
