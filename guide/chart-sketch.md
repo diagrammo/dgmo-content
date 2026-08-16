@@ -1,3 +1,5 @@
+**Beta — expect rough edges and syntax changes.**
+
 ```dgmo
 sketch Plunder Pipeline
 

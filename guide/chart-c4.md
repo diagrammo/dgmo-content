@@ -1,3 +1,5 @@
+**Beta — expect rough edges and syntax changes.**
+
 ```dgmo
 c4 Internet Banking System
 
