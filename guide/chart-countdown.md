@@ -42,7 +42,7 @@ The literal `target now` resolves at render time (→ immediately expired) — h
 
 ## Pinning to a timezone
 
-By default the count is **viewer-local**: a bare date, an offset-free datetime, and a recurring `at` time all resolve against whatever clock the viewer's machine is set to — so the same countdown reads differently in New York and Mumbai, and drifts if you travel. Add a `tz` line to **pin** those authored times to one IANA zone, so every viewer sees the same remaining time and it never shifts when the machine moves zones:
+By default the count is **viewer-local**: a bare date, an offset-free datetime, and the time carried by a recurring block's `since` anchor all resolve against whatever clock the viewer's machine is set to — so the same countdown reads differently in New York and Mumbai, and drifts if you travel. Add a `tz` line to **pin** those authored times to one IANA zone, so every viewer sees the same remaining time and it never shifts when the machine moves zones:
 
 ```dgmo
 countdown Ship's launch
@@ -54,83 +54,118 @@ tz America/New_York
 
 ## Recurring events
 
-For anything that repeats — a birthday, an anniversary, a standing meeting — use an `every` rule instead of `target`. The countdown resolves to the **next** occurrence and **rolls forward** on its own when the day passes, so it never goes stale and needs no year:
+For anything that repeats — a birthday, an anniversary, a standing meeting — anchor the block with `since` instead of `target`. The countdown resolves to the **next** occurrence and **rolls forward** on its own once the day passes, so it never goes stale:
 
 ```dgmo
 countdown Monthly All-Hands
-every month on 1st Monday at 10:00
+since 2026-06-01T10:00
+every month by weekday
+tz America/New_York
 on-day Today!
 ```
 
-The rule is a single line, `every <cadence> [on <instant>] [at <time>] [from <anchor>]`. The cadence sets how often; the optional `on` picks *which* day within that period, `at` picks the time, and `from` anchors an interval. Every cadence has a worked example below.
+A recurring block carries exactly **one date**, and it lives in `since`: the **anchor**, the occurrence the whole series is measured from. Everything about an occurrence is read off that one date — the month and day, the day of the month, the weekday, the time of day — and `every` names nothing but the **cadence**. That is the point of the shape: with a single date on a single line, no two lines can disagree about when the thing happens.
 
-### Annual — `every year`
+`since` accepts any date the rest of dgmo accepts (`2015-06-14`, `Jun 14 2015`, `6/14/2015`) — see [Writing Dates](writing-dates.md). A bare date makes the occurrence an **all-day** one; give the anchor a time (`since 2026-01-05T18:00`) and the occurrence is that precise instant. A bare year is not a date, so `since 2015` is an error.
 
-The workhorse: a fixed month + day, no year, so it never expires. Ideal for birthdays, holidays, and anniversaries.
+### The cadences
+
+`every <cadence>` is optional: **leave it off and the block repeats yearly**, which is what a birthday or an anniversary wants.
+
+| Cadence | The next occurrence is |
+| ------- | ---------------------- |
+| `every year` | the anchor's month and day, once a year — the default when `every` is absent |
+| `every month` | the anchor's day of the month — an anchor on the 31st skips the months that have no 31st |
+| `every month by weekday` | the anchor's *nth weekday* — anchor a 2nd Sunday and every 2nd Sunday follows |
+| `every month by last weekday` | the anchor's weekday, the last one in each month |
+| `every week` | the anchor's weekday, every week |
+| `every day` | every day from the anchor onward |
+| `every N days` · `every N weeks` · `every N months` | a fixed interval counted from the anchor, e.g. `every 2 weeks` |
+
+The two `by weekday` forms are the one place a shape word is still needed, because a date alone cannot settle the question: `2026-06-16` is both "the 16th" and "the third Tuesday", and only you know which of those the meeting actually is. Every other cadence reads the anchor unambiguously.
+
+### Annual — the default
+
+The workhorse: anchor the date it first happened and leave `every` off entirely. Ideal for birthdays, holidays, and anniversaries.
 
 ```dgmo
 countdown Mom's Birthday
-every year on Aug 21
+since 1958-08-21
 on-day 🎂 Today!
 ```
 
-The month is a fixed name (`Jan`…`Dec`, full or abbreviated) and the day is a plain number. `on-day 🎂 Today!` swaps the header for that phrase on the day itself (see roll-forward below).
+The block rolls to the next August 21 forever. `on-day 🎂 Today!` swaps the header for that phrase on the day itself (see roll-forward below).
 
-### Monthly — `every month on <nth> <weekday>`
+### Monthly — by date, or by weekday
 
-Picks the nth (or `last`) weekday of every month — the shape of most standing meetings. Combine with `at` for a time and `tz` to pin it.
+`every month` keeps the anchor's **day of the month**: anchor the 1st and it comes due on the 1st of every month. A 31st anchor skips the months that have no 31st rather than sliding quietly to the 30th.
+
+Most standing meetings are not on a date at all, though — they are on the *nth weekday*. `every month by weekday` reads that shape off the anchor:
 
 ```dgmo
 countdown Sprint Review
-every month on 3rd Tuesday at 14:00
+since 2026-06-16T14:00
+every month by weekday
 tz America/New_York
 on-day Live now
 ```
 
-`1st`…`5th` and `last` are the only ordinals; the weekday is a fixed name. Single weekday only — `2nd and 4th Wednesday` is not expressible in one block. A month with no 5th of a given weekday simply skips to the next month that has one.
+June 16, 2026 is the third Tuesday of that month, so the block resolves to the third Tuesday of every month at 14:00, pinned to New York. `every month by last weekday` does the same for the final weekday of a month — anchor a last Friday and every month's last Friday follows. One weekday per block: "2nd and 4th Wednesday" is not expressible in a single block, and a month with no fifth of a given weekday simply skips to the next month that has one.
 
-### Weekly — `every week on <weekday>`
+### Weekly — `every week`
 
-A standing weekday. Add `at` for a time; without it the whole day counts as the occurrence.
+A standing weekday, taken from the anchor. A bare anchor date makes the whole day the occurrence; an anchor with a time counts to that instant.
 
 ```dgmo
 countdown Friday Deploy Freeze
-every week on Friday at 17:00
+since 2026-07-03T17:00
+every week
 on-day 🧊 Frozen
 ```
 
-### Fixed interval — `every N <days|weeks|months> from <anchor>`
+### Fixed interval — `every N days|weeks|months`
 
-An interval cadence repeats every N units measured from an anchor date — use it when the rhythm isn't tied to a calendar name (every 10 days, every other Friday counted from a known start). The `from` anchor is **required** here, because "every 2 weeks" is meaningless without a starting point:
+An interval cadence repeats every N units measured from the anchor — reach for it when the rhythm isn't tied to a calendar name (every 10 days, every other Friday counted from a known start):
 
 ```dgmo
 countdown Payday
-every 2 weeks from 2026-07-03
+since 2026-07-03
+every 2 weeks
 on-day 💸 Payday
 ```
 
-`every day` is the same family and likewise needs an anchor (`every day from 2026-07-01`). The singular form drops the `N`: `every month from 2026-01-31` is `N = 1` — one month past the anchor, then the next, and so on.
+`every day` belongs to the same family, and the singular cadences are just `N = 1` of theirs: `every month` is `every 1 month`.
 
 ### Timing, roll-forward, and expiry
 
-- **`at <time>`** is 24-hour, default midnight. `at 18:00` makes the occurrence a precise instant; **omit it and the occurrence is the whole day** — the countdown reads "Today!" (or your `on-day` text) from local midnight to midnight, then rolls to the next occurrence. A *timed* occurrence instead rolls the exact second it passes and, on its final day, pivots into a live `HH:MM:SS` clock (see *Timed targets*).
-- **`on-day <text>`** replaces the header on the occurrence day/instant — a party phrase, a "Live now" flag, an emoji.
-- **Roll-forward is automatic and needs no year.** After an occurrence passes, the block re-resolves to the next one on the next load; recurring blocks never enter the `expired` state (`expired` is for one-shot `target`s only). The in-chart footer always states the resolved instant (`→ Tue Aug 21 2026 · in 39 days`), so a mistaken rule shows a visibly wrong date.
+- **The time of day comes from the anchor.** `since 2026-07-03T17:00` makes each occurrence a precise instant; **a bare anchor date makes the occurrence the whole day** — the countdown reads "Today!" (or your `on-day` text) from local midnight to midnight, then rolls to the next occurrence. A *timed* occurrence instead rolls the exact second it passes and, on its final day, pivots into a live `HH:MM:SS` clock (see *Timed targets*).
+- **`on-day <text>`** replaces the header on the occurrence day or instant — a party phrase, a "Live now" flag, an emoji.
+- **Roll-forward is automatic.** After an occurrence passes, the block re-resolves to the next one on the next load; recurring blocks never enter the `expired` state (`expired` is for one-shot `target`s only). The in-chart footer always states the resolved instant (`→ Tue Aug 21 2026 · in 39 days`), so a mistaken anchor shows a visibly wrong date.
 
-Weekday and month names are a fixed vocabulary, so the editor autocompletes them and a typo is a named error — never a silent wrong date. Free prose is rejected with the fix: `every Friday 6pm` → `✕ "6pm": use 24h time (18:00)` → `↳ every week on Friday at 18:00`. A block has **either** `target` **or** `every`, never both. Times are the viewer's local clock unless a `tz` line pins them.
+The cadence words are a fixed vocabulary, so the editor autocompletes them and a typo is a named error rather than a silent wrong date. A block has **either** `target` **or** `since`, never both. Times are the viewer's local clock unless a `tz` line pins them.
 
-## Numbering with `since`
+## Numbering with `since-label`
 
-`since` turns a recurring countdown into a numbered one — a 7th anniversary — counting `resolvedYear − since`:
+Every recurring block has an anchor, so every one of them *could* be numbered — but numbering a standing meeting would be noise, so the eyebrow is **opt-in**. Add a `since-label` and the count appears above the day-count; leave it off and there is no eyebrow at all:
 
 ```dgmo
 countdown Wedding Anniversary
-every year on Jun 14
-since 2015
+since 2015-06-14
 since-label Nth Anniversary
 ```
 
-`since-label` is a free-form eyebrow template: **`Nth`** becomes the ordinal word (`7th`) and **`N`** the bare number (`7`), so `since-label Nth Anniversary` renders a quiet "7TH ANNIVERSARY" above the day-count, and `since-label Year N` renders "YEAR 7". Any phrasing works. It defaults to `Nth <title>`. The tokens are case-sensitive, so ordinary words with an "n" are left alone.
+`since-label` is a free-form eyebrow template: **`Nth`** becomes the ordinal word (`11th`) and **`N`** the bare number (`11`), so `since-label Nth Anniversary` renders a quiet "11th Anniversary" above the day-count, and `since-label Year N` renders "Year 11". Any phrasing works, and the tokens are case-sensitive, so ordinary words with an "n" in them are left alone.
+
+**The number is the count of complete cadence units since the anchor — birthday semantics.** The anchor occurrence itself is the **0th**, so someone born on June 14, 2015 turns 11 on June 14, 2026, not 12. Every cadence follows that same rule: a weekly standup anchored on its first meeting numbers that meeting 0 and the one a week later 1. If you want the first occurrence to read as #1, anchor `since` one cadence-unit earlier — a standup whose first meeting was July 3 gets `since 2026-06-26`.
+
+Because the count follows the cadence rather than the calendar year, **weekly, monthly and interval countdowns can be numbered too**:
+
+```dgmo
+countdown Team Standup
+since 2026-06-26T09:15
+every week
+since-label Standup #N
+```
 
 ## Units & display
 
@@ -145,7 +180,7 @@ expired 🚀 Liftoff!
 
 ## Date directives
 
-`target`, `every`, and `from` all take liberal date input, and two directives control how it is read:
+`target` and `since` both take liberal date input, and two directives control how it is read:
 
 | Directive | Effect |
 | --------- | ------ |
@@ -178,7 +213,7 @@ Two markers hold everywhere: **today** (a solid blue chip — shifted to teal if
 
 ## Timed targets — the pivot
 
-When the `target` carries a **time** (`2026-08-21T18:00`, or a recurring `at 18:00`) the event instant is a **pivot**, not a stop. Days out, the human hero keeps its phrase and a live `HH:MM:SS` clock rides the sub-line. On the final day the hero becomes that ticking clock and the band turns into three **ring gauges** — hours · minutes · seconds. Past the instant the same clock and rings keep ticking **up**, the caption flipping "to go" → "ago". `expired <text>` still wins when set, freezing a fixed message instead of counting up.
+When the resolved event carries a **time** — `target 2026-08-21T18:00`, or a recurring `since 2026-08-21T18:00` — the event instant is a **pivot**, not a stop. Days out, the human hero keeps its phrase and a live `HH:MM:SS` clock rides the sub-line. On the final day the hero becomes that ticking clock and the band turns into three **ring gauges** — hours · minutes · seconds. Past the instant the same clock and rings keep ticking **up**, the caption flipping "to go" → "ago". `expired <text>` still wins when set, freezing a fixed message instead of counting up.
 
 ## The footer & the "as of" stamp
 

@@ -1,4 +1,5 @@
 countdown Monthly All-Hands
-every month on 1st Monday at 10:00
+since 2026-06-01T10:00
+every month by weekday
 tz America/New_York
 on-day Today!
