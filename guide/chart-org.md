@@ -228,11 +228,15 @@ one person to own everyone else's branch. Org charts can be **composed from
 several `.dgmo` files**: each team owns its own subtree file, and a top-level
 file stitches them together.
 
-### `import <file>.dgmo` — graft a subtree
+One keyword does both jobs, and **where you write it decides which**: indented,
+`import` grafts a subtree at that point; unindented in the header, it pulls in
+another file's tag groups.
 
-An `import` line must be **indented**, and the imported file's content is grafted
-at exactly that indentation — so where you put the `import` is where the subtree
-lands in the hierarchy.
+### `import <file>.dgmo`, indented — graft a subtree
+
+The imported file's content is grafted at exactly the indentation of the
+`import` line — so where you put it is where the subtree lands in the
+hierarchy.
 
 ```
 org Acme Corp
@@ -270,16 +274,19 @@ Alex Chen
   breached it.
 - A missing file is an error on the `import` line; the rest of the chart still
   renders.
+- `import` takes **no colon**, and no other keyword pulls a file in. A line like
+  `tags shared.dgmo` or `import: shared.dgmo` is an error rather than a person
+  named after a file.
 
-### `tags <file>.dgmo` — share one tag vocabulary
+### `import <file>.dgmo`, unindented — share one tag vocabulary
 
-A `tags` line sits **unindented in the header**, before the org content, and pulls
-tag groups in from another file so every team chart colors by the same palette
-of locations, statuses, or cost centers:
+An `import` line at column 0 sits in the header, before the org content, and
+pulls tag groups in from another file so every team chart colors by the same
+palette of locations, statuses, or cost centers:
 
 ```
 org Engineering
-tags ../shared/company-tags.dgmo
+import ../shared/company-tags.dgmo
 
 Alex Chen
   role: VP Engineering
@@ -300,8 +307,9 @@ tag Status as st
 ```
 
 When the same group name arrives from more than one place, **inline groups win
-over a `tags` file, which wins over groups pulled in through `import`** — so a
-team can override a company-wide default locally without editing the shared file.
+over the header import, which wins over groups arriving with an imported
+subtree** — so a team can override a company-wide default locally without
+editing the shared file.
 
 > Composition reads files from disk, so it works in the CLI and the desktop app.
 > A share link or an embedded fence has no filesystem — flatten the chart into a
