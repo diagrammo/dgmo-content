@@ -51,6 +51,7 @@ No `end` keywords are needed — blocks are scoped by indentation.
 
 ```
 sequence Diagram Title
+autonumber
 no-activations
 
 == Section Label ==
@@ -69,10 +70,11 @@ loop description
 
 ## Settings
 
-| Key              | Description                             | Default  |
-| ---------------- | --------------------------------------- | -------- |
-| `chart`          | `sequence` (inferred from `->` content) | Optional |
-| `no-activations` | Hide activation bars (on by default)    | off      |
+| Key              | Description                                                                 | Default     |
+| ---------------- | --------------------------------------------------------------------------- | ----------- |
+| `chart`          | `sequence` (inferred from `->` content)                                  | Optional    |
+| `autonumber`     | Prefix authored messages with stable source-order numbers                | off         |
+| `no-activations` | Hide activation bars (on by default)                                     | off         |
 | `active-tag`     | Group to color by (first declared is active by default; `none` suppresses) | first group |
 
 ## Participants
@@ -192,6 +194,24 @@ A participant calling itself renders as a loopback arrow:
 ```
 OrderService -validate-> OrderService
 ```
+
+### Message Numbers
+
+Add `autonumber` before the first participant or message when people need to refer to individual interactions in a review or discussion:
+
+```dgmo
+sequence Sign In
+autonumber
+
+Browser -submit credentials-> App
+App -verify-> IdentityProvider
+IdentityProvider -accepted-> App
+App -signed in-> Browser
+```
+
+Every message written in the source gets its source-order number. A message without a label shows the number by itself. Returns that Diagrammo infers automatically are not numbered because there is no source line to refer to.
+
+Numbers identify the authored message rather than its current visible position. If folding a participant group hides an internal message, the remaining numbers can skip; they do not change underneath a discussion that already refers to “message 6.”
 
 ## Blocks
 
@@ -410,6 +430,7 @@ The first declared group is active by default. Set `active-tag GroupName` to act
 
 ```dgmo
 sequence E-Commerce Checkout
+autonumber
 
 tag Layer as l
   Frontend teal
