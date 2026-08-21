@@ -51,6 +51,12 @@
       "file": "writing-dates.md"
     },
     {
+      "slug": "markdown-syntax",
+      "title": "Markdown Syntax",
+      "group": "getting-started",
+      "file": "markdown-syntax.md"
+    },
+    {
       "slug": "how-dgmo-thinks",
       "title": "How DGMO Thinks",
       "group": "getting-started",
