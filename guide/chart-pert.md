@@ -72,7 +72,7 @@ Every activity is declared on its own non-indented source-line with its duration
 | `direction-lr` | Bare flag — left-to-right layout.                                                 | on            |
 | `direction-tb` | Bare flag — top-to-bottom layout.                                                 | off           |
 | `node-detail`  | `compact` shows name + duration; `full` adds μ ± σ inside the node.               | `compact`     |
-| `no-analysis`  | Bare flag — hide the analysis layer (tornado + S-curve). The layer renders by default whenever Monte Carlo runs; this suppresses it for a network-only view. The desktop editor's **Analysis** toggle overrides it for the live view. See *Analysis Widgets*. | layer shown |
+| `no-analysis`  | Bare flag — hide the analysis layer (Activity Risk + S-curve). The layer renders by default whenever Monte Carlo runs; this suppresses it for a network-only view. The desktop editor's **Analysis** toggle overrides it for the live view. See *Analysis Widgets*. | layer shown |
 | `default-confidence` | `high` / `medium` / `low`, or an explicit `O/P` factor pair (e.g. `0.6/2.5`). Fills O/P for M-only activities. Per-activity override via `confidence: low` metadata. See *M-only Estimates* for multipliers. | `medium` |
 | `trials`       | Monte Carlo trial count. Auto-derived from activity count when omitted.           | auto-derived  |
 | `seed`         | Deterministic PRNG seed. Auto-derived from the title (or activity names) when omitted. | auto-derived  |
@@ -385,11 +385,11 @@ Walking the colors against the six-band scale above:
 - **`chart course` (orange) and `stock galley` (yellow) are a close race.** Their durations are nearly identical, so the critical path flips between them from trial to trial. `chart course` carries it a bit more often (**orange** — "often critical"); `stock galley` takes it the rest of the time (**yellow** — "could swing either way"). Neither is safe to ignore, and that's the whole point of the mid-bands: contested parallel work that a single most-likely estimate would hide.
 - **`haul loot` is red too**, but for a different reason than the always-on-path trio — its sibling `tend wounded` is so much shorter that `haul loot` carries the path in essentially every trial. `tend wounded` keeps its slack and stays **surface-tinted** (criticality ≈ 0): a delay there won't move the finish.
 
-Cutting or de-risking a cool-tinted activity won't move the finish; the warm ones will. Below the network sit two more widgets — the **S-curve** (the *when*) and the **tornado** (the *which-matters-most*) — adding to this *where* picture. They render automatically; add `no-analysis` to hide them for a network-only view.
+Cutting or de-risking a cool-tinted activity won't move the finish; the warm ones will. Below the network sit two more widgets — the **S-curve** (the *when*) and **Activity Risk** (the *which-matters-most*) — adding to this *where* picture. They render automatically; add `no-analysis` to hide them for a network-only view.
 
 ### Analysis Widgets
 
-Two Monte-Carlo widgets render in a row beneath the network, **by default** — in every render: the CLI, embedded docs, a share link, an export, and the editors. Control them either way:
+Two analysis widgets render in a row beneath the network, **by default** — in every render: the CLI, embedded docs, a share link, an export, and the editors. Control them either way:
 
 - **In the source** — add the bare `no-analysis` flag to hide the widgets for a clean, network-only view (mirrors `no-title`).
 - **In the desktop and web editors** — an **Analysis** toggle flips them for the live view, overriding the directive. A separate **Field labels** toggle (off by default) overlays a reference card naming every cell of the activity node (ES, dur, EF, LS, slack, LF). Both ride along in share-links and exports.
@@ -398,7 +398,31 @@ When the data only supports analytical mode — no O/M/P triple anywhere — the
 
 **S-curve (completion-probability curve).** The cumulative distribution of project finish times across all trials. The x-axis is the finish date (or offset); the y-axis is the probability of being done by that point, rising 0 → 1. Vertical reference lines mark the P50 / P80 / P95 dates, each labelled with its date — **this chart is the only place those dates are printed**, so `no-analysis` hides them along with the widgets. The expected-duration headline is not repeated here; it lives in the subtitle under the diagram title. A steep curve means a tight, predictable schedule; a long shallow tail means the worst case is far out — that tail is your risk. In backward `end-date` mode the curve flips meaning — see *Anchoring to a Calendar*.
 
-**Tornado (sensitivity ranking).** A horizontal bar chart ranking activities by how much their individual uncertainty moves the *project* finish — the Schedule Sensitivity Index. Each bar shows the swing in project completion between the activity finishing at its optimistic (O) versus pessimistic (P) end; bars sort longest-first and inherit the activity's criticality band color. **Read the top bar as "the single activity whose estimate most controls the finish date."** It answers a different question than criticality: criticality asks *how often* an activity is on the critical path; the tornado asks *how much it matters when it is*. A short, high-criticality activity can sit below a longer, lower-criticality one — tighten the P estimate at the top of the tornado first.
+It carries no heading of its own — it's the panel on the right, with the rising curve. Four elements sit on it:
+
+| Element | Meaning |
+| --- | --- |
+| The rising curve | Chance the project is finished by the date beneath it. |
+| **Shaded blue band** | The **middle 68% of trials** — P16 to P84. Read it as *"where the finish most likely lands."* It is empirical, straight from the trials, **not** a ±1σ normal-curve assumption — a skewed distribution shades asymmetrically around P50. If P16 falls left of the plot's left edge the band is clipped there rather than rescaling the chart, so a band running off the side is normal, not a bug. |
+| Dashed verticals with labelled dots | P50 (yellow), P80 (orange), P95 (red). **Hover a dot** and the terse `P80 · Jul 2` swaps in place for the full sentence — *"80% chance to finish by Jul 2"*. Each date rounds *away* from now, so a label is never more optimistic than the trial it came from. |
+| Purple vertical line | The `end-date` deadline, drawn as a hard constraint. Backward mode only. |
+
+**Activity Risk (the tornado chart).** The panel on the left, headed *Activity Risk* on screen. A two-sided bar chart ranking activities by how much each one's own uncertainty moves the *project* finish. **Read the top row as "the single activity whose estimate most controls the finish date."**
+
+Each row is a **signed pair straddling a vertical baseline**, in the diagram's `time-unit`:
+
+- **Left bar, `−` label** — how much **earlier** the project finishes if that activity alone lands on its optimistic (O) estimate.
+- **Right bar, `+` label** — how much **later** it finishes if that activity alone lands on its pessimistic (P) estimate.
+- **The baseline** is the finish with *every* activity at its mean (μ). Each bar is a one-at-a-time recompute against that baseline — not a re-simulation — so the pair answers "what does this one estimate buy me, or cost me?"
+
+Reading the rest of it:
+
+- **A row with no left bar** — `+9.5` and nothing on the minus side — means finishing that activity early doesn't pull the project in *at all*. It has slack, so being early only spends the slack, while being late still hurts. Normal for off-critical-path work.
+- **Rows sort by total swing** (left + right), longest first, and each **inherits the activity's criticality band color**.
+- **The baseline sits off-center** on most charts. Space is allocated proportionally to the longest bar on each side so neither gets squeezed, but one scale spans both — bars stay magnitude-comparable across the line.
+- **Activities with no spread never appear.** An O = M = P estimate, a milestone, or a TBD activity is dropped from the chart entirely.
+
+Activity Risk answers a different question than criticality: criticality asks *how often* an activity is on the critical path; Activity Risk asks *how much it matters when it is*. A short, high-criticality activity can sit below a longer, lower-criticality one — tighten the P estimate at the top of Activity Risk first.
 
 ### Interpreting the Output
 
@@ -418,7 +442,7 @@ If the gap between P50 and P95 is small, the schedule is robust. If it's wide, y
 
 - An activity with **criticality near 1** (red band) is on the critical path in nearly every trial — slipping it slips the whole project.
 - An activity with **criticality near 0** (surface tint) has slack — a delay there won't move the finish date.
-- The **top bar of the tornado** marks the activity whose uncertainty most controls the finish date. That's where to invest in risk reduction first — and it isn't always the reddest node, because a node can be reliably critical yet have so little spread that tightening it changes nothing.
+- The **top row of Activity Risk** marks the activity whose uncertainty most controls the finish date. That's where to invest in risk reduction first — and it isn't always the reddest node, because a node can be reliably critical yet have so little spread that tightening it changes nothing.
 
 **3. What if I had to cut scope?** Look at the light-tinted (green/blue/surface) activities — cutting them won't move the finish date. Cutting a red or orange activity will.
 
@@ -456,7 +480,7 @@ ship it 0.5 c: Ops
 - The **first declared group is active by default**; `active-tag <GroupName>`
   picks a different one, and `active-tag none` suppresses tag coloring entirely.
 - With tag coloring active, node fill shows the tag rather than the criticality
-  band — the criticality reading moves to the tornado and the analysis layer.
+  band — the criticality reading moves to Activity Risk and the analysis layer.
 
 ## Sprint Mode
 
@@ -560,7 +584,7 @@ If a latest-safe-start date falls in the **past** (you needed to start before to
 | Red / orange fill | High criticality — on the critical path in most trials | Protect it. Add buffer, assign your strongest people, track it closely. |
 | Yellow fill | Mid criticality — could swing either way | Watch it; a slip here may or may not move the finish. |
 | Green / blue / surface tint | Low criticality — slack to spare | Don't over-invest. Cuttable if scope tightens. |
-| Tall bar in the tornado | Activity whose uncertainty most controls the finish date | Tighten its P estimate or de-risk it first — bigger payoff than the criticality color alone suggests. |
+| Long bar in Activity Risk | Activity whose uncertainty most controls the finish date | Tighten its P estimate or de-risk it first — bigger payoff than the criticality color alone suggests. |
 | ◆ before name | Zero-duration sync point | A milestone or gate. Useful for tracking; adds no time to the project. |
 | Dashed border | Group bounding rect, **or** a TBD activity (no estimate) | If it's a group, just visual grouping. If it's TBD, finish estimating before relying on the analysis. |
 
