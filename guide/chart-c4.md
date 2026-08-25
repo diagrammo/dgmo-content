@@ -6,15 +6,15 @@ c4 Internet Banking System
 Customer is a person description: A customer of the bank
 
 Internet Banking is a system description: Allows customers to view accounts and make payments
-  -Delivers content to [HTTPS]-> Customer
-  -Sends emails using [SMTP]-> Email
+  -Delivers content over HTTPS-> Customer
+  -Sends emails using SMTP-> Email
 
   containers
     Web App is a container description: SPA for banking features, tech: React
-      -Makes API calls [JSON/HTTPS]-> API
+      -Makes API calls over JSON/HTTPS-> API
 
     API is a container description: JSON/HTTPS API backend, tech: Node.js
-      -Reads from and writes to [SQL/TCP]-> Database
+      -Reads from and writes over SQL/TCP-> Database
 
     Database is a container description: Stores account data, tech: PostgreSQL
 
@@ -52,7 +52,7 @@ c4 Diagram Title
 
 Name is a person description: ...
 Name is a system description: ...
-  -label [technology]-> Target
+  -label with technology-> Target
   ~async label~> Target
 
   containers
@@ -79,7 +79,7 @@ Analytics Platform is a system description: Multi-tenant analytics, tech: Node.j
 
 ## Shapes
 
-Shapes can be inferred from the element's technology or name, or declared explicitly:
+Shapes can be inferred from a container or component's technology or name, or declared explicitly. Static C4 rendering starts at Context level, whose person and system nodes do not carry a shape field; shape declarations on those nodes therefore have no visible effect.
 
 ```
 Database is a container is a database
@@ -93,8 +93,8 @@ Stripe is a system is an external
 | ---------- | --------------------------------------------------------- |
 | `database` | `tech: PostgreSQL`, `tech: MySQL`, names ending in `DB`   |
 | `cache`    | `tech: Redis`, `tech: Memcache`, names containing `Cache` |
-| `queue`    | `tech: RabbitMQ`, `tech: Kafka`, names containing `Queue` |
-| `cloud`    | Explicit `is a cloud` only                                |
+| `queue`    | Accepted, but currently renders as a plain rectangle      |
+| `cloud`    | Accepted, but currently renders as a plain rectangle      |
 | `external` | Explicit `is an external` only                            |
 
 ## Metadata
@@ -132,12 +132,12 @@ Database is a container
 
 ### Labeled Relationships
 
-Place the label inside the arrow. Add `[technology]` to annotate the protocol:
+Place the complete label inside the arrow. Bracketed technology suffixes are not special syntax; write the protocol as ordinary label text:
 
 ```
--Makes API calls [JSON/HTTPS]-> API
--Reads from and writes to [SQL/TCP]-> Database
-~Submits analytics queries [AMQP]~> Query Engine
+-Makes API calls over JSON/HTTPS-> API
+-Reads and writes over SQL/TCP-> Database
+~Submits analytics queries over AMQP~> Query Engine
 ```
 
 ### Arrow-Label Syntax
@@ -145,8 +145,8 @@ Place the label inside the arrow. Add `[technology]` to annotate the protocol:
 Labels can also be placed inside the arrow:
 
 ```
--Makes API calls [JSON/HTTPS]-> API
-~Sends events [AMQP]~> Queue
+-Makes API calls over JSON/HTTPS-> API
+~Sends events over AMQP~> Queue
 ```
 
 ## Hierarchy
@@ -179,15 +179,15 @@ There are two ways to get a static container-level deliverable:
 c4 Harbor Authority — Containers
 
 Ship Captain is a person
-  -Books berths via [HTTPS]-> Dock Board
+  -Books berths via HTTPS-> Dock Board
 
 Dock Board is a system tech: React
   description: Berth scheduling console for captains
-  -Books berths through [JSON/HTTPS]-> Manifest API
+  -Books berths through JSON/HTTPS-> Manifest API
 
 Manifest API is a system tech: Node.js
   description: Core API for berths, manifests, and tolls
-  -Reads and writes [SQL/TCP]-> Harbor Ledger
+  -Reads and writes over SQL/TCP-> Harbor Ledger
 
 Harbor Ledger is a system is a database tech: PostgreSQL
   description: Berths, manifests, tariffs, and toll receipts
@@ -196,6 +196,8 @@ Harbor Ledger is a system is a database tech: PostgreSQL
 Suffix the title with the level (`— System Context`, `— Containers`) so the view names itself. The shipped examples `c4-context.dgmo` and `c4-containers.dgmo` are a matched pair in this style — but note the containers one is authored for the app's drill-down, so rendering it statically yields its Context view.
 
 **Or drill in the app and export.** Open the nested file, click down to the level you want, and export from there; the export captures the view currently on screen.
+
+Drillable system cards carry a solid accent bar along their bottom edge. A drilled view adds an outer boundary frame with a synthesized italic `<Name> — system` heading. Context cards also include a stereotype band (`«person»` or `«system»`) and divider; people add a stick figure.
 
 Keep one level per file either way. A single file that mixes context and container elements produces a diagram that violates the model it claims to follow.
 
@@ -237,6 +239,8 @@ tag Team as t
 
 Then reference tags in metadata: `API is a container tech: Node.js, t: Product`.
 
+On container and component cards, arbitrary metadata is visible: keys become capitalized rows, with `tech` rendered as `Technology:`. For example, `team: Platform` prints a `Team: Platform` row.
+
 ## Deployment
 
 Map containers to infrastructure with the `deployment` section:
@@ -268,7 +272,7 @@ Header directives, written at indent 0 above the content:
 | `no-title` | (flag) | Hide the title line. |
 | `no-legend` | (flag) | Hide the legend. |
 
-| `direction-tb` \| `direction-lr` | (flag) | Layout flow. Default is left-to-right. |
+| `direction-tb` \| `direction-lr` | (flag) | Layout flow. Default is top-to-bottom. |
 
 `layout` is **rejected** on C4 — it errors, because there is a single layered layout with no algorithm to select. To change orientation use `direction-tb` (default) or `direction-lr`. Options are only recognized in the header region, above the first element; an option line written after content becomes an "Unexpected content" error.
 
@@ -322,7 +326,7 @@ They will not. See [Rendering a specific zoom level](#rendering-a-specific-zoom-
 
 ### Trailing comments
 
-Comments are **full-line only**. A `//` after content on a line is absorbed into the value rather than stripped:
+Comments are **full-line only**. A trailing `//` is absorbed only after a line already contains key-value metadata. On a bare declaration it is a hard parse error that replaces the diagram:
 
 ```
 // core API serving all frontends
@@ -349,31 +353,31 @@ End User is a person description: Views dashboards and creates reports
 Account Admin is a person description: Manages workspace settings and members
 
 Analytics Platform is a system description: Multi-tenant analytics and reporting
-  -Serves dashboards to [HTTPS]-> End User
-  -Provides admin console to [HTTPS]-> Account Admin
-  ~Sends scheduled reports via [SMTP]~> Email Service
+  -Serves dashboards over HTTPS-> End User
+  -Provides admin console over HTTPS-> Account Admin
+  ~Sends scheduled reports via SMTP~> Email Service
 
   containers
     [Frontend]
       Dashboard App is a container tech: React, t: Product
         description: Interactive data visualization SPA
-        -Fetches data from [JSON/HTTPS]-> API Gateway
+        -Fetches data over JSON/HTTPS-> API Gateway
 
       Admin Console is a container tech: React, t: Product
         description: Workspace and user management
-        -Manages settings via [JSON/HTTPS]-> API Gateway
+        -Manages settings via JSON/HTTPS-> API Gateway
 
     [Backend]
       API Gateway is a container tech: Node.js, t: Product
         description: REST API serving all frontends
-        -Reads/writes user data [SQL/TCP]-> App Database
-        -Reads/writes sessions [TCP]-> Cache
-        ~Submits analytics queries [AMQP]~> Query Engine
+        -Reads/writes user data over SQL/TCP-> App Database
+        -Reads/writes sessions over TCP-> Cache
+        ~Submits analytics queries over AMQP~> Query Engine
 
       Query Engine is a container tech: Node.js, t: Data
         description: Processes analytics queries asynchronously
-        -Runs queries against [SQL/TCP]-> Data Warehouse
-        ~Publishes results [AMQP]~> Event Bus
+        -Runs queries over SQL/TCP-> Data Warehouse
+        ~Publishes results over AMQP~> Event Bus
 
     [Data]
       App Database is a container tech: PostgreSQL, t: Product

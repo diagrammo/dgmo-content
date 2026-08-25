@@ -92,14 +92,14 @@ OrderService ~publish event~> EventBus
 
 This creates five participants, each with a different shape — no declarations needed.
 
-The inference rules are checked in priority order (first match wins):
+The inference rules are checked in priority order (first match wins). An explicit declaration overrides them; automatic matches then run database → cache → queue → actor, so a name such as `AdminDB` is a database rather than an actor:
 
 | Type       | Shape               | Naming Patterns                                                                                      |
 | ---------- | ------------------- | ---------------------------------------------------------------------------------------------------- |
-| `actor`    | Stick figure        | `User`, `Customer`, `Admin`, `Guest`, `Visitor`, `Operator`, Alice, Bob, Charlie                     |
 | `database` | Cylinder            | Names ending in `DB`; `Database`, `Store`, `Storage`, `Repo`, `Postgres`, `MySQL`, `Mongo`, `Dynamo` |
 | `cache`    | Dashed cylinder     | `Cache`, `Redis`, `Memcache`, `KeyDB`, `Dragonfly`, `Hazelcast`, `Valkey`                            |
 | `queue`    | Horizontal cylinder | `Queue`, `Kafka`, `RabbitMQ`, `EventBus`, `SQS`, `SNS`, `PubSub`, `Topic`, `Stream`, `Broker`        |
+| `actor`    | Stick figure        | `User`, `Customer`, `Admin`, `Guest`, `Visitor`, `Operator`, Alice, Bob, Charlie                     |
 | `default`  | Rectangle           | Anything unrecognized                                                                                |
 
 Inference is intentionally narrow — only names whose role is unambiguous at a glance get a distinctive shape. Anything else (services, gateways, UI, third-party providers) falls through to the default rectangle.
@@ -129,9 +129,9 @@ sequence Order History
 User -fetch past orders-> "Order History Service"
 ```
 
-> **`as <alias>` needs same-line metadata to take effect.** The alias is only peeled off when the declaration also carries `key: value` metadata — `Svc as s env: Prod` works, but a bare `Svc as s` folds the words into the participant's own name and every message using `s` then targets a participant that does not exist. Until that is fixed, quote the full name instead of aliasing it.
+> **`as <alias>` needs same-line metadata to take effect.** The alias is only peeled off when the declaration also carries `key: value` metadata — `Svc as s env: Prod` works, but a bare `Svc as s` is discarded with an `Unexpected line` warning and creates no participant. Until that is fixed, quote the full name instead of aliasing it.
 
-The keywords `service`, `frontend`, `networking`, `gateway`, and `external` were removed in dgmo 0.16.0 — they emit a parse error. Drop the `is a` clause and the participant renders as the default rectangle.
+The old keywords `service`, `frontend`, `networking`, `gateway`, and `external` are no longer participant types. A line such as `Vault is a service` is accepted without a diagnostic but does not declare the intended typed participant. Drop the `is a` clause and let the name render as the default rectangle.
 
 ## Participant Ordering
 
@@ -177,6 +177,8 @@ API -query-> UserDB
 // Auto-return: UserDB → API (dashed)
 // Auto-return: API → User (dashed)
 ```
+
+The response heuristic also restyles an authored message that closes the active call as a dashed, muted return arrow. The source arrow remains an authored, numbered message even though it looks like an automatic return.
 
 ### Async / Fire-and-Forget
 
@@ -309,7 +311,7 @@ The positioning keywords work on a multi-line head too — `note right of API` o
 
 ## Sections
 
-Full-width horizontal dividers to organize phases:
+Full-width horizontal dividers to organize phases. In the app each section is a fold button. Folding it replaces the messages with a capsule labelled `Name (N messages)`, a dashed reach line, and per-participant traffic marks:
 
 ```
 == Authentication ==
@@ -360,6 +362,10 @@ OrderService -charge-> PaymentGateway
 OrderService -record-> OrderDB
 ```
 
+Collapsed groups also remove member names from the drawing. Messages between two members become labelled self-call loopbacks on the folded group, which gains a collapse bar and toggle.
+
+Participant labels wrap at camelCase boundaries. Cards cap at 225px wide and ellipsize text that still does not fit.
+
 ## Activation Bars
 
 Thin vertical rectangles on lifelines show when a participant has an active call. They are computed automatically from the call stack:
@@ -400,14 +406,14 @@ tag Concern as c
 Use `key: value` after participant declarations, message lines, or group headers:
 
 ```
-API concern: Caching, team: Platform
+API concern: Caching
 User -login-> API concern: Auth
 [Backend] concern: BusinessLogic
   OrderAPI
   DB
 ```
 
-- Multiple tags: `key1: val1, key2: val2`
+- Multiple tags are allowed only for declared tag-group names (or their aliases). Arbitrary keys such as `team: Platform` warn as unknown metadata unless a `Team` tag group was declared.
 - Aliases work: `c: Caching` (if `tag Concern as c` was declared)
 
 ### Tag Resolution

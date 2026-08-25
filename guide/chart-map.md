@@ -64,15 +64,15 @@ The first line declares the chart type and an optional title. **Type `map`, name
 You never pick a projection — it's inferred from what you reference. The renderer takes the bounding box of everything (valued or tagged regions, POIs, edge endpoints), pads it, and measures the span:
 
 - **US-only** → `albers-usa` (conic; Alaska/Hawaii appear as insets only when you reference them).
-- **World-scale with data** (a region/POI carries a heat/size value or tag) → **Equal Earth** (equal-area, so a choropleth's shading isn't distorted by the projection).
-- **World-scale reference** (no data) → **natural-earth** (the prettier curved compromise).
-- **Tight regional cluster** → `mercator`.
+- **World-scale**, with or without data → `equirectangular`.
+- **A tight cluster or single continent** → `conic-equal-area`.
+- **Sub-national US content** → `mercator`.
 
-A map whose content is **entirely US** — including one built from US cities alone — renders as the conventional US states map: every state outlined, even with no data. Name a single non-US place and it falls back to a geographic world/regional frame. The basemap, projection, and US scoping are always inferred from what you name — there is no override.
+A map whose content is **entirely US** — including one built from US cities alone — renders as the conventional US states map: every state outlined, even with no data. Canada and Mexico still count as North-American, US-oriented content; a place outside that scope switches to a world/regional frame. The basemap, projection, and US scoping are always inferred from what you name — there is no override.
 
 ## Region fill — heat (choropleth)
 
-A subdivision name on its own line with a `heat:` fills it from a single-hue tint ramp. The ramp **auto-fits** with no configuration: for all-non-negative data the low end anchors at **0** (so every such map shares a 0 baseline); mixed-sign data fits data-min→data-max. Subdivisions with no heat value or tag render as the neutral base.
+A subdivision name on its own line with a `heat:` fills it from a single-hue tint ramp. The ramp **auto-fits data-min→data-max** with no zero anchor. Subdivisions with no heat value or tag render as the neutral base.
 
 ```dgmo
 map World Coffee Production
@@ -117,7 +117,7 @@ Philippines t: Frontier
 Bangladesh t: Frontier
 ```
 
-A region can carry **both** a `heat:` and a tag (bivariate). Both are kept as selectable colouring dimensions: the legend shows the heat ramp and each tag group. The heat ramp fills by default whenever any region has a heat value; `active-tag <GroupName>` switches the fill to a tag group instead (and `active-tag <HeatLabel>` — the `region-heat` label, or `Heat` — switches back to the ramp).
+A region can carry **both** a `heat:` and a tag (bivariate). Both are kept as selectable colouring dimensions: the legend shows the heat ramp and each tag group. The heat ramp fills by default whenever any region has a heat value; `active-tag <GroupName>` switches the fill to a tag group instead. The ramp's selectable group name is `Value` (not `Heat` or the displayed `region-heat` label).
 
 ### Direct color (highlight one region)
 
@@ -133,7 +133,7 @@ Dominican Republic red
 Haiti purple
 ```
 
-A direct color wins over both the heat ramp and a tag on the same region. (Put it before any metadata: `Cuba orange heat: 90`.)
+A direct color wins over both the heat ramp and a tag on the same region. (Put it before any metadata: `Cuba orange heat: 90`.) Using even one direct region colour also disables automatic political colouring across the whole map.
 
 ## Points of Interest
 
@@ -162,9 +162,9 @@ poi 59.33 18.07 as stockholm teal
 ```
 
 - **Coordinates are positional** — two leading signed numbers, latitude then longitude. Cities never start with a number, so there's no ambiguity.
-- `size:` scales the marker area; pair it with `poi-size Label` for a legend key.
+- `size:` scales the marker area. `poi-size Label` is parsed but currently does not produce a legend or other visible output.
 - A trailing color sets the marker fill directly — `poi Mumbai red` — winning over a tag colour and the default orange; no tag group needed.
-- POI properties: `label`, `size`, `style`, `clock`, an applied tag alias, and `as`. There are no POI icons in v1.
+- POI properties: `label`, `size`, `clock`, an applied tag alias, and `as`. `style:` is reserved and peeled from the line, but currently has no rendered effect. There are no POI icons in v1.
 - Coord-positioned or relabeled POIs take `as <alias>` so routes and edges can reference them; named POIs are referenced by name.
 
 ## Live local-time cards
@@ -186,7 +186,7 @@ poi Sydney clock label: Pacific
 - **`clock` (bare flag)** — the POI's IANA time zone is derived from the gazetteer, so a named city needs no zone. Peel it anywhere on the line (`poi Tokyo clock, size: 80`).
 - **`clock: <zone>` (valued)** — names the zone explicitly. **Required for a bare-coordinate pin** (no gazetteer entry to derive from), and an override on a named city. Takes an IANA id (`clock: Asia/Tokyo`) or a fixed offset (`clock: UTC+9`, DST-blind). A zone that contradicts a known city's real zone warns but is honored.
 - **`label:` names the office** — a multi-word display name lives on `label:`, not `as` (the map's `as` alias is a single ≤12-char token that doesn't render).
-- **`hours 9-17` + `workweek mon-fri`** — header directives that set one availability window applied to every clock pin, each evaluated **in its own local zone**. They drive the status dot: open, closing soon, or closed. Ranges accept `9-17`, `9am-5pm`, or `8:30-5:15`; `workweek` takes `mon-fri` or a list like `mon,wed,fri`. `workweek` needs `hours` to have any effect.
+- **`hours 9-17` + `workweek mon-fri`** — header directives that set one availability window applied to every clock pin, each evaluated **in its own local zone**. They drive the status dot and a live status caption such as `3h 12m left` or `Weekend`. Ranges accept `9-17`, `9am-5pm`, or `8:30-5:15`; `workweek` takes `mon-fri` or a list like `mon,wed,fri`. `workweek` needs `hours` to have any effect. A leader connects the card to its marker, and cards near the frame top flip below it.
 
 A bare-coordinate pin needs the valued form to place its zone:
 
@@ -204,7 +204,7 @@ poi 39.74 -104.98 as field clock: America/Denver
 
 ## Routes & Connectors
 
-`route <origin>` starts an ordered, auto-numbered voyage; each indented line is an `<arrow> destination` **leg** that continues from the previous stop, using the same indented arrow idiom as a sitemap. A leg is an edge — the in-arrow text labels it, `width:` sets its thickness, and the arrow glyph alone sets its shape (`-…->` straight, `~…~>` arc, mixable per leg). The arrow is required — a bare destination errors. A tag or `label:` on a leg line decorates the *destination* stop. Repeat the origin as the last destination to close a loop (drawn without a second marker). The origin gets a distinct marker; to size an intermediate stop, declare it as a `poi`.
+`route <origin>` starts an ordered, auto-numbered voyage; each indented line is an `<arrow> destination` **leg** that continues from the previous stop, using the same indented arrow idiom as a sitemap. The origin must be alone on the `route` line — `route JFK -> LAX` treats the entire remainder as one origin and errors. A leg is an edge: in-arrow text labels it, `width:` sets its thickness, and the arrow glyph sets its requested shape (`-…->` straight, `~…~>` arc). The arrow is required. A tag on a leg colours the leg line; `label:` decorates the destination stop. Repeat the origin as the last destination to close a loop (drawn without a second marker). The origin gets a distinct marker; to size an intermediate stop, declare it as a `poi`.
 
 ```dgmo
 map South America Tour
@@ -231,7 +231,7 @@ poi Singapore as hub
 Mumbai -ships-> Singapore width: 22
 ```
 
-`~>` curves a single edge. There's no geographic path-finding — legs are straight or arced.
+`~>` curves a single edge. There's no geographic path-finding. When two or more edges share the same endpoint pair, every one is forced curved and fanned apart by 16px regardless of the glyph in source.
 
 ### Edge arrows
 
@@ -257,7 +257,7 @@ Casablanca -- Dakar
 
 ## Labels & Legend
 
-Region and POI labels are **on by default** and render **on the map** (export-safe). Region labels fit themselves automatically: the full name shows when it fits, a US-state two-letter abbreviation is tried when it doesn't, and the label hides rather than overlap or spill onto the ocean (`full → abbrev → hide`). POI labels are collision-managed, escalating from inline → leader line → numbered pin in dense clusters. Markers never move. Narrow embeds (a wide map in a column under ~480px) prefer abbreviations and drop reference relief, as if zoomed out.
+Region and POI labels are **on by default** and render **on the map** (export-safe). Region labels fit themselves automatically: the full name shows when it fits, a US-state two-letter abbreviation is tried when it does not, then a short-hop callout chip and leader may move the label outside the region. POI collisions use a tidy callout column down the margin rather than numbered pins. Markers never move. Narrow embeds (a wide map in a column under ~480px) prefer label abbreviations; relief remains on unless `no-relief` is present.
 
 The only label/legend directives name a channel or attribute the data:
 
@@ -265,8 +265,8 @@ The only label/legend directives name a channel or attribute the data:
 |-----------|--------|
 | `caption Text` | Caption below the map (data-source attribution; travels with the exported image). |
 | `region-heat Label` | Names the region heat-ramp legend. |
-| `poi-size Label` | Names the POI marker-size channel. |
-| `flow-width Label` | Names the edge/leg width (thickness) channel. |
+| `poi-size Label` | Parsed and stored, but currently has no visible effect. |
+| `flow-width Label` | Parsed and stored, but currently has no visible effect. |
 | `active-tag Group` | Which tag group leads when several are present. |
 
 ## Turning things off
@@ -288,7 +288,7 @@ Everything cosmetic is on by default. The only switch is a bare `no-*` opt-out �
 | `no-title` | The title banner. |
 
 The four basemap flags for a plain, data-journalism look are `no-coastline`,
-`no-relief`, `no-context-labels`, and `no-cities`.
+`no-relief`, `no-context-labels`, and `no-cities`. Rivers and lakes still draw on every map; there is currently no directive that disables them.
 
 ## Name Resolution
 
@@ -297,7 +297,7 @@ The four basemap flags for a plain, data-journalism look are `no-coastline`,
 - `locale <ISO>` sets a default scope for bare names — a country (`locale US`) or subdivision (`locale US-GA`, which prefers cities in that state). Inferred from content if unset.
 - **Disambiguate once:** add a trailing ISO code at first mention — `San Jose CR` (country) or `Portland US-OR` (subdivision) — then use the bare name. Two same-named cities → give each an `as <alias>`.
 - The country-vs-state collision (`Georgia` = country `GE` or US state `US-GA`) is resolved by ISO code (`US-GA heat: 5`) or name + scope (`Georgia US heat: 5`).
-- **Airport codes:** a three-letter **IATA code** resolves to that airport — `poi JFK`, `route JFK -> LAX` — for large international hubs and all US scheduled-commercial airports. Case-insensitive, resolved by code only (not by airport name), and the marker label is the code. A code that is also a city name yields the **city** (the airport is the lower-precedence match); an unknown code suggests the `as <CODE>` coordinates escape.
+- **Airport codes:** a three-letter **IATA code** resolves to that airport — `poi JFK`, or `route JFK` followed by an indented `-> LAX` leg — for large international hubs and all US scheduled-commercial airports. Case-insensitive, resolved by code only (not by airport name), and the marker label is the code. A code that is also a city name yields the **city** (the airport is the lower-precedence match); an unknown code suggests the `as <CODE>` coordinates escape.
 - Positional coordinates are the escape hatch for anything missing or ambiguous (including forcing an airport over a same-named city: `poi 54.56 55.87 as UFA`).
 
 ## Directives & Reserved Keys

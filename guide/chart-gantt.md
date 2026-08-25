@@ -176,7 +176,7 @@ Release Day 0d
 
 ## Uncertain Duration
 
-Append `?` to the duration unit to indicate an estimate. The bar fades out over its last 20%:
+Append `?` to the duration unit to indicate an estimate. The bar fades out over its last half, unless progress is above 80%, when the uncertainty fade is omitted:
 
 ```
 Rigging Overhaul 10bd?
@@ -252,6 +252,8 @@ workweek sun-thu
 
 The default workweek is Mon-Fri. Override with `workweek` using a day range (`sun-thu`) or comma-separated days (`mon, tue, wed, thu`).
 
+Weekends are always visible as full-height grey bands. Holidays use darker labelled bands; their labels appear on hover in the interactive viewer and are absent from a static export.
+
 ## Swimlane Mode
 
 Use `lane-by GroupName` to reorganize the chart into horizontal swimlanes grouped by tag value:
@@ -277,17 +279,16 @@ Each tag value gets its own collapsible lane. It's named `lane-by` rather than `
 | ---------------- | -------------------------------------------------------- | ---------- |
 | `start-date`     | Project start date (`YYYY-MM-DD`)                        | Today      |
 | `today-marker`   | Show today marker (bare keyword or `YYYY-MM-DD`)         | off        |
-| `critical-path`  | Highlight the critical path                              | off        |
-| `no-dependencies`| Hide dependency arrows                                   | shown      |
+| `critical-path`  | Include critical-path data for the interactive viewer; the viewer toggle starts off | off |
+| `no-dependencies`| Include dependency data for the interactive viewer; arrows start hidden | hidden |
 | `sort`           | Task layout: `tag` or `tag:GroupName` for swimlanes      | `default`  |
 | `active-tag`     | Group to color by (first declared is active by default; `none` suppresses) | first group |
-| `fill-solid`     | Render bars at full saturation instead of 25% tint       | off        |
 | `no-title`       | Suppress the chart banner title                          | off        |
 | `sprint-length`  | Sprint duration (`2w`, `10d`)                            | `2w`       |
 | `sprint-number`  | Which sprint the chart starts at                         | `1`        |
 | `sprint-start`   | Date that `sprint-number` begins (`YYYY-MM-DD`)          | chart start|
 
-Settings are bare keywords (no colons). Boolean settings toggle on by writing the keyword and off with `no-` prefix (e.g., `no-dependencies`).
+Settings are bare keywords (no colons). `critical-path` and dependency visibility are interactive-viewer controls: an exported SVG starts with both highlights and arrows hidden, even when the source carries the setting.
 
 ### Sprint Mode
 
@@ -304,6 +305,12 @@ sprint-start 2026-01-05
   Recon Harbors 2sp
   Map Defenses 1sp
 ```
+
+Sprint mode adds alternating sprint bands, numbered sprint labels, and dashed boundaries. If the chart contains any `era`, the sprint bands are suppressed.
+
+Groups are more than headings: each group row has a shaded band, accent stripe, disclosure glyph, and roll-up bar. Collapsing one replaces its task rows with a synthesized `Name NN%` summary.
+
+Task labels begin with a coloured `●` (task) or `◆` (milestone). Labels drawn on a bar truncate with an ellipsis when space is tight and disappear when they cannot fit. A dated `today-marker` is still captioned literally `Today`, and is silently omitted when its date falls outside the chart span.
 
 ## Comments
 
@@ -395,13 +402,10 @@ marker 2024-04-08 Landfall orange
 
 ## Appearance
 
-Every chart accepts the universal appearance directives:
+Gantt deliberately opts out of the universal fill modes: `fill-tint`, `fill-solid`, and `fill-outline` are accepted but do not change the bars.
 
 | Directive | Effect |
 | --------- | ------ |
-| `fill-tint` | Soft tinted fills (default). |
-| `fill-solid` | Saturated solid fills. |
-| `fill-outline` | Outline only, no fill. |
 | `no-title` | Hide the title line. |
 | `no-legend` | Hide the legend. |
 

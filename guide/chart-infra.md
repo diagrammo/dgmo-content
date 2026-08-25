@@ -126,7 +126,7 @@ default-latency-ms 15
 default-uptime 99.95
 slo-availability 99.9%
 slo-p90-latency-ms 250
-slo-warning-margin 0.02
+slo-warning-margin 5
 
 Internet
   rps: 5000
@@ -148,13 +148,13 @@ Orders
 | `default-rps`         | `default-rps 8000`      | Fallback entry RPS when the `Edge`/`Internet` node omits `rps:`      | none     |
 | `default-latency-ms`  | `default-latency-ms 15` | Latency for components without explicit `latency-ms`                 | `0`      |
 | `default-uptime`      | `default-uptime 99.95`  | Uptime % for components without explicit `uptime`                    | `100`    |
-| `slo-availability`    | `slo-availability 99.9%`| Target availability % — drives SLO highlighting on system totals     | none     |
-| `slo-p90-latency-ms`  | `slo-p90-latency-ms 250`| Target p90 latency in ms — drives SLO highlighting on system totals  | none     |
-| `slo-warning-margin`  | `slo-warning-margin 0.02` | Fraction below the SLO that triggers a warning state instead of a breach | `0.05` |
+| `slo-availability`    | `slo-availability 99.9%`| Target availability % — drives per-node card highlighting            | none     |
+| `slo-p90-latency-ms`  | `slo-p90-latency-ms 250`| Target p90 latency in ms — drives per-node card highlighting          | none     |
+| `slo-warning-margin`  | `slo-warning-margin 5` | Percentage value divided by 100 internally; `5` reproduces the `0.05` default | `0.05` |
 | `active-tag`          | `active-tag Team`       | Tag dimension to color by (first declared is active by default; `none` suppresses) | first group |
 | `direction-lr` / `direction-tb` | `direction-tb` | Layout flow. Bare keyword, no value.                                  | `direction-lr` |
 
-The universal appearance flags (`fill-tint`, `fill-solid`, `fill-outline`, `no-title`, `no-legend`) are also bare keywords written here — see [Appearance](#appearance).
+The supported appearance flags `no-title` and `no-legend` are also bare keywords written here — see [Appearance](#appearance). Infra accepts `fill-tint`, `fill-solid`, and `fill-outline`, but deliberately does not apply them.
 
 The three `slo-*` keys can *also* be written as properties on an individual component, in their colon form (`slo-availability: 99.9%` indented under a node). A component-level value overrides the diagram-wide setting for that node. This dual role is why the colonized top-level form fails so confusingly — the colon form is real syntax, just not at indent 0.
 
@@ -186,7 +186,7 @@ APIServer
   uptime: 99.95%
 ```
 
-Names must start with a letter or underscore and can contain letters, numbers, and underscores.
+Unquoted names must start with a letter or underscore and can also contain spaces and hyphens. Quote a name when it contains parser-significant punctuation such as `|`, `:`, or `(`.
 
 ### Quoted names
 
@@ -230,13 +230,13 @@ Connect components with arrow syntax:
 | `~event~> Target`          | labeled async          |
 | `-> Target fanout: 5`      | request amplification  |
 
-Connections define the directed acyclic graph (DAG) that traffic flows through. **Cycles are not allowed** — DGMO will report an error.
+Connections are intended to define a directed acyclic graph (DAG), but the infra-specific validator is not currently invoked. A cycle can therefore validate cleanly and produce incorrect traffic numbers. Until that is fixed, inspect connections for cycles before trusting the simulation.
 
 ### Sync vs. async
 
 Sync arrows (`->`) represent request/response traffic — the caller is waiting and downstream latency contributes to the caller's response time.
 
-Async arrows (`~>`) represent fire-and-forget messaging — events published to a bus, work enqueued for a worker, webhook deliveries. Async edges render with a wiggle pattern and **do not contribute to the caller's cumulative latency**. Use them for:
+Async arrows (`~>`) represent fire-and-forget messaging — events published to a bus, work enqueued for a worker, webhook deliveries. Async edges render as dashed lines (`6 4`) and **do not contribute to the caller's cumulative latency**. Use them for:
 
 - Pub/sub event publishing
 - Background job dispatch (before the queue node)
@@ -360,7 +360,7 @@ If EventBus emits 1,000 events/s:
 
 ### Fan-Out badge
 
-Any source with at least one outgoing fanout edge (where `N > 1`) automatically gains a **Fan-Out** capability badge — it appears in the legend and on the node card, just like Cache, Firewall, or Queue. This makes amplification points visible at a glance.
+Any source with at least one outgoing fanout edge (where `N > 1`) is marked internally with the **Fan-Out** capability. It does not currently appear as a badge on the node card. Capability dots and the Capabilities legend appear only when `active-tag Capabilities` selects that built-in dimension; declaring your own tag group can prevent that view from being active.
 
 ### Rules
 
@@ -376,7 +376,7 @@ Each property maps to a specific behavior in the traffic simulation. The section
 
 ### Capability badges
 
-Diagrammo infers a component's **role** from its properties and surfaces it as a colored badge on the node card and in the legend. There are no `type:` declarations — the properties speak for themselves.
+Diagrammo infers a component's **role** from its properties. Capability dots and the Capabilities legend surface those roles only when `active-tag Capabilities` is active. There are no `type:` declarations — the properties speak for themselves.
 
 | Badge            | Color   | Triggered by                                          |
 | ---------------- | ------- | ----------------------------------------------------- |
@@ -389,7 +389,7 @@ Diagrammo infers a component's **role** from its properties and surfaces it as a
 | Queue            | Purple  | `buffer`                                              |
 | Fan-Out          | Orange  | ≥ 1 outgoing edge with `fanout > 1`                   |
 
-A node can carry multiple badges (e.g. a cache that is also a rate limiter). The badge legend is computed from the diagram — nothing to declare.
+A node can carry multiple capabilities (e.g. a cache that is also a rate limiter). Select `active-tag Capabilities` to show their dots and computed legend.
 
 ### Description — `description`
 
@@ -471,6 +471,8 @@ When computed RPS exceeds capacity, the component is **overloaded** — shown wi
 
 If `instances` is omitted it defaults to 1. If `max-rps` is omitted the component has unlimited capacity.
 
+The card's RPS row is shown as `computed / effective capacity`. That denominator may come from `max-rps × instances`, `ratelimit-rps`, or (for serverless nodes) `concurrency / duration-ms`.
+
 ### Dynamic Scaling — `instances: min-max`
 
 A range like `instances: 1-8` makes DGMO compute the needed instance count:
@@ -490,6 +492,8 @@ actual  = clamp(needed, min, max)
 ```
 
 If the API receives 2,000 RPS: `needed = ceil(2000/300) = 7`, `actual = clamp(7, 1, 8) = 7`. But at 5,000 RPS: `needed = 17`, `actual = 8` (maxed out, overloaded).
+
+Whenever the computed instance count exceeds one, the card displays an `Nx` badge, including counts derived from an authored range rather than typed directly.
 
 ### Latency — `latency-ms`
 
@@ -528,6 +532,8 @@ DB
 End-to-end: `99.95% × 99.99% ≈ 99.94%`
 
 Defaults to 100% (or `default-uptime` if set globally).
+
+When the path-product uptime differs from the component's declared value, the card adds a second `eff. uptime:` row for that effective figure.
 
 ### Circuit Breakers — `cb-error-threshold` and `cb-latency-threshold-ms`
 
@@ -753,7 +759,7 @@ Latency accumulates along the path from edge to each leaf:
 - Multiple incoming paths → DGMO takes the **maximum** (worst case)
 - Queues **reset** the chain — downstream starts from queue wait time
 
-**Percentiles (p50 / p90 / p99):** DGMO collects all edge-to-leaf paths, weights them by traffic volume, sorts by latency, and interpolates at the 50th/90th/99th weight thresholds.
+**Percentiles (p50 / p90 / p99):** DGMO collects downstream journeys from each node to the leaves, weights them by traffic volume, sorts by latency, and interpolates at the 50th/90th/99th weight thresholds. The p90 badge drawn on a node is therefore its downstream journey, not cumulative latency from the entry point.
 
 For serverless with cold starts, each path splits into a 95% warm sub-path and a 5% cold sub-path. Cold starts therefore affect p99 more than p50.
 
@@ -807,9 +813,7 @@ DGMO validates your diagram and reports diagnostics:
 
 | Check              | What it catches                                                    |
 | ------------------ | ------------------------------------------------------------------ |
-| Cycle detection    | Circular connections (must be a DAG)                               |
 | Split sum          | Split percentages not adding to 100%                               |
-| Orphan detection   | Components not reachable from the edge                             |
 | Overload           | RPS exceeding component capacity                                   |
 | Rate-limit excess  | Inbound RPS exceeding the rate limiter                             |
 | System uptime      | Overall uptime below 99%                                           |
@@ -865,22 +869,22 @@ Every component property takes a colon, so writing a setting the same way is the
 slo-availability: 99.9%
 ```
 
-At indent 0 this does **not** set the SLO. The name is split at the hyphen: DGMO creates a component named `slo-` carrying an unknown property `availability`, then reports that the component is unreachable. The diagnostics never mention the colon:
+At indent 0 this does **not** set the SLO. The parser creates a one-letter component (`s` for `slo-*`, `d` for `default-*`) carrying an unknown property, then may report that component as unreachable. The diagnostics never identify the colon as the cause:
 
 ```
 Unknown metadata key "availability".
-'slo-' is unreachable from an 'internet'/'edge' entry — no request traffic flows to it…
+'s' is unreachable from an 'internet'/'edge' entry — no request traffic flows to it…
 ```
 
-Every hyphenated setting fails the same way — `default-rps: 1000` yields a component named `default-`. The rule: **settings are `key value`, properties are `key: value`.** If a phantom component appears with a truncated, hyphen-ending name, you colonized a setting.
+Every hyphenated setting fails the same way — `default-rps: 1000` yields a component named `d`. The rule: **settings are `key value`, properties are `key: value`.** If an unexpected one-letter component appears, check whether you put a colon on a setting.
 
 ### Trusting the numbers because it validated
 
 A clean validate means the file **parsed**, not that the model is right. Nothing checks whether your `rps`, `latency-ms`, or `uptime` figures resemble reality, and this is the one chart type that publishes derived numbers as if they were measured. Read the rendered RPS and availability on each node and confirm they match what you expect before sharing the diagram — a modelling error here looks exactly like a correct answer.
 
-### Reading the p90 badge as this component's latency
+### Reading the p90 badge as this component's own latency
 
-The p90 shown on a node is the **cumulative** latency of the worst-weighted path from the entry point *up to and including* that node — not the time spent inside it. A node with `latency-ms: 5` can display a p90 of 2.5s because everything upstream of it is slow. The per-component figure is the one you wrote; the badge is the journey.
+The p90 shown on a node is the weighted **downstream journey from that node to the leaves**, not the time spent inside it and not cumulative latency from the entry point. A node with `latency-ms: 5` can display a much larger p90 because the services after it are slow. The genuinely cumulative latency is computed internally but is not drawn on the card.
 
 ### Assuming a sync fan-out means "both, every time"
 
@@ -971,13 +975,10 @@ StaticServer t: Platform
 
 ## Appearance
 
-Every chart accepts the universal appearance directives:
+Infra deliberately opts out of the universal fill modes: `fill-tint`, `fill-solid`, and `fill-outline` are accepted but do not change node fills.
 
 | Directive | Effect |
 | --------- | ------ |
-| `fill-tint` | Soft tinted fills (default). |
-| `fill-solid` | Saturated solid fills. |
-| `fill-outline` | Outline only, no fill. |
 | `no-title` | Hide the title line. |
 | `no-legend` | Hide the legend. |
 

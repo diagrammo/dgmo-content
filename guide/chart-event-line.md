@@ -56,7 +56,7 @@ event-line Title
 - **Description** = the **indented body** beneath the event. Lines starting with `- ` become bullets; `**bold**`, `*italic*`, `` `code` `` and `[links](url)` all render.
 - **Tags** color the events. Declare a `tag <Group> as <alias>` block before the first event, then add `alias: Value` as trailing metadata on an event line. Named colors only; the dot, leader, and card pick up the tag color.
 
-By default events are placed **to scale by date**. Add `no-scale` to space them evenly — the storytelling look — where the date becomes a pure caption.
+By default events are placed **to scale by date**, but only when every event has a usable date. One undated event switches the whole chart to even spacing. Add `no-scale` to choose that storytelling look explicitly, where dates become pure captions.
 
 ## Eras
 
@@ -74,7 +74,7 @@ Group a run of events into a labeled section of the spine with a `[Name]` bracke
 
 An event belongs to the era it is indented under; its description sits one level deeper still. Dedent back to the left margin (indent 0) for an event that sits **outside** any era. An era draws as a bracket on the side opposite the cards, labeled with its name.
 
-Add a trailing bare `collapsed` flag to the era line to fold it into a single summary card — its name as the title and a bulleted list of its member events — while a small bracket stays on the spine marking the era's span. In the desktop app you can click an era to collapse or expand it live; when several eras are collapsed, each summary card centers over its own spine bracket so a later era sits visibly right of an earlier one.
+Add a trailing bare `collapsed` flag to the era line to fold it into a single summary card — its name as the title and a bulleted list of its member events. On the spine it becomes a fixed-width 64px capsule rather than preserving the era's elapsed date span; the removed span also no longer contributes to the scale, so collapsing an era can respace the rest of the chart. A 5px break and rotated `≈` mark the omission. In the desktop app you can click an era to collapse or expand it live.
 
 In the desktop app you can also **click a legend entry to mute that category** — its event cards collapse to bare dots on the spine (hover a dot to peek its card), so a busy timeline quiets to just the categories you care about; muted members also drop from any collapsed era's bullet list. Both the era toggle and the legend mute are live preview only and never edit your source.
 
@@ -111,7 +111,7 @@ now 2025-06
 2025-11 Team spaces
 ```
 
-`now` alone tracks the **current date** — the marker slides as time passes. `now <date>` **pins** it to an explicit date (deterministic, snapshot-safe); a trailing token overrides the caption (`now 2025-06 Today`). It renders as a palette-**red** diamond planted on the spine with a small tab, plus a dotted "today line" that fades out near the axis. **The tab prints the date the pin resolved to** — `Jun 2025` for the pinned example above, today's date for a bare `now` — so a reader can tell a diagram that redraws from a picture of one that stopped — hover the marker in the desktop app to extend the line full-height. Because it rides the date axis it is drawn **only on a to-scale timeline** (every event dated); under `no-scale` it is ignored. A `now` past the last dated event rides out onto a trailing-`TBD` open horizon if there is one, else clamps to the last event.
+`now` alone tracks the **current date** — the marker slides as time passes. `now <date>` **pins** it to an explicit date (deterministic, snapshot-safe); a trailing token overrides the caption (`now 2025-06 Today`). If that token is a named colour, it colours the marker instead of becoming the caption (`now 2025-06 green`). It renders as a palette-red diamond by default, planted on the spine with a small tab, plus a dotted today line whose gradient is strongest at the axis and fades away from it. **The tab prints the date the pin resolved to** — `Jun 2025` for the pinned example above, today's date for a bare `now` — so a reader can tell a diagram that redraws from a picture of one that stopped. Hover the marker in the desktop app to extend the line full-height. Because it rides the date axis it is drawn **only on a to-scale timeline** (every event dated); under `no-scale` or when any event is undated it is ignored. A `now` past the last dated event rides out onto a trailing-`TBD` open horizon if there is one, else clamps to the last event.
 
 ## Directives
 
@@ -119,7 +119,7 @@ now 2025-06
 | --------- | ------ |
 | `no-scale` | space events evenly instead of by date (dates become captions) |
 | `side above` / `side below` | place all cards on one side instead of alternating |
-| `no-box` | card-less slide style: a tag-colored label, a rule, and the description — no box |
+| `no-box` | card-less slide style: title and date on a filled, tag-tinted shelf with the description below; no border or divider rule |
 | `no-legend` | hide the tag legend |
 | `now` / `now <date>` | mark "today" — a red pin captioned with its date, plus a dotted today-line (to-scale only; see [The now marker](#the-now-marker)) |
 
