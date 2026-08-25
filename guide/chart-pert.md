@@ -344,7 +344,7 @@ The renderer then:
   | ≥ 0.02 | blue | Rare but real. |
   | < 0.02 | surface tint | Effectively never on the critical path — slack to spare. |
 
-- **Reports P50 / P80 / P95** project-completion percentiles and an expected-duration headline in the analysis layer below the diagram (see *Analysis Widgets*).
+- **Reports P50 / P80 / P95** project-completion percentiles as labelled reference lines on the S-curve (see *Analysis Widgets*). The expected-duration headline sits in the subtitle under the diagram title, where it shows whether or not the analysis layer is on.
 
 The simulator uses a deterministic mulberry32 PRNG; a given (seed, inputs) tuple produces the same output across machines.
 
@@ -396,7 +396,7 @@ Two Monte-Carlo widgets render in a row beneath the network, **by default** — 
 
 When the data only supports analytical mode — no O/M/P triple anywhere — the widgets render nothing regardless.
 
-**S-curve (completion-probability curve).** The cumulative distribution of project finish times across all trials. The x-axis is the finish date (or offset); the y-axis is the probability of being done by that point, rising 0 → 1. Vertical reference lines mark the P50 / P80 / P95 dates, and the expected-duration headline rides as the curve's title. A steep curve means a tight, predictable schedule; a long shallow tail means the worst case is far out — that tail is your risk. In backward `end-date` mode the curve flips meaning — see *Anchoring to a Calendar*.
+**S-curve (completion-probability curve).** The cumulative distribution of project finish times across all trials. The x-axis is the finish date (or offset); the y-axis is the probability of being done by that point, rising 0 → 1. Vertical reference lines mark the P50 / P80 / P95 dates, each labelled with its date — **this chart is the only place those dates are printed**, so `no-analysis` hides them along with the widgets. The expected-duration headline is not repeated here; it lives in the subtitle under the diagram title. A steep curve means a tight, predictable schedule; a long shallow tail means the worst case is far out — that tail is your risk. In backward `end-date` mode the curve flips meaning — see *Anchoring to a Calendar*.
 
 **Tornado (sensitivity ranking).** A horizontal bar chart ranking activities by how much their individual uncertainty moves the *project* finish — the Schedule Sensitivity Index. Each bar shows the swing in project completion between the activity finishing at its optimistic (O) versus pessimistic (P) end; bars sort longest-first and inherit the activity's criticality band color. **Read the top bar as "the single activity whose estimate most controls the finish date."** It answers a different question than criticality: criticality asks *how often* an activity is on the critical path; the tornado asks *how much it matters when it is*. A short, high-criticality activity can sit below a longer, lower-criticality one — tighten the P estimate at the top of the tornado first.
 
@@ -404,7 +404,7 @@ When the data only supports analytical mode — no O/M/P triple anywhere — the
 
 The analysis answers three practical questions:
 
-**1. When will this finish?** The P50 / P80 / P95 percentiles in the analysis layer (the S-curve's reference lines and headline) — *in forward or no-anchor mode*:
+**1. When will this finish?** The P50 / P80 / P95 percentiles on the S-curve's reference lines — *in forward or no-anchor mode*:
 
 - **P50** — 50% chance of finishing by this date. Half the time you'll be earlier, half later. Don't promise this date externally.
 - **P80** — 80% chance of finishing by this date. A reasonable date to commit to a stakeholder if you have a little slack to spare.
@@ -539,11 +539,11 @@ P50 / P80 / P95 reframe as **latest-safe starts**:
 
 The S-curve flips with the framing: x-axis is candidate start date, y *falls* 1 → 0 — "chance we still hit the deadline if we start by date X." The right edge of the chart (x = `end-date`) shows the impossible "start on the deadline" scenario; the left edge shows generous buffer.
 
-The title annotation reads *"Backward-anchored from end-date YYYY-MM-DD (as of YYYY-MM-DD)"* — the second date is when the diagram was parsed, captured so a shared backward-anchored plan is auditable later.
+The parse-time date is captured for the past-date check below, and it is frozen — a shared backward-anchored plan is checked against the day its author rendered it, not against the day you open it. ⚠️ Nothing on the diagram prints that date, so **re-render before trusting a backward-anchored plan somebody sent you**. An italic *"Backward-anchored from end-date YYYY-MM-DD (as of YYYY-MM-DD)"* note used to say it; it lived in the Summary card, which was deleted on 2026-08-24.
 
 #### Past-date warning
 
-If a latest-safe-start date falls in the **past** (you needed to start before today to hit the deadline with that confidence), the row appends `(latest-safe start has passed)`. Read this as: *at that confidence level, you're already late*. There are only three responses — pull in scope, accept a lower confidence, or move the deadline.
+If a latest-safe-start date falls in the **past** (you needed to start before today to hit the deadline with that confidence), its S-curve reference line draws **dashed** instead of solid and its label takes a `(past)` suffix. Read this as: *at that confidence level, you're already late*. There are only three responses — pull in scope, accept a lower confidence, or move the deadline.
 
 #### Ramifications of setting `end-date`
 
