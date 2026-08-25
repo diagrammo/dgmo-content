@@ -4,9 +4,9 @@ Shared content for the DGMO ecosystem — no build, no package, no dependencies.
 
 ## How it's consumed
 
-- **Marketing site** — git submodule at `diagrammo_app_site/content/`. Its build runs `git submodule update --init --remote content`, so the site builds from this repo's **latest `main`, not the pinned commit**. Push content changes here first or they don't ship.
+- **Marketing site** — git submodule at `diagrammo_app_site/content/`. The site builds from that **checked-out submodule**, i.e. the pinned commit — nothing in its `prebuild`/`build` runs `git submodule update --remote` (verified 2026-08-24; the `--remote` step belonged to the `deploy.yml` deleted 2026-08-18). Pushing here is therefore only step one; see the deploy path below.
 - **Desktop app + web editor** — symlink `diagrammo-app/packages/content/` → `../../dgmo-content`. Not a submodule; there is nothing to bump.
-- 🔴 **A push here reaches the marketing site only when a person deploys it.** `dispatch-site-deploy.yml` used to repository-dispatch the site on `examples/**` or `guide/**` changes; both it and the site's `deploy.yml` it pinged were **deleted 2026-08-18**, because that repo is private and its Actions runs are billing-blocked — the chain had shipped nothing. After changing an example or a guide, deploy the site yourself: `pnpm build && npx wrangler deploy` in `diagrammo_app_site`. The site pulls this repo's **latest main**, not a submodule pin, so push here first.
+- 🔴 **A push here reaches the marketing site only when a person deploys it.** `dispatch-site-deploy.yml` used to repository-dispatch the site on `examples/**` or `guide/**` changes; both it and the site's `deploy.yml` it pinged were **deleted 2026-08-18**, because that repo is private and its Actions runs are billing-blocked — the chain had shipped nothing. After changing an example or a guide: push here first, then in `diagrammo_app_site` advance the pin — `git -C content fetch origin main && git -C content checkout <sha>`, `git add content`, commit — then `pnpm build && npx wrangler deploy`. 🔴 **Skip the pin and the deploy succeeds while shipping the old content.** Verify against the live page with the edge cache bypassed (`-H 'Cache-Control: no-cache'` plus a `?cb=` param), not against the build log.
 
 ## Content rules
 
