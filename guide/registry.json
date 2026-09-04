@@ -75,6 +75,12 @@
       "file": "troubleshooting.md"
     },
     {
+      "slug": "showing-on-the-web",
+      "title": "Showing on the Web",
+      "group": "getting-started",
+      "file": "showing-on-the-web.md"
+    },
+    {
       "slug": "exporting",
       "title": "Exporting Diagrams",
       "group": "getting-started",
