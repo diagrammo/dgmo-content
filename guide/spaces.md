@@ -33,23 +33,17 @@ tag Surface as s
 
 active-tag Surface
 
-[The app]
+[In the app]
   Make a space s: In the app
-  Copy diagrams into it s: In the app
-  Edit and sync s: In the app
+  Put diagrams in s: In the app
   Show one on the web s: In the app
 
-[Your account page]
-  Invite someone s: On the web
-  See every space you own s: On the web
-
-[A space's own page]
-  The People list s: On the web
-  Change a role s: On the web
-  Remove somebody s: On the web
+[On the web]
+  Invite and remove people s: On the web
+  Change somebody's role s: On the web
   Allow or block showing s: On the web
 
-Make a space -then invite people-> Invite someone
+Make a space -then invite people-> Invite and remove people
 ```
 
 ## Making one
