@@ -81,6 +81,24 @@
       "file": "showing-on-the-web.md"
     },
     {
+      "slug": "spaces",
+      "title": "Spaces",
+      "group": "getting-started",
+      "file": "spaces.md"
+    },
+    {
+      "slug": "embedding-in-your-docs",
+      "title": "Embedding in Your Docs",
+      "group": "getting-started",
+      "file": "embedding-in-your-docs.md"
+    },
+    {
+      "slug": "live-links",
+      "title": "Live Links",
+      "group": "getting-started",
+      "file": "live-links.md"
+    },
+    {
       "slug": "exporting",
       "title": "Exporting Diagrams",
       "group": "getting-started",

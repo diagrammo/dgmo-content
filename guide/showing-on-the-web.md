@@ -4,6 +4,8 @@ A diagram you show on the web gets a link that anyone can open. They need no acc
 
 That last part is the whole point. A screenshot in a document is wrong the moment you change the diagram, and nobody who is reading it can tell. A shown diagram cannot go stale: you edit it in the app, and the link everyone already has redraws.
 
+Showing happens to a diagram in a space. A space is what holds the diagram and hands it an address, so if the diagram is still a private file on your disk the app files it into a space first and asks you before it does — see [Spaces](spaces.md).
+
 ## Showing one
 
 1. Open the diagram.
@@ -22,7 +24,9 @@ The link stops opening within five minutes — that delay is the cache in front 
 
 ## Who can see it
 
-Anyone with the link, and only people with the link. A shown diagram is not listed anywhere public, is not indexed, and cannot be found by searching. It is unlisted rather than published.
+Anyone with the link, and only people with the link. A shown diagram is not listed anywhere public, and the page asks search engines not to index it, so it is not something a stranger finds by searching. It is unlisted rather than published.
+
+Unlisted is not secret. That request is one crawlers honour rather than a lock, and a link, once sent, can be forwarded. Show a diagram you are content for anyone holding the link to read.
 
 Nothing else in your space becomes readable. Showing is per diagram, one at a time.
 
@@ -42,4 +46,8 @@ If somebody sends you a link, you can **Watch** the diagram. It joins your Watch
 
 Every plan caps how many diagrams you can show at once; your account page draws the figure against that ceiling. Stop showing one and the slot is free immediately.
 
-A space's owner can switch showing off for the whole space, in which case nobody in it can start showing anything — including the owner. Diagrams already shown stay shown until somebody stops them one at a time, so a policy change never silently breaks a link somebody has embedded.
+A space's Admin can switch showing off for the whole space, in which case nobody in it can start showing anything — including the Admin. Diagrams already shown stay shown until somebody stops them one at a time, so a policy change never silently breaks a link somebody has embedded.
+
+## Putting a shown diagram in your docs
+
+A link is not the only thing you can do with a shown diagram. Its id can go inside a fenced block in your own markdown, and your site draws the diagram when it builds — so the page ships a picture and stays in step with your edits. See [Embedding in Your Docs](embedding-in-your-docs.md) and [Live Links](live-links.md).
