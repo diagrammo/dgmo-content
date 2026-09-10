@@ -9,13 +9,13 @@ Showing happens to a diagram in a space. A space is what holds the diagram and h
 ```dgmo
 state The life of a shown diagram
 
+direction-tb
+
 [*] -> On your disk
 On your disk -copy into a space-> In a space
 In a space -Share, then Show on the web-> Shown on the web
 Shown on the web -Stop showing-> In a space
-Shown on the web -somebody Watches the link-> Shown on the web
 In a space -you are removed-> This device's copy is deleted
-This device's copy is deleted -> [*]
 ```
 
 ## Showing one
