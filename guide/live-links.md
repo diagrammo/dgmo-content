@@ -85,3 +85,10 @@ If your site sets a Content-Security-Policy it must allow `connect-src https://a
 ## What is not sent
 
 Resolving a live link is a read of one published diagram's source by id. Nothing about your site, your repository or your readers is sent — not a page URL, not a referrer you control, not an identifier of any kind. Only published diagrams are readable at all: there is no token to configure and no allowlist to maintain.
+
+## Where to go next
+
+- [Embedding in Your Docs](embedding-in-your-docs.md) — the two things a fence can carry, and which to pick
+- [Showing a Diagram on the Web](showing-on-the-web.md) — getting the id a live-link fence needs
+- [Spaces](spaces.md) — where a diagram lives before it can be shown
+- [Diagrams in Your Repo](diagrams-in-your-repo.md) — keeping `.dgmo` files in version control

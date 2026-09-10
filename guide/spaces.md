@@ -24,33 +24,37 @@ There is one Admin per space and it cannot be handed to somebody else. The space
 
 Four things are metered: diagrams, diagrams shown on the web, spaces, and the people who can edit. Your account page draws each against its ceiling, with the figures read from your account rather than written into the page. The plain-English version is on the [sharing page](https://diagrammo.app/sharing/).
 
+```dgmo
+boxes-and-lines Who can reach a diagram in a space
+
+tag How as h
+  Signed in, by name blue
+  Anyone with the link orange
+
+active-tag How
+
+[Your space]
+  Owner h: Signed in, by name
+  Editor h: Signed in, by name
+  Viewer h: Signed in, by name
+  The diagrams h: Signed in, by name
+
+Owner -invites, removes, sets roles-> Editor
+Owner -invites, removes, sets roles-> Viewer
+Owner -creates and changes-> The diagrams
+Editor -creates and changes-> The diagrams
+Viewer -reads-> The diagrams
+
+The diagrams -one of them, shown on the web-> Any reader
+Any reader h: Anyone with the link
+```
+
 ## Where each part lives
 
 Worth knowing before you go looking. Diagrams — putting them in, editing them, showing one on the web — are the app's job. **The roster is not.** Seeing who is in a space, inviting somebody, and changing or removing them all live on the web: your account page, and each space's own page. The desktop app opens those in your browser for you.
 
 Making a space works in either place.
 
-```dgmo
-boxes-and-lines Where each part of a space lives
-
-tag Surface as s
-  In the app blue
-  On the web orange
-
-active-tag Surface
-
-[In the app]
-  Make a space s: In the app
-  Put diagrams in s: In the app
-  Show one on the web s: In the app
-
-[On the web]
-  Invite and remove people s: On the web
-  Change somebody's role s: On the web
-  Allow or block showing s: On the web
-
-Make a space -then invite people-> Invite and remove people
-```
 
 ## Making one
 

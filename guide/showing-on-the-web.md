@@ -63,3 +63,10 @@ A space's Admin can switch showing off for the whole space, in which case nobody
 ## Putting a shown diagram in your docs
 
 A link is not the only thing you can do with a shown diagram. Its id can go inside a fenced block in your own markdown, and your site draws the diagram when it builds — so the page ships a picture and stays in step with your edits. See [Embedding in Your Docs](embedding-in-your-docs.md) and [Live Links](live-links.md).
+
+## Where to go next
+
+- [Spaces](spaces.md) — who is in a space, and the switch that blocks showing for all of it
+- [Embedding in Your Docs](embedding-in-your-docs.md) — putting a shown diagram inside your own site
+- [Live Links](live-links.md) — what a build does with the id, and what it commits
+- [Exporting Diagrams](exporting.md) — a file instead of a link

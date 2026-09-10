@@ -61,21 +61,28 @@ Use the diagram's own text when the diagram belongs to the repository — an arc
 
 ## The six integrations
 
-| Where you write | Package |
-| --- | --- |
-| Obsidian | the Diagrammo Diagrams plugin |
-| Astro | `astro-dgmo` |
-| Docusaurus | `docusaurus-plugin-dgmo` |
-| Fumadocs | `fumadocs-dgmo` |
-| Nextra | `nextra-dgmo` |
-| VitePress | `vitepress-dgmo` |
+| Where you write | Package | Getting started |
+| --- | --- | --- |
+| Obsidian | [Diagrammo Diagrams](https://github.com/diagrammo/obsidian-dgmo) | [set it up](https://diagrammo.app/embed/) |
+| Astro | [`astro-dgmo`](https://www.npmjs.com/package/astro-dgmo) | [set it up](https://diagrammo.app/embed/) |
+| Docusaurus | [`docusaurus-plugin-dgmo`](https://www.npmjs.com/package/docusaurus-plugin-dgmo) | [set it up](https://diagrammo.app/embed/) |
+| Fumadocs | [`fumadocs-dgmo`](https://www.npmjs.com/package/fumadocs-dgmo) | [set it up](https://diagrammo.app/embed/) |
+| Nextra | [`nextra-dgmo`](https://www.npmjs.com/package/nextra-dgmo) | [set it up](https://diagrammo.app/embed/) |
+| VitePress | [`vitepress-dgmo`](https://www.npmjs.com/package/vitepress-dgmo) | [set it up](https://diagrammo.app/embed/) |
 
-All of them are wrappers around one core, `remark-dgmo`, which is what actually parses the fence and renders it. That is why they behave the same: the fence syntax, the live-link resolution and the client runtime are shared, and only the host-specific wiring differs.
+All of them are wrappers around one core, [`remark-dgmo`](https://www.npmjs.com/package/remark-dgmo), which is what actually parses the fence and renders it. That is why they behave the same: the fence syntax, the live-link resolution and the client runtime are shared, and only the host-specific wiring differs.
 
-Install commands, configuration and a working example for each are on the integrations page at <https://diagrammo.app/embed/>.
+Install commands, configuration and a working example for each are on the [integrations page](https://diagrammo.app/embed/).
 
 ## What the reader gets
 
 An SVG drawn into the page, not an image file. It stays sharp at any size, it takes the reader's light or dark theme, and its text is real text — selectable, searchable, and readable by a screen reader.
 
 If you are keeping `.dgmo` files in version control alongside the code, [Diagrams in Your Repo](diagrams-in-your-repo.md) covers rendering and checking them in CI.
+
+## Where to go next
+
+- [Live Links](live-links.md) — what the build-time fetch commits, and what happens when it fails
+- [Showing a Diagram on the Web](showing-on-the-web.md) — getting the id a live-link fence needs
+- [Spaces](spaces.md) — where a diagram has to live before it can be shown
+- [Exporting Diagrams](exporting.md) — when you want a file rather than a fence
