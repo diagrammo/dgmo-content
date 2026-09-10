@@ -30,6 +30,31 @@ Now the source lives in one place. You edit the diagram in the app, your site re
 
 You need to be showing the diagram first — see [Showing a Diagram on the Web](showing-on-the-web.md). What the fetch commits, what happens when it fails, and how to build without a network are in [Live Links](live-links.md).
 
+```dgmo
+boxes-and-lines Two things you can put in a fence
+
+tag Needs as n
+  No account blue
+  A live link orange
+
+active-tag Needs
+
+[The diagram's own text]
+  Lines in your markdown n: No account
+  Your site builds n: No account
+  The page n: No account
+
+[A live link id]
+  The diagram in your space n: A live link
+  Fetched while your site builds n: A live link
+  The same page n: A live link
+
+Lines in your markdown -> Your site builds
+Your site builds -> The page
+The diagram in your space -> Fetched while your site builds
+Fetched while your site builds -> The same page
+```
+
 ## Which one to use
 
 Use the diagram's own text when the diagram belongs to the repository — an architecture note that changes in the same pull request as the code it describes. Use a live link when the diagram belongs to a person or a team and the docs site is one of several places it appears.

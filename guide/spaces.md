@@ -24,6 +24,34 @@ There is one Admin per space and it cannot be handed to somebody else. The space
 
 Worth knowing before you go looking. Making a space, and putting diagrams into it, happen in the app. **Who is in it does not** — the roster, the invite form and the role picker are on the web: your account page, and each space's own page. The desktop app opens those in your browser for you.
 
+```dgmo
+boxes-and-lines Where each part of a space lives
+
+tag Surface as s
+  In the app blue
+  On the web orange
+
+active-tag Surface
+
+[The app]
+  Make a space s: In the app
+  Copy diagrams into it s: In the app
+  Edit and sync s: In the app
+  Show one on the web s: In the app
+
+[Your account page]
+  Invite someone s: On the web
+  See every space you own s: On the web
+
+[A space's own page]
+  The People list s: On the web
+  Change a role s: On the web
+  Remove somebody s: On the web
+  Allow or block showing s: On the web
+
+Make a space -then invite people-> Invite someone
+```
+
 ## Making one
 
 From the space switcher at the top of the file list, press **New space** — or, on the welcome screen and the account page, **Make a space**.

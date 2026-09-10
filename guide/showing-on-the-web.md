@@ -6,6 +6,18 @@ That last part is the whole point. A screenshot in a document is wrong the momen
 
 Showing happens to a diagram in a space. A space is what holds the diagram and hands it an address, so if the diagram is still a private file on your disk the app files it into a space first and asks you before it does — see [Spaces](spaces.md).
 
+```dgmo
+state The life of a shown diagram
+
+[*] -> On your disk
+On your disk -copy into a space-> In a space
+In a space -Share, then Show on the web-> Shown on the web
+Shown on the web -Stop showing-> In a space
+Shown on the web -somebody Watches the link-> Shown on the web
+In a space -you are removed-> This device's copy is deleted
+This device's copy is deleted -> [*]
+```
+
 ## Showing one
 
 1. Open the diagram.

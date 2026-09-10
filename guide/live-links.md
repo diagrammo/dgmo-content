@@ -18,6 +18,24 @@ That directory is meant to be committed, and the reason matters. A cache in `nod
 
 It holds source, not rendered markup. Rendering is deterministic and your site pins its renderer version, so the source plus that pin reproduces the same bytes without hundreds of kilobytes of generated markup churning in every diff.
 
+```dgmo
+sequence What a live-link fence does at build time
+
+Your build is an actor
+
+[Diagrammo Cloud]
+  API
+
+Your build -reads the fence-> Reference cache
+if the id is not cached, and the network is available
+  Your build -fetch this diagram's source-> API
+  API -the source, as it is now-> Your build
+  Your build -writes it into .dgmo/references/-> Reference cache
+else
+  Reference cache -the source it already has-> Your build
+Your build -draws the diagram into the page-> Your site
+```
+
 ## When a fetch goes wrong
 
 | Situation | Your build | The page |
