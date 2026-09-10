@@ -63,12 +63,12 @@ Use the diagram's own text when the diagram belongs to the repository — an arc
 
 | Where you write | Package | Getting started |
 | --- | --- | --- |
-| Obsidian | [Diagrammo Diagrams](https://github.com/diagrammo/obsidian-dgmo) | [set it up](https://diagrammo.app/embed/) |
-| Astro | [`astro-dgmo`](https://www.npmjs.com/package/astro-dgmo) | [set it up](https://diagrammo.app/embed/) |
-| Docusaurus | [`docusaurus-plugin-dgmo`](https://www.npmjs.com/package/docusaurus-plugin-dgmo) | [set it up](https://diagrammo.app/embed/) |
-| Fumadocs | [`fumadocs-dgmo`](https://www.npmjs.com/package/fumadocs-dgmo) | [set it up](https://diagrammo.app/embed/) |
-| Nextra | [`nextra-dgmo`](https://www.npmjs.com/package/nextra-dgmo) | [set it up](https://diagrammo.app/embed/) |
-| VitePress | [`vitepress-dgmo`](https://www.npmjs.com/package/vitepress-dgmo) | [set it up](https://diagrammo.app/embed/) |
+| Obsidian | [Diagrammo Diagrams](https://github.com/diagrammo/obsidian-dgmo) | [set it up](https://diagrammo.app/embed/#obsidian) |
+| Astro | [`astro-dgmo`](https://www.npmjs.com/package/astro-dgmo) | [set it up](https://diagrammo.app/embed/#astro) |
+| Docusaurus | [`docusaurus-plugin-dgmo`](https://www.npmjs.com/package/docusaurus-plugin-dgmo) | [set it up](https://diagrammo.app/embed/#docusaurus) |
+| Fumadocs | [`fumadocs-dgmo`](https://www.npmjs.com/package/fumadocs-dgmo) | [set it up](https://diagrammo.app/embed/#fumadocs) |
+| Nextra | [`nextra-dgmo`](https://www.npmjs.com/package/nextra-dgmo) | [set it up](https://diagrammo.app/embed/#nextra) |
+| VitePress | [`vitepress-dgmo`](https://www.npmjs.com/package/vitepress-dgmo) | [set it up](https://diagrammo.app/embed/#vitepress) |
 
 All of them are wrappers around one core, [`remark-dgmo`](https://www.npmjs.com/package/remark-dgmo), which is what actually parses the fence and renders it. That is why they behave the same: the fence syntax, the live-link resolution and the client runtime are shared, and only the host-specific wiring differs.
 
