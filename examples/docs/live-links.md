@@ -9,7 +9,7 @@ That is the whole point: the author keeps editing, and the docs stop going
 stale.
 
 ```dgmo
-https://online.diagrammo.app/d/dgm_01KYRFCJZ2BHS18XRBEAZ0Y120
+https://online.diagrammo.app/d/dgm_01M1JBN56CAVS728HPWDACVNMC
 ```
 
 ### Put one in your own docs
@@ -19,7 +19,7 @@ inside a `dgmo` fence:
 
 ````markdown
 ```dgmo
-https://online.diagrammo.app/d/dgm_01KYRFCJZ2BHS18XRBEAZ0Y120
+https://online.diagrammo.app/d/dgm_01M1JBN56CAVS728HPWDACVNMC
 ```
 ````
 
@@ -29,7 +29,7 @@ the diagram's id there is a shorter spelling that does the same job:
 
 ````markdown
 ```dgmo
-live-link dgm_01KYRFCJZ2BHS18XRBEAZ0Y120
+live-link dgm_01M1JBN56CAVS728HPWDACVNMC
 ```
 ````
 

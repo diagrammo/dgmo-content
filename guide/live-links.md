@@ -6,7 +6,7 @@ It is one line: a fenced code block tagged `dgmo`, containing the chart type `li
 
 <!-- Shown indented rather than as a dgmo fence: a live fence here would be rendered as a diagram by the content validator. -->
 
-    live-link dgm_7f2a91
+    live-link dgm_01M1JBN56CAVS728HPWDACVNMC
 
 This is the other side of [showing a diagram on the web](showing-on-the-web.md) — somebody shows it, and your docs site embeds it by id. For diagrams whose source lives in your own repository, see [diagrams in your repo](diagrams-in-your-repo.md).
 
