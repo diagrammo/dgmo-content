@@ -59,7 +59,10 @@ for (let i = 0; i < markers.length; i++) {
   edits.push({
     start: start + rel,
     end: start + rel + m[0].length,
-    text: `<!-- TIPS start -->\n**Styling tips:** ${g}\n<!-- TIPS end -->`,
+    // Blank lines inside the markers are prettier's form: dgmo formats
+    // language-reference.md, so a block written without them is reformatted on
+    // the next `pnpm format` there and this check reads that as drift.
+    text: `<!-- TIPS start -->\n\n**Styling tips:** ${g}\n\n<!-- TIPS end -->`,
   });
 }
 
