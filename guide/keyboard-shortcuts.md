@@ -17,7 +17,12 @@
 | **⌘ + N**           | New file                  |
 | **⌘ + ?**           | Keyboard shortcuts        |
 | **⌘ + Shift + F**   | Focus mode (preview only) |
+| **⌘ + Shift + R**   | Report a problem          |
 | **⌘ + Q**           | Quit                      |
+
+In the web editor, **⌘ + Shift + R** (Ctrl + Shift + R on Windows and Linux) is
+normally the browser's hard reload. Diagrammo takes the key instead, so use the
+browser's reload button if you want to force-refresh the page.
 
 ## File Tree
 
