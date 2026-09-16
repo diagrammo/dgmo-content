@@ -13,7 +13,7 @@
 | **⌘ + -**           | Decrease font size        |
 | **⌘ + 0**           | Reset font size           |
 | **⌘ + S**           | Save file                 |
-| **⌘ + E**           | Export diagram            |
+| **⌘ + E**           | Share diagram             |
 | **⌘ + N**           | New file                  |
 | **⌘ + ?**           | Keyboard shortcuts        |
 | **⌘ + Shift + F**   | Focus mode (preview only) |

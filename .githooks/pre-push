@@ -38,6 +38,16 @@ run_checks() {
   # `pnpm -C ../diagrammo-app validate:dgmo`.
   echo "→ drift guards (check-all)"
   node scripts/check-all.mjs
+
+  # The content assertions (#823). Separate from check-all on purpose: those
+  # guards read the siblings (`../dgmo`) and check that the PROJECTIONS agree
+  # with registry.json, while this suite checks that the prose states the facts
+  # it claims to. It is also the test a documentation slice proves itself
+  # against, so it must be runnable with nothing installed and no sibling
+  # present — node built-ins only, and invoked directly rather than through
+  # pnpm, exactly like the line above.
+  echo "→ content assertions"
+  node --test 'tests/**/*.test.mjs'
 }
 
 ZERO=0000000000000000000000000000000000000000
