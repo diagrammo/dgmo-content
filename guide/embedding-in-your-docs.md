@@ -23,7 +23,7 @@ The cost is that the diagram now lives in two places. Edit it in the app and you
 Put a live link's id in the fence instead, and the plugin fetches the diagram while your site builds:
 
     ```dgmo
-    live-link dgm_01M4KQ7XZP2WYVR8NDHFC3BTJE
+    live-link dgm_01M3PG3DQ6S89W7ZFM5Z06J1CD
     ```
 
 Now the source lives in one place. You edit the diagram in the app, your site rebuilds, and the page is right. Between builds the page keeps showing what it fetched last, so the picture never half-loads for a reader.
