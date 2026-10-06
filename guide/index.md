@@ -56,14 +56,15 @@ The full Diagrammo experience in your browser at [online.diagrammo.app](https://
 
 ### CLI Tool
 
-The `dgmo` command-line tool renders `.dgmo` files to PNG or SVG from your terminal. Install it via Homebrew:
+The `dgmo` command-line tool renders `.dgmo` files to PNG or SVG from your terminal. Install it with npm, on macOS and Linux:
 
 ```bash
-brew tap diagrammo/dgmo
-brew install dgmo
+npm install -g @diagrammo/dgmo-cli
 ```
 
-Or run directly with npx:
+For Homebrew or pacman, see [diagrammo.app/dev](https://diagrammo.app/dev#cli).
+
+Or run it without installing, with npx:
 
 ```bash
 npx @diagrammo/dgmo-cli diagram.dgmo

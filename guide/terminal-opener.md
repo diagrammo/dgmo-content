@@ -40,15 +40,10 @@ When you first launch the desktop app, the installer tries (in order):
 The terminal opener is for hand-off to the desktop app. If you want to render diagrams **without** the app — in CI, on a server, or in a script — install the standalone [`dgmo` CLI](https://diagrammo.app/docs/) instead:
 
 ```
-brew tap diagrammo/dgmo
-brew install dgmo
-```
-
-Or with npm:
-
-```
 npm install -g @diagrammo/dgmo-cli
 ```
+
+npm works on macOS and Linux. For Homebrew or pacman, see [diagrammo.app/dev](https://diagrammo.app/dev#cli).
 
 `dgmo` renders directly to `.svg` / `.png` / share URLs, supports stdin input, and has no UI dependency. Full reference at [diagrammo.app/docs](https://diagrammo.app/docs/).
 

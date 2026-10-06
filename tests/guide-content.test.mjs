@@ -65,6 +65,22 @@ const DOCUMENTED = [
     verifiedAgainst: 'diagrammo-app/src/lib/shortcuts.ts',
     on: '2026-09-16',
   },
+  {
+    what: 'the CLI install leads with npm, for macOS and Linux',
+    file: 'guide/index.md',
+    contains: ['npm install -g @diagrammo/dgmo-cli', 'on macOS and Linux', 'https://diagrammo.app/dev#cli'],
+    why: 'Homebrew is macOS-only, so a Linux reader was told to install with a tool they do not have. Decided on #921 (option 1, Windows out).',
+    verifiedAgainst: 'https://diagrammo.app/dev/ (CLI tab: npm, Homebrew, pacman)',
+    on: '2026-10-06',
+  },
+  {
+    what: 'headless use installs the CLI with npm, for macOS and Linux',
+    file: 'guide/terminal-opener.md',
+    contains: ['npm install -g @diagrammo/dgmo-cli', 'macOS and Linux', 'https://diagrammo.app/dev#cli'],
+    why: 'Same decision as the guide index (#921): npm first, Homebrew and pacman behind the /dev link.',
+    verifiedAgainst: 'https://diagrammo.app/dev/ (CLI tab: npm, Homebrew, pacman)',
+    on: '2026-10-06',
+  },
 ];
 
 /**
@@ -132,4 +148,22 @@ test('no guide page prints a retired name', async (t) => {
       );
     });
   }
+});
+
+/**
+ * Install commands a guide must not print. The guides give one install line,
+ * npm, which works on macOS and Linux; Homebrew and pacman live on
+ * diagrammo.app/dev, which a guide links to rather than repeats (#921, #1015).
+ */
+const NOT_IN_GUIDES = ['brew install', 'brew tap'];
+
+test('no guide page gives a Homebrew install command', () => {
+  const pages = guidePages();
+  assert.ok(pages.length > 0, 'guide/ holds no .md pages — the sweep would pass by finding nothing.');
+  const offenders = pages.filter((p) => NOT_IN_GUIDES.some((cmd) => read(p).includes(cmd)));
+  assert.deepEqual(
+    offenders,
+    [],
+    `These guide pages still print a Homebrew install command: ${offenders.join(', ')}. Lead with npm and link https://diagrammo.app/dev#cli for Homebrew and pacman.`,
+  );
 });
