@@ -33,6 +33,7 @@ A wireframe is a low-fidelity mockup of **one screen** — the inputs, buttons, 
 - **`wireframe`** — you are drawing a *screen*: buttons, fields, nav, and the layout of one page.
 - **[`sitemap`](chart-sitemap.md)** — the question is *which pages exist and how they link*, not what is on any one of them.
 - **[`sketch`](chart-sketch.md)** — you want free-placed shapes and arrows on a canvas rather than stock UI controls.
+- **[`whiteboard`](chart-whiteboard.md)** — it is a rough idea dump rather than a screen: scribbles, boxes and screenshots anywhere.
 - **[`block`](chart-block.md)** — the thing is a systems layout that happens to be gridded, and it should not read as a user interface.
 - **[`journey-map`](chart-journey-map.md)** — the point is how the experience *feels* step by step, not what the screens contain.
 

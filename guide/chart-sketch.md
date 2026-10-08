@@ -34,6 +34,7 @@ This page covers the canvas first, then the file — which still matters for rea
 
 - **`sketch`** — you want to place shapes freely on a canvas and eyeball the arrangement yourself.
 - **[`boxes-and-lines`](chart-boxes-and-lines.md)** — you'd rather write the diagram out as text and let the engine lay the graph out for you.
+- **[`whiteboard`](chart-whiteboard.md)** — you want to scribble with a pen, drop in screenshots and type anywhere, with no grid.
 - **[`block`](chart-block.md)** — everything should snap into a tidy grid, and that strict arrangement is the message.
 - **[`wireframe`](chart-wireframe.md)** — you're drawing a _screen_ with buttons, fields, and nav rather than shapes and arrows.
 - **[`quadrant`](chart-quadrant.md)** — position means a rating on two named axes, not layout.

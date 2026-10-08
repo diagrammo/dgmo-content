@@ -2656,10 +2656,6 @@
           "kind": "trigger"
         },
         {
-          "text": "whiteboard",
-          "kind": "trigger"
-        },
-        {
           "text": "free-form boxes",
           "kind": "trigger"
         },
@@ -3130,6 +3126,49 @@
       ],
       "guidance": "the git / version-control branch-and-merge graph (GitFlow, trunk-based, release trains). The grammar is keyword-less — a bare top-level line is a branch, a bare indented line is a commit; only `merge` / `cherry-pick` are required verbs. Keep to ~3–6 branches and ~5–30 commits; name branches meaningfully (`feature/login`); tag releases. Use it for branching strategy, not real timestamps (use `timeline`/`gantt` for dates).",
       "description": null
+    },
+    {
+      "id": "whiteboard",
+      "kind": "type",
+      "base": null,
+      "name": "Whiteboard",
+      "family": "software",
+      "intent": [
+        "relationships"
+      ],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "whiteboard",
+          "kind": "trigger"
+        },
+        {
+          "text": "freehand drawing",
+          "kind": "trigger"
+        },
+        {
+          "text": "scribble",
+          "kind": "trigger"
+        },
+        {
+          "text": "doodle",
+          "kind": "trigger"
+        },
+        {
+          "text": "excalidraw",
+          "kind": "trigger"
+        },
+        {
+          "text": "brainstorm board",
+          "kind": "trigger"
+        },
+        {
+          "text": "draw ideas",
+          "kind": "trigger"
+        }
+      ],
+      "guidance": "Whiteboard is a canvas-first format: people draw on it, and pen strokes (`ink` lines) only ever come from drawing — never write an `ink` line. Generate the readable parts only: `rectangle`, `ellipse`, `database`, `queue` with a label, `at: X Y` (top-left, integer pixels) and `size: W H`; `arrow` with `from: X Y, to: X Y` and an optional label; `text` at a point. Leave ~40px between shapes and keep boards small (under ~15 elements). Colours are palette names (red, green, blue, teal, purple, orange, yellow, cyan, gray); leave colour off for the default ink. Arrows are free and do not attach to shapes, so place their ends at the shape edges yourself. Reach for `whiteboard` for a loose drawing someone will scribble over; reach for `sketch` for tagged shapes on a grid, and `boxes-and-lines` when topology should auto-lay-out.",
+      "description": "Free-form drawing — ink, simple shapes, text and images"
     },
     {
       "id": "wireframe",
@@ -4645,6 +4684,19 @@
         {
           "surface": "obsidian",
           "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "whiteboard",
+      "entity": "whiteboard",
+      "file": "examples/whiteboard/whiteboard.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
         }
       ]
     },

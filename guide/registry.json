@@ -219,15 +219,6 @@
       "file": "chart-version-control.md"
     },
     {
-      "slug": "chart-whiteboard",
-      "title": "Whiteboard",
-      "group": "software",
-      "intent": [
-        "relationships"
-      ],
-      "file": "chart-whiteboard.md"
-    },
-    {
       "slug": "chart-wireframe",
       "title": "Wireframe",
       "group": "software",
@@ -577,6 +568,15 @@
         "part-to-whole"
       ],
       "file": "chart-goal.md"
+    },
+    {
+      "slug": "chart-whiteboard",
+      "title": "Whiteboard",
+      "group": "software",
+      "intent": [
+        "relationships"
+      ],
+      "file": "chart-whiteboard.md"
     }
   ]
 }

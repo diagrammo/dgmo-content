@@ -36,6 +36,7 @@ Reach for it for system and component overviews, status-tagged architecture sket
 - **`boxes-and-lines`** — you want to show which things exist and which talk to which, and you want the tool to arrange the boxes for you.
 - [`block`](chart-block.md) — *where* each box sits is meaning you control. Position here is auto-layout and carries none; swapping the two either invents adjacency semantics or throws yours away.
 - [`sketch`](chart-sketch.md) — you'd rather drag shapes around on a canvas than write the diagram out as text.
+- [`whiteboard`](chart-whiteboard.md) — you want to draw it by hand: pen strokes, loose shapes and pasted images, placed wherever you put them.
 - [`c4`](chart-c4.md) — you need to zoom from "the whole system" into "inside this service." C4 also asserts a specific abstraction level, so mixing levels there is worse than an untyped diagram; `boxes-and-lines` is right when one flat picture is enough.
 - [`infra`](chart-infra.md) — you want the tool to *calculate* traffic, latency, and downstream failure. `boxes-and-lines` only draws what you write; it computes nothing.
 - [`flowchart`](chart-flowchart.md) — the boxes are *steps that happen* rather than *things that exist*.
