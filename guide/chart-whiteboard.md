@@ -94,7 +94,7 @@ AI assistants can write and edit the boxes, notes, arrows, lines and text of a w
 ## Tips
 
 - Leave room between boxes — 60 to 100 pixels reads well.
-- An arrow or line end placed inside a shape or a note is attached to it: it is drawn to the border, so the head sits on the edge. When you move a box by hand in the file, move the ends inside it too.
+- An arrow or line end placed inside a shape or a note is attached to it: it is drawn toward the shape's centre and stops at the border, so the head sits on the edge and two connected boxes are joined centre to centre, wherever inside them the ends were dropped. When you move a box by hand in the file, move the ends inside it too.
 - A line the reader cannot understand is skipped with a warning; the rest of the board still draws.
 
 ## Appearance
