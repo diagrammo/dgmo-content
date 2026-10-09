@@ -6,12 +6,12 @@ rectangle at: 60 60, size: 180 70
   Sign in
   with email
 ellipse OAuth? at: 345 53, size: 170 84, color: blue
-arrow from: 240 95, to: 340 95
+arrow from: 150 95, to: 430 95
 rectangle Magic link at: 60 250, size: 180 70, color: green
-arrow emails a code from: 150 130, to: 150 245, color: green
+arrow emails a code from: 150 95, to: 150 285, color: green
 database Users at: 420 160, size: 140 100, color: purple
 queue Email jobs at: 300 380, size: 200 64, color: orange
-arrow from: 240 300, to: 300 400, color: orange, style: dashed
+arrow from: 150 285, to: 400 412, color: orange, style: dashed
 line from: 60 340, to: 240 340, style: dashed
 text keep it to ONE screen at: 62 184
 text 2FA here?? at: 560 -4, color: red
@@ -77,7 +77,7 @@ AI assistants can write and edit the boxes, arrows, lines and text of a whiteboa
 ## Tips
 
 - Leave room between boxes — 60 to 100 pixels reads well.
-- Arrows and lines are not attached to shapes. When you move a box by hand in the file, move its arrows and lines too.
+- An arrow or line end placed inside a shape is attached to it: it is drawn to the shape's border, so the head sits on the edge. When you move a box by hand in the file, move the ends inside it too.
 - A line the reader cannot understand is skipped with a warning; the rest of the board still draws.
 
 ## Appearance
