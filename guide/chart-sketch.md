@@ -7,16 +7,16 @@ tag Crew
   Deck
   Hold
 
-Spyglass Feed shape: database, at: 0 0, crew: Deck
+Spyglass Feed at: 0 0, crew: Deck
   -sightings-> con
 Captain's Console as con at: 2 0, crew: Deck
   -orders-> bq
 Divvy Service as dvy at: 4 0, crew: Hold
 
 [Below Decks] at: 2 2, crew: Hold
-  Booty Queue as bq shape: queue, at: 0 0
+  Booty Queue as bq at: 0 0
     ~haul~> dvy
-  Ship Ledger as ledger shape: database, at: 2 0
+  Ship Ledger as ledger at: 2 0
 
 [Armory] as armory at: 0 2, collapsed
   Powder Store at: 0 0
@@ -116,12 +116,11 @@ Double-click anything to rename it. There is no pan and no zoom: the board is dr
 
 ## What only the file can do
 
-Four things the language supports that no canvas gesture reaches yet. A sketch carries them untouched through every gesture — editing on the canvas will not destroy them — but to set one, open the source pane with **⌘ + 2** and type it.
+Three things the language supports that no canvas gesture reaches yet. A sketch carries them untouched through every gesture — editing on the canvas will not destroy them — but to set one, open the source pane with **⌘ + 2** and type it.
 
 | Feature                              | Why it needs the file                                                                                                                                            |
 | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Descriptions**                     | The canvas does not draw them at all. They render everywhere else — export, the CLI, embeds — so a sketch can carry detail the board itself stays clean of.         |
-| **Shape badges** (`shape: database`) | The badge renders; nothing on the canvas sets one.                                                                                                                 |
 | **A folded box** (`collapsed`)       | A box written folded renders folded, with its edges re-targeted to the single card. No gesture folds or unfolds one.                                               |
 | **A title, once there is none**      | The canvas renames a title but cannot create one, and clearing a title removes it. Put `sketch My Title` back on the first line to get it back.                     |
 
@@ -133,7 +132,7 @@ You will rarely type any of this, but a sketch is a text file on purpose: it dif
 sketch Title
 
 // a bare name + same-line metadata
-Spyglass Feed shape: database, at: 0 0
+Spyglass Feed at: 0 0
   // a line, indented under its source
   -orders-> con
 // `as` gives it a handle to aim lines at
@@ -142,7 +141,7 @@ Captain's Console as con at: 2 0
 
 The first line declares the chart type and an optional title. Each top-level line is one shape; brackets `[Below Decks]` mean exactly one thing — a box.
 
-**Shapes.** Every shape renders as an org-style card: a header with the name, a rule, and a row per tag it carries. `shape:` sets a small type badge in the header — `database` (cylinder), `queue` (capsule), `person` (torso-head), `document` (page with a wavy bottom), or `note` (a sticky card with left-aligned text and no header). A rectangle is the default and is never written. Every card is the same fixed size; the name fits on one line, shrinking and then ellipsizing. Kind-of-thing is a hint — meaning lives in tags, which is why the shape set stays small on purpose.
+**Shapes.** Every shape renders as an org-style card: a header with the name, a rule, and a row per tag it carries. There are no shape kinds: every shape is the same card, and a `shape:` clause is an error. Every card is the same fixed size; the name fits on one line, shrinking and then ellipsizing. Kind-of-thing is meaning, and meaning lives in tags.
 
 **Coordinates.** `at: C R` places a shape on the grid in half-slot steps, where a slot is one card plus the mandatory gap between cards. Coordinates are origin-normalized, so panning the whole sketch is a zero diff. `at:` is optional — an un-positioned shape flows into a row below the existing content — and the canvas writes real ones on every save.
 
@@ -160,8 +159,8 @@ Each has a dashed twin written with `~` in place of `-` (`~label~>`). Unlabeled 
 
 ```
 [Below Decks] at: 2 2, crew: Hold
-  Booty Queue shape: queue, at: 0 0
-  Ship Ledger shape: database, at: 2 0
+  Booty Queue at: 0 0
+  Ship Ledger at: 2 0
 ```
 
 The box reserves a top band for its label, and boxes are one level deep — no nesting inside a nesting. A tag on the box cascades to its children; a tag on a child overrides it.
@@ -181,7 +180,7 @@ Spyglass Feed at: 0 0, crew: Deck
 ```dgmo
 sketch Plunder Pipeline
 
-Spyglass Feed shape: database, at: 0 0
+Spyglass Feed at: 0 0
   > Watches the horizon for sail.
   > Emits a sighting per contact.
 Captain's Console at: 2 0
@@ -194,7 +193,7 @@ Add `no-descriptions` at the top level to hide every description block without d
 
 - **Let the app write it.** Sketch is drawn, not typed — open a `.dgmo` file that starts with `sketch` and the canvas takes over.
 - **Keep it small.** Sketches read best under ~15 shapes; embeds shrink past ~30, and that pressure is a feature.
-- **Categorize with tags, not more shapes** — the shape set is deliberately narrow. Colour the one axis that sorts your shapes into kinds.
+- **Categorize with tags** — every shape is the same card. Colour the one axis that sorts your shapes into kinds.
 - **`~` means secondary, not async** — a softer stroke, unlike infra's async arrows.
 
 ## Appearance
