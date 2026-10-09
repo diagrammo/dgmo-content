@@ -6,7 +6,8 @@ rectangle Magic link at: 60 250, size: 180 70, color: green
 arrow emails a code from: 150 130, to: 150 245, color: green
 database Users at: 420 160, size: 140 100, color: purple
 queue Email jobs at: 300 380, size: 200 64, color: orange
-arrow from: 240 300, to: 300 400, color: orange
+arrow from: 240 300, to: 300 400, color: orange, style: dashed
+line from: 60 340, to: 240 340, style: dashed
 text keep it to ONE screen at: 62 184
 text 2FA here?? at: 560 -4, color: red
 ink ink 2.5 AHysAxoGEgIUAyYJFAESAi4MEgIUAyYJFAESAjQOGgE
