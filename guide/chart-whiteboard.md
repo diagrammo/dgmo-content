@@ -2,7 +2,9 @@
 
 ```dgmo
 whiteboard Login ideas
-rectangle Sign in at: 60 60, size: 180 70
+rectangle at: 60 60, size: 180 70
+  Sign in
+  with email
 ellipse OAuth? at: 345 53, size: 170 84, color: blue
 arrow from: 240 95, to: 340 95
 rectangle Magic link at: 60 250, size: 180 70, color: green
@@ -49,6 +51,15 @@ One line is one element, and it starts with what it is.
 - **Labels are optional** on shapes, arrows and lines. A shape's label is centred inside it.
 - **Later lines draw on top** of earlier ones.
 - **Dashed strokes.** Add `style: dashed` to an arrow or a line to draw it dashed — handy for a maybe, or an optional step. Leave it off for a solid stroke; `dashed` is the only style you write.
+- **Several lines.** To break a label over lines, indent each line under its element — one line drawn per line you write, exactly as written. A label on the element line itself is the first line. This works on shapes, arrows, lines and text:
+
+  ```dgmo
+  whiteboard
+  rectangle at: 0 0, size: 140 60
+    Sign in
+    with email
+  ```
+
 - If a label itself contains a word followed by a colon, put it in quotes: `text "todo: ship it" at: 0 0`.
 
 ## Colours
