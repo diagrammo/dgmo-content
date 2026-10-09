@@ -12,6 +12,7 @@ arrow from: 150 285, to: 400 412, color: orange, style: dashed
 line from: 60 340, to: 240 340, style: dashed
 text keep it to ONE screen at: 62 184
 text 2FA here?? at: 560 -4, color: red
+note Ask legal whether SSO needs a security review at: 600 300
 ink ink 2.5 AHysAxoGEgIUAyYJFAESAi4MEgIUAyYJFAESAjQOGgE
 ink red 3 ALwKUAEKBQoNCA8IKwwxBDMDKwkRBwsJBwkBCQgNCgkkDyQHHAE4ATQIFgYaDAwKCBABCgsO
 ink green 4 AZwE2AQYJDAWaqMBHQ
