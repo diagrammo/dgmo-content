@@ -90,7 +90,6 @@ Written at the top level, one per line.
 | --------- | ------ |
 | `mobile` | Switch to the 375px mobile form factor. Recognized anywhere at the top level, not just in the header. |
 | `palette <name>` | Set the palette in the source. |
-| `theme <name>` | Set the light/dark theme in the source. |
 | `active-tag <GroupName>` | Pin which declared tag group colors the elements at rest. |
 
 ## Layout

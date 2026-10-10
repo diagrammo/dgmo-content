@@ -117,7 +117,7 @@ The phase bar tints to a soft mix of the color over the background. Phases witho
 | Directive | Effect |
 |-----------|--------|
 | `roles` | Declare column order (inline or block form). Required to enable the undeclared-role warning. |
-| `palette`, `theme`, `active-tag` | Universal options. |
+| `palette`, `active-tag` | Universal options. |
 
 There is no directive for selecting the variant — it comes from the markers.
 
