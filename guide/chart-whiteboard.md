@@ -66,7 +66,7 @@ One line is one element, and it starts with what it is.
 
 ## Sticky notes
 
-`note` drops a sticky note: a yellow card with its text in the top-left corner, wrapped to the card. It is 160 × 120 pixels unless you add `size: W H`, and yellow unless you add `color:`. A note can start empty (`note at: 600 40`) and take its text later.
+`note` drops a sticky note: a yellow card with its text in the top-left corner, wrapped to the card. It is 160 × 99 pixels — the golden ratio — unless you add `size: W H`, and yellow unless you add `color:`. A note can start empty (`note at: 600 40`) and take its text later.
 
 ```dgmo
 whiteboard
