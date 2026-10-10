@@ -52,7 +52,7 @@ The variant is **inferred from the markers used** in the chart — there is no d
 
 ```
 raci Title
-// optional directives: roles, palette, theme, active-tag
+// optional directives: roles, palette, active-tag
 
 // optional bracketed phase header + trailing-token color
 [Phase Label] color

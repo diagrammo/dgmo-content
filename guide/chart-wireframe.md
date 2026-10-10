@@ -138,7 +138,7 @@ Every chart accepts the universal appearance directives:
 
 A wireframe draws no legend, so `no-legend` has nothing to suppress.
 
-Colors come from the active palette — see [Colors](colors.md). Set the palette and light/dark theme at render time with `--palette <name>` and `--theme light|dark|transparent`, or pin them in the source with `palette <name>` / `theme <name>`.
+Colors come from the active palette — see [Colors](colors.md). Set the palette and light/dark theme at render time with `--palette <name>` and `--theme light|dark|transparent`, or pin the palette in the source with `palette <name>`.
 
 ## Next
 
