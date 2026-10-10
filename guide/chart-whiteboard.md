@@ -77,7 +77,7 @@ note at: 200 130, color: blue
   Due Friday
 ```
 
-Notes sit on a layer of their own. Add `no-notes` to hide every note when the board is shown or exported; in the app, the notes toggle shows or hides them, and an export follows the toggle. An arrow end placed inside a note attaches to it, just as it does to a box.
+Notes sit on a layer of their own. Add `no-notes` to hide every note when the board is shown or exported; in the app, the notes toggle shows or hides them, and an export follows the toggle. An arrow end placed inside a note attaches to it, just as it does to a box, and when the notes are hidden, arrows and lines drawn from a note hide with it.
 
 ## Colours
 
