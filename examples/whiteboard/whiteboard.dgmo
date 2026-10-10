@@ -1,18 +1,25 @@
-whiteboard Login ideas
-rectangle at: 60 60, size: 180 70
-  Sign in
-  with email
-ellipse OAuth? at: 345 53, size: 170 84, color: blue
-arrow from: 150 95, to: 430 95
-rectangle Magic link at: 60 250, size: 180 70, color: green
-arrow emails a code from: 150 95, to: 150 285, color: green
-database Users at: 420 160, size: 140 100, color: purple
-queue Email jobs at: 300 380, size: 200 64, color: orange
-arrow from: 150 285, to: 400 412, color: orange, style: dashed
-line from: 60 340, to: 240 340, style: dashed
-text keep it to ONE screen at: 62 184
-text 2FA here?? at: 560 -4, color: red
-note Ask legal whether SSO needs a security review at: 600 300
-ink ink 2.5 AHysAxoGEgIUAyYJFAESAi4MEgIUAyYJFAESAjQOGgE
-ink red 3 ALwKUAEKBQoNCA8IKwwxBDMDKwkRBwsJBwkBCQgNCgkkDyQHHAE4ATQIFgYaDAwKCBABCgsO
-ink green 4 AZwE2AQYJDAWaqMBHQ
+whiteboard Treasure hunt app — kickoff
+text MVP — ship by June at: 330 -14, color: red
+ink red 3 AJQFJBYEPAAuBzwALAg8AAgB
+text v2 ideas at: 870 -14, color: gray
+line from: 835 -20, to: 835 450, color: gray, style: dashed
+ellipse Players at: 40 80, size: 160 90, color: blue
+rectangle Phone app at: 330 85, size: 180 80, color: teal, fill: solid
+ink red 3 APYEvAEeFSQRPg80BTYAVAweCjIYIh4OGAQQABoFEBEYGRY_HkEOIwQ3ADUFLws1FxUNDw8LDwcRARkEDwgRFBccFTQXQA8
+arrow taps and digs from: 120 125, to: 420 125, color: blue
+rectangle Map service at: 620 40, size: 170 70, color: purple
+arrow where am I? from: 420 125, to: 705 75, color: purple, bend: -30
+database Treasure vault at: 640 190, size: 150 110, color: orange
+arrow claim a chest from: 420 125, to: 715 245, color: orange
+queue Push alerts at: 300 300, size: 210 64, color: cyan
+ink green 4 AIgI_AQcICY5Fhs
+arrow chest found! from: 715 245, to: 405 332, color: cyan, style: dashed, bend: 40
+ellipse Leaderboard at: 40 300, size: 170 90, color: green, fill: outline
+arrow from: 405 332, to: 125 345, color: green
+arrow bragging rights from: 125 345, to: 120 125, heads: both, style: dashed
+note Ask legal about digging in parks at: 330 430, size: 200 80, color: red
+note What if chests move at night? at: 870 30
+note Kids mode, no ads at: 870 160, color: green
+note at: 870 290, color: purple
+  Team battles
+  every Friday

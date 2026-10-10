@@ -1,27 +1,36 @@
 **Beta — expect rough edges and syntax changes.**
 
 ```dgmo
-whiteboard Login ideas
-rectangle at: 60 60, size: 180 70
-  Sign in
-  with email
-ellipse OAuth? at: 345 53, size: 170 84, color: blue
-arrow from: 150 95, to: 430 95
-rectangle Magic link at: 60 250, size: 180 70, color: green
-arrow emails a code from: 150 95, to: 150 285, color: green
-database Users at: 420 160, size: 140 100, color: purple
-queue Email jobs at: 300 380, size: 200 64, color: orange
-arrow from: 150 285, to: 400 412, color: orange, style: dashed
-line from: 60 340, to: 240 340, style: dashed
-text keep it to ONE screen at: 62 184
-text 2FA here?? at: 560 -4, color: red
-note Ask legal whether SSO needs a security review at: 600 300
-ink red 3 ALwKUAEKBQoNCA8IKwwxBDMDKwkRBwsJBwkBCQgNCgkkDyQHHAE4ATQIFgYaDAwKCBABCgsO
+whiteboard Treasure hunt app — kickoff
+text MVP — ship by June at: 330 -14, color: red
+ink red 3 AJQFJBYEPAAuBzwALAg8AAgB
+text v2 ideas at: 870 -14, color: gray
+line from: 835 -20, to: 835 450, color: gray, style: dashed
+ellipse Players at: 40 80, size: 160 90, color: blue
+rectangle Phone app at: 330 85, size: 180 80, color: teal, fill: solid
+ink red 3 APYEvAEeFSQRPg80BTYAVAweCjIYIh4OGAQQABoFEBEYGRY_HkEOIwQ3ADUFLws1FxUNDw8LDwcRARkEDwgRFBccFTQXQA8
+arrow taps and digs from: 120 125, to: 420 125, color: blue
+rectangle Map service at: 620 40, size: 170 70, color: purple
+arrow where am I? from: 420 125, to: 705 75, color: purple, bend: -30
+database Treasure vault at: 640 190, size: 150 110, color: orange
+arrow claim a chest from: 420 125, to: 715 245, color: orange
+queue Push alerts at: 300 300, size: 210 64, color: cyan
+ink green 4 AIgI_AQcICY5Fhs
+arrow chest found! from: 715 245, to: 405 332, color: cyan, style: dashed, bend: 40
+ellipse Leaderboard at: 40 300, size: 170 90, color: green, fill: outline
+arrow from: 405 332, to: 125 345, color: green
+arrow bragging rights from: 125 345, to: 120 125, heads: both, style: dashed
+note Ask legal about digging in parks at: 330 430, size: 200 80, color: red
+note What if chests move at night? at: 870 30
+note Kids mode, no ads at: 870 160, color: green
+note at: 870 290, color: purple
+  Team battles
+  every Friday
 ```
 
 ## Overview
 
-A whiteboard is a free-form board on an endless canvas. You scribble with a pen, drop a box or a sticky note, type a word and paste a screenshot, each wherever you like. Boxes, notes, arrows, lines and text are clean shapes; only your pen strokes look hand-made.
+A whiteboard is a free-form board on an endless canvas. You scribble with a pen, drop a box or a sticky note, draw an arrow and type a word, each wherever you like. Boxes, notes, arrows, lines and text are clean shapes; only your pen strokes look hand-made.
 
 The file is ordinary DGMO text. Every box, note, arrow, line and piece of text is one readable line. Every pen stroke is also one line, but its path is a compact code that only the drawing canvas writes.
 
@@ -31,6 +40,41 @@ The file is ordinary DGMO text. Every box, note, arrow, line and piece of text i
 - **[`sketch`](chart-sketch.md)** — you want tidy, same-size cards on a snap grid, coloured by meaning.
 - **[`boxes-and-lines`](chart-boxes-and-lines.md)** — you'd rather write the diagram as text and let the engine lay it out.
 - **[`wireframe`](chart-wireframe.md)** — you're drawing a screen with buttons, fields and navigation.
+
+## Drawing on the canvas
+
+In the Diagrammo app a whiteboard opens as a canvas, not as text. Start one from **New file → Blank whiteboard**, or **File → New Whiteboard** (⌥⌘N) in the desktop app. Shortcuts below use ⌘; on Windows and Linux use Ctrl.
+
+**Tools** live on a rail at the left edge of the canvas. It stays in view while the board is nearly empty; after that it tucks away, and moving the pointer to the left edge brings it back. Each tool also has a key:
+
+| Key | Tool                                                              |
+| --- | ----------------------------------------------------------------- |
+| V   | Select                                                            |
+| P   | Pen — drag to draw a stroke (the starting tool)                   |
+| E   | Eraser — wipe across a pen stroke to remove it                    |
+| R   | Rectangle (O ellipse, D database, Q queue) — drag to draw         |
+| N   | Sticky note — click to drop one                                   |
+| L   | Line (A arrow) — drag from one shape to another                   |
+| T   | Text — or just double-click empty canvas                          |
+| H   | Hand — drag to pan                                                |
+
+After you draw a shape or a line the tool goes back to Select. Double-click a tool on the rail to keep it picked. You can also drag a shape, a line or a colour straight off the rail onto the board.
+
+**Typing.** Start typing right after drawing a shape to label it. Double-click anything to edit its label, or select it and press Enter. Inside a label, Enter starts a new line, ⌘Enter or a click elsewhere finishes, and Esc throws the typing away.
+
+**Selecting and moving.** Click to select, Shift-click to add, drag across empty canvas to select a group, ⌘A for everything. Drag to move; arrow keys nudge 1 px (Shift for 10). Drag a corner or side to resize — Shift keeps the shape's proportions. Things snap to each other's edges and centres; hold ⌘ to place freely. Delete or Backspace removes the selection, ⌘D duplicates it, and Alt-drag pulls out a copy.
+
+**Arrows and lines.** Drag from inside one shape to inside another and the ends attach — move a shape and its arrows follow. Drag an end to re-attach it, click an end to add or remove its arrowhead, and drag the round handle in the middle of a selected arrow to bend it. The line tool's slide-out also offers dashed lines and arrows; pick one with a line selected to restyle it.
+
+**Colour and fill.** The colour pill on the rail, and the small row of colours above any selection, recolour what is selected. Click a shape's current colour again to step its fill from a pale tint, to solid, to outline only.
+
+**Order.** `]` brings the selection to the front and `[` sends it to the back; ⌥] and ⌥[ move it one step.
+
+**Moving around.** Two-finger scroll or Space-drag pans; pinch or ⌘-scroll zooms. ⌘0 or Shift+1 fits the whole board, Shift+0 goes to 100%, ⌘+ and ⌘− zoom in and out. The controls at the foot of the rail do the same, and hold the **Sticky notes** toggle that shows or hides every note.
+
+**Undo** is ⌘Z, and ⌘⇧Z redoes. **Copy and paste** work as text: copying gives you the selected elements as DGMO lines, and pasting DGMO lines — from this board or anywhere else — adds them where the pointer is.
+
+**Seeing the text.** Press ⌘/ to show the board's text beside the canvas. The two stay in step: draw on the canvas and the line appears; edit a line and the board redraws.
 
 ## The file
 
@@ -85,7 +129,7 @@ Add `color:` with a colour name: `red`, `green`, `blue`, `teal`, `purple`, `oran
 
 ## Images
 
-A pasted picture is saved beside the diagram, in a folder named after it (`login-ideas.assets/`). When a board is shared, its pictures move to a web link. Where a picture cannot be found — a copied code block, or a docs site without the folder — the board shows a plain box marked _image not uploaded_ instead. Nothing breaks.
+An `image` line shows a picture: `image https://example.com/sketch.png at: 600 200, size: 250 170`. The reference is an `https://` link or a file path beside the diagram. Where a picture cannot be loaded, the board shows a plain box marked _image not uploaded_ instead — nothing breaks. The canvas cannot paste or drop pictures yet; add them as a line in the text.
 
 ## Using AI
 
