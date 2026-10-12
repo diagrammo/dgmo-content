@@ -238,10 +238,6 @@ const plunder = ships.reduce((sum, s) => sum + s.gold, 0);
 
 ## Software
 
-### Boxes and Lines
-
-![[boxes-and-lines/boxes-and-lines.dgmo]]
-
 ### C4 Architecture
 
 ![[c4/c4.dgmo]]
@@ -293,6 +289,12 @@ const plunder = ships.reduce((sum, s) => sum + s.gold, 0);
 ### Block
 
 ![[block/block.dgmo]]
+
+## Freeform
+
+### Boxes and Lines
+
+![[boxes-and-lines/boxes-and-lines.dgmo]]
 
 ### Sketch
 

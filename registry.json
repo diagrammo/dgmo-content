@@ -327,7 +327,7 @@
       "kind": "type",
       "base": null,
       "name": "Boxes and Lines",
-      "family": "software",
+      "family": "freeform",
       "intent": [
         "relationships"
       ],
@@ -370,7 +370,7 @@
       "kind": "variant",
       "base": "boxes-and-lines",
       "name": "Diverging",
-      "family": "software",
+      "family": "freeform",
       "intent": [],
       "produces": null,
       "keywords": [],
@@ -2645,7 +2645,7 @@
       "kind": "type",
       "base": null,
       "name": "Sketch",
-      "family": "software",
+      "family": "freeform",
       "intent": [
         "relationships"
       ],
@@ -3132,7 +3132,7 @@
       "kind": "type",
       "base": null,
       "name": "Whiteboard",
-      "family": "software",
+      "family": "freeform",
       "intent": [
         "relationships"
       ],
