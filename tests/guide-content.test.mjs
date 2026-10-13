@@ -81,6 +81,21 @@ const DOCUMENTED = [
     verifiedAgainst: 'https://diagrammo.app/dev/ (CLI tab: npm, Homebrew, pacman)',
     on: '2026-10-06',
   },
+  {
+    what: 'the all-chart-types note shows every live-link spelling',
+    file: 'examples/all-chart-types.md',
+    contains: [
+      '## Live link',
+      '```dgmo\nlive-link dgm_01M3PG3DQ6S89W7ZFM5Z06J1CD\n```',
+      '```dgmo\nhttps://online.diagrammo.app/d/dgm_01M3PG3DQ6S89W7ZFM5Z06J1CD\n```',
+      'live-link Checkout — card payment\nurl https://online.diagrammo.app/d/dgm_01M3PG3DQ6S89W7ZFM5Z06J1CD',
+      '![[live-link:dgm_01M3PG3DQ6S89W7ZFM5Z06J1CD]]',
+      'Keep live links up to date',
+    ],
+    why: 'The Obsidian example note is where a user learns which fences they can write, and it had no live link (#1276). The id must stay shared: every published example once pointed at a dead diagram (#783).',
+    verifiedAgainst: 'docs/dgmo-language-spec.md §38.3 and §38.6; obsidian-dgmo/src/ui/settings.ts (followLiveLinks); GET api.diagrammo.app/public/diagrams/dgm_01M3PG3DQ6S89W7ZFM5Z06J1CD/source → 200',
+    on: '2026-10-12',
+  },
 ];
 
 /**
