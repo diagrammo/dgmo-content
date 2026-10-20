@@ -4,13 +4,47 @@ A space is a shared set of diagrams. It is where a diagram lives once it is not 
 
 You do not need one to use Diagrammo. The app opens folders on your own disk, needs no account, and nothing leaves your machine unless you decide it should. A space is the thing you add when a diagram stops being a private file — when somebody else needs to change it, or when you want to hand it an address on the web.
 
+A diagram can live in three places. Each step to the right reaches more people:
+
+```dgmo
+boxes-and-lines Where a diagram lives
+
+tag Reach as r
+  Only you blue
+  People you named teal
+  Anyone with the link orange
+
+active-tag Reach
+
+[On your disk]
+  Private file r: Only you
+    Nothing leaves your machine
+
+[In a space]
+  Owner r: People you named
+    Signed in, local copy
+  Editor r: People you named
+    Signed in, local copy
+  Viewer r: People you named
+    Signed in, local copy
+
+[On the web]
+  Live link r: Anyone with the link
+    No sign-in needed
+
+Private file -Copy to a space-> Owner
+Owner -syncs-> Editor
+Owner -syncs-> Viewer
+Editor -Show and copy link-> Live link
+```
+
 ## What a space holds
 
 Diagrams, and the people allowed to touch them.
 
 Everyone in a space sees the same set. When an editor changes a diagram, everyone else has the new version the next time their app syncs — there is no sending, and no copy in somebody's downloads folder quietly disagreeing with yours.
 
-Two people editing the same diagram at the same moment is the one case that needs a human. The app keeps both versions rather than picking, and asks you which to keep.
+Two people editing the same diagram at the same moment is the one case that needs a human. The app keeps both versions rather than picking. Your local edit is kept as a numbered conflict copy until you publish or discard it.
 
 ## The three roles
 
@@ -24,30 +58,6 @@ There is one Admin per space and it cannot be handed to somebody else. The space
 
 Four things are metered: diagrams, diagrams shown on the web, spaces, and the people who can edit. Your account page draws each against its ceiling, with the figures read from your account rather than written into the page. The plain-English version is on the [sharing page](https://diagrammo.app/sharing/).
 
-```dgmo
-boxes-and-lines Who can reach a diagram in a space
-
-tag How as h
-  Signed in, by name blue
-  Anyone with the link orange
-
-active-tag How
-
-[Your space]
-  Owner h: Signed in, by name
-  Editor h: Signed in, by name
-  Viewer h: Signed in, by name
-  The diagrams h: Signed in, by name
-
-Owner -invites, removes, sets roles-> Editor
-Owner -invites, removes, sets roles-> Viewer
-Owner -creates and changes-> The diagrams
-Editor -creates and changes-> The diagrams
-Viewer -reads-> The diagrams
-
-The diagrams -one of them, shown on the web-> Any reader
-Any reader h: Anyone with the link
-```
 
 ## Where each part lives
 
@@ -72,7 +82,7 @@ Admin is not something you can hand out — see the roles above.
 
 They get an email. The link in it is a hint, not a key: membership is granted when they sign in with the address you invited, so forwarding the link to somebody else does not let that person in. If they are signed in as somebody else the app says so rather than silently doing nothing.
 
-An invitation is good for seven days.
+An invitation is good for seven days. A viewer's request for edit access also expires after seven days.
 
 If the email fails to send, the invitation is still saved and the link goes to your clipboard so you can pass it on yourself. Pending invitations can be resent, copied or revoked, and they expire.
 
@@ -94,7 +104,7 @@ If you are removed from a space, the app deletes that space's copy as soon as it
 
 If instead the **owner deletes the space**, your copy of the files stays on your device, and the app names who deleted it. Losing access takes the copy; ending the space does not.
 
-A deleted space is recoverable for thirty days before it goes for good.
+A deleted space stays recoverable for seven days before it goes for good. Deleted diagrams and folders get the same seven days in the trash, and until they clear they still count against the owner's allowance.
 
 ## Putting a private diagram into one
 

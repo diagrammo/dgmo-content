@@ -286,12 +286,14 @@ When you write `red`, DGMO doesn't render `#ff0000`. It renders *the red from yo
 
 The allowed color names are: `red`, `orange`, `yellow`, `green`, `blue`, `purple`, `teal`, `cyan`, `gray`, `black`, `white`.
 
-That's the complete list. No hex codes, no CSS keywords, no custom colors. This is a deliberate constraint:
+That's the complete list of colors an element can take. No hex codes, no CSS keywords, no twelfth name. This is a deliberate constraint:
 
 - Every palette (Nord, Catppuccin, Atlas, Tokyo Night, etc.) defines its own version of these eleven names
 - Switching palettes recolors your entire diagram coherently
 - Diagrams always look good regardless of which palette or theme is active
 - No one accidentally picks colors that clash or become invisible on certain backgrounds
+
+The palette itself is not locked. A file can name a built-in palette with a `palette` line, such as `palette nord` at the bottom of the file. It can also carry a custom palette: a `palette` block that gives the eleven names hex values of your own. That block is the one place DGMO accepts hex. An override where the diagram is drawn, such as `--palette` on the command line, still beats the file's line. [Colors & Palettes](colors.md) has the details.
 
 DGMO prioritizes *beautiful by default* over *total control.*
 
@@ -337,7 +339,7 @@ DGMO uses the same small set of arrow patterns everywhere:
 | `~label~>` | Labeled async edge | `~notify~> Email` |
 | `<->` | Bidirectional | `A <-> B` |
 
-The label goes between the dashes (or tildes). `->` and `-label->` work in every chart that has edges — sequence, infra, flowchart, C4, ER, class, sitemap, boxes-and-lines, and more. The async forms (`~>`, `~label~>`) are specific to communication-style diagrams (sequence, infra, flowchart). Bidirectional `<->` is a boxes-and-lines convenience.
+The label goes between the dashes (or tildes). `->` and `-label->` work in every chart that has edges — sequence, infra, flowchart, C4, ER, class, sitemap, boxes-and-lines, and more. The async forms (`~>`, `~label~>`) belong to the charts where a message can be sent without waiting, such as sequence, infra and C4. Flowchart does not take them. On a map route, `~>` draws an arc instead of a straight leg. Bidirectional arrows (`<->`, `<~>`, and the labeled `<-label->`) are a boxes-and-lines convenience. There is no left-pointing arrow: write `B -> A`, not `A <- B`.
 
 Learn the shape once, then reach for the variant the diagram type allows.
 
@@ -403,7 +405,7 @@ active-tag Team
 - **Boolean options**: bare keyword turns it on, `no-` prefix turns it off (`activations` / `no-activations`)
 - **Value options**: keyword followed by the value, space-separated (`start-date 2026-03-15`)
 - No YAML, no JSON, no nested config blocks
-- Options must appear before diagram content
+- Options must appear before diagram content. The one exception is the `palette` line, which usually sits at the bottom of the file (see [Colors & Palettes](colors.md))
 - A few toggles are **universal** — every chart that renders the corresponding surface accepts them. `no-legend` hides the legend (data charts included), `no-title` drops the banner title, and `no-value` suppresses per-item value labels.
 
 ---
@@ -455,4 +457,4 @@ sequence Auth Flow
 API -> Database  // This is NOT a comment — it's part of the line
 ```
 
-Use `//` at the start of a line. There are no inline comments. `#` is not a comment character.
+Use `//` at the start of a line. There are no inline comments, and `#` is not a comment character. The one exception is [PERT](chart-pert.md), which also accepts `#`, and a comment at the end of a line.

@@ -1,6 +1,6 @@
-# Markdown Syntax
+# DGMO in Markdown
 
-Diagrammo supports `.md` files with GitHub Flavored Markdown plus math expressions. This page covers the supported syntax with rendered examples.
+Diagrammo opens `.md` files and previews them with GitHub Flavored Markdown (GFM). A `dgmo` code fence or a `![[file.dgmo]]` embed draws a live diagram right inside the note. This page covers the supported syntax with rendered examples.
 
 ## Text Formatting
 
@@ -70,6 +70,8 @@ Renders as: [Link text](https://example.com)
 - [ ] Incomplete task
 - [ ] Another task
 
+The preview shows checkboxes read-only. To tick one, edit the `[ ]` in the source.
+
 ## Blockquotes
 
 ```
@@ -96,7 +98,7 @@ Renders as: [Link text](https://example.com)
 
 ## Code Blocks
 
-Use triple backticks with an optional language tag for syntax highlighting:
+Use triple backticks with an optional language tag for syntax highlighting. Highlighting covers the common languages of the highlight.js library:
 
 ````
 ```javascript
@@ -128,21 +130,15 @@ function greet(name) {
 
 Images are rendered with relative path resolution from the markdown file location.
 
-## Math (KaTeX)
-
-Inline math with single dollar signs: `$E = mc^2$` renders as $E = mc^2$.
-
-Display math with double dollar signs:
+## Footnotes
 
 ```
-$$
-\int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2}
-$$
+A claim that needs a source.[^1]
+
+[^1]: The source goes here.
 ```
 
-$$
-\int_0^\infty e^{-x^2} dx = \frac{\sqrt{\pi}}{2}
-$$
+The preview shows a small superscript number. The note itself collects at the bottom, with a link back.
 
 ## Embedded Diagrams
 
@@ -166,11 +162,37 @@ Gunner 3
 Sailor 8
 ```
 
+## Embedding a diagram file
+
+A paragraph that holds only `![[file.dgmo]]` draws that file's diagram. Add `|` and a label to give it an alias.
+
+```
+![[auth.dgmo]]
+
+![[../diagrams/auth.dgmo|Auth flow]]
+```
+
+The embed works for `.dgmo` files only, and only as a paragraph of its own. Inline, it stays plain text. Obsidian users know this form already.
+
+## Wiki links
+
+Double square brackets link to another note by name. The link resolves to a `.md` file with that name.
+
+```
+[[Other Note]]
+[[notes/Plan|Roadmap]]
+[[Note#Section]]
+```
+
+## Editing a diagram inside a note
+
+A `dgmo` fence is editable in place. To open it for full editing, click the icon in the gutter beside the opening line, press **Cmd + Shift + .**, or press **Enter** on the opening line. Vim mode supports the icon and the shortcut but not Enter.
+
 ## Not Supported
 
 The following standard markdown features are **not** available:
 
-- Footnotes
+- Math (`$E = mc^2$` and `$$ ... $$` stay plain text)
 - Definition lists
 - Abbreviations
-- Custom HTML attributes
+- Raw HTML in the in-app preview — tags show as text. The published docs site does render raw HTML, but do not rely on it in your own notes.

@@ -2,6 +2,37 @@
 
 A diagram can live inside your own documentation site, drawn when the site builds. You write a fenced block in your markdown, a plugin turns it into a real diagram, and the page ships the picture. Nothing of ours runs when somebody reads it, and there is no image file to regenerate when the diagram changes.
 
+```dgmo
+boxes-and-lines Two fences at build time
+
+tag Source as s
+  Own text blue
+  Live link orange
+
+active-tag Source
+
+[Own text]
+  Fence with lines s: Own text
+    In your repository
+  Plugin draws it s: Own text
+    No network
+  Page A s: Own text
+    SVG, old until you copy edits
+
+[Live link]
+  Fence with an id s: Live link
+    Names a shown diagram
+  Build fetches it s: Live link
+    Copy committed to your repo
+  Page B s: Live link
+    SVG, current at each build
+
+Fence with lines -> Plugin draws it
+Plugin draws it -> Page A
+Fence with an id -> Build fetches it
+Build fetches it -> Page B
+```
+
 There are two things you can put inside that fence, and they behave differently.
 
 ## The diagram's own text
@@ -28,32 +59,7 @@ Put a live link's id in the fence instead, and the plugin fetches the diagram wh
 
 Now the source lives in one place. You edit the diagram in the app, your site rebuilds, and the page is right. Between builds the page keeps showing what it fetched last, so the picture never half-loads for a reader.
 
-You need to be showing the diagram first — see [Showing a Diagram on the Web](showing-on-the-web.md). What the fetch commits, what happens when it fails, and how to build without a network are in [Live Links](live-links.md).
-
-```dgmo
-boxes-and-lines Two things you can put in a fence
-
-tag Needs as n
-  No account blue
-  A live link orange
-
-active-tag Needs
-
-[The diagram's own text]
-  Lines in your markdown n: No account
-  Your site builds n: No account
-  The page n: No account
-
-[A live link id]
-  The diagram in your space n: A live link
-  Fetched while your site builds n: A live link
-  The same page n: A live link
-
-Lines in your markdown -> Your site builds
-Your site builds -> The page
-The diagram in your space -> Fetched while your site builds
-Fetched while your site builds -> The same page
-```
+You need to be showing the diagram first — see [Showing a Diagram on the Web](showing-on-the-web.md). What the fetch commits, what happens when it fails, and how to build without a network are in [Live Links](live-links.md). If somebody stops showing the diagram, the next build can no longer fetch it, and the page shows the fallback described there.
 
 ## Which one to use
 
@@ -73,6 +79,20 @@ Use the diagram's own text when the diagram belongs to the repository — an arc
 All of them are wrappers around one core, [`remark-dgmo`](https://www.npmjs.com/package/remark-dgmo), which is what actually parses the fence and renders it. That is why they behave the same: the fence syntax, the live-link resolution and the client runtime are shared, and only the host-specific wiring differs.
 
 Install commands, configuration and a working example for each are on the [integrations page](https://diagrammo.app/embed/).
+
+## Options you set once
+
+Each plugin takes the same options, set in your site's config. The ones that change what a reader sees:
+
+| Option | What it does |
+| --- | --- |
+| `palette` | The colour set for every diagram. The default is `slate`. |
+| `colorMode` | `auto` draws light and dark and follows the reader's theme. `light` or `dark` draws one only. |
+| `background` | `auto` blends the diagram into the page. `transparent` and `opaque` force the choice. |
+| `showSource`, `showCopy`, `showExpand`, `showOpenInEditor` | Buttons under each diagram. |
+| `liveLink` | `{ enabled: false }` swaps live-link fences for a small card. `{ offline: true }` fails the build when a cached copy is missing. |
+
+A single diagram can override the site palette. Put a `palette` line, such as `palette nord`, at the bottom of its fence. See the palette line in the language reference.
 
 ## What the reader gets
 

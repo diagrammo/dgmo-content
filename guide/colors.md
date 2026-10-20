@@ -1,10 +1,94 @@
-# Colors
+# Colors & Palettes
 
-Diagrammo has a small, closed set of named colors — `red`, `orange`, `yellow`, `green`, `blue`, `purple`, `teal`, `cyan`, plus the neutrals `gray`, `black`, and `white`. Use them anywhere a color is accepted, and never write hex codes. There is no way to add a twelfth name; `crimson`, `navy`, and `#3b6ea5` are all rejected.
+Diagrammo has a small, closed set of named colors — `red`, `orange`, `yellow`, `green`, `blue`, `purple`, `teal`, `cyan`, plus the neutrals `gray`, `black`, and `white`. Use them anywhere an element takes a color. There is no way to add a twelfth name; `crimson`, `navy`, and `#3b6ea5` are all rejected on an element. Hex appears in one place only: a custom palette, which redefines what the eleven names look like (see [Your own palette](#your-own-palette)).
 
 The actual shade is resolved from the **active palette**, so the same `blue` looks different in Slate than in Nord — but it's always that palette's considered version of the hue, never a clashing primary. `black` and `white` are theme-relative: each palette picks near-darkest / near-lightest values that stay distinct from the canvas, which means `black` is the strongest mark you can make on a light theme and nearly invisible on a dark one. `white` is the exact reverse. Neither is a fixed ink.
 
-The active palette is chosen at render time, not in the diagram source — `--palette <name>` on the command line, or the palette picker in the app. The palettes that ship are `slate` (the default), `nord`, `atlas`, `blueprint`, `catppuccin`, `tidewater`, and `tokyo-night`. See [Exporting diagrams](exporting.md) for how to set it, along with the light/dark/transparent theme.
+<figure class="col-fig" aria-labelledby="col-fig-cap">
+<style>.col-fig{margin:1.5rem 0}.col-fig svg{display:block;width:100%;height:auto;font-family:inherit}.col-fig .col-row{fill:currentColor;fill-opacity:.05;stroke:currentColor;stroke-opacity:.3}.col-fig .col-num{fill:currentColor;fill-opacity:.12}.col-fig .col-t{fill:currentColor;font-size:13px}.col-fig .col-n{fill:currentColor;font-size:12px;font-weight:700}.col-fig .col-h{fill:currentColor;font-size:13px;font-weight:600}.col-fig .col-m{fill:currentColor;fill-opacity:.65;font-size:10px}.col-fig .col-code{font-family:ui-monospace,monospace;font-size:12px}.col-fig .col-ink{stroke:currentColor;stroke-opacity:.45;fill:none;stroke-width:1.4}.col-fig figcaption{font-size:.92em;opacity:.8;margin-top:.5rem}</style>
+<svg viewBox="0 0 720 220" role="img" aria-label="Four palette sources in order: an override, the file's palette line, the host's default, then Slate. The first one set picks the palette, which gives the same eleven color names its own shades, shown for Slate and Nord.">
+<text class="col-h" x="16" y="18">Which palette — the first one set wins</text>
+<rect class="col-row" x="16" y="32" width="270" height="34" rx="7"/>
+<circle class="col-num" cx="36" cy="49" r="11"/><text class="col-n" x="36" y="53" text-anchor="middle">1</text>
+<text class="col-t" x="56" y="53">An override: <tspan class='col-code'>--palette</tspan> or the host</text>
+<path class="col-ink" d="M151 68 v8 M147 72 l4 4 l4 -4"/>
+<rect class="col-row" x="16" y="78" width="270" height="34" rx="7"/>
+<circle class="col-num" cx="36" cy="95" r="11"/><text class="col-n" x="36" y="99" text-anchor="middle">2</text>
+<text class="col-t" x="56" y="99">The file's <tspan class='col-code'>palette</tspan> line</text>
+<path class="col-ink" d="M151 114 v8 M147 118 l4 4 l4 -4"/>
+<rect class="col-row" x="16" y="124" width="270" height="34" rx="7"/>
+<circle class="col-num" cx="36" cy="141" r="11"/><text class="col-n" x="36" y="145" text-anchor="middle">3</text>
+<text class="col-t" x="56" y="145">The host's default</text>
+<path class="col-ink" d="M151 160 v8 M147 164 l4 4 l4 -4"/>
+<rect class="col-row" x="16" y="170" width="270" height="34" rx="7"/>
+<circle class="col-num" cx="36" cy="187" r="11"/><text class="col-n" x="36" y="191" text-anchor="middle">4</text>
+<text class="col-t" x="56" y="191">Slate</text>
+<path class="col-ink" d="M292 117 H340 M334 111 l6 6 l-6 6"/>
+<text class="col-m" x="316" y="108" text-anchor="middle">picks</text>
+<text class="col-h" x="352" y="18">Same eleven names, that palette's shades</text>
+<text class="col-m" x="400" y="52" text-anchor="middle">red</text>
+<text class="col-m" x="436" y="52" text-anchor="middle">orange</text>
+<text class="col-m" x="472" y="52" text-anchor="middle">yellow</text>
+<text class="col-m" x="508" y="52" text-anchor="middle">green</text>
+<text class="col-m" x="544" y="52" text-anchor="middle">blue</text>
+<text class="col-m" x="580" y="52" text-anchor="middle">purple</text>
+<text class="col-m" x="616" y="52" text-anchor="middle">teal</text>
+<text class="col-m" x="652" y="52" text-anchor="middle">cyan</text>
+<text class="col-m" x="688" y="52" text-anchor="middle">gray</text>
+<text class="col-t" x="352" y="86">Slate</text>
+<circle cx="400" cy="82" r="13" fill="#c0504d"/>
+<circle cx="436" cy="82" r="13" fill="#cc7a33"/>
+<circle cx="472" cy="82" r="13" fill="#c9a227"/>
+<circle cx="508" cy="82" r="13" fill="#5b9357"/>
+<circle cx="544" cy="82" r="13" fill="#3b6ea5"/>
+<circle cx="580" cy="82" r="13" fill="#7d5ba6"/>
+<circle cx="616" cy="82" r="13" fill="#3a9188"/>
+<circle cx="652" cy="82" r="13" fill="#4f96c4"/>
+<circle cx="688" cy="82" r="13" fill="#7e8a97"/>
+<text class="col-t" x="352" y="140">Nord</text>
+<circle cx="400" cy="136" r="13" fill="#bf616a"/>
+<circle cx="436" cy="136" r="13" fill="#d08770"/>
+<circle cx="472" cy="136" r="13" fill="#ebcb8b"/>
+<circle cx="508" cy="136" r="13" fill="#a3be8c"/>
+<circle cx="544" cy="136" r="13" fill="#5e81ac"/>
+<circle cx="580" cy="136" r="13" fill="#b48ead"/>
+<circle cx="616" cy="136" r="13" fill="#8fbcbb"/>
+<circle cx="652" cy="136" r="13" fill="#88c0d0"/>
+<circle cx="688" cy="136" r="13" fill="#4c566a"/>
+<text class="col-m" x="352" y="186">plus black and white, set by each palette for light and dark</text>
+</svg>
+<figcaption id="col-fig-cap">A diagram names colors; the palette decides what each name looks like. The desktop app is the exception today: it always uses its own Settings.</figcaption>
+</figure>
+
+## Where the palette comes from
+
+The first palette source that is set wins:
+
+1. **An override where the diagram is shown.** On the command line this is `--palette <name>`. In code it is the `paletteOverride` option of `render()`.
+2. **The file's own `palette` line.** Most files have none.
+3. **The host's default** — the palette the page, plugin or tool asks for when it draws.
+4. **Slate**, when nothing else is set.
+
+Whichever palette wins, each of the eleven names then resolves to that palette's hex value, in light or dark.
+
+The palettes that ship are `slate` (the default), `nord`, `atlas`, `blueprint`, `catppuccin`, `tidewater`, and `tokyo-night`. [Exporting diagrams](exporting.md) covers `--palette` together with the light, dark and transparent theme.
+
+### The `palette` line
+
+A file can name its palette on a line of its own. The usual place is the bottom of the file, but any line works:
+
+```dgmo-source
+// a built-in, in the reader's own light or dark
+palette nord
+```
+
+Add `dark` or `light` to pin the diagram to one mode: `palette nord dark`.
+
+The line is the same on every chart type, and it never becomes a node or a row. It is lowercase only: `Palette 70` stays a data row. An unknown name draws the diagram in the next source down, with a warning on that line.
+
+### In the desktop app
+
+The app works differently. The editor preview and picture exports draw in the palette you pick in Settings (**⌘ + ,**): **Editor palette** for the preview, **Export palette** for exports. They ignore the file's `palette` line. A share link keeps the file's line in the copy it sends, so the author's choice travels with the diagram.
 
 ## Choosing a color
 
@@ -66,6 +150,98 @@ The rule that follows, stated for `family` and true everywhere: **the legend, no
 - Separate important categories by **lightness as well as hue** — pair a light-theme strong color (`blue`, `purple`, `red`) against `gray`, not `blue` against `teal`.
 - Keep the number of color-carried categories small. Beyond a handful, no palette separates reliably for anyone.
 - Check the chart in both light and dark, since the contrast ranking flips between them.
+
+## Your own palette
+
+You can't add a color name, but you can change what the eleven names look like. A custom palette gives each name its own hex value, plus twelve **role colors** — the canvas, the panels, the text and the accents around the shapes. There are two ways to bring one in.
+
+### In the file: an embedded palette block
+
+Write `palette` and a name of your own, then an indented block. This file carries a warm light palette called Harbor:
+
+```dgmo
+bar Cargo by Hold
+
+Rum 320
+Silk 210
+Spice 180
+
+palette Harbor
+  light
+    bg #fbf8f1
+    surface #f2ede1
+    overlay #ebe4d4
+    border #d9cfba
+    text #2b2620
+    text-muted #6b6152
+    text-on-fill-light #ffffff
+    text-on-fill-dark #2b2620
+    primary #2f5d7c
+    secondary #6b6152
+    accent #2f7a6d
+    destructive #a8432f
+    colors
+      red #a8432f
+      orange #b8682a
+      yellow #a88420
+      green #4f7d3e
+      blue #2f5d7c
+      purple #6a4f8a
+      teal #2f7a6d
+      cyan #3a7f9e
+      gray #8a8170
+      black #2b2620
+      white #f2ede1
+```
+
+The rules the block must follow:
+
+- **Sections.** `light`, `dark`, or both. A block with one section draws in that mode only.
+- **Role keys.** Each section needs all twelve: `bg surface overlay border text text-muted text-on-fill-light text-on-fill-dark primary secondary accent destructive`.
+- **Colors.** A `colors` section needs all eleven names. A twelfth name is refused.
+- **Hex only.** This block is the one place DGMO accepts hex.
+- **Readable labels.** Text on a tinted fill needs a contrast ratio of at least 4.5:1. Text on a solid fill has a floor too. `black` and `white` are exempt.
+- **A name of your own.** You can't reuse a built-in name such as `nord`.
+
+A block that breaks a rule is not an error. The diagram draws in the next source down, and a warning names the line at fault. The palette belongs to that file alone: it is never added to anyone's list of palettes.
+
+### In the desktop app: the theme folder
+
+The desktop app reads custom palettes from a theme folder, one `.json` file per palette:
+
+| System | Folder |
+| --- | --- |
+| macOS | `~/.diagrammo/themes` |
+| Linux | `~/.config/diagrammo/themes` (or `$XDG_CONFIG_HOME/diagrammo/themes`) |
+| Windows | `%APPDATA%\diagrammo\themes` |
+
+Create the folder if it is not there. A file holds an `id`, a `name`, and a block of colors per mode. The keys are the role keys in camel case (`textMuted`, `textOnFillLight`), plus `colors`. This is Harbor again, as a light-only theme file:
+
+```json
+{
+  "id": "harbor",
+  "name": "Harbor",
+  "mode": "light",
+  "light": {
+    "bg": "#fbf8f1", "surface": "#f2ede1", "overlay": "#ebe4d4", "border": "#d9cfba",
+    "text": "#2b2620", "textMuted": "#6b6152",
+    "textOnFillLight": "#ffffff", "textOnFillDark": "#2b2620",
+    "primary": "#2f5d7c", "secondary": "#6b6152", "accent": "#2f7a6d", "destructive": "#a8432f",
+    "colors": {
+      "red": "#a8432f", "orange": "#b8682a", "yellow": "#a88420", "green": "#4f7d3e",
+      "blue": "#2f5d7c", "purple": "#6a4f8a", "teal": "#2f7a6d", "cyan": "#3a7f9e",
+      "gray": "#8a8170", "black": "#2b2620", "white": "#f2ede1"
+    }
+  }
+}
+```
+
+To cover both modes, leave out `mode` and give a `light` and a `dark` block. The rules are the same as for an embedded block, and the `id` can't be a built-in name.
+
+- **It shows up live.** The app watches the folder. A saved file appears in Settings → **Editor palette**, under **Your themes**. A sun or moon beside it marks a one-mode palette, which is listed only while the app is in that mode.
+- **Open folder** sits beside the **Your themes** heading once one theme has loaded.
+- **A broken file is named.** Settings says which file was not used and why. If the file loaded before, the app keeps showing your last good version.
+- **Desktop only.** The web editor can't read a folder on your computer, so it has no theme folder.
 
 ## Named Colors
 

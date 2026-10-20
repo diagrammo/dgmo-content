@@ -8,7 +8,7 @@ If you are new, read [How DGMO Thinks](how-dgmo-thinks.md) first — it covers t
 
 ## The shape of a file
 
-Nearly every `.dgmo` file has the same three parts, in this order:
+Nearly every `.dgmo` file has the same four parts, in this order:
 
 ```dgmo
 gantt Voyage Plan
@@ -26,6 +26,8 @@ Recruit Crew 5bd t: Galley
 2. Any **directives** — settings for the whole diagram.
 3. Any **tag groups** — named colors you will reuse.
 4. The **content** — the actual things being drawn.
+
+A file can also end with a **palette line**, which picks the colors it draws in. Most files have none.
 
 The words in bold are defined below.
 
@@ -165,7 +167,7 @@ Cache blue
 
 This is fine for a one-off accent. When the color *means* something — a status, a team, a priority — use a tag group instead so the diagram grows a legend that explains itself.
 
-Only eleven color names exist: `red`, `orange`, `yellow`, `green`, `blue`, `purple`, `teal`, `cyan`, `gray`, `black`, `white`. See [Colors](colors.md).
+Only eleven color names exist for an element: `red`, `orange`, `yellow`, `green`, `blue`, `purple`, `teal`, `cyan`, `gray`, `black`, `white`. A custom palette can change what each name looks like, but it cannot add a name. See [Colors & Palettes](colors.md).
 
 ---
 
@@ -189,6 +191,8 @@ Cache p: Routine
 `tag Priority as p` declares the group. `Critical red` and `Routine green` are its members, indented beneath. `API p: Critical` puts the API in the Critical category, which colors it red and adds a "Priority" legend.
 
 The first tag group you declare becomes the active one, which is the one the legend and any coloring use by default.
+
+A member can leave out its color (`High` instead of `High red`). It then gets an **auto-assigned color**: the next unused hue from the palette, in a fixed order.
 
 *Where you meet it:* most diagram types that draw distinct things — boxes-and-lines, infra, flowchart, gantt, kanban, timeline, treemap, and more.
 
@@ -349,13 +353,33 @@ One wedge of a pie or ring chart, or one block of a stacked bar.
 
 A horizontal band grouping related rows — used in swimlane diagrams and in gantt charts with `lane-by`.
 
+### Fill family
+
+The three directives `fill-tint` (the default), `fill-solid` and `fill-outline`. They set how every shape in the diagram is filled: a soft tint, a solid block, or an outline only. They apply to the whole diagram, never to one shape. If you write more than one, the last one wins.
+
 ---
 
 ## Words about the tool
 
 ### Palette
 
-The set of eleven colors currently in use. When you write `red`, you get the red belonging to your active palette, not a fixed shade. Switching palettes recolors the whole diagram in a way that stays harmonious. See [Colors](colors.md).
+The set of colors currently in use: the eleven named colors, plus the background, text and accent colors around them. When you write `red`, you get the red belonging to your active palette, not a fixed shade. Switching palettes recolors the whole diagram in a way that stays harmonious. Several palettes ship with Diagrammo, and you can make your own. See [Colors & Palettes](colors.md).
+
+### Palette line
+
+A line such as `palette nord` that names the palette a file draws in. It usually sits at the bottom of the file. An override where the diagram is drawn, such as `--palette` on the command line, beats it.
+
+### Custom palette
+
+A palette you define yourself, with a hex value for each of the eleven names and each role color. It lives either in the file, as an indented block under a `palette` line, or in the desktop app's theme folder as a `.json` file. That block is the only place DGMO accepts hex.
+
+### Role color
+
+One of the twelve palette colors that are not a color name: `bg`, `surface`, `overlay`, `border`, `text`, `text-muted`, `text-on-fill-light`, `text-on-fill-dark`, `primary`, `secondary`, `accent` and `destructive`. They color the canvas, panels, text and accents. You set them only in a custom palette.
+
+### Theme
+
+The light, dark or transparent version of a palette — the background and the ink on it. Every built-in palette has a light and a dark version. A `palette nord dark` line pins a file to one. In the desktop app's Settings, **Your themes** means something else: the custom palettes in your theme folder.
 
 ### Parse
 
@@ -407,6 +431,26 @@ A date written year-first: `2026-03-15`. It is unambiguous everywhere in the wor
 
 ---
 
+## Sharing words
+
+### Space
+
+A shared set of diagrams on Diagrammo Cloud, and the people allowed to touch them. You need one only when a diagram stops being a private file. See [Spaces](spaces.md).
+
+### Role
+
+What a person may do in a space. A **viewer** reads, an **editor** creates and changes diagrams, and the **admin** made the space and manages its people. The space's page calls the admin the **owner**.
+
+### Show / showing
+
+Giving a diagram in a space a link that anyone can open, with no account. The link always draws your current version. See [Showing a diagram on the web](showing-on-the-web.md).
+
+### Live link
+
+A diagram fence in your own docs that names a diagram shown on the web by its id, instead of carrying its source. The page draws the current version. See [Live links](live-links.md).
+
+---
+
 ## Words with more than one meaning
 
 A few words are used for different things in different guides. Read them in context.
@@ -419,10 +463,11 @@ A few words are used for different things in different guides. Read them in cont
 | **Header** | A line naming the columns the data lines up against | The banner title across the top of the rendered diagram |
 | **Tag** | The `tag` line that declares a group of categories | The category you then attach to something |
 | **Group** | A bracketed container of items | A tag group, which is a set of named colors |
+| **Theme** | Light, dark or transparent — the background a palette draws on | In the desktop app's Settings, a custom palette file (**Your themes**) |
 
 ### Comment
 
-A line starting with `//` that is ignored. Comments must take up the whole line; there is no way to put one at the end of a line of content.
+A line starting with `//` that is ignored. Comments must take up the whole line; there is no way to put one at the end of a line of content. The one exception is [PERT](chart-pert.md), which also accepts `#` and comments at the end of a line.
 
 ```dgmo
 bar Doubloons by Month

@@ -1,6 +1,17 @@
 # Exporting Diagrams
 
-Every diagram ends up somewhere — a blog post, a slide, a README, a social card. This page covers choosing a format, controlling the background and colors, and the one thing you can't control yet.
+Every diagram ends up somewhere — a blog post, a slide, a README, a social card. This page covers choosing a format, controlling the background and colors, and setting the size.
+
+Two things decide how an export looks: which palette (the color set) and which theme (the background and ink). The palette comes from the first of these that is set. The theme then adds a light, dark or transparent background.
+
+```dgmo
+flowchart What Decides the Look
+direction-lr
+
+(dgmo export) -> [Palette: flag, else file line, else slate] -> [Theme: light, dark or transparent] -> /PNG or SVG/
+```
+
+This order is the command line's: the flag is `--palette`. The desktop app works differently — its exports always use the **Export palette** setting, and a file's own `palette` line has no effect there today. The app can also export PDF and HTML; see [Exporting from the app](#exporting-from-the-app).
 
 The shortest version:
 
@@ -25,7 +36,7 @@ cat diagram.dgmo | dgmo > diagram.png
 | GitHub README, wiki, issue | **SVG** or PNG | Both render; SVG looks better and stays sharp |
 | Print, posters, anything large | **SVG** | The only format that scales up without going soft |
 
-The default is PNG because it works everywhere. Reach for SVG whenever the destination accepts it — it's smaller, sharper, and immune to the resolution limit described below.
+The default is PNG because it works everywhere. Reach for SVG whenever the destination accepts it — it's smaller, sharper, and immune to the fixed PNG resolution described below.
 
 One caveat for SVG: text is rendered as real text in a specific font. If the viewing environment doesn't have that font, letters may shift slightly. PNG bakes the type in, so it always looks exactly as rendered. If pixel-exact typography matters more than sharpness, use PNG.
 
@@ -51,12 +62,14 @@ This is what you want for slides almost every time. A light-theme PNG on a slide
 
 ## Palettes
 
-`--palette` picks the color set. This is what "the active palette" means everywhere else in the docs — it's set at render time, not in the diagram source.
+`--palette` picks the color set. It beats any palette the diagram names for itself:
 
 ```bash
 dgmo diagram.dgmo --palette nord
 dgmo diagram.dgmo --palette catppuccin --theme dark
 ```
+
+Without the flag, a diagram can carry its own `palette` line (for example `palette nord` at the bottom of the file), and that is used. With neither, you get `slate`. A `palette <name> dark` line also pins the diagram to dark, whatever `--theme` says.
 
 The palettes that ship:
 
@@ -70,21 +83,29 @@ The palettes that ship:
 | `tidewater` | Desaturated coastal blues and greens |
 | `tokyo-night` | Vivid neons, strongest in dark theme |
 
-`slate` is used if you don't pass anything. An unknown name is rejected with the valid list, so you can always jog your memory with a deliberate typo — or just run `dgmo --help`.
+An unknown `--palette` name is rejected with the valid list. Run `dgmo --help` to see it.
 
-Palette and theme are independent: every palette has a light and a dark rendering, and any palette can be exported transparent. See [Colors](colors.md) for what each of the named colors looks like in every palette.
+Palette and theme are independent: every palette has a light and a dark rendering, and any palette can be exported transparent. A diagram can also embed its own custom palette, and the desktop app reads custom palettes from a theme folder. [Colors](colors.md) shows what each named color looks like in every palette.
 
 ## Output size
 
-**Output size is not currently controllable.** There is no `--width`, `--height`, `--scale`, or `--dpi` flag — passing one is an error, not a silently-ignored option.
+`--width` and `--height` set the canvas size in pixels:
 
-What you get instead: the diagram is laid out at a natural size determined by its content, and PNG export renders that at **2x**. A diagram whose natural size is 1200x800 comes out as a 2400x1600 PNG. That is retina-sharp for normal document and slide use, and it's plenty for most social cards.
+```bash
+dgmo diagram.dgmo --width 1600 -o wide.svg
+```
 
-Where it bites is anything large — a poster, a wide banner, a diagram blown up to fill a projected slide. At those sizes 2x PNG will start to look soft and you have no flag to push it further.
+Many chart types size themselves from their content. For those, `--width` is a maximum, and `dgmo` warns if the content does not fit. Most chart types work out the height from the content and ignore `--height`.
 
-**Use SVG when you need to scale.** SVG has no resolution at all; it renders sharp at any size, and every downstream tool that accepts it can resize it losslessly. If you must have a large raster, export SVG and convert it at whatever size you want with a separate image tool.
+PNG export always renders at **2x**. A diagram laid out at 1200x800 comes out as a 2400x1600 PNG. That is sharp enough for documents, slides and social cards, and there is no flag to push it further.
 
-A resolution flag doesn't exist yet. SVG is the workaround, and for most destinations it's the better answer anyway.
+**Use SVG when you need to scale.** SVG has no resolution at all; it renders sharp at any size, and every downstream tool that accepts it can resize it losslessly. For a very large raster, export SVG and convert it with a separate image tool.
+
+## Other flags worth knowing
+
+- **`--now <instant>`** pins "now" for `clock` and `countdown` diagrams, so the output is reproducible. A countdown file is a snapshot of the moment you exported it, and `dgmo` says so.
+- **`--json`** prints structured output for scripts instead of plain messages. With `--json`, a diagram error exits with a non-zero code. Without it, `dgmo` prints the errors and still writes a file that shows an error card.
+- **WebP images** cannot be drawn into a PNG. They show as placeholders, with one warning. Export SVG to keep them.
 
 ## Share links
 
@@ -103,6 +124,19 @@ dgmo share diagram.dgmo --json       # structured output for scripts
 
 Share links are ideal for review — paste one into a pull request, a chat message, or a ticket and the other person sees the rendered diagram *and* can edit it. Because the source is packed into the URL, very large diagrams can exceed the URL length limit; if that happens, export a file instead.
 
+## Exporting from the app
+
+In the desktop app and the web editor, **Share…** (**⌘ + E**, or Ctrl + E) opens the Share dialog. Its Picture row exports the open diagram:
+
+- **Format:** PNG, SVG, PDF or HTML. HTML takes an optional page title.
+- **Width:** 800, 1200 or 1600 pixels.
+- **Transparent background:** PNG and SVG only.
+- **Save…** writes a file. **Copy** puts a PNG on the clipboard (PNG only). **File → Copy as PNG** does the same from the menu.
+
+Palette and theme come from Settings. **Export palette** chooses the palette, and its light, dark or auto switch chooses the theme. The app does not read a file's own `palette` line; only the command line and docs-site plugins do.
+
+The dialog also has a **Snapshot link** row with Copy, Open and a QR code. It is the same link `dgmo share` prints, and it carries the palette you chose unless the link would grow too long. **File → Copy Snapshot Link** (**⌘ + Shift + L**) copies it in one step. A **Live link** stays current as you edit; see [Live links](live-links.md).
+
 ## Doing it for a whole directory
 
 `dgmo` renders one file per invocation — there is no glob or batch mode. Use a shell loop:
@@ -118,3 +152,4 @@ See [Diagrams in your repo](diagrams-in-your-repo.md) for the CI-ready version o
 ## Next
 
 - **Then:** [Diagrams in your repo](diagrams-in-your-repo.md) · [Colors](colors.md) · [How DGMO thinks](how-dgmo-thinks.md)
+- **Instead of a file:** [Live links](live-links.md) · [Showing on the web](showing-on-the-web.md)

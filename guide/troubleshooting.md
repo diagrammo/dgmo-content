@@ -24,6 +24,9 @@ Two habits catch nearly everything on this page:
 | A child or detail landed under the wrong thing | [It attached to the wrong parent](#it-attached-to-the-wrong-parent) |
 | I wrote an arrow and no line was drawn | [The relationship didn't draw](#the-relationship-didnt-draw) |
 | A setting I wrote had no effect | [The setting did nothing](#the-setting-did-nothing) |
+| A color I wrote didn't apply | [The color didn't apply](#the-color-didnt-apply) |
+| The same diagram looks different in the app, the CLI and the docs site | [Colors differ between places](#colors-differ-between-places) |
+| A diagram that used to work now draws oddly | [An old diagram stopped working](#an-old-diagram-stopped-working) |
 | Blank canvas, or an error card | [Nothing rendered](#nothing-rendered) |
 
 ---
@@ -219,7 +222,7 @@ Customer 1--* Order
 
 > `Relationship "customer → order" must be indented under the source table "customer"`
 
-On `er` and `class` the arrow is dropped and you get a warning; on `c4` it is a hard error and nothing renders at all. The fix is the same in each case — move the arrow under its source and delete the repeated source name:
+On `er` and `class` the arrow is dropped and you get a warning; on `c4` it is an error, so you get an error card instead of the diagram. The fix is the same in each case — move the arrow under its source and delete the repeated source name:
 
 ```dgmo
 er Ship Stores
@@ -242,6 +245,18 @@ The same shape applies on `boxes-and-lines`, `infra`, `flowchart`, `sitemap`, `g
 
 Placement above or below your data does not matter on data charts, so that is not the cause.
 
+## The color didn't apply
+
+Only the eleven [named colors](colors.md) are valid. Hex values (`#e6194b`), `rgb(...)` and CSS names such as `crimson` are rejected with an error, and the element falls back to its automatic palette color. The one exception is an embedded `palette` block, which takes hex. Rewrite the value as one of the eleven names.
+
+## Colors differ between places
+
+The same diagram can look different in the app, on the command line and on a docs site. Each place chooses the palette and the light or dark theme itself. A `--palette` flag or an explicit choice where the diagram is shown beats a `palette` line in the file, and with neither, the default is slate. [Exporting diagrams](exporting.md) shows the order. To pin a diagram, add a `palette` line to the file and drop any override.
+
+## An old diagram stopped working
+
+DGMO retired several older forms before 1.0, and a retired form can fail in two ways. It may draw a warning such as `Unexpected line`, or it may parse as plain text and draw something different. Compare the old line with the current syntax in the chart type's guide.
+
 ## Nothing rendered
 
 **An error card instead of a diagram.** The first line is the chart type, and an unrecognised one is a hard error with a `Did you mean` suggestion. Check for a typo in the type name, and that the type is on line 1 with nothing above it.
@@ -252,9 +267,11 @@ Placement above or below your data does not matter on data charts, so that is no
 
 ## How to read a diagnostic
 
-**Errors** stop the render. You get an error card naming the line. These are the easy ones — they cannot be ignored.
+**Errors** stop the diagram from drawing. You get an error card naming the line. The command line prints the errors and still writes the card as the output file, with exit code 0. Only `--json` exits with a failure code. These are the easy ones — they cannot be ignored.
 
 **Warnings** are the ones that matter. A warning means something *was* drawn, but probably not what you meant: an item with no value, a number that was ignored, a row that was dropped, a setting that didn't apply. The diagram in front of you looks finished, so the temptation is to dismiss the warning as noise. Nearly every failure on this page that produces a diagnostic produces a warning, not an error.
+
+To see every code with its hint and an example, run `dgmo diagnostics` (add `--json` for the full catalog).
 
 **No diagnostic at all** is not a clearance. The corruptions above that warn are outnumbered by the ones that don't. Read the picture.
 

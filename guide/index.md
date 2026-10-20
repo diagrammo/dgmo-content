@@ -4,6 +4,28 @@ Diagrammo is a diagram editor for creating charts and diagrams with a simple pla
 
 Learn more at **[diagrammo.app](https://diagrammo.app)**.
 
+A `.dgmo` text file sits at the centre. Every other piece reads it, edits it, or shares it:
+
+```dgmo
+boxes-and-lines The pieces of Diagrammo
+
+.dgmo File
+  -edit-> Desktop App
+  -edit-> Web Editor
+  -render-> dgmo CLI
+  -embed-> Docs Plugins
+  -embed-> Obsidian
+
+Desktop App
+  -share-> Cloud
+
+Web Editor
+  -share-> Cloud
+
+dgmo CLI
+  -put-> Cloud
+```
+
 ## DGMO and Diagrammo
 
 **DGMO** is the plain-text markup language you write. **Diagrammo** is the app you write it in.
@@ -44,11 +66,27 @@ And when something comes out wrong, **[Troubleshooting](troubleshooting.md)** is
 
 Always look at the render: check the labels, the axis range, and the totals against what you meant to enter. [What a clean check does and doesn't tell you](how-dgmo-thinks.md#what-a-clean-check-does-and-doesnt-tell-you) walks through the specific ways this goes wrong and what to check for each, and [Troubleshooting](troubleshooting.md) lists the symptoms and their causes.
 
+## Where to go next
+
+These docs have two bands. The sidebar groups them the same way.
+
+**Guide** — how to use the product:
+
+- **Start here** — this page and [How DGMO Thinks](how-dgmo-thinks.md)
+- **The app** — [Keyboard Shortcuts](keyboard-shortcuts.md), [Exporting Diagrams](exporting.md), [Terminal Opener](terminal-opener.md) and [Troubleshooting](troubleshooting.md)
+- **Sharing with Diagrammo Cloud** — [Spaces](spaces.md), [Showing on the Web](showing-on-the-web.md) and [Live Links](live-links.md)
+- **Publishing** — [Embedding in Your Docs](embedding-in-your-docs.md) and [Diagrams in Your Repo](diagrams-in-your-repo.md)
+
+**Language reference** — how to write DGMO:
+
+- **Every diagram** — [Colors & Palettes](colors.md), [Writing Dates](writing-dates.md), [DGMO in Markdown](markdown-syntax.md), the [Glossary](glossary.md) and the [Full Reference](https://diagrammo.app/reference/)
+- **Chart types by category** — Software, Project, Business, Data, Life and Freeform. Each chart type has its own page.
+
 ## The Diagrammo Ecosystem
 
 ### Desktop App
 
-A native Mac app for authoring `.dgmo` files with a live preview editor, file tree, and export. Download at [diagrammo.app/app](https://diagrammo.app/app).
+A native app for Apple-silicon Macs (and Omarchy Linux) for authoring `.dgmo` files with a live preview editor, file tree, and export. Download at [diagrammo.app/app](https://diagrammo.app/app).
 
 ### Online Editor
 
@@ -77,3 +115,11 @@ The `@diagrammo/dgmo` npm package lets you parse and render diagrams programmati
 ```bash
 npm install @diagrammo/dgmo
 ```
+
+### Diagrammo Cloud
+
+Cloud is where you share. A [space](spaces.md) holds your diagrams, you can [show a diagram on the web](showing-on-the-web.md), and a [live link](live-links.md) always draws the latest version.
+
+### Docs Sites and Obsidian
+
+Plugins for Astro, Docusaurus, Fumadocs, Nextra and VitePress draw `dgmo` code fences on your published docs site. The Obsidian plugin does the same inside your notes. See [Embedding in Your Docs](embedding-in-your-docs.md).

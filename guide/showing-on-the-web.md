@@ -7,16 +7,47 @@ That last part is the whole point. A screenshot in a document is wrong the momen
 Showing happens to a diagram in a space. A space is what holds the diagram and hands it an address, so if the diagram is still a private file on your disk the app files it into a space first and asks you before it does — see [Spaces](spaces.md).
 
 ```dgmo
-state The life of a shown diagram
+boxes-and-lines One diagram, ways to hand it over
 
-direction-tb
+tag Link as l
+  Frozen blue
+  Current orange
+  Withdrawn gray
 
-[*] -> On your disk
-On your disk -copy into a space-> In a space
-In a space -Share, then Show on the web-> Shown on the web
-Shown on the web -Stop showing-> In a space
-In a space -you are removed-> This device's copy is deleted
+active-tag Link
+
+[In the app]
+  Your diagram l: Frozen
+    Share dialog
+
+[Snapshot link]
+  Frozen copy l: Frozen
+    Inside the URL, never changes
+
+[Live link, shown]
+  Current version l: Current
+    Redraws after every edit
+
+[Live link, stopped]
+  A short note l: Withdrawn
+    Says it is no longer shared
+
+Your diagram -Snapshot link-> Frozen copy
+Your diagram -Show on the web-> Current version
+Current version -Stop showing-> A short note
 ```
+
+## Three links in the Share dialog
+
+The **Share** dialog offers up to three links. Only one of them is the web link this page is about.
+
+| Link | What it is | Use it when |
+| --- | --- | --- |
+| **Snapshot link** | The whole diagram, encoded inside the URL. It is frozen, needs no account, and cannot be taken back once sent. A very large diagram does not fit, and the dialog says so. | You want to send a diagram once, and it may go stale. |
+| **Live link** | The **Show on the web** section. A short link, about thirty characters, that draws your current version. | The diagram will change, or you want to take it back later. |
+| **App link** | Opens the diagram in Diagrammo. It carries no diagram, so it is no use to anyone else. Marked **Only you**. | You are linking from your own notes. |
+
+The rest of this page is about the live link. A live link works wherever a URL works, and it also draws the diagram when you paste it into Notion, Confluence or Jira. See [every place it works](live-links.md#every-place-it-works).
 
 ## Showing one
 
@@ -24,13 +55,15 @@ In a space -you are removed-> This device's copy is deleted
 2. Press **Share**.
 3. Press **Show on the web**.
 
-The link is copied for you. Paste it into a document, a wiki, a chat, an email — anywhere a URL works.
+The link is copied for you, and the diagram's row in the file list gets an amber globe — see [the amber globe](live-links.md#the-amber-globe). You can also right-click the row and choose **Show and copy link**.
+
+Paste the link into a document, a wiki, a chat, an email — anywhere a URL works.
 
 The diagram is drawn in the reader's own browser from the source you published, so it stays sharp at any size and on any screen. It is not an image file.
 
 ## Stopping
 
-Press **Stop showing**, on the same Share dialog or from the diagram's row in the file list.
+Press **Stop showing**, on the same Share dialog or from the diagram's row in the file list. A page that embeds the diagram, or a reader who opens the link, then sees a short note that it is no longer shared. The note names nothing about the diagram.
 
 The link stops opening within five minutes — that delay is the cache in front of it, not a change of mind you can't act on. Anyone who already has the link keeps the link; what they stop getting is the diagram.
 
@@ -52,11 +85,11 @@ Your account page lists everything you are showing, and each space's page lists 
 
 ## Watching somebody else's
 
-If somebody sends you a link, you can **Watch** the diagram. It joins your Watching list and updates when they change it, so you keep their current version without asking for it again.
+If somebody sends you a link, you can **Watch** the diagram. You do not need to be a member of their space. It joins your Watching list and updates when they change it, so you keep their current version without asking for it again.
 
 ## Limits
 
-Every plan caps how many diagrams you can show at once; your account page draws the figure against that ceiling. Stop showing one and the slot is free immediately.
+Every plan caps how many diagrams you can show at once; your account page draws the figure against that ceiling. If you hit the cap, the app tells you to stop showing one to free a slot. Stop showing one and the slot is free immediately.
 
 A space's Admin can switch showing off for the whole space, in which case nobody in it can start showing anything — including the Admin. Diagrams already shown stay shown until somebody stops them one at a time, so a policy change never silently breaks a link somebody has embedded.
 
