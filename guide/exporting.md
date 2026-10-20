@@ -6,7 +6,6 @@ Two things decide how an export looks: which palette (the color set) and which t
 
 ```dgmo
 flowchart What Decides the Look
-direction-lr
 
 (dgmo export) -> [Palette: flag, else file line, else slate] -> [Theme: light, dark or transparent] -> /PNG or SVG/
 ```
