@@ -1,6 +1,6 @@
 # Charts for Your Notes
 
-Most dgmo chart types are built for engineering docs: sequence diagrams, infrastructure maps, gantt plans. Four are built for a personal note instead — a trip you are counting down to, a friend who lives eight hours ahead, the family you married into, and a number you are saving toward. Each one is a few lines of plain text in a `dgmo` fence, so it sits in the note beside the prose and stays searchable.
+Most dgmo chart types are built for engineering docs: sequence diagrams, infrastructure maps, gantt plans. Four are built for a personal note instead — a trip you are counting down to, a friend in another timezone, the family you married into, and a number you are saving toward. Each one is a few lines of plain text in a `dgmo` fence, so it sits in the note beside the prose and stays searchable.
 
 | Type | What it answers | Live? |
 |---|---|---|
