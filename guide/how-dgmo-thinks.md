@@ -109,36 +109,63 @@ When you see indentation in DGMO, read it as "belongs to."
 
 ## How Indentation Works
 
-Every guide on this site shows you indented examples. None of them tell you the rules. Here they are.
+Every guide on this site shows you indented examples. None of them tell you the rules. Here they are, each with the source on the left and what it draws on the right.
 
 ### How many spaces?
 
 **Any number, as long as you are consistent.** DGMO counts *steps*, not spaces. It looks at each line and asks "is this deeper, shallower, or the same as the line above?" — never "how many spaces is this?"
 
-These three files draw exactly the same chart:
+These three files differ only in their indentation:
 
-```dgmo
-org Crew
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.75rem">
 
-Blackbeard
-  Anne Bonny
-    Mary Read
+```dgmo-source
+// two spaces
+Gold
+  Doubloons
+  Ingots
+Gems
+  Rubies
+  Pearls
 ```
 
-```dgmo
-org Crew
-
-Blackbeard
-    Anne Bonny
-        Mary Read
+```dgmo-source
+// four spaces
+Gold
+    Doubloons
+    Ingots
+Gems
+    Rubies
+    Pearls
 ```
 
-```dgmo
-org Crew
+```dgmo-source
+// one space
+Gold
+ Doubloons
+ Ingots
+Gems
+ Rubies
+ Pearls
+```
 
-Blackbeard
- Anne Bonny
-  Mary Read
+</div>
+
+All three draw exactly the same mind map:
+
+```dgmo
+mindmap Plunder
+
+tag Kind as k
+  Metal orange
+  Stone purple
+
+Gold k: Metal
+  Doubloons k: Metal
+  Ingots k: Metal
+Gems k: Stone
+  Rubies k: Stone
+  Pearls k: Stone
 ```
 
 Two spaces per level is the convention used throughout these guides, and it is what the app writes. There is nothing special about the number two — pick a step size and stay with it.
@@ -147,74 +174,243 @@ Because only the steps count, you cannot indent "half a level." Going from no in
 
 ### Do tabs work?
 
-**Yes.** A file indented entirely with tabs draws the same chart as a file indented entirely with two spaces:
+**Yes.** A file indented entirely with tabs draws the same chart as a file indented entirely with spaces.
 
-```dgmo
-org Crew
+**But do not mix tabs and spaces in the same file.** A tab counts as four columns. In the file below, every line uses two spaces except `Pearls`, which starts with one tab. This page draws the tab wide, so you can see it. An editor set to two-space tabs would line it up exactly with `Rubies`. To DGMO it is two steps deep, so `Pearls` becomes a child of `Rubies` — and nothing warns you:
 
-Blackbeard
-	Anne Bonny
-		Mary Read
+```dgmo-source
+mindmap Plunder
+
+tag Kind as k
+  Metal orange
+  Stone purple
+
+Gold k: Metal
+  Doubloons k: Metal
+  Ingots k: Metal
+Gems k: Stone
+  Rubies k: Stone
+	Pearls k: Stone
 ```
 
-**But do not mix tabs and spaces in the same file.** A tab counts as four columns. So if you indent one line with two spaces and the next with a tab, the tab line is *deeper* — it becomes a child of the line above rather than its sibling, and nothing warns you. This is the one indentation mistake that silently changes your diagram.
+```dgmo
+mindmap Plunder
 
-Most editors show tabs and spaces identically, which is exactly why this bites. If a line lands in the wrong place and the file looks correct on screen, suspect a stray tab.
+tag Kind as k
+  Metal orange
+  Stone purple
+
+Gold k: Metal
+  Doubloons k: Metal
+  Ingots k: Metal
+Gems k: Stone
+  Rubies k: Stone
+	Pearls k: Stone
+```
+
+This is the one indentation mistake that silently changes your diagram. Most editors draw a tab and four spaces identically, which is exactly why it bites. If a line lands in the wrong place and the file looks correct, suspect a stray tab.
 
 ### What does a deeper indent mean?
 
-This is the part worth reading twice: **a deeper indent means different things depending on what is on the line.** DGMO looks at the shape of the indented line to decide.
+This is the part worth reading twice: **a deeper indent means different things depending on what is on the line.** DGMO looks at the shape of the indented line to decide. There are four shapes.
 
-**A plain name means a child.** The indented thing belongs to the thing above, and the hierarchy is the diagram:
+#### 1. A plain name is a child
+
+The indented thing belongs to the thing above, and the hierarchy *is* the diagram:
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;align-items:center">
+
+```dgmo-source
+org Crew
+active-tag Rank
+
+tag Rank as r
+  Captain red
+  Mate orange
+  Sailor blue
+
+Blackbeard r: Captain
+  Anne Bonny r: Mate
+    Mary Read r: Sailor
+  Calico Jack r: Mate
+```
 
 ```dgmo
 org Crew
+active-tag Rank
 
-Blackbeard
-  Anne Bonny
-  Calico Jack
+tag Rank as r
+  Captain red
+  Mate orange
+  Sailor blue
+
+Blackbeard r: Captain
+  Anne Bonny r: Mate
+    Mary Read r: Sailor
+  Calico Jack r: Mate
 ```
 
-Anne Bonny and Calico Jack report to Blackbeard. This is how org, sitemap, mindmap, treemap, family, and C4 read indentation.
+</div>
 
-**A line starting with an arrow means a connection, and the line above is where it starts from:**
+Anne Bonny and Calico Jack report to Blackbeard; Mary Read reports to Anne. This is how org, sitemap, mindmap, treemap, family, and C4 read indentation.
+
+#### 2. An arrow starts from the line above
+
+A line that opens with an arrow is a connection, and it leaves from the line above it:
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;align-items:center">
+
+```dgmo-source
+boxes-and-lines Trade Routes
+active-tag Sea
+
+tag Sea as s
+  Caribbean teal
+  Atlantic blue
+
+Nassau s: Caribbean
+  -rum-> Tortuga
+  -sugar-> Port Royal
+  -gold-> Lisbon
+
+Tortuga s: Caribbean
+Port Royal s: Caribbean
+Lisbon s: Atlantic
+```
 
 ```dgmo
-boxes-and-lines Ports
+boxes-and-lines Trade Routes
+active-tag Sea
 
-Nassau
-  -sails-> Tortuga
-  -sails-> Port Royal
+tag Sea as s
+  Caribbean teal
+  Atlantic blue
+
+Nassau s: Caribbean
+  -rum-> Tortuga
+  -sugar-> Port Royal
+  -gold-> Lisbon
+
+Tortuga s: Caribbean
+Port Royal s: Caribbean
+Lisbon s: Atlantic
 ```
 
-Both arrows leave Nassau. The indented lines are not children of Nassau — Tortuga and Port Royal are separate things, drawn beside it, joined to it by lines. Writing `Nassau -sails-> Tortuga` twice would give you the same diagram; indenting saves you repeating the name.
+</div>
+
+All three routes leave Nassau. Tortuga, Port Royal and Lisbon are not children of Nassau — they are separate places, drawn beside it and joined to it by lines. Writing `Nassau -rum-> Tortuga` on three separate lines draws the same thing; indenting saves you repeating the name.
 
 Chart types that read indented arrows this way: boxes-and-lines, infra, flowchart, C4, ER, class, sitemap, gantt, PERT, swimlane, cycle, sketch, and map routes.
 
-**A line containing `key: value` means a fact about the line above:**
+#### 3. `key: value` is a fact about the line above
+
+A line with a colon adds a detail to the thing above it rather than adding a new thing. Here the fact is a rank, and the rank decides the colour:
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;align-items:center">
+
+```dgmo-source
+org Crew
+active-tag Rank
+
+tag Rank as r
+  Captain red
+  Mate orange
+
+Blackbeard
+  r: Captain
+  Anne Bonny
+    r: Mate
+```
 
 ```dgmo
 org Crew
+active-tag Rank
+
+tag Rank as r
+  Captain red
+  Mate orange
 
 Blackbeard
-  role: Captain
+  r: Captain
   Anne Bonny
-    role: Quartermaster
+    r: Mate
 ```
 
-`role: Captain` does not add a crew member called "role" — the colon tells DGMO this is a detail about Blackbeard. Note the second `role:` is indented one step further, under Anne Bonny, because that is who it belongs to. Metadata attaches to whatever it is indented beneath.
+</div>
 
-That last point is the one to watch. If you put `role: Quartermaster` at the *same* depth as `Anne Bonny` rather than one step deeper, it attaches to Blackbeard instead. The file still reads fine; the diagram is wrong.
+`r: Captain` does not add a crew member called "r" — the colon tells DGMO this is a detail about Blackbeard. The second `r:` sits one step deeper, under Anne Bonny, because it belongs to her.
 
-**Content under a bracket line belongs to that group:**
+That depth is the thing to watch. Put `r: Mate` at the *same* depth as `Anne Bonny` and it no longer belongs to her. The file still reads fine, but the ranks land on the wrong people:
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;align-items:center">
+
+```dgmo-source
+org Crew
+active-tag Rank
+
+tag Rank as r
+  Captain red
+  Mate orange
+
+Blackbeard
+  r: Captain
+  Anne Bonny
+  r: Mate
+```
+
+```dgmo
+org Crew
+active-tag Rank
+
+tag Rank as r
+  Captain red
+  Mate orange
+
+Blackbeard
+  r: Captain
+  Anne Bonny
+  r: Mate
+```
+
+</div>
+
+#### 4. Under a bracket line is inside the group
+
+A name in square brackets is a container, and everything indented beneath it goes inside:
+
+```dgmo-source
+kanban Voyage Board
+
+tag Priority as p
+  Low blue
+  High red
+
+[To Do] blue
+  Swab the deck p: Low
+  Hoist the sail p: High
+[Doing] orange
+  Chart a course p: High
+[Done] green
+  Load the cannons p: Low
+```
 
 ```dgmo
 kanban Voyage Board
 
-[To Do]
-  Swab the deck
-  Hoist the sail
+tag Priority as p
+  Low blue
+  High red
+
+[To Do] blue
+  Swab the deck p: Low
+  Hoist the sail p: High
+[Doing] orange
+  Chart a course p: High
+[Done] green
+  Load the cannons p: Low
 ```
+
+Each card sits in the column it is indented under. The same rule puts nodes inside a `[Group]` on boxes-and-lines and infra, and participants inside a box on a sequence diagram.
 
 So one indent step can mean "is a child of," "starts an arrow from," "is a fact about," or "goes inside." The chart-type guide for whatever you are drawing tells you which of these it uses.
 
