@@ -1,118 +1,151 @@
 {
   "groups": [
     {
-      "id": "getting-started",
-      "label": "Getting Started"
+      "id": "start-here",
+      "label": "Start here",
+      "band": "guide"
+    },
+    {
+      "id": "app",
+      "label": "The app",
+      "band": "guide"
+    },
+    {
+      "id": "cloud",
+      "label": "Sharing with Diagrammo Cloud",
+      "band": "guide"
+    },
+    {
+      "id": "publishing",
+      "label": "Publishing",
+      "band": "guide"
+    },
+    {
+      "id": "language",
+      "label": "Every diagram",
+      "band": "reference"
     },
     {
       "id": "software",
-      "label": "Software"
+      "label": "Software",
+      "band": "reference"
     },
     {
       "id": "project",
-      "label": "Project"
+      "label": "Project",
+      "band": "reference"
     },
     {
       "id": "business",
-      "label": "Business"
+      "label": "Business",
+      "band": "reference"
     },
     {
       "id": "data",
-      "label": "Data"
+      "label": "Data",
+      "band": "reference"
     },
     {
       "id": "life",
-      "label": "Life"
+      "label": "Life",
+      "band": "reference"
     },
     {
       "id": "freeform",
-      "label": "Freeform"
+      "label": "Freeform",
+      "band": "reference"
     }
   ],
   "pages": [
     {
       "slug": "index",
       "title": "Welcome",
-      "group": "getting-started",
+      "group": "start-here",
       "file": "index.md"
+    },
+    {
+      "slug": "how-dgmo-thinks",
+      "title": "How DGMO Thinks",
+      "group": "start-here",
+      "file": "how-dgmo-thinks.md"
     },
     {
       "slug": "keyboard-shortcuts",
       "title": "Keyboard Shortcuts",
-      "group": "getting-started",
+      "group": "app",
       "file": "keyboard-shortcuts.md"
     },
     {
+      "slug": "exporting",
+      "title": "Exporting Diagrams",
+      "group": "app",
+      "file": "exporting.md"
+    },
+    {
+      "slug": "terminal-opener",
+      "title": "Terminal Opener",
+      "group": "app",
+      "file": "terminal-opener.md"
+    },
+    {
+      "slug": "troubleshooting",
+      "title": "Troubleshooting",
+      "group": "app",
+      "file": "troubleshooting.md"
+    },
+    {
+      "slug": "spaces",
+      "title": "Spaces",
+      "group": "cloud",
+      "file": "spaces.md"
+    },
+    {
+      "slug": "showing-on-the-web",
+      "title": "Showing on the Web",
+      "group": "cloud",
+      "file": "showing-on-the-web.md"
+    },
+    {
+      "slug": "live-links",
+      "title": "Live Links",
+      "group": "cloud",
+      "file": "live-links.md"
+    },
+    {
+      "slug": "embedding-in-your-docs",
+      "title": "Embedding in Your Docs",
+      "group": "publishing",
+      "file": "embedding-in-your-docs.md"
+    },
+    {
+      "slug": "diagrams-in-your-repo",
+      "title": "Diagrams in Your Repo",
+      "group": "publishing",
+      "file": "diagrams-in-your-repo.md"
+    },
+    {
       "slug": "colors",
-      "title": "Colors",
-      "group": "getting-started",
+      "title": "Colors & Palettes",
+      "group": "language",
       "file": "colors.md"
     },
     {
       "slug": "writing-dates",
       "title": "Writing Dates",
-      "group": "getting-started",
+      "group": "language",
       "file": "writing-dates.md"
     },
     {
       "slug": "markdown-syntax",
-      "title": "Markdown Syntax",
-      "group": "getting-started",
+      "title": "DGMO in Markdown",
+      "group": "language",
       "file": "markdown-syntax.md"
-    },
-    {
-      "slug": "how-dgmo-thinks",
-      "title": "How DGMO Thinks",
-      "group": "getting-started",
-      "file": "how-dgmo-thinks.md"
     },
     {
       "slug": "glossary",
       "title": "Glossary",
-      "group": "getting-started",
+      "group": "language",
       "file": "glossary.md"
-    },
-    {
-      "slug": "troubleshooting",
-      "title": "Troubleshooting",
-      "group": "getting-started",
-      "file": "troubleshooting.md"
-    },
-    {
-      "slug": "showing-on-the-web",
-      "title": "Showing on the Web",
-      "group": "getting-started",
-      "file": "showing-on-the-web.md"
-    },
-    {
-      "slug": "spaces",
-      "title": "Spaces",
-      "group": "getting-started",
-      "file": "spaces.md"
-    },
-    {
-      "slug": "embedding-in-your-docs",
-      "title": "Embedding in Your Docs",
-      "group": "getting-started",
-      "file": "embedding-in-your-docs.md"
-    },
-    {
-      "slug": "live-links",
-      "title": "Live Links",
-      "group": "getting-started",
-      "file": "live-links.md"
-    },
-    {
-      "slug": "exporting",
-      "title": "Exporting Diagrams",
-      "group": "getting-started",
-      "file": "exporting.md"
-    },
-    {
-      "slug": "diagrams-in-your-repo",
-      "title": "Diagrams in Your Repo",
-      "group": "getting-started",
-      "file": "diagrams-in-your-repo.md"
     },
     {
       "slug": "chart-block",
