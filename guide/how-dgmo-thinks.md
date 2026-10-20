@@ -40,19 +40,34 @@ No errors — and a bar called "wibble-wobble" is now sitting in your chart. Not
 **Dates can end up somewhere other than where you meant.** A gantt task takes its duration from the last word on the line, and everything before that becomes the name:
 
 ```
-gantt Voyage Plan
+gantt Voyage to Tortuga
 
-Provision Ship 2026-03-01 5d
+Provision Ship 2026-01-05 4d
 ```
 
-No errors. But the task is now named "Provision Ship 2026-03-01", and because nothing told the chart when to begin, the timeline starts in January rather than March. The intended version sets the start once, at the top:
+No errors. But the task is now named "Provision Ship 2026-01-05", and nothing has told the chart when the voyage begins. Give the plan its start date once, on a `start-date` line at the top, and every task schedules from it — here with crew tags, progress, dependencies and a sail-day marker:
 
 ```dgmo
-gantt Voyage Plan
-start-date 2026-03-01
+gantt Voyage to Tortuga
+start-date 2026-01-05
 
-Provision Ship 5d
-Recruit Crew 5d
+tag Crew as c
+  Officers red
+  Hands blue
+  Shipwright orange
+
+marker 2026-01-14 Sail Day green
+
+[In Port]
+  Provision Ship 4d c: Hands, progress: 100
+    -> Load Cannons 2d c: Hands, progress: 60
+  Repair Hull 6d c: Shipwright, progress: 80
+  Recruit Crew 5d c: Officers, progress: 40
+    -> Sign Articles 1d c: Officers
+
++9d [At Sea]
+  Cross the Caribbean 8d c: Hands
+    -> Make Landfall 0d
 ```
 
 **Numbers get normalised without comment.** Percentages in a pie chart are recalculated from whatever you supply, so three values of 30 each display as 33%. If you expected them to add up to 100 and they don't, the chart will not say so.
