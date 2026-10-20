@@ -143,15 +143,35 @@ To take it back, right-click the row and choose **Stop showing**. The globe goes
 
 ## Putting it in your docs
 
-Paste the link on a line of its own inside a fenced code block tagged `dgmo`:
+Paste the link on a line of its own inside a fenced code block tagged `dgmo`. This is the whole thing, backticks included, and it works unchanged in Obsidian and in every docs-site plugin below:
 
 <!-- Shown indented rather than as a dgmo fence: a live fence here would be rendered as a diagram by the content validator. -->
 
+    ```dgmo
     https://online.diagrammo.app/d/dgm_01M3PG3DQ6S89W7ZFM5Z06J1CD
+    ```
 
 Once you know the diagram's id, there is a shorter spelling that does the same job:
 
+    ```dgmo
     live-link dgm_01M3PG3DQ6S89W7ZFM5Z06J1CD
+    ```
+
+## Every place it works
+
+| Where | What you put there | When it picks up a change |
+| --- | --- | --- |
+| [Obsidian](https://diagrammo.app/embed/obsidian/) | the fence above, with the Diagrammo Diagrams community plugin | each time the note is opened |
+| [Astro](https://diagrammo.app/embed/astro/) | the fence above, with `astro-dgmo` | each time the site builds |
+| [Docusaurus](https://diagrammo.app/embed/docusaurus/) | the fence above, with `docusaurus-plugin-dgmo` | each time the site builds |
+| [Fumadocs](https://diagrammo.app/embed/fumadocs/) | the fence above, with `fumadocs-dgmo` | each time the site builds |
+| [Nextra](https://diagrammo.app/embed/nextra/) | the fence above, with `nextra-dgmo` | each time the site builds |
+| [VitePress](https://diagrammo.app/embed/vitepress/) | the fence above, with `vitepress-dgmo` | each time the site builds |
+| [Confluence](https://diagrammo.app/embed/confluence/) | the bare link, pasted into a page — no fence | every page view |
+| [Jira](https://diagrammo.app/embed/jira/) | the bare link, pasted into an issue — no fence | every page view |
+| [Notion](https://diagrammo.app/embed/notion/) | the bare link, pasted into a page, then **Embed** — no fence | every page view |
+
+On a docs site, a reader who arrives between builds is told the page is behind; see [the refresh check](#the-refresh-check-and-your-csp). Notion is not tested yet: it embeds links through the same service Confluence uses, so we expect it to work.
 
 This is the other side of [showing a diagram on the web](showing-on-the-web.md) — somebody shows it, and your docs site embeds it by id. For diagrams whose source lives in your own repository, see [diagrams in your repo](diagrams-in-your-repo.md).
 
