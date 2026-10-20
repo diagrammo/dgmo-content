@@ -124,6 +124,12 @@
       "file": "diagrams-in-your-repo.md"
     },
     {
+      "slug": "charts-for-notes",
+      "title": "Charts for Your Notes",
+      "group": "publishing",
+      "file": "charts-for-notes.md"
+    },
+    {
       "slug": "colors",
       "title": "Colors & Palettes",
       "group": "language",

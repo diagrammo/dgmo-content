@@ -96,6 +96,35 @@ const DOCUMENTED = [
     verifiedAgainst: 'docs/dgmo-language-spec.md §38.3 and §38.6; obsidian-dgmo/src/ui/settings.ts (followLiveLinks); GET api.diagrammo.app/public/diagrams/dgm_01M3PG3DQ6S89W7ZFM5Z06J1CD/source → 200',
     on: '2026-10-12',
   },
+  {
+    what: 'the notes page names the four chart types made for personal notes',
+    file: 'guide/charts-for-notes.md',
+    contains: [
+      '[`countdown`](chart-countdown.md)',
+      '[`clock`](chart-clock.md)',
+      '[`family`](chart-family.md)',
+      '[`goal`](chart-goal.md)',
+    ],
+    why: 'The owner picked these four for the Obsidian post (#1430); the blog post and the obsidian-dgmo README link here as their durable home.',
+    verifiedAgainst: 'dgmo/src/chart-types.ts; obsidian-dgmo/README.md (Supported chart types)',
+    on: '2026-10-20',
+  },
+  {
+    what: 'the notes page says countdown and clock tick live, and an export does not',
+    file: 'guide/charts-for-notes.md',
+    contains: ['`countdown` and `clock` are the two **live** chart types', 'because an image cannot tick'],
+    why: 'The live tick is the reason these two belong in a note at all; an image export showing a fixed time is the documented fallback, not a bug.',
+    verifiedAgainst: 'guide/chart-countdown.md and guide/chart-clock.md (Live vs. baked)',
+    on: '2026-10-20',
+  },
+  {
+    what: 'the notes page tells an Obsidian user which plugin to install and how to write the fence',
+    file: 'guide/charts-for-notes.md',
+    contains: ['**Diagrammo Diagrams** community plugin', 'the `dgmo` language tag', 'https://diagrammo.app/embed#obsidian'],
+    why: 'A reader arriving from the Obsidian post needs the plugin name as the community browser lists it.',
+    verifiedAgainst: 'obsidian-dgmo/manifest.json (name); obsidian-dgmo/README.md (Usage)',
+    on: '2026-10-20',
+  },
 ];
 
 /**
