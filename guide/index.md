@@ -8,22 +8,31 @@ A `.dgmo` text file sits at the centre. Every other piece reads it, edits it, or
 
 ```dgmo
 boxes-and-lines The pieces of Diagrammo
+active-tag Role
 
-.dgmo File
+tag Role as r
+  Source purple
+  Write blue
+  Render orange
+  Embed green
+  Share teal
+
+.dgmo File r: Source
   -edit-> Desktop App
   -edit-> Web Editor
   -render-> dgmo CLI
   -embed-> Docs Plugins
   -embed-> Obsidian
 
-Desktop App
+Desktop App r: Write
   -share-> Cloud
-
-Web Editor
+Web Editor r: Write
   -share-> Cloud
-
-dgmo CLI
+dgmo CLI r: Render
   -put-> Cloud
+Docs Plugins r: Embed
+Obsidian r: Embed
+Cloud r: Share
 ```
 
 ## DGMO and Diagrammo
@@ -43,15 +52,51 @@ The name "DGMO" is shorthand for "Diagrammo" — shorter to type, easier to use 
 
 Working in a codebase? [Diagrams in your repo](diagrams-in-your-repo.md) covers committing `.dgmo` files alongside your code, rendering and checking them in CI, and reviewing diagram changes in a pull request.
 
-Every diagram starts with the chart type on the first line, followed by your data and settings. For example:
+Every diagram starts with the chart type on the first line, followed by your data and settings. Five lines make this chart — the source is open beneath it:
 
-```
-bar Q1 Sales
+```dgmo sourceOpen
+pie Doubloons by Ship
 
-Jan 42
-Feb 58
-Mar 71
+Revenge 42
+Serpent 28
+Phantom 18
+Kraken 12
 ```
+
+The same few rules draw very different pictures. A flow of money and a map of ideas:
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;align-items:center">
+
+```dgmo
+sankey Where the Gold Went
+
+Plunder -> Captain 40
+Plunder -> Crew 45
+Plunder -> Ship 15
+Crew -> Grog 25
+Crew -> Savings 20
+Ship -> Repairs 15
+```
+
+```dgmo
+mindmap Plunder
+
+tag Kind as k
+  Metal orange
+  Stone purple
+
+Plunder
+  Gold k: Metal
+    Doubloons k: Metal
+    Ingots k: Metal
+  Gems k: Stone
+    Rubies k: Stone
+    Pearls k: Stone
+```
+
+</div>
+
+The [chart gallery](https://diagrammo.app/gallery/) shows every chart type.
 
 New to all of this? Two pages are worth reading before the chart-type guides:
 

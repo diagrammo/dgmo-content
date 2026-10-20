@@ -124,7 +124,7 @@ When you see indentation in DGMO, read it as "belongs to."
 
 ## How Indentation Works
 
-Every guide on this site shows you indented examples. None of them tell you the rules. Here they are, each with the source on the left and what it draws on the right.
+Every guide on this site shows you indented examples. None of them tell you the rules. Here they are, each drawn with its source open beneath it.
 
 ### How many spaces?
 
@@ -193,22 +193,7 @@ Because only the steps count, you cannot indent "half a level." Going from no in
 
 **But do not mix tabs and spaces in the same file.** A tab counts as four columns. In the file below, every line uses two spaces except `Pearls`, which starts with one tab. This page draws the tab wide, so you can see it. An editor set to two-space tabs would line it up exactly with `Rubies`. To DGMO it is two steps deep, so `Pearls` becomes a child of `Rubies` — and nothing warns you:
 
-```dgmo-source
-mindmap Plunder
-
-tag Kind as k
-  Metal orange
-  Stone purple
-
-Gold k: Metal
-  Doubloons k: Metal
-  Ingots k: Metal
-Gems k: Stone
-  Rubies k: Stone
-	Pearls k: Stone
-```
-
-```dgmo
+```dgmo sourceOpen
 mindmap Plunder
 
 tag Kind as k
@@ -233,9 +218,7 @@ This is the part worth reading twice: **a deeper indent means different things d
 
 The indented thing belongs to the thing above, and the hierarchy *is* the diagram:
 
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;align-items:center">
-
-```dgmo-source
+```dgmo sourceOpen
 org Crew
 active-tag Rank
 
@@ -249,23 +232,6 @@ Blackbeard r: Captain
     Mary Read r: Sailor
   Calico Jack r: Mate
 ```
-
-```dgmo
-org Crew
-active-tag Rank
-
-tag Rank as r
-  Captain red
-  Mate orange
-  Sailor blue
-
-Blackbeard r: Captain
-  Anne Bonny r: Mate
-    Mary Read r: Sailor
-  Calico Jack r: Mate
-```
-
-</div>
 
 Anne Bonny and Calico Jack report to Blackbeard; Mary Read reports to Anne. This is how org, sitemap, mindmap, treemap, family, and C4 read indentation.
 
@@ -273,9 +239,7 @@ Anne Bonny and Calico Jack report to Blackbeard; Mary Read reports to Anne. This
 
 A line that opens with an arrow is a connection, and it leaves from the line above it:
 
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;align-items:center">
-
-```dgmo-source
+```dgmo sourceOpen
 boxes-and-lines Trade Routes
 active-tag Sea
 
@@ -292,26 +256,6 @@ Tortuga s: Caribbean
 Port Royal s: Caribbean
 Lisbon s: Atlantic
 ```
-
-```dgmo
-boxes-and-lines Trade Routes
-active-tag Sea
-
-tag Sea as s
-  Caribbean teal
-  Atlantic blue
-
-Nassau s: Caribbean
-  -rum-> Tortuga
-  -sugar-> Port Royal
-  -gold-> Lisbon
-
-Tortuga s: Caribbean
-Port Royal s: Caribbean
-Lisbon s: Atlantic
-```
-
-</div>
 
 All three routes leave Nassau. Tortuga, Port Royal and Lisbon are not children of Nassau — they are separate places, drawn beside it and joined to it by lines. Writing `Nassau -rum-> Tortuga` on three separate lines draws the same thing; indenting saves you repeating the name.
 
@@ -321,9 +265,7 @@ Chart types that read indented arrows this way: boxes-and-lines, infra, flowchar
 
 A line with a colon adds a detail to the thing above it rather than adding a new thing. Here the fact is a rank, and the rank decides the colour:
 
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;align-items:center">
-
-```dgmo-source
+```dgmo sourceOpen
 org Crew
 active-tag Rank
 
@@ -336,30 +278,12 @@ Blackbeard
   Anne Bonny
     r: Mate
 ```
-
-```dgmo
-org Crew
-active-tag Rank
-
-tag Rank as r
-  Captain red
-  Mate orange
-
-Blackbeard
-  r: Captain
-  Anne Bonny
-    r: Mate
-```
-
-</div>
 
 `r: Captain` does not add a crew member called "r" — the colon tells DGMO this is a detail about Blackbeard. The second `r:` sits one step deeper, under Anne Bonny, because it belongs to her.
 
 That depth is the thing to watch. Put `r: Mate` at the *same* depth as `Anne Bonny` and it no longer belongs to her. The file still reads fine, but the ranks land on the wrong people:
 
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;align-items:center">
-
-```dgmo-source
+```dgmo sourceOpen
 org Crew
 active-tag Rank
 
@@ -372,44 +296,12 @@ Blackbeard
   Anne Bonny
   r: Mate
 ```
-
-```dgmo
-org Crew
-active-tag Rank
-
-tag Rank as r
-  Captain red
-  Mate orange
-
-Blackbeard
-  r: Captain
-  Anne Bonny
-  r: Mate
-```
-
-</div>
 
 #### 4. Under a bracket line is inside the group
 
 A name in square brackets is a container, and everything indented beneath it goes inside:
 
-```dgmo-source
-kanban Voyage Board
-
-tag Priority as p
-  Low blue
-  High red
-
-[To Do] blue
-  Swab the deck p: Low
-  Hoist the sail p: High
-[Doing] orange
-  Chart a course p: High
-[Done] green
-  Load the cannons p: Low
-```
-
-```dgmo
+```dgmo sourceOpen
 kanban Voyage Board
 
 tag Priority as p
