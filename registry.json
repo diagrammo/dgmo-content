@@ -161,6 +161,14 @@
         {
           "text": "composite bar",
           "kind": "trigger"
+        },
+        {
+          "text": "stacked breakdown",
+          "kind": "trigger"
+        },
+        {
+          "text": "revenue by segment",
+          "kind": "trigger"
         }
       ],
       "guidance": "pick the form from the question — `bar` to compare categories, `line` for a trend over time, `pie` only for parts of one whole (≤6 slices); sort bars by value unless the category order is inherent (time, size); give one highlighted series a distinct color and keep the rest neutral; always label units.",
