@@ -1588,6 +1588,14 @@
         {
           "text": "cumulative trend",
           "kind": "trigger"
+        },
+        {
+          "text": "temperature by month",
+          "kind": "trigger"
+        },
+        {
+          "text": "monthly temperature",
+          "kind": "trigger"
         }
       ],
       "guidance": null,
@@ -2103,6 +2111,18 @@
         },
         {
           "text": "self-actualization",
+          "kind": "trigger"
+        },
+        {
+          "text": "food chain",
+          "kind": "trigger"
+        },
+        {
+          "text": "trophic levels",
+          "kind": "trigger"
+        },
+        {
+          "text": "apex predators",
           "kind": "trigger"
         }
       ],
