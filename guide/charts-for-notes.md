@@ -1,6 +1,6 @@
 # Charts for Your Notes
 
-Most dgmo chart types are built for engineering docs: sequence diagrams, infrastructure maps, gantt plans. Five are built for a personal note instead. This page follows one trip to Japan: the days until it, the travel agent's office hours, the route, and the money saved for it, plus a family tree for the people in your notes. Each one is a few lines of plain text in a `dgmo` fence, so it sits in the note beside the prose and stays searchable.
+Most dgmo chart types are built for engineering docs: [sequence diagrams](chart-sequence.md), [infrastructure maps](chart-infra.md), [gantt plans](chart-gantt.md). Five are built for a personal note instead. This page follows one trip to Japan, for Chidi Okafor's 50th birthday: the days until it, the travel agent's office hours, the route, and the money saved for it, plus a family tree for the people in your notes. Each one is a few lines of plain text in a `dgmo` fence, so it sits in the note beside the prose and stays searchable.
 
 | Type | What it answers | Live? |
 |---|---|---|
@@ -14,22 +14,16 @@ Most dgmo chart types are built for engineering docs: sequence diagrams, infrast
 
 ## Countdown — the days until something
 
-Give it a title and a `target` date:
+For something that comes back every year — a birthday, an anniversary — give it a title and `since` with the date it first happened. The countdown always shows the next one and rolls forward on its own once the day passes, so the note never goes stale:
 
 ```dgmo
-countdown Trip to Japan
-target 2027-04-15
+countdown Chidi's Birthday
+since 1977-04-15
+since-label Nth Birthday
+on-day 🎂 Happy birthday, Chidi!
 ```
 
-For something that comes back every year — a birthday, an anniversary — use `since` with the date it first happened instead. The countdown always shows the next one and rolls forward on its own once the day passes, so the note never goes stale:
-
-```dgmo
-countdown Mom's Birthday
-since 1958-08-21
-on-day 🎂 Today!
-```
-
-`since-label Nth Anniversary` adds the count ("11th Anniversary") above the days. Monthly and weekly cadences, timezones and captions are on the [countdown page](chart-countdown.md).
+`since-label Nth Birthday` adds the count ("50th Birthday") above the days. For a one-off date, write `target 2027-04-15` instead of `since`; once it passes, it counts up, or shows your `expired` text. Monthly and weekly cadences, timezones and captions are on the [countdown page](chart-countdown.md).
 
 ## Clock — when someone far away is free
 
@@ -57,7 +51,7 @@ Grandma Ada b: 1951, sex: f
 
 Grandpa Emeka + Grandma Ada m: 1972
   Ngozi b: 1975, sex: f
-  Chidi b: 1978, sex: m
+  Chidi b: 1977, sex: m
 
 Chidi + Laura m: 2006
   Tobi b: 2008, sex: m
