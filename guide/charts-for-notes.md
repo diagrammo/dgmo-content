@@ -95,7 +95,7 @@ Update `now` as the number moves. The [goal page](chart-goal.md) has the three f
 
 ## Putting one in a note
 
-- **Obsidian** — install the **Diagrammo Diagrams** community plugin, then write a fenced code block with the `dgmo` language tag. The chart renders in reading mode and in live preview, on desktop and on mobile. The [embed page](https://diagrammo.app/embed#obsidian) has the setup steps.
+- **Obsidian** — install the **Diagrammo Diagrams** community plugin, then write a fenced code block with the `dgmo` language tag. The chart renders in reading mode and in live preview, on desktop and on mobile. The [Obsidian setup page](https://diagrammo.app/embed/obsidian/) has the setup steps, and the blog post [Five Charts for an Obsidian Note](https://diagrammo.app/blog/charts-for-obsidian-notes/) walks through these charts in one trip note.
 - **Anywhere else** — paste the same fence into the [online editor](https://online.diagrammo.app) or the Diagrammo app, or into a docs site set up as in [Embedding in Your Docs](embedding-in-your-docs.md).
 
 The source is the same everywhere, so a block copied from this page works unchanged in a note.

@@ -121,7 +121,7 @@ const DOCUMENTED = [
   {
     what: 'the notes page tells an Obsidian user which plugin to install and how to write the fence',
     file: 'guide/charts-for-notes.md',
-    contains: ['**Diagrammo Diagrams** community plugin', 'the `dgmo` language tag', 'https://diagrammo.app/embed#obsidian'],
+    contains: ['**Diagrammo Diagrams** community plugin', 'the `dgmo` language tag', 'https://diagrammo.app/embed/obsidian/', 'https://diagrammo.app/blog/charts-for-obsidian-notes/'],
     why: 'A reader arriving from the Obsidian post needs the plugin name as the community browser lists it.',
     verifiedAgainst: 'obsidian-dgmo/manifest.json (name); obsidian-dgmo/README.md (Usage)',
     on: '2026-10-20',
