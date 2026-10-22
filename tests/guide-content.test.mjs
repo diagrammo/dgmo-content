@@ -97,15 +97,16 @@ const DOCUMENTED = [
     on: '2026-10-12',
   },
   {
-    what: 'the notes page names the four chart types made for personal notes',
+    what: 'the notes page names the five chart types made for personal notes',
     file: 'guide/charts-for-notes.md',
     contains: [
       '[`countdown`](chart-countdown.md)',
       '[`clock`](chart-clock.md)',
       '[`family`](chart-family.md)',
+      '[`map`](chart-map.md)',
       '[`goal`](chart-goal.md)',
     ],
-    why: 'The owner picked these four for the Obsidian post (#1430); the blog post and the obsidian-dgmo README link here as their durable home.',
+    why: 'The owner picked these four for the Obsidian post (#1430), and added map on 2026-10-22; the blog post and the obsidian-dgmo README link here as their durable home.',
     verifiedAgainst: 'dgmo/src/chart-types.ts; obsidian-dgmo/README.md (Supported chart types)',
     on: '2026-10-20',
   },

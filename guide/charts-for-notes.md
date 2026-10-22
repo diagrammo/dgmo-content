@@ -1,12 +1,13 @@
 # Charts for Your Notes
 
-Most dgmo chart types are built for engineering docs: sequence diagrams, infrastructure maps, gantt plans. Four are built for a personal note instead — a trip you are counting down to, a friend in another timezone, the family you married into, and a number you are saving toward. Each one is a few lines of plain text in a `dgmo` fence, so it sits in the note beside the prose and stays searchable.
+Most dgmo chart types are built for engineering docs: sequence diagrams, infrastructure maps, gantt plans. Five are built for a personal note instead — a trip you are counting down to, a friend in another timezone, the family you married into, the places you have been, and a number you are saving toward. Each one is a few lines of plain text in a `dgmo` fence, so it sits in the note beside the prose and stays searchable.
 
 | Type | What it answers | Live? |
 |---|---|---|
 | [`countdown`](chart-countdown.md) | How many days until it happens? | Ticks every second |
 | [`clock`](chart-clock.md) | What time is it for them right now? | Ticks every second |
 | [`family`](chart-family.md) | Who is related to whom, and how? | — |
+| [`map`](chart-map.md) | Where have I been, and where next? | — |
 | [`goal`](chart-goal.md) | How close am I to the number? | — |
 
 `countdown` and `clock` are the two **live** chart types: on a live surface — an Obsidian note, the Diagrammo app, the web editor, a docs page — they recompute against your clock every time the note opens and tick while you read it. In a PNG or SVG export they show the moment they were exported, because an image cannot tick.
@@ -64,6 +65,30 @@ Chidi + Laura m: 2006
 
 It is a good fit for a note kept before a wedding or a reunion, or for a genealogy vault. Remarriage, adoption, deceased relatives and generation labels are on the [family page](chart-family.md).
 
+## Map — the places you have been
+
+A map shades the countries you name. Declare a tag group for the categories, then give each country one line:
+
+```dgmo
+map Places I've Been
+
+tag Trip as t
+  Been green
+  Next blue
+
+Portugal t: Been
+Spain t: Been
+Italy t: Been
+Japan t: Been
+Mexico t: Been
+Peru t: Next
+Iceland t: Next
+
+poi Kyoto label: Best week of 2024
+```
+
+You never pick a projection or a zoom: the map frames itself around what you name, so a list of US states draws the US and a list of countries draws the world. `poi` drops a labelled pin on a city. Add a country as you get back from a trip, and the note becomes the record. Heat shading, routes between stops and live clocks on pins are on the [map page](chart-map.md).
+
 ## Goal — how close you are to a number
 
 A goal is a progress bar, a thermometer or a gauge, drawn from `now` and `target`:
@@ -90,4 +115,5 @@ The source is the same everywhere, so a block copied from this page works unchan
 - [Countdown](chart-countdown.md) — every cadence, timezone and caption option
 - [Clock](chart-clock.md) — anchors, labels, working hours and faces
 - [Family](chart-family.md) — every relationship the tree can draw
+- [Map](chart-map.md) — shading, pins and routes
 - [Goal](chart-goal.md) — the three faces and the colour bands
