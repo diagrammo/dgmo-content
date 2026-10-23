@@ -49,9 +49,15 @@ The plugin draws it at build time. This needs no account and no network — the 
 
 The cost is that the diagram now lives in two places. Edit it in the app and your docs still hold the old lines until somebody copies them across.
 
-## A live link
+## <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#e0890b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-3px"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg> A live link
 
-Put a live link's id in the fence instead, and the plugin fetches the diagram while your site builds:
+Put a live link in the fence instead, and the plugin fetches the diagram while your site builds. Get the link in the app: open the diagram, press **Share** (**⌘E**), then **Show on the web** in the **Live link** row — or right-click the diagram in the file list and choose **Show and copy link**. The diagram's row then wears an amber globe <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#e0890b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-2px"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>, and the link is on your clipboard. Paste it on a line of its own:
+
+    ```dgmo
+    https://online.diagrammo.app/d/dgm_01M3PG3DQ6S89W7ZFM5Z06J1CD
+    ```
+
+Once you know the id, the shorter spelling does the same job:
 
     ```dgmo
     live-link dgm_01M3PG3DQ6S89W7ZFM5Z06J1CD

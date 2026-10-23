@@ -447,7 +447,7 @@ Giving a diagram in a space a link that anyone can open, with no account. The li
 
 ### Live link
 
-A diagram fence in your own docs that names a diagram shown on the web by its id, instead of carrying its source. The page draws the current version. See [Live links](live-links.md).
+A diagram fence in your own docs that names a diagram shown on the web by its id, instead of carrying its source. The page draws the current version. The app marks a shown diagram with an amber globe; you get its link from **Share** (**⌘E**) → **Show on the web**, or by right-clicking it and choosing **Show and copy link**. See [Live links](live-links.md).
 
 ---
 

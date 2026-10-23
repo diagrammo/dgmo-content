@@ -49,17 +49,27 @@ The **Share** dialog offers up to three links. Only one of them is the web link 
 
 The rest of this page is about the live link. A live link works wherever a URL works, and it also draws the diagram when you paste it into Notion, Confluence or Jira. See [every place it works](live-links.md#every-place-it-works).
 
-## Showing one
+## <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#e0890b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-3px"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg> Showing one
 
 1. Open the diagram.
-2. Press **Share**.
-3. Press **Show on the web**.
+2. Press **Share** on the left rail, or **⌘E** (**Ctrl+E** on Windows and Linux).
+3. In the **Live link** row, press **Show on the web**.
 
-The link is copied for you, and the diagram's row in the file list gets an amber globe — see [the amber globe](live-links.md#the-amber-globe). You can also right-click the row and choose **Show and copy link**.
+The link is copied for you, and the diagram's row in the file list gets an amber globe <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#e0890b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-2px"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg> — see [the amber globe](live-links.md#the-amber-globe). You can also right-click the row and choose **Show and copy link**, which does both in one step.
 
-Paste the link into a document, a wiki, a chat, an email — anywhere a URL works.
+To copy the link again later, open the diagram and press the lit amber globe on the left rail.
 
-The diagram is drawn in the reader's own browser from the source you published, so it stays sharp at any size and on any screen. It is not an image file.
+Paste the link into a document, a wiki, a chat, an email — anywhere a URL works. In Obsidian or a docs site, put it in a `dgmo` fence on a line of its own:
+
+<!-- Indented rather than fenced: a live fence here would be rendered as a diagram by the content validator. -->
+
+    ```dgmo
+    https://online.diagrammo.app/d/dgm_01M3PG3DQ6S89W7ZFM5Z06J1CD
+    ```
+
+[Live Links](live-links.md#putting-it-in-your-docs) covers what that fence does at build time.
+
+The diagram is drawn in the reader's own browser from the source you saved, so it stays sharp at any size and on any screen. It is not an image file.
 
 ## Stopping
 

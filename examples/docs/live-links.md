@@ -1,7 +1,7 @@
 ## A live link
 
 The diagram below is not written out anywhere in this page. Its source lives in
-Diagrammo Cloud, published by its author, and what you are looking at is the
+Diagrammo Cloud, shown on the web by its author, and what you are looking at is the
 version that is current right now — not a copy taken on the day someone pasted
 it in.
 
@@ -14,8 +14,11 @@ https://online.diagrammo.app/d/dgm_01M3PG3DQ6S89W7ZFM5Z06J1CD
 
 ### Put one in your own docs
 
-Publish a diagram in Diagrammo, copy the link, and paste it on a line of its own
-inside a `dgmo` fence:
+In the Diagrammo app, open the diagram, press **Share** on the left rail (**⌘E**),
+then **Show on the web** in the **Live link** row — or right-click the diagram in
+the file list and choose **Show and copy link**. The link is copied, and the
+diagram's row wears an amber globe from then on; press the lit globe on the rail
+to copy the link again. Paste it on a line of its own inside a `dgmo` fence:
 
 ````markdown
 ```dgmo
@@ -56,7 +59,7 @@ it just stops noticing changes, and nothing is able to tell you so.
 
 ### When the author stops showing it
 
-A live link belongs to whoever published it, and they can take it back. If they
+A live link belongs to whoever shows it, and they can take it back. If they
 press **Stop showing**, your page draws a short card in place of the diagram
 saying it is no longer shared. Your build keeps working, and no reader is left
 looking at a hole where a picture used to be.

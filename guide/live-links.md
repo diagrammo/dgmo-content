@@ -1,6 +1,6 @@
 # Live Links
 
-A live link is a diagram fence that names a diagram published to Diagrammo Cloud instead of carrying its own source. The page shows the publisher's current version, so a diagram you don't own, or one maintained somewhere else, never goes quietly out of date in your docs.
+A live link is a diagram fence that names a diagram shown on the web from the Diagrammo app instead of carrying its own source. The page shows the publisher's current version, so a diagram you don't own, or one maintained somewhere else, never goes quietly out of date in your docs.
 
 <figure class="ll-fig" aria-labelledby="ll-anim-cap">
 <style>
@@ -135,7 +135,7 @@ A live link always starts in the app, on a diagram somebody shows on the web. Th
 
 ## Getting the link
 
-1. In the file list, right-click the diagram and choose **Show and copy link**. If the diagram is not in a [space](spaces.md) yet, the app asks before it files it into one.
+1. In the file list, right-click the diagram and choose **Show and copy link**. Or open the diagram, press **Share** on the left rail (**⌘E**), and press **Show on the web** in the **Live link** row. If the diagram is not in a [space](spaces.md) yet, the app asks before it files it into one.
 2. The amber globe appears on the diagram's row, and the link is on your clipboard.
 3. To copy it again later, open the diagram and press the globe on the rail.
 
@@ -249,7 +249,7 @@ If your site sets a Content-Security-Policy it must allow `connect-src https://a
 
 ## What is not sent
 
-Resolving a live link is a read of one published diagram's source by id. Nothing about your site, your repository or your readers is sent — not a page URL, not a referrer you control, not an identifier of any kind. Only published diagrams are readable at all: there is no token to configure and no allowlist to maintain.
+Resolving a live link is a read of one shown diagram's source by id. Nothing about your site, your repository or your readers is sent — not a page URL, not a referrer you control, not an identifier of any kind. Only diagrams shown on the web are readable at all: there is no token to configure and no allowlist to maintain.
 
 ## Where to go next
 

@@ -304,9 +304,12 @@ const plunder = ships.reduce((sum, s) => sum + s.gold, 0);
 
 ## Live link
 
-A live link points at a diagram someone published to Diagrammo Cloud. The note
-holds the pointer, not a copy, so you always see the author's current version.
-The three fences below are three spellings of the same pointer.
+A live link points at a diagram someone shows on the web from the Diagrammo app,
+where it wears an amber globe. The note holds the pointer, not a copy, so you
+always see the author's current version. To get one, open the diagram in the app
+and press **Share** on the left rail (**⌘E**), then **Show on the web** in the
+**Live link** row — or right-click it in the file list and choose **Show and copy
+link**. The three fences below are three spellings of the same pointer.
 
 ### The keyword and an id
 
@@ -318,7 +321,7 @@ live-link dgm_01M3PG3DQ6S89W7ZFM5Z06J1CD
 
 ### A pasted share link
 
-The link you copy from Share, on a line of its own:
+The link the app copied for you, on a line of its own:
 
 ```dgmo
 https://online.diagrammo.app/d/dgm_01M3PG3DQ6S89W7ZFM5Z06J1CD
