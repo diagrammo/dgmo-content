@@ -1718,8 +1718,7 @@ Browser as Browser at: 7 -6, status: NA, team: Other
 A live link points at a diagram someone shows on the web from the Diagrammo app,
 where it wears an amber globe. The note holds the pointer, not a copy, so you
 always see the author's current version. To get one, open the diagram in the app
-and press **Share** on the left rail (**⌘E**), then **Show on the web** in the
-**Live link** row — or right-click it in the file list and choose **Show and copy
+and press **Share** on the left rail (**⌘E**), then **Show on the web** → **Show** — or right-click it in the file list and choose **Show and copy
 link**. The three fences below are three spellings of the same pointer.
 
 ### The keyword and an id

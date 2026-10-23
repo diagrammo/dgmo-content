@@ -13,6 +13,7 @@ A live link is a diagram fence that names a diagram shown on the web from the Di
 .ll-fig .ll-t{fill:currentColor;font-size:11px}
 .ll-fig .ll-mute{fill:currentColor;fill-opacity:.6;font-size:10px}
 .ll-fig .ll-head{fill:currentColor;font-size:12px;font-weight:600}
+.ll-fig .ll-ico{fill:none;stroke:currentColor;stroke-opacity:.8;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .ll-fig .ll-amber{stroke:#e0890b;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .ll-fig .ll-amberfill{fill:#e0890b}
 .ll-fig .ll-banner{fill:#e0890b;fill-opacity:.16;stroke:#e0890b;stroke-opacity:.7}
@@ -94,50 +95,21 @@ A live link is a diagram fence that names a diagram shown on the web from the Di
 
 ## The amber globe
 
-A live link always starts in the app, on a diagram somebody shows on the web. The app marks that diagram with an **amber globe**. Amber is the app's colour for "someone outside can read this", and the globe appears nowhere else.
-
-<figure class="ll-fig" aria-labelledby="ll-globe-cap">
-<svg viewBox="0 0 720 250" role="img" aria-label="The Diagrammo app window. An amber globe sits at the end of a shown file's row in the file list, and a lit amber globe sits in the rail on the far left.">
-<rect class="ll-panel" x="8" y="8" width="704" height="234" rx="10"/>
-<line class="ll-ink" x1="60" y1="8" x2="60" y2="242"/>
-<line class="ll-ink" x1="280" y1="8" x2="280" y2="242"/>
-<circle class="ll-line" cx="34" cy="36" r="12"/>
-<circle class="ll-line" cx="34" cy="66" r="12"/>
-<circle class="ll-line" cx="34" cy="96" r="12"/>
-<rect class="ll-panel" x="18" y="140" width="32" height="92" rx="16"/>
-<circle class="ll-line" cx="34" cy="158" r="12"/>
-<circle cx="34" cy="188" r="12" fill="#e0890b" fill-opacity=".2"/>
-<g transform="translate(26 180) scale(.667)"><g class="ll-amber"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></g></g>
-<circle class="ll-line" cx="34" cy="216" r="12"/>
-<text class="ll-mute" x="76" y="34">MY SPACE</text>
-<text class="ll-t" x="76" y="62">crew.dgmo</text>
-<rect x="66" y="72" width="206" height="24" rx="5" fill="currentColor" fill-opacity=".09"/>
-<text class="ll-t" x="76" y="88">voyage.dgmo</text>
-<g transform="translate(250 78) scale(.5)"><g class="ll-amber"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></g></g>
-<text class="ll-t" x="76" y="116">ports.dgmo</text>
-<g transform="translate(250 106) scale(.5)"><g class="ll-amber"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></g></g>
-<text class="ll-t" x="76" y="140">tides.dgmo</text>
-<rect class="ll-box" x="380" y="80" width="80" height="34" rx="6"/><text class="ll-t" x="420" y="101" text-anchor="middle">Port</text>
-<rect class="ll-box" x="520" y="80" width="80" height="34" rx="6"/><text class="ll-t" x="560" y="101" text-anchor="middle">Isle</text>
-<rect class="ll-box" x="520" y="160" width="80" height="34" rx="6"/><text class="ll-t" x="560" y="181" text-anchor="middle">Gold</text>
-<line class="ll-ink" x1="460" y1="97" x2="520" y2="97"/>
-<line class="ll-ink" x1="560" y1="114" x2="560" y2="160"/>
-<circle class="ll-amberfill" cx="258" cy="56" r="10"/><text x="258" y="60" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">1</text>
-<line x1="258" y1="66" x2="258" y2="76" stroke="#e0890b" stroke-width="1.5"/>
-<circle class="ll-amberfill" cx="80" cy="188" r="10"/><text x="80" y="192" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">2</text>
-<line x1="70" y1="188" x2="48" y2="188" stroke="#e0890b" stroke-width="1.5"/>
-</svg>
-<ol id="ll-globe-cap" class="ll-legend">
-<li><strong>On the file's row</strong> — this diagram is shown on the web, and anyone with its link can read it. The row's globe only reports; hover it for the reminder.</li>
-<li><strong>On the rail</strong> — lit whenever the open diagram is shown. Press it to copy the diagram's link.</li>
-</ol>
-</figure>
+A live link always starts in the app, on a diagram somebody shows on the web. The app marks that diagram with an **amber globe**. Amber is the app's colour for "someone outside can read this", and the globe appears nowhere else. [Getting the link](#getting-the-link) shows where it sits in the app.
 
 ## Getting the link
 
-1. In the file list, right-click the diagram and choose **Show and copy link**. Or open the diagram, press **Share** on the left rail (**⌘E**), and press **Show on the web** in the **Live link** row. If the diagram is not in a [space](spaces.md) yet, the app asks before it files it into one.
-2. The amber globe appears on the diagram's row, and the link is on your clipboard.
-3. To copy it again later, open the diagram and press the globe on the rail.
+<figure class="ll-fig" aria-labelledby="ll-where-cap">
+<svg viewBox="0 0 720 330" role="img" aria-label="The Diagrammo app window. On the left rail, the lower group of buttons holds Share and, below it, a lit amber globe. The file list shows an amber globe on a shown diagram's row. The Share dialog is open, and its Show on the web row has a Show button."><rect class="ll-panel" x="8" y="8" width="704" height="314" rx="10"/><line class="ll-ink" x1="60" y1="8" x2="60" y2="322"/><line class="ll-ink" x1="250" y1="8" x2="250" y2="322"/><rect class="ll-panel" x="18" y="20" width="32" height="96" rx="16"/><circle class="ll-line" cx="34" cy="38" r="11"/><circle class="ll-line" cx="34" cy="68" r="11"/><circle class="ll-line" cx="34" cy="98" r="11"/><rect class="ll-panel" x="18" y="186" width="32" height="124" rx="16"/><g transform="translate(26 194) scale(0.667)"><g class="ll-ico"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v13"/></g></g><circle cx="34" cy="232" r="12" fill="#e0890b" fill-opacity=".2"/><g transform="translate(26 224) scale(0.667)"><g class="ll-amber"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></g></g><g transform="translate(26 254) scale(0.667)"><g class="ll-ico"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M12 7v2"/><path d="M12 13h.01"/></g></g><g transform="translate(26 284) scale(0.667)"><g class="ll-ico"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></g></g><text class="ll-mute" x="72" y="34">MY SPACE</text><text class="ll-t" x="72" y="62">crew.dgmo</text><rect x="64" y="72" width="178" height="24" rx="5" fill="currentColor" fill-opacity=".09"/><text class="ll-t" x="72" y="88">voyage.dgmo</text><g transform="translate(222 78) scale(0.5)"><g class="ll-amber"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></g></g><text class="ll-t" x="72" y="116">ports.dgmo</text><text class="ll-t" x="72" y="140">tides.dgmo</text><rect x="300" y="36" width="390" height="236" rx="10" fill="currentColor" fill-opacity=".05" stroke="currentColor" stroke-opacity=".45" stroke-width="1.25"/><text class="ll-head" x="318" y="62">Share</text><rect x="368" y="49" width="30" height="18" rx="4" fill="none" stroke="currentColor" stroke-opacity=".4"/><text class="ll-mute" x="383" y="62" text-anchor="middle">⌘E</text><line class="ll-ink" x1="300" y1="76" x2="690" y2="76"/><text class="ll-t" x="318" y="108" font-weight="600">Picture</text><line class="ll-ink" x1="300" y1="130" x2="690" y2="130"/><text class="ll-t" x="318" y="162" font-weight="600">Snapshot link</text><line class="ll-ink" x1="300" y1="184" x2="690" y2="184"/><rect x="304" y="188" width="382" height="78" rx="6" fill="#e0890b" fill-opacity=".08"/><g transform="translate(318 203) scale(0.5)"><g class="ll-amber"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></g></g><text class="ll-t" x="336" y="214" font-weight="600">Show on the web</text><text class="ll-mute" x="318" y="232">A link that stays current as you edit.</text><rect x="596" y="200" width="78" height="28" rx="6" fill="#e0890b" fill-opacity=".16" stroke="#e0890b"/><g transform="translate(606 208) scale(.5)"><g class="ll-amber"><circle cx="10" cy="10" r="8"/><path d="M10 2a11.6 11.6 0 0 0 0 16 11.6 11.6 0 0 0 0-16"/><path d="M2 10h16"/><path d="M17.5 17.5h5"/><path d="M20 15v5"/></g></g><text class="ll-t" x="644" y="218" text-anchor="middle" font-weight="600">Show</text><line x1="86" y1="202" x2="50" y2="202" stroke="#e0890b" stroke-width="1.5"/><circle class="ll-amberfill" cx="86" cy="202" r="10"/><text x="86" y="206" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">1</text><line x1="86" y1="236" x2="48" y2="234" stroke="#e0890b" stroke-width="1.5"/><circle class="ll-amberfill" cx="86" cy="236" r="10"/><text x="86" y="240" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">4</text><line x1="635" y1="252" x2="635" y2="230" stroke="#e0890b" stroke-width="1.5"/><circle class="ll-amberfill" cx="635" cy="252" r="10"/><text x="635" y="256" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">2</text><line x1="236" y1="116" x2="230" y2="96" stroke="#e0890b" stroke-width="1.5"/><circle class="ll-amberfill" cx="236" cy="116" r="10"/><text x="236" y="120" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">3</text></svg>
+<ol id="ll-where-cap" class="ll-legend">
+<li><strong>Share</strong> — the arrow in the lower group of buttons on the left rail, or <strong>⌘E</strong> (<strong>Ctrl+E</strong> on Windows and Linux). It opens the Share dialog.</li>
+<li><strong>Show</strong> — in the dialog's <strong>Show on the web</strong> row. The diagram goes on the web and its link is copied to your clipboard.</li>
+<li><strong>The row's globe</strong> — from now on the diagram wears an amber globe in the file list. It only reports; hover it for the reminder. Right-clicking the row and choosing <strong>Show and copy link</strong> does steps 1 and 2 at once.</li>
+<li><strong>The rail's globe</strong> — lit whenever the open diagram is shown. Press it to copy the link again.</li>
+</ol>
+</figure>
+
+If the diagram is not in a [space](spaces.md) yet, the app asks before it files it into one.
 
 To take it back, right-click the row and choose **Stop showing**. The globe goes away, and every page that embeds the diagram shows a short placeholder card in its place.
 

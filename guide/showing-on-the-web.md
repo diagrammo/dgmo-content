@@ -53,9 +53,9 @@ The rest of this page is about the live link. A live link works wherever a URL w
 
 1. Open the diagram.
 2. Press **Share** on the left rail, or **⌘E** (**Ctrl+E** on Windows and Linux).
-3. In the **Live link** row, press **Show on the web**.
+3. Under **Show on the web**, press **Show**.
 
-The link is copied for you, and the diagram's row in the file list gets an amber globe <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#e0890b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-2px"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg> — see [the amber globe](live-links.md#the-amber-globe). You can also right-click the row and choose **Show and copy link**, which does both in one step.
+The link is copied for you, and the diagram's row in the file list gets an amber globe <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#e0890b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-2px"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg> — see [the amber globe](live-links.md#the-amber-globe). You can also right-click the row and choose **Show and copy link**, which does both in one step. [Getting the link](live-links.md#getting-the-link) shows where each of these is in the app.
 
 To copy the link again later, open the diagram and press the lit amber globe on the left rail.
 

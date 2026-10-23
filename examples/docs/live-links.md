@@ -15,7 +15,7 @@ https://online.diagrammo.app/d/dgm_01M3PG3DQ6S89W7ZFM5Z06J1CD
 ### Put one in your own docs
 
 In the Diagrammo app, open the diagram, press **Share** on the left rail (**⌘E**),
-then **Show on the web** in the **Live link** row — or right-click the diagram in
+then **Show on the web** → **Show** — or right-click the diagram in
 the file list and choose **Show and copy link**. The link is copied, and the
 diagram's row wears an amber globe from then on; press the lit globe on the rail
 to copy the link again. Paste it on a line of its own inside a `dgmo` fence:
