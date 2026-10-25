@@ -362,11 +362,11 @@
           "kind": "trigger"
         },
         {
-          "text": "high level",
+          "text": "how they connect",
           "kind": "trigger"
         },
         {
-          "text": "connect",
+          "text": "architecture diagram",
           "kind": "trigger"
         }
       ],
@@ -2094,7 +2094,7 @@
           "kind": "trigger"
         },
         {
-          "text": "level",
+          "text": "levels",
           "kind": "trigger"
         },
         {
