@@ -57,7 +57,7 @@ The actual shade is resolved from the **active palette**, so the same `blue` loo
 <circle cx="688" cy="136" r="13" fill="#4c566a"/>
 <text class="col-m" x="352" y="186">plus black and white, set by each palette for light and dark</text>
 </svg>
-<figcaption id="col-fig-cap">A diagram names colors; the palette decides what each name looks like. The desktop app is the exception today: it always uses its own Settings.</figcaption>
+<figcaption id="col-fig-cap">A diagram names colors; the palette decides what each name looks like.</figcaption>
 </figure>
 
 ## Where the palette comes from
@@ -88,7 +88,7 @@ The line is the same on every chart type, and it never becomes a node or a row. 
 
 ### In the desktop app
 
-The app works differently. The editor preview and picture exports draw in the palette you pick in Settings (**⌘ + ,**): **Editor palette** for the preview, **Export palette** for exports. They ignore the file's `palette` line. A share link keeps the file's line in the copy it sends, so the author's choice travels with the diagram.
+The app follows the same order, with Settings (**⌘ + ,**) as the host's default: **Editor palette** for the preview, **Export palette** for exports. A file's own `palette` line beats both. With `palette nord`, the preview and every export draw in Nord whatever Settings says, and the preview pane takes Nord's background. The rest of the app keeps the Settings palette. A file with no `palette` line draws in Settings' palette. A share link keeps the file's line in the copy it sends, so the author's choice travels with the diagram.
 
 ## Choosing a color
 

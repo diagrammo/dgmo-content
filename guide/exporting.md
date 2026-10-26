@@ -10,7 +10,7 @@ flowchart What Decides the Look
 (dgmo export) -> [Palette: flag, else file line, else slate] -> [Theme: light, dark or transparent] -> /PNG or SVG/
 ```
 
-This order is the command line's: the flag is `--palette`. The desktop app works differently — its exports always use the **Export palette** setting, and a file's own `palette` line has no effect there today. The app can also export PDF and HTML; see [Exporting from the app](#exporting-from-the-app).
+This order is the command line's: the flag is `--palette`. The desktop app has no flag. There, a file's own `palette` line wins, and the **Export palette** setting takes the place of slate. The app can also export PDF and HTML; see [Exporting from the app](#exporting-from-the-app).
 
 The shortest version:
 
@@ -132,7 +132,7 @@ In the desktop app and the web editor, **Share…** (**⌘ + E**, or Ctrl + E) o
 - **Transparent background:** PNG and SVG only.
 - **Save…** writes a file. **Copy** puts a PNG on the clipboard (PNG only). **File → Copy as PNG** does the same from the menu.
 
-Palette and theme come from Settings. **Export palette** chooses the palette, and its light, dark or auto switch chooses the theme. The app does not read a file's own `palette` line; only the command line and docs-site plugins do.
+Palette and theme come from Settings unless the file names its own. **Export palette** chooses the palette, and its light, dark or auto switch chooses the theme. A file's own `palette` line beats the setting: with `palette nord` the export is Nord whatever **Export palette** says, and `palette nord dark` also makes it dark. A file with no `palette` line uses the setting.
 
 The dialog also has a **Snapshot link** row with Copy, Open and a QR code. It is the same link `dgmo share` prints, and it carries the palette you chose unless the link would grow too long. **File → Copy Snapshot Link** (**⌘ + Shift + L**) copies it in one step. A **Live link** stays current as you edit; see [Live links](live-links.md).
 
