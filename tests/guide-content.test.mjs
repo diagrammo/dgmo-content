@@ -126,6 +126,22 @@ const DOCUMENTED = [
     verifiedAgainst: 'obsidian-dgmo/manifest.json (name); obsidian-dgmo/README.md (Usage)',
     on: '2026-10-20',
   },
+  {
+    what: "the app's preview and exports honour the file's palette line, Settings as fallback",
+    file: 'guide/colors.md',
+    contains: ["A file's own `palette` line beats both.", "A file with no `palette` line draws in Settings' palette."],
+    why: 'The app ignored the line until #1412; the page said so, and must now say the line wins in the preview and every export.',
+    verifiedAgainst: 'diagrammo-app 8a6fff12, src/lib/diagramPalette.ts (chooseDiagramPalette)',
+    on: '2026-10-25',
+  },
+  {
+    what: "the app's exports honour the file's palette line, Export palette as fallback",
+    file: 'guide/exporting.md',
+    contains: ["A file's own `palette` line beats the setting", "a file's own `palette` line wins, and the **Export palette** setting takes the place of slate"],
+    why: 'The app ignored the line until #1412; both passages said so.',
+    verifiedAgainst: 'diagrammo-app 8a6fff12, src/stores/exportStore.ts (executeExport) and src/lib/diagramPalette.ts',
+    on: '2026-10-25',
+  },
 ];
 
 /**
