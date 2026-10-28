@@ -30,7 +30,7 @@ In the web editor, **Ctrl + Shift + R** is normally the browser's hard reload. D
 | **⌘ + O**                 | Open folder                                                 | Desktop |
 | **⌘ + Shift + O**         | Open folder in a new window                                 | Desktop |
 
-With the file tree focused, **⌘ + N** also starts a new file in the web editor, unless the browser takes the key first.
+With the file tree focused, **⌘ + N** also starts a new file on the desktop. In the web editor that key is **Alt + N** (**Option + N** on a Mac), because the browser keeps **⌘ + N** for a new window.
 
 ## View and panels
 

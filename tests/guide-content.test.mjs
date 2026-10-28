@@ -142,6 +142,22 @@ const DOCUMENTED = [
     verifiedAgainst: 'diagrammo-app 8a6fff12, src/stores/exportStore.ts (executeExport) and src/lib/diagramPalette.ts',
     on: '2026-10-25',
   },
+  {
+    what: 'the web editor starts a new file in the file tree with Alt+N',
+    file: 'guide/keyboard-shortcuts.md',
+    contains: ['In the web editor that key is **Alt + N** (**Option + N** on a Mac)'],
+    why: 'Chrome and Firefox keep Ctrl/Cmd+N for a new window and never send it to the page, so the web file tree moved to Alt+N (#1419, slice 1). The page still offered ⌘ + N there.',
+    verifiedAgainst: 'diagrammo-app 913bfc23, src/lib/shortcut-table.ts (FILE_TREE_NEW_FILE) and src/features/file-tree/hooks/useFileTreeKeyboard.ts',
+    on: '2026-10-28',
+  },
+  {
+    what: 'the getting-started list gives the web editor its own new-file key',
+    file: 'guide/index.md',
+    contains: ['**Alt + N** in the web editor'],
+    why: 'Same move as the shortcuts page (#1419): the bare Cmd + N line told a web-editor reader to press a key the browser takes.',
+    verifiedAgainst: 'diagrammo-app 913bfc23, src/lib/shortcut-table.ts (FILE_TREE_NEW_FILE)',
+    on: '2026-10-28',
+  },
 ];
 
 /**

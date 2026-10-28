@@ -45,7 +45,7 @@ The name "DGMO" is shorthand for "Diagrammo" — shorter to type, easier to use 
 
 ## Getting Started
 
-- **Create a new file** using the file tree on the left, or press **Cmd + N**
+- **Create a new file** using the file tree on the left, or press **Cmd + N** (**Alt + N** in the web editor)
 - **Write diagram code** in the editor — the preview updates in real time
 - **Export** your diagrams as PNG or SVG — see [Exporting diagrams](exporting.md) for format choice, transparent backgrounds, and palettes
 - **Browse the sidebar** to explore all chart types and features
