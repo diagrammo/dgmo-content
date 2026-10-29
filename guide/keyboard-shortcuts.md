@@ -94,7 +94,7 @@ Select an element on the whiteboard first.
 | --------------------------------- | ------------------------------------------- |
 | **Arrow keys**                    | Nudge the selection (hold **Shift** for ten times as far) |
 | **] / [**                         | Bring to front / send to back               |
-| **Alt + ] / Alt + [**             | Move forward / back one step                |
+| **Alt + ] / Alt + [**             | Move forward / back past the next overlapping shape |
 | **⌘ + D**                         | Duplicate                                   |
 | **⌘ + A**                         | Select all                                  |
 | **Delete** / **Backspace**        | Delete                                      |

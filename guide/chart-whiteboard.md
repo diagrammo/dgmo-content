@@ -68,7 +68,7 @@ After you draw a shape or a line the tool goes back to Select. Double-click a to
 
 **Colour and fill.** The colour pill on the rail, and the small row of colours above any selection, recolour what is selected. Click a shape's current colour again to step its fill from a pale tint, to solid, to outline only.
 
-**Order.** `]` brings the selection to the front and `[` sends it to the back; ⌥] and ⌥[ move it one step.
+**Order.** `]` brings the selection to the front and `[` sends it to the back; ⌥] and ⌥[ move it past the next shape it overlaps. When a selection overlaps another shape, a small chip appears on the side opposite the colours: its arrows do the same one-layer move, and its count, such as 2/3, says where the selection sits among the shapes it overlaps, 1 at the back.
 
 **Moving around.** Two-finger scroll or Space-drag pans; pinch or ⌘-scroll zooms. ⌘0 or Shift+1 fits the whole board, Shift+0 goes to 100%, ⌘+ and ⌘− zoom in and out. The controls at the foot of the rail do the same, and hold the **Sticky notes** toggle that shows or hides every note.
 
