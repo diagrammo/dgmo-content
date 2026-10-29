@@ -95,7 +95,7 @@ One line is one element, and it starts with what it is.
 
 - **Positions are pixels.** `at:` is the top-left corner. Numbers are whole and may be negative, because the board has no edge.
 - **Labels are optional** on shapes, notes, arrows and lines. A shape's label is centred inside it and wraps to the shape's width, so a long label never spills out of its box.
-- **Drawing order is by kind, then by line.** Elements draw in five bands, bottom to top: images, shapes and sticky notes, arrows and lines, text, ink. A band always draws above the one before it, so a frame drawn after its contents never hides them. Inside a band, a later line draws on top of an earlier one, so a shape can sit on a note or under it; moving a line moves its element only within its band.
+- **Drawing order is by kind, then by line.** Elements draw in four bands, bottom to top: images; shapes, sticky notes, arrows and lines; text; ink. A band always draws above the one before it. Inside a band, a later line draws on top of an earlier one, so a note can sit over an arrow or under a shape. An arrow always draws above the boxes it connects; moving a line moves its element only within its band.
 - **Dashed strokes.** Add `style: dashed` to an arrow or a line to draw it dashed — handy for a maybe, or an optional step. Leave it off for a solid stroke; `dashed` is the only style you write.
 - **Several lines.** To break a label over lines, indent each line under its element. A label on the element line itself is the first line. Your line breaks are always kept; inside a shape or a note, a line too long for it also wraps. Arrow, line and text labels never wrap. This works on shapes, notes, arrows, lines and text:
 
