@@ -1381,7 +1381,19 @@
           "kind": "trigger"
         },
         {
-          "text": "message queue",
+          "text": "load balancer",
+          "kind": "trigger"
+        },
+        {
+          "text": "waf",
+          "kind": "trigger"
+        },
+        {
+          "text": "firewall",
+          "kind": "trigger"
+        },
+        {
+          "text": "requests per second",
           "kind": "trigger"
         }
       ],
