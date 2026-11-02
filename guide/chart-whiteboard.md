@@ -37,7 +37,6 @@ The file is ordinary DGMO text. Every box, note, arrow, line and piece of text i
 ## When to use
 
 - **`whiteboard`** — you want to think on a blank board: scribble, place things anywhere, keep drawing later.
-- **[`sketch`](chart-sketch.md)** — you want tidy, same-size cards on a snap grid, coloured by meaning.
 - **[`boxes-and-lines`](chart-boxes-and-lines.md)** — you'd rather write the diagram as text and let the engine lay it out.
 - **[`wireframe`](chart-wireframe.md)** — you're drawing a screen with buttons, fields and navigation.
 
@@ -152,5 +151,5 @@ Colors come from the active palette — see [Colors](colors.md). Set the palette
 
 ## Next
 
-- **Related:** [`sketch`](chart-sketch.md) · [`boxes-and-lines`](chart-boxes-and-lines.md) · [`wireframe`](chart-wireframe.md)
+- **Related:** [`boxes-and-lines`](chart-boxes-and-lines.md) · [`wireframe`](chart-wireframe.md)
 - **Then:** [Colors & palettes](colors.md)

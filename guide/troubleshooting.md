@@ -235,7 +235,7 @@ Order
   id int pk
 ```
 
-The same shape applies on `boxes-and-lines`, `infra`, `flowchart`, `sitemap`, `gantt`, `pert`, `swimlane`, `cycle`, and `sketch`, where an indented arrow means "starts from the line above" — see [How indentation works](how-dgmo-thinks.md#how-indentation-works).
+The same shape applies on `boxes-and-lines`, `infra`, `flowchart`, `sitemap`, `gantt`, `pert`, `swimlane`, and `cycle`, where an indented arrow means "starts from the line above" — see [How indentation works](how-dgmo-thinks.md#how-indentation-works).
 
 ## The setting did nothing
 

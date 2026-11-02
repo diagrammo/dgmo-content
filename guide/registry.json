@@ -235,15 +235,6 @@
       "file": "chart-sitemap.md"
     },
     {
-      "slug": "chart-sketch",
-      "title": "Sketch",
-      "group": "freeform",
-      "intent": [
-        "relationships"
-      ],
-      "file": "chart-sketch.md"
-    },
-    {
       "slug": "chart-state",
       "title": "State",
       "group": "software",

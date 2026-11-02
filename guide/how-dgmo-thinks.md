@@ -259,7 +259,7 @@ Lisbon s: Atlantic
 
 All three routes leave Nassau. Tortuga, Port Royal and Lisbon are not children of Nassau — they are separate places, drawn beside it and joined to it by lines. Writing `Nassau -rum-> Tortuga` on three separate lines draws the same thing; indenting saves you repeating the name.
 
-Chart types that read indented arrows this way: boxes-and-lines, infra, flowchart, C4, ER, class, sitemap, gantt, PERT, swimlane, cycle, sketch, and map routes.
+Chart types that read indented arrows this way: boxes-and-lines, infra, flowchart, C4, ER, class, sitemap, gantt, PERT, swimlane, cycle, and map routes.
 
 #### 3. `key: value` is a fact about the line above
 

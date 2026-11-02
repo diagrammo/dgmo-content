@@ -2681,45 +2681,6 @@
       "description": "Site / app navigation structure"
     },
     {
-      "id": "sketch",
-      "kind": "type",
-      "base": null,
-      "name": "Sketch",
-      "family": "freeform",
-      "intent": [
-        "relationships"
-      ],
-      "produces": null,
-      "keywords": [
-        {
-          "text": "sketch",
-          "kind": "trigger"
-        },
-        {
-          "text": "free-form boxes",
-          "kind": "trigger"
-        },
-        {
-          "text": "canvas diagram",
-          "kind": "trigger"
-        },
-        {
-          "text": "rough architecture sketch",
-          "kind": "trigger"
-        },
-        {
-          "text": "drag and drop diagram",
-          "kind": "trigger"
-        },
-        {
-          "text": "place shapes on a canvas",
-          "kind": "trigger"
-        }
-      ],
-      "guidance": "Sketch is a GUI-authored format — the desktop and web canvas editors generate this markup, so hand-writing it is the exception. If you generate it anyway: keep it SMALL (sketches read best under ~15 shapes), and either omit `at:` everywhere (shapes flow into rows) or use integer half-slot coordinates with shapes **at least 3 half-slots apart** on one axis (a footprint spans 2 half-units and the mandatory gap adds 1 more, so each shape claims a 3×3 block; 2 apart overlaps). A `[Box]` may hold another `[Box]`, to **depth 2** — a third level is refused and its shapes join the box above it. Alias any shape an edge references (`as con`). Never write `size:`, `shape:`, colors, or fonts — every shape is the same plain card. In sketch, `~` dashed means secondary emphasis, NOT async. Categorize with a tag group — kind-of-thing is meaning, and meaning lives in tags. Reach for `sketch` when the drawing itself is the content; reach for `boxes-and-lines` when topology should auto-lay-out.",
-      "description": "GUI-first constrained canvas — place shapes, connect, tag"
-    },
-    {
       "id": "slope",
       "kind": "type",
       "base": null,
@@ -3227,7 +3188,7 @@
           "kind": "trigger"
         }
       ],
-      "guidance": "Whiteboard is a canvas-first format: people draw on it, and pen strokes (`ink` lines) only ever come from drawing — never write an `ink` line. Generate the readable parts only: `rectangle`, `ellipse`, `database`, `queue`, `file` (a page with a wavy bottom, for a document or file) with a label, `at: X Y` (top-left, integer pixels) and `size: W H`; `arrow` with `from: X Y, to: X Y` and an optional label, or `line` the same way for a connection with no head; add `style: dashed` to an arrow or line for a tentative or optional link; `heads: both` for a two-way arrow; `bend: 40` (px, sign picks the side) to curve a link around something in its way; `text` at a point; `note` with `at: X Y` for a sticky-note comment or open question (a 160 × 99 yellow card by default; `size:` and `color:` are optional). A shape label or a note wraps to its width on its own, so never break a sentence by hand to fit; for separate lines (a heading, a list), drop the inline label and indent each line two spaces under the element line. Leave ~40px between shapes and keep boards small (under ~15 elements). Colours are palette names (red, green, blue, teal, purple, orange, yellow, cyan, gray); leave colour off for the default ink. An arrow or line end placed inside a shape or note attaches to it and is drawn to its border, so point ends at shape centres. `no-notes` hides every note when the board is shown. Reach for `whiteboard` for a loose drawing someone will scribble over; reach for `sketch` for tagged shapes on a grid, and `boxes-and-lines` when topology should auto-lay-out.",
+      "guidance": "Whiteboard is a canvas-first format: people draw on it, and pen strokes (`ink` lines) only ever come from drawing — never write an `ink` line. Generate the readable parts only: `rectangle`, `ellipse`, `database`, `queue`, `file` (a page with a wavy bottom, for a document or file) with a label, `at: X Y` (top-left, integer pixels) and `size: W H`; `arrow` with `from: X Y, to: X Y` and an optional label, or `line` the same way for a connection with no head; add `style: dashed` to an arrow or line for a tentative or optional link; `heads: both` for a two-way arrow; `bend: 40` (px, sign picks the side) to curve a link around something in its way; `text` at a point; `note` with `at: X Y` for a sticky-note comment or open question (a 160 × 99 yellow card by default; `size:` and `color:` are optional). A shape label or a note wraps to its width on its own, so never break a sentence by hand to fit; for separate lines (a heading, a list), drop the inline label and indent each line two spaces under the element line. Leave ~40px between shapes and keep boards small (under ~15 elements). Colours are palette names (red, green, blue, teal, purple, orange, yellow, cyan, gray); leave colour off for the default ink. An arrow or line end placed inside a shape or note attaches to it and is drawn to its border, so point ends at shape centres. `no-notes` hides every note when the board is shown. Reach for `whiteboard` for a loose drawing someone will scribble over; reach for `boxes-and-lines` when topology should auto-lay-out.",
       "description": "Free-form drawing — ink, simple shapes, text and images"
     },
     {
@@ -4541,27 +4502,6 @@
       "id": "sitemap",
       "entity": "sitemap",
       "file": "examples/sitemap/sitemap.dgmo",
-      "isPrimary": true,
-      "status": "draft",
-      "placements": [
-        {
-          "surface": "docs",
-          "role": "docs"
-        },
-        {
-          "surface": "new-file",
-          "role": "starter"
-        },
-        {
-          "surface": "obsidian",
-          "role": "sampler"
-        }
-      ]
-    },
-    {
-      "id": "sketch",
-      "entity": "sketch",
-      "file": "examples/sketch/sketch.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [

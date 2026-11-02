@@ -25,7 +25,6 @@ A block diagram is an author-controlled **grid** of rectangular blocks — for t
 
 - **`block`** — *where* each box sits carries meaning you control, and everything should snap into a tidy grid.
 - [`boxes-and-lines`](chart-boxes-and-lines.md) — you want the tool to arrange the boxes for you. Position there is auto-layout and carries no meaning; read one as the other and you either invent adjacency semantics or lose them.
-- [`sketch`](chart-sketch.md) — you want to place shapes freely and eyeball it, rather than snap to a grid.
 - [`quadrant`](chart-quadrant.md) — position is a *rating on two axes*, not a physical or logical arrangement.
 - [`c4`](chart-c4.md) — you need click-to-zoom levels of detail (context → container → component) rather than one static arranged picture.
 - [`wireframe`](chart-wireframe.md) — the result needs to look like a user interface, not a systems layout that happens to be gridded.
@@ -138,5 +137,5 @@ Colors come from the active palette — see [Colors](colors.md). Set the palette
 
 ## Next
 
-- **Related:** [`boxes-and-lines`](chart-boxes-and-lines.md) · [`sketch`](chart-sketch.md) · [`quadrant`](chart-quadrant.md) · [`c4`](chart-c4.md) · [`wireframe`](chart-wireframe.md) · [`body`](chart-body.md)
+- **Related:** [`boxes-and-lines`](chart-boxes-and-lines.md) · [`quadrant`](chart-quadrant.md) · [`c4`](chart-c4.md) · [`wireframe`](chart-wireframe.md) · [`body`](chart-body.md)
 - **Then:** [Colors & palettes](colors.md)

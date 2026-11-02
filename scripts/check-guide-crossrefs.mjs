@@ -6,7 +6,7 @@
  * The 2026-07-18 persona docs audit found every cross-reference in the corpus
  * was one-directional: `event-line` sent readers to `timeline` and `timeline`
  * never mentioned `event-line`; `family` sent readers to `org` and `org` never
- * warned it is single-parent; `block` and `sketch` both pointed at
+ * warned it is single-parent; `block` and `whiteboard` both pointed at
  * `boxes-and-lines`, which pointed at neither.
  *
  * One-way links are how a reader gets stranded: they arrive at the wrong chart

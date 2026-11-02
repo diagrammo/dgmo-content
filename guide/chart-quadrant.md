@@ -28,7 +28,6 @@ Places items in a 2×2 grid defined by two axes you name, sorting them into four
 - **[`scatter`](chart-scatter.md)** — your positions are real measured values with units that must survive onto the axes.
 - **[`tech-radar`](chart-tech-radar.md)** — you're sorting technologies into "use it / try it / watch it / avoid it" rings rather than free axes.
 - **[`heatmap`](chart-heatmap.md)** — you have a value for every row × column combination and want cells shaded, not items placed.
-- **[`sketch`](chart-sketch.md)** — you're drawing a picture where position is layout, not a rating.
 - **[`block`](chart-block.md)** — the grid is a physical or logical arrangement rather than a scoring space.
 
 ## Syntax
@@ -112,5 +111,5 @@ Colors come from the active palette — see [Colors](colors.md). Set the palette
 
 ## Next
 
-- **Related:** [`scatter`](chart-scatter.md) · [`tech-radar`](chart-tech-radar.md) · [`heatmap`](chart-heatmap.md) · [`sketch`](chart-sketch.md) · [`block`](chart-block.md)
+- **Related:** [`scatter`](chart-scatter.md) · [`tech-radar`](chart-tech-radar.md) · [`heatmap`](chart-heatmap.md) · [`block`](chart-block.md)
 - **Then:** [Colors & palettes](colors.md)

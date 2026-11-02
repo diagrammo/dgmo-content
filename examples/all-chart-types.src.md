@@ -296,12 +296,6 @@ const plunder = ships.reduce((sum, s) => sum + s.gold, 0);
 
 ![[boxes-and-lines/boxes-and-lines.dgmo]]
 
-### Sketch
-
-![[sketch/sketch.dgmo]]
-
----
-
 ## Live link
 
 A live link points at a diagram someone shows on the web from the Diagrammo app,
