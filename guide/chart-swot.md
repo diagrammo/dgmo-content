@@ -77,7 +77,7 @@ threats Menaces red
 
 ## Axes
 
-The grid is framed by two axes. Columns default to **Helpful, Harmful** and rows to **Internal, External**. Rename them with `x-label` and `y-label`, each a comma-separated pair, or hide them with `no-axes`, which wins over both label options.
+The grid is framed by two axes, drawn as the headers of a table: a band over each column and a rail beside each row. Columns default to **Helpful, Harmful** and rows to **Internal, External**, which is the textbook SWOT matrix. Rename them with `x-label` and `y-label`, each a comma-separated pair, or hide them with `no-axes`, which wins over both label options.
 
 ```dgmo
 swot Launch review
