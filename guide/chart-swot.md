@@ -38,7 +38,7 @@ A SWOT analysis sorts what you know about an organisation, product or plan into 
 
 ```
 swot Title
-// optional directives: tag, active-tag, palette, x-label, y-label, no-axes
+// optional directives: tag, active-tag, palette, x-label, y-label, no-axes, no-tint-items
 
 strengths|weaknesses|opportunities|threats [Label] [color]
   Item text [key: value]
@@ -108,7 +108,7 @@ threats
 
 ## Tags
 
-Declare a tag, then add `key: value` to an item to recolour its dot and show a legend. Items without a tag keep their section colour. Header bands always keep the section colour. Set `active-tag` to pick which tag drives the colours.
+Declare a tag, then add `key: value` to an item to recolour its dot, tint its row in the tag colour, and show a legend. Items without a tag keep their section colour and no tint. `no-tint-items` turns the row tint off and leaves just the dot. Header bands always keep the section colour. Set `active-tag` to pick which tag drives the colours.
 
 ```
 tag Priority as p
@@ -124,6 +124,7 @@ active-tag Priority
 | `x-label A, B` | Column axis labels (default Helpful, Harmful). |
 | `y-label A, B` | Row axis labels (default Internal, External). |
 | `no-axes` | Hide both axes; wins over the label options. |
+| `no-tint-items` | Don't tint tagged rows; the dot alone carries the tag. |
 | `tag`, `active-tag` | Tag groups and the active one. |
 | `palette` | Universal option. |
 
