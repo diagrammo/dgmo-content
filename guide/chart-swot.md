@@ -108,7 +108,7 @@ threats
 
 ## Tags
 
-Declare a tag, then add `key: value` to an item to recolour its dot, tint its row in the tag colour, and show a legend. Items without a tag keep their section colour and no tint. `no-tint-items` turns the row tint off and leaves just the dot. Header bands always keep the section colour. Set `active-tag` to pick which tag drives the colours.
+Declare a tag, then add `key: value` to an item to recolour its dot, tint its row faintly in the tag colour, and show a legend. Items without a tag keep their section colour and no tint. `no-tint-items` turns the row tint off and leaves just the dot. Header bands always keep the section colour. Set `active-tag` to pick which tag drives the colours.
 
 ```
 tag Priority as p
