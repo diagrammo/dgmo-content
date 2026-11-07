@@ -29,6 +29,7 @@ Places items in a 2×2 grid defined by two axes you name, sorting them into four
 - **[`tech-radar`](chart-tech-radar.md)** — you're sorting technologies into "use it / try it / watch it / avoid it" rings rather than free axes.
 - **[`heatmap`](chart-heatmap.md)** — you have a value for every row × column combination and want cells shaded, not items placed.
 - **[`block`](chart-block.md)** — the grid is a physical or logical arrangement rather than a scoring space.
+- **[`swot`](chart-swot.md)** — you are filling four fixed panels (strengths, weaknesses, opportunities, threats) rather than placing items on axes.
 
 ## Syntax
 

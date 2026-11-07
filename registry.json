@@ -2219,6 +2219,45 @@
       "description": "2x2 positioning matrix"
     },
     {
+      "id": "swot",
+      "kind": "type",
+      "base": null,
+      "name": "SWOT",
+      "family": "business",
+      "intent": [
+        "concept-framework"
+      ],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "swot",
+          "kind": "trigger"
+        },
+        {
+          "text": "swot analysis",
+          "kind": "trigger"
+        },
+        {
+          "text": "strengths weaknesses opportunities threats",
+          "kind": "trigger"
+        },
+        {
+          "text": "strengths and weaknesses",
+          "kind": "trigger"
+        },
+        {
+          "text": "internal external factors",
+          "kind": "trigger"
+        },
+        {
+          "text": "situation analysis",
+          "kind": "trigger"
+        }
+      ],
+      "guidance": "Keep items to a few words, and let the section colours stand: a tag group earns its place only when the items sort into kinds, such as priority or owner. Declare the sections in any order; they always draw S W / O T.",
+      "description": "Four fixed panels: strengths, weaknesses, opportunities, threats"
+    },
+    {
       "id": "raci",
       "kind": "type",
       "base": null,
@@ -4318,6 +4357,23 @@
         {
           "surface": "obsidian",
           "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "swot",
+      "entity": "swot",
+      "file": "examples/swot/swot.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
         }
       ]
     },

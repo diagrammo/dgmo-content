@@ -611,6 +611,15 @@
         "relationships"
       ],
       "file": "chart-whiteboard.md"
+    },
+    {
+      "slug": "chart-swot",
+      "title": "SWOT",
+      "group": "business",
+      "intent": [
+        "concept-framework"
+      ],
+      "file": "chart-swot.md"
     }
   ]
 }
