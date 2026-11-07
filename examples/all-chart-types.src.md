@@ -190,6 +190,10 @@ const plunder = ships.reduce((sum, s) => sum + s.gold, 0);
 
 ![[ring/ring.dgmo]]
 
+### SWOT Analysis
+
+![[swot/swot.dgmo]]
+
 ### Swimlane
 
 ![[swimlane/swimlane.dgmo]]
