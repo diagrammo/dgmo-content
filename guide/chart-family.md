@@ -198,6 +198,8 @@ When a person carries `sex:`, their card takes a default color: `m` → blue, `f
 
 Tag groups work as everywhere else: declare a `tag <Facet> as <alias>` with a distinct color per value, then apply it to a person with `<alias>: <Value>`. The tag color overrides the sex-derived fill and adds a labeled legend entry.
 
+With more than one group, `active-tag <Facet>` in the header picks which one colors the cards (`active-tag none` turns color off). Clicking a group in the app's legend writes this line for you.
+
 ## Complete Example
 
 ```dgmo
