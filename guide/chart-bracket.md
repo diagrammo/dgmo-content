@@ -35,7 +35,7 @@ tag Entry as e
 Dodgers beats Blue Jays 4-3
 ```
 
-The real 2025 postseason: two six-team leagues mirror inward from **Wild Card** to **Championship**, and the cross-league final at indent 0 (`Dodgers beats Blue Jays`) becomes the **World Series** in the center. Lower seeds toppling higher ones are auto-flagged **UPSET** (Tigers, then the Dodgers' run through the 2- and 1-seeds), and the champion gets a star.
+The real 2025 postseason: two six-team leagues mirror inward from **Wild Card** to **Championship**, and the cross-league final at indent 0 (`Dodgers beats Blue Jays`) becomes the **Final** in the center. Lower seeds toppling higher ones are auto-flagged **UPSET** (Tigers, then the Dodgers' run through the 2- and 1-seeds), and the champion gets a star.
 
 ## Overview
 
@@ -44,7 +44,7 @@ A bracket chart is a **single-elimination tournament tree**: winners advance up 
 There are two ways to author, and Diagrammo picks between them automatically:
 
 - **Casual** — just list the results. The round structure is inferred from who beat whom.
-- **Seeded** — declare the field with `seed` lines and the full bracket skeleton renders on **day 0**, before a single game is played, with unplayed matchups shown as dashed **TBD** slots.
+- **Seeded** — declare the field with `seed` lines and the full bracket skeleton renders on **day 0**, before a single game is played, with unplayed matchups shown as light dashed **TBD** outlines.
 
 ## When to use
 
@@ -135,7 +135,11 @@ rounds Skirmish, Clash, Fleet Final
 Black Pearl beats Flying Dutchman 4-3
 ```
 
-The center column is labeled with the bracket title (`Grand Line Cup`) — the deciding game.
+The center column takes the round name after the last per-side round (a fourth `rounds` entry here), else `Final` — the title already heads the chart, so it is never repeated there.
+
+### Large fields
+
+A field of **16 or more** entrants with no `[Side]` headers splits at its final automatically: the top half of the draw runs left to right, the bottom half mirrors right to left, and the final sits in the center. A 64-team draw reads wider than tall, the way a printed tournament bracket does. Rows also pack tighter at this size.
 
 ## Color by attribute (tags)
 
