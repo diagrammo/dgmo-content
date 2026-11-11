@@ -85,6 +85,7 @@ One line is one element, and it starts with what it is.
 | `ellipse <label> at: X Y, size: W H`            | An ellipse                             |
 | `database <label> at: X Y, size: W H`           | An upright cylinder                    |
 | `queue <label> at: X Y, size: W H`              | A cylinder on its side                 |
+| `router <label> at: X Y, size: W H`             | An icon from a shape set (see below)   |
 | `note <text> at: X Y`                           | A sticky note                          |
 | `arrow <label> from: X Y, to: X Y`              | A straight arrow; the head is at `to:` |
 | `line <label> from: X Y, to: X Y`               | A straight line with no head           |
@@ -125,6 +126,27 @@ Notes sit on a layer of their own. Add `no-notes` to hide every note when the bo
 ## Colours
 
 Add `color:` with a colour name: `red`, `green`, `blue`, `teal`, `purple`, `orange`, `yellow`, `cyan` or `gray`. Leave it off for `ink`, the default — near-black on a light background and near-white on a dark one. A note is the exception: it is `yellow` unless you say otherwise. Every colour follows the palette and the light or dark theme, like every other diagram.
+
+## Shape sets
+
+A whiteboard draws its five shapes and sticky notes. A `shapes` line adds a set of line icons for that file, for drawings such as a network or an office setup:
+
+```dgmo
+whiteboard Office network
+shapes network
+router Edge at: 120 40, size: 48 48
+server App at: 300 40, size: 48 48, color: blue
+arrow from: 144 64, to: 324 64
+```
+
+The **network** set has `router`, `switch`, `firewall`, `server`, `access-point`, `cloud`, `globe`, `lock`, `user`, `users`, `laptop`, `mobile` and `storage`. Database, queue and file are already whiteboard shapes, so the set does not repeat them.
+
+- **An icon line reads like a shape line.** It takes `at:`, `size:` and `color:`, and nothing else. The icon fits the shorter side of its box, in its colour, and the label sits under the box.
+- **Arrows attach to icons** the same way they attach to shapes: drop an end inside the icon's box.
+- **Several sets** go on one line, separated by commas.
+- **Forgot the line?** The icon still draws, with a warning that names the line to add.
+
+**In the app**, the shape slide-out on the rail ends with a **+** button, *Shape sets*. It lists each set with its icons. Tick a set and the `shapes` line is written into the file at once, and a row of that set's icons appears under the default shapes; untick it to take the line out. **Undo** on the toast puts it back. Typing an icon name in the text offers it as a completion and writes the `shapes` line for you, and the missing-line warning has a quick fix that adds it.
 
 ## Images
 
