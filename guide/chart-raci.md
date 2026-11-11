@@ -1,30 +1,30 @@
 ```dgmo
 raci Voyage Operations
 roles
-  Cap  red
-  QM   orange
-  Bos  yellow
-  Nav  blue
-  Crew gray
+  Captain
+  Quartermaster
+  Boatswain
+  Navigator
+  Crew
 
 [Departure] teal
   Plot the course
     Heading, currents, weather window
-    Cap: A
-    Nav: R
-    QM: C
+    Captain: A
+    Navigator: R
+    Quartermaster: C
   Provision the hold
-    QM: A R
-    Cap: C
+    Quartermaster: A R
+    Captain: C
     Crew: I
 
 [At Sea] purple
   Stand the watch
-    Bos: A
+    Boatswain: A
     Crew: R
   Sight the next port
-    Nav: A R
-    Cap: C
+    Navigator: A R
+    Captain: C
 ```
 
 ## Overview

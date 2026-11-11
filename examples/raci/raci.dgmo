@@ -1,33 +1,33 @@
 raci Voyage Operations
 roles
-  Cap  red
-  QM orange
-  Bos  yellow
-  Nav  blue
-  Crew gray
+  Captain
+  Quartermaster
+  Boatswain
+  Navigator
+  Crew
 
 [Departure] teal
   Plot the course
-    Cap: A
-    Nav: R
-    QM: C
+    Captain: A
+    Navigator: R
+    Quartermaster: C
   Provision the hold
-    QM: A R
-    Cap: C
+    Quartermaster: A R
+    Captain: C
     Crew: I
 
 [At Sea] purple
   Stand the watch
-    Bos: A
+    Boatswain: A
     Crew: R
   Mend sail damage
-    Bos: A
+    Boatswain: A
     Crew: R
 
 [Landfall] green
   Negotiate with port
-    Cap: R A
-    QM: C
+    Captain: R A
+    Quartermaster: C
   Inventory the take
-    QM: A R
+    Quartermaster: A R
     Crew: I
