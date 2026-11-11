@@ -121,6 +121,8 @@ Another Step span: 1.5
 |-----------|--------|
 | `direction-counterclockwise` | Reverse cycle direction (default: clockwise) |
 | `circle-nodes` | Render nodes as circles instead of rounded rectangles |
+| `center TEXT` | Text in the middle of the ring (`center PDCA`; quotes optional) |
+| `autonumber` | Number the steps 1, 2, 3… in source order, as a badge on each node's outer edge |
 
 ```
 cycle Simple Loop

@@ -536,6 +536,9 @@ target 100
 ```dgmo
 cycle The Pirate Raid Cycle
 
+center RAID
+autonumber
+
 Scout blue
   Spot merchant vessels from afar
 
