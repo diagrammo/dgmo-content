@@ -281,6 +281,8 @@ tag Priority
 
 This directive is persisted from the app's swimlane picker, so it lives in the source and every renderer honors it.
 
+An embed (a docs site, an Obsidian note, a shared link) has no swimlane picker. The `lane-by` line in the source is the only thing that sets its banding, and without one the embed shows no lanes. To band the example above by priority instead, write `lane-by Priority`.
+
 ### Interactive Legend
 
 When tag groups are declared, a legend appears above the chart. Click a tag group pill to activate it — events are colored by that group's values. The swimlane tag group controls the spatial layout; the active tag group controls the coloring. These can be set independently. Use `active-tag <GroupName>` to pin the coloring dimension in the source, and `no-legend` to suppress the legend band entirely.

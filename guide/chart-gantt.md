@@ -273,6 +273,8 @@ tag Crew as c
 
 Each tag value gets its own collapsible lane. It's named `lane-by` rather than `swimlane` because `swimlane` is its own chart type. `sort tag:GroupName` is an accepted back-compat spelling of the same thing. This directive is persisted from the app's swimlane picker, so it lives in the source and every renderer honors it. In the app, click the swimlane icon on a tag pill to switch between swimlane groups.
 
+An embed (a docs site, an Obsidian note, a shared link) has no swimlane picker. The `lane-by` line in the source is the only thing that sets its banding, and without one the embed shows no lanes. To band by a different tag group, name it instead — for example `lane-by Phase` for a `tag Phase` group.
+
 ## Settings
 
 | Setting          | Description                                              | Default    |

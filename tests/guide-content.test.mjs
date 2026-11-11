@@ -158,27 +158,6 @@ const DOCUMENTED = [
     verifiedAgainst: 'diagrammo-app 913bfc23, src/lib/shortcut-table.ts (FILE_TREE_NEW_FILE)',
     on: '2026-10-28',
   },
-];
-
-/**
- * Words the product retired. A guide printing one is drift, not a typo — the
- * name changed and the page did not. Each carries what to say instead, so the
- * failure names the fix rather than only the offence.
- *
- * Scoped to `guide/` prose. `examples/` is diagram source and is governed by
- * the language spec, not by interface vocabulary.
- */
-const RETIRED = [
-  {
-    term: 'Unpublish',
-    instead: 'Stop showing',
-    why: 'The live-link vocabulary is Show on the web → Showing → Stop showing, mirrored by Watch → Watching → Stop watching. The parallel undos are the whole point of the pair.',
-  },
-  {
-    term: 'Export diagram',
-    instead: 'Share diagram',
-    why: 'Export named one row of a dialog that has three; the door took the verb Share on 2026-08-18.',
-  },
   {
     what: 'the Linux desktop app accepts the Ctrl file chords',
     file: 'guide/keyboard-shortcuts.md',
@@ -210,6 +189,43 @@ const RETIRED = [
     why: 'Alt+N works only with the file tree focused; the shortcuts page already says so.',
     verifiedAgainst: 'guide/keyboard-shortcuts.md (file tree focus paragraph)',
     on: '2026-11-11',
+  },
+  {
+    what: 'the gantt guide says lane-by alone sets an embed\'s banding',
+    file: 'guide/chart-gantt.md',
+    contains: ['has no swimlane picker. The `lane-by` line in the source is the only thing that sets its banding'],
+    why: 'Embeds have no picker (decided 2026-10-09), so lane-by in the source is the only control a reader has (#1371).',
+    verifiedAgainst: 'dgmo tests/embed-lane-by.test.ts at a699c4a9 (#1370)',
+    on: '2026-11-11',
+  },
+  {
+    what: 'the timeline guide says lane-by alone sets an embed\'s banding',
+    file: 'guide/chart-timeline.md',
+    contains: ['has no swimlane picker. The `lane-by` line in the source is the only thing that sets its banding'],
+    why: 'Embeds have no picker (decided 2026-10-09), so lane-by in the source is the only control a reader has (#1371).',
+    verifiedAgainst: 'dgmo tests/embed-lane-by.test.ts at a699c4a9 (#1370)',
+    on: '2026-11-11',
+  },
+];
+
+/**
+ * Words the product retired. A guide printing one is drift, not a typo — the
+ * name changed and the page did not. Each carries what to say instead, so the
+ * failure names the fix rather than only the offence.
+ *
+ * Scoped to `guide/` prose. `examples/` is diagram source and is governed by
+ * the language spec, not by interface vocabulary.
+ */
+const RETIRED = [
+  {
+    term: 'Unpublish',
+    instead: 'Stop showing',
+    why: 'The live-link vocabulary is Show on the web → Showing → Stop showing, mirrored by Watch → Watching → Stop watching. The parallel undos are the whole point of the pair.',
+  },
+  {
+    term: 'Export diagram',
+    instead: 'Share diagram',
+    why: 'Export named one row of a dialog that has three; the door took the verb Share on 2026-08-18.',
   },
 ];
 
