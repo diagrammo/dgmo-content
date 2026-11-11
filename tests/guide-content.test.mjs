@@ -179,6 +179,38 @@ const RETIRED = [
     instead: 'Share diagram',
     why: 'Export named one row of a dialog that has three; the door took the verb Share on 2026-08-18.',
   },
+  {
+    what: 'the Linux desktop app accepts the Ctrl file chords',
+    file: 'guide/keyboard-shortcuts.md',
+    contains: ['On the Linux desktop app, which has no menu', '**Ctrl + Shift + O**', '**Ctrl + S**'],
+    why: 'The Linux desktop app has no menu, so these chords are handled in the page itself; the page must not imply they need one.',
+    verifiedAgainst: 'diagrammo-app 95d5076f (#1419 slice 3)',
+    on: '2026-11-11',
+  },
+  {
+    what: 'the Mac Ctrl alias and its punctuation-only limit',
+    file: 'guide/keyboard-shortcuts.md',
+    contains: ['## Alias keys', '**Mac desktop app:** **Ctrl** also presses the **⌘** chord for', 'never works for letters or digits'],
+    why: 'Ctrl stands in for Cmd on , = - / only; Apple keeps Ctrl+letter and Ctrl+digit.',
+    verifiedAgainst: 'diagrammo-app/src/lib/shortcut-aliases.ts (MAC_CTRL_ALIASES, 40b07a10 + acd33617)',
+    on: '2026-11-11',
+  },
+  {
+    what: 'the Hyprland Super alias depends on the user config',
+    file: 'guide/keyboard-shortcuts.md',
+    contains: ['**Super** also presses a **Ctrl** chord', 'depends on your config', 'no alias'],
+    why: 'Super aliases every Linux chord Hyprland binds leave free, read at startup; web, Windows and other Linux desktops get none.',
+    verifiedAgainst: 'diagrammo-app/src/lib/shortcut-aliases.ts (hyprlandFreeChords, isAliasChord)',
+    on: '2026-11-11',
+  },
+  {
+    what: 'Getting Started states the file-tree focus for the new-file chord',
+    file: 'guide/index.md',
+    contains: ['focus the file tree and press **Cmd + N** (**Alt + N** in the web editor)'],
+    why: 'Alt+N works only with the file tree focused; the shortcuts page already says so.',
+    verifiedAgainst: 'guide/keyboard-shortcuts.md (file tree focus paragraph)',
+    on: '2026-11-11',
+  },
 ];
 
 test('every documented fact is stated on its page', async (t) => {

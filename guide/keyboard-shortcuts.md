@@ -4,6 +4,16 @@
 
 Rows marked **Desktop** work in the desktop app only. Browsers reserve some of these keys for themselves, so the web editor cannot use them.
 
+On the Linux desktop app, which has no menu, **Ctrl + N**, **Ctrl + Alt + N**, **Ctrl + Shift + N**, **Ctrl + O**, **Ctrl + Shift + O** and **Ctrl + S** work as listed.
+
+## Alias keys
+
+Some chords also answer to a second modifier. The chord in the tables always works. The alias is an extra.
+
+- **Mac desktop app:** **Ctrl** also presses the **⌘** chord for **,** **=** **-** and **/**. So **Ctrl + ,** opens Settings. It never works for letters or digits, because macOS keeps those.
+- **Linux desktop app on Hyprland:** **Super** also presses a **Ctrl** chord when your Hyprland setup leaves that Super chord free. The app checks your binds at startup, so which chords this covers depends on your config.
+- **Web editor, Windows, and other Linux desktops:** no alias.
+
 ## Global
 
 | Shortcut                  | Action                                                      | Where   |
