@@ -35,7 +35,7 @@ cat diagram.dgmo | dgmo > diagram.png
 | GitHub README, wiki, issue | **SVG** or PNG | Both render; SVG looks better and stays sharp |
 | Print, posters, anything large | **SVG** | The only format that scales up without going soft |
 
-The default is PNG because it works everywhere. Reach for SVG whenever the destination accepts it — it's smaller, sharper, and immune to the fixed PNG resolution described below.
+The default is PNG because it works everywhere. Reach for SVG whenever the destination accepts it — it's smaller, sharper, and has no pixel size at all.
 
 One caveat for SVG: text is rendered as real text in a specific font. If the viewing environment doesn't have that font, letters may shift slightly. PNG bakes the type in, so it always looks exactly as rendered. If pixel-exact typography matters more than sharpness, use PNG.
 
@@ -96,9 +96,18 @@ dgmo diagram.dgmo --width 1600 -o wide.svg
 
 Many chart types size themselves from their content. For those, `--width` is a maximum, and `dgmo` warns if the content does not fit. Most chart types work out the height from the content and ignore `--height`.
 
-PNG export always renders at **2x**. A diagram laid out at 1200x800 comes out as a 2400x1600 PNG. That is sharp enough for documents, slides and social cards, and there is no flag to push it further.
+PNG export renders at **2x** unless you say otherwise. A diagram laid out at 1200x800 comes out as a 2400x1600 PNG. That is sharp enough for documents, slides and social cards.
 
-**Use SVG when you need to scale.** SVG has no resolution at all; it renders sharp at any size, and every downstream tool that accepts it can resize it losslessly. For a very large raster, export SVG and convert it with a separate image tool.
+`--scale <n>` sets how many PNG pixels each canvas pixel becomes:
+
+```bash
+dgmo diagram.dgmo --scale 3 -o print.png   # 1200x800 canvas → 3600x2400 PNG
+dgmo diagram.dgmo --scale 1 -o small.png   # 1200x800 canvas → 1200x800 PNG
+```
+
+Any positive number works, fractions included: `--scale 1.5` turns 1200x800 into 1800x1200. The layout does not change, only the pixel count. `--scale` applies to PNG only; with an `.svg` output `dgmo` warns and writes the SVG as usual.
+
+**Use SVG when you need to scale without limit.** SVG has no resolution at all; it renders sharp at any size, and every downstream tool that accepts it can resize it losslessly.
 
 ## Other flags worth knowing
 
