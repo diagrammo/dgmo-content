@@ -37,7 +37,15 @@ cat diagram.dgmo | dgmo > diagram.png
 
 The default is PNG because it works everywhere. Reach for SVG whenever the destination accepts it — it's smaller, sharper, and has no pixel size at all.
 
-One caveat for SVG: text is rendered as real text in a specific font. If the viewing environment doesn't have that font, letters may shift slightly. PNG bakes the type in, so it always looks exactly as rendered. If pixel-exact typography matters more than sharpness, use PNG.
+An SVG keeps its text as real text, so it stays selectable and searchable. The file carries the Inter font it is drawn in, so it looks the same on a machine that does not have Inter installed.
+
+For print shops and vector editors such as Illustrator or Inkscape, add `--outline-text`. Every label becomes a filled shape, so the file needs no font at all:
+
+```bash
+dgmo diagram.dgmo --outline-text -o print.svg
+```
+
+The text can then no longer be selected or edited as text, and the file is about three times larger. `--outline-text` applies to SVG only.
 
 ## Backgrounds and themes
 
