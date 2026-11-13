@@ -157,6 +157,26 @@ y-label lbs
 > encodes magnitude, so a floating baseline would mislead. `no-auto-y` is ignored
 > on non-line charts.
 
+### Fixed range and log scale — `y-min`, `y-max`, `y-scale`
+
+`y-min` and `y-max` fix either end of the axis. Use them to compare charts on
+one scale, or to force a 0 floor with an exact top. `y-scale log` suits values
+that span decades: a series from 10 to 10 million stays readable, with a tick
+at every power of ten.
+
+```dgmo
+line Monthly Active Users
+y-scale log
+
+2019 12
+2020 940
+2021 61000
+2022 4800000
+```
+
+A log axis needs every value above 0; with a zero or a negative value it stays
+linear and warns. On a dual-axis chart, these set the left axis only.
+
 ## Era Bands
 
 Annotate named time periods with a shaded background band and label:
@@ -193,6 +213,9 @@ Era syntax: `era <start> -> <end> Label color`
 | `series`  | Name of the data series (shown in legend) | No       |
 | `x-label` | Label for the X axis                      | No       |
 | `y-label` | Label for the left Y axis                 | No       |
+| `y-scale` | `log` for values spanning decades (default `linear`) | No |
+| `y-min` | Fix the low end of the value axis (e.g. `y-min 0`) | No |
+| `y-max` | Fix the high end of the value axis (e.g. `y-max 100`) | No |
 | `y-right-label` | Label for the right Y axis (dual-axis; group series beneath it) | No |
 | `fill`    | Shade the area under the line             | No       |
 | `color`   | Override the line color                   | No       |

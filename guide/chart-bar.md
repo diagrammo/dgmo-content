@@ -68,6 +68,9 @@ Swap `stack` for `group` to render the series side by side instead of stacked.
 | `stack` / `group`        | Multi-series layout block header (see above) | No       |
 | `x-label`                | Label for the X axis                         | No       |
 | `y-label`                | Label for the Y axis                         | No       |
+| `y-scale` | `log` for values spanning decades (default `linear`) | No |
+| `y-min` | Fix the low end of the value axis (e.g. `y-min 0`) | No |
+| `y-max` | Fix the high end of the value axis (e.g. `y-max 100`) | No |
 | `orientation-horizontal` | Horizontal bars (default is vertical)        | No       |
 | `color`                  | Override the bar color (e.g., `red`)         | No       |
 

@@ -73,6 +73,24 @@ Blackbeard blue 40 4
 
 Values are space-separated and written without thousands commas: `Revenue 1000 2500`. Underscores may be used as digit-group separators if desired (`Revenue 1_000 2_500`).
 
+## Shared scale — `y-min`, `y-max`, `y-scale`
+
+Slope charts fit their vertical range to the data, so two charts side by side
+use different scales. Fix the range to compare them honestly:
+
+```dgmo
+slope Fleet Strength
+
+period 1715 1725
+y-min 0
+y-max 60
+
+Blackbeard 40 4
+Roberts 12 52
+```
+
+`y-scale log` spaces the lines by ratio instead of difference.
+
 ## Appearance
 
 Every chart accepts the universal appearance directives:

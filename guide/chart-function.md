@@ -37,6 +37,9 @@ Label color: expression
 | `chart`   | Must be `function`                    | Yes      |
 | `x-label` | Label for the X axis                  | No       |
 | `y-label` | Label for the Y axis                  | No       |
+| `y-scale` | `log` for values spanning decades (default `linear`) | No |
+| `y-min` | Fix the low end of the value axis (e.g. `y-min 0`) | No |
+| `y-max` | Fix the high end of the value axis (e.g. `y-max 100`) | No |
 | `x`       | X range in format `min to max`        | No       |
 
 The title is the rest of line 1 — there is no `title` directive.

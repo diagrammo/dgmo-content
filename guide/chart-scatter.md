@@ -50,6 +50,12 @@ Point Name x y size
 | `chart`      | Must be `scatter`                                          | Yes      |
 | `x-label`    | Label for the X axis                                       | No       |
 | `y-label`    | Label for the Y axis                                       | No       |
+| `y-scale` | `log` for values spanning decades (default `linear`) | No |
+| `y-min` | Fix the low end of the value axis (e.g. `y-min 0`) | No |
+| `y-max` | Fix the high end of the value axis (e.g. `y-max 100`) | No |
+| `x-scale` | `log` for an x spanning decades (default `linear`) | No |
+| `x-min` | Fix the low end of the x axis | No |
+| `x-max` | Fix the high end of the x axis | No |
 | `no-name`    | Hide point labels (labels are on by default)               | No       |
 | `size-label` | Label for the size dimension (shown in legend for bubbles) | No       |
 
