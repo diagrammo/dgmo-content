@@ -40,7 +40,7 @@ marker 1718-05-14 Ransom Deadline red
       -> Set Sail
 ```
 
-Nobody typed a date for any of those bars. Each task carries a duration, and its start falls out of the arrows: *Seize Merchants* waits for **both** *Anchor Fleet* and *Position Cannons*, because two chains point at it with `[Blockade].Seize Merchants`. It then fans out into two branches that run side by side — demands on one, hostages on the other. *Release Prisoners* cannot start until the ransom is in **and** the hostage hold has run its course, and *Set Sail* waits on everything. Lengthen any task and everything downstream moves with it. Tags colour the bars by role, an era shades the blockade, a marker pins the deadline, and `progress:` fills each bar as far as the work has got. In the app, the Dependencies and Critical Path toggles draw the arrows and light up the chain that sets the end date.
+Nobody typed a date for any of those bars. Each task carries a duration, and its start falls out of the arrows: *Seize Merchants* waits for **both** *Anchor Fleet* and *Position Cannons*, because two chains point at it with `[Blockade].Seize Merchants`. It then fans out into two branches that run side by side — demands on one, hostages on the other. *Release Prisoners* cannot start until the ransom is in **and** the hostage hold has run its course, and *Set Sail* waits on everything. Lengthen any task and everything downstream moves with it. Tags colour the bars by role, an era shades the blockade, a marker pins the deadline, and `progress:` fills each bar as far as the work has got. The arrows trace each of those links; in the app, the Critical Path toggle lights up the chain that sets the end date.
 
 None of that is required. The smallest gantt chart is a `gantt` line, a `start-date`, and one line per task with a name and a duration — see [Basic Syntax](#basic-syntax). Tasks written at the same level run **in parallel**; an indented `->` line makes a task wait for the one above it.
 
@@ -316,7 +316,7 @@ An embed (a docs site, an Obsidian note, a shared link) has no swimlane picker. 
 | `start-date`     | Project start date (`YYYY-MM-DD`)                        | Today      |
 | `today-marker`   | Show today marker (bare keyword or `YYYY-MM-DD`)         | off        |
 | `critical-path`  | Include critical-path data for the interactive viewer; the viewer toggle starts off | off |
-| `no-dependencies`| Include dependency data for the interactive viewer; arrows start hidden | hidden |
+| `no-dependencies`| Leave the dependency arrows out (scheduling still follows them) | arrows drawn |
 | `sort`           | Task layout: `tag` or `tag:GroupName` for swimlanes      | `default`  |
 | `active-tag`     | Group to color by (first declared is active by default; `none` suppresses) | first group |
 | `no-title`       | Suppress the chart banner title                          | off        |
@@ -324,7 +324,7 @@ An embed (a docs site, an Obsidian note, a shared link) has no swimlane picker. 
 | `sprint-number`  | Which sprint the chart starts at                         | `1`        |
 | `sprint-start`   | Date that `sprint-number` begins (`YYYY-MM-DD`)          | chart start|
 
-Settings are bare keywords (no colons). `critical-path` and dependency visibility are interactive-viewer controls: an exported SVG starts with both highlights and arrows hidden, even when the source carries the setting.
+Settings are bare keywords (no colons). Dependency arrows are drawn wherever the chart appears — app, exported image, docs page — unless the source says `no-dependencies`; in the app the Dependencies toggle hides them. `critical-path` is an interactive-viewer control: an exported image starts with the highlight off, even when the source carries the setting.
 
 ### Sprint Mode
 
