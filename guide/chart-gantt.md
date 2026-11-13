@@ -1,18 +1,48 @@
 ```dgmo
-gantt Ship Refit
-start-date 2026-03-02
+gantt Blackbeard's Blockade — 1718
+start-date 1718-05-01
+today-marker 1718-05-15
+critical-path
 
-[Dry Dock]
-  Haul Out 2bd
-    -> Hull Repairs 10bd
-      -> Repaint Hull 4bd
-        -> Relaunch 0d
-[Crew]
-  Sail Training 8bd
-  Provision Stores 6bd
+tag Role as r
+  Command red
+  Crew blue
+  Captives orange
+
+era 1718-05-07 -> 1718-05-16 Blockade Active blue
+marker 1718-05-14 Ransom Deadline red
+
+[Preparation] r: Crew
+  Provision Ship 3d progress: 100
+    -> Anchor Fleet 2d progress: 100
+      -> [Blockade].Seize Merchants
+  Scout Harbor 3d progress: 100
+    -> Position Cannons 3d progress: 100
+      -> [Blockade].Seize Merchants
+  Recruit Hands 5d progress: 100
+    -> [Blockade].Patrol Perimeter
+
+[Blockade] r: Crew
+  Seize Merchants 3d progress: 100
+    -> Demand Medicine 2d r: Command, progress: 100
+      -> Threaten Executions 2d r: Command, progress: 100
+        -> [Resolution].Receive Ransom
+    -> Hold Hostages 6d r: Captives, progress: 80
+      -> [Resolution].Release Prisoners
+  Patrol Perimeter 8d progress: 100
+    -> [Resolution].Set Sail
+
+[Resolution] r: Command
+  Receive Ransom 1d r: Captives, progress: 50
+    -> Release Prisoners 1d r: Captives
+      -> Set Sail 0d
+    -> Burn Evidence 1d r: Crew
+      -> Set Sail
 ```
 
-That is a whole gantt chart. A title line, the date the project starts, and one line per task: a name and a duration. Tasks written at the same level run **in parallel**; an indented `->` line makes a task wait for the one above it. A `[Group]` line gathers the tasks indented under it into one labelled section, and a task lasting `0d` is a milestone. Everything else in this guide — tags, progress, eras, the critical path — is optional decoration on that shape. See [Complete Example](#complete-example) for what a fully dressed schedule looks like.
+Nobody typed a date for any of those bars. Each task carries a duration, and its start falls out of the arrows: *Seize Merchants* waits for **both** *Anchor Fleet* and *Position Cannons*, because two chains point at it with `[Blockade].Seize Merchants`. It then fans out into two branches that run side by side — demands on one, hostages on the other. *Release Prisoners* cannot start until the ransom is in **and** the hostage hold has run its course, and *Set Sail* waits on everything. Lengthen any task and everything downstream moves with it. Tags colour the bars by role, an era shades the blockade, a marker pins the deadline, and `progress:` fills each bar as far as the work has got. In the app, the Dependencies and Critical Path toggles draw the arrows and light up the chain that sets the end date.
+
+None of that is required. The smallest gantt chart is a `gantt` line, a `start-date`, and one line per task with a name and a duration — see [Basic Syntax](#basic-syntax). Tasks written at the same level run **in parallel**; an indented `->` line makes a task wait for the one above it.
 
 > **Dates** — gantt accepts any date format (`2024-01-15`, `1/15`, `Jan 15`) for `start-date`, task `start:`, eras, markers, and holidays. Add a `year 2024` line to write the year just once. See [Writing Dates](writing-dates.md).
 
