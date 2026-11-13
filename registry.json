@@ -5,15 +5,18 @@
   "families": [
     {
       "id": "software",
-      "label": "Software"
+      "label": "Software",
+      "color": "green"
     },
     {
       "id": "project",
-      "label": "Project"
+      "label": "Project",
+      "color": "cyan"
     },
     {
       "id": "business",
       "label": "Business",
+      "color": "purple",
       "subheads": [
         {
           "id": "ideas-and-frameworks",
@@ -40,11 +43,13 @@
     },
     {
       "id": "life",
-      "label": "Life"
+      "label": "Life",
+      "color": "teal"
     },
     {
       "id": "data",
       "label": "Data",
+      "color": "orange",
       "subheads": [
         {
           "id": "compare-values",
@@ -93,7 +98,8 @@
     },
     {
       "id": "freeform",
-      "label": "Freeform"
+      "label": "Freeform",
+      "color": "yellow"
     }
   ],
   "entities": [

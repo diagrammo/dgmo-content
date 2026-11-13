@@ -8,7 +8,8 @@
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, cpSync, mkdtempSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { spawnSync } from 'node:child_process';
@@ -37,6 +38,50 @@ test('the registry lists the six families in the decided order, with labels', ()
       ['freeform', 'Freeform'],
     ],
   );
+});
+
+// Slice (b): each family's colour, as a dgmo palette colour name. These are
+// the hues the site docs sidebar hand-typed per family before
+// (diagrammo_app_site src/components/DocsShell.astro GROUP_COLOR, whose slate-N
+// tokens mirror dgmo src/palettes/slate.ts): software slate-14 green, project
+// slate-9 steel cyan, business slate-15 purple, life slate-7 teal, data slate-12
+// orange, freeform slate-13 yellow.
+test('each family carries its colour, a dgmo palette colour, none shared', () => {
+  assert.deepEqual(
+    families.map((f) => [f.id, f.color]),
+    [
+      ['software', 'green'],
+      ['project', 'cyan'],
+      ['business', 'purple'],
+      ['life', 'teal'],
+      ['data', 'orange'],
+      ['freeform', 'yellow'],
+    ],
+  );
+});
+
+test('check-registry refuses a family with no colour, an unknown colour, or a shared one', () => {
+  const cases = [
+    ['software', undefined, /family software: color "\(none\)" is not a dgmo palette colour/],
+    ['software', 'chartreuse', /family software: color "chartreuse" is not a dgmo palette colour/],
+    ['project', 'green', /family project: color "green" is also software's/],
+  ];
+  for (const [id, color, want] of cases) {
+    const dir = mkdtempSync(join(tmpdir(), 'dgmo-content-families-'));
+    try {
+      for (const d of ['scripts', 'examples', 'guide']) cpSync(join(ROOT, d), join(dir, d), { recursive: true });
+      const doc = structuredClone(registry);
+      const f = doc.families.find((x) => x.id === id);
+      if (color === undefined) delete f.color;
+      else f.color = color;
+      writeFileSync(join(dir, 'registry.json'), JSON.stringify(doc, null, 2) + '\n');
+      const r = spawnSync(process.execPath, ['scripts/check-registry.mjs'], { cwd: dir, encoding: 'utf8' });
+      assert.equal(r.status, 1, `${id}=${color}: check-registry should refuse`);
+      assert.match(r.stdout + r.stderr, want);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  }
 });
 
 test('data and business carry their sub-heads, in order; the other families none', () => {
@@ -102,10 +147,11 @@ test('every data and business type sits under the sub-head the mockup drew it in
 test("guide/registry.json's family groups are the registry's families", () => {
   const familyGroups = guide.groups.filter((g) => familyById.has(g.id));
   assert.deepEqual(
-    familyGroups.map((g) => ({ id: g.id, label: g.label, subheads: g.subheads })),
+    familyGroups.map((g) => ({ id: g.id, label: g.label, color: g.color, subheads: g.subheads })),
     families.map((f) => ({
       id: f.id,
       label: f.label,
+      color: f.color,
       subheads: f.subheads?.map((s) => ({ id: s.id, label: s.label })),
     })),
   );

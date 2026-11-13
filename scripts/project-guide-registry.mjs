@@ -14,9 +14,10 @@
  *
  * The family groups are projected too (#1956): one group per registry
  * `families` entry, in that order and with that label, placed where the first
- * family group stood, each carrying `subheads: [{ id, label }]` when the family
- * has them. So the docs sidebars read family order, labels and subheads from
- * the registry instead of from a list of their own.
+ * family group stood, each carrying its `color` (a dgmo palette colour name)
+ * and `subheads: [{ id, label }]` when the family has them. So the docs
+ * sidebars read family order, labels, colours and subheads from the registry
+ * instead of from a list of their own.
  *
  * Order-preserving: existing chart pages keep their curated position; new types
  * are appended after the last chart page. Idempotent — running on an in-sync
@@ -80,7 +81,7 @@ const projectedChart = orderedSlugs.map((s) => chartPages.get(s));
 const oldGroups = guide.groups ?? [];
 const oldFamilyGroup = new Map(oldGroups.filter((g) => familyById.has(g.id)).map((g) => [g.id, g]));
 const familyGroups = families.map((f) => {
-  const g = { id: f.id, label: f.label, band: oldFamilyGroup.get(f.id)?.band ?? 'reference' };
+  const g = { id: f.id, label: f.label, color: f.color, band: oldFamilyGroup.get(f.id)?.band ?? 'reference' };
   if (f.subheads?.length) g.subheads = f.subheads.map((s) => ({ id: s.id, label: s.label }));
   return g;
 });

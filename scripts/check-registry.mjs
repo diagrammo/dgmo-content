@@ -9,8 +9,9 @@
  *   - example.file does not exist on disk
  *   - >1 primary example for one entity
  *   - duplicate entity / example id
- *   - `families` missing, a family id or subhead repeated, an entity whose
- *     family is not listed, a variant in another family than its base, or a
+ *   - `families` missing, a family id or subhead repeated, a family colour
+ *     missing, not a dgmo palette colour or shared with another family, an
+ *     entity whose family is not listed, a variant in another family than its base, or a
  *     type in a family with subheads whose first intent is under none of them
  *
  * GAPS (exit 0, reported) — the curation to-do the console surfaces:
@@ -57,11 +58,20 @@ for (const e of doc.entities) {
 // every surface grouping chart types reads.
 const families = Array.isArray(doc.families) ? doc.families : [];
 if (!families.length) errors.push('registry has no `families` list');
+// A family's colour is a named colour of the dgmo palettes, so each surface
+// resolves it in its own palette and theme; black and white are not hues.
+const FAMILY_COLORS = new Set(['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'teal', 'cyan', 'gray']);
 const familyById = new Map();
+const colorOwner = new Map();
 for (const f of families) {
   if (familyById.has(f.id)) errors.push(`duplicate family id: ${f.id}`);
   familyById.set(f.id, f);
   if (!f.label) errors.push(`family ${f.id} has no label`);
+  if (!FAMILY_COLORS.has(f.color)) {
+    errors.push(`family ${f.id}: color "${f.color ?? '(none)'}" is not a dgmo palette colour (${[...FAMILY_COLORS].join(', ')})`);
+  } else if (colorOwner.has(f.color)) {
+    errors.push(`family ${f.id}: color "${f.color}" is also ${colorOwner.get(f.color)}'s`);
+  } else colorOwner.set(f.color, f.id);
   const subheadIds = new Set();
   const intentOwner = new Map();
   for (const s of f.subheads ?? []) {

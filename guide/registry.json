@@ -28,16 +28,19 @@
     {
       "id": "software",
       "label": "Software",
+      "color": "green",
       "band": "reference"
     },
     {
       "id": "project",
       "label": "Project",
+      "color": "cyan",
       "band": "reference"
     },
     {
       "id": "business",
       "label": "Business",
+      "color": "purple",
       "band": "reference",
       "subheads": [
         {
@@ -57,11 +60,13 @@
     {
       "id": "life",
       "label": "Life",
+      "color": "teal",
       "band": "reference"
     },
     {
       "id": "data",
       "label": "Data",
+      "color": "orange",
       "band": "reference",
       "subheads": [
         {
@@ -93,6 +98,7 @@
     {
       "id": "freeform",
       "label": "Freeform",
+      "color": "yellow",
       "band": "reference"
     }
   ],

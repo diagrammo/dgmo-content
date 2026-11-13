@@ -11,15 +11,19 @@
     "version": { "type": "integer" },
     "note": { "type": "string" },
     "families": {
-      "description": "The six families in display order, with their labels. A family with subheads groups its types under them: each type sits under the subhead whose intents hold the type's FIRST intent. Every surface that groups chart types reads this; none types its own order or labels (#1956).",
+      "description": "The six families in display order, with their labels and colours. A family with subheads groups its types under them: each type sits under the subhead whose intents hold the type's FIRST intent. Every surface that groups chart types reads this; none types its own order, labels or colours (#1956).",
       "type": "array",
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["id", "label"],
+        "required": ["id", "label", "color"],
         "properties": {
           "id": { "enum": ["data", "business", "software", "project", "life", "freeform"] },
           "label": { "type": "string" },
+          "color": {
+            "description": "The family's wayfinding colour, as a named colour of the dgmo palettes (dgmo src/palettes/types.ts `colors`), so each surface resolves it in its own palette and theme. No two families share one.",
+            "enum": ["red", "orange", "yellow", "green", "blue", "purple", "teal", "cyan", "gray"]
+          },
           "subheads": {
             "type": "array",
             "items": {
