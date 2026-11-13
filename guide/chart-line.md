@@ -177,6 +177,35 @@ y-scale log
 A log axis needs every value above 0; with a zero or a negative value it stays
 linear and warns. On a dual-axis chart, these set the left axis only.
 
+## Dates on the x-axis
+
+When **every** row label is an ISO date — `2024-03` or `2024-03-15` — the rows
+sit at their real place in time, and the axis labels itself with years, months
+or days. A six-month gap looks six times longer than a one-month gap. Bare
+years (`2024`), quarter names and any mix of dates and words keep evenly
+spaced labels.
+
+## Steps — `step` and `step-before`
+
+For a value that changes in jumps and holds in between (a rate, a price, a
+headcount), add `step`. Each value runs flat until the next point, then jumps:
+
+```dgmo
+line Port Royal Duty on Rum
+step
+y-label Pieces of eight per barrel
+
+1718-01 4
+1718-04 5
+1718-06 7
+1719-02 7.5
+1720-08 6
+```
+
+`step` starts each new value on its own date. `step-before` instead reaches
+the value on its date, as for a balance at month end. Use one, not both. Steps
+work with `series` and `fill`, and the line stops at the last point.
+
 ## Era Bands
 
 Annotate named time periods with a shaded background band and label:
@@ -220,6 +249,8 @@ Era syntax: `era <start> -> <end> Label color`
 | `fill`    | Shade the area under the line             | No       |
 | `color`   | Override the line color                   | No       |
 | `no-auto-y` | Anchor the y-axis at 0 (opt out of auto-fit) | No    |
+| `step` | Hold each value until the next point | No |
+| `step-before` | Steps that reach each value at its own point | No |
 | `no-value` | Hide the value labels at each point      | No       |
 
 The chart title is the rest of line 1 (`line Ship Speed Over Voyage`) — there is

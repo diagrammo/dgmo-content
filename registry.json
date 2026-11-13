@@ -1741,6 +1741,31 @@
       "description": null
     },
     {
+      "id": "line-step",
+      "kind": "variant",
+      "base": "line",
+      "name": "Step",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "step chart",
+          "kind": "synonym"
+        },
+        {
+          "text": "step line",
+          "kind": "synonym"
+        },
+        {
+          "text": "staircase chart",
+          "kind": "synonym"
+        }
+      ],
+      "guidance": null,
+      "description": null
+    },
+    {
       "id": "line-dual-axis",
       "kind": "variant",
       "base": "line",
@@ -4219,6 +4244,19 @@
         {
           "surface": "obsidian",
           "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "line-step",
+      "entity": "line-step",
+      "file": "examples/line/line-step.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
         }
       ]
     },
