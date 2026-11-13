@@ -5,9 +5,18 @@
  * projection of the model, not a second source of truth).
  *
  * The guide file owns two things that are NOT in the model and are preserved
- * verbatim: `groups` and the getting-started (non chart-*) pages. Every chart-*
- * page is regenerated from the registry's TYPE entities:
- *     { slug: `chart-${id}`, title: name, group: family, intent, file: `chart-${id}.md` }
+ * verbatim: its non-family `groups` (start here, the app, …) and the
+ * getting-started (non chart-*) pages. Every chart-* page is regenerated from
+ * the registry's TYPE entities:
+ *     { slug: `chart-${id}`, title: name, group: family, subhead?, intent, file: `chart-${id}.md` }
+ * `subhead` is the id of the family subhead whose intents hold the type's first
+ * intent, on families that have subheads.
+ *
+ * The family groups are projected too (#1956): one group per registry
+ * `families` entry, in that order and with that label, placed where the first
+ * family group stood, each carrying `subheads: [{ id, label }]` when the family
+ * has them. So the docs sidebars read family order, labels and subheads from
+ * the registry instead of from a list of their own.
  *
  * Order-preserving: existing chart pages keep their curated position; new types
  * are appended after the last chart page. Idempotent — running on an in-sync
@@ -31,14 +40,21 @@ const CHECK = process.argv.includes('--check');
 const registry = JSON.parse(await readFile(REGISTRY, 'utf8'));
 const guide = JSON.parse(await readFile(GUIDE, 'utf8'));
 
+const families = registry.families ?? [];
+const familyById = new Map(families.map((f) => [f.id, f]));
+const subheadOf = (e) =>
+  familyById.get(e.family)?.subheads?.find((s) => s.intents.includes(e.intent?.[0]))?.id;
+
 // TYPE entities → chart pages, keyed by slug.
 const chartPages = new Map(
   registry.entities
     .filter((e) => e.kind === 'type')
     .map((e) => {
       const slug = `chart-${e.id}`;
-      // field order matches the hand-authored file: slug, title, group, intent?, file
+      // field order matches the hand-authored file: slug, title, group, subhead?, intent?, file
       const page = { slug, title: e.name, group: e.family };
+      const subhead = subheadOf(e);
+      if (subhead) page.subhead = subhead;
       if (e.intent?.length) page.intent = e.intent;
       page.file = `${slug}.md`;
       return [slug, page];
@@ -59,7 +75,21 @@ const projectedChart = orderedSlugs.map((s) => chartPages.get(s));
 // guide/registry.json is now a GENERATED artifact — the generator owns its
 // format (canonical 2-space JSON). Consumers (app, site submodule) parse JSON
 // and are format-agnostic; the one-time reformat is expected.
-const out = { groups: guide.groups, pages: [...nonChart, ...projectedChart] };
+// Family groups: replaced as one block, in registry order, where the first
+// family group stood (after the guide's own groups when there was none).
+const oldGroups = guide.groups ?? [];
+const oldFamilyGroup = new Map(oldGroups.filter((g) => familyById.has(g.id)).map((g) => [g.id, g]));
+const familyGroups = families.map((f) => {
+  const g = { id: f.id, label: f.label, band: oldFamilyGroup.get(f.id)?.band ?? 'reference' };
+  if (f.subheads?.length) g.subheads = f.subheads.map((s) => ({ id: s.id, label: s.label }));
+  return g;
+});
+const firstFamilyAt = oldGroups.findIndex((g) => familyById.has(g.id));
+const ownGroups = oldGroups.filter((g) => !familyById.has(g.id));
+const at = firstFamilyAt < 0 ? ownGroups.length : oldGroups.slice(0, firstFamilyAt).filter((g) => !familyById.has(g.id)).length;
+const groups = [...ownGroups.slice(0, at), ...familyGroups, ...ownGroups.slice(at)];
+
+const out = { groups, pages: [...nonChart, ...projectedChart] };
 const text = JSON.stringify(out, null, 2) + '\n';
 const current = await readFile(GUIDE, 'utf8');
 

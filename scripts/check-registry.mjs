@@ -9,6 +9,9 @@
  *   - example.file does not exist on disk
  *   - >1 primary example for one entity
  *   - duplicate entity / example id
+ *   - `families` missing, a family id or subhead repeated, an entity whose
+ *     family is not listed, a variant in another family than its base, or a
+ *     type in a family with subheads whose first intent is under none of them
  *
  * GAPS (exit 0, reported) — the curation to-do the console surfaces:
  *   - entity with no example, no primary, no keywords, or unapproved examples
@@ -47,6 +50,45 @@ for (const e of doc.entities) {
     if (!e.base) errors.push(`variant ${e.id} has no base`);
     else if (!entityById.has(e.base)) errors.push(`variant ${e.id} base "${e.base}" is unknown`);
     else if (entityById.get(e.base).kind !== 'type') errors.push(`variant ${e.id} base "${e.base}" is not a type`);
+  }
+}
+
+// families (#1956): the one list of family order, labels and sub-heads that
+// every surface grouping chart types reads.
+const families = Array.isArray(doc.families) ? doc.families : [];
+if (!families.length) errors.push('registry has no `families` list');
+const familyById = new Map();
+for (const f of families) {
+  if (familyById.has(f.id)) errors.push(`duplicate family id: ${f.id}`);
+  familyById.set(f.id, f);
+  if (!f.label) errors.push(`family ${f.id} has no label`);
+  const subheadIds = new Set();
+  const intentOwner = new Map();
+  for (const s of f.subheads ?? []) {
+    if (subheadIds.has(s.id)) errors.push(`family ${f.id}: duplicate subhead id ${s.id}`);
+    subheadIds.add(s.id);
+    if (!s.label) errors.push(`family ${f.id}: subhead ${s.id} has no label`);
+    if (!s.intents?.length) errors.push(`family ${f.id}: subhead ${s.id} lists no intents`);
+    for (const i of s.intents ?? []) {
+      if (intentOwner.has(i)) errors.push(`family ${f.id}: intent "${i}" is under both ${intentOwner.get(i)} and ${s.id}`);
+      intentOwner.set(i, s.id);
+    }
+  }
+}
+for (const e of doc.entities) {
+  if (!familyById.has(e.family)) {
+    errors.push(`${e.kind} ${e.id}: family "${e.family}" is not in \`families\``);
+    continue;
+  }
+  if (e.kind === 'variant' && entityById.get(e.base)?.family !== e.family) {
+    errors.push(`variant ${e.id}: family "${e.family}" differs from its base ${e.base}'s`);
+  }
+  const subheads = familyById.get(e.family).subheads;
+  if (e.kind === 'type' && subheads?.length) {
+    const first = e.intent?.[0];
+    if (!subheads.some((s) => s.intents.includes(first))) {
+      errors.push(`type ${e.id}: its first intent "${first ?? '(none)'}" is under no ${e.family} subhead`);
+    }
   }
 }
 

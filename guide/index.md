@@ -125,7 +125,7 @@ These docs have two bands. The sidebar groups them the same way.
 **Language reference** — how to write DGMO:
 
 - **Every diagram** — [Colors & Palettes](colors.md), [Writing Dates](writing-dates.md), [DGMO in Markdown](markdown-syntax.md), the [Glossary](glossary.md) and the [Full Reference](https://diagrammo.app/reference/)
-- **Chart types by category** — Software, Project, Business, Data, Life and Freeform. Each chart type has its own page.
+- **Chart types by category** — each chart type has its own page, grouped by family in the sidebar.
 
 ## The Diagrammo Ecosystem
 

@@ -38,17 +38,57 @@
     {
       "id": "business",
       "label": "Business",
-      "band": "reference"
-    },
-    {
-      "id": "data",
-      "label": "Data",
-      "band": "reference"
+      "band": "reference",
+      "subheads": [
+        {
+          "id": "ideas-and-frameworks",
+          "label": "Ideas and frameworks"
+        },
+        {
+          "id": "structures-and-hierarchies",
+          "label": "Structures and hierarchies"
+        },
+        {
+          "id": "processes-and-journeys",
+          "label": "Processes and journeys"
+        }
+      ]
     },
     {
       "id": "life",
       "label": "Life",
       "band": "reference"
+    },
+    {
+      "id": "data",
+      "label": "Data",
+      "band": "reference",
+      "subheads": [
+        {
+          "id": "compare-values",
+          "label": "Compare values"
+        },
+        {
+          "id": "change-over-time",
+          "label": "Change over time"
+        },
+        {
+          "id": "distribution",
+          "label": "Distribution"
+        },
+        {
+          "id": "part-of-a-whole",
+          "label": "Part of a whole"
+        },
+        {
+          "id": "flows-and-links",
+          "label": "Flows and links"
+        },
+        {
+          "id": "places",
+          "label": "Places"
+        }
+      ]
     },
     {
       "id": "freeform",
@@ -321,6 +361,7 @@
       "slug": "chart-cycle",
       "title": "Cycle",
       "group": "business",
+      "subhead": "ideas-and-frameworks",
       "intent": [
         "concept-framework",
         "flow-process"
@@ -331,7 +372,9 @@
       "slug": "chart-funnel",
       "title": "Funnel",
       "group": "business",
+      "subhead": "processes-and-journeys",
       "intent": [
+        "flow-process",
         "part-to-whole"
       ],
       "file": "chart-funnel.md"
@@ -340,7 +383,9 @@
       "slug": "chart-journey-map",
       "title": "Journey Map",
       "group": "business",
+      "subhead": "processes-and-journeys",
       "intent": [
+        "flow-process",
         "concept-framework"
       ],
       "file": "chart-journey-map.md"
@@ -348,7 +393,8 @@
     {
       "slug": "chart-map",
       "title": "Map",
-      "group": "business",
+      "group": "data",
+      "subhead": "places",
       "intent": [
         "geospatial"
       ],
@@ -358,6 +404,7 @@
       "slug": "chart-mindmap",
       "title": "Mind Map",
       "group": "business",
+      "subhead": "structures-and-hierarchies",
       "intent": [
         "hierarchy"
       ],
@@ -367,6 +414,7 @@
       "slug": "chart-org",
       "title": "Org",
       "group": "business",
+      "subhead": "structures-and-hierarchies",
       "intent": [
         "hierarchy"
       ],
@@ -376,6 +424,7 @@
       "slug": "chart-pyramid",
       "title": "Pyramid",
       "group": "business",
+      "subhead": "structures-and-hierarchies",
       "intent": [
         "hierarchy"
       ],
@@ -385,6 +434,7 @@
       "slug": "chart-quadrant",
       "title": "Quadrant",
       "group": "business",
+      "subhead": "ideas-and-frameworks",
       "intent": [
         "concept-framework",
         "correlation"
@@ -395,6 +445,7 @@
       "slug": "chart-ring",
       "title": "Ring",
       "group": "business",
+      "subhead": "ideas-and-frameworks",
       "intent": [
         "concept-framework"
       ],
@@ -403,7 +454,8 @@
     {
       "slug": "chart-sankey",
       "title": "Sankey",
-      "group": "business",
+      "group": "data",
+      "subhead": "flows-and-links",
       "intent": [
         "flow-process",
         "part-to-whole"
@@ -414,6 +466,7 @@
       "slug": "chart-swimlane",
       "title": "Swimlane",
       "group": "business",
+      "subhead": "processes-and-journeys",
       "intent": [
         "flow-process"
       ],
@@ -423,6 +476,7 @@
       "slug": "chart-tech-radar",
       "title": "Technology Radar",
       "group": "business",
+      "subhead": "ideas-and-frameworks",
       "intent": [
         "concept-framework"
       ],
@@ -432,6 +486,7 @@
       "slug": "chart-venn",
       "title": "Venn",
       "group": "business",
+      "subhead": "ideas-and-frameworks",
       "intent": [
         "concept-framework",
         "relationships"
@@ -441,7 +496,8 @@
     {
       "slug": "chart-wordcloud",
       "title": "Word Cloud",
-      "group": "business",
+      "group": "data",
+      "subhead": "distribution",
       "intent": [
         "distribution"
       ],
@@ -451,6 +507,7 @@
       "slug": "chart-arc",
       "title": "Arc",
       "group": "data",
+      "subhead": "flows-and-links",
       "intent": [
         "relationships"
       ],
@@ -460,6 +517,7 @@
       "slug": "chart-bar",
       "title": "Bar",
       "group": "data",
+      "subhead": "compare-values",
       "intent": [
         "compare-values"
       ],
@@ -469,6 +527,7 @@
       "slug": "chart-function",
       "title": "Function Plot",
       "group": "data",
+      "subhead": "change-over-time",
       "intent": [
         "trend-over-time"
       ],
@@ -478,6 +537,7 @@
       "slug": "chart-heatmap",
       "title": "Heatmap",
       "group": "data",
+      "subhead": "distribution",
       "intent": [
         "distribution"
       ],
@@ -487,6 +547,7 @@
       "slug": "chart-line",
       "title": "Line",
       "group": "data",
+      "subhead": "change-over-time",
       "intent": [
         "trend-over-time"
       ],
@@ -496,6 +557,7 @@
       "slug": "chart-pie",
       "title": "Pie",
       "group": "data",
+      "subhead": "part-of-a-whole",
       "intent": [
         "part-to-whole"
       ],
@@ -505,6 +567,7 @@
       "slug": "chart-polar-area",
       "title": "Polar Area",
       "group": "data",
+      "subhead": "compare-values",
       "intent": [
         "compare-values"
       ],
@@ -514,6 +577,7 @@
       "slug": "chart-radar",
       "title": "Radar",
       "group": "data",
+      "subhead": "compare-values",
       "intent": [
         "compare-values"
       ],
@@ -523,6 +587,7 @@
       "slug": "chart-scatter",
       "title": "Scatter Plot",
       "group": "data",
+      "subhead": "distribution",
       "intent": [
         "distribution",
         "correlation"
@@ -533,6 +598,7 @@
       "slug": "chart-slope",
       "title": "Slope",
       "group": "data",
+      "subhead": "compare-values",
       "intent": [
         "compare-values",
         "trend-over-time"
@@ -543,6 +609,7 @@
       "slug": "chart-treemap",
       "title": "Treemap",
       "group": "data",
+      "subhead": "part-of-a-whole",
       "intent": [
         "part-to-whole",
         "hierarchy"
@@ -616,6 +683,7 @@
       "slug": "chart-swot",
       "title": "SWOT",
       "group": "business",
+      "subhead": "ideas-and-frameworks",
       "intent": [
         "concept-framework"
       ],

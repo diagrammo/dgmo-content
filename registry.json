@@ -2,6 +2,100 @@
   "$schema": "./registry.schema.json",
   "version": 1,
   "note": "Canonical entity table. See docs/registry-entity-model.md. Hand-curated via the console Entity Workspace; bootstrapped by scripts/bootstrap-registry.mjs.",
+  "families": [
+    {
+      "id": "software",
+      "label": "Software"
+    },
+    {
+      "id": "project",
+      "label": "Project"
+    },
+    {
+      "id": "business",
+      "label": "Business",
+      "subheads": [
+        {
+          "id": "ideas-and-frameworks",
+          "label": "Ideas and frameworks",
+          "intents": [
+            "concept-framework"
+          ]
+        },
+        {
+          "id": "structures-and-hierarchies",
+          "label": "Structures and hierarchies",
+          "intents": [
+            "hierarchy"
+          ]
+        },
+        {
+          "id": "processes-and-journeys",
+          "label": "Processes and journeys",
+          "intents": [
+            "flow-process"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "life",
+      "label": "Life"
+    },
+    {
+      "id": "data",
+      "label": "Data",
+      "subheads": [
+        {
+          "id": "compare-values",
+          "label": "Compare values",
+          "intents": [
+            "compare-values"
+          ]
+        },
+        {
+          "id": "change-over-time",
+          "label": "Change over time",
+          "intents": [
+            "trend-over-time"
+          ]
+        },
+        {
+          "id": "distribution",
+          "label": "Distribution",
+          "intents": [
+            "distribution"
+          ]
+        },
+        {
+          "id": "part-of-a-whole",
+          "label": "Part of a whole",
+          "intents": [
+            "part-to-whole"
+          ]
+        },
+        {
+          "id": "flows-and-links",
+          "label": "Flows and links",
+          "intents": [
+            "flow-process",
+            "relationships"
+          ]
+        },
+        {
+          "id": "places",
+          "label": "Places",
+          "intents": [
+            "geospatial"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "freeform",
+      "label": "Freeform"
+    }
+  ],
   "entities": [
     {
       "id": "arc",
@@ -1089,6 +1183,7 @@
       "name": "Funnel",
       "family": "business",
       "intent": [
+        "flow-process",
         "part-to-whole"
       ],
       "produces": null,
@@ -1419,6 +1514,7 @@
       "name": "Journey Map",
       "family": "business",
       "intent": [
+        "flow-process",
         "concept-framework"
       ],
       "produces": null,
@@ -1655,7 +1751,7 @@
       "kind": "type",
       "base": null,
       "name": "Map",
-      "family": "business",
+      "family": "data",
       "intent": [
         "geospatial"
       ],
@@ -1726,7 +1822,7 @@
       "kind": "variant",
       "base": "map",
       "name": "Categorical",
-      "family": "business",
+      "family": "data",
       "intent": [],
       "produces": null,
       "keywords": [],
@@ -1738,7 +1834,7 @@
       "kind": "variant",
       "base": "map",
       "name": "Choropleth",
-      "family": "business",
+      "family": "data",
       "intent": [],
       "produces": null,
       "keywords": [],
@@ -1750,7 +1846,7 @@
       "kind": "variant",
       "base": "map",
       "name": "Choropleth Diverging",
-      "family": "business",
+      "family": "data",
       "intent": [],
       "produces": null,
       "keywords": [],
@@ -1762,7 +1858,7 @@
       "kind": "variant",
       "base": "map",
       "name": "Pois",
-      "family": "business",
+      "family": "data",
       "intent": [],
       "produces": null,
       "keywords": [],
@@ -1774,7 +1870,7 @@
       "kind": "variant",
       "base": "map",
       "name": "Route",
-      "family": "business",
+      "family": "data",
       "intent": [],
       "produces": null,
       "keywords": [],
@@ -1786,7 +1882,7 @@
       "kind": "variant",
       "base": "map",
       "name": "Subnational Zoom",
-      "family": "business",
+      "family": "data",
       "intent": [],
       "produces": null,
       "keywords": [],
@@ -2444,7 +2540,7 @@
       "kind": "type",
       "base": null,
       "name": "Sankey",
-      "family": "business",
+      "family": "data",
       "intent": [
         "flow-process",
         "part-to-whole"
@@ -3270,7 +3366,7 @@
       "kind": "type",
       "base": null,
       "name": "Word Cloud",
-      "family": "business",
+      "family": "data",
       "intent": [
         "distribution"
       ],
