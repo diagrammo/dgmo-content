@@ -2,13 +2,17 @@
 gantt Ship Refit
 start-date 2026-03-02
 
-Haul Out 5bd
-Hull Repairs 10bd
-  -> Repaint Hull 4bd
-Provision Stores 6bd
+[Dry Dock]
+  Haul Out 2bd
+    -> Hull Repairs 10bd
+      -> Repaint Hull 4bd
+        -> Relaunch 0d
+[Crew]
+  Sail Training 8bd
+  Provision Stores 6bd
 ```
 
-That is a whole gantt chart. A title line, the date the project starts, and one line per task: a name and a duration. Tasks written at the same level run **in parallel**; an indented `->` line makes a task wait for the one above it. Everything else in this guide — groups, tags, milestones, eras, the critical path — is optional decoration on that shape. See [Complete Example](#complete-example) for what a fully dressed schedule looks like.
+That is a whole gantt chart. A title line, the date the project starts, and one line per task: a name and a duration. Tasks written at the same level run **in parallel**; an indented `->` line makes a task wait for the one above it. A `[Group]` line gathers the tasks indented under it into one labelled section, and a task lasting `0d` is a milestone. Everything else in this guide — tags, progress, eras, the critical path — is optional decoration on that shape. See [Complete Example](#complete-example) for what a fully dressed schedule looks like.
 
 > **Dates** — gantt accepts any date format (`2024-01-15`, `1/15`, `Jan 15`) for `start-date`, task `start:`, eras, markers, and holidays. Add a `year 2024` line to write the year just once. See [Writing Dates](writing-dates.md).
 
