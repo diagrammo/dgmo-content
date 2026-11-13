@@ -65,6 +65,14 @@ Each cell prints its own value in the center, tinted to stay legible against the
 
 Reach for `no-value` on large matrices where the individual figures are unreadable anyway and the point is the shape of the pattern.
 
+## Number format — `format`, `unit`, `locale`
+
+Every number the chart prints takes the same format:
+`format currency USD` ($1,200), `format percent 1` (12.5% — values as
+written), `format compact` (1.2M), or a quoted pattern such as
+`format ",.2f"`. Add `unit ms` for text after each number and `locale de-DE`
+for that locale's separators.
+
 ## Appearance
 
 The fill family changes how the color ramp is applied to the cells:

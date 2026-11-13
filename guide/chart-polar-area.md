@@ -57,6 +57,14 @@ Port Royal blue 1200
 
 The title is line 1 — there is no separate title directive.
 
+## Number format — `format`, `unit`, `locale`
+
+Every number the chart prints takes the same format:
+`format currency USD` ($1,200), `format percent 1` (12.5% — values as
+written), `format compact` (1.2M), or a quoted pattern such as
+`format ",.2f"`. Add `unit ms` for text after each number and `locale de-DE`
+for that locale's separators.
+
 ## Appearance
 
 Every chart accepts the universal appearance directives:

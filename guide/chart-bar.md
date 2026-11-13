@@ -102,6 +102,26 @@ Whydah Gally 146
 Adventure Galley 152
 ```
 
+## Number format — `format`, `unit`, `locale`
+
+Every number the chart prints — axis ticks, value labels and hover — takes
+the same format:
+
+```dgmo
+bar Plunder by Port
+format currency USD
+
+Nassau 125000
+Tortuga 98000
+Port Royal 143500
+```
+
+The named formats are `format currency <CODE>` ($1,200), `format percent 1`
+(12.5% — values as written) and `format compact` (1.2M); a trailing number
+fixes the decimals. Anything else takes a quoted pattern, such as
+`format ",.2f"`. `unit ms` puts text after each number (`120 ms`), and
+`locale de-DE` switches to that locale's separators (`1.234,5`).
+
 ## Appearance
 
 Every chart accepts the universal appearance directives:
