@@ -230,7 +230,7 @@ Flagship -> Sloop
 
 | Directive     | Values            | Default     | Description                                 |
 | ------------- | ----------------- | ----------- | ------------------------------------------- |
-| `direction-lr` \| `direction-tb` | (flag)  | `direction-lr` | Layout direction (left-right or top-bottom) |
+| `direction-lr` \| `direction-tb` | (flag)  | `direction-lr` | Which way lines flow. With no lines, the boxes themselves run that way: `lr` is a row, `tb` a column |
 | `active-tag`  | tag group name    | first group | Which tag group drives node coloring; first declared is active by default, so only set this to pick another (`none` suppresses all coloring, a heat label forces the heat ramp) |
 | `hide`        | `alias:value`     | none        | Hide nodes with a specific tag value        |
 | `heat`        | `<Label> [color]` | none        | Names the numeric heat dimension and optional ramp hue |
