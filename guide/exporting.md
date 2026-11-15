@@ -102,13 +102,13 @@ Palette and theme are independent: every palette has a light and a dark renderin
 dgmo diagram.dgmo --width 1600 -o wide.svg
 ```
 
-Chart types that lay out onto the canvas — the data charts (bar, line, scatter and the rest), pie, polar area, radar, funnel, venn, chord and the radial treemap — come back exactly the size you ask for when you give both `--width` and `--height`:
+Chart types that lay out onto the canvas come back exactly the size you ask for when you give both `--width` and `--height`. Among them are the data charts (bar, line, scatter and the rest), pie, polar area, radar, funnel, venn, sankey and both treemaps:
 
 ```bash
 dgmo pie.dgmo --width 1000 --height 600 -o card.svg   # a 1000x600 SVG
 ```
 
-The other chart types size themselves from their content. For those, `--width` is a maximum, `dgmo` warns if the content does not fit, and `--height` is ignored.
+Chart types that size themselves from their content, such as flowchart and sequence, treat `--width` as a maximum and ignore `--height`. `dgmo` warns if the content does not fit.
 
 PNG export renders at **2x** unless you say otherwise. A diagram laid out at 1200x800 comes out as a 2400x1600 PNG. That is sharp enough for documents, slides and social cards.
 
