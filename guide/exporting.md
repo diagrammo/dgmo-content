@@ -7,10 +7,10 @@ Two things decide how an export looks: which palette (the color set) and which t
 ```dgmo
 flowchart What Decides the Look
 
-(dgmo export) -> [Palette: flag, else file line, else slate] -> [Theme: light, dark or transparent] -> /PNG or SVG/
+(dgmo export) -> [Palette: flag, else file line, else slate] -> [Theme: light, dark or transparent] -> /PNG, SVG or PDF/
 ```
 
-This order is the command line's: the flag is `--palette`. The desktop app has no flag. There, a file's own `palette` line wins, and the **Export palette** setting takes the place of slate. The app can also export PDF and HTML; see [Exporting from the app](#exporting-from-the-app).
+This order is the command line's: the flag is `--palette`. The desktop app has no flag. There, a file's own `palette` line wins, and the **Export palette** setting takes the place of slate. The app can also export HTML; see [Exporting from the app](#exporting-from-the-app).
 
 The shortest version:
 
@@ -19,7 +19,7 @@ dgmo diagram.dgmo                      # → diagram.png in the current director
 dgmo diagram.dgmo -o diagram.svg       # → SVG
 ```
 
-Format is inferred from the extension you give `-o`. `.svg` produces SVG; anything else produces PNG. With no `-o` at all you get `<input>.png` next to where you ran the command. Piping in from stdin with no `-o` writes PNG to stdout, which is how you feed a diagram straight into another tool:
+Format is inferred from the extension you give `-o`. `.svg` produces SVG, `.pdf` produces a one-page PDF, and anything else produces PNG. With no `-o` at all you get `<input>.png` next to where you ran the command. Piping in from stdin with no `-o` writes PNG to stdout, which is how you feed a diagram straight into another tool:
 
 ```bash
 cat diagram.dgmo | dgmo > diagram.png
@@ -102,7 +102,13 @@ Palette and theme are independent: every palette has a light and a dark renderin
 dgmo diagram.dgmo --width 1600 -o wide.svg
 ```
 
-Many chart types size themselves from their content. For those, `--width` is a maximum, and `dgmo` warns if the content does not fit. Most chart types work out the height from the content and ignore `--height`.
+Chart types that lay out onto the canvas — the data charts (bar, line, scatter and the rest), pie, polar area, radar, funnel, venn, chord and the radial treemap — come back exactly the size you ask for when you give both `--width` and `--height`:
+
+```bash
+dgmo pie.dgmo --width 1000 --height 600 -o card.svg   # a 1000x600 SVG
+```
+
+The other chart types size themselves from their content. For those, `--width` is a maximum, `dgmo` warns if the content does not fit, and `--height` is ignored.
 
 PNG export renders at **2x** unless you say otherwise. A diagram laid out at 1200x800 comes out as a 2400x1600 PNG. That is sharp enough for documents, slides and social cards.
 
@@ -113,7 +119,18 @@ dgmo diagram.dgmo --scale 3 -o print.png   # 1200x800 canvas → 3600x2400 PNG
 dgmo diagram.dgmo --scale 1 -o small.png   # 1200x800 canvas → 1200x800 PNG
 ```
 
-Any positive number works, fractions included: `--scale 1.5` turns 1200x800 into 1800x1200. The layout does not change, only the pixel count. `--scale` applies to PNG only; with an `.svg` output `dgmo` warns and writes the SVG as usual.
+Any positive number works, fractions included: `--scale 1.5` turns 1200x800 into 1800x1200. The layout does not change, only the pixel count. `--scale` applies to PNG and PDF; with an `.svg` output `dgmo` warns and writes the SVG as usual.
+
+`dgmo` rasterises at most 16384 x 16384 pixels (268,435,456 in all). A `--scale` that would pass that exits with code 1 and names the largest scale that fits the diagram, for example `This 480x390 diagram fits up to --scale 37.86.`
+
+`-o file.pdf` writes a one-page PDF. The page is the canvas at 96 dpi, so a 1200x800 canvas is a 900x600 pt page whatever the scale. The diagram is one image on that page, drawn at `--scale` pixels per canvas pixel (default 2), so a higher scale gives a sharper PDF on the same page:
+
+```bash
+dgmo diagram.dgmo -o diagram.pdf             # 1200x800 canvas → 900x600 pt page
+dgmo diagram.dgmo --scale 4 -o print.pdf     # same page, twice the image resolution
+```
+
+A PDF has no transparent background. With `--theme transparent`, `dgmo` warns and draws the diagram on the light background.
 
 **Use SVG when you need to scale without limit.** SVG has no resolution at all; it renders sharp at any size, and every downstream tool that accepts it can resize it losslessly.
 
