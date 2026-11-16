@@ -1433,8 +1433,8 @@
           "kind": "trigger"
         }
       ],
-      "guidance": "A single progress-toward-a-target reading — one `now` against one `target`, answering \"how close am I?\". Reach for it for a KPI tile, a fundraising thermometer, a quarterly quota, or a completion percentage; there is no time axis, series, or milestones (use `line` for a trend, `countdown` for a live deadline). Put the **unit in the title** (`Marathon Fund ($)`, `Grog Barrel Fill (L)`) — there is no format/currency directive. `now` and `target` are **space-separated `key value`** directives, no colon (`now 6400` / `target 10000`); the percent is `now / target` and values auto-compact (`6.4k`, `1.2M`). Pick the face for the story with a bare flag on its own line: the default progress **bar** for a plain KPI, `thermometer` for fundraising/fill-the-tank framings, `gauge` for a speedometer/quota dial — all three read the same value pair. The fill is **auto traffic-light** by completion (`< 50%` red, `50–80%` orange, `≥ 80%` green; over-target stays green) so the color already reads the number's health — leave it unless you have reason to override with a trailing color on the title line (`goal Marathon Fund ($) green`) or `no-auto-color` (flat palette color). Over-target clamps the fill at 100% while the `%` label stays truthful (`120%`). Add a `note` — inline (`note Still waiting on three crews`) or a block header on its own line with an indented body — to caption the number with context (who's still owed, what's left); it takes simple markdown (`**bold**`, `*italic*`, `` `code` ``) and `- ` bullets. `fill-solid` for a bolder fill; `no-percent` / `no-value` / `no-title` / `no-notes` to drop labels.",
-      "description": "Single progress-toward-a-target value (now vs target) as a bar, thermometer, or gauge — KPIs, fundraising, quotas"
+      "guidance": "A progress-toward-a-target reading — one `actual` against one `target`, answering \"how close am I?\". Reach for it for a KPI tile, a fundraising thermometer, a quarterly quota, or a completion percentage; there is no time axis or series (use `line` for a trend, `countdown` for a live deadline). Put the **unit in the title** (`Marathon Fund ($)`, `Grog Barrel Fill (L)`) — there is no format/currency directive. `actual` and `target` are **space-separated `key value`** directives, no colon (`actual 6400` / `target 10000`); the percent is `actual / target` and values auto-compact (`6.4k`, `1.2M`). Pick the face for the story with a bare flag on its own line: the default progress **bar** for a plain KPI, `thermometer` for fundraising/fill-the-tank framings, `gauge` for a speedometer/quota dial — all three read the same value pair. With no `bands` the fill is **auto traffic-light** by completion (`< 50%` red, `50–80%` orange, `≥ 80%` green) — leave it unless you have reason to override with a trailing color on the title line (`goal Marathon Fund ($) green`) or `no-auto-color` (flat palette color). To name the zones, add a **`bands` block** (`4000 Poor red`, `6000 OK`, `80% Good`) — each edge is where a band starts; the fill takes the color of the band the actual is in, a thin ribbon maps the zones with labels, and the readout reads `64% · OK`. A last line with only a number (`12000`) closes the scale, so a band can run past the target; the target then draws as a tick. For **several measures at once — a bullet chart, a KPI dashboard — add `[Measure]` header rows**, each with its own `actual` / `target` / optional `bands`; top-level `bands` and `target` are the defaults for rows without their own. Add a `note` — inline (`note Still waiting on three crews`) or a block header on its own line with an indented body — to caption the chart (one note for the whole chart); it takes simple markdown (`**bold**`, `*italic*`, `` `code` ``) and `- ` bullets. `fill-solid` for a bolder fill; `no-percent` / `no-value` / `no-title` / `no-notes` to drop labels; `no-ribbon` / `no-ribbon-labels` to drop the ribbon or just its names.",
+      "description": "Progress toward a target (actual vs target) as a bar, thermometer, or gauge, with optional poor/ok/good bands; several measures make a bullet chart — KPIs, dashboards, fundraising, quotas"
     },
     {
       "id": "goal-gauge",
@@ -1472,6 +1472,35 @@
         },
         {
           "text": "fundraising thermometer",
+          "kind": "synonym"
+        }
+      ],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "goal-bullet",
+      "kind": "variant",
+      "base": "goal",
+      "name": "Bullet chart",
+      "family": "life",
+      "intent": [],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "bullet chart",
+          "kind": "synonym"
+        },
+        {
+          "text": "bullet graph",
+          "kind": "synonym"
+        },
+        {
+          "text": "kpi dashboard",
+          "kind": "synonym"
+        },
+        {
+          "text": "several targets",
           "kind": "synonym"
         }
       ],
@@ -4323,6 +4352,58 @@
       ]
     },
     {
+      "id": "goal-bands",
+      "entity": "goal",
+      "file": "examples/goal/goal-bands.dgmo",
+      "isPrimary": false,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "goal-bands-thermometer",
+      "entity": "goal",
+      "file": "examples/goal/goal-bands-thermometer.dgmo",
+      "isPrimary": false,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "goal-bands-gauge",
+      "entity": "goal",
+      "file": "examples/goal/goal-bands-gauge.dgmo",
+      "isPrimary": false,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "goal-stretch",
+      "entity": "goal",
+      "file": "examples/goal/goal-stretch.dgmo",
+      "isPrimary": false,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
       "id": "goal-thermometer",
       "entity": "goal-thermometer",
       "file": "examples/goal/goal-thermometer.dgmo",
@@ -4336,6 +4417,36 @@
         {
           "surface": "obsidian",
           "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "goal-bullet",
+      "entity": "goal-bullet",
+      "file": "examples/goal/goal-bullet.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        }
+      ]
+    },
+    {
+      "id": "goal-bullet-gauges",
+      "entity": "goal-bullet",
+      "file": "examples/goal/goal-bullet-gauges.dgmo",
+      "isPrimary": false,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
         }
       ]
     },

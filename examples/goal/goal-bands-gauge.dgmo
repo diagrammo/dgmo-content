@@ -1,0 +1,10 @@
+goal Voyage Quota (chests)
+gauge
+
+bands
+  0% Adrift
+  50% Under way
+  80% On course
+
+actual 64
+target 100

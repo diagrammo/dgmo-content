@@ -1,0 +1,11 @@
+goal Grog Barrel Fill (L)
+thermometer
+
+bands
+  0 Dry
+  15 Low
+  30 Steady
+  45 Full
+
+actual 34
+target 50

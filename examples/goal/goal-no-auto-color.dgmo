@@ -1,5 +1,5 @@
 goal Cannon Readiness
-now 15
+actual 15
 target 20
 no-auto-color
 note

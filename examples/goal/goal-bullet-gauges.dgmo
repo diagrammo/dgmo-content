@@ -1,0 +1,23 @@
+goal Ship Dashboard
+gauge
+
+bands
+  0% Poor
+  50% OK
+  80% Good
+
+[Cannon Readiness]
+actual 15
+target 20
+
+[Hull Integrity]
+actual 92
+target 100
+
+[Rum Supply]
+actual 38
+target 80
+
+[Crew Morale]
+actual 71
+target 90
