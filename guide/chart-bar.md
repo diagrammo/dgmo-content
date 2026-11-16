@@ -73,6 +73,7 @@ Swap `stack` for `group` to render the series side by side instead of stacked.
 | `y-max` | Fix the high end of the value axis (e.g. `y-max 100`) | No |
 | `orientation-horizontal` | Horizontal bars (default is vertical)        | No       |
 | `sort` | Order the bars largest first (`sort asc` = smallest first, `sort <series>` = by one series) | No |
+| `lollipop` | Draw each bar as a thin stem with a dot at its value | No |
 | `color`                  | Override the bar color (e.g., `red`)         | No       |
 
 The title is line 1 (`bar Treasure Hauls by Port`) — there is no `title` directive.
@@ -123,6 +124,26 @@ Adventure Galley 152
 On a `group`, bare `sort` orders by the first series; `sort Crew` orders by
 the series named Crew (`sort Crew asc` reverses it). On a `stack`, `sort`
 orders by each bar's total.
+
+### Lollipop
+
+Add `lollipop` to draw each bar as a thin stem from 0 with a dot at its
+value. It holds many categories with less ink than solid bars:
+
+```dgmo
+bar Doubloons Hauled by Port
+lollipop
+sort
+
+Port Royal 850
+Tortuga 620
+Nassau 1100
+Havana 400
+```
+
+It works with `orientation-horizontal`, `group` (one stem per series, side by
+side), negative values, `sort` and `highlight`. It cannot draw a `stack`: the
+pair is an error and the chart keeps solid stacked bars.
 
 ## Number format — `format`, `unit`, `locale`
 

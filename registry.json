@@ -350,6 +350,31 @@
       "description": null
     },
     {
+      "id": "bar-lollipop",
+      "kind": "variant",
+      "base": "bar",
+      "name": "Lollipop",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "lollipop chart",
+          "kind": "synonym"
+        },
+        {
+          "text": "lollipop plot",
+          "kind": "synonym"
+        },
+        {
+          "text": "stem and dot chart",
+          "kind": "synonym"
+        }
+      ],
+      "guidance": null,
+      "description": null
+    },
+    {
       "id": "block",
       "kind": "type",
       "base": null,
@@ -3576,6 +3601,19 @@
       "id": "bar-sorted",
       "entity": "bar-sorted",
       "file": "examples/bar/bar-sorted.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "bar-lollipop",
+      "entity": "bar-lollipop",
+      "file": "examples/bar/bar-lollipop.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
