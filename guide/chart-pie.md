@@ -83,6 +83,35 @@ written), `format compact` (1.2M), or a quoted pattern such as
 `format ",.2f"`. Add `unit ms` for text after each number and `locale de-DE`
 for that locale's separators.
 
+## Highlight one item — story view
+
+Add a `highlight` line to put one slice in the spotlight. The named slice keeps its own colour, drawn solid. Every other slice, with its label and leader line, turns grey. List several names with commas: `highlight Safari, Firefox`. Add a colour word to paint the subject: `highlight Safari orange`. A name that matches nothing changes nothing.
+
+Before:
+
+```dgmo
+pie Browser Market Share (2025)
+
+Chrome 63.5
+Safari 19.8
+Firefox 6.2
+Edge 5.1
+Other 5.4
+```
+
+After:
+
+```dgmo
+pie Browser Market Share (2025)
+highlight Safari
+
+Chrome 63.5
+Safari 19.8
+Firefox 6.2
+Edge 5.1
+Other 5.4
+```
+
 ## Appearance
 
 Every chart accepts the universal appearance directives:

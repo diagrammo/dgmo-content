@@ -99,6 +99,37 @@ written), `format compact` (1.2M), or a quoted pattern such as
 `format ",.2f"`. Add `unit ms` for text after each number and `locale de-DE`
 for that locale's separators.
 
+## Highlight one item — story view
+
+Add a `highlight` line to put one series in the spotlight. The named series keeps its own colour, drawn solid and on top. Every other series turns grey, including its line, points and labels. The name is a series label, such as `Rust`. List several names with commas. A trailing colour word paints the subject: `highlight Rust orange`. A name that matches nothing changes nothing. The `highlight` word must start the line, in column 1.
+
+Before:
+
+```dgmo
+slope Programming Language Popularity
+
+period 2020 2022 2025
+
+Python 3 1 1
+JavaScript 1 2 2
+Rust 18 12 5
+Go 10 8 7
+```
+
+After:
+
+```dgmo
+slope Programming Language Popularity
+highlight Rust orange
+
+period 2020 2022 2025
+
+Python 3 1 1
+JavaScript 1 2 2
+Rust 18 12 5
+Go 10 8 7
+```
+
 ## Appearance
 
 Every chart accepts the universal appearance directives:

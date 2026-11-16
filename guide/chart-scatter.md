@@ -130,6 +130,51 @@ written), `format compact` (1.2M), or a quoted pattern such as
 `format ",.2f"`. Add `unit ms` for text after each number and `locale de-DE`
 for that locale's separators.
 
+## Highlight one item — story view
+
+Add a `highlight` line to put one point, or one whole category, in the spotlight. A name can match a single point, such as `PayFlow`, or a category, such as `Fintech`. The matching points keep their own colour, drawn solid and on top. Every other point, with its label and leader line, turns grey. The legend entries for grey categories turn grey too. List several names with commas. Add a colour word to paint the subject: `highlight Fintech orange`. A name that matches nothing changes nothing.
+
+Before:
+
+```dgmo
+scatter Startup Funding vs Revenue
+x-label Funding ($M)
+y-label Annual Revenue ($M)
+
+[SaaS] blue
+  Acme Cloud 12 8.5
+  DataSync 5.2 3.1
+
+[Fintech] green
+  PayFlow 45 32
+  LendTech 18 12.5
+
+[HealthTech] red
+  MediScan 15 7.2
+  CareLink 7 3.8
+```
+
+After:
+
+```dgmo
+scatter Startup Funding vs Revenue
+highlight Fintech
+x-label Funding ($M)
+y-label Annual Revenue ($M)
+
+[SaaS] blue
+  Acme Cloud 12 8.5
+  DataSync 5.2 3.1
+
+[Fintech] green
+  PayFlow 45 32
+  LendTech 18 12.5
+
+[HealthTech] red
+  MediScan 15 7.2
+  CareLink 7 3.8
+```
+
 ## Appearance
 
 Every chart accepts the universal appearance directives:

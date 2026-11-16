@@ -274,6 +274,45 @@ written), `format compact` (1.2M), or a quoted pattern such as
 `format ",.2f"`. Add `unit ms` for text after each number and `locale de-DE`
 for that locale's separators.
 
+## Highlight one item — story view
+
+Add a `highlight` line to put one series in the spotlight. The named series keeps its own colour, drawn solid and on top. Every other series turns grey, including its points and value labels. Its legend entry turns grey too. The name is a series name, such as `Royal Navy`. List several names with commas. Add a colour word to paint the subject: `highlight Royal Navy orange`. A name that matches nothing changes nothing.
+
+Before:
+
+```dgmo
+line Fleet Size by Navy
+y-label Ships of the line
+
+series
+  Royal Navy
+  French Navy
+  Spanish Navy
+
+1690 100 93 40
+1700 127 108 45
+1710 131 90 38
+1720 124 52 33
+```
+
+After:
+
+```dgmo
+line Fleet Size by Navy
+highlight Royal Navy
+y-label Ships of the line
+
+series
+  Royal Navy
+  French Navy
+  Spanish Navy
+
+1690 100 93 40
+1700 127 108 45
+1710 131 90 38
+1720 124 52 33
+```
+
 ## Appearance
 
 Every chart accepts the universal appearance directives:

@@ -243,6 +243,43 @@ Infra sq: Infra
   Cost Controls 50 heat: 2.3
 ```
 
+## Highlight one item — story view
+
+Add a `highlight` line to put one cell, or one whole branch, in the spotlight. Name a branch such as `Armament` and everything inside it stays lit. Every other cell and its label turns grey. That includes any branch that holds a node you named. List several names with commas. Add a colour word to paint the subject: `highlight Armament orange`. A name that matches nothing changes nothing. The `highlight` word must start the line, in column 1.
+
+Before:
+
+```dgmo
+treemap Ship Stores by Weight (lb)
+
+Provisions
+  Rum 3200
+  Biscuit 1800
+Armament
+  Powder 1100
+  Shot 900
+Rigging
+  Canvas 1300
+  Rope 700
+```
+
+After:
+
+```dgmo
+treemap Ship Stores by Weight (lb)
+highlight Armament
+
+Provisions
+  Rum 3200
+  Biscuit 1800
+Armament
+  Powder 1100
+  Shot 900
+Rigging
+  Canvas 1300
+  Rope 700
+```
+
 ## Appearance
 
 Alongside the treemap-specific `no-*` opt-outs, every chart accepts the universal appearance directives:

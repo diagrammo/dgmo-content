@@ -153,8 +153,8 @@ Sankey also accepts the two **emphasis** directives, which set what is foregroun
 
 | Directive | Effect |
 | --------- | ------ |
-| `dim <Name>` | The named nodes and their flows recede. Everything else is untouched. |
-| `highlight <Name>` | The named node's whole flow stays lit — everything upstream that feeds it and everything downstream it feeds. The rest of the chart recedes. |
+| `dim <Name>` | The named nodes and their flows fade in place. They keep their colour. Everything else is untouched. |
+| `highlight <Name>` | Story view. The named node's whole flow stays lit in its own colours — everything upstream that feeds it and everything downstream it feeds. The rest of the chart turns grey. |
 
 Both are written on their own line, anywhere in the diagram. They are mutually exclusive; if you write both, the last one wins. List several names with commas — `dim Spoilage, Evaporation`. A name with a space in it needs no comma: `dim Ship Provisions` is one node, not two.
 
@@ -179,9 +179,13 @@ dim Spoilage
 
 Both spoilage ribbons and the Spoilage node fade back; the aging flow keeps its full weight.
 
-Dimming reduces opacity — it never repaints. A red flow that recedes is still red, so emphasis stacks on top of your colors instead of spending them. And because the faded opacity is baked into the output, PNG and SVG exports look exactly like the preview; nothing here depends on hover or a stylesheet.
+Dimming fades a flow in place — it never repaints. A red flow that recedes is still red, so emphasis stacks on top of your colors instead of spending them. And because the faded opacity is baked into the output, PNG and SVG exports look exactly like the preview; nothing here depends on hover or a stylesheet.
 
-The other direction is `highlight`, for when the story is one path rather than one exception:
+## Highlight one flow — story view
+
+`dim` fades one thing and keeps its colour. `highlight` works the other way round. It tells one story and turns the rest of the chart grey. The named node keeps its own colour, drawn solid. So do the nodes that feed it and the nodes it feeds. Everything else turns one neutral grey. Add a colour word to paint the story: `highlight Barrel Aging orange`.
+
+Before:
 
 ```dgmo
 sankey Rum Supply Chain
@@ -192,10 +196,23 @@ Sugar Plantations green
 Tortuga Distillery
   Barrel Aging 2000
   Spoilage 1000
-highlight Barrel Aging
 ```
 
-`highlight Barrel Aging` keeps the plantations and the distilleries lit too, because they are what feeds it. Highlighting a node without its sources would erase the explanation you highlighted it for.
+After:
+
+```dgmo
+sankey Rum Supply Chain
+highlight Barrel Aging
+
+Sugar Plantations green
+  Tortuga Distillery 3000
+  Nassau Distillery 2500
+Tortuga Distillery
+  Barrel Aging 2000
+  Spoilage 1000
+```
+
+`highlight Barrel Aging` keeps the plantations and the distillery lit too, because they feed it. The Spoilage flow and the Nassau flow turn grey. Highlighting a node without its sources would erase the explanation you highlighted it for.
 
 A name that matches no node is reported as a warning and ignored — a typo leaves the chart un-emphasized rather than blanking it.
 

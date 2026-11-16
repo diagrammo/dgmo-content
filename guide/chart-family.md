@@ -171,9 +171,22 @@ Jack + Grace
     Tom
 ```
 
-## Highlighting a Lineage
+## Highlight a lineage — story view
 
-The directive `highlight <name>` **dims** everyone **outside** that person's bloodline — their ancestors, descendants, and the spouses of that line stay fully lit while collateral relatives (siblings, cousins, in-laws) fade. Use it to trace one line through a large tree:
+The directive `highlight <name>` turns everyone **outside** that person's bloodline grey. The person's ancestors, descendants, and the spouses of that line stay in their own colours. Collateral relatives (siblings, cousins, in-laws) turn grey. Use it to trace one line through a large tree. Add a colour word to paint the line: `highlight Anne orange`. Family takes one name at a time. A name that matches nobody changes nothing.
+
+Before:
+
+```dgmo
+family Lineage
+
+Jack + Grace
+  Anne + Ned
+    Tom
+  Mabel
+```
+
+After:
 
 ```dgmo
 family Lineage

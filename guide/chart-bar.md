@@ -122,6 +122,37 @@ fixes the decimals. Anything else takes a quoted pattern, such as
 `format ",.2f"`. `unit ms` puts text after each number (`120 ms`), and
 `locale de-DE` switches to that locale's separators (`1.234,5`).
 
+## Highlight one item — story view
+
+Add a `highlight` line to put one bar in the spotlight. The named bar keeps its own colour, drawn solid. Every other bar and its value label turns grey. The name is a category, such as `Nassau`. On a stacked or grouped bar, you can also name a series. List several names with commas: `highlight Nassau, Havana`. Add a colour word to paint the subject: `highlight Nassau orange`. A name that matches nothing changes nothing.
+
+Before:
+
+```dgmo
+bar Treasure Hauls by Port
+y-label Doubloons
+
+Port Royal 850
+Tortuga 620
+Nassau 1100
+Havana 400
+Kingston 530
+```
+
+After:
+
+```dgmo
+bar Treasure Hauls by Port
+highlight Nassau
+y-label Doubloons
+
+Port Royal 850
+Tortuga 620
+Nassau 1100
+Havana 400
+Kingston 530
+```
+
 ## Appearance
 
 Every chart accepts the universal appearance directives:
