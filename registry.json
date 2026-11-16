@@ -1551,6 +1551,53 @@
       "description": "Matrix intensity visualization"
     },
     {
+      "id": "calendar-heatmap",
+      "kind": "type",
+      "base": null,
+      "name": "Calendar Heatmap",
+      "family": "data",
+      "intent": [
+        "trend-over-time"
+      ],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "calendar heatmap",
+          "kind": "trigger"
+        },
+        {
+          "text": "contribution graph",
+          "kind": "trigger"
+        },
+        {
+          "text": "github contribution calendar",
+          "kind": "trigger"
+        },
+        {
+          "text": "activity calendar",
+          "kind": "trigger"
+        },
+        {
+          "text": "daily activity",
+          "kind": "trigger"
+        },
+        {
+          "text": "streak",
+          "kind": "trigger"
+        },
+        {
+          "text": "habit tracker",
+          "kind": "trigger"
+        },
+        {
+          "text": "commits per day",
+          "kind": "trigger"
+        }
+      ],
+      "guidance": "Write the log as it happens, one `date value` line per day, and let a repeated date add up. Set `year` when the dates are `MM-DD`, and `unit` so the hover and the summary say what the numbers count.",
+      "description": "Daily values as a calendar of squares, one column per week — activity logs, commits, workouts, streaks, habits"
+    },
+    {
       "id": "infra",
       "kind": "type",
       "base": null,
@@ -4468,6 +4515,53 @@
         {
           "surface": "obsidian",
           "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "calendar-heatmap",
+      "entity": "calendar-heatmap",
+      "file": "examples/calendar-heatmap/calendar-heatmap.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "calendar-heatmap-range",
+      "entity": "calendar-heatmap",
+      "file": "examples/calendar-heatmap/calendar-heatmap-range.dgmo",
+      "isPrimary": false,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "calendar-heatmap-log",
+      "entity": "calendar-heatmap",
+      "file": "examples/calendar-heatmap/calendar-heatmap-log.dgmo",
+      "isPrimary": false,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
         }
       ]
     },

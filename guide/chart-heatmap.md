@@ -25,6 +25,7 @@ A grid of cells shaded by value, revealing patterns and hotspots across two dime
 - **[`quadrant`](chart-quadrant.md)** — items sit at *positions* on two axes; they aren't cells shaded by a value.
 - **[`venn`](chart-venn.md)** — the question is which groups *overlap*, not what value each pair holds.
 - **[`raci`](chart-raci.md)** — the cells say what *kind* of involvement someone has (responsible, consulted) rather than holding numbers.
+- **[`calendar-heatmap`](chart-calendar-heatmap.md)** — the cells are consecutive **days**, one value per date, laid out by week. A matrix has no calendar to read a streak from.
 
 ## Syntax
 
@@ -95,5 +96,5 @@ Colors come from the active palette — see [Colors](colors.md). Set the palette
 
 ## Next
 
-- **Related:** [`map`](chart-map.md) · [`bar`](chart-bar.md) · [`scatter`](chart-scatter.md) · [`radar`](chart-radar.md) · [`quadrant`](chart-quadrant.md) · [`venn`](chart-venn.md) · [`raci`](chart-raci.md)
+- **Related:** [`map`](chart-map.md) · [`bar`](chart-bar.md) · [`scatter`](chart-scatter.md) · [`radar`](chart-radar.md) · [`quadrant`](chart-quadrant.md) · [`venn`](chart-venn.md) · [`raci`](chart-raci.md) · [`calendar-heatmap`](chart-calendar-heatmap.md)
 - **Then:** [Colors & palettes](colors.md)
