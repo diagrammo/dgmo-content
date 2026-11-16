@@ -206,6 +206,30 @@ const DOCUMENTED = [
     verifiedAgainst: 'dgmo tests/embed-lane-by.test.ts at a699c4a9 (#1370)',
     on: '2026-11-11',
   },
+  {
+    what: 'the radial flag is in the mindmap Options table',
+    file: 'guide/chart-mindmap.md',
+    contains: ['| `radial` | Bare flag', 'mindmap Voyage Plan\nradial\n'],
+    why: 'A bare `radial` line lays a mindmap out in rings (#1843). Without the row a reader has no way to learn it exists.',
+    verifiedAgainst: 'dgmo src/mindmap/parser.ts and tests/mindmap-radial.test.ts at 6fe4a0e4 (#1843)',
+    on: '2026-11-15',
+  },
+  {
+    what: 'the radial mindmap example sets the flag on its own line before content',
+    file: 'examples/mindmap/mindmap-radial.dgmo',
+    contains: ["mindmap The Black Gull's Crew\nradial\n"],
+    why: 'The issue (#1843) is done only when dgmo-content carries a radial mindmap example; the flag must sit before content or it is read as a node.',
+    verifiedAgainst: 'dgmo src/mindmap/parser.ts at 6fe4a0e4 (#1843)',
+    on: '2026-11-15',
+  },
+  {
+    what: 'the all-chart-types showcase embeds the radial mindmap',
+    file: 'examples/all-chart-types.src.md',
+    contains: ['### Radial mindmap\n\n![[mindmap/mindmap-radial.dgmo]]'],
+    why: 'The showcase is where a reader sees every type and variant side by side, as treemap radial is (#1843).',
+    verifiedAgainst: 'examples/all-chart-types.src.md treemap radial entry',
+    on: '2026-11-15',
+  },
 ];
 
 /**

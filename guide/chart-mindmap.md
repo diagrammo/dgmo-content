@@ -138,6 +138,7 @@ tag Priority as p
 |--------|--------|
 | `active-tag GroupName` | Choose which group colors nodes (first declared is active by default; `none` suppresses coloring) |
 | `color-by-depth` | Bare flag — color nodes by their depth in the tree instead of by tag (off by default) |
+| `radial` | Bare flag — put the root at the centre and each level on a ring around it (off by default: branches go left and right of the root) |
 
 `color-by-depth` is persisted from the app's **Depth Colors** toggle. Add it on its own line to shade each level of the tree a different color:
 
@@ -153,6 +154,21 @@ Strategy
 ```
 
 Because it lives in the source, a shared or exported diagram keeps depth coloring on, and every renderer honors it.
+
+`radial` lays the map out in rings. Each branch gets a slice of the circle in proportion to how many leaves it holds, so one big branch spreads around the root instead of stacking into one tall column. Add it on its own line before content:
+
+```
+mindmap Voyage Plan
+radial
+
+Provisions
+  Rum
+  Hardtack
+  Water
+  Limes
+  Salt Pork
+  Powder
+```
 
 With a single tag group there's nothing to set — it's active automatically. `active-tag` only matters once you declare two or more groups and want one other than the first to drive the colors. Place it on its own line before content:
 

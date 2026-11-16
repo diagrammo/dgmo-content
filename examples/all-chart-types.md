@@ -1444,6 +1444,40 @@ Dry Goods w: Trifling, h: Cargo
   Tobacco
 ```
 
+### Radial mindmap
+
+```dgmo
+mindmap The Black Gull's Crew
+radial
+
+tag Watch as w
+  Starboard blue
+  Larboard orange
+  Idlers green
+
+Officers w: Idlers
+  Captain
+  Quartermaster
+  Sailing Master
+  Bosun
+Gunners w: Starboard
+  Master Gunner
+  Powder Monkeys
+  Gun Crews
+    Bow Chasers
+    Broadside
+    Stern Chasers
+Deckhands w: Larboard
+  Topmen
+  Lookouts
+  Helmsmen
+  Riggers
+Galley w: Idlers
+  Cook
+  Surgeon
+  Carpenter
+```
+
 ### Sequence Diagram
 
 ```dgmo

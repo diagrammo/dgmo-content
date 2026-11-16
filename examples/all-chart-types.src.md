@@ -266,6 +266,10 @@ const plunder = ships.reduce((sum, s) => sum + s.gold, 0);
 
 ![[mindmap/mindmap.dgmo]]
 
+### Radial mindmap
+
+![[mindmap/mindmap-radial.dgmo]]
+
 ### Sequence Diagram
 
 ![[sequence/sequence.dgmo]]
