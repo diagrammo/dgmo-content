@@ -206,6 +206,55 @@ y-label Pieces of eight per barrel
 the value on its date, as for a balance at month end. Use one, not both. Steps
 work with `series` and `fill`, and the line stops at the last point.
 
+## Uncertainty band — `band <label> <low> <high>`
+
+To show a forecast range, give the low and high bounds their own series and
+name them in a `band` line. The band shades between them, in the low series'
+colour; the two bounds are not drawn as lines and the legend shows the band's
+label once:
+
+```dgmo
+line Rum Sales Forecast
+y-label Barrels
+series
+  Actual blue
+  Low teal
+  High teal
+band Forecast Low High
+
+Jan 120 112 128
+Feb 132 120 146
+Mar 128 112 150
+Apr 141 120 168
+```
+
+The band counts toward the y-axis range and follows `step`. `band 40..60`
+with two numbers is the value band from Annotations, a different thing.
+
+## Fill between two series — `fill-between`
+
+To show where one series leads another, add `fill-between A B`. The gap is
+green where A is above B and red where B is above A, switching where the
+lines cross. Two colour names after the series replace green and red:
+
+```dgmo
+line Plunder vs Quota
+y-label Doubloons
+series
+  Haul blue
+  Quota gray
+fill-between Haul Quota green red
+
+Jan 420 400
+Feb 470 410
+Mar 380 420
+Apr 350 430
+May 460 440
+```
+
+The fill never widens the y-axis. Several `fill-between` lines may name
+different pairs. `fill` and `fill-between` cannot be used together.
+
 ## Era Bands
 
 Annotate named time periods with a shaded background band and label:
@@ -247,6 +296,8 @@ Era syntax: `era <start> -> <end> Label color`
 | `y-max` | Fix the high end of the value axis (e.g. `y-max 100`) | No |
 | `y-right-label` | Label for the right Y axis (dual-axis; group series beneath it) | No |
 | `fill`    | Shade the area under the line             | No       |
+| `fill-between` | Shade between two series, by which one leads | No |
+| `band` | A value range (`band 40..60`) or a band between two series (`band Forecast Low High`) | No |
 | `color`   | Override the line color                   | No       |
 | `no-auto-y` | Anchor the y-axis at 0 (opt out of auto-fit) | No    |
 | `step` | Hold each value until the next point | No |

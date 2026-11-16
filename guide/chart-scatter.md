@@ -58,6 +58,7 @@ Point Name x y size
 | `x-max` | Fix the high end of the x axis | No |
 | `no-name`    | Hide point labels (labels are on by default)               | No       |
 | `size-label` | Label for the size dimension (shown in legend for bubbles) | No       |
+| `connect` | Join the points in row order, with an arrow at the end | No |
 
 ## Data Format
 
@@ -121,6 +122,27 @@ Anne Bonny 50 70 30
 L'Olonnais 70 80 60
 Pierre le Grand 30 45 25
 ```
+
+### Connected scatter — `connect`
+
+Add `connect` to join the points in row order, so the chart reads as a path
+through time. An arrow on the last segment shows the direction, and the first
+and last points keep their names even under `no-name`:
+
+```dgmo
+scatter Black Pearl Voyage
+x-label Longitude (°W)
+y-label Latitude (°N)
+connect
+
+Port Royal 76.8 17.9
+Tortuga 72.8 20.0
+Nassau 77.3 25.0
+Havana 82.4 23.1
+```
+
+With `[Category]` groups, each category gets its own path in its colour.
+A category with one point draws no path.
 
 ## Number format — `format`, `unit`, `locale`
 

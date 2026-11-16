@@ -1849,6 +1849,52 @@
       "description": null
     },
     {
+      "id": "line-band",
+      "kind": "variant",
+      "base": "line",
+      "name": "Uncertainty Band",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "fan chart",
+          "kind": "synonym"
+        },
+        {
+          "text": "confidence band",
+          "kind": "synonym"
+        },
+        {
+          "text": "forecast interval",
+          "kind": "synonym"
+        }
+      ],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "line-fill-between",
+      "kind": "variant",
+      "base": "line",
+      "name": "Fill Between",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "difference chart",
+          "kind": "synonym"
+        },
+        {
+          "text": "surplus and deficit chart",
+          "kind": "synonym"
+        }
+      ],
+      "guidance": null,
+      "description": null
+    },
+    {
       "id": "line-dual-axis",
       "kind": "variant",
       "base": "line",
@@ -2773,6 +2819,27 @@
       ],
       "guidance": "label both axes with units; group points into categories with `[Category] color` brackets (points indented under each) so clusters read at a glance — scatter colors by bracketed category, not by a tag group; reach for a second category only when the comparison is the point; keep marker labels off unless a few outliers need calling out.",
       "description": "2D data points or bubble chart"
+    },
+    {
+      "id": "scatter-connect",
+      "kind": "variant",
+      "base": "scatter",
+      "name": "Connected",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "connected scatter plot",
+          "kind": "synonym"
+        },
+        {
+          "text": "connected scatter",
+          "kind": "synonym"
+        }
+      ],
+      "guidance": null,
+      "description": null
     },
     {
       "id": "sequence",
@@ -4412,6 +4479,32 @@
       ]
     },
     {
+      "id": "line-band",
+      "entity": "line-band",
+      "file": "examples/line/line-band.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "line-fill-between",
+      "entity": "line-fill-between",
+      "file": "examples/line/line-fill-between.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
       "id": "map",
       "entity": "map",
       "file": "examples/map/map.dgmo",
@@ -4800,6 +4893,19 @@
         {
           "surface": "obsidian",
           "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "scatter-connect",
+      "entity": "scatter-connect",
+      "file": "examples/scatter/scatter-connect.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
         }
       ]
     },
