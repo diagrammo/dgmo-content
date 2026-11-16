@@ -325,6 +325,31 @@
       "description": null
     },
     {
+      "id": "bar-sorted",
+      "kind": "variant",
+      "base": "bar",
+      "name": "Sorted",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "sorted bar chart",
+          "kind": "synonym"
+        },
+        {
+          "text": "ranked bar chart",
+          "kind": "synonym"
+        },
+        {
+          "text": "ordered bar chart",
+          "kind": "synonym"
+        }
+      ],
+      "guidance": null,
+      "description": null
+    },
+    {
       "id": "block",
       "kind": "type",
       "base": null,
@@ -3544,6 +3569,19 @@
         {
           "surface": "obsidian",
           "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "bar-sorted",
+      "entity": "bar-sorted",
+      "file": "examples/bar/bar-sorted.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
         }
       ]
     },

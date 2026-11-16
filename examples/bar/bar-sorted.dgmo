@@ -1,0 +1,11 @@
+bar Crew Size by Ship
+orientation-horizontal
+sort
+x-label Crew
+y-label Ship
+
+Queen Anne's Revenge 300
+Whydah Gally         146
+Adventure Galley     152
+Royal Fortune        262
+Fancy                180

@@ -72,6 +72,7 @@ Swap `stack` for `group` to render the series side by side instead of stacked.
 | `y-min` | Fix the low end of the value axis (e.g. `y-min 0`) | No |
 | `y-max` | Fix the high end of the value axis (e.g. `y-max 100`) | No |
 | `orientation-horizontal` | Horizontal bars (default is vertical)        | No       |
+| `sort` | Order the bars largest first (`sort asc` = smallest first, `sort <series>` = by one series) | No |
 | `color`                  | Override the bar color (e.g., `red`)         | No       |
 
 The title is line 1 (`bar Treasure Hauls by Port`) — there is no `title` directive.
@@ -101,6 +102,27 @@ Royal Fortune 262
 Whydah Gally 146
 Adventure Galley 152
 ```
+
+### Sorted Bar
+
+Add `sort` to order the bars largest first, or `sort asc` for smallest first.
+Without it, bars keep the order of the rows. A horizontal bar puts the first
+one at the top:
+
+```dgmo
+bar Crew Size by Ship
+orientation-horizontal
+sort
+
+Queen Anne's Revenge 300
+Whydah Gally 146
+Royal Fortune 262
+Adventure Galley 152
+```
+
+On a `group`, bare `sort` orders by the first series; `sort Crew` orders by
+the series named Crew (`sort Crew asc` reverses it). On a `stack`, `sort`
+orders by each bar's total.
 
 ## Number format — `format`, `unit`, `locale`
 
