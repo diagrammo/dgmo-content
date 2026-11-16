@@ -154,7 +154,7 @@ Sankey also accepts the two **emphasis** directives, which set what is foregroun
 | Directive | Effect |
 | --------- | ------ |
 | `dim <Name>` | The named nodes and their flows fade in place. They keep their colour. Everything else is untouched. |
-| `highlight <Name>` | Story view. The named node's whole flow stays lit in its own colours — everything upstream that feeds it and everything downstream it feeds. The rest of the chart turns grey. |
+| `highlight <Name>` | Story view. The named node's whole flow stays lit in its own colours — everything upstream that feeds it and everything downstream it feeds. The rest of the chart turns grey. `highlight A -> B -> C` lights only that path. |
 
 Both are written on their own line, anywhere in the diagram. They are mutually exclusive; if you write both, the last one wins. List several names with commas — `dim Spoilage, Evaporation`. A name with a space in it needs no comma: `dim Ship Provisions` is one node, not two.
 
@@ -215,6 +215,24 @@ Tortuga Distillery
 `highlight Barrel Aging` keeps the plantations and the distillery lit too, because they feed it. The Spoilage flow and the Nassau flow turn grey. Highlighting a node without its sources would erase the explanation you highlighted it for.
 
 A name that matches no node is reported as a warning and ignored — a typo leaves the chart un-emphasized rather than blanking it.
+
+### Highlight one path
+
+A node name lights everything upstream and downstream of it. To tell the story of one route instead, write the route with the same arrows the links use:
+
+```dgmo
+sankey Rum Supply Chain
+highlight Sugar Plantations -> Tortuga Distillery -> Barrel Aging
+
+Sugar Plantations green
+  Tortuga Distillery 3000
+  Nassau Distillery 2500
+Tortuga Distillery
+  Barrel Aging 2000
+  Spoilage 1000
+```
+
+Only those two flows and their three nodes stay lit. The Nassau flow and the Spoilage flow turn grey. A chain that names a flow the chart does not have warns and names that flow: `highlight names a flow this chart does not have: Sugar Plantations -> Barrel Aging`.
 
 ## Common mistakes
 
