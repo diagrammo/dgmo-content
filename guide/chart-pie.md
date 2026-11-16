@@ -50,12 +50,33 @@ Specialists 7
 
 > The former standalone `doughnut` chart type was removed in 1.0 — use `pie` + `hole`.
 
+## Waffle — `waffle`
+
+Add a bare `waffle` to draw the same rows as a 10×10 grid of squares instead of
+wedges. Each square is one percent of the total, so a share reads as a count of
+squares — easier to compare than wedge angles when two slices are close. Squares
+fill row by row from the top left, in row order (`sort` applies). A key beside
+the grid names each row with its value and percent. `hole` has no effect on a
+waffle.
+
+```dgmo
+pie Crew Roles Distribution
+waffle
+
+Sailors 45
+Gunners 20
+Marines 15
+Officers 8
+Specialists 7
+```
+
 ## Directives
 
 | Directive         | Effect                                                    |
 | ----------------- | --------------------------------------------------------- |
 | `hole`            | Render as a doughnut ring (bare, or `hole <0–0.9>`).       |
 | `no-center-total` | Hide the center total (shown by default when `hole` is on).|
+| `waffle`          | Draw the rows as a 10×10 grid, one square per percent.    |
 | `no-name`         | Hide slice labels.                                          |
 | `no-value`        | Hide raw values in slice labels.                            |
 | `no-percent`      | Hide the computed percentage in slice labels.               |

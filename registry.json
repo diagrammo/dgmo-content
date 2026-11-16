@@ -2262,6 +2262,35 @@
       "description": null
     },
     {
+      "id": "pie-waffle",
+      "kind": "variant",
+      "base": "pie",
+      "name": "Waffle",
+      "family": "data",
+      "intent": [],
+      "produces": "waffle",
+      "keywords": [
+        {
+          "text": "waffle",
+          "kind": "synonym"
+        },
+        {
+          "text": "waffle chart",
+          "kind": "synonym"
+        },
+        {
+          "text": "gridplot",
+          "kind": "synonym"
+        },
+        {
+          "text": "square pie",
+          "kind": "synonym"
+        }
+      ],
+      "guidance": null,
+      "description": null
+    },
+    {
       "id": "polar-area",
       "kind": "type",
       "base": null,
@@ -4522,6 +4551,19 @@
         {
           "surface": "obsidian",
           "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "pie-waffle",
+      "entity": "pie-waffle",
+      "file": "examples/pie/pie-waffle.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
         }
       ]
     },
