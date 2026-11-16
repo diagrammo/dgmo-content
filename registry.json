@@ -375,6 +375,39 @@
       "description": null
     },
     {
+      "id": "bar-diverging",
+      "kind": "variant",
+      "base": "bar",
+      "name": "Diverging",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "diverging bar chart",
+          "kind": "synonym"
+        },
+        {
+          "text": "diverging stacked bar",
+          "kind": "synonym"
+        },
+        {
+          "text": "likert chart",
+          "kind": "synonym"
+        },
+        {
+          "text": "likert scale chart",
+          "kind": "synonym"
+        },
+        {
+          "text": "survey results chart",
+          "kind": "synonym"
+        }
+      ],
+      "guidance": null,
+      "description": null
+    },
+    {
       "id": "block",
       "kind": "type",
       "base": null,
@@ -3614,6 +3647,19 @@
       "id": "bar-lollipop",
       "entity": "bar-lollipop",
       "file": "examples/bar/bar-lollipop.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "bar-diverging",
+      "entity": "bar-diverging",
+      "file": "examples/bar/bar-diverging.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [

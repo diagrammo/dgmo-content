@@ -61,11 +61,37 @@ March 6 22 38
 
 Swap `stack` for `group` to render the series side by side instead of stacked.
 
+### Diverging stack — survey and Likert scales
+
+`stack diverging` centres each bar on 0, for answers that run from one pole
+to the other. Mark the middle answer with a trailing `neutral` after its
+color:
+
+```dgmo
+bar Crew Morale Survey
+orientation-horizontal
+stack diverging
+  Strongly disagree red
+  Disagree orange
+  Neutral gray neutral
+  Agree green
+  Strongly agree blue
+
+Rations 10 20 10 30 30
+Shore leave 5 15 20 40 20
+```
+
+Answers listed before the neutral one grow left of 0, answers after it grow
+right, and the neutral segment straddles 0. Without a `neutral` flag, an odd
+count makes the middle answer neutral and an even count splits in the middle.
+Every number reads positive, on the axis and on the segments.
+
 ## Metadata Keys
 
 | Key                      | Description                                  | Required |
 | ------------------------ | -------------------------------------------- | -------- |
 | `stack` / `group`        | Multi-series layout block header (see above) | No       |
+| `stack diverging` | Stack centred on 0 around a `neutral` series (see above) | No |
 | `x-label`                | Label for the X axis                         | No       |
 | `y-label`                | Label for the Y axis                         | No       |
 | `y-scale` | `log` for values spanning decades (default `linear`) | No |
