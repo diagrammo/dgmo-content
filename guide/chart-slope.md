@@ -99,6 +99,35 @@ written), `format compact` (1.2M), or a quoted pattern such as
 `format ",.2f"`. Add `unit ms` for text after each number and `locale de-DE`
 for that locale's separators.
 
+## Annotate — `marker`, `band` and `note`
+
+`marker y 50 Target` draws a dashed line at a value and `band 20..30 Usual` shades a value range. Periods are usually years, so a value `marker` names its axis with `y`. `note Rust @ 2025 Overtakes Go` rings one end of one line and writes beside it. `no-notes` hides every note.
+
+Before:
+
+```dgmo
+slope Language Popularity
+period 2020 2025
+
+Rust 20 62
+Go 45 55
+Java 70 48
+```
+
+After:
+
+```dgmo
+slope Language Popularity
+period 2020 2025
+
+marker y 50 Half of teams
+note Rust @ 2025 Overtakes Go
+
+Rust 20 62
+Go 45 55
+Java 70 48
+```
+
 ## Highlight one item — story view
 
 Add a `highlight` line to put one series in the spotlight. The named series keeps its own colour, drawn solid and on top. Every other series turns grey, including its line, points and labels. The name is a series label, such as `Rust`. List several names with commas. A trailing colour word paints the subject: `highlight Rust orange`. A name that matches nothing changes nothing. The `highlight` word must start the line, in column 1.

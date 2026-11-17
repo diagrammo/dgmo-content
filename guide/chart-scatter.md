@@ -152,6 +152,40 @@ written), `format compact` (1.2M), or a quoted pattern such as
 `format ",.2f"`. Add `unit ms` for text after each number and `locale de-DE`
 for that locale's separators.
 
+## Annotate — `marker`, `band` and `note`
+
+`marker 50 Target` draws a dashed line across at y = 50, and `marker x 20 Launch` one up the plot at x = 20. `band 10..20 Normal` shades a y range, and `band x 0..5 Seed stage` an x range. `note PayFlow Largest round` rings that point and writes beside it. When two groups share a point name, write `Fintech @ PayFlow …`. `no-notes` hides every note.
+
+Before:
+
+```dgmo
+scatter Funding vs Revenue
+x-label Funding ($M)
+y-label Revenue ($M)
+
+Acme Cloud 12 8.5
+PayFlow 45 32
+LendTech 18 12.5
+QuickPay 9 6.8
+```
+
+After:
+
+```dgmo
+scatter Funding vs Revenue
+x-label Funding ($M)
+y-label Revenue ($M)
+
+marker 20 Profitable
+marker x 30 Series B
+note PayFlow Largest round
+
+Acme Cloud 12 8.5
+PayFlow 45 32
+LendTech 18 12.5
+QuickPay 9 6.8
+```
+
 ## Highlight one item — story view
 
 Add a `highlight` line to put one point, or one whole category, in the spotlight. A name can match a single point, such as `PayFlow`, or a category, such as `Fintech`. The matching points keep their own colour, drawn solid and on top. Every other point, with its label and leader line, turns grey. The legend entries for grey categories turn grey too. List several names with commas. Add a colour word to paint the subject: `highlight Fintech orange`. A name that matches nothing changes nothing.
