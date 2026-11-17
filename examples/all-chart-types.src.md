@@ -182,6 +182,10 @@ const plunder = ships.reduce((sum, s) => sum + s.gold, 0);
 
 ![[org/org.dgmo]]
 
+### Ownership Chart
+
+![[ownership/ownership.dgmo]]
+
 ### Pyramid Diagram
 
 ![[pyramid/pyramid.dgmo]]

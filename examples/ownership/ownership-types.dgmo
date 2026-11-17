@@ -1,0 +1,23 @@
+ownership Bonny family holdings
+fill-solid
+tag Jurisdiction as j
+  Tortuga blue
+  Jersey  teal
+  Nassau  green
+
+Bonny Family Trust  j: Jersey, type: trust
+  Discretionary trust, settled 1718
+  Held for the benefit of the Bonny crew's descendants.
+  100% Bonny Holdings Ltd  j: Tortuga
+    Family investment company
+    100% Bonny Docks Ltd  j: Tortuga
+      Three deep-water berths
+    51% Bonny Rum Ltd  j: Nassau
+      Rum distillery and tavern chain
+  49.5% Bonny Ventures LP  j: Tortuga, type: partnership
+    Expedition fund
+    20% -> Bonny Rum Ltd
+
+Anne Bonny  j: Tortuga, type: individual
+  Managing partner
+  0.5% -> Bonny Ventures LP

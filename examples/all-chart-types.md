@@ -819,6 +819,23 @@ Blackbeard r: Captain, s: Revenge
       Compass Rose st: NewRecruit
 ```
 
+### Ownership Chart
+
+```dgmo
+ownership Dread Fleet Holdings
+tag Jurisdiction as j
+  Tortuga blue
+  Nassau  green
+  Cayman  orange
+
+Dread Fleet Holdings  j: Tortuga
+  The parent company
+  100% Revenge Shipping Ltd  j: Tortuga
+    Owns the flagship
+  80% Serpent Salvage Co  j: Nassau
+    Wreck recovery
+```
+
 ### Pyramid Diagram
 
 ```dgmo

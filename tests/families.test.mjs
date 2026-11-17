@@ -133,6 +133,7 @@ test('every data and business type sits under the sub-head the mockup drew it in
     ring: 'Ideas and frameworks',
     cycle: 'Ideas and frameworks',
     org: 'Structures and hierarchies',
+    ownership: 'Structures and hierarchies',
     mindmap: 'Structures and hierarchies',
     pyramid: 'Structures and hierarchies',
     swimlane: 'Processes and journeys',

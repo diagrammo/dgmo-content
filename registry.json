@@ -2220,6 +2220,61 @@
       "description": "Reporting hierarchy"
     },
     {
+      "id": "ownership",
+      "kind": "type",
+      "base": null,
+      "name": "Ownership",
+      "family": "business",
+      "intent": [
+        "hierarchy"
+      ],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "ownership chart",
+          "kind": "trigger"
+        },
+        {
+          "text": "ownership structure",
+          "kind": "trigger"
+        },
+        {
+          "text": "corporate structure",
+          "kind": "trigger"
+        },
+        {
+          "text": "entity structure",
+          "kind": "trigger"
+        },
+        {
+          "text": "legal entity chart",
+          "kind": "trigger"
+        },
+        {
+          "text": "cap table structure",
+          "kind": "trigger"
+        },
+        {
+          "text": "subsidiaries",
+          "kind": "trigger"
+        },
+        {
+          "text": "holding company",
+          "kind": "trigger"
+        },
+        {
+          "text": "group structure chart",
+          "kind": "trigger"
+        },
+        {
+          "text": "who owns whom",
+          "kind": "trigger"
+        }
+      ],
+      "guidance": "Write the group as an indented tree, one entity per line, and the stake first: `100% Acme Inc`. Put the jurisdiction in a tag group so it colours the boxes. Write an outside owner (a fund, a person) at the start of a line, after the group, with `NN% -> Name` under it.",
+      "description": "Corporate entity structure — parent, subsidiaries and outside owners, with a stake on every line and a jurisdiction on every box"
+    },
+    {
       "id": "org-teams",
       "kind": "variant",
       "base": "org",
@@ -4786,6 +4841,53 @@
         {
           "surface": "obsidian",
           "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "ownership",
+      "entity": "ownership",
+      "file": "examples/ownership/ownership.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "ownership-group",
+      "entity": "ownership",
+      "file": "examples/ownership/ownership-group.dgmo",
+      "isPrimary": false,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "ownership-types",
+      "entity": "ownership",
+      "file": "examples/ownership/ownership-types.dgmo",
+      "isPrimary": false,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
         }
       ]
     },

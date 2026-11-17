@@ -704,6 +704,16 @@
         "trend-over-time"
       ],
       "file": "chart-calendar-heatmap.md"
+    },
+    {
+      "slug": "chart-ownership",
+      "title": "Ownership",
+      "group": "business",
+      "subhead": "structures-and-hierarchies",
+      "intent": [
+        "hierarchy"
+      ],
+      "file": "chart-ownership.md"
     }
   ]
 }

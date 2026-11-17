@@ -33,6 +33,7 @@ Treemaps show a hierarchy's proportions as nested rectangles — each leaf's are
 - **[`ring`](chart-ring.md)** — the layers are levels of scope with no meaningful size attached.
 - **[`mindmap`](chart-mindmap.md)** — the leaves are just labels, with no values to size them by.
 - **[`org`](chart-org.md)** — the nesting is about *authority* — who reports to whom — not size and containment.
+- **[`ownership`](chart-ownership.md)** — the question is the legal chain of who holds what stake in which entity, not the share as area.
 - **[`sitemap`](chart-sitemap.md)** — the nesting is navigation between real pages, not proportion of a total.
 
 ## Syntax
@@ -303,5 +304,5 @@ Colors come from the active palette — see [Colors](colors.md). Set the palette
 
 ## Next
 
-- **Related:** [`pie`](chart-pie.md) · [`bar`](chart-bar.md) · [`sankey`](chart-sankey.md) · [`ring`](chart-ring.md) · [`mindmap`](chart-mindmap.md) · [`org`](chart-org.md) · [`sitemap`](chart-sitemap.md)
+- **Related:** [`pie`](chart-pie.md) · [`bar`](chart-bar.md) · [`sankey`](chart-sankey.md) · [`ring`](chart-ring.md) · [`mindmap`](chart-mindmap.md) · [`org`](chart-org.md) · [`sitemap`](chart-sitemap.md) · [`ownership`](chart-ownership.md)
 - **Then:** [Colors & palettes](colors.md)

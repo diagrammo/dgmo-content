@@ -61,6 +61,7 @@ An org chart maps **reporting structure** — who reports to whom — as a top-d
 - **[`raci`](chart-raci.md)** — the question is who's on the hook for which specific task, not who the reporting chain is.
 - **[`pyramid`](chart-pyramid.md)** — you're naming *levels* (tiers, maturity stages, needs) rather than people or units reporting upward.
 - **[`bracket`](chart-bracket.md)** — pairs get *eliminated* going up. In an org chart everyone stays.
+- **[`ownership`](chart-ownership.md)** — the boxes are legal entities and each line carries a percentage stake, with jurisdictions and owners outside the group. Org has no stakes.
 - **[`treemap`](chart-treemap.md)** — the nesting is about *size and containment* (budget, headcount as area), not about authority.
 
 ## Syntax
@@ -401,5 +402,5 @@ Colors come from the active palette — see [Colors](colors.md). Set the palette
 
 ## Next
 
-- **Related:** [`family`](chart-family.md) · [`mindmap`](chart-mindmap.md) · [`raci`](chart-raci.md) · [`pyramid`](chart-pyramid.md) · [`bracket`](chart-bracket.md) · [`treemap`](chart-treemap.md)
+- **Related:** [`family`](chart-family.md) · [`mindmap`](chart-mindmap.md) · [`raci`](chart-raci.md) · [`pyramid`](chart-pyramid.md) · [`bracket`](chart-bracket.md) · [`treemap`](chart-treemap.md) · [`ownership`](chart-ownership.md)
 - **Then:** [Colors & palettes](colors.md)

@@ -30,6 +30,7 @@ The layout is automatic: generations stack into rows, spouses share a row joined
 
 - **`family`** — people pair up and have children together, and both parents need to appear.
 - **[`org`](chart-org.md)** — every box has exactly one parent above it and nobody pairs up. `org` is strictly single-parent, so genealogy drawn as an org chart silently deletes one parent from every union — a factual error about lineage, not a styling problem.
+- **[`ownership`](chart-ownership.md)** — the links are shareholdings between companies, funds and people, each with a percentage, not marriages and births.
 - **[`arc`](chart-arc.md)** — the links are some other relationship entirely (collaboration, correspondence, citation) rather than marriages and births.
 
 ## Syntax
@@ -266,5 +267,5 @@ Colors come from the active palette — see [Colors](colors.md). Set the palette
 
 ## Next
 
-- **Related:** [`org`](chart-org.md) · [`arc`](chart-arc.md)
+- **Related:** [`org`](chart-org.md) · [`arc`](chart-arc.md) · [`ownership`](chart-ownership.md)
 - **Then:** [Colors & palettes](colors.md)
