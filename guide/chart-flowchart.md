@@ -122,6 +122,10 @@ Every chart accepts the universal appearance directives:
 
 Colors come from the active palette — see [Colors](colors.md). Set the palette and light/dark theme at render time with `--palette <name>` and `--theme light|dark|transparent`.
 
+## Wide diagrams
+
+When you render a flowchart at a stated width (`--width`, an export size or an embed container) and it is wider than that width, the reader shrinks it to fit. If that would draw its type under 11 px, dgmo warns with `W_TYPE_BELOW_MINIMUM`. The diagram is not changed. Split it into two or more smaller diagrams, with fewer nodes in a row in each.
+
 ## Next
 
 - **Related:** [`state`](chart-state.md) · [`swimlane`](chart-swimlane.md) · [`sequence`](chart-sequence.md) · [`cycle`](chart-cycle.md) · [`pert`](chart-pert.md) · [`funnel`](chart-funnel.md) · [`bracket`](chart-bracket.md) · [`version-control`](chart-version-control.md) · [`boxes-and-lines`](chart-boxes-and-lines.md)

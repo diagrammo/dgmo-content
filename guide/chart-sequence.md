@@ -493,6 +493,10 @@ Colors come from the active palette — see [Colors](colors.md). Set the palette
 - **Indentation inside a block is structural, not cosmetic.** Adding a level to make something line up moves it into a different block.
 - Anything that renders but looks wrong: [Troubleshooting](troubleshooting.md) is organised by symptom.
 
+## Wide diagrams
+
+When you render a sequence at a stated width (`--width`, an export size or an embed container) and it is wider than that width, the reader shrinks it to fit. If that would draw its type under 11 px, dgmo warns with `W_TYPE_BELOW_MINIMUM`. The diagram is not changed. Split it into two or more smaller diagrams, with fewer participants in each.
+
 ## Next
 
 - **Related:** [`flowchart`](chart-flowchart.md) · [`swimlane`](chart-swimlane.md) · [`infra`](chart-infra.md)
