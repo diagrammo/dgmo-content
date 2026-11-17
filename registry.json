@@ -474,6 +474,35 @@
       "description": null
     },
     {
+      "id": "bar-pareto",
+      "kind": "variant",
+      "base": "bar",
+      "name": "Pareto",
+      "family": "data",
+      "intent": [],
+      "produces": "pareto",
+      "keywords": [
+        {
+          "text": "pareto chart",
+          "kind": "synonym"
+        },
+        {
+          "text": "pareto",
+          "kind": "synonym"
+        },
+        {
+          "text": "80/20 chart",
+          "kind": "synonym"
+        },
+        {
+          "text": "pareto analysis",
+          "kind": "synonym"
+        }
+      ],
+      "guidance": null,
+      "description": null
+    },
+    {
       "id": "bar-clustered-stack",
       "kind": "variant",
       "base": "bar",
@@ -2095,6 +2124,31 @@
       "description": null
     },
     {
+      "id": "line-moving-average",
+      "kind": "variant",
+      "base": "line",
+      "name": "Moving Average",
+      "family": "data",
+      "intent": [],
+      "produces": "moving-average",
+      "keywords": [
+        {
+          "text": "moving average",
+          "kind": "synonym"
+        },
+        {
+          "text": "rolling average",
+          "kind": "synonym"
+        },
+        {
+          "text": "smoothed line",
+          "kind": "synonym"
+        }
+      ],
+      "guidance": null,
+      "description": null
+    },
+    {
       "id": "line-dual-axis",
       "kind": "variant",
       "base": "line",
@@ -3097,6 +3151,35 @@
       "description": null
     },
     {
+      "id": "scatter-trend",
+      "kind": "variant",
+      "base": "scatter",
+      "name": "Trend Line",
+      "family": "data",
+      "intent": [],
+      "produces": "trend",
+      "keywords": [
+        {
+          "text": "trend line",
+          "kind": "synonym"
+        },
+        {
+          "text": "line of best fit",
+          "kind": "synonym"
+        },
+        {
+          "text": "regression line",
+          "kind": "synonym"
+        },
+        {
+          "text": "scatter plot with trend line",
+          "kind": "synonym"
+        }
+      ],
+      "guidance": null,
+      "description": null
+    },
+    {
       "id": "sequence",
       "kind": "type",
       "base": null,
@@ -4076,6 +4159,32 @@
       ]
     },
     {
+      "id": "bar-pareto",
+      "entity": "bar-pareto",
+      "file": "examples/bar/bar-pareto.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "bar-target",
+      "entity": "bar",
+      "file": "examples/bar/bar-target.dgmo",
+      "isPrimary": false,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
       "id": "bar-clustered-stack",
       "entity": "bar-clustered-stack",
       "file": "examples/bar/bar-clustered-stack.dgmo",
@@ -4970,6 +5079,45 @@
       ]
     },
     {
+      "id": "line-moving-average",
+      "entity": "line-moving-average",
+      "file": "examples/line/line-moving-average.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "line-mean-median",
+      "entity": "line",
+      "file": "examples/line/line-mean-median.dgmo",
+      "isPrimary": false,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "line-extremes",
+      "entity": "line",
+      "file": "examples/line/line-extremes.dgmo",
+      "isPrimary": false,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
       "id": "map",
       "entity": "map",
       "file": "examples/map/map.dgmo",
@@ -5412,6 +5560,19 @@
       "id": "scatter-connect",
       "entity": "scatter-connect",
       "file": "examples/scatter/scatter-connect.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "scatter-trend",
+      "entity": "scatter-trend",
+      "file": "examples/scatter/scatter-trend.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [

@@ -59,6 +59,7 @@ Point Name x y size
 | `no-name`    | Hide point labels (labels are on by default)               | No       |
 | `size-label` | Label for the size dimension (shown in legend for bubbles) | No       |
 | `connect` | Join the points in row order, with an arrow at the end | No |
+| `trend` | A least-squares line per category, labelled with its R² | No |
 
 ## Data Format
 
@@ -143,6 +144,34 @@ Havana 82.4 23.1
 
 With `[Category]` groups, each category gets its own path in its colour.
 A category with one point draws no path.
+
+### Trend line — `trend`
+
+Add `trend` for a dashed least-squares line through the points, labelled with
+its R² (how closely the points follow it, 0 to 1). Each `[Category]` gets its
+own line in its colour:
+
+```dgmo
+scatter Gunnery Drills vs Hits on Target
+x-label Drill hours
+y-label Hits per 100 shots
+trend
+
+[Black Pearl] blue
+  Gibbs 4 31
+  Marty 8 36
+  Cotton 12 44
+  Pintel 18 47
+  Ragetti 22 55
+  Anamaria 28 61
+[Flying Dutchman] teal
+  Bootstrap 6 42
+  Maccus 10 51
+  Koleniko 16 47
+  Clanker 20 55
+  Hadras 26 52
+  Palifico 30 60
+```
 
 ## Number format — `format`, `unit`, `locale`
 

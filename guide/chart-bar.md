@@ -182,6 +182,10 @@ Every number reads positive, on the axis and on the segments.
 | `orientation-horizontal` | Horizontal bars (default is vertical)        | No       |
 | `sort` | Order the bars largest first (`sort asc` = smallest first, `sort <series>` = by one series) | No |
 | `lollipop` | Draw each bar as a thin stem with a dot at its value | No |
+| `mean` / `median` | A dashed / dotted line at each series' mean / median (see below) | No |
+| `target N` | A line at N; bars that reach it stay lit, the rest go grey (`target N below` flips it) | No |
+| `trend` | A dashed least-squares line per series, labelled with its slope | No |
+| `pareto` | Sort largest first and add a cumulative-percent line (see below) | No |
 | `color`                  | Override the bar color (e.g., `red`)         | No       |
 
 The title is line 1 (`bar Treasure Hauls by Port`) — there is no `title` directive.
@@ -252,6 +256,55 @@ Havana 400
 It works with `orientation-horizontal`, `group` (one stem per series, side by
 side), negative values, `sort` and `highlight`. It cannot draw a `stack`: the
 pair is an error and the chart keeps solid stacked bars.
+
+### Pareto chart — `pareto`
+
+Add `pareto` to a single-series bar. The bars sort largest first, and a line
+shows the running share of the total on a 0–100% axis at the right, with a
+dashed guide at 80%:
+
+```dgmo
+bar Hull Damage by Cause, 1716 Season
+y-label Repairs
+pareto
+
+Cannon fire 176
+Reef strikes 104
+Storms 52
+Shipworm 32
+Boarding axes 20
+Fire 12
+Kraken 4
+```
+
+Here the first two causes are 70% of the damage. `pareto` on a `stack` or a
+`group` is an error: it needs one value per bar.
+
+## Statistics overlays — `mean`, `median`, `target`, `trend`
+
+One bare line per overlay. dgmo computes the value from the bars and draws a
+reference line behind them, labelled at its right end (`mean 519`):
+
+```dgmo
+bar Treasure Hauls vs the Captain's Quota
+y-label Doubloons
+target 500
+
+Port Royal 620
+Tortuga 430
+Nassau 710
+Havana 380
+Maracaibo 505
+Cartagena 470
+```
+
+- `mean` draws a dashed line, `median` a dotted one. On a `group`, each series
+  gets its own, in its colour.
+- `target N` draws a line at N. Bars that reach it keep their colour and the
+  rest go grey. Write `target N below` when lower is better, such as costs.
+- `trend` draws a least-squares line through the bars, labelled with its slope
+  per bar (`trend +12/step`).
+- Overlays do not apply to a `stack`. There is no `average`: write `mean`.
 
 ## Number format — `format`, `unit`, `locale`
 

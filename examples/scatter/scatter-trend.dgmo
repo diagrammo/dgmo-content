@@ -1,0 +1,19 @@
+scatter Gunnery Drills vs Hits on Target
+x-label Drill hours
+y-label Hits per 100 shots
+trend
+
+[Black Pearl] blue
+  Gibbs 4 31
+  Marty 8 36
+  Cotton 12 44
+  Pintel 18 47
+  Ragetti 22 55
+  Anamaria 28 61
+[Flying Dutchman] teal
+  Bootstrap 6 42
+  Maccus 10 51
+  Koleniko 16 47
+  Clanker 20 55
+  Hadras 26 52
+  Palifico 30 60

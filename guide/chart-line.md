@@ -283,6 +283,84 @@ May 460 440
 The fill never widens the y-axis. Several `fill-between` lines may name
 different pairs. `fill` and `fill-between` cannot be used together.
 
+## Statistics overlays — `mean`, `median`, `target`, `trend`, `moving-average`, `extremes`
+
+One bare line per overlay. dgmo computes each from the series and draws it
+behind the lines, labelled at its right end in its colour:
+
+```dgmo
+line Doubloons Plundered, 1715
+y-label Doubloons
+mean
+median
+
+Jan 310
+Feb 295
+Mar 340
+Apr 1180
+May 360
+Jun 355
+Jul 390
+Aug 370
+Sep 410
+Oct 405
+Nov 430
+Dec 450
+```
+
+One April haul drags the mean up to 441; the median stays at 380.
+
+| Overlay | Draws |
+| --- | --- |
+| `mean` / `median` | a dashed / dotted line at each series' mean / median |
+| `target N` | a line at N; points that reach it are filled, the rest go grey (`target N below` flips it) |
+| `trend` | a dashed least-squares line per series, labelled with its slope per row (`trend +2.16/week`) |
+| `moving-average N` | each series' trailing N-point average, drawn heavier over a thinner raw line |
+| `extremes` | a filled marker and a label on each series' highest and lowest point |
+
+```dgmo
+line Crew Aboard the Black Pearl
+x-label Week
+y-label Sailors
+moving-average 3
+trend
+
+W1 41
+W2 47
+W3 39
+W4 52
+W5 50
+W6 44
+W7 57
+W8 61
+W9 51
+W10 64
+W11 60
+W12 67
+```
+
+A one-word `x-label` names the step in the labels: `trend +2.16/week`,
+`3-week avg`. With several series, each overlay draws once per series, in the
+series' colour:
+
+```dgmo
+line Rum Stores in the Hold
+y-label Barrels
+extremes
+series
+  Black Pearl blue
+  Queen Anne's Revenge red
+
+Jan 120 90
+Feb 104 96
+Mar 88 110
+Apr 131 84
+May 95 120
+Jun 76 102
+```
+
+Overlays do not apply to a `stack`. There is no `average`: write `mean`.
+
 ## Era Bands
 
 Annotate named time periods with a shaded background band and label:
@@ -331,6 +409,11 @@ Era syntax: `era <start> -> <end> Label color`
 | `no-auto-y` | Anchor the y-axis at 0 (opt out of auto-fit) | No    |
 | `step` | Hold each value until the next point | No |
 | `step-before` | Steps that reach each value at its own point | No |
+| `mean` / `median` | A dashed / dotted line at each series' mean / median (see above) | No |
+| `target N` | A line at N; points that reach it are filled (`target N below` flips it) | No |
+| `trend` | A dashed least-squares line per series, labelled with its slope | No |
+| `moving-average N` | Each series' trailing N-point average, drawn heavier | No |
+| `extremes` | Mark and label each series' highest and lowest point | No |
 | `no-value` | Hide the value labels at each point      | No       |
 
 The chart title is the rest of line 1 (`line Ship Speed Over Voyage`) — there is
