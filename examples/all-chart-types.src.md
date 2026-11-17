@@ -206,6 +206,10 @@ const plunder = ships.reduce((sum, s) => sum + s.gold, 0);
 
 ![[swimlane/swimlane.dgmo]]
 
+### BPMN process (swimlane pools)
+
+![[swimlane/swimlane-bpmn.dgmo]]
+
 ### Tech Radar
 
 ![[tech-radar/tech-radar.dgmo]]

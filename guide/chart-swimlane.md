@@ -79,8 +79,12 @@ lane Flow blue
 | `Name` | rounded box | a task / activity |
 | `<Name>` | diamond | exclusive gateway (one branch taken) |
 | `<+ Name>` | diamond with `+` | parallel gateway (fork / join) |
+| `<o Name>` | diamond with `O` | inclusive gateway (any branches taken) |
+| `<* Name>` | diamond with a ring | event-based gateway (the first event wins) |
 | `[[Name]]` | double-bordered box | subprocess |
-| `(Name)` | circle | terminal (start / end event) |
+| `(Name)` | circle | event (start / mid-flow / end) |
+
+A gateway's label is drawn above the diamond, never squeezed inside it. The exclusive gateway shows an X.
 
 A **bare** task name used as an edge target must be declared somewhere as a line-head — a typo'd target (`Approve -> Reimburze`) is flagged, not silently created. A **delimited** endpoint (`(Done)`, `<Gate>`, `[[Sub]]`) is created automatically the first time it's referenced, so terminals and gateways need no separate declaration.
 
@@ -94,7 +98,7 @@ A bare `(Name)` is a neutral terminal. Add a trailing keyword or `!` prefix to t
 (Aborted) terminate
 ```
 
-`success` renders green (double ring), `(!X)` renders as a red error end, and `terminate` is a hard stop. Source and sink terminals are detected automatically from the flow.
+Where an event sits decides its circle: with no inbound `->` it is a **start** (thin circle), with no outbound `->` an **end** (thick circle), and anything in between is **mid-flow** (double ring). `success` renders green, `(!X)` renders red with a lightning mark, and `terminate` is a hard stop (a filled dot inside the thick circle). A trigger word — `message`, `timer`, `signal` — adds its mark; see [BPMN](#bpmn).
 
 ## Phases
 
@@ -209,6 +213,92 @@ lane Engineering blue
 lane Comms purple
   Notify Status Page -> (Closed) success
 ```
+
+## BPMN
+
+Swimlane covers BPMN's everyday elements: pools, message flow, event triggers, task markers, boundary events, data and notes. It is not the whole BPMN 2.0 standard, and it does not read or write BPMN XML. A diagram with no `pool` lines is an ordinary swimlane.
+
+```dgmo
+swimlane Insurance claim
+
+pool Customer
+  ~> Claim received
+
+pool Insurer
+  lane Claims Agent blue
+    (Claim received) message -> Check policy
+    Check policy type: service, store: Policy DB
+      -> <Amount over 5k?>
+    <Amount over 5k?>
+      -yes-> Adjuster review
+      -no-> Auto approve
+    Auto approve type: service, note: Under 5k, no person reviews the claim
+      -> <> as merge
+
+  lane Adjuster orange
+    Adjuster review type: user
+      -> [[Inspect property]]
+      (5 days) timer -> Escalate      // a boundary event: fires if the review takes 5 days
+    [[Inspect property]] -> merge
+    Escalate type: user -> (Escalated)
+
+  lane Finance green
+    merge -> <+> as split
+    split
+      -> Notify customer
+      -> Pay claim
+    Notify customer type: send
+      -> <+> as join
+      ~> Customer
+    Pay claim type: service -> join
+    join -> (Paid)
+```
+
+### Every element
+
+| Element | How to write it |
+| --- | --- |
+| Start | `(Claim filed)` |
+| Message start | `(Claim received) message` |
+| Timer start | `(Every Monday) timer` |
+| Wait (mid-flow) | `(2 days) timer` |
+| Wait for a message | `(Reply) message` |
+| Signal | `(Alarm) signal` |
+| End | `(Paid)` |
+| Error end | `(!Rejected)` |
+| Terminate end | `(Cancelled) terminate` |
+| Exclusive: one path | `<Approved?>` |
+| Parallel: all paths | `<+> as split` |
+| Inclusive: any paths | `<o Which checks?>` |
+| First event wins | `<* Wait for reply>` |
+| User task | `Review type: user` |
+| Service task | `Check type: service` |
+| Manual task | `Inspect type: manual` |
+| Script task | `Score type: script` |
+| Send task | `Notify type: send` |
+| Receive task | `Get form type: receive` |
+| Subprocess | `[[Inspect property]]` |
+| Boundary event | an event indented under a task: `(5 days) timer -> X` |
+| Data object | `data: Claim form` |
+| Data store | `store: Policy DB` |
+| Annotation | `note: Under 5k…` |
+| Message flow | `A ~> B` |
+| Pool | `pool Insurer` |
+| Outside party (collapsed) | `pool Customer` with no lanes |
+| Lane | `lane Claims Agent blue` |
+
+### Rules
+
+- **Pools.** `pool Name` at the start of a line opens a pool; its `lane` blocks indent under it. A pool with no lanes is an outside party, drawn as a thin bar that can only send or receive `~>`. Once a diagram has pools, every lane belongs to one.
+- **Message flow.** `~>` is drawn dashed, with an open circle at the source and a hollow arrowhead. It runs only between different pools, and a whole pool can be either end (`~> Claim received` written under `pool Customer`). Inside one pool, use `->`.
+- **Event triggers** are a trailing word after the parentheses, the same way `success` and `terminate` work.
+- **Task markers.** `type:` draws a marker in the task's top-left corner: `user`, `service`, `manual`, `script`, `send` (filled envelope) or `receive` (hollow envelope).
+- **Boundary events.** An event line indented under a task sits on that task's bottom edge. Its arrow is the exception path — here, escalating when the review takes 5 days.
+- **Unlabelled gateways.** `<>`, `<+>`, `<o>` and `<*>` take a name with `as` (`<+> as join`) so other lines can point at them.
+- **Data and notes.** `store:`, `data:` and `note:` on a node attach a data store (cylinder), a data object (folded page) or an annotation (open bracket) with a dotted line. `note:` runs to the end of the line, commas included, so put it last.
+- Edges never pass through a box: the layout routes every line around tasks, gateways, events and attachments.
+
+Not yet supported: pools together with `[Phase]` columns, escalation, compensation and conditional events, and BPMN XML import or export.
 
 ## Appearance
 

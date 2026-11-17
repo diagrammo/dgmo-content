@@ -3382,6 +3382,35 @@
       "description": null
     },
     {
+      "id": "swimlane-bpmn",
+      "kind": "variant",
+      "base": "swimlane",
+      "name": "BPMN process",
+      "family": "business",
+      "intent": [],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "bpmn",
+          "kind": "synonym"
+        },
+        {
+          "text": "bpmn 2.0",
+          "kind": "synonym"
+        },
+        {
+          "text": "business process",
+          "kind": "synonym"
+        },
+        {
+          "text": "process model",
+          "kind": "synonym"
+        }
+      ],
+      "guidance": null,
+      "description": null
+    },
+    {
       "id": "tech-radar",
       "kind": "type",
       "base": null,
@@ -5478,6 +5507,19 @@
         {
           "surface": "obsidian",
           "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "swimlane-bpmn",
+      "entity": "swimlane-bpmn",
+      "file": "examples/swimlane/swimlane-bpmn.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
         }
       ]
     },

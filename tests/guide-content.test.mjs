@@ -230,6 +230,35 @@ const DOCUMENTED = [
     verifiedAgainst: 'examples/all-chart-types.src.md treemap radial entry',
     on: '2026-11-15',
   },
+  {
+    what: 'the swimlane guide has a BPMN section with the element card as a table',
+    file: 'guide/chart-swimlane.md',
+    contains: [
+      '## BPMN',
+      '| Boundary event | an event indented under a task: `(5 days) timer -> X` |',
+      '| Outside party (collapsed) | `pool Customer` with no lanes |',
+      '| Message flow | `A ~> B` |',
+    ],
+    why: 'The BPMN extension (#1874) is done only when the swimlane guide carries a BPMN section with the element card as a table.',
+    verifiedAgainst: 'dgmo src/swimlane/parser.ts and tests/swimlane-parser.test.ts on branch feat/swimlane-bpmn (#1874)',
+    on: '2026-11-16',
+  },
+  {
+    what: 'the guide says end events are thick single circles, not double rings',
+    file: 'guide/chart-swimlane.md',
+    contains: ['an **end** (thick circle), and anything in between is **mid-flow** (double ring)'],
+    why: 'The BPMN extension (#1874) moved the double ring to mid-flow events only; an end event is one thick circle.',
+    verifiedAgainst: 'dgmo src/swimlane/renderer.ts on branch feat/swimlane-bpmn (#1874)',
+    on: '2026-11-16',
+  },
+  {
+    what: 'the claims process is the swimlane-bpmn example and in the showcase',
+    file: 'examples/all-chart-types.src.md',
+    contains: ['![[swimlane/swimlane-bpmn.dgmo]]'],
+    why: 'The issue (#1874) is done only when dgmo-content carries the claims process as swimlane-bpmn.dgmo.',
+    verifiedAgainst: 'examples/swimlane/swimlane-bpmn.dgmo (copy of dgmo tests/fixtures/swimlane-bpmn.dgmo)',
+    on: '2026-11-16',
+  },
 ];
 
 /**
