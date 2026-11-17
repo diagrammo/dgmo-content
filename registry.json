@@ -443,7 +443,7 @@
       "name": "Marimekko",
       "family": "data",
       "intent": [],
-      "produces": null,
+      "produces": "widths",
       "keywords": [
         {
           "text": "marimekko",
