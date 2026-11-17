@@ -65,7 +65,14 @@ dgmo diagram.dgmo --theme transparent -o diagram.png
 
 This is what you want for slides almost every time. A light-theme PNG on a slide gives you a white rectangle floating on your deck; a transparent one just shows the diagram.
 
-**The honest caveat:** `transparent` uses the *light* theme's ink — dark text, dark strokes. It's built to sit on a light or mid-tone surface. On a dark slide the text will be nearly invisible. There is no "dark transparent" combination today; `--theme dark` always paints its own dark background. If your destination is dark, export with `--theme dark` and accept the background, or place the dark-theme image on a matching dark surface so the seam doesn't show.
+**On a dark surface:** a plain `transparent` export uses the *light* theme's ink — dark text, dark strokes — built for a light or mid-tone surface. For a dark slide, pin the diagram to dark and export transparent. The dark theme's light ink comes out with no background:
+
+```bash
+# the file ends with:  palette nord dark
+dgmo diagram.dgmo --theme transparent -o diagram.png
+```
+
+A custom palette can also ask for no background itself, in either mode, with `background transparent` (see [Colors → Theme style](colors.md#theme-style-corners-lines-and-background)).
 
 ## Palettes
 

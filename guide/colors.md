@@ -205,6 +205,94 @@ The rules the block must follow:
 
 A block that breaks a rule is not an error. The diagram draws in the next source down, and a warning names the line at fault. The palette belongs to that file alone: it is never added to anyone's list of palettes.
 
+### Theme style: corners, lines and background
+
+A custom palette can also say how the diagram is drawn. Three optional keys sit above the `light` and `dark` sections, and each takes one value for both modes:
+
+| Key | Value | Leave it out and |
+| --- | --- | --- |
+| `radius` | Corner radius of a standard card, in px, from 0 to 32. Every rounded corner scales with it, so `0` squares them all. | corners stay as they are (6) |
+| `stroke-weight` | Weight of a standard line, in px, from 0.25 to 6. Every line scales with it, so thin lines stay thinner than bold ones. Text halos stay as they are. | lines stay as they are (1.5) |
+| `background` | `solid` or `transparent`. `transparent` draws no background and keeps the mode's own ink. | the background is drawn |
+
+**Before** — a flowchart in a newsprint palette, with the standard corners and lines:
+
+```dgmo
+flowchart Decision Flow
+
+(Start) -> /Get Input/ -> <Valid?>
+  -yes-> [Process Data] -> (Done)
+  -no-> [Show Error] -> /Get Input/
+
+palette Press
+  light
+    bg #fff1e5
+    surface #f2dfce
+    overlay #f7e8db
+    border #ccc1b7
+    text #33302e
+    text-muted #66605c
+    text-on-fill-light #fff1e5
+    text-on-fill-dark #33302e
+    primary #0f5499
+    secondary #990f3d
+    accent #0d7680
+    destructive #cc0000
+    colors
+      red #990f3d
+      orange #d9661a
+      yellow #a87d00
+      green #00994d
+      blue #0f5499
+      purple #593380
+      teal #0d7680
+      cyan #2a87c8
+      gray #8a8179
+      black #33302e
+      white #f2dfce
+```
+
+**After** — the same palette with square corners and hairline strokes. Only the two style lines are new:
+
+```dgmo
+flowchart Decision Flow
+
+(Start) -> /Get Input/ -> <Valid?>
+  -yes-> [Process Data] -> (Done)
+  -no-> [Show Error] -> /Get Input/
+
+palette Press
+  radius 0
+  stroke-weight 1
+  light
+    bg #fff1e5
+    surface #f2dfce
+    overlay #f7e8db
+    border #ccc1b7
+    text #33302e
+    text-muted #66605c
+    text-on-fill-light #fff1e5
+    text-on-fill-dark #33302e
+    primary #0f5499
+    secondary #990f3d
+    accent #0d7680
+    destructive #cc0000
+    colors
+      red #990f3d
+      orange #d9661a
+      yellow #a87d00
+      green #00994d
+      blue #0f5499
+      purple #593380
+      teal #0d7680
+      cyan #2a87c8
+      gray #8a8179
+      black #33302e
+      white #f2dfce
+```
+
+A palette without these keys draws exactly as before. A value out of range, or a word where a number goes, refuses the whole block with a warning on that line, like any other broken key. In a theme-folder file the keys are `radius`, `strokeWeight` and `background`, at the top level beside `id` and `name`.
+
 ### In the desktop app: the theme folder
 
 The desktop app reads custom palettes from a theme folder, one `.json` file per palette:
