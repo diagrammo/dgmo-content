@@ -82,6 +82,31 @@ Q3 470 215 310
 A negative value is an error in a 100% stack. A plain `stack` still draws
 negatives below 0.
 
+### Stacks grouped by category — clustered stacked columns
+
+To draw one stack per period inside each category, write the category on
+its own line with no numbers, and indent one row per period under it. Each
+period row is a label, then one number per `stack` series.
+
+```dgmo
+bar Plunder by Port and Year
+stack
+  Gold orange
+  Silver blue
+
+Tortuga
+  1718 40 22
+  1719 44 30
+Nassau
+  1718 31 18
+  1719 29 26
+```
+
+The period sits under each column, and a bracket with the category name sits
+under each group. A period label is any text (`1718`, `Q1 2025`, `Plan`).
+Periods line up across categories; a category without one leaves its slot
+empty. `stack 100%` scales each column to 100% on its own.
+
 ### Diverging stack — survey and Likert scales
 
 `stack diverging` centres each bar on 0, for answers that run from one pole
@@ -114,6 +139,7 @@ Every number reads positive, on the axis and on the segments.
 | `stack` / `group`        | Multi-series layout block header (see above) | No       |
 | `stack 100%` | Stack drawn as shares of each bar's total (see above) | No |
 | `stack diverging` | Stack centred on 0 around a `neutral` series (see above) | No |
+| indented rows | Rows indented under a category line draw stacks grouped by category (see above) | No |
 | `x-label`                | Label for the X axis                         | No       |
 | `y-label`                | Label for the Y axis                         | No       |
 | `y-scale` | `log` for values spanning decades (default `linear`) | No |

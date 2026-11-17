@@ -437,6 +437,35 @@
       "description": null
     },
     {
+      "id": "bar-clustered-stack",
+      "kind": "variant",
+      "base": "bar",
+      "name": "Clustered stacked",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "clustered stacked bar chart",
+          "kind": "synonym"
+        },
+        {
+          "text": "clustered stacked column chart",
+          "kind": "synonym"
+        },
+        {
+          "text": "stacked grouped bar chart",
+          "kind": "synonym"
+        },
+        {
+          "text": "grouped stacked bar chart",
+          "kind": "synonym"
+        }
+      ],
+      "guidance": null,
+      "description": null
+    },
+    {
       "id": "block",
       "kind": "type",
       "base": null,
@@ -3958,6 +3987,19 @@
       "id": "bar-stack-100",
       "entity": "bar-stack-100",
       "file": "examples/bar/bar-stack-100.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "bar-clustered-stack",
+      "entity": "bar-clustered-stack",
+      "file": "examples/bar/bar-clustered-stack.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
