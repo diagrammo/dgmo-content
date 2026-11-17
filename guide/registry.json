@@ -158,6 +158,12 @@
       "file": "live-links.md"
     },
     {
+      "slug": "space-api-keys",
+      "title": "Use a Space from CI or an AI Agent",
+      "group": "cloud",
+      "file": "space-api-keys.md"
+    },
+    {
       "slug": "embedding-in-your-docs",
       "title": "Embedding in Your Docs",
       "group": "publishing",
