@@ -92,11 +92,28 @@ The palettes that ship:
 
 An unknown `--palette` name is rejected with the valid list. Run `dgmo --help` to see it.
 
+`--theme-file <path>` draws with your own colors instead: a theme JSON file in the same format the desktop app's theme folder reads. It beats the diagram's own `palette` line and cannot be combined with `--palette`. A file that fails validation exits with code 1 and lists every problem:
+
+```bash
+dgmo diagram.dgmo --theme-file brand.json -o branded.png
+```
+
 Palette and theme are independent: every palette has a light and a dark rendering, and any palette can be exported transparent. A diagram can also embed its own custom palette, and the desktop app reads custom palettes from a theme folder. [Colors](colors.md) shows what each named color looks like in every palette.
 
 ## Output size
 
-`--width` and `--height` set the canvas size in pixels:
+`--width` and `--height` set the canvas size. A bare number or a `px` suffix is pixels. `mm` and `in` are converted to canvas pixels at `--dpi` (default 96), so a journal's column width can be asked for directly. Before, the same size meant doing the arithmetic yourself:
+
+```bash
+# before: 89 mm at 300 dpi = 1051 px
+dgmo bar.dgmo --width 1051 --height 700 -o fig.png
+# after
+dgmo bar.dgmo --width 89mm --height 59mm --dpi 300 -o fig.png
+```
+
+`--dpi` sets how many canvas pixels make an inch, so a higher value gives a larger canvas for the same physical size; `--scale` still multiplies that into the PNG or PDF image. A PDF is a raster here, so `--dpi` sets its image resolution, not a vector figure. An unknown unit or a size that is not positive exits with code 1.
+
+Sizes in pixels:
 
 ```bash
 dgmo diagram.dgmo --width 1600 -o wide.svg
