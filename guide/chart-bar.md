@@ -273,6 +273,48 @@ fixes the decimals. Anything else takes a quoted pattern, such as
 `format ",.2f"`. `unit ms` puts text after each number (`120 ms`), and
 `locale de-DE` switches to that locale's separators (`1.234,5`).
 
+### Compact numbers — one unit per axis
+
+`format compact` picks one unit for the whole value axis, from its largest
+tick, and prints every tick and every value label in that unit with the same
+number of decimals. Zero stays a bare `0`:
+
+```dgmo
+bar Doubloons by Port
+format compact
+
+Nassau 1200
+Port Royal 800
+Tortuga 420
+Havana 310
+```
+
+Before, each number chose its own unit, so one axis read `1.2K, 1K, 800, 600`
+and the bars were labelled `1.2K`, `800`, `420`. Now the axis reads
+`0, 0.2K, 0.4K … 1.2K` and the bars `1.2K`, `0.8K`, `0.4K`, `0.3K`. A
+trailing number sets the decimals for the whole axis: `format compact 2`
+prints `0.42K`.
+
+### Numbers line up — tabular figures
+
+Every axis tick and value label is set in tabular figures: each digit takes
+the same width, so a column of ticks lines up digit under digit and on the
+decimal point. Nothing to write — it applies to every chart:
+
+```dgmo
+bar Crew Paid by Ship
+format currency USD 2
+
+Queen Anne's Revenge 1111.11
+Royal Fortune 888.88
+Whydah Gally 404.04
+```
+
+Before, digits kept their natural widths: a `1` is two thirds as wide as an
+`8`, so `$1,111.11` and `$888.88` set side by side did not line up and the
+right-aligned ticks wandered. Now every digit has one width, and the exported
+PNG and PDF match the SVG.
+
 ## Annotate — `marker`, `band`, `era` and `note`
 
 `marker 900 Quota` draws a dashed line at a value, and `marker Nassau Raid` one at a category. `band 400..600 Usual haul` shades a value range. `era Tortuga -> Nassau Republic` shades a run of categories. `note Nassau Spanish fleet ran aground` rings the bar's end and writes beside it, in empty plot space, with a leader line. On a stacked or grouped bar, name one segment as `series @ category`. Indented lines under a note add more text, with **bold** and *italic*. A value label under a note gives way to it. `no-notes` hides every note.
