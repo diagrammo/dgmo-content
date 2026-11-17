@@ -81,17 +81,17 @@ You never pick a projection or a zoom: the map frames itself around the places y
 
 ## Goal — how close you are to a number
 
-A goal is a progress bar, a thermometer or a gauge, drawn from `now` and `target`:
+A goal is a progress bar, a thermometer or a gauge, drawn from `actual` and `target`:
 
 ```dgmo
 goal Japan Trip Fund ($)
 thermometer
-now 4200
+actual 4200
 target 6500
 note Add $300 on the 1st of each month.
 ```
 
-Update `now` as the number moves. The [goal page](chart-goal.md) has the three faces and the colour options.
+Update `actual` as the number moves. The [goal page](chart-goal.md) has the three faces and the colour options.
 
 ## Putting one in a note
 
