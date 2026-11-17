@@ -437,6 +437,43 @@
       "description": null
     },
     {
+      "id": "bar-marimekko",
+      "kind": "variant",
+      "base": "bar",
+      "name": "Marimekko",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "marimekko",
+          "kind": "synonym"
+        },
+        {
+          "text": "mekko",
+          "kind": "synonym"
+        },
+        {
+          "text": "mosaic",
+          "kind": "synonym"
+        },
+        {
+          "text": "variable-width bar",
+          "kind": "synonym"
+        },
+        {
+          "text": "variable width stacked",
+          "kind": "synonym"
+        },
+        {
+          "text": "market map",
+          "kind": "synonym"
+        }
+      ],
+      "guidance": null,
+      "description": null
+    },
+    {
       "id": "bar-clustered-stack",
       "kind": "variant",
       "base": "bar",
@@ -4016,6 +4053,19 @@
       "id": "bar-stack-100",
       "entity": "bar-stack-100",
       "file": "examples/bar/bar-stack-100.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "bar-marimekko",
+      "entity": "bar-marimekko",
+      "file": "examples/bar/bar-marimekko.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [

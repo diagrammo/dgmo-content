@@ -107,6 +107,39 @@ under each group. A period label is any text (`1718`, `Q1 2025`, `Plan`).
 Periods line up across categories; a category without one leaves its slot
 empty. `stack 100%` scales each column to 100% on its own.
 
+### Marimekko (variable-width)
+
+A Marimekko (also called a mekko or mosaic chart) is a stacked bar whose
+columns have different widths. Add `widths` above the `stack` block. The
+first number on each row is then that column's width, and every column fills
+to 100%.
+
+```dgmo
+bar Cloud market by region, 2025
+subtitle Column width = region’s share of the $250B market
+x-label Share of the global market
+y-label Share of region
+widths
+
+stack
+  AWS   orange
+  Azure blue
+  GCP   green
+  Other gray
+
+// region  width  AWS Azure GCP Other
+US     42%  38 30 18 14
+EU     28%  30 36 16 18
+APAC   22%  28 24 20 28
+LATAM   8%  34 26 14 26
+```
+
+Write a width as a share (`42%`, all shares adding up to 100) or as a size
+(`105`, drawn in proportion and labelled in the chart's `format`), the same
+way on every row. The segments need no arithmetic: raw counts work, because
+each column is scaled to 100%. Hover on a segment to see its share of the
+column, its share of the whole, and its value.
+
 ### Diverging stack — survey and Likert scales
 
 `stack diverging` centres each bar on 0, for answers that run from one pole
@@ -140,6 +173,7 @@ Every number reads positive, on the axis and on the segments.
 | `stack 100%` | Stack drawn as shares of each bar's total (see above) | No |
 | `stack diverging` | Stack centred on 0 around a `neutral` series (see above) | No |
 | indented rows | Rows indented under a category line draw stacks grouped by category (see above) | No |
+| `widths` | Marimekko: each row's first number is its column width (see above) | No |
 | `x-label`                | Label for the X axis                         | No       |
 | `y-label`                | Label for the Y axis                         | No       |
 | `y-scale` | `log` for values spanning decades (default `linear`) | No |

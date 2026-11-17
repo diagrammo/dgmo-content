@@ -1,0 +1,17 @@
+bar Plunder by Sea, 1719
+subtitle Column width = each sea's share of the year's haul
+x-label Share of all plunder
+y-label Share of the sea's haul
+widths
+
+stack
+  Gold    orange
+  Silver  blue
+  Spices  green
+  Cloth   gray
+
+// sea          width  Gold Silver Spices Cloth
+Caribbean        45%   40   28     12     20
+Atlantic         25%   22   34     14     30
+Indian Ocean     20%   18   12     46     24
+Red Sea          10%   30   20     30     20
