@@ -61,6 +61,27 @@ March 6 22 38
 
 Swap `stack` for `group` to render the series side by side instead of stacked.
 
+### 100% stack — shares of each total
+
+`stack 100%` draws every bar as shares of its own total, so all bars stand
+the same height and the axis reads 0–100%. Keep the raw numbers in the rows:
+each segment prints its share, and hover shows the value and the share.
+
+```dgmo
+bar Ship's Stores by Quarter
+stack 100%
+  Rum orange
+  Powder blue
+  Salt pork green
+
+Q1 420 220 255
+Q2 510 280 260
+Q3 470 215 310
+```
+
+A negative value is an error in a 100% stack. A plain `stack` still draws
+negatives below 0.
+
 ### Diverging stack — survey and Likert scales
 
 `stack diverging` centres each bar on 0, for answers that run from one pole
@@ -91,6 +112,7 @@ Every number reads positive, on the axis and on the segments.
 | Key                      | Description                                  | Required |
 | ------------------------ | -------------------------------------------- | -------- |
 | `stack` / `group`        | Multi-series layout block header (see above) | No       |
+| `stack 100%` | Stack drawn as shares of each bar's total (see above) | No |
 | `stack diverging` | Stack centred on 0 around a `neutral` series (see above) | No |
 | `x-label`                | Label for the X axis                         | No       |
 | `y-label`                | Label for the Y axis                         | No       |

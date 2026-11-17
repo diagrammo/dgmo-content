@@ -408,6 +408,35 @@
       "description": null
     },
     {
+      "id": "bar-stack-100",
+      "kind": "variant",
+      "base": "bar",
+      "name": "100% stacked",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "100% stacked bar chart",
+          "kind": "synonym"
+        },
+        {
+          "text": "percent stacked bar",
+          "kind": "synonym"
+        },
+        {
+          "text": "stacked percentage bar",
+          "kind": "synonym"
+        },
+        {
+          "text": "share of total bar chart",
+          "kind": "synonym"
+        }
+      ],
+      "guidance": null,
+      "description": null
+    },
+    {
       "id": "block",
       "kind": "type",
       "base": null,
@@ -1893,6 +1922,35 @@
         },
         {
           "text": "filled line",
+          "kind": "synonym"
+        }
+      ],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "line-stack",
+      "kind": "variant",
+      "base": "line",
+      "name": "Stacked area",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "stacked area chart",
+          "kind": "synonym"
+        },
+        {
+          "text": "stacked area",
+          "kind": "synonym"
+        },
+        {
+          "text": "100% stacked area chart",
+          "kind": "synonym"
+        },
+        {
+          "text": "percent stacked area",
           "kind": "synonym"
         }
       ],
@@ -3897,6 +3955,19 @@
       ]
     },
     {
+      "id": "bar-stack-100",
+      "entity": "bar-stack-100",
+      "file": "examples/bar/bar-stack-100.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
       "id": "block",
       "entity": "block",
       "file": "examples/block/block.dgmo",
@@ -4722,6 +4793,19 @@
         {
           "surface": "obsidian",
           "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "line-stack",
+      "entity": "line-stack",
+      "file": "examples/line/line-stack.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
         }
       ]
     },

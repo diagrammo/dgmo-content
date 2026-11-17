@@ -86,6 +86,33 @@ A short one-line form is tolerated: `series Free Pro Team`.
 
 > The former standalone `multi-line` chart type was removed in 1.0 — use `line` + a `series` block.
 
+## Stacked Area — `stack` block
+
+Use a `stack` block in place of `series` to stack each series on top of the
+one below. The top edge is the total. A stacked area always fills, and its
+axis always starts at 0.
+
+```dgmo
+line Ship's Stores in the Hold
+y-label Barrels
+
+stack
+  Rum orange
+  Powder blue
+  Salt pork green
+
+Jan 120 60 80
+Feb 140 70 85
+Mar 160 85 90
+Apr 190 100 100
+```
+
+Write `stack 100%` to draw shares instead: every x position fills the chart,
+and the axis reads 0–100%. Keep the raw numbers in the rows; hover shows each
+value and its share. A stacked area prints no point values, and a negative
+value is an error, because a band cannot go below the one it sits on. It
+also takes no `y-right-label`, `band` between series, or `fill-between`.
+
 ## Dual Y-Axes — `y-right-label`
 
 When two series share an x-axis but not a unit — revenue in dollars against margin
@@ -296,6 +323,7 @@ Era syntax: `era <start> -> <end> Label color`
 | `y-min` | Fix the low end of the value axis (e.g. `y-min 0`) | No |
 | `y-max` | Fix the high end of the value axis (e.g. `y-max 100`) | No |
 | `y-right-label` | Label for the right Y axis (dual-axis; group series beneath it) | No |
+| `stack` | Stacked areas in place of `series`; `stack 100%` for shares (see above) | No |
 | `fill`    | Shade the area under the line             | No       |
 | `fill-between` | Shade between two series, by which one leads | No |
 | `band` | A value range (`band 40..60`) or a band between two series (`band Forecast Low High`) | No |
