@@ -1,7 +1,6 @@
 function Cannonball Trajectories by Elevation
-x-label Distance (meters)
-y-label Height (meters)
-x 0 to 250
+x-axis Distance (meters) 0..250
+y-axis Height (meters)
 
 // Three elevations, three arcs — how far the cannon can rain fire.
 15 degrees blue: -0.001*x^2 + 0.27*x

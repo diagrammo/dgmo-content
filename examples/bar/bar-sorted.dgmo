@@ -1,8 +1,8 @@
 bar Crew Size by Ship
 orientation-horizontal
 sort
-x-label Crew
-y-label Ship
+x-axis Crew
+y-axis Ship
 
 Queen Anne's Revenge 300
 Whydah Gally         146

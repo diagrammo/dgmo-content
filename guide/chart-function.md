@@ -1,8 +1,7 @@
 ```dgmo
 function Trig & Exponential Curves
-x-label x
-y-label f(x)
-x 0 to 10
+x-axis x 0..10
+y-axis f(x)
 
 Sine blue: sin(x)
 Cosine green: cos(x)
@@ -23,9 +22,8 @@ Plots mathematical expressions as continuous curves over a range of x — you su
 
 ```
 function Chart Title
-x-label X Axis Label
-y-label Y Axis Label
-x: min to max
+x-axis X Axis Label
+y-axis Y Axis Label
 
 Label color: expression
 ```
@@ -35,12 +33,8 @@ Label color: expression
 | Key       | Description                           | Required |
 | --------- | ------------------------------------- | -------- |
 | `chart`   | Must be `function`                    | Yes      |
-| `x-label` | Label for the X axis                  | No       |
-| `y-label` | Label for the Y axis                  | No       |
-| `y-scale` | `log` for values spanning decades (default `linear`) | No |
-| `y-min` | Fix the low end of the value axis (e.g. `y-min 0`) | No |
-| `y-max` | Fix the high end of the value axis (e.g. `y-max 100`) | No |
-| `x`       | X range in format `min to max`        | No       |
+| `x-axis` | `[title] [min..max] [log \| linear]`; range sets the x domain (default `-10..10`), e.g. `x-axis 0..250` | No       |
+| `y-axis` | Same form for the value axis, e.g. `y-axis Height 0..100 log` | No       |
 
 The title is the rest of line 1 — there is no `title` directive.
 
@@ -75,7 +69,7 @@ Add the `fill` directive to shade the band between each curve and the y=0 baseli
 
 ```dgmo
 function Trajectories
-x 0 to 250
+x-axis 0..250
 fill
 
 15 degrees blue: -0.001*x^2 + 0.27*x

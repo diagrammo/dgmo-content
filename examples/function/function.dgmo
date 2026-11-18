@@ -1,8 +1,7 @@
 function Ship Roll After a Full Broadside
 
-x-label Seconds after broadside
-y-label Roll (degrees)
-x 0 to 12
+x-axis Seconds after broadside 0..12
+y-axis Roll (degrees)
 
 // Recoil heels the ship 30° — the roll rings down as the sea damps it.
 Roll blue: 30*exp(-0.25*x)*sin(2*x)

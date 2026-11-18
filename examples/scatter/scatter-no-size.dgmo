@@ -1,6 +1,6 @@
 scatter Pirate Captains
-x-label Ruthlessness
-y-label Treasure
+x-axis Ruthlessness
+y-axis Treasure
 
 [Caribbean] red
   Blackbeard   90  8500

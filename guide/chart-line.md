@@ -1,8 +1,8 @@
 ```dgmo
 line Ship Speed Over Voyage
 series Knots
-x-label Day
-y-label Speed
+x-axis Day
+y-axis Speed
 
 era Day 1 -> Day 3 Rough Seas red
 era Day 3 -> Day 7 Fair Winds blue
@@ -37,8 +37,8 @@ A line chart connects readings taken at many points along one axis — usually t
 ```
 line Chart Title
 series Series Name
-x-label X Axis Label
-y-label Y Axis Label
+x-axis X Axis Label
+y-axis Y Axis Label
 
 Label value
 ```
@@ -50,8 +50,8 @@ Add `fill` to shade the area under the line.
 ```dgmo
 line Monthly Revenue
 fill
-x-label Month
-y-label USD (thousands)
+x-axis Month
+y-axis USD (thousands)
 
 Jan 42
 Feb 55
@@ -73,8 +73,8 @@ series
   Free blue
   Pro green
   Team orange
-x-label Week
-y-label Users (thousands)
+x-axis Week
+y-axis Users (thousands)
 
 "Week 1"  8.2  1.1  0.3
 "Week 2"  9.5  1.6  0.5
@@ -94,7 +94,7 @@ axis always starts at 0.
 
 ```dgmo
 line Ship's Stores in the Hold
-y-label Barrels
+y-axis Barrels
 
 stack
   Rum orange
@@ -111,25 +111,25 @@ Write `stack 100%` to draw shares instead: every x position fills the chart,
 and the axis reads 0–100%. Keep the raw numbers in the rows; hover shows each
 value and its share. A stacked area prints no point values, and a negative
 value is an error, because a band cannot go below the one it sits on. It
-also takes no `y-right-label`, `band` between series, or `fill-between`.
+also takes no `y-right-axis`, `band` between series, or `fill-between`.
 
-## Dual Y-Axes — `y-right-label`
+## Dual Y-Axes — `y-right-axis`
 
 When two series share an x-axis but not a unit — revenue in dollars against margin
 in percent — give the chart a second y-axis. Inside the `series` block, an indented
-`y-label` or `y-right-label` line acts as a **header**: every series declared beneath
+`y-axis` or `y-right-axis` line acts as a **header**: every series declared beneath
 it is assigned to that axis, until the next header. The header text doubles as that
-axis's label, so you don't write a separate `y-label` line.
+axis's title, so you don't write a separate `y-axis` line. Each header is a whole axis line, so it can also carry a range and `log`, such as `y-right-axis Million barrels 0..`.
 
 ```dgmo
 line Revenue vs Margin
 series
-  y-label Revenue (thousands)
+  y-axis Revenue (thousands)
   Product blue
   Services green
-  y-right-label Margin (%)
+  y-right-axis Margin (%)
   Margin orange
-x-label Quarter
+x-axis Quarter
 
 Q1 120  80 18
 Q2 140  95 21
@@ -141,9 +141,9 @@ Q4 190 130 26
   header lands on the left axis.
 - Data rows still carry one value per series in declaration order — left-axis
   series first, then right-axis, exactly as written in the block.
-- Each axis auto-fits its own series independently, so the two units never
-  distort each other.
-- Dual axes are a `line` feature. Setting `y-right-label` on another chart type
+- Each axis fits its own series independently, so the two units never
+  distort each other. Fix an end of either axis with a range on its header.
+- Dual axes are a `line` feature. Setting `y-right-axis` on another chart type
   warns and renders a single axis, and setting it with no series grouped under
   it warns too.
 
@@ -159,8 +159,8 @@ high-valued series fills the plot instead of hugging the top of a 0-based scale.
 
 ```dgmo
 line Squat Est. 1RM (lbs)
-x-label Week
-y-label lbs
+x-axis Week
+y-axis lbs
 
 "Week 1" 315
 "Week 2" 330
@@ -175,7 +175,7 @@ Add `no-auto-y` to force the axis back to a **0 baseline** (magnitude honesty):
 ```dgmo
 line Squat Est. 1RM (lbs)
 no-auto-y
-y-label lbs
+y-axis lbs
 
 "Week 1" 315
 "Week 6" 395
@@ -185,16 +185,16 @@ y-label lbs
 > encodes magnitude, so a floating baseline would mislead. `no-auto-y` is ignored
 > on non-line charts.
 
-### Fixed range and log scale — `y-min`, `y-max`, `y-scale`
+### Fixed range and log scale — `y-axis` range and `log`
 
-`y-min` and `y-max` fix either end of the axis. Use them to compare charts on
-one scale, or to force a 0 floor with an exact top. `y-scale log` suits values
+A range on the `y-axis` line fixes either end of the axis: `y-axis 0..100`, `y-axis 0..` (floor only), `y-axis ..100` (ceiling only). Use it to compare charts on
+one scale, or to force a 0 floor with an exact top. Add `log` last, as in `y-axis Users 1..10,000,000 log`; it suits values
 that span decades: a series from 10 to 10 million stays readable, with a tick
 at every power of ten.
 
 ```dgmo
 line Monthly Active Users
-y-scale log
+y-axis log
 
 2019 12
 2020 940
@@ -221,7 +221,7 @@ headcount), add `step`. Each value runs flat until the next point, then jumps:
 ```dgmo
 line Port Royal Duty on Rum
 step
-y-label Pieces of eight per barrel
+y-axis Pieces of eight per barrel
 
 1718-01 4
 1718-04 5
@@ -243,7 +243,7 @@ label once:
 
 ```dgmo
 line Rum Sales Forecast
-y-label Barrels
+y-axis Barrels
 series
   Actual blue
   Low teal
@@ -267,7 +267,7 @@ lines cross. Two colour names after the series replace green and red:
 
 ```dgmo
 line Plunder vs Quota
-y-label Doubloons
+y-axis Doubloons
 series
   Haul blue
   Quota gray
@@ -290,7 +290,7 @@ behind the lines, labelled at its right end in its colour:
 
 ```dgmo
 line Doubloons Plundered, 1715
-y-label Doubloons
+y-axis Doubloons
 mean
 median
 
@@ -320,8 +320,8 @@ One April haul drags the mean up to 441; the median stays at 380.
 
 ```dgmo
 line Crew Aboard the Black Pearl
-x-label Week
-y-label Sailors
+x-axis Week
+y-axis Sailors
 moving-average 3
 trend
 
@@ -339,13 +339,13 @@ W11 60
 W12 67
 ```
 
-A one-word `x-label` names the step in the labels: `trend +2.16/week`,
+A one-word `x-axis` title names the step in the labels: `trend +2.16/week`,
 `3-week avg`. With several series, each overlay draws once per series, in the
 series' colour:
 
 ```dgmo
 line Rum Stores in the Hold
-y-label Barrels
+y-axis Barrels
 extremes
 series
   Black Pearl blue
@@ -367,7 +367,7 @@ Annotate named time periods with a shaded background band and label:
 
 ```dgmo
 line U.S. Strategic Petroleum Reserve
-y-label Million Barrels
+y-axis Million Barrels
 
 era '77 -> '81 Carter blue
 era '81 -> '89 Reagan red
@@ -395,12 +395,9 @@ Era syntax: `era <start> -> <end> Label color`
 | --------- | ----------------------------------------- | -------- |
 | `chart`   | Must be `line`                            | Yes      |
 | `series`  | Name of the data series (shown in legend) | No       |
-| `x-label` | Label for the X axis                      | No       |
-| `y-label` | Label for the left Y axis                 | No       |
-| `y-scale` | `log` for values spanning decades (default `linear`) | No |
-| `y-min` | Fix the low end of the value axis (e.g. `y-min 0`) | No |
-| `y-max` | Fix the high end of the value axis (e.g. `y-max 100`) | No |
-| `y-right-label` | Label for the right Y axis (dual-axis; group series beneath it) | No |
+| `x-axis` | Title for the X axis, e.g. `x-axis Week` | No       |
+| `y-axis` | `[title] [min..max] [log \| linear]` for the left Y axis, e.g. `y-axis Users 0..100` | No |
+| `y-right-axis` | Same form for the right Y axis (dual-axis; group series beneath it) | No |
 | `stack` | Stacked areas in place of `series`; `stack 100%` for shares (see above) | No |
 | `fill`    | Shade the area under the line             | No       |
 | `fill-between` | Shade between two series, by which one leads | No |
@@ -449,7 +446,7 @@ Before:
 
 ```dgmo
 line Plunder by Crew, 1716–1720
-y-label Doubloons (thousands)
+y-axis Doubloons (thousands)
 
 series
   Blackbeard
@@ -467,7 +464,7 @@ After:
 
 ```dgmo
 line Plunder by Crew, 1716–1720
-y-label Doubloons (thousands)
+y-axis Doubloons (thousands)
 
 series
   Blackbeard
@@ -494,7 +491,7 @@ Before:
 
 ```dgmo
 line Fleet Size by Navy
-y-label Ships of the line
+y-axis Ships of the line
 
 series
   Royal Navy
@@ -511,7 +508,7 @@ After:
 
 ```dgmo
 line Fleet Size by Navy
-y-label Ships of the line
+y-axis Ships of the line
 
 series
   Royal Navy

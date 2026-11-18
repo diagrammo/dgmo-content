@@ -38,7 +38,7 @@ A SWOT analysis sorts what you know about an organisation, product or plan into 
 
 ```
 swot Title
-// optional directives: tag, active-tag, palette, x-label, y-label, no-axes, no-tint-items
+// optional directives: tag, active-tag, palette, x-axis, y-axis, no-axes, no-tint-items
 
 strengths|weaknesses|opportunities|threats [Label] [color]
   Item text [key: value]
@@ -77,12 +77,12 @@ threats Menaces red
 
 ## Axes
 
-The grid is framed by two axes, drawn as the headers of a table: a band over each column and a rail beside each row. Columns default to **Helpful, Harmful** and rows to **Internal, External**, which is the textbook SWOT matrix. Rename them with `x-label` and `y-label`, each a comma-separated pair, or hide them with `no-axes`, which wins over both label options.
+The grid is framed by two axes, drawn as the headers of a table: a band over each column and a rail beside each row. Columns default to **Helpful, Harmful** and rows to **Internal, External**, which is the textbook SWOT matrix. Rename them with `x-axis` and `y-axis`, each a comma-separated pair, or hide them with `no-axes`, which wins over both.
 
 ```dgmo
 swot Launch review
-x-label Works for us, Works against us
-y-label Inside, Outside
+x-axis Works for us, Works against us
+y-axis Inside, Outside
 strengths
   Small, fast team
 weaknesses
@@ -121,8 +121,8 @@ active-tag Priority
 
 | Directive | Effect |
 |-----------|--------|
-| `x-label A, B` | Column axis labels (default Helpful, Harmful). |
-| `y-label A, B` | Row axis labels (default Internal, External). |
+| `x-axis A, B` | Column axis labels (default Helpful, Harmful). |
+| `y-axis A, B` | Row axis labels (default Internal, External). |
 | `no-axes` | Hide both axes; wins over the label options. |
 | `no-tint-items` | Don't tint tagged rows; the dot alone carries the tag. |
 | `tag`, `active-tag` | Tag groups and the active one. |

@@ -1,6 +1,6 @@
 scatter Gunnery Drills vs Hits on Target
-x-label Drill hours
-y-label Hits per 100 shots
+x-axis Drill hours
+y-axis Hits per 100 shots
 trend
 
 [Black Pearl] blue

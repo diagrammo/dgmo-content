@@ -1,7 +1,7 @@
 ```dgmo
 scatter Cannon Range vs Powder Charge
-x-label Powder (lbs)
-y-label Range (yards)
+x-axis Powder (lbs)
+y-axis Range (yards)
 
 Long Tom 12 1800
 Demi-Culverin 8 1200
@@ -32,8 +32,8 @@ A scatter plot puts a dot on two axes for every observation, so how two measured
 
 ```
 scatter Chart Title
-x-label X Axis Label
-y-label Y Axis Label
+x-axis X Axis Label
+y-axis Y Axis Label
 no-name
 size-label Size Legend Label
 
@@ -48,14 +48,8 @@ Point Name x y size
 | Key          | Description                                                | Required |
 | ------------ | ---------------------------------------------------------- | -------- |
 | `chart`      | Must be `scatter`                                          | Yes      |
-| `x-label`    | Label for the X axis                                       | No       |
-| `y-label`    | Label for the Y axis                                       | No       |
-| `y-scale` | `log` for values spanning decades (default `linear`) | No |
-| `y-min` | Fix the low end of the value axis (e.g. `y-min 0`) | No |
-| `y-max` | Fix the high end of the value axis (e.g. `y-max 100`) | No |
-| `x-scale` | `log` for an x spanning decades (default `linear`) | No |
-| `x-min` | Fix the low end of the x axis | No |
-| `x-max` | Fix the high end of the x axis | No |
+| `x-axis`     | `[title] [min..max] [log \| linear]`, e.g. `x-axis Year 1990..2020` | No       |
+| `y-axis`     | Same form for the value axis, e.g. `y-axis Revenue 0..100 log`; a range or `log` needs numbers | No       |
 | `no-name`    | Hide point labels (labels are on by default)               | No       |
 | `size-label` | Label for the size dimension (shown in legend for bubbles) | No       |
 | `connect` | Join the points in row order, with an arrow at the end | No |
@@ -94,8 +88,8 @@ A single point can carry its own color. Append a color name (lowercase) after th
 
 ```dgmo
 scatter Cannon Range vs Powder Charge
-x-label Powder (lbs)
-y-label Range (yards)
+x-axis Powder (lbs)
+y-axis Range (yards)
 
 Long Tom blue 12 1800
 Carronade red 4 400
@@ -132,8 +126,8 @@ and last points keep their names even under `no-name`:
 
 ```dgmo
 scatter Black Pearl Voyage
-x-label Longitude (°W)
-y-label Latitude (°N)
+x-axis Longitude (°W)
+y-axis Latitude (°N)
 connect
 
 Port Royal 76.8 17.9
@@ -153,8 +147,8 @@ own line in its colour:
 
 ```dgmo
 scatter Gunnery Drills vs Hits on Target
-x-label Drill hours
-y-label Hits per 100 shots
+x-axis Drill hours
+y-axis Hits per 100 shots
 trend
 
 [Black Pearl] blue
@@ -189,8 +183,8 @@ Before:
 
 ```dgmo
 scatter Funding vs Revenue
-x-label Funding ($M)
-y-label Revenue ($M)
+x-axis Funding ($M)
+y-axis Revenue ($M)
 
 Acme Cloud 12 8.5
 PayFlow 45 32
@@ -202,8 +196,8 @@ After:
 
 ```dgmo
 scatter Funding vs Revenue
-x-label Funding ($M)
-y-label Revenue ($M)
+x-axis Funding ($M)
+y-axis Revenue ($M)
 
 marker 20 Profitable
 marker x 30 Series B
@@ -223,8 +217,8 @@ Before:
 
 ```dgmo
 scatter Startup Funding vs Revenue
-x-label Funding ($M)
-y-label Annual Revenue ($M)
+x-axis Funding ($M)
+y-axis Annual Revenue ($M)
 
 [SaaS] blue
   Acme Cloud 12 8.5
@@ -243,8 +237,8 @@ After:
 
 ```dgmo
 scatter Startup Funding vs Revenue
-x-label Funding ($M)
-y-label Annual Revenue ($M)
+x-axis Funding ($M)
+y-axis Annual Revenue ($M)
 
 [SaaS] blue
   Acme Cloud 12 8.5

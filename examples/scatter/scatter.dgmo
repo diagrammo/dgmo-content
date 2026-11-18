@@ -1,6 +1,6 @@
 scatter Pirate Fleets of the Caribbean
-x-label Ruthlessness
-y-label Plunder (chests)
+x-axis Ruthlessness
+y-axis Plunder (chests)
 size-label Crew
 
 [English Pirates] red

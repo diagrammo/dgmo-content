@@ -1,6 +1,6 @@
 bar Cannons vs Crew by Ship
-x-label Ship
-y-label Count
+x-axis Ship
+y-axis Count
 
 group
   Cannons blue

@@ -1,7 +1,7 @@
 bar Treasure Hauls by Port
 fill-solid
-x-label Port
-y-label Doubloons
+x-axis Port
+y-axis Doubloons
 
 Port Royal blue   850
 Tortuga green     620

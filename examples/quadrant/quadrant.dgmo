@@ -1,6 +1,6 @@
 quadrant Crew Performance Assessment
-x-label Low Skill, High Skill
-y-label Low Loyalty, High Loyalty
+x-axis Low Skill, High Skill
+y-axis Low Loyalty, High Loyalty
 
 top-right Promote green
 top-left Train yellow

@@ -1,7 +1,7 @@
 ```dgmo
 quadrant Crew Performance Assessment
-x-label Low Skill, High Skill
-y-label Low Loyalty, High Loyalty
+x-axis Low Skill, High Skill
+y-axis Low Loyalty, High Loyalty
 
 top-right Promote green
 top-left Train yellow
@@ -35,8 +35,8 @@ Places items in a 2×2 grid defined by two axes you name, sorting them into four
 
 ```
 quadrant Chart Title
-x-label Low Label, High Label
-y-label Low Label, High Label
+x-axis Low Label, High Label
+y-axis Low Label, High Label
 
 top-right Quadrant Label color
 top-left Quadrant Label color
@@ -50,8 +50,8 @@ Item Name x y
 
 | Directive      | Description                                              |
 | -------------- | -------------------------------------------------------- |
-| `x-label`      | Two comma-separated labels for the X axis (low, high).    |
-| `y-label`      | Two comma-separated labels for the Y axis (low, high).    |
+| `x-axis`       | Two comma-separated labels for the X axis (low, high), e.g. `x-axis Low, High`. |
+| `y-axis`       | Two comma-separated labels for the Y axis (low, high).    |
 | `top-right`    | Label for the top-right quadrant, with optional color.    |
 | `top-left`     | Label for the top-left quadrant, with optional color.     |
 | `bottom-left`  | Label for the bottom-left quadrant, with optional color.  |

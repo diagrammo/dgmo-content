@@ -1,6 +1,6 @@
 bar Plunder by Voyage
-x-label Voyage
-y-label Doubloons
+x-axis Voyage
+y-axis Doubloons
 
 stack
   Gold red

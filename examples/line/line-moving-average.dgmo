@@ -1,6 +1,6 @@
 line Crew Aboard the Black Pearl
-x-label Week
-y-label Sailors
+x-axis Week
+y-axis Sailors
 moving-average 3
 trend
 

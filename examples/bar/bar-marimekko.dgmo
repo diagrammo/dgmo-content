@@ -1,7 +1,7 @@
 bar Plunder by Sea, 1719
 subtitle Column width = each sea's share of the year's haul
-x-label Share of all plunder
-y-label Share of the sea's haul
+x-axis Share of all plunder
+y-axis Share of the sea's haul
 widths
 
 stack

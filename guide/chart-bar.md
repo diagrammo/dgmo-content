@@ -30,8 +30,8 @@ A bar chart compares a value across categories using **length** — the most dir
 
 ```
 bar Chart Title
-x-label X Axis Label
-y-label Y Axis Label
+x-axis X Axis Label
+y-axis Y Axis Label
 
 Label value
 ```
@@ -46,8 +46,8 @@ layout — `series` is not used on bar charts.
 
 ```dgmo
 bar Support Tickets by Priority
-x-label Month
-y-label Tickets
+x-axis Month
+y-axis Tickets
 
 stack
   Critical red
@@ -117,8 +117,8 @@ to 100%.
 ```dgmo
 bar Cloud market by region, 2025
 subtitle Column width = region’s share of the $250B market
-x-label Share of the global market
-y-label Share of region
+x-axis Share of the global market
+y-axis Share of region
 widths
 
 stack
@@ -174,11 +174,8 @@ Every number reads positive, on the axis and on the segments.
 | `stack diverging` | Stack centred on 0 around a `neutral` series (see above) | No |
 | indented rows | Rows indented under a category line draw stacks grouped by category (see above) | No |
 | `widths` | Marimekko: each row's first number is its column width (see above) | No |
-| `x-label`                | Label for the X axis                         | No       |
-| `y-label`                | Label for the Y axis                         | No       |
-| `y-scale` | `log` for values spanning decades (default `linear`) | No |
-| `y-min` | Fix the low end of the value axis (e.g. `y-min 0`) | No |
-| `y-max` | Fix the high end of the value axis (e.g. `y-max 100`) | No |
+| `x-axis`                 | Title for the category axis, e.g. `x-axis Quarter` | No       |
+| `y-axis`                 | `[title] [min..max] [log \| linear]`, e.g. `y-axis Revenue 0..100`; `log` cannot stack | No       |
 | `orientation-horizontal` | Horizontal bars (default is vertical)        | No       |
 | `sort` | Order the bars largest first (`sort asc` = smallest first, `sort <series>` = by one series) | No |
 | `lollipop` | Draw each bar as a thin stem with a dot at its value | No |
@@ -265,7 +262,7 @@ dashed guide at 80%:
 
 ```dgmo
 bar Hull Damage by Cause, 1716 Season
-y-label Repairs
+y-axis Repairs
 pareto
 
 Cannon fire 176
@@ -287,7 +284,7 @@ reference line behind them, labelled at its right end (`mean 519`):
 
 ```dgmo
 bar Treasure Hauls vs the Captain's Quota
-y-label Doubloons
+y-axis Doubloons
 target 500
 
 Port Royal 620
@@ -376,7 +373,7 @@ Before:
 
 ```dgmo
 bar Treasure Hauls by Port
-y-label Doubloons
+y-axis Doubloons
 
 Port Royal 850
 Tortuga 620
@@ -388,7 +385,7 @@ After:
 
 ```dgmo
 bar Treasure Hauls by Port
-y-label Doubloons
+y-axis Doubloons
 
 marker 900 Quota
 band 400..600 Usual haul green
@@ -410,7 +407,7 @@ Before:
 
 ```dgmo
 bar Treasure Hauls by Port
-y-label Doubloons
+y-axis Doubloons
 
 Port Royal 850
 Tortuga 620
@@ -423,7 +420,7 @@ After:
 
 ```dgmo
 bar Treasure Hauls by Port
-y-label Doubloons
+y-axis Doubloons
 
 Port Royal 850
 Tortuga 620

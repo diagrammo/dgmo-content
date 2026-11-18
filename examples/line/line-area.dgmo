@@ -1,8 +1,8 @@
 line Tortuga Rum Barrels in Stores
 fill
 series Barrels
-x-label Month
-y-label Barrels in Hold
+x-axis Month
+y-axis Barrels in Hold
 
 era Jan -> Apr Raiding Season red
 era Apr -> Aug Dry Spell blue
