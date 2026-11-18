@@ -106,7 +106,7 @@ for that locale's separators.
 
 ## Highlight one item — story view
 
-Add a `highlight` line to put one slice in the spotlight. The named slice keeps its own colour, drawn solid. Every other slice, with its label and leader line, turns grey. List several names with commas: `highlight Safari, Firefox`. Add a colour word to paint the subject: `highlight Safari orange`. A name that matches nothing changes nothing.
+Indent a `highlight` line under a slice to put it in the spotlight. That slice keeps its own colour, drawn solid. Every other slice, with its label and leader line, turns grey. Put a `highlight` under each slice you want lit. Add a colour word to paint the subject: `highlight orange`.
 
 Before:
 
@@ -124,10 +124,10 @@ After:
 
 ```dgmo
 pie Browser Market Share (2025)
-highlight Safari
 
 Chrome 63.5
 Safari 19.8
+  highlight
 Firefox 6.2
 Edge 5.1
 Other 5.4

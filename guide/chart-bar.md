@@ -370,7 +370,7 @@ PNG and PDF match the SVG.
 
 ## Annotate — `marker`, `band`, `era` and `note`
 
-`marker 900 Quota` draws a dashed line at a value, and `marker Nassau Raid` one at a category. `band 400..600 Usual haul` shades a value range. `era Tortuga -> Nassau Republic` shades a run of categories. `note Nassau Spanish fleet ran aground` rings the bar's end and writes beside it, in empty plot space, with a leader line. On a stacked or grouped bar, name one segment as `series @ category`. Indented lines under a note add more text, with **bold** and *italic*. A value label under a note gives way to it. `no-notes` hides every note.
+`marker 900 Quota` draws a dashed line at a value. `band 400..600 Usual haul` shades a value range, and its label sits in a clear spot over the bars. `era Tortuga -> Nassau Republic` shades a run of categories. A `note` and a category `marker` belong to one bar, so they sit indented under its row and never repeat its name: under `Nassau 1100`, `  note Spanish fleet ran aground` writes above the bar, and `  marker Raid` draws a dashed line at it. On a stacked or grouped bar, a note starts with the series it marks: `  note Rum Record cargo`. Lines indented under a note add more text, with **bold** and *italic*. `no-notes` hides every note.
 
 Before:
 
@@ -393,18 +393,18 @@ y-label Doubloons
 marker 900 Quota
 band 400..600 Usual haul green
 era Tortuga -> Nassau Republic of Pirates
-note Nassau Spanish fleet ran aground
-  **1715** hurricane season
 
 Port Royal 850
 Tortuga 620
 Nassau 1100
+  note Spanish fleet ran aground
+    **1715** hurricane season
 Havana 400
 ```
 
 ## Highlight one item — story view
 
-Add a `highlight` line to put one bar in the spotlight. The named bar keeps its own colour, drawn solid. Every other bar and its value label turns grey. The name is a category, such as `Nassau`. On a stacked or grouped bar, you can also name a series. List several names with commas: `highlight Nassau, Havana`. Add a colour word to paint the subject: `highlight Nassau orange`. A name that matches nothing changes nothing.
+Indent a `highlight` line under a bar's row to put it in the spotlight. That bar keeps its own colour, drawn solid. Every other bar and its value label turns grey. On a stacked or grouped bar, a `highlight` under a series name in the `stack` or `group` block lights that series in every bar. Put a `highlight` under each thing you want lit. Add a colour word to paint the subject: `highlight orange`.
 
 Before:
 
@@ -423,12 +423,12 @@ After:
 
 ```dgmo
 bar Treasure Hauls by Port
-highlight Nassau
 y-label Doubloons
 
 Port Royal 850
 Tortuga 620
 Nassau 1100
+  highlight
 Havana 400
 Kingston 530
 ```

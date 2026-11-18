@@ -439,9 +439,9 @@ for that locale's separators.
 
 ## Annotate — `marker`, `band`, `era` and `note`
 
-Four lines mark what the reader should notice. `marker 40 Break-even` draws a dashed line at a value; `marker 1718 Raid` draws one at a category. When the categories are numbers, as years are, name the axis: `marker y 40 …` for a value, `marker x 1718 …` for a year. `band 20..30 Usual range` shades a value range, and `era 1717 -> 1718 Blockade` shades a span of the x-axis.
+Four lines mark what the reader should notice. `marker 40 Break-even` draws a dashed line at a value. To draw one at a category, indent `marker Raid` under that row — under `1718 46 24 31`, it marks 1718. `band 20..30 Usual range` shades a value range, and `era 1717 -> 1718 Blockade` shades a span of the x-axis.
 
-`note` rings one point and writes beside it, with a leader line, in empty plot space. On a chart with several series, name the point as `series @ position`: `note Vane @ 1720 Hanged at Port Royal`. On a single series, `note 1718 Peak` is enough. Quote a multi-word name, and indent lines under the note to add more text. A point value under a note gives way to it. `no-notes` hides every note.
+A `note` indented under a row rings one point of that row and writes beside it, with a leader line, in empty plot space. On a chart with several series, the note starts with the series: `  note Vane Hanged at Port Royal` under `1720 22 11 18`. On a single series the row is enough: `  note Peak`. Quote a multi-word series name, and indent lines under the note to add more text. A point value under a note gives way to it. `no-notes` hides every note.
 
 Each series' name also sits at the right end of its line, so the reader does not have to look up the legend. The names are added beside the point values, not in place of them.
 
@@ -476,19 +476,19 @@ series
 
 marker y 40 Break-even
 era 1717 -> 1718 Blockade of Charleston
-note Blackbeard @ 1718 Queen Anne's Revenge runs aground
-note Vane @ 1720 Hanged at Port Royal
 
 1716 12 8 10
 1717 28 16 22
 1718 46 24 31
+  note Blackbeard Queen Anne's Revenge runs aground
 1719 30 19 36
 1720 22 11 18
+  note Vane Hanged at Port Royal
 ```
 
 ## Highlight one item — story view
 
-Add a `highlight` line to put one series in the spotlight. The named series keeps its own colour, drawn solid and on top. Every other series turns grey, including its points and value labels. Its legend entry turns grey too. The name is a series name, such as `Royal Navy`. List several names with commas. Add a colour word to paint the subject: `highlight Royal Navy orange`. A name that matches nothing changes nothing.
+Indent a `highlight` line under a series name in the `series` block to put that series in the spotlight. It keeps its own colour, drawn solid and on top. Every other series turns grey, including its points and value labels. Its legend entry turns grey too. Put a `highlight` under each series you want lit. Add a colour word to paint the subject: `highlight orange`.
 
 Before:
 
@@ -511,11 +511,11 @@ After:
 
 ```dgmo
 line Fleet Size by Navy
-highlight Royal Navy
 y-label Ships of the line
 
 series
   Royal Navy
+    highlight
   French Navy
   Spanish Navy
 

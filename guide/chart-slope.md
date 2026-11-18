@@ -101,7 +101,7 @@ for that locale's separators.
 
 ## Annotate — `marker`, `band` and `note`
 
-`marker y 50 Target` draws a dashed line at a value and `band 20..30 Usual` shades a value range. Periods are usually years, so a value `marker` names its axis with `y`. `note Rust @ 2025 Overtakes Go` rings one end of one line and writes beside it. `no-notes` hides every note.
+`marker y 50 Target` draws a dashed line at a value and `band 20..30 Usual` shades a value range. Periods are usually years, so a value `marker` names its axis with `y`. A `note` indented under a series row rings that line at a period and writes beside it; it starts with the period: `  note 2025 Overtakes Go` under `Rust 20 62`. `no-notes` hides every note.
 
 Before:
 
@@ -121,16 +121,16 @@ slope Language Popularity
 period 2020 2025
 
 marker y 50 Half of teams
-note Rust @ 2025 Overtakes Go
 
 Rust 20 62
+  note 2025 Overtakes Go
 Go 45 55
 Java 70 48
 ```
 
 ## Highlight one item — story view
 
-Add a `highlight` line to put one series in the spotlight. The named series keeps its own colour, drawn solid and on top. Every other series turns grey, including its line, points and labels. The name is a series label, such as `Rust`. List several names with commas. A trailing colour word paints the subject: `highlight Rust orange`. A name that matches nothing changes nothing. The `highlight` word must start the line, in column 1.
+Indent a `highlight` line under a series row to put that series in the spotlight. It keeps its own colour, drawn solid and on top. Every other series turns grey, including its line, points and labels. Put a `highlight` under each series you want lit. A colour word paints the subject: `highlight orange`.
 
 Before:
 
@@ -149,13 +149,13 @@ After:
 
 ```dgmo
 slope Programming Language Popularity
-highlight Rust orange
 
 period 2020 2022 2025
 
 Python 3 1 1
 JavaScript 1 2 2
 Rust 18 12 5
+  highlight orange
 Go 10 8 7
 ```
 
