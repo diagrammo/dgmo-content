@@ -114,7 +114,7 @@ Anne Bonny  j: Tortuga, type: individual
 | `tag <Group> as <alias>` / `active-tag` | Colour the boxes by a tag group; jurisdiction is the usual first group. Adds the legend |
 | `fill-tint`, `fill-solid`, `fill-outline` | How the boxes are filled. Outside entities are always outline-only and dashed |
 | `no-legend` | Hide the legend |
-| `subtitle`, `source`, `footnote` | The chart frame |
+| `subtitle`, `footnote` | The chart frame |
 | `palette` | Draw in a built-in palette |
 
 Colors come from the active palette — see [Colors](colors.md).

@@ -59,7 +59,7 @@ unit commit
 | `no-summary`                    | Hide the total and busiest day under the title                       |
 | `no-legend`                     | Hide the Less … More legend at the bottom right                      |
 
-A unit that is a word takes an English plural; one with no vowel (`km`, `kg`) stays as written. The title and the frame lines `subtitle`, `source` and `footnote` work as in every chart.
+A unit that is a word takes an English plural; one with no vowel (`km`, `kg`) stays as written. The title and the frame lines `subtitle` and `footnote` work as in every chart.
 
 ## Shading
 
