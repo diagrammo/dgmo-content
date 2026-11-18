@@ -1386,7 +1386,7 @@
           "kind": "trigger"
         }
       ],
-      "guidance": "Pick a domain (`x <min> to <max>`) that frames the interesting behavior and keep to a few curves for legibility. Give each curve a short readable name before the colon (`Sine: sin(x)`), not the expression repeated.",
+      "guidance": "Pick a domain (`x-axis <min>..<max>`) that frames the interesting behavior and keep to a few curves for legibility. Give each curve a short readable name before the colon (`Sine: sin(x)`), not the expression repeated.",
       "description": "Mathematical expressions"
     },
     {
