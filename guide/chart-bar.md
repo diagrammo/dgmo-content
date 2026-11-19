@@ -167,6 +167,39 @@ right, and the neutral segment straddles 0. Without a `neutral` flag, an odd
 count makes the middle answer neutral and an even count splits in the middle.
 Every number reads positive, on the axis and on the segments.
 
+### Mirror — butterfly and population pyramid
+
+`mirror` is a third layout header beside `stack` and `group`. It takes
+exactly two series and draws them back to back: the first grows left from a
+centre gutter, the second grows right.
+
+```dgmo
+bar Crew by Age, Black Gull and Red Kraken
+x-axis Age
+y-axis Sailors
+
+mirror
+  Black Gull purple
+  Red Kraken teal
+
+50+   6 9
+40–49 14 18
+30–39 27 31
+20–29 38 34
+15–19 12 8
+```
+
+The chart is always horizontal, and rows run top to bottom in source order.
+Both sides share one scale, so equal numbers draw equal lengths, and the
+ticks read positive both ways. The category names sit in the centre gutter,
+under the `x-axis` title; the `y-axis` title sits under the ticks. Each
+number sits just past the end of its bar.
+
+Each side is a magnitude, so write the numbers as they are — never negate
+one series. A negative number is an error on its row, and so is any series
+count but two. `sort` is ignored with a warning, and `lollipop` and the
+statistics overlays do not apply.
+
 ## Metadata Keys
 
 | Key                      | Description                                  | Required |
@@ -174,6 +207,7 @@ Every number reads positive, on the axis and on the segments.
 | `stack` / `group`        | Multi-series layout block header (see above) | No       |
 | `stack 100%` | Stack drawn as shares of each bar's total (see above) | No |
 | `stack diverging` | Stack centred on 0 around a `neutral` series (see above) | No |
+| `mirror` | Two series drawn back to back from a centre gutter (see above) | No |
 | indented rows | Rows indented under a category line draw stacks grouped by category (see above) | No |
 | `widths` | Marimekko: each row's first number is its column width (see above) | No |
 | `x-axis`                 | Title for the category axis, e.g. `x-axis Quarter` | No       |

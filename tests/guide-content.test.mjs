@@ -259,6 +259,27 @@ const DOCUMENTED = [
     verifiedAgainst: 'examples/swimlane/swimlane-bpmn.dgmo (copy of dgmo tests/fixtures/swimlane-bpmn.dgmo)',
     on: '2026-11-16',
   },
+  {
+    what: 'the bar guide has a mirror section and a mirror row in its Metadata Keys table',
+    file: 'guide/chart-bar.md',
+    contains: [
+      '### Mirror — butterfly and population pyramid',
+      '\nmirror\n  Black Gull purple\n  Red Kraken teal\n',
+      'exactly two series',
+      '| `mirror` | Two series drawn back to back from a centre gutter (see above) | No |',
+    ],
+    why: 'The butterfly row (#1878) is done only when the bar guide documents `mirror`; slice 1 landed the parser and renderer with no guide text.',
+    verifiedAgainst: 'dgmo src/chart.ts settleMirror and docs/language-reference.md mirror section at f004d770 (#1878)',
+    on: '2026-11-19',
+  },
+  {
+    what: 'the bar-mirror example declares the mirror block with exactly two series',
+    file: 'examples/bar/bar-mirror.dgmo',
+    contains: ['\nmirror\n  Black Gull purple\n  Red Kraken teal\n\n'],
+    why: 'The butterfly row (#1878) needs an example under examples/bar/ for its registry variant.',
+    verifiedAgainst: 'dgmo gallery/fixtures/bar-mirror.dgmo at f004d770 (#1878)',
+    on: '2026-11-19',
+  },
 ];
 
 /**

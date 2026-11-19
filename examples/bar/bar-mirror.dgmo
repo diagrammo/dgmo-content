@@ -1,0 +1,14 @@
+bar Crew by Age, Black Gull and Red Kraken
+subtitle Sailors aboard each ship, 1720
+x-axis Age
+y-axis Sailors
+
+mirror
+  Black Gull purple
+  Red Kraken teal
+
+50+   6 9
+40–49 14 18
+30–39 27 31
+20–29 38 34
+15–19 12 8

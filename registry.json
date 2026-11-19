@@ -532,6 +532,39 @@
       "description": null
     },
     {
+      "id": "bar-mirror",
+      "kind": "variant",
+      "base": "bar",
+      "name": "Mirror",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "butterfly chart",
+          "kind": "synonym"
+        },
+        {
+          "text": "population pyramid",
+          "kind": "synonym"
+        },
+        {
+          "text": "age pyramid",
+          "kind": "synonym"
+        },
+        {
+          "text": "back-to-back bar chart",
+          "kind": "synonym"
+        },
+        {
+          "text": "mirror bar chart",
+          "kind": "synonym"
+        }
+      ],
+      "guidance": null,
+      "description": null
+    },
+    {
       "id": "block",
       "kind": "type",
       "base": null,
@@ -4295,6 +4328,19 @@
       "id": "bar-clustered-stack",
       "entity": "bar-clustered-stack",
       "file": "examples/bar/bar-clustered-stack.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "bar-mirror",
+      "entity": "bar-mirror",
+      "file": "examples/bar/bar-mirror.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
