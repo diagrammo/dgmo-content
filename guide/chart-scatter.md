@@ -27,6 +27,7 @@ A scatter plot puts a dot on two axes for every observation, so how two measured
 - **[`heatmap`](chart-heatmap.md)** — the two dimensions are named categories (weeks, regions) rather than measured numbers.
 - **[`function`](chart-function.md)** — you have a continuous equation rather than discrete observed points.
 - **[`map`](chart-map.md)** — the positions correspond to real places on Earth.
+- **[`boxplot`](chart-boxplot.md)** — you have many values of one measurement per group and want their spread and outliers, not a relation between two measures.
 
 ## Syntax
 

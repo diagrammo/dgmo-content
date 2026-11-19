@@ -720,6 +720,16 @@
         "hierarchy"
       ],
       "file": "chart-ownership.md"
+    },
+    {
+      "slug": "chart-boxplot",
+      "title": "Box Plot",
+      "group": "data",
+      "subhead": "distribution",
+      "intent": [
+        "distribution"
+      ],
+      "file": "chart-boxplot.md"
     }
   ]
 }

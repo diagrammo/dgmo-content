@@ -370,6 +370,22 @@ unit volley
 12-28 14
 ```
 
+### Box Plot
+
+```dgmo
+boxplot Days Between Ports by Ship
+y-axis Days
+
+[Black Pearl]
+4 5 5 6 6 6 7 7 7 7 8 8 8 9 9 10 11 12 19
+
+[Queen Anne's Revenge]
+6 7 8 8 9 9 9 10 10 11 11 12 13 14 15
+
+[Fancy] red
+3 4 4 5 5 5 5 6 6 6 7 7 8 9
+```
+
 ### Line Chart
 
 ```dgmo

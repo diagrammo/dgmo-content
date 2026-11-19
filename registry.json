@@ -1722,6 +1722,73 @@
       "description": "Daily values as a calendar of squares, one column per week — activity logs, commits, workouts, streaks, habits"
     },
     {
+      "id": "boxplot",
+      "kind": "type",
+      "base": null,
+      "name": "Box Plot",
+      "family": "data",
+      "intent": [
+        "distribution"
+      ],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "box plot",
+          "kind": "trigger"
+        },
+        {
+          "text": "boxplot",
+          "kind": "trigger"
+        },
+        {
+          "text": "box and whisker",
+          "kind": "trigger"
+        },
+        {
+          "text": "box-and-whisker",
+          "kind": "trigger"
+        },
+        {
+          "text": "whisker plot",
+          "kind": "trigger"
+        },
+        {
+          "text": "quartiles",
+          "kind": "trigger"
+        },
+        {
+          "text": "interquartile range",
+          "kind": "trigger"
+        },
+        {
+          "text": "outliers",
+          "kind": "trigger"
+        },
+        {
+          "text": "spread across groups",
+          "kind": "trigger"
+        },
+        {
+          "text": "cycle time distribution",
+          "kind": "trigger"
+        },
+        {
+          "text": "response time distribution",
+          "kind": "trigger"
+        },
+        {
+          "text": "test score distribution",
+          "kind": "trigger"
+        },
+        {
+          "text": "six sigma",
+          "kind": "trigger"
+        }
+      ],
+      "guidance": "Put one `[Name]` header per group and its raw numbers under it, any number per line; the chart works out the quartiles and flags outliers itself. Add `points` when the groups are small enough to show every value, `mean` when skew matters, and `y-axis` with a title and unit. Use one colour unless a group must stand out. For the shape of one distribution, use a histogram instead.",
+      "description": "Spread, quartiles and outliers of numbers across groups — cycle times, response times, test scores, quality data"
+    },
+    {
       "id": "infra",
       "kind": "type",
       "base": null,
@@ -4912,6 +4979,53 @@
       "id": "calendar-heatmap-log",
       "entity": "calendar-heatmap",
       "file": "examples/calendar-heatmap/calendar-heatmap-log.dgmo",
+      "isPrimary": false,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "boxplot",
+      "entity": "boxplot",
+      "file": "examples/boxplot/boxplot.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "boxplot-points",
+      "entity": "boxplot",
+      "file": "examples/boxplot/boxplot-points.dgmo",
+      "isPrimary": false,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "boxplot-horizontal",
+      "entity": "boxplot",
+      "file": "examples/boxplot/boxplot-horizontal.dgmo",
       "isPrimary": false,
       "status": "draft",
       "placements": [

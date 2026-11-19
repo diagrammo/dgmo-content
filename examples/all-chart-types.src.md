@@ -94,6 +94,10 @@ const plunder = ships.reduce((sum, s) => sum + s.gold, 0);
 
 ![[calendar-heatmap/calendar-heatmap.dgmo]]
 
+### Box Plot
+
+![[boxplot/boxplot.dgmo]]
+
 ### Line Chart
 
 ![[line/line.dgmo]]
