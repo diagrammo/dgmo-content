@@ -226,8 +226,8 @@ const DOCUMENTED = [
     what: 'the all-chart-types showcase embeds the radial mindmap',
     file: 'examples/all-chart-types.src.md',
     contains: ['### Radial mindmap\n\n![[mindmap/mindmap-radial.dgmo]]'],
-    why: 'The showcase is where a reader sees every type and variant side by side, as treemap radial is (#1843).',
-    verifiedAgainst: 'examples/all-chart-types.src.md treemap radial entry',
+    why: 'The showcase is where a reader sees every type and variant side by side, as treemap sunburst is (#1843).',
+    verifiedAgainst: 'examples/all-chart-types.src.md treemap sunburst entry (renamed from radial, #1857)',
     on: '2026-11-15',
   },
   {

@@ -541,11 +541,11 @@ Provisions t: Stores
   Hardtack 70
 ```
 
-### Sunburst (treemap radial)
+### Sunburst (treemap sunburst)
 
 ```dgmo
 treemap Plunder Spend ($k)
-radial
+sunburst
 
 tag Crew as t
   Deck blue
@@ -554,6 +554,31 @@ tag Crew as t
 
 Sailing & Rigging t: Deck
   Rigging 320
+  Helm 180
+  Lookout 140
+Cannon Battery t: Guns
+  Powder 90
+  Shot 130
+Provisions t: Stores
+  Rum 110
+  Hardtack 70
+```
+
+### Icicle (treemap icicle)
+
+```dgmo
+treemap Plunder Spend ($k)
+icicle
+
+tag Crew as t
+  Deck blue
+  Guns orange
+  Stores green
+
+Sailing & Rigging t: Deck
+  Rigging
+    Lines 200
+    Sails 120
   Helm 180
   Lookout 140
 Cannon Battery t: Guns

@@ -130,9 +130,13 @@ const plunder = ships.reduce((sum, s) => sum + s.gold, 0);
 
 ![[treemap/treemap.dgmo]]
 
-### Sunburst (treemap radial)
+### Sunburst (treemap sunburst)
 
-![[treemap/treemap-radial.dgmo]]
+![[treemap/treemap-sunburst.dgmo]]
+
+### Icicle (treemap icicle)
+
+![[treemap/treemap-icicle.dgmo]]
 
 ## Life
 

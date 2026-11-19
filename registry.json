@@ -3906,6 +3906,30 @@
       "description": null
     },
     {
+      "id": "treemap-sunburst",
+      "kind": "variant",
+      "base": "treemap",
+      "name": "Sunburst",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "treemap-icicle",
+      "kind": "variant",
+      "base": "treemap",
+      "name": "Icicle",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
       "id": "venn",
       "kind": "type",
       "base": null,
@@ -6015,6 +6039,32 @@
         {
           "surface": "obsidian",
           "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "treemap-sunburst",
+      "entity": "treemap-sunburst",
+      "file": "examples/treemap/treemap-sunburst.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "treemap-icicle",
+      "entity": "treemap-icicle",
+      "file": "examples/treemap/treemap-icicle.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
         }
       ]
     },

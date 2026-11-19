@@ -183,13 +183,13 @@ services
 
 The default mode is resolved from the source — **tags declared → tag**; else **any heat present → heat**; else **branch** (each top-level branch a distinct hue, tinted with depth). The desktop app adds a runtime tag/heat/branch switcher in the legend — live preview only, it never edits the source.
 
-## Radial mode — sunburst / hierarchical pie
+## Sunburst mode — hierarchical pie
 
-Add a bare `radial` line and the same hierarchy renders as a **sunburst** — a hierarchical, multi-ring pie. The center disc is the whole (the chart title + grand total), the first ring is your top-level groups, and each outer ring breaks a group into its parts. It's the familiar "slices of a circle" read of the exact same data a treemap shows as rectangles:
+Add a bare `sunburst` line and the same hierarchy renders as a **sunburst** — a hierarchical, multi-ring pie. The center disc is the whole (the chart title + grand total), the first ring is your top-level groups, and each outer ring breaks a group into its parts. It's the familiar "slices of a circle" read of the exact same data a treemap shows as rectangles:
 
 ```dgmo
 treemap Plunder Spend ($k)
-radial
+sunburst
 
 tag Crew as t
   Deck blue
@@ -210,7 +210,40 @@ Provisions t: Stores
 
 Everything carries over: tags, the `heat` ramp, `active-tag`, and `no-value` / `no-percent` / `no-legend`. `no-headers` has no effect (a sunburst has no header bars). An arc's **angle** is its share of the whole (`value ÷ grand total`); the **radius** is just depth and carries no magnitude — so slices are laid out in **source order** (not value-sorted), and very thin arcs drop their inline label to avoid clutter.
 
-**When to reach for radial vs. rectangular:** use the sunburst for **shallow trees (≈3 levels or fewer)** and when you want the "part of a whole" circle. For **deep trees or precise magnitude comparison, prefer the rectangular treemap** — because radius carries no magnitude, deep sunbursts thin out and the eye over-weights the outer rings. For flat, single-level data with no hierarchy, use the [pie chart](chart-pie.md) instead.
+**When to reach for the sunburst vs. rectangular:** use the sunburst for **shallow trees (≈3 levels or fewer)** and when you want the "part of a whole" circle. For **deep trees or precise magnitude comparison, prefer the rectangular treemap** — because radius carries no magnitude, deep sunbursts thin out and the eye over-weights the outer rings. For flat, single-level data with no hierarchy, use the [pie chart](chart-pie.md) instead.
+
+The flag was called `radial` before dgmo renamed it. `radial` is now an error whose message names `sunburst`.
+
+## Icicle mode — columns by depth
+
+Add a bare `icicle` line and the same hierarchy renders as **bands**: the top-level groups form the first column on the left, and each column to the right breaks a group into its parts, so depth reads left to right. A band's **height** is its share of the whole; every column has the same width, and bands stay in **source order**, top to bottom.
+
+```dgmo
+treemap Plunder Spend ($k)
+icicle
+
+tag Crew as t
+  Deck blue
+  Guns orange
+  Stores green
+
+Sailing & Rigging t: Deck
+  Rigging
+    Lines 200
+    Sails 120
+  Helm 180
+  Lookout 140
+Cannon Battery t: Guns
+  Powder 90
+  Shot 130
+Provisions t: Stores
+  Rum 110
+  Hardtack 70
+```
+
+Each band carries a horizontal label — the name, then value · share. A band too short for its label drops it; hover still shows the name and value. Tags, the `heat` ramp, `active-tag`, and `no-value` / `no-percent` / `no-legend` carry over as in sunburst mode; `no-headers` has no effect.
+
+**When to reach for the icicle:** deeper trees and long names. Labels stay horizontal, so they read more easily than curved sunburst text, and a column per level keeps every depth the same width. `sunburst` and `icicle` are two layouts of one hierarchy, so a treemap takes one or the other — setting both is an error.
 
 ## Interactivity
 
