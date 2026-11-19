@@ -346,7 +346,7 @@ Sprint mode adds alternating sprint bands, numbered sprint labels, and dashed bo
 
 Groups are more than headings: each group row has a shaded band, accent stripe, disclosure glyph, and roll-up bar. Collapsing one replaces its task rows with a synthesized `Name NN%` summary.
 
-Task labels begin with a coloured `●` (task) or `◆` (milestone). Labels drawn on a bar truncate with an ellipsis when space is tight and disappear when they cannot fit. A dated `today-marker` is still captioned literally `Today`, and is silently omitted when its date falls outside the chart span.
+Task labels begin with a coloured `●` (task) or `◆` (milestone). The name sits in the label column; a bar carries it too only when the column has to cut it short, and that bar copy truncates with an ellipsis when space is tight and disappears when it cannot fit. A dated `today-marker` is still captioned literally `Today`, and is silently omitted when its date falls outside the chart span.
 
 ## Comments
 
@@ -369,7 +369,7 @@ A task line is `Name` then `duration`. The duration is read from the **last toke
 Provision Ship 2026-03-01 5d
 ```
 
-That creates a task literally named `Provision Ship 2026-03-01`, starting at the chart start date, not in March. **It validates clean** — nothing warns you. The tell is the task label on the rendered bar and a timeline that begins on the wrong date.
+That creates a task literally named `Provision Ship 2026-03-01`, starting at the chart start date, not in March. **It validates clean** — nothing warns you. The tell is the task label in the rendered label column and a timeline that begins on the wrong date.
 
 To pin a task to a real date, use the full key-value form, where both the duration and the start are named:
 
