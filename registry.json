@@ -565,6 +565,18 @@
       "description": null
     },
     {
+      "id": "bar-combo",
+      "kind": "variant",
+      "base": "bar",
+      "name": "Combo",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
       "id": "block",
       "kind": "type",
       "base": null,
@@ -2253,6 +2265,18 @@
       "kind": "variant",
       "base": "line",
       "name": "Dual Axis",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "line-combo",
+      "kind": "variant",
+      "base": "line",
+      "name": "Combo",
       "family": "data",
       "intent": [],
       "produces": null,
@@ -4413,6 +4437,19 @@
       ]
     },
     {
+      "id": "bar-combo",
+      "entity": "bar-combo",
+      "file": "examples/bar/bar-combo.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
       "id": "block",
       "entity": "block",
       "file": "examples/block/block.dgmo",
@@ -5371,6 +5408,19 @@
       "entity": "line",
       "file": "examples/line/line-extremes.dgmo",
       "isPrimary": false,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "line-combo",
+      "entity": "line-combo",
+      "file": "examples/line/line-combo.dgmo",
+      "isPrimary": true,
       "status": "draft",
       "placements": [
         {

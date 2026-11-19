@@ -1,0 +1,14 @@
+bar Cannon Fire and Hits by Ship
+x-axis Ship
+
+group
+  y-axis Shots
+    Broadsides blue
+    Chasers green
+  y-right-axis Hit Rate (%)
+    Hit Rate red mark: line
+
+Queen Anne's Revenge 120 40 38
+Royal Fortune        104 36 44
+Whydah Gally          88 30 51
+Adventure Galley     132 46 35

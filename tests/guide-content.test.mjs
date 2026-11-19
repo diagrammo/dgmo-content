@@ -280,6 +280,31 @@ const DOCUMENTED = [
     verifiedAgainst: 'dgmo gallery/fixtures/bar-mirror.dgmo at f004d770 (#1878)',
     on: '2026-11-19',
   },
+  {
+    what: 'the bar guide has a combo section and a `mark:` row in its Metadata Keys table',
+    file: 'guide/chart-bar.md',
+    contains: [
+      '### Combo — lines over bars, `mark:`',
+      '    Hit Rate red mark: line\n',
+      'It is left out of the',
+      '| `mark:` | On a `stack` or `group` series line: `line` or `step` draws it as a line over the bars (see above) | No |',
+    ],
+    why: 'The combo row (#1852) is done only when both host guides document `mark:`; slices 1 and 2 landed the parser and renderer with no guide text.',
+    verifiedAgainst: 'dgmo src/chart.ts settleBarCombo and docs/language-reference.md combo sections at 0685b9e2 (#1852)',
+    on: '2026-11-19',
+  },
+  {
+    what: 'the line guide has a combo section and a `mark:` row in its Metadata Keys table',
+    file: 'guide/chart-line.md',
+    contains: [
+      '## Combo — bars and lines, `mark:`',
+      '    Plunder orange mark: bar\n',
+      '| `mark:` | On a series line: `bar`, `line` (default) or `step` — how that series is drawn (see above) | No |',
+    ],
+    why: 'The combo row (#1852) is done only when both host guides document `mark:`.',
+    verifiedAgainst: 'dgmo tests/combo-mark.test.ts and gallery/fixtures/line-combo.dgmo at 0685b9e2 (#1852)',
+    on: '2026-11-19',
+  },
 ];
 
 /**

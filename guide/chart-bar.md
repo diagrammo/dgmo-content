@@ -200,6 +200,50 @@ one series. A negative number is an error on its row, and so is any series
 count but two. `sort` is ignored with a warning, and `lollipop` and the
 statistics overlays do not apply.
 
+### Combo — lines over bars, `mark:`
+
+In a `stack` or `group` block, a series line that ends in `mark: line` or
+`mark: step` draws that series as a line over the bars. It is left out of the
+stack or the cluster: a `stack` stacks only its bars, and a `group` sets only
+its bars side by side. A series without `mark:` stays a bar.
+
+The block also takes the `y-axis` / `y-right-axis` headers from the line
+chart's dual axes, so a line in another unit gets its own scale on the right:
+
+```dgmo
+bar Cannon Fire and Hits by Ship
+x-axis Ship
+
+group
+  y-axis Shots
+    Broadsides blue
+    Chasers green
+  y-right-axis Hit Rate (%)
+    Hit Rate red mark: line
+
+Queen Anne's Revenge 120 40 38
+Royal Fortune        104 36 44
+Whydah Gally          88 30 51
+Adventure Galley     132 46 35
+```
+
+- At most two axes. The bars stay on the left axis, so a series under
+  `y-right-axis` must carry `mark: line` or `mark: step`.
+- Data rows carry one value per series in the order the block declares them,
+  lines included.
+- `mark: step` holds each value until the next category, which suits a
+  target that changes in steps.
+- The legend's swatch shows each series' mark: a square chip for a bar, a
+  stroke for a line.
+- A combo draws columns, so `orientation-horizontal` and `lollipop` are
+  ignored with a warning.
+- `mark:` is an error under `mirror`, `stack 100%` and `stack diverging`, on
+  a Marimekko or a clustered stack, and when every series is a line — write a
+  `line` chart for that.
+
+To lead with lines instead, write a `line` chart and give the bar series
+`mark: bar`; the line guide covers that form.
+
 ## Metadata Keys
 
 | Key                      | Description                                  | Required |
@@ -208,6 +252,8 @@ statistics overlays do not apply.
 | `stack 100%` | Stack drawn as shares of each bar's total (see above) | No |
 | `stack diverging` | Stack centred on 0 around a `neutral` series (see above) | No |
 | `mirror` | Two series drawn back to back from a centre gutter (see above) | No |
+| `mark:` | On a `stack` or `group` series line: `line` or `step` draws it as a line over the bars (see above) | No |
+| `y-right-axis` | Inside the `stack` or `group` block: a header for the line series on the right axis (see above) | No |
 | indented rows | Rows indented under a category line draw stacks grouped by category (see above) | No |
 | `widths` | Marimekko: each row's first number is its column width (see above) | No |
 | `x-axis`                 | Title for the category axis, e.g. `x-axis Quarter` | No       |

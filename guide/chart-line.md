@@ -143,13 +143,58 @@ Q4 190 130 26
   series first, then right-axis, exactly as written in the block.
 - Each axis fits its own series independently, so the two units never
   distort each other. Fix an end of either axis with a range on its header.
-- Dual axes are a `line` feature. Setting `y-right-axis` on another chart type
-  warns and renders a single axis, and setting it with no series grouped under
-  it warns too.
+- Dual axes are a `line` feature, and a `bar` chart with lines takes them too
+  (see the bar guide's combo section). Setting `y-right-axis` on another chart
+  type warns and renders a single axis, and setting it with no series grouped
+  under it warns too.
 
 Use a second axis sparingly: two axes let the author choose where the lines
 cross, so reserve it for genuinely different units rather than for two numbers
 that could share one scale.
+
+## Combo — bars and lines, `mark:`
+
+A series line takes a same-line `mark:` key that says how that one series is
+drawn: `mark: bar` draws it as bars, `mark: step` as a step line, and
+`mark: line` is the default. Mix them to put a quantity in bars and a rate in a
+line, usually with the second axis above:
+
+```dgmo
+line Plunder and Morale Over the Voyage
+x-axis Port of Call
+
+series
+  y-axis Doubloons (thousands)
+    Plunder orange mark: bar
+  y-right-axis Crew Morale (%)
+    Morale blue
+
+Nassau       4.2 62
+Tortuga      6.5 71
+Port Royal   9.1 80
+Isla Muerta  7.8 58
+Kingston    11.4 86
+```
+
+- `mark:` goes last on the series line, after the name and its colour:
+  `Plunder orange mark: bar`.
+- Lines always draw over bars. Several bar series stand side by side in each
+  x slot, and an axis with bars on it reaches 0, because a bar's length is its
+  value.
+- `mark: step` holds each value until the next point, like the `step` flag,
+  for that one series.
+- The legend's swatch shows each series' mark: a square chip for a bar, a
+  stroke for a line.
+- A chart with any bar keeps its row labels as categories, even when every
+  row is a date.
+- A word `bar` or `line` at the end of a name is part of the name
+  (`Bottom Line`); only `mark:` sets a mark.
+- `mark:` is an error on a stacked area (a `stack` block), and an unknown mark
+  is an error.
+
+To lead with bars instead — a `stack` or `group` of bars with a line over
+them — write a `bar` chart and give the line series `mark: line`. The bar guide
+covers that form.
 
 ## Y-Axis Scaling — auto-fit by default, `no-auto-y` to opt out
 
@@ -398,6 +443,7 @@ Era syntax: `era <start> -> <end> Label color`
 | `x-axis` | Title for the X axis, e.g. `x-axis Week` | No       |
 | `y-axis` | `[title] [min..max] [log \| linear]` for the left Y axis, e.g. `y-axis Users 0..100` | No |
 | `y-right-axis` | Same form for the right Y axis (dual-axis; group series beneath it) | No |
+| `mark:` | On a series line: `bar`, `line` (default) or `step` — how that series is drawn (see above) | No |
 | `stack` | Stacked areas in place of `series`; `stack 100%` for shares (see above) | No |
 | `fill`    | Shade the area under the line             | No       |
 | `fill-between` | Shade between two series, by which one leads | No |

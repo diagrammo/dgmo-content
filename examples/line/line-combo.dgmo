@@ -1,0 +1,14 @@
+line Plunder and Morale Over the Voyage
+x-axis Port of Call
+
+series
+  y-axis Doubloons (thousands)
+    Plunder orange mark: bar
+  y-right-axis Crew Morale (%)
+    Morale blue
+
+Nassau       4.2 62
+Tortuga      6.5 71
+Port Royal   9.1 80
+Isla Muerta  7.8 58
+Kingston    11.4 86
