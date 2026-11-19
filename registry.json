@@ -3878,7 +3878,7 @@
           "kind": "trigger"
         }
       ],
-      "guidance": "Put the unit in the title (`Cloud Spend ($)`) — there is no currency/format directive. Reach for `depth N` once a tree goes past ~3 levels (deeper subtrees collapse to a drillable block) and `other-below N` to fold a long tail of tiny categories into one **Other** box. Pick the color mode to match intent: tags for categories, `heat` for a gain/loss heatmap, branch for zero-config structure. Add `radial` to render a **sunburst / hierarchical pie** — best for shallow trees where you want \"share of a circle\"; keep the rectangular default for deep trees or precise magnitude comparison.",
+      "guidance": "Put the unit in the title (`Cloud Spend ($)`) — there is no currency/format directive. Reach for `depth N` once a tree goes past ~3 levels (deeper subtrees collapse to a drillable block) and `other-below N` to fold a long tail of tiny categories into one **Other** box. Pick the color mode to match intent: tags for categories, `heat` for a gain/loss heatmap, branch for zero-config structure. Add `sunburst` to render a **sunburst / hierarchical pie** — best for shallow trees where you want \"share of a circle\"; keep the rectangular default for deep trees or precise magnitude comparison.",
       "description": null
     },
     {
@@ -3913,7 +3913,20 @@
       "family": "data",
       "intent": [],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "sunburst diagram",
+          "kind": "synonym"
+        },
+        {
+          "text": "ring chart of a hierarchy",
+          "kind": "synonym"
+        },
+        {
+          "text": "nested rings",
+          "kind": "synonym"
+        }
+      ],
       "guidance": null,
       "description": null
     },
@@ -3925,7 +3938,32 @@
       "family": "data",
       "intent": [],
       "produces": null,
-      "keywords": [],
+      "keywords": [
+        {
+          "text": "icicle chart",
+          "kind": "synonym"
+        },
+        {
+          "text": "icicle plot",
+          "kind": "synonym"
+        },
+        {
+          "text": "icicle diagram",
+          "kind": "synonym"
+        },
+        {
+          "text": "partition chart",
+          "kind": "synonym"
+        },
+        {
+          "text": "hierarchy as columns",
+          "kind": "synonym"
+        },
+        {
+          "text": "depth left to right",
+          "kind": "synonym"
+        }
+      ],
       "guidance": null,
       "description": null
     },
