@@ -3247,6 +3247,46 @@
       "description": null
     },
     {
+      "id": "histogram",
+      "kind": "type",
+      "base": null,
+      "name": "Histogram",
+      "family": "data",
+      "intent": [
+        "distribution",
+        "compare-values"
+      ],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "histogram",
+          "kind": "trigger"
+        },
+        {
+          "text": "distribution of values",
+          "kind": "trigger"
+        },
+        {
+          "text": "frequency distribution",
+          "kind": "trigger"
+        },
+        {
+          "text": "bin the values",
+          "kind": "trigger"
+        },
+        {
+          "text": "how often",
+          "kind": "trigger"
+        },
+        {
+          "text": "spread of values",
+          "kind": "trigger"
+        }
+      ],
+      "guidance": "feed raw numbers and let the bins count them, setting `bin-width` only when the edges must fall somewhere meaningful; label the x axis with units; overlay groups with `[Name] color` headers only when comparing a few distributions, and add `percent` when the groups differ in size; mark the centre with `mean` or `median` rather than annotating by hand.",
+      "description": "Distribution of raw values counted into bins"
+    },
+    {
       "id": "sequence",
       "kind": "type",
       "base": null,
@@ -5693,6 +5733,27 @@
         {
           "surface": "docs",
           "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "histogram",
+      "entity": "histogram",
+      "file": "examples/histogram/histogram.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
         }
       ]
     },

@@ -730,6 +730,17 @@
         "distribution"
       ],
       "file": "chart-boxplot.md"
+    },
+    {
+      "slug": "chart-histogram",
+      "title": "Histogram",
+      "group": "data",
+      "subhead": "distribution",
+      "intent": [
+        "distribution",
+        "compare-values"
+      ],
+      "file": "chart-histogram.md"
     }
   ]
 }

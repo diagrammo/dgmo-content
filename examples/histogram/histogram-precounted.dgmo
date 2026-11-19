@@ -1,0 +1,12 @@
+histogram Crew Ages Aboard the Revenge
+// Counts are given per range; never mix with raw values
+x-axis Age in years
+y-axis Sailors
+
+15-20 6
+20-25 19
+25-30 27
+30-35 18
+35-40 9
+40-45 4
+45-50 2

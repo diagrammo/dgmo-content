@@ -22,6 +22,7 @@ A scatter plot puts a dot on two axes for every observation, so how two measured
 ## When to use
 
 - **`scatter`** — each dot is an independent thing measured two ways, in real units.
+- **[`histogram`](chart-histogram.md)** — one measurement per observation and the question is how the values are spread, not how two relate.
 - **[`line`](chart-line.md)** — one value per point in time, read in order; a line implies a time ordering a scatter does not claim.
 - **[`quadrant`](chart-quadrant.md)** — the positions are judgement calls you placed by eye rather than measurements.
 - **[`heatmap`](chart-heatmap.md)** — the two dimensions are named categories (weeks, regions) rather than measured numbers.

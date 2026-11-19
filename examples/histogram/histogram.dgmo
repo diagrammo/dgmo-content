@@ -1,0 +1,13 @@
+histogram Voyage Length of the Black Pearl
+// Try: change `bin-width 5` to `bins 8`, or drop `median`
+x-axis Days at sea
+y-axis Voyages
+bin-width 5
+mean
+median
+
+12 18 21 9 15 27 33 14 19 22
+17 24 8 16 20 31 13 18 25 11
+19 23 29 15 17 21 38 10 14 26
+18 22 16 20 12 34 19 17 23 28
+15 21 13 24 18 30 16 19 22 41

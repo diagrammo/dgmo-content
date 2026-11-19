@@ -15,6 +15,7 @@ A bar chart compares a value across categories using **length** — the most dir
 ## When to use
 
 - **`bar`** — you are comparing sizes of things and someone needs to read the individual numbers accurately.
+- [`histogram`](chart-histogram.md) — you have many raw measurements of one thing and the question is how they are spread, not what each one is. A histogram counts them into bins for you.
 - [`pie`](chart-pie.md) — your values genuinely add up to a meaningful 100% of something and shares are the question. A pie always reads as "100% of something"; on categories that don't sum (average rating by product) it invents a whole that does not exist.
 - [`treemap`](chart-treemap.md) — categories contain sub-categories you also want sized. Use `bar` for one flat list of a handful of items read precisely.
 - [`funnel`](chart-funnel.md) — every stage is a subset of the one before and the difference is drop-off. On independent categories a funnel manufactures an attrition story that isn't there.

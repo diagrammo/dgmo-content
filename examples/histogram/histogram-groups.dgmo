@@ -1,0 +1,17 @@
+histogram Doubloons per Raid
+// Try: remove `percent` to see raw counts instead of shares
+x-axis Doubloons
+y-axis Share of raids
+bin-width 50
+percent
+mean
+
+[Black Pearl] blue
+120 85 210 140 95 175 160 110 230 130
+145 90 185 155 105 200 125 170 115 150
+135 195 100 165 180 140 120 205 155 130
+
+[Flying Dutchman] red
+60 95 45 130 80 70 110 55 90 100
+75 120 65 85 140 50 105 95 70 115
+80 60 125 90 100 150 75 85 65 110
