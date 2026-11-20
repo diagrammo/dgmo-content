@@ -47,7 +47,7 @@ Source -> Target weight
 | -------- | ------------------------------------------------------------------- | -------- |
 | `chart`  | Must be `arc` — the circular ("chord") layout is selected with `layout chord`, not a separate keyword | Yes      |
 | `order`  | Node ordering: `appearance` (default), `name`, `group`, or `degree` | No       |
-| `layout` | `arc` (default, linear) or `chord` (circular)                       | No       |
+| `layout` | `arc` (default, linear) or `chord` (ribbons on a ring)              | No       |
 | `orientation-horizontal` \| `orientation-vertical` | Baseline orientation of the linear arc layout (default horizontal) | No       |
 
 The title is line 1 (`arc Pirate Alliances`) — there is no `title` directive.
@@ -61,7 +61,7 @@ Source -> Target weight
 Source -> Target
 ```
 
-If weight is omitted, it defaults to 1. Arc/chord thickness is proportional to weight.
+If weight is omitted, it defaults to 1. Arc thickness and ribbon width are proportional to weight.
 
 ## Node Groups
 
@@ -87,9 +87,18 @@ Nodes inherit the color of the group in which they first appear.
 
 ## Chord Layout
 
-Add `layout chord` to arrange the nodes around a circle instead of along a line.
-The chord ribbons' width represents connection strength. Groups, ordering, and
-weights all carry over.
+Add `layout chord` to draw the same links as ribbons on a ring instead of arcs
+along a line. Groups, ordering, colors and weights all carry over.
+
+- Each node is an outer segment, sized by its total flow — what it gives plus
+  what it receives — with its name and that total outside the ring. `no-value`
+  hides the totals.
+- Each link is one ribbon, as wide at both ends as its weight. `A -> B` and
+  `B -> A` stay two ribbons. A node that only receives still gets a segment.
+- A ribbon takes the color of the larger of its two nodes (a tie goes to the
+  source). A link color (`A -> B red 5`) wins.
+- Direction is not drawn. Hover a ribbon to see it named, such as
+  `Rackham → Roberts 100`.
 
 ```dgmo
 arc Pirate Alliance Network
