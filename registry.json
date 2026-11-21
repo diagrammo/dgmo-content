@@ -3007,6 +3007,10 @@
           "kind": "trigger"
         },
         {
+          "text": "who is responsible",
+          "kind": "trigger"
+        },
+        {
           "text": "accountability matrix",
           "kind": "trigger"
         },
