@@ -304,6 +304,18 @@ const DOCUMENTED = [
     why: 'The combo row (#1852) is done only when both host guides document `mark:`.',
     verifiedAgainst: 'dgmo tests/combo-mark.test.ts and gallery/fixtures/line-combo.dgmo at 0685b9e2 (#1852)',
     on: '2026-11-19',
+  },  {
+    what: 'the slope guide documents `rank` (the bump chart)',
+    file: 'guide/chart-slope.md',
+    contains: [
+      '## Rank over time — `rank` (bump chart)',
+      'Every value must be a whole number from 1.',
+      'Two items with the same position in one period sit side by side on that row.',
+      '**`y-axis` has no effect** under `rank` and warns.',
+    ],
+    why: 'The bump-chart row (#1854) is done only when the guide documents `rank`; its dgmo slice landed the parser and renderer with no guide text.',
+    verifiedAgainst: 'dgmo tests/slope-rank.test.ts and gallery/fixtures/slope-rank.dgmo at 7385f242 (#1854)',
+    on: '2026-11-21',
   },
 ];
 

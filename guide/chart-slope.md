@@ -12,15 +12,16 @@ Calico Jack 18 6
 
 ## Overview
 
-A slope chart connects a "before" and an "after" with one line per item, so rises, falls, and rank changes jump out without anyone reading a number. Reach for it when you want to compare many items across exactly two moments — who rose, who fell, and who traded places. Only the first and last period are drawn, so the chart says nothing about what happened in between.
+A slope chart connects a "before" and an "after" with one line per item, so rises, falls, and rank changes jump out without anyone reading a number. Reach for it when you want to compare many items across a few moments — who rose, who fell, and who traded places. Add `rank` and the same rows draw a bump chart: positions over time, 1 at the top.
 
 ## When to use
 
 - **`slope`** — you have a before and an after, and the point is how each item *moved* between them.
+- **`slope` with `rank`** — your numbers are positions (1st, 2nd, 3rd) and the point is who overtook whom.
 - **[`line`](chart-line.md)** — you have readings at many points in time and the path between them matters.
 - **[`bar`](chart-bar.md)** — you only care about current sizes, not the movement between two moments.
 
-Slope draws only the first and last period. On data with meaningful intermediate movement it hides reversals entirely — a metric that crashed mid-period and recovered renders as a flat, healthy line. If the middle of the story matters, use [`line`](chart-line.md).
+Slope draws only the periods you list. With just a first and a last, it hides every reversal between them — a metric that crashed mid-period and recovered renders as a flat, healthy line. If the middle of the story matters, list more periods or use [`line`](chart-line.md).
 
 ## Syntax
 
@@ -60,6 +61,27 @@ period 1715 1720 1725
 
 Blackbeard 40 22 4
 ```
+
+## Rank over time — `rank` (bump chart)
+
+Add a bare `rank` line and each value is a **position** as written: 1 is first. The chart puts position 1 at the top with one row per position and no value axis. Each dot shows its position number, each name sits at both ends in its colour, and each segment is a smooth S-curve, so a crossing reads as a swap.
+
+```dgmo
+slope Pirate Fleet Rankings, 1715–1720
+rank
+
+period 1715 1716 1717 1718 1719 1720
+
+Blackbeard red           1 1 2 3 5 5
+Bartholomew Roberts blue 5 4 3 1 1 1
+Charles Vane orange      2 2 1 2 3 4
+Anne Bonny green         4 5 5 4 2 2
+Calico Jack purple       3 3 4 5 4 3
+```
+
+- **Write positions, not scores.** Every value must be a whole number from 1. Anything else is an error naming the row and period, and that row is dropped. `rank` does not turn raw values into positions.
+- **Ties are allowed.** Two items with the same position in one period sit side by side on that row.
+- **`y-axis` has no effect** under `rank` and warns. Positions set the rows.
 
 ## Color Annotations
 
@@ -174,7 +196,8 @@ Colors come from the active palette — see [Colors](colors.md). Set the palette
 
 ## Common mistakes
 
-- **Slope shows only the first and last period.** A metric that crashed mid-year and recovered draws as a flat, healthy line. If the movement between endpoints is part of the finding, use [`line`](chart-line.md).
+- **Two periods hide the middle.** A metric that crashed mid-year and recovered draws as a flat, healthy line. If the movement between endpoints is part of the finding, list more periods or use [`line`](chart-line.md).
+- **Under `rank`, a value is a position.** `Arsenal 82 85` is not points; it asks for 82nd and 85th place. Convert scores to positions first.
 - **The color token goes before the values, not after.** Written after them the row has no numbers left to read and is dropped with a warning about the value count.
 - **A series name ending in a digit merges with its first value.** Quote the name.
 - Anything that renders but looks wrong: [Troubleshooting](troubleshooting.md) is organised by symptom.

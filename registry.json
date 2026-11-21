@@ -3568,6 +3568,18 @@
       "description": "Change between 2 time periods"
     },
     {
+      "id": "slope-rank",
+      "kind": "variant",
+      "base": "slope",
+      "name": "Rank (bump)",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
       "id": "state",
       "kind": "type",
       "base": null,
@@ -6009,6 +6021,19 @@
         {
           "surface": "obsidian",
           "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "slope-rank",
+      "entity": "slope-rank",
+      "file": "examples/slope/slope-rank.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
         }
       ]
     },
