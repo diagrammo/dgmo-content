@@ -1834,6 +1834,49 @@
       "description": "Spread, quartiles and outliers of numbers across groups — cycle times, response times, test scores, quality data"
     },
     {
+      "id": "waterfall",
+      "kind": "type",
+      "base": null,
+      "name": "Waterfall",
+      "family": "data",
+      "intent": [
+        "part-to-whole"
+      ],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "waterfall chart",
+          "kind": "trigger"
+        },
+        {
+          "text": "bridge chart",
+          "kind": "trigger"
+        },
+        {
+          "text": "revenue bridge",
+          "kind": "trigger"
+        },
+        {
+          "text": "variance bridge",
+          "kind": "trigger"
+        },
+        {
+          "text": "budget to actual",
+          "kind": "trigger"
+        },
+        {
+          "text": "walk chart",
+          "kind": "trigger"
+        },
+        {
+          "text": "cost bridge",
+          "kind": "trigger"
+        }
+      ],
+      "guidance": "Open with a total that has a number, write each change as it happened, and close with a bare `total` so the chart adds it up. Use `direction down` on a cost bridge, where a rise is bad news.",
+      "description": "Start-to-end bridge of signed steps — revenue bridges, budget to actual, variance walks"
+    },
+    {
       "id": "infra",
       "kind": "type",
       "base": null,
@@ -5239,6 +5282,40 @@
       "id": "boxplot-horizontal",
       "entity": "boxplot",
       "file": "examples/boxplot/boxplot-horizontal.dgmo",
+      "isPrimary": false,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "waterfall",
+      "entity": "waterfall",
+      "file": "examples/waterfall/waterfall.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "waterfall-cost-bridge",
+      "entity": "waterfall",
+      "file": "examples/waterfall/waterfall-cost-bridge.dgmo",
       "isPrimary": false,
       "status": "draft",
       "placements": [

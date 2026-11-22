@@ -20,6 +20,7 @@ Splits one whole into proportional slices so relative share is immediately visib
 - **[`treemap`](chart-treemap.md)** — your categories contain sub-categories you also want sized.
 - **[`ring`](chart-ring.md)** — each layer *contains* the one inside it rather than being a sibling splitting a total.
 - **[`polar-area`](chart-polar-area.md)** — the question is "how big is each" on a common scale, with nothing being divided up.
+- **[`waterfall`](chart-waterfall.md)** — the numbers are signed changes that walk from a start to an end, not slices of one whole.
 - **[`venn`](chart-venn.md)** — one item can belong to two categories at once. Pie requires every item in exactly one slice.
 - **[`wordcloud`](chart-wordcloud.md)** — you only want a texture of which terms come up most, not exact proportions.
 

@@ -741,6 +741,16 @@
         "compare-values"
       ],
       "file": "chart-histogram.md"
+    },
+    {
+      "slug": "chart-waterfall",
+      "title": "Waterfall",
+      "group": "data",
+      "subhead": "part-of-a-whole",
+      "intent": [
+        "part-to-whole"
+      ],
+      "file": "chart-waterfall.md"
     }
   ]
 }

@@ -21,6 +21,7 @@ A bar chart compares a value across categories using **length** — the most dir
 - [`funnel`](chart-funnel.md) — every stage is a subset of the one before and the difference is drop-off. On independent categories a funnel manufactures an attrition story that isn't there.
 - [`radar`](chart-radar.md) — the *overall shape* across measures is the point ("strong here, weak there") and every axis shares one scale. Use `bar` when the individual numbers must be read accurately, or when your measures are in mixed units.
 - [`slope`](chart-slope.md) — the point is how each item *moved* between two moments. Slope draws only the first and last period, so use `bar` (or [`line`](chart-line.md)) when the movement in between matters.
+- [`waterfall`](chart-waterfall.md) — the values are signed changes that walk from a start to an end, and the question is what moved the total.
 - [`wordcloud`](chart-wordcloud.md) — you only want a texture of which terms come up most. Use `bar` if anyone needs to rank them, since word size is an unreliable comparison.
 - [`boxplot`](chart-boxplot.md) — each group is a pile of raw numbers and the question is their spread and outliers. A bar shows one value per group and hides the spread.
 - [`heatmap`](chart-heatmap.md) — you have two things to break down by at once (rows *and* columns). `bar` breaks down by one dimension only.
@@ -535,5 +536,5 @@ Colors come from the active palette — see [Colors](colors.md). Set the palette
 
 ## Next
 
-- **Related:** [`pie`](chart-pie.md) · [`treemap`](chart-treemap.md) · [`funnel`](chart-funnel.md) · [`radar`](chart-radar.md) · [`slope`](chart-slope.md) · [`wordcloud`](chart-wordcloud.md) · [`heatmap`](chart-heatmap.md) · [`goal`](chart-goal.md)
+- **Related:** [`pie`](chart-pie.md) · [`treemap`](chart-treemap.md) · [`funnel`](chart-funnel.md) · [`radar`](chart-radar.md) · [`slope`](chart-slope.md) · [`wordcloud`](chart-wordcloud.md) · [`heatmap`](chart-heatmap.md) · [`goal`](chart-goal.md) · [`waterfall`](chart-waterfall.md)
 - **Then:** [Colors & palettes](colors.md)

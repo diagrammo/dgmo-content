@@ -19,6 +19,7 @@ Shows how a quantity narrows through sequential stages, exposing where the bigge
 - **[`pyramid`](chart-pyramid.md)** — the layers *rest on* each other and are all present at once (needs, tiers, maturity levels) rather than losing members stage by stage. Maslow drawn as a funnel claims people drop out of having needs.
 - **[`sankey`](chart-sankey.md)** — the quantity splits and branches to several destinations instead of flowing down one path.
 - **[`goal`](chart-goal.md)** — you have one number racing toward one target, not several stages each losing volume.
+- **[`waterfall`](chart-waterfall.md)** — the stages are signed changes that add up to a result, and some of them rise.
 - **[`flowchart`](chart-flowchart.md)** — you're showing branches and decisions rather than counts dropping at each stage.
 
 ## Syntax

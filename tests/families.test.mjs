@@ -125,6 +125,7 @@ test('every data and business type sits under the sub-head the mockup drew it in
     wordcloud: 'Distribution',
     pie: 'Part of a whole',
     treemap: 'Part of a whole',
+    waterfall: 'Part of a whole',
     sankey: 'Flows and links',
     arc: 'Flows and links',
     map: 'Places',

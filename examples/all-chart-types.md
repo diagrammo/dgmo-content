@@ -386,6 +386,22 @@ y-axis Days
 3 4 4 5 5 5 5 6 6 6 7 7 8 9
 ```
 
+### Waterfall
+
+```dgmo
+waterfall Plunder Bridge, Spring Voyage to Autumn Voyage (doubloons)
+
+Spring Voyage 1200 total
+Merchant Galleons +340
+Port Ransoms 210
+Naval Skirmish Losses -180
+Storm Damage -65
+Midyear Hoard total
+Smuggling Runs +95
+Harbour Bribes -40
+Autumn Voyage total
+```
+
 ### Line Chart
 
 ```dgmo

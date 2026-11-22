@@ -98,6 +98,10 @@ const plunder = ships.reduce((sum, s) => sum + s.gold, 0);
 
 ![[boxplot/boxplot.dgmo]]
 
+### Waterfall
+
+![[waterfall/waterfall.dgmo]]
+
 ### Line Chart
 
 ![[line/line.dgmo]]
