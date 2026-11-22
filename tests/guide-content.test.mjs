@@ -317,6 +317,19 @@ const DOCUMENTED = [
     verifiedAgainst: 'dgmo tests/slope-rank.test.ts and gallery/fixtures/slope-rank.dgmo at 7385f242 (#1854)',
     on: '2026-11-21',
   },
+  {
+    what: 'the sankey guide documents alluvial mode (`period` + path rows)',
+    file: 'guide/chart-sankey.md',
+    contains: [
+      '## Who moved where — `period` (alluvial)',
+      'A path with more or fewer steps than the periods is an error',
+      '**A band keeps the colour of its first-column category**',
+      '**Path rows only.**',
+    ],
+    why: 'The alluvial row (#1858) is done only when the guide documents the mode; its dgmo slice landed the parser and renderer with no guide text.',
+    verifiedAgainst: 'dgmo tests/sankey-alluvial.test.ts and gallery/fixtures/sankey-alluvial.dgmo (#1858)',
+    on: '2026-11-21',
+  },
 ];
 
 /**

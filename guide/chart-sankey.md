@@ -34,6 +34,7 @@ A sankey traces a quantity as flowing bands whose width encodes volume, followin
 - **`sankey`** — a measurable quantity moves through stages, splitting and merging, and the amount is conserved along the way.
 - **[`arc`](chart-arc.md)** — you only want to show who is linked to whom, maybe with a strength; links can go both ways or form loops.
 - **[`treemap`](chart-treemap.md)** — you want to show what the total *is*, broken into nested parts, not where it *goes*.
+- **`sankey` with `period`** (alluvial) — the same categories in every column, and the point is who moved from one to another between periods.
 - **[`funnel`](chart-funnel.md)** — everything flows down one single path with no branching.
 - **[`infra`](chart-infra.md)** — the nodes are components handling traffic and you want the tool to compute load and latency.
 
@@ -85,6 +86,35 @@ td -> Ship Provisions 1000
 ```
 
 The alias is a shorthand for authoring only — the node still renders under its full name.
+
+## Who moved where — `period` (alluvial)
+
+Add a `period` line and the sankey becomes an alluvial chart. The period line names the columns, as on [`slope`](chart-slope.md). Each row is then one full path through every column, with its count last:
+
+```dgmo
+sankey Most Free customers stay Free; Pro gains from both sides
+
+period Q1 Q2 Q3
+
+Free blue
+Pro orange
+Team green
+
+Free -> Free -> Free 400
+Free -> Free -> Pro 80
+Free -> Pro -> Pro 120
+Pro -> Pro -> Pro 200
+Pro -> Free -> Free 40
+Team -> Team -> Team 150
+Team -> Pro -> Pro 20
+```
+
+- **One category per period, then the count.** `Free -> Free -> Pro 80` means 80 customers were Free in Q1 and Q2 and Pro in Q3. A path with more or fewer steps than the periods is an error, and that row is not drawn.
+- **Declare a category on a bare line**, with an optional colour: `Free blue`. An undeclared category takes a palette colour. The same name in every column is the same category.
+- **Categories keep one order in every column**: declaration order, else first appearance.
+- **A band keeps the colour of its first-column category** through every column, so you can follow a cohort. Node bars take their own category's colour.
+- **Hover** a band to light its cohort and read the step and count. Hover a node to read its count out of the column total.
+- **Path rows only.** Indented or `--` flows in the same chart are an error. Remove the `period` line to draw an ordinary sankey.
 
 ## Color Annotations
 
@@ -239,6 +269,7 @@ Only those two flows and their three nodes stay lit. The Nassau flow and the Spo
 - **Sankey encodes conserved flow** — what enters a node leaves it. On affinity, correlation, or co-occurrence there is nothing to conserve, and mismatched widths read as data loss that is not there. Use [`arc`](chart-arc.md) for non-conserved relationships.
 - **A trailing `//` note deletes the link silently.** No diagnostic names the line; the link is simply absent. If a flow you wrote is not in the picture, check that line for an inline comment.
 - **An unrecognized color token is reported by name and line.** Read the warning rather than hunting for the missing link — DGMO accepts only its named colors.
+- **A path row without a `period` line is an error.** Alluvial mode starts only with the period line, and it needs at least two periods.
 - Anything that renders but looks wrong: [Troubleshooting](troubleshooting.md) is organised by symptom.
 
 ## Next

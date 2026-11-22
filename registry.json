@@ -3210,6 +3210,18 @@
       "description": "Flow / allocation visualization"
     },
     {
+      "id": "sankey-alluvial",
+      "kind": "variant",
+      "base": "sankey",
+      "name": "Alluvial",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
       "id": "scatter",
       "kind": "type",
       "base": null,
@@ -5860,6 +5872,19 @@
         {
           "surface": "obsidian",
           "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "sankey-alluvial",
+      "entity": "sankey-alluvial",
+      "file": "examples/sankey/sankey-alluvial.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
         }
       ]
     },
