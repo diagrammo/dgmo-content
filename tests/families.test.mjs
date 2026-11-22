@@ -119,7 +119,7 @@ test('every data and business type sits under the sub-head the mockup drew it in
     function: 'Change over time',
     scatter: 'Distribution',
     heatmap: 'Distribution',
-    'calendar-heatmap': 'Change over time',
+    'calendar': 'Change over time',
     boxplot: 'Distribution',
     histogram: 'Distribution',
     wordcloud: 'Distribution',

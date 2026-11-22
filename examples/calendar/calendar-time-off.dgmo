@@ -1,0 +1,20 @@
+calendar Crew Shore Leave 2027
+year 2027
+layout months
+orientation-horizontal
+week-start monday
+tag Kind as k
+  Shore Leave green
+  Scurvy red
+  Holiday blue
+empty Free
+
+01-01 k: Holiday
+02-15 -> 02-19 Carnival at Tortuga k: Shore Leave
+03-08 -> 03-09 Scurvy watch k: Scurvy
+05-31 k: Holiday
+07-04 -> 07-18 Summer anchorage k: Shore Leave
+  Two weeks in **Nassau**
+09-06 k: Holiday
+10-11 -> 10-15 Repairs at port k: Shore Leave
+12-24 -> 12-31 Winter mooring k: Shore Leave

@@ -202,10 +202,10 @@ South China Sea 1 2 3 2 1 2
 West Africa     3 3 4 3 5 4
 ```
 
-### Calendar Heatmap
+### Calendar
 
 ```dgmo
-calendar-heatmap Cannon Volleys Fired in 2026
+calendar Cannon Volleys Fired in 2026
 // Daily log: one `date value` line per day; a missing day is zero.
 year 2026
 unit volley

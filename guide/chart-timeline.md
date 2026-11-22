@@ -47,6 +47,7 @@ A timeline places dated events along a real chronological axis, so the *spacing*
 - **[`line`](chart-line.md)** — the thing that changed is a *number* you measured over time, not a list of occurrences.
 - **[`gantt`](chart-gantt.md)** — planning work that hasn't happened yet, with dependencies and a schedule, rather than recording what already did.
 - **[`version-control`](chart-version-control.md)** — the events split into parallel tracks that later rejoin. A timeline runs in one line of time.
+- **[`calendar`](chart-calendar.md)** — the things happen on **days** of a month or year and the reader wants the grid of dates, not a scaled axis.
 
 ## Syntax
 

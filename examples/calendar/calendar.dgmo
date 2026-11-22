@@ -1,4 +1,4 @@
-calendar-heatmap Cannon Volleys Fired in 2026
+calendar Cannon Volleys Fired in 2026
 // Daily log: one `date value` line per day; a missing day is zero.
 year 2026
 unit volley

@@ -1720,10 +1720,10 @@
       "description": "Matrix intensity visualization"
     },
     {
-      "id": "calendar-heatmap",
+      "id": "calendar",
       "kind": "type",
       "base": null,
-      "name": "Calendar Heatmap",
+      "name": "Calendar",
       "family": "data",
       "intent": [
         "trend-over-time"
@@ -1731,7 +1731,7 @@
       "produces": null,
       "keywords": [
         {
-          "text": "calendar heatmap",
+          "text": "calendar",
           "kind": "trigger"
         },
         {
@@ -1761,10 +1761,22 @@
         {
           "text": "commits per day",
           "kind": "trigger"
+        },
+        {
+          "text": "wall calendar",
+          "kind": "trigger"
+        },
+        {
+          "text": "time off calendar",
+          "kind": "trigger"
+        },
+        {
+          "text": "habit calendar",
+          "kind": "trigger"
         }
       ],
-      "guidance": "Write the log as it happens, one `date value` line per day, and let a repeated date add up. Set `year` when the dates are `MM-DD`, and `unit` so the hover and the summary say what the numbers count.",
-      "description": "Daily values as a calendar of squares, one column per week — activity logs, commits, workouts, streaks, habits"
+      "guidance": "Write the log as it happens, one dated line per entry, and let a repeated date add up. Set `year` (or `from`) when the dates are `MM-DD`. With one group, write the bare value (`01-02 8`, `01-02 Great`); with several, name each one (`c: 3, m: Great`).",
+      "description": "Days as tiles: daily values, tags and events across weeks, months or a wall calendar — activity logs, habits, time off, appointments"
     },
     {
       "id": "boxplot",
@@ -5198,9 +5210,9 @@
       ]
     },
     {
-      "id": "calendar-heatmap",
-      "entity": "calendar-heatmap",
-      "file": "examples/calendar-heatmap/calendar-heatmap.dgmo",
+      "id": "calendar",
+      "entity": "calendar",
+      "file": "examples/calendar/calendar.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
@@ -5219,9 +5231,9 @@
       ]
     },
     {
-      "id": "calendar-heatmap-range",
-      "entity": "calendar-heatmap",
-      "file": "examples/calendar-heatmap/calendar-heatmap-range.dgmo",
+      "id": "calendar-range",
+      "entity": "calendar",
+      "file": "examples/calendar/calendar-range.dgmo",
       "isPrimary": false,
       "status": "draft",
       "placements": [
@@ -5232,9 +5244,48 @@
       ]
     },
     {
-      "id": "calendar-heatmap-log",
-      "entity": "calendar-heatmap",
-      "file": "examples/calendar-heatmap/calendar-heatmap-log.dgmo",
+      "id": "calendar-log",
+      "entity": "calendar",
+      "file": "examples/calendar/calendar-log.dgmo",
+      "isPrimary": false,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "calendar-events",
+      "entity": "calendar",
+      "file": "examples/calendar/calendar-events.dgmo",
+      "isPrimary": false,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "calendar-time-off",
+      "entity": "calendar",
+      "file": "examples/calendar/calendar-time-off.dgmo",
+      "isPrimary": false,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "calendar-habits",
+      "entity": "calendar",
+      "file": "examples/calendar/calendar-habits.dgmo",
       "isPrimary": false,
       "status": "draft",
       "placements": [

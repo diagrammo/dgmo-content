@@ -90,9 +90,9 @@ const plunder = ships.reduce((sum, s) => sum + s.gold, 0);
 
 ![[heatmap/heatmap.dgmo]]
 
-### Calendar Heatmap
+### Calendar
 
-![[calendar-heatmap/calendar-heatmap.dgmo]]
+![[calendar/calendar.dgmo]]
 
 ### Box Plot
 

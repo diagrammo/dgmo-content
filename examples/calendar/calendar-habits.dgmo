@@ -1,0 +1,47 @@
+calendar Crew Habits, Spring Voyage
+from 2027-03-01 to 2027-05-31
+layout weeks
+heat Knots Tied as k
+  unit knot
+tag Mood as m
+  Great green
+  Ok blue
+  Seasick red
+tag Duty as d
+  Watch orange
+  Galley teal
+  Rest gray
+empty Idle
+
+03-01 k: 12, m: Ok, d: Watch
+03-02 k: 8, m: Great, d: Watch
+03-03 k: 20, m: Great, d: Galley
+03-05 k: 5, m: Seasick, d: Rest
+03-08 k: 15, m: Ok, d: Watch
+03-09 k: 30, m: Great, d: Galley
+03-11 k: 10, m: Ok, d: Rest
+03-14 k: 25, m: Great, d: Watch
+03-16 k: 5, m: Seasick
+03-18 k: 18, m: Ok, d: Galley
+03-22 k: 22, m: Great, d: Watch
+03-25 k: 9, m: Ok, d: Rest
+03-29 k: 14, m: Ok, d: Watch
+04-02 k: 28, m: Great, d: Galley
+04-04 k: 6, m: Seasick, d: Rest
+04-07 k: 16, m: Ok, d: Watch
+04-10 k: 35, m: Great, d: Galley
+04-13 k: 12, m: Ok, d: Watch
+04-15 k: 8, m: Ok, d: Rest
+04-19 k: 24, m: Great, d: Watch
+04-21 k: 4, m: Seasick
+04-26 k: 19, m: Ok, d: Galley
+04-28 k: 27, m: Great, d: Watch
+05-02 k: 11, m: Ok, d: Rest
+05-05 k: 33, m: Great, d: Galley
+05-09 k: 7, m: Seasick, d: Rest
+05-12 k: 21, m: Great, d: Watch
+05-15 k: 14, m: Ok, d: Galley
+05-19 k: 26, m: Great, d: Watch
+05-23 k: 9, m: Ok, d: Rest
+05-27 k: 18, m: Ok, d: Watch
+05-30 k: 29, m: Great, d: Galley

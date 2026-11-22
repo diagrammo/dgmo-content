@@ -702,14 +702,14 @@
       "file": "chart-swot.md"
     },
     {
-      "slug": "chart-calendar-heatmap",
-      "title": "Calendar Heatmap",
+      "slug": "chart-calendar",
+      "title": "Calendar",
       "group": "data",
       "subhead": "change-over-time",
       "intent": [
         "trend-over-time"
       ],
-      "file": "chart-calendar-heatmap.md"
+      "file": "chart-calendar.md"
     },
     {
       "slug": "chart-ownership",

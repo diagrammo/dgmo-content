@@ -30,7 +30,7 @@ A line chart connects readings taken at many points along one axis — usually t
 - **[`journey-map`](chart-journey-map.md)** — the numbers are a subjective 1–5 rating you assigned, not measurements. A line chart makes assigned scores read as measured data.
 - **[`bar`](chart-bar.md)** — the categories aren't points along an axis at all, and the individual values need reading precisely.
 - **[`goal`](chart-goal.md)** — there's one number racing toward one target, with no time axis to plot it against.
-- **[`calendar-heatmap`](chart-calendar-heatmap.md)** — you have a value per day and want the pattern of streaks and gaps across weeks, not the exact curve.
+- **[`calendar`](chart-calendar.md)** — you have a value per day and want the pattern of streaks and gaps across weeks, not the exact curve.
 
 ## Syntax
 
@@ -593,5 +593,5 @@ Set the palette and light/dark theme at render time with `--palette <name>` and
 
 ## Next
 
-- **Related:** [`slope`](chart-slope.md) · [`timeline`](chart-timeline.md) · [`scatter`](chart-scatter.md) · [`function`](chart-function.md) · [`journey-map`](chart-journey-map.md) · [`calendar-heatmap`](chart-calendar-heatmap.md)
+- **Related:** [`slope`](chart-slope.md) · [`timeline`](chart-timeline.md) · [`scatter`](chart-scatter.md) · [`function`](chart-function.md) · [`journey-map`](chart-journey-map.md) · [`calendar`](chart-calendar.md)
 - **Then:** [Colors & palettes](colors.md)
