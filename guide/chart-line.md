@@ -358,7 +358,7 @@ One April haul drags the mean up to 441; the median stays at 380.
 | Overlay | Draws |
 | --- | --- |
 | `mean` / `median` | a dashed / dotted line at each series' mean / median |
-| `target N` | a line at N; points that reach it are filled, the rest go grey (`target N below` flips it) |
+| `target N` | a line at N; points that reach it are filled, the rest go grey (`target N below` flips it; a last colour word, `target N green`, paints what met it) |
 | `trend` | a dashed least-squares line per series, labelled with its slope per row (`trend +2.16/week`) |
 | `moving-average N` | each series' trailing N-point average, drawn heavier over a thinner raw line |
 | `extremes` | a filled marker and a label on each series' highest and lowest point |
@@ -453,7 +453,7 @@ Era syntax: `era <start> -> <end> Label color`
 | `step` | Hold each value until the next point | No |
 | `step-before` | Steps that reach each value at its own point | No |
 | `mean` / `median` | A dashed / dotted line at each series' mean / median (see above) | No |
-| `target N` | A line at N; points that reach it are filled (`target N below` flips it) | No |
+| `target N` | A line at N; points that reach it are filled (`target N below` flips it; a last colour word, `target N green`, paints what met it) | No |
 | `trend` | A dashed least-squares line per series, labelled with its slope | No |
 | `moving-average N` | Each series' trailing N-point average, drawn heavier | No |
 | `extremes` | Mark and label each series' highest and lowest point | No |

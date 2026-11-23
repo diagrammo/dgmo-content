@@ -263,7 +263,7 @@ To lead with lines instead, write a `line` chart and give the bar series
 | `sort` | Order the bars largest first (`sort asc` = smallest first, `sort <series>` = by one series) | No |
 | `lollipop` | Draw each bar as a thin stem with a dot at its value | No |
 | `mean` / `median` | A dashed / dotted line at each series' mean / median (see below) | No |
-| `target N` | A line at N; bars that reach it stay lit, the rest go grey (`target N below` flips it) | No |
+| `target N` | A line at N; bars that reach it stay lit, the rest go grey (`target N below` flips it; a last colour word, `target N green`, paints what met it) | No |
 | `trend` | A dashed least-squares line per series, labelled with its slope | No |
 | `pareto` | Sort largest first and add a cumulative-percent line (see below) | No |
 | `color`                  | Override the bar color (e.g., `red`)         | No       |
@@ -382,6 +382,8 @@ Cartagena 470
   gets its own, in its colour.
 - `target N` draws a line at N. Bars that reach it keep their colour and the
   rest go grey. Write `target N below` when lower is better, such as costs.
+  End the line with a colour name (`target 500 green`, `target 500 below red`)
+  and the bars that reach it, the target line and its label take that colour.
 - `trend` draws a least-squares line through the bars, labelled with its slope
   per bar (`trend +12/step`).
 - Overlays do not apply to a `stack`. There is no `average`: write `mean`.
