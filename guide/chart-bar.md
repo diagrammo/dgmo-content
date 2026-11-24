@@ -300,6 +300,7 @@ Winter 38 30 20
 | `x-axis`                 | Title for the category axis, e.g. `x-axis Quarter` | No       |
 | `y-axis`                 | `[title] [min..max] [log \| linear]`, e.g. `y-axis Revenue 0..100`; `log` cannot stack; a stacked column whose total passes a fixed end is an error | No       |
 | `orientation-horizontal` | Horizontal bars (default is vertical)        | No       |
+| `orientation-vertical` | Keep vertical bars where many names would flip them horizontal | No |
 | `sort` | Order the bars largest first (`sort asc` = smallest first, `sort <series>` = by one series) | No |
 | `lollipop` | Draw each bar as a thin stem with a dot at its value | No |
 | `mean` / `median` | A dashed / dotted line at each series' mean / median (see below) | No |
@@ -335,6 +336,12 @@ Royal Fortune 262
 Whydah Gally 146
 Adventure Galley 152
 ```
+
+When the names would not fit under vertical bars without being cut or
+dropped, the chart flips horizontal by itself and grows as tall as the names
+need, so every name shows. Dates and numbers stay vertical and show every few
+labels. Add `orientation-vertical` to keep vertical bars anyway; names that do
+not fit are then tilted and thinned.
 
 ### Sorted Bar
 
