@@ -15,7 +15,7 @@
  *     type in a family with subheads whose first intent is under none of them
  *
  * GAPS (exit 0, reported) — the curation to-do the console surfaces:
- *   - entity with no example, no primary, no keywords, or unapproved examples
+ *   - entity with no example, no primary, no keywords, or no marquee example
  *
  * No external deps — hand-rolled checks (schema shape is enforced by the fields
  * this walks). Run: node scripts/check-registry.mjs [--strict]
@@ -129,8 +129,7 @@ for (const e of doc.entities) {
   if (exs.length === 0) gaps.push(`${e.id}: no example`);
   else if (!exs.some((x) => x.isPrimary)) gaps.push(`${e.id}: no primary example`);
   if (e.keywords.length === 0) gaps.push(`${e.id}: no keywords`);
-  const unapproved = exs.filter((x) => x.status !== 'approved').length;
-  if (exs.length && unapproved === exs.length) gaps.push(`${e.id}: no approved example`);
+  if (exs.length && !exs.some((x) => x.status === 'marquee')) gaps.push(`${e.id}: no marquee example`);
 }
 
 // report

@@ -91,7 +91,9 @@
           "entity": { "type": "string" },
           "file": { "type": "string", "pattern": "^examples/.+\\.dgmo$" },
           "isPrimary": { "type": "boolean" },
-          "status": { "enum": ["draft", "approved", "needs-work"] },
+          "status": { "enum": ["draft", "marquee", "needs-work"] },
+          "stars": { "type": "integer", "minimum": 1, "maximum": 5 },
+          "feedback": { "type": "string", "minLength": 1 },
           "placements": {
             "type": "array",
             "items": {
