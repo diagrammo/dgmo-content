@@ -17,7 +17,7 @@ sw + nav + lead Legendary Pirates
 
 A venn diagram shows **which** groups overlap and what they share — the traits two teams have in common, the skills that appear in more than one role, the audience that belongs to both segments. Reach for it when one item can belong to two categories at once and you want to name what sits in each intersection. Two or three sets only.
 
-**It says nothing about how much.** Region areas are **not** proportional to set sizes, and the overlap region's size is fixed by the layout, not by your data. Any read of "the overlap is twice as big" is unsupported by the picture. If magnitude is the point — how many items are in each set or each intersection — use [`bar`](chart-bar.md), or [`heatmap`](chart-heatmap.md) if every pair has a value.
+**By default it says nothing about how much.** The circles are equal and the overlaps are fixed by the layout, so "the overlap is twice as big" is unsupported by the picture. When the counts matter, add [`proportional`](#proportional) and give every set and overlap a `size:` — circle and overlap areas then follow the counts. For exact comparisons of many counts, [`bar`](chart-bar.md) still reads better.
 
 ## When to use
 
@@ -25,16 +25,18 @@ A venn diagram shows **which** groups overlap and what they share — the traits
 - **[`pie`](chart-pie.md)** — every item belongs to exactly one category and the values sum to a meaningful whole.
 - **[`heatmap`](chart-heatmap.md)** — you have a value for every row × column combination, not just membership.
 - **[`arc`](chart-arc.md)** — you are linking individual items to each other rather than overlapping whole groups.
-- **[`bar`](chart-bar.md)** — the sizes of the sets or intersections are the point. Venn cannot encode them.
+- **[`bar`](chart-bar.md)** — the sizes of the sets or intersections need exact comparison. A `proportional` venn shows them as areas, which the eye reads only roughly.
 
 ## Syntax
 
 ```
 venn Chart Title
 
-<name> [as <alias>] [color]
+[proportional]
 
-<A> + <B> Label
+<name> [as <alias>] [color] [size: <n>]
+
+<A> + <B> Label [size: <n>]
 <A> + <B> + <C> Label
 ```
 
@@ -83,6 +85,30 @@ sw + nav + lead Legendary Pirates
 - The label follows the last set reference (no colon)
 - Set references use the alias, not the full name
 
+## Proportional
+
+Add a `proportional` line and a `size:` on every set and overlap line. Each circle's area follows its set's count, and each overlap's area follows its own:
+
+```dgmo
+venn Crew Skills Aboard the Fleet
+proportional
+
+Gunnery as gun red size: 120
+Rigging as rig blue size: 80
+Navigation as nav green size: 30
+
+gun + rig Deck hands size: 25
+rig + nav Helmsmen size: 12
+gun + nav Boarding pilots size: 9
+gun + rig + nav Officers size: 4
+```
+
+- A set's `size:` is how many items it holds, and must be more than 0
+- An overlap's `size:` is how many items every listed set shares, including those also in the third set. `size: 0` draws the circles apart
+- Two sets are drawn exactly. Three circles cannot fit every count at once, so a three-set chart comes close to each overlap rather than matching it
+- A line with no `size:` gets a warning and is drawn at equal size. An overlap larger than one of its sets gets a warning and is drawn at that set's size
+- Without `proportional`, `size:` values are not drawn, and you get one warning saying so
+
 ## Constraints
 
 - Minimum 2 sets, maximum 3 sets
@@ -104,7 +130,7 @@ Colors come from the active palette — see [Colors](colors.md). Set the palette
 
 ## Common mistakes
 
-- **Region areas are not proportional to set sizes.** Any "how much bigger is the overlap" reading is unsupported by the drawing. If magnitude matters, put the numbers in a [`bar`](chart-bar.md) beside it.
+- **Reading areas off a chart without `proportional`.** Equal circles show only which sets overlap. Add `proportional` and `size:` values, or put the numbers in a [`bar`](chart-bar.md) beside it.
 - **Overlap lines must name sets that exist.** A typo in a set name or alias produces a region label with nothing behind it, and the file validates clean — check that every region you wrote actually appears in the render.
 - Anything that renders but looks wrong: [Troubleshooting](troubleshooting.md) is organised by symptom.
 

@@ -4154,7 +4154,7 @@
           "kind": "trigger"
         }
       ],
-      "guidance": "Use 2–3 sets and write the count of each meaningful overlap directly on its intersection; circle area is NOT proportional, so the numbers — not the sizes — carry the comparison.",
+      "guidance": "Use 2–3 sets. Circles are equal by default, so the picture shows only which sets overlap; add `proportional` and a `size:` on every line when the counts are the point.",
       "description": "Set overlaps"
     },
     {
