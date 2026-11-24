@@ -4374,7 +4374,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 2
     },
     {
       "id": "arc-ordered",
