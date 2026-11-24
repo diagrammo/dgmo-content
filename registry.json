@@ -637,7 +637,7 @@
         }
       ],
       "guidance": "Reach for `block` when the **arrangement is the message** (system/hardware/architecture layouts) — not when you just want boxes auto-connected (that's `boxes-and-lines`/`flowchart`). Group with **containers** (indent a sub-grid) and **tag the container** so the colour cascades to its children. Don't write `columns` unless you need to override the inferred width; a lone block on a row already fills it. Mark a busy subsystem `collapsed` to keep the overview readable.",
-      "description": null
+      "description": "Hand-placed grid of blocks — system and hardware block diagrams"
     },
     {
       "id": "body",
@@ -1230,7 +1230,7 @@
         }
       ],
       "guidance": "an event line is the annotated _narrative_ timeline (Super Bowl halftime shows, \"a history of X\") — reach for it over `timeline` when each event carries a real description, and over `timeline` when the spacing should NOT be to scale. Keep to ~5–25 events; lead each with a terse title and write a sentence or two of body; color by category with a tag group.",
-      "description": null
+      "description": "Annotated narrative timeline — dated events with detail"
     },
     {
       "id": "family",
@@ -2218,7 +2218,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Trends over time, one or more series"
     },
     {
       "id": "line-area",
@@ -2835,7 +2835,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Parts of a whole — pie, doughnut or waffle"
     },
     {
       "id": "pie-donut",
@@ -2912,7 +2912,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Cyclical or categorical magnitudes on a radial grid"
     },
     {
       "id": "pyramid",
@@ -3238,7 +3238,7 @@
         }
       ],
       "guidance": null,
-      "description": null
+      "description": "Multi-dimensional comparison across shared axes"
     },
     {
       "id": "ring",
@@ -3813,7 +3813,7 @@
         }
       ],
       "guidance": "Give each lane a color and let nodes inherit it — reach for a `tag` group only when you need a _second_ dimension (e.g. risk) that deliberately breaks lane color. Echo the gateway/terminal delimiters (`<Review>`, `(Paid) success`) even though bare names also resolve — it keeps the source self-documenting. Put every edge label _inside_ the arrow (`-invalid->`), never as a trailing word.",
-      "description": null
+      "description": "Process flow across roles or teams (BPMN-style lanes)"
     },
     {
       "id": "swimlane-bpmn",
@@ -4053,7 +4053,7 @@
         }
       ],
       "guidance": "Put the unit in the title (`Cloud Spend ($)`) — there is no currency/format directive. Reach for `depth N` once a tree goes past ~3 levels (deeper subtrees collapse to a drillable block) and `other-below N` to fold a long tail of tiny categories into one **Other** box. Pick the color mode to match intent: tags for categories, `heat` for a gain/loss heatmap, branch for zero-config structure. Add `sunburst` to render a **sunburst / hierarchical pie** — best for shallow trees where you want \"share of a circle\"; keep the rectangular default for deep trees or precise magnitude comparison.",
-      "description": null
+      "description": "Hierarchical proportions — treemap, sunburst or icicle"
     },
     {
       "id": "treemap-heat",
@@ -4234,7 +4234,7 @@
         }
       ],
       "guidance": "the git / version-control branch-and-merge graph (GitFlow, trunk-based, release trains). The grammar is keyword-less — a bare top-level line is a branch, a bare indented line is a commit; only `merge` / `cherry-pick` are required verbs. Keep to ~3–6 branches and ~5–30 commits; name branches meaningfully (`feature/login`); tag releases. Use it for branching strategy, not real timestamps (use `timeline`/`gantt` for dates).",
-      "description": null
+      "description": "Git branches, commits and merges"
     },
     {
       "id": "whiteboard",

@@ -45,6 +45,12 @@ for (const e of doc.entities) {
   entityById.set(e.id, e);
 }
 
+// A type's description is the app's new-file tile subtitle; nine types had
+// none and showed a blank line (2026-11-24, diagrammo/diagrammo#2290).
+for (const e of doc.entities) {
+  if (e.kind === 'type' && !e.description) errors.push(`type ${e.id} has no description (new-file tile subtitle)`);
+}
+
 // variant.base integrity
 for (const e of doc.entities) {
   if (e.kind === 'variant') {
