@@ -258,7 +258,7 @@ To lead with lines instead, write a `line` chart and give the bar series
 | indented rows | Rows indented under a category line draw stacks grouped by category (see above) | No |
 | `widths` | Marimekko: each row's first number is its column width (see above) | No |
 | `x-axis`                 | Title for the category axis, e.g. `x-axis Quarter` | No       |
-| `y-axis`                 | `[title] [min..max] [log \| linear]`, e.g. `y-axis Revenue 0..100`; `log` cannot stack | No       |
+| `y-axis`                 | `[title] [min..max] [log \| linear]`, e.g. `y-axis Revenue 0..100`; `log` cannot stack; a stacked column whose total passes a fixed end is an error | No       |
 | `orientation-horizontal` | Horizontal bars (default is vertical)        | No       |
 | `sort` | Order the bars largest first (`sort asc` = smallest first, `sort <series>` = by one series) | No |
 | `lollipop` | Draw each bar as a thin stem with a dot at its value | No |
