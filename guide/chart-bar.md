@@ -246,6 +246,42 @@ Adventure Galley     132 46 35
 To lead with lines instead, write a `line` chart and give the bar series
 `mark: bar`; the line guide covers that form.
 
+### Small multiples — `facet`
+
+The bare `facet` flag draws one panel per series of a `group` block, in the
+order the block lists them, in a grid under one title block. Use it when the
+grouped bars are too many to compare side by side:
+
+```dgmo
+bar Plunder by Ship and Season
+facet
+columns 3
+x-axis Season
+y-axis Chests
+
+group
+  Black Pearl blue
+  Flying Dutchman purple
+  Queen Anne's Revenge red
+
+Spring 30 20 10
+Summer 35 25 12
+Autumn 40 22 18
+Winter 38 30 20
+```
+
+- Each panel is headed by its series name in the series colour. There is no
+  legend. The axis titles are drawn once, for the whole grid.
+- All panels share one value axis, with tick labels on the first column only.
+  `facet-free-y` gives each panel its own range and labels every panel.
+- The grid takes as many columns as fit at a readable panel width.
+  `columns N` sets the count.
+- `orientation-horizontal`, eras, markers, bands and the statistics overlays
+  apply in every panel. Bars never draw the grey context a line panel draws.
+- `stack`, `stack 100%`, `mirror` and `mark:` are errors beside `facet`,
+  because each needs several series in one plot; the chart is then drawn as
+  one plot. One series warns and draws one chart.
+
 ## Metadata Keys
 
 | Key                      | Description                                  | Required |
@@ -254,6 +290,9 @@ To lead with lines instead, write a `line` chart and give the bar series
 | `stack 100%` | Stack drawn as shares of each bar's total (see above) | No |
 | `stack diverging` | Stack centred on 0 around a `neutral` series (see above) | No |
 | `mirror` | Two series drawn back to back from a centre gutter (see above) | No |
+| `facet` | One panel per `group` series, in a grid — small multiples (see above) | No |
+| `facet-free-y` | With `facet`: each panel takes its own value range | No |
+| `columns` | With `facet`: panels per row, e.g. `columns 3` | No |
 | `mark:` | On a `stack` or `group` series line: `line` or `step` draws it as a line over the bars (see above) | No |
 | `y-right-axis` | Inside the `stack` or `group` block: a header for the line series on the right axis (see above) | No |
 | indented rows | Rows indented under a category line draw stacks grouped by category (see above) | No |

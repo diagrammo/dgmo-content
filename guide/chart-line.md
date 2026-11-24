@@ -196,6 +196,50 @@ To lead with bars instead — a `stack` or `group` of bars with a line over
 them — write a `bar` chart and give the line series `mark: line`. The bar guide
 covers that form.
 
+## Small multiples — `facet`
+
+The bare `facet` flag draws one panel per series, in the order the `series`
+block lists them, in a grid under one title block. Use it when four or more
+lines tangle in one plot and each one's own shape matters more than where the
+lines cross:
+
+```dgmo
+line Rum Rations by Ship
+subtitle Barrels drunk per month, first half of the voyage
+facet
+y-axis Barrels
+
+series
+  Black Pearl
+  Flying Dutchman
+  Queen Anne's Revenge
+  Jolly Roger
+
+Jan 12 9 15 7
+Feb 14 10 13 8
+Mar 11 12 17 9
+Apr 16 11 19 8
+May 18 13 16 11
+Jun 15 14 21 12
+```
+
+- Each panel is headed by its series name in the series colour. There is no
+  legend. The axis titles are drawn once, for the whole grid.
+- All panels share one value axis, so equal values sit at equal heights, and
+  its tick labels stand on the first column only. `facet-free-y` gives each
+  panel its own range and labels every panel.
+- Each panel draws the other series in light grey behind its own, for
+  context. `no-context` turns them off; a `facet-free-y` chart never draws
+  them, because its panels share no scale.
+- The grid takes as many columns as fit at a readable panel width.
+  `columns N` sets the count.
+- `fill`, `step` / `step-before`, eras, markers, bands and the statistics
+  overlays apply in every panel. A `note` stays with its own series' panel.
+- `stack`, `mirror`, a `y-right-axis` group, `mark:`, a series `band` and
+  `fill-between` are errors beside `facet`, because each needs several series
+  in one plot; the chart is then drawn as one plot. One series warns and draws
+  one chart.
+
 ## Y-Axis Scaling — auto-fit by default, `no-auto-y` to opt out
 
 A line chart **auto-fits its y-axis to the data**: the axis spans a padded window
@@ -445,6 +489,10 @@ Era syntax: `era <start> -> <end> Label color`
 | `y-right-axis` | Same form for the right Y axis (dual-axis; group series beneath it) | No |
 | `mark:` | On a series line: `bar`, `line` (default) or `step` — how that series is drawn (see above) | No |
 | `stack` | Stacked areas in place of `series`; `stack 100%` for shares (see above) | No |
+| `facet` | One panel per series, in a grid — small multiples (see above) | No |
+| `facet-free-y` | With `facet`: each panel takes its own value range | No |
+| `no-context` | With `facet`: no grey lines for the other series | No |
+| `columns` | With `facet`: panels per row, e.g. `columns 2` | No |
 | `fill`    | Shade the area under the line             | No       |
 | `fill-between` | Shade between two series, by which one leads | No |
 | `band` | A value range (`band 40..60`) or a band between two series (`band Forecast Low High`) | No |

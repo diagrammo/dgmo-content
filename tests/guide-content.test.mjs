@@ -330,6 +330,28 @@ const DOCUMENTED = [
     verifiedAgainst: 'dgmo tests/sankey-alluvial.test.ts and gallery/fixtures/sankey-alluvial.dgmo (#1858)',
     on: '2026-11-21',
   },
+  {
+    what: 'the bar guide has a small-multiples section and `facet` rows in its Metadata Keys table',
+    file: 'guide/chart-bar.md',
+    contains: [
+      '### Small multiples — `facet`',
+      '| `facet` | One panel per `group` series, in a grid — small multiples (see above) | No |',
+    ],
+    why: 'The small-multiples row (#1853) is done only when the guides document `facet`; slice 1 landed the parser and renderer with no guide text.',
+    verifiedAgainst: 'dgmo tests/chart-facet.test.ts and gallery/fixtures/bar-facet.dgmo at 09fcd21c (#1853)',
+    on: '2026-11-24',
+  },
+  {
+    what: 'the line guide has a small-multiples section and `facet` rows in its Metadata Keys table',
+    file: 'guide/chart-line.md',
+    contains: [
+      '## Small multiples — `facet`',
+      '| `no-context` | With `facet`: no grey lines for the other series | No |',
+    ],
+    why: 'The small-multiples row (#1853) is done only when the guides document `facet`.',
+    verifiedAgainst: 'dgmo tests/chart-facet.test.ts and gallery/fixtures/line-facet.dgmo at 09fcd21c (#1853)',
+    on: '2026-11-24',
+  },
 ];
 
 /**

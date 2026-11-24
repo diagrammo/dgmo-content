@@ -1,0 +1,17 @@
+line Rum Rations by Ship
+subtitle Barrels drunk per month, first half of the voyage
+facet
+y-axis Barrels
+
+series
+  Black Pearl
+  Flying Dutchman
+  Queen Anne's Revenge
+  Jolly Roger
+
+Jan 12 9 15 7
+Feb 14 10 13 8
+Mar 11 12 17 9
+Apr 16 11 19 8
+May 18 13 16 11
+Jun 15 14 21 12

@@ -577,6 +577,18 @@
       "description": null
     },
     {
+      "id": "bar-facet",
+      "kind": "variant",
+      "base": "bar",
+      "name": "Small multiples",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
       "id": "block",
       "kind": "type",
       "base": null,
@@ -2375,6 +2387,18 @@
       "kind": "variant",
       "base": "line",
       "name": "Combo",
+      "family": "data",
+      "intent": [],
+      "produces": null,
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
+      "id": "line-facet",
+      "kind": "variant",
+      "base": "line",
+      "name": "Small multiples",
       "family": "data",
       "intent": [],
       "produces": null,
@@ -4576,6 +4600,19 @@
       ]
     },
     {
+      "id": "bar-facet",
+      "entity": "bar-facet",
+      "file": "examples/bar/bar-facet.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
       "id": "block",
       "entity": "block",
       "file": "examples/block/block.dgmo",
@@ -5666,6 +5703,19 @@
       "id": "line-combo",
       "entity": "line-combo",
       "file": "examples/line/line-combo.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "line-facet",
+      "entity": "line-facet",
+      "file": "examples/line/line-facet.dgmo",
       "isPrimary": true,
       "status": "draft",
       "placements": [
