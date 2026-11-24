@@ -134,6 +134,21 @@ dgmo pie.dgmo --width 1000 --height 600 -o card.svg   # a 1000x600 SVG
 
 Chart types that size themselves from their content, such as flowchart and sequence, treat `--width` as a maximum and ignore `--height`. `dgmo` warns if the content does not fit.
 
+### Size in the file
+
+A diagram can carry its own size, so the file exports the same way every time. `size 1000x600` sets both dimensions in pixels. `aspect 16:9` sets the shape and works the height out from the width, 1200 pixels unless you give `--width`:
+
+```dgmo
+pie Crew Share
+size 1000x600
+
+Deckhands 40
+Gunners 25
+Cooks 10
+```
+
+`dgmo crew.dgmo -o crew.svg` gives a 1000x600 SVG. A flag beats the file, one dimension at a time: `--width 800` gives 800x600, and `--height 300` gives 1000x300. With `aspect 16:9`, `--width 800` gives 800x450. Use one `size` or `aspect` line per file. Wordcloud keeps its own `size <min> <max>` for the word range; only `size WxH` is the canvas there. The exact-size rule above still holds: chart types that size themselves from their content, such as flowchart and sequence, ignore the height.
+
 PNG export renders at **2x** unless you say otherwise. A diagram laid out at 1200x800 comes out as a 2400x1600 PNG. That is sharp enough for documents, slides and social cards.
 
 `--scale <n>` sets how many PNG pixels each canvas pixel becomes:
