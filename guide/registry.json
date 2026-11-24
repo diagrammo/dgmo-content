@@ -751,6 +751,16 @@
         "part-to-whole"
       ],
       "file": "chart-waterfall.md"
+    },
+    {
+      "slug": "chart-dot",
+      "title": "Dot",
+      "group": "data",
+      "subhead": "compare-values",
+      "intent": [
+        "compare-values"
+      ],
+      "file": "chart-dot.md"
     }
   ]
 }

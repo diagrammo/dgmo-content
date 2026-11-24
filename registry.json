@@ -1889,6 +1889,49 @@
       "description": "Start-to-end bridge of signed steps — revenue bridges, budget to actual, variance walks"
     },
     {
+      "id": "dot",
+      "kind": "type",
+      "base": null,
+      "name": "Dot",
+      "family": "data",
+      "intent": [
+        "compare-values"
+      ],
+      "produces": null,
+      "keywords": [
+        {
+          "text": "dot plot",
+          "kind": "trigger"
+        },
+        {
+          "text": "dumbbell chart",
+          "kind": "trigger"
+        },
+        {
+          "text": "cleveland dot plot",
+          "kind": "trigger"
+        },
+        {
+          "text": "dot strip",
+          "kind": "trigger"
+        },
+        {
+          "text": "gap between two values",
+          "kind": "trigger"
+        },
+        {
+          "text": "range per category",
+          "kind": "trigger"
+        },
+        {
+          "text": "connected dot plot",
+          "kind": "trigger"
+        }
+      ],
+      "guidance": "Use a dot plot where a bar would waste ink on its length, and a dumbbell for a before and after across many rows. Add `sort gap` and `gap` when the change is the story.",
+      "description": "Dots on one scale per row — dot plots, dumbbells and before-and-after gaps"
+    },
+    {
       "id": "infra",
       "kind": "type",
       "base": null,
@@ -5367,6 +5410,53 @@
       "id": "waterfall-cost-bridge",
       "entity": "waterfall",
       "file": "examples/waterfall/waterfall-cost-bridge.dgmo",
+      "isPrimary": false,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "dot",
+      "entity": "dot",
+      "file": "examples/dot/dot.dgmo",
+      "isPrimary": true,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        },
+        {
+          "surface": "new-file",
+          "role": "starter"
+        },
+        {
+          "surface": "obsidian",
+          "role": "sampler"
+        }
+      ]
+    },
+    {
+      "id": "dot-dumbbell",
+      "entity": "dot",
+      "file": "examples/dot/dot-dumbbell.dgmo",
+      "isPrimary": false,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
+      "id": "dot-strip",
+      "entity": "dot",
+      "file": "examples/dot/dot-strip.dgmo",
       "isPrimary": false,
       "status": "draft",
       "placements": [

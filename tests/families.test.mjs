@@ -113,6 +113,7 @@ test('every data and business type sits under the sub-head the mockup drew it in
   const placed = {
     bar: 'Compare values',
     slope: 'Compare values',
+    dot: 'Compare values',
     radar: 'Compare values',
     'polar-area': 'Compare values',
     line: 'Change over time',

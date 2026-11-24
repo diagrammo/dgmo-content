@@ -20,6 +20,7 @@ A slope chart connects a "before" and an "after" with one line per item, so rise
 - **`slope` with `rank`** — your numbers are positions (1st, 2nd, 3rd) and the point is who overtook whom.
 - **[`line`](chart-line.md)** — you have readings at many points in time and the path between them matters.
 - **[`bar`](chart-bar.md)** — you only care about current sizes, not the movement between two moments.
+- **[`dot`](chart-dot.md)** — many items with a before and an after, where the gap matters more than the crossing lines.
 
 Slope draws only the periods you list. With just a first and a last, it hides every reversal between them — a metric that crashed mid-period and recovered renders as a flat, healthy line. If the middle of the story matters, list more periods or use [`line`](chart-line.md).
 

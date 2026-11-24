@@ -22,6 +22,7 @@ A bar chart compares a value across categories using **length** — the most dir
 - [`radar`](chart-radar.md) — the *overall shape* across measures is the point ("strong here, weak there") and every axis shares one scale. Use `bar` when the individual numbers must be read accurately, or when your measures are in mixed units.
 - [`slope`](chart-slope.md) — the point is how each item *moved* between two moments. Slope draws only the first and last period, so use `bar` (or [`line`](chart-line.md)) when the movement in between matters.
 - [`waterfall`](chart-waterfall.md) — the values are signed changes that walk from a start to an end, and the question is what moved the total.
+- [`dot`](chart-dot.md) — many categories where the length from zero adds nothing, or two values per category whose gap is the story. A dot uses less ink than a bar, and its axis need not start at zero.
 - [`wordcloud`](chart-wordcloud.md) — you only want a texture of which terms come up most. Use `bar` if anyone needs to rank them, since word size is an unreliable comparison.
 - [`boxplot`](chart-boxplot.md) — each group is a pile of raw numbers and the question is their spread and outliers. A bar shows one value per group and hides the spread.
 - [`heatmap`](chart-heatmap.md) — you have two things to break down by at once (rows *and* columns). `bar` breaks down by one dimension only.

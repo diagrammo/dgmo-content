@@ -1,0 +1,14 @@
+dot Storm crossings run longest through the Devil's Strait
+subtitle Fastest, typical and slowest crossing by route, days
+series
+  Fastest
+  Typical
+  Slowest
+sort Slowest
+x-axis 0..
+
+Tortuga to Nassau 3 5 9
+Port Royal to Havana 4 7 12
+Devil's Strait 6 11 24
+Spanish Main Run 5 8 15
+Cape Gale Passage 7 10 19
