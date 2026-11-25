@@ -4406,7 +4406,7 @@
         }
       ],
       "stars": 1,
-      "feedback": "just organize the woman pirates into their geography"
+      "feedback": "just have all pirates by geography, not just woman pirates."
     },
     {
       "id": "bar",
@@ -4513,7 +4513,8 @@
           "role": "docs"
         }
       ],
-      "stars": 1
+      "stars": 1,
+      "feedback": "this is good but we need more interesting colors."
     },
     {
       "id": "bar-diverging",
@@ -5855,7 +5856,6 @@
           "role": "starter"
         }
       ],
-      "feedback": "none of them are great examples, do north and east Caribbean maybe we can get more recognizable things. use arcs, avoid land.",
       "stars": 1
     },
     {

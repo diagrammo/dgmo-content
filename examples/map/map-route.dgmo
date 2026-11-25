@@ -1,19 +1,16 @@
-map The Brethren's Caribbean
+map The Brethren's Bahamas Run
 
-tag Port as p
-  Home Port red
-  Friendly green
-  Spanish Prize orange
+tag Leg as l
+  Plunder red
+  Parley green
+  Open Water blue
 
-tag Passage as l
-  Open Sea blue
-  Coastal Run teal
+poi 25.73 -79.30 as bimini label: Bimini
+poi 26.53 -78.70 as freeport label: Freeport
+poi 25.05 -77.35 as nassau label: Nassau
+poi 25.50 -76.64 as harbour label: Harbour Island
 
-poi Kingston p: Home Port, size: 120
-poi Havana p: Spanish Prize, size: 90
-poi Santo Domingo p: Friendly, size: 70
-
-route Kingston
-  ~weigh anchor~> Havana l: Open Sea
-  ~raid the galleons~> Santo Domingo l: Coastal Run
-  ~careen & resupply~> Kingston l: Open Sea
+route bimini
+  ~raid the Gulf Stream~> freeport l: Plunder
+  ~fence the goods~> nassau l: Parley
+  ~sail for the cays~> harbour l: Open Water
