@@ -4387,8 +4387,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 2,
-      "feedback": "it's weir to have 2 geography groups and 1 gender groups. let's have 4 geography groups. more line thickness disparity."
+      "stars": 2
     },
     {
       "id": "arc-ordered",
@@ -6635,7 +6634,7 @@
       "entity": "wordcloud",
       "file": "examples/wordcloud/wordcloud.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
