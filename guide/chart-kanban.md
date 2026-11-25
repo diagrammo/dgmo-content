@@ -209,6 +209,9 @@ tag Team as t
 Because it lives in the source, a shared or exported board keeps the same
 coloring dimension, and every renderer honors it.
 
+The card colour already shows the active group's value, so cards don't repeat
+it as a chip. In the example above, the cards show `High` but not `Frontend`.
+
 ## Swimlanes
 
 Slice the board into horizontal swimlanes by a tag group with `lane-by GroupName`. Each tag value gets its own lane, so cards split into rows (by owner, team, priority) while keeping their columns:
@@ -228,6 +231,8 @@ tag Team as t
 [Done]
   Landing page t: Frontend
 ```
+
+Cards don't show a chip for the swimlane group, because the lane already names the value. The other tag groups still show as chips.
 
 It's named `lane-by` rather than `swimlane` because `swimlane` is its own chart type. This directive is persisted from the app's swimlane picker, so it lives in the source and every renderer honors it.
 
