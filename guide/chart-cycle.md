@@ -29,7 +29,7 @@ A **cycle** arranges stages in a closed loop where the last step feeds back into
 
 - **`cycle`** — the process loops forever with no exit, and the loop itself is the point.
 - **[`flowchart`](chart-flowchart.md)** — the process *ends*, or it branches on decisions. A cycle has no branches and no terminating step.
-- **[`state`](chart-state.md)** — the boxes are conditions something *is in* rather than steps you *do*, specific events flip between them, and you can go backwards. A cycle is a fixed loop always walked one direction.
+- **[`state`](chart-state.md)** — the boxes are conditions something *is in* rather than steps you *do*, and specific events flip between them in many directions. A cycle is a fixed loop walked one way; a [back edge](#back-edges) or two for rework is fine, but if most steps jump around, use `state`.
 
 ## Syntax
 
@@ -91,6 +91,55 @@ Orient green
 ```
 
 Edge lines are indented under their source node. A label goes between `-` and `->`. Edge metadata supports `color` and `width`. Edges have no trailing-token color slot, so `color: <name>` is the only way to color them.
+
+Each edge line is one arrow. What it draws depends on whether a step name follows `->`:
+
+| Edge line | Draws |
+|-----------|-------|
+| `->` · `-Label->` | the step's arrow to the **next** step (label, colour, width) |
+| `-Label-> NextStep` | the same — naming the next step changes nothing |
+| `-Label-> OtherStep`, beside a line above | a **back edge**: an extra dashed arrow to that step |
+| `-Label-> OtherStep`, alone | a **redirect**: the step's arrow goes there instead of the next step |
+
+The target is the text after `->` and before any `key: value`. It matches a step label, ignoring case.
+
+## Back Edges
+
+A back edge shows a step that can send work backward — a review that sends a change back to planning — while the loop still moves forward. Under the step, write its forward arrow, then a second line naming the earlier step:
+
+```dgmo
+cycle Release Train
+
+center SHIP
+autonumber
+
+Plan blue
+  Pick the work for the sprint
+Build green
+  Write the code
+Review orange
+  Two people read every change
+  -Approved->
+  -Rework-> Plan color: red
+Ship purple
+  Release to everyone
+```
+
+The back edge is drawn **dashed**, inside the ring, so it reads as the way back rather than the main flow. It takes the source step's colour unless you set `color:`. An arrow to the previous step runs just inside the ring; to any other step it curves across the middle, clear of the other steps, the `center` text and the other labels. A step can have several back edges, one line each. It works with `direction-counterclockwise`, `circle-nodes`, `autonumber` and `center`.
+
+Leave out the forward line (`-Approved->` above) and the named arrow **replaces** the step's arrow to the next step instead — drawn solid, as part of the loop. Use that for a loop with a lead-in step:
+
+```dgmo
+cycle Raid Cycle
+
+Spot a Sail
+Pursue
+Board
+Plunder
+  -Back on the hunt-> Pursue
+```
+
+A target that names no step, or the step itself, is an error on that line (with a "did you mean" hint when a step name is close), and that arrow is not drawn.
 
 ### Edge Descriptions
 
