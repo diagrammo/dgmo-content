@@ -5587,7 +5587,8 @@
           "role": "sampler"
         }
       ],
-      "stars": 2
+      "stars": 4,
+      "feedback": "we still have no thought bubbles on the faces, that's part of the DGMO and a feature, let's add them."
     },
     {
       "id": "kanban",
@@ -5609,7 +5610,7 @@
           "role": "sampler"
         }
       ],
-      "feedback": "more cards, depth of 2, 4, 5, 2 or something."
+      "feedback": "the yellow, orange, red bleed into each other, pick different colors for the tags."
     },
     {
       "id": "line",
@@ -5630,8 +5631,7 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ],
-      "feedback": "the '0.6' looks bad, adjust the data. this chart is just kind of small"
+      ]
     },
     {
       "id": "line-area",

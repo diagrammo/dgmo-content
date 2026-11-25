@@ -441,17 +441,18 @@ series
   Cutlass Crew blue
   Powder Monkeys green
   Rigging Rats orange
-x-axis Port of Call
-y-axis Doubloons (thousands)
+x-axis Port
+y-axis Doubloons (000s)
 
+marker y 8 Captain's Quota
 era Nassau -> Port Royal Shakedown Run teal
-era Port Royal -> Kingston Golden Haul orange
+era Port Royal -> Havana Golden Haul orange
 
-Nassau       4.2 1.1 0.6
-Tortuga      6.5 1.9 0.9
-Port Royal   9.1 3.4 1.7
-Isla Muerta  7.8 4.2 2.3
-Kingston    11.4 5.1 3.0
+Nassau      4.4 2.8 1.6
+Tortuga     6.5 3.2 2.0
+Port Royal  9.1 3.9 2.5
+Havana     10.3 5.0 3.4
+Kingston   12.6 5.9 3.9
 ```
 
 ### Pie Chart
