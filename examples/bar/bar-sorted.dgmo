@@ -1,11 +1,22 @@
 bar Crew Size by Ship
 orientation-horizontal
 sort
-x-axis Crew
-y-axis Ship
+stack
+  Killed in battle red
+  Hanged purple
+  Wrecked blue
+  Retired rich green
+x-axis Ship
+y-axis Crew
 
-Queen Anne's Revenge 300
-Whydah Gally         146
-Adventure Galley     152
-Royal Fortune        262
-Fancy                180
+marker 208 Fleet mean 208
+
+Queen Anne's Revenge 300 0 0 0
+  note Killed in battle Blackbeard fell at Ocracoke
+Whydah Gally         0 0 146 0
+  note Wrecked Lost off Cape Cod
+Adventure Galley     0 152 0 0
+  note Hanged Kidd was hanged in London
+Royal Fortune        262 0 0 0
+Fancy                0 0 0 180
+  note Retired rich Every vanished with the loot
