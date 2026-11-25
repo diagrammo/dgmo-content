@@ -5594,7 +5594,7 @@
       "entity": "kanban",
       "file": "examples/kanban/kanban.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6603,8 +6603,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 2,
-      "feedback": "get rid of the red notes. get rid of blue line under home. get rid of green circle around orders and doubloons."
+      "stars": 2
     },
     {
       "id": "wireframe",
