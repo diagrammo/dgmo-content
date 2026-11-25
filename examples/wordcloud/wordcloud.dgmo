@@ -1,23 +1,23 @@
 wordcloud Pirate Skills
+size 12, 110
 
-// word weight (higher = larger)
 swordsmanship 100
-navigation    72
-gunnery       54
-seamanship    46
-plundering    34
-leadership    28
-cartography   24
-intimidation  20
-sailing       17
-knot-tying    14
-lookout       12
-cooking       10
-carpentry     8
-parley        7
-fishing       6
-rum-rationing 5
-mutiny        4
-patch-sails   4
-swabbing      3
-shanties      3
+navigation    70
+gunnery       48
+seamanship    38
+plundering    30
+leadership    22
+cartography   18
+intimidation  14
+sailing       11
+knot-tying    9
+lookout       8
+cooking       6
+carpentry     5
+parley        4
+fishing       3
+rum-rationing 3
+mutiny        2
+patch-sails   2
+swabbing      1
+shanties      1

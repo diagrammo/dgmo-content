@@ -6605,7 +6605,8 @@
           "role": "sampler"
         }
       ],
-      "stars": 2
+      "stars": 2,
+      "feedback": "get rid of the red note. add some freehand scribbles. create some lines with curves like a user can. show some dashed lines and dashed shapes (rarely). connect the note with a line to what it describes. add the document shape."
     },
     {
       "id": "wireframe",
@@ -6649,7 +6650,6 @@
           "role": "sampler"
         }
       ],
-      "feedback": "this needs color, more disparity in the sizing.",
       "stars": 2
     }
   ]
