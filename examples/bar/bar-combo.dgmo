@@ -1,14 +1,14 @@
-bar Cannon Fire and Hits by Ship
-x-axis Ship
+bar Plunder and Share per Port
+x-axis Port
 
-group
-  y-axis Shots
-    Broadsides blue
-    Chasers green
-  y-right-axis Hit Rate (%)
-    Hit Rate red mark: line
+stack
+  y-axis Chests
+    Gold orange
+    Silver blue
+  y-right-axis Share per Hand
+    Share per Hand green mark: line
 
-Queen Anne's Revenge 120 40 38
-Royal Fortune        104 36 44
-Whydah Gally          88 30 51
-Adventure Galley     132 46 35
+Tortuga 40 22 60
+Nassau  31 18 48
+Havana  36 14 52
+Kingston 28 20 44

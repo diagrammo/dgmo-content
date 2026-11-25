@@ -4626,7 +4626,6 @@
           "role": "docs"
         }
       ],
-      "feedback": "this chart needs work, can't go like this. modify the data so that we don't run into this. the chart is all smashed. use a data set and values that avoid this for now",
       "stars": 1
     },
     {
@@ -5307,7 +5306,7 @@
       "entity": "goal-bullet",
       "file": "examples/goal/goal-bullet.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -5318,7 +5317,7 @@
           "role": "starter"
         }
       ],
-      "stars": 1
+      "stars": 4
     },
     {
       "id": "goal-bullet-gauges",
