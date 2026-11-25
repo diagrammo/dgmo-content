@@ -1,11 +1,19 @@
-bar Doubloons Hauled by Port
+bar Crew Fortunes This Voyage
+subtitle Shares in blue, debts in red
 lollipop
+orientation-horizontal
 sort
 y-axis Doubloons
 
-Port Royal 850
-Tortuga    620
-Nassau     1100
-Havana     400
-Kingston   530
-Maracaibo  710
+Captain 340
+  highlight blue
+Quartermaster 210
+  highlight blue
+Navigator 120
+  highlight blue
+Bosun 60
+  highlight blue
+PowderMonkey -45
+  highlight red
+Cook -20
+  highlight red

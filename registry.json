@@ -4513,7 +4513,6 @@
           "role": "docs"
         }
       ],
-      "feedback": "come up with options, this is boring",
       "stars": 1
     },
     {
@@ -4957,7 +4956,8 @@
           "role": "sampler"
         }
       ],
-      "stars": 1
+      "stars": 1,
+      "feedback": "show a node going backward as well just to show off the feature"
     },
     {
       "id": "er",
