@@ -4513,8 +4513,7 @@
           "role": "docs"
         }
       ],
-      "stars": 1,
-      "feedback": "do this with a target and more interesting things."
+      "stars": 1
     },
     {
       "id": "bar-diverging",
@@ -6324,14 +6323,14 @@
       "entity": "scatter-trend",
       "file": "examples/scatter/scatter-trend.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
           "role": "docs"
         }
       ],
-      "stars": 3
+      "stars": 4
     },
     {
       "id": "histogram",

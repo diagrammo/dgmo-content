@@ -1,19 +1,14 @@
-bar Crew Fortunes This Voyage
-subtitle Shares in blue, debts in red
+bar Grog Rations Against the Daily Allowance
 lollipop
 orientation-horizontal
-sort
-y-axis Doubloons
+sort asc
+target 3 below green
+mean
+y-axis Pints per head per day
 
-Captain 340
-  highlight blue
-Quartermaster 210
-  highlight blue
-Navigator 120
-  highlight blue
-Bosun 60
-  highlight blue
-PowderMonkey -45
-  highlight red
-Cook -20
-  highlight red
+Captain 2
+Quartermaster 3
+Navigator 3
+Cook 4
+Bosun 5
+PowderMonkey 7
