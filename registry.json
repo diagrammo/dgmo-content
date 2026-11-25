@@ -4491,14 +4491,15 @@
       "entity": "bar-sorted",
       "file": "examples/bar/bar-sorted.dgmo",
       "isPrimary": true,
-      "status": "marquee",
+      "status": "draft",
       "placements": [
         {
           "surface": "docs",
           "role": "docs"
         }
       ],
-      "stars": 3
+      "stars": 2,
+      "feedback": "let's get more color into this, perhaps a stats line like mean or something. Let's make it more interesting."
     },
     {
       "id": "bar-lollipop",
@@ -4623,7 +4624,7 @@
           "role": "docs"
         }
       ],
-      "stars": 3
+      "stars": 4
     },
     {
       "id": "bar-facet",
@@ -5378,7 +5379,8 @@
           "surface": "docs",
           "role": "docs"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "calendar-range",
@@ -5699,21 +5701,21 @@
           "role": "docs"
         }
       ],
-      "stars": 3
+      "stars": 4
     },
     {
       "id": "line-step",
       "entity": "line-step",
       "file": "examples/line/line-step.dgmo",
       "isPrimary": true,
-      "status": "marquee",
+      "status": "draft",
       "placements": [
         {
           "surface": "docs",
           "role": "docs"
         }
       ],
-      "stars": 3
+      "stars": 2
     },
     {
       "id": "line-band",
@@ -5838,7 +5840,7 @@
       "entity": "map-route",
       "file": "examples/map/map-route.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -5849,7 +5851,7 @@
           "role": "starter"
         }
       ],
-      "stars": 1
+      "stars": 4
     },
     {
       "id": "mindmap",
