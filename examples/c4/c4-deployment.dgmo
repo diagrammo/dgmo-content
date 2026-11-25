@@ -1,43 +1,78 @@
-c4 Buccaneer Bay Harbor Authority — Deployment
+c4 Buccaneer Bay — Deployment
+level deployment
+active-tag Technology
 
 tag Technology as tech
   React blue
   Node.js green
-  Python orange
   PostgreSQL purple
   Redis red
-  Kafka teal
+  Python yellow
+  Kafka orange
+  Parchment gray
 
-Harbor Authority is a system
-  description: Manages berths, manifests, and tolls for the port
+tag Crew as crew
+  Captain red
+  Purser green
+  Navigator purple
+  Bosun orange
+  Monkeys yellow
 
+tag Risk as risk
+  Mutiny red
+  Squall orange
+  Drizzle yellow
+  Calm green
+
+Captain is a person tech: Parchment
+  description: Sets course, books berths
+  -Books berths on-> Dock Board
+Quartermaster is a person tech: Parchment
+  description: Settles tolls, splits treasure
+  -Settles tolls on-> Toll Desk
+Navigator is a person tech: Parchment
+  description: Plots routes from tide charts
+  -Plots routes on-> Dock Board
+
+Tide Almanac is a system tech: Python
+  description: Outside tide and weather forecasts
+Crown Customs is a system tech: Kafka
+  description: The Crown's duty office
+Treasure Bank is a system tech: PostgreSQL
+  description: Holds the shared doubloons
+
+Harbor Authority is a system tech: Node.js
+  description: Runs berths, manifests and tolls
   containers
     Dock Board is a container tech: React
-      description: Berth scheduling console for captains
-
+      description: Berth console
+      -Calls over HTTPS-> Manifest API
     Toll Desk is a container tech: React
-      description: Customs and duty-assessment console
-
+      description: Duty and toll console
+      -Calls over HTTPS-> Manifest API
     Manifest API is a container tech: Node.js
-      description: Core API for berths, manifests, and tolls
-
-    Berth Scheduler is a container tech: Node.js
-      description: Assigns moorings by draft, tide, and cargo
-
+      description: Core API for berths and tolls
+      -Stores manifests in-> Harbor Ledger
+      -Caches tides in-> Chart Cache
+      -Files duties with-> Crown Customs
+      ~Emits events over AMQP~> Signal Bus
+    Berth Scheduler is a container tech: Python
+      description: Assigns moorings by tide
+      -Reads berths from-> Harbor Ledger
+      -Reads tides from-> Tide Almanac
     Duty Service is a container tech: Python
-      description: Calculates cargo duties on incoming loot
-
+      description: Works out cargo duties
+      -Writes receipts to-> Harbor Ledger
+      -Banks tolls with-> Treasure Bank
     Harbor Ledger is a container is a database tech: PostgreSQL
-      description: Berths, manifests, tariffs, and toll receipts
-
+      description: Berths and toll receipts
     Chart Cache is a container is a cache tech: Redis
-      description: Tide tables and berth-availability cache
-
+      description: Tide tables cache
     Signal Bus is a container is a queue tech: Kafka
-      description: Async backbone for berth and duty events
+      description: Berth and duty events
 
 deployment
-  Harbor Cloud is a cloud
+  Buccaneer Bay Harbor is a cloud
     Lighthouse CDN
       container Dock Board
       container Toll Desk

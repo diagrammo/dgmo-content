@@ -4833,7 +4833,6 @@
           "role": "sampler"
         }
       ],
-      "feedback": "too boring, 1 box, insane, we can't show this. add more boxes",
       "stars": 1
     },
     {
@@ -4942,7 +4941,7 @@
       "entity": "cycle-counterclockwise",
       "file": "examples/cycle/cycle-counterclockwise.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -4953,7 +4952,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 1
+      "stars": 4
     },
     {
       "id": "er",
