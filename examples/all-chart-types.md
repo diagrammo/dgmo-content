@@ -206,184 +206,198 @@ West Africa     3 3 4 3 5 4
 
 ```dgmo
 calendar Cannon Volleys Fired in 2026
-// Daily log: one `date value` line per day; a missing day is zero.
 year 2026
-unit volley
+heat Volleys as v red blue
+  unit volley
+tag Ship as s
+  Black Gull red
+  Sea Wraith green
+  Iron Kraken blue
+active-tag Volleys
 
-01-02 1
-01-03 1
-01-05 3
-01-06 9
-01-08 9
-01-09 1
-01-13 9
-01-14 3
-01-15 2
-01-17 1
-01-21 3
-01-24 1
-02-01 2
-02-03 4
-02-09 9
-02-10 6
-02-11 14
-02-14 6
-02-19 1
-02-23 4
-03-02 14
-03-06 4
-03-07 3
-03-11 9
-03-21 2
-03-22 3
-03-23 2
-03-25 9
-03-29 1
-04-08 3
-04-10 1
-04-11 2
-04-15 3
-04-17 4
-04-21 14
-04-25 1
-05-01 6
-05-02 1
-05-04 1
-05-06 6
-05-08 3
-05-09 6
-05-14 3
-05-17 14
-05-18 1
-05-21 3
-05-24 6
-05-26 3
-05-27 14
-05-28 3
-05-29 1
-05-30 6
-06-01 1
-06-05 2
-06-06 6
-06-07 9
-06-08 1
-06-10 2
-06-11 14
-06-13 14
-06-15 2
-06-16 1
-06-17 2
-06-18 3
-06-20 4
-06-21 3
-06-23 9
-06-25 6
-06-29 2
-06-30 1
-07-05 2
-07-06 1
-07-07 6
-07-09 14
-07-11 1
-07-12 4
-07-13 1
-07-14 1
-07-17 3
-07-19 14
-07-20 3
-07-24 3
-07-26 1
-07-27 6
-07-28 3
-07-29 3
-08-02 6
-08-03 2
-08-05 1
-08-06 14
-08-07 3
-08-08 9
-08-10 9
-08-11 6
-08-12 6
-08-13 14
-08-14 1
-08-15 4
-08-16 1
-08-17 3
-08-19 4
-08-20 2
-08-21 2
-08-26 14
-08-28 1
-08-30 1
-08-31 1
-09-03 3
-09-04 1
-09-05 6
-09-07 4
-09-09 3
-09-12 2
-09-13 4
-09-15 3
-09-16 2
-09-17 1
-09-19 1
-09-21 3
-09-22 3
-09-24 9
-09-26 9
-09-28 3
-09-30 2
-10-03 2
-10-04 4
-10-06 9
-10-10 4
-10-11 2
-10-12 14
-10-13 6
-10-17 4
-10-18 2
-10-19 9
-10-20 4
-10-22 1
-10-23 1
-10-24 1
-10-28 2
-11-04 2
-11-05 9
-11-08 1
-11-14 1
-11-15 6
-11-19 1
-11-23 1
-11-28 14
-11-30 4
-12-01 3
-12-02 14
-12-10 2
-12-15 14
-12-16 4
-12-18 3
-12-24 3
-12-26 14
-12-27 14
-12-28 14
+01-02 v: 1, s: Sea Wraith
+01-03 v: 1, s: Iron Kraken
+01-05 v: 3, s: Iron Kraken
+01-06 v: 9, s: Black Gull
+01-08 v: 9, s: Sea Wraith
+01-09 v: 1, s: Black Gull
+01-13 v: 9, s: Black Gull
+01-14 v: 3, s: Sea Wraith
+01-15 v: 2, s: Sea Wraith
+01-17 v: 1, s: Sea Wraith
+01-21 v: 3, s: Sea Wraith
+01-24 v: 1, s: Black Gull
+02-01 v: 2, s: Iron Kraken
+02-03 v: 4, s: Iron Kraken
+02-09 v: 9, s: Iron Kraken
+02-10 v: 6, s: Black Gull
+02-11 v: 14, s: Black Gull
+02-14 v: 6, s: Iron Kraken
+02-19 v: 1, s: Sea Wraith
+02-23 v: 4, s: Iron Kraken
+03-02 v: 14, s: Sea Wraith
+03-06 v: 4, s: Sea Wraith
+03-07 v: 3, s: Sea Wraith
+03-11 v: 9, s: Iron Kraken
+03-21 v: 2, s: Iron Kraken
+03-22 v: 3, s: Sea Wraith
+03-23 v: 2, s: Sea Wraith
+03-25 v: 9, s: Black Gull
+03-29 v: 1, s: Iron Kraken
+04-08 v: 3, s: Iron Kraken
+04-10 v: 1, s: Sea Wraith
+04-11 v: 2, s: Black Gull
+04-15 v: 3, s: Iron Kraken
+04-17 v: 4, s: Sea Wraith
+04-21 v: 14, s: Black Gull
+04-25 v: 1, s: Black Gull
+05-01 v: 6, s: Black Gull
+05-02 v: 1, s: Iron Kraken
+05-04 v: 1, s: Black Gull
+05-06 v: 6, s: Black Gull
+05-08 v: 3, s: Sea Wraith
+05-09 v: 6, s: Iron Kraken
+05-14 v: 3, s: Black Gull
+05-17 v: 14, s: Black Gull
+05-18 v: 1, s: Black Gull
+05-21 v: 3, s: Black Gull
+05-24 v: 6, s: Sea Wraith
+05-26 v: 3, s: Iron Kraken
+05-27 v: 14, s: Iron Kraken
+05-28 v: 3, s: Sea Wraith
+05-29 v: 1, s: Black Gull
+05-30 v: 6, s: Black Gull
+06-01 v: 1, s: Iron Kraken
+06-05 v: 2, s: Sea Wraith
+06-06 v: 6, s: Black Gull
+06-07 v: 9, s: Sea Wraith
+06-08 v: 1, s: Black Gull
+06-10 v: 2, s: Iron Kraken
+06-11 v: 14, s: Black Gull
+06-13 v: 14, s: Sea Wraith
+06-15 v: 2, s: Iron Kraken
+06-16 v: 1, s: Iron Kraken
+06-17 v: 2, s: Sea Wraith
+06-18 v: 3, s: Black Gull
+06-20 v: 4, s: Iron Kraken
+06-21 v: 3, s: Iron Kraken
+06-23 v: 9, s: Black Gull
+06-25 v: 6, s: Sea Wraith
+06-29 v: 2, s: Sea Wraith
+06-30 v: 1, s: Sea Wraith
+07-05 v: 2, s: Black Gull
+07-06 v: 1, s: Black Gull
+07-07 v: 6, s: Black Gull
+07-09 v: 14, s: Black Gull
+07-11 v: 1, s: Black Gull
+07-12 v: 4, s: Sea Wraith
+07-13 v: 1, s: Iron Kraken
+07-14 v: 1, s: Black Gull
+07-17 v: 3, s: Black Gull
+07-19 v: 14, s: Black Gull
+07-20 v: 3, s: Iron Kraken
+07-24 v: 3, s: Black Gull
+07-26 v: 1, s: Iron Kraken
+07-27 v: 6, s: Iron Kraken
+07-28 v: 3, s: Black Gull
+07-29 v: 3, s: Sea Wraith
+08-02 v: 6, s: Iron Kraken
+08-03 v: 2, s: Iron Kraken
+08-05 v: 1, s: Iron Kraken
+08-06 v: 14, s: Sea Wraith
+08-07 v: 3, s: Black Gull
+08-08 v: 9, s: Sea Wraith
+08-10 v: 9, s: Iron Kraken
+08-11 v: 6, s: Black Gull
+08-12 v: 6, s: Sea Wraith
+08-13 v: 14, s: Sea Wraith
+08-14 v: 1, s: Sea Wraith
+08-15 v: 4, s: Iron Kraken
+08-16 v: 1, s: Black Gull
+08-17 v: 3, s: Black Gull
+08-19 v: 4, s: Iron Kraken
+08-20 v: 2, s: Sea Wraith
+08-21 v: 2, s: Iron Kraken
+08-26 v: 14, s: Black Gull
+08-28 v: 1, s: Black Gull
+08-30 v: 1, s: Sea Wraith
+08-31 v: 1, s: Iron Kraken
+09-03 v: 3, s: Iron Kraken
+09-04 v: 1, s: Sea Wraith
+09-05 v: 6, s: Sea Wraith
+09-07 v: 4, s: Black Gull
+09-09 v: 3, s: Black Gull
+09-12 v: 2, s: Black Gull
+09-13 v: 4, s: Black Gull
+09-15 v: 3, s: Black Gull
+09-16 v: 2, s: Black Gull
+09-17 v: 1, s: Black Gull
+09-19 v: 1, s: Sea Wraith
+09-21 v: 3, s: Sea Wraith
+09-22 v: 3, s: Iron Kraken
+09-24 v: 9, s: Black Gull
+09-26 v: 9, s: Sea Wraith
+09-28 v: 3, s: Iron Kraken
+09-30 v: 2, s: Iron Kraken
+10-03 v: 2, s: Black Gull
+10-04 v: 4, s: Black Gull
+10-06 v: 9, s: Black Gull
+10-10 v: 4, s: Iron Kraken
+10-11 v: 2, s: Sea Wraith
+10-12 v: 14, s: Iron Kraken
+10-13 v: 6, s: Sea Wraith
+10-17 v: 4, s: Black Gull
+10-18 v: 2, s: Iron Kraken
+10-19 v: 9, s: Sea Wraith
+10-20 v: 4, s: Black Gull
+10-22 v: 1, s: Sea Wraith
+10-23 v: 1, s: Iron Kraken
+10-24 v: 1, s: Black Gull
+10-28 v: 2, s: Iron Kraken
+11-04 v: 2, s: Black Gull
+11-05 v: 9, s: Iron Kraken
+11-08 v: 1, s: Sea Wraith
+11-14 v: 1, s: Iron Kraken
+11-15 v: 6, s: Iron Kraken
+11-19 v: 1, s: Sea Wraith
+11-23 v: 1, s: Iron Kraken
+11-28 v: 14, s: Sea Wraith
+11-30 v: 4, s: Sea Wraith
+12-01 v: 3, s: Sea Wraith
+12-02 v: 14, s: Sea Wraith
+12-10 v: 2, s: Iron Kraken
+12-15 v: 14, s: Black Gull
+12-16 v: 4, s: Black Gull
+12-18 v: 3, s: Black Gull
+12-24 v: 3, s: Sea Wraith
+12-26 v: 14, s: Sea Wraith
+12-27 v: 14, s: Iron Kraken
+12-28 v: 14, s: Black Gull
 ```
 
 ### Box Plot
 
 ```dgmo
-boxplot Days Between Ports by Ship
-y-axis Days
+boxplot Plunder per Raid by Ship (doubloons)
+y-axis Doubloons
+points
+mean
+fill-solid
 
-[Black Pearl]
-4 5 5 6 6 6 7 7 7 7 8 8 8 9 9 10 11 12 19
+[Black Pearl] teal
+120 135 140 150 155 160 170 180 195 210 400
 
-[Queen Anne's Revenge]
-6 7 8 8 9 9 9 10 10 11 11 12 13 14 15
+[Queen Anne's] red
+200 240 260 310 330 380 450 520
 
-[Fancy] red
-3 4 4 5 5 5 5 6 6 6 7 7 8 9
+[Fancy] green
+60 70 75 80 85 90 95 100 110
+
+[Adventure Galley] yellow
+90 100 115 125 130 140 150 170
+
+[Revenge] purple
+150 165 180 190 210 220 240 260 300
 ```
 
 ### Waterfall
@@ -650,18 +664,26 @@ abs          e: Warm-up
 ```dgmo
 bracket Grand Line Cup
 
-rounds 
-  Skirmish orange 
+rounds
+  Skirmish orange
   Clash green
   Fleet Final yellow
 
+tag Ship as s
+  Galleon red
+  Frigate blue
+  Sloop green
+  Brigantine purple
+  Schooner orange
+  Corsair teal
+
 [Red Fleet] red
-  seed 1 Black Pearl
-  seed 2 Queen Anne
-  seed 3 Sea Serpent
-  seed 4 Jolly Roger
-  seed 5 Kraken
-  seed 6 Barnacle Betty
+  seed 1 Black Pearl s: Galleon
+  seed 2 Queen Anne s: Frigate
+  seed 3 Sea Serpent s: Sloop
+  seed 4 Jolly Roger s: Brigantine
+  seed 5 Kraken s: Schooner
+  seed 6 Barnacle Betty s: Corsair
   Sea Serpent beats Barnacle Betty 2-1
   Jolly Roger beats Kraken 2-0
   Black Pearl beats Jolly Roger 3-1
@@ -669,12 +691,12 @@ rounds
   Black Pearl beats Queen Anne 4-2
 
 [Blue Fleet] blue
-  seed 1 Flying Dutchman
-  seed 2 Salty Dog
-  seed 3 Grog Hound
-  seed 4 Marauder
-  seed 5 Tidewater
-  seed 6 Coral Cutlass
+  seed 1 Flying Dutchman s: Galleon
+  seed 2 Salty Dog s: Frigate
+  seed 3 Grog Hound s: Sloop
+  seed 4 Marauder s: Brigantine
+  seed 5 Tidewater s: Schooner
+  seed 6 Coral Cutlass s: Corsair
   Grog Hound beats Coral Cutlass 2-1
   Marauder beats Tidewater 2-1
   Flying Dutchman beats Marauder 3-0
@@ -689,11 +711,10 @@ Black Pearl beats Flying Dutchman 4-3
 ```dgmo
 clock Crew standups
 direction-lr
-
+Havana as Port Royal Watch
+London as Admiralty Dock
+Lisbon as Lisbon Harbor
 Tokyo as Deckhand
-Los Angeles as West coast
-New York as Dani (NY)
-London as Quartermaster
 ```
 
 ### Countdown
@@ -1546,30 +1567,41 @@ deployment
 ```dgmo
 class Ship Class Hierarchy
 
-interface Vessel
+Vessel [abstract] blue
+  # name: string
   + sail(): void
+
+Ship extends Vessel
+  # crew: number
   + anchor(): void
 
-abstract Ship implements Vessel
-  # name: string
-  # crew: number
-  + getName(): string
-
-Galleon extends Ship
+Warship extends Ship red
   - cannons: number
   + fire(): void
 
-Sloop extends Ship
+Galleon extends Warship red
+  - treasureHold: number
+  + plunder(): void
+
+ManOWar extends Galleon red
+  - gunDecks: number
+  + broadside(): void
+
+Frigate extends Warship red
+  - speed: number
+  + chase(): void
+
+Sloop extends Ship green
   - speed: number
   + flee(): void
 
-enum ShipType
-  Galleon
+ShipType [enum]
   Sloop
-  Frigate
+  Galleon
+  ManOWar
 
 Ship
-  -> ShipType has type
+  -> ShipType : has type
 ```
 
 ### Entity Relationship
@@ -2019,32 +2051,37 @@ tag Layer as l
 ```dgmo
 boxes-and-lines Pirate Fleet Command
 
-tag Status as s
-  Operational green
-  Damaged red
-  Building blue default
+tag Side as t
+  Pirate green
+  Navy red
+  Smuggler yellow
+  Harbor blue default
 
-heat Crew red green
-active-tag Status
-
-Flagship s: Operational, heat: 120
-  -> [Harbor Defenses]
-  -> IntelNetwork
+Flagship t: Pirate
+  -orders-> [Harbor Defenses]
+  -scouts-> IntelNetwork
 
 [Harbor Defenses]
-  FortCannon s: Operational, heat: 40
-    -> Watchtower
-  Watchtower s: Operational, heat: 12
-  SeaMines s: Building, heat: 6
+  FortCannon t: Harbor
+    -covers-> Watchtower
+  Watchtower t: Harbor
+  SeaMines t: Harbor
 
-IntelNetwork s: Operational, heat: 35
-  -> SpyRing
-  -> SignalFlags
+IntelNetwork t: Pirate
+  -hires-> SpyRing
+  -reads-> SignalFlags
 
-SpyRing s: Operational, heat: 18
-  -> [Harbor Defenses]
+SpyRing t: Smuggler
+  -warns-> [Harbor Defenses]
 
-SignalFlags s: Damaged, heat: 8
+SignalFlags t: Pirate
+
+NavyFrigate t: Navy
+  -blockades-> [Harbor Defenses]
+NavyCutter t: Navy
+  -hunts-> SmugglerSloop
+SmugglerSloop t: Smuggler
+  -trades-> SpyRing
 ```
 
 ## Live link
