@@ -6,9 +6,13 @@ tag Leg as l
   Open Water blue
 
 poi 25.73 -79.30 as bimini label: Bimini
+  note Sailed 3 March, 40 men
 poi 26.53 -78.70 as freeport label: Freeport
+  note 12 chests of Spanish plate
 poi 25.05 -77.35 as nassau label: Nassau
+  note Sold 8 March, rum and powder
 poi 25.50 -76.64 as harbour label: Harbour Island
+  note Landfall 14 March, grog ashore
 
 route bimini
   ~raid the Gulf Stream~> freeport l: Plunder

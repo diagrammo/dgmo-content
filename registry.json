@@ -4394,7 +4394,7 @@
       "entity": "arc-ordered",
       "file": "examples/arc/arc-ordered.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -4405,7 +4405,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 1
+      "stars": 4
     },
     {
       "id": "bar",
@@ -5849,8 +5849,7 @@
           "role": "starter"
         }
       ],
-      "stars": 1,
-      "feedback": "add annotations/ notes to some of the stops"
+      "stars": 1
     },
     {
       "id": "mindmap",
