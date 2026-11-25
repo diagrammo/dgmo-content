@@ -1,24 +1,28 @@
 arc Pirate Alliance Network
 order group
 
-// `order group` clusters each fleet side by side along the baseline.
-[Caribbean] red
+// From Nassau to Madagascar: each pirate sits with the waters they sailed.
+[Bahamas] blue
+  Hornigold -> Jennings 4
+  Hornigold -> Vane     3
+  Vane      -> Rackham  5
+  Rackham   -> Bonny    9
+  Bonny     -> Read     7
+
+[Carolinas] red
   Blackbeard -> Bonnet    8
+  Blackbeard -> Hands     6
+  Blackbeard -> Hornigold 7
   Blackbeard -> Vane      5
-  Blackbeard -> Hornigold 4
-  Hornigold  -> Bonnet    2
+  Jennings   -> Bonnet    2
 
-[Women Pirates] purple
-  Bonny   -> Rackham 9
-  Bonny   -> Read    7
-  Rackham -> Calico  4
-
-[West Africa] teal
-  Roberts -> Davis  6
+[West Africa] green
+  Roberts -> Davis  9
   Roberts -> Anstis 5
   Davis   -> Anstis 3
 
-[Bahamas] blue
-  Rackham   -> Vane    3
-  Hornigold -> Jennings 4
-  Jennings  -> Bonnet  2
+[Madagascar] purple
+  England -> Taylor    6
+  England -> Davis     4
+  Every   -> Tew       6
+  Every   -> Culliford 2

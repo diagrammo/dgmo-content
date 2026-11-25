@@ -4405,8 +4405,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 1,
-      "feedback": "just have all pirates by geography, not just woman pirates."
+      "stars": 1
     },
     {
       "id": "bar",
@@ -4506,14 +4505,14 @@
       "entity": "bar-lollipop",
       "file": "examples/bar/bar-lollipop.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
           "role": "docs"
         }
       ],
-      "stars": 1
+      "stars": 4
     },
     {
       "id": "bar-diverging",
