@@ -4405,7 +4405,8 @@
           "role": "sampler"
         }
       ],
-      "stars": 1
+      "stars": 1,
+      "feedback": "just organize the woman pirates into their geography"
     },
     {
       "id": "bar",
@@ -5705,7 +5706,6 @@
           "role": "docs"
         }
       ],
-      "feedback": "way too boring, more data, more interesting",
       "stars": 1
     },
     {
@@ -5856,7 +5856,7 @@
           "role": "starter"
         }
       ],
-      "feedback": "bad example, if this is sailing it crosses land",
+      "feedback": "none of them are great examples, do north and east Caribbean maybe we can get more recognizable things. use arcs, avoid land.",
       "stars": 1
     },
     {
