@@ -6180,7 +6180,7 @@
       "entity": "sankey",
       "file": "examples/sankey/sankey.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6195,7 +6195,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 2
+      "stars": 4
     },
     {
       "id": "sankey-alluvial",
@@ -6230,7 +6230,6 @@
           "role": "sampler"
         }
       ],
-      "feedback": "let's pick circles with more variance, some smaller ones to show the disparity",
       "stars": 2
     },
     {
