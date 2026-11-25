@@ -4372,7 +4372,7 @@
       "entity": "arc",
       "file": "examples/arc/arc.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -4387,7 +4387,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 2
+      "stars": 4
     },
     {
       "id": "arc-ordered",
@@ -5320,7 +5320,7 @@
       "entity": "calendar",
       "file": "examples/calendar/calendar.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -5334,7 +5334,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "calendar-months",

@@ -431,16 +431,20 @@ Autumn Voyage total
 
 ```dgmo
 dot Captain Vane takes the largest share of every haul
-subtitle Median share of plunder by rank, doubloons
+subtitle Median share of plunder by rank, before and after the Tortuga mutiny, doubloons
+series Before gray, After red
+sort After
+gap
+connector direction
 
-Captain 212
-Quartermaster 168
-Sailing Master 141
-Boatswain 118
-Gunner 104
-Carpenter 96
-Cook 71
-Powder Monkey 38
+Captain 212 240
+Quartermaster 168 175
+Sailing Master 141 150
+Boatswain 118 112
+Gunner 104 120
+Carpenter 96 101
+Cook 71 88
+Powder Monkey 38 62
 ```
 
 ### Line Chart
