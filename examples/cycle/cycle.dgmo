@@ -1,16 +1,24 @@
-cycle The Pirate Raid Cycle
+cycle Raid Cycle with a Refit Loop
 
 center RAID
+circle-nodes
 autonumber
 
-Scout blue
-  Spot merchant vessels from afar
+tag phase as p
+  Hunt blue
+  Fight orange
+  Feast red
 
-Pursue green
-  Raise the colors, trim the sails
-
-Board orange
-  Swing across and seize the deck
-
-Celebrate red
-  Divide the spoils, then repair
+Spot a Sail p:Hunt
+  Lookout cries from the crow's nest
+Pursue p:Hunt
+  Trim the sails, close the gap
+Board p:Fight
+  Grappling hooks and cutlasses
+Plunder p:Fight
+  Strip the hold
+Split Shares p:Feast
+  Quartermaster deals the haul
+Refit p:Feast
+  Patch the hull, restock the rum
+  -Back on the hunt-> Pursue

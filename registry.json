@@ -4865,7 +4865,7 @@
       "entity": "countdown",
       "file": "examples/countdown/countdown.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -4902,7 +4902,6 @@
           "role": "sampler"
         }
       ],
-      "feedback": "show off the non-circular routing that we introduced and a back routing, it has to make sense in the chart.",
       "stars": 2
     },
     {
