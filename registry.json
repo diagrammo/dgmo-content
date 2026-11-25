@@ -5587,7 +5587,6 @@
           "role": "sampler"
         }
       ],
-      "feedback": "more ups and downs, more sections, show a collapsed section. thought bubbles on some of the sections, not too many.",
       "stars": 2
     },
     {
@@ -6266,7 +6265,7 @@
       "entity": "histogram",
       "file": "examples/histogram/histogram.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6281,7 +6280,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 1
+      "stars": 5
     },
     {
       "id": "sequence",
