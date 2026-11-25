@@ -5906,7 +5906,7 @@
       "entity": "pert",
       "file": "examples/pert/pert.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6009,8 +6009,7 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ],
-      "feedback": "this chart is better used to represent things happening in time, like 24 hours or months of the year. that's what this chart is for expressing typically."
+      ]
     },
     {
       "id": "pyramid",

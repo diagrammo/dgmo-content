@@ -471,13 +471,22 @@ Cooks & Surgeons  5
 ### Polar Area Chart
 
 ```dgmo
-polar-area Captain's Skills
+polar-area Ships Sighted by Month
 
-Navigation    90
-Swordsmanship 75
-Leadership    85
-Cunning       95
-Seamanship    80
+January blue 14
+February blue 11
+March green 18
+April green 26
+May green 33
+June orange 41
+July orange 47
+August orange 44
+September red 36
+October red 29
+November purple 20
+December blue 16
+no-value
+no-percent
 ```
 
 ### Radar Chart
