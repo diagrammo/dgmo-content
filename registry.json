@@ -6454,7 +6454,7 @@
       "entity": "tech-radar",
       "file": "examples/tech-radar/tech-radar.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6469,7 +6469,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 3
+      "stars": 4
     },
     {
       "id": "timeline",
@@ -6513,7 +6513,6 @@
           "role": "sampler"
         }
       ],
-      "feedback": "give the provisions section more detail, food or something beside hardtack.",
       "stars": 3
     },
     {

@@ -595,6 +595,10 @@ Cannon Battery t: Guns
 Provisions t: Stores
   Rum 110
   Hardtack 70
+  Salt Pork 85
+  Citrus 60
+  Fresh Water 95
+  Ship's Biscuit 40
 ```
 
 ### Sunburst (treemap sunburst)
