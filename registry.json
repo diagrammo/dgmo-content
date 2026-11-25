@@ -6498,7 +6498,7 @@
       "entity": "treemap",
       "file": "examples/treemap/treemap.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6513,7 +6513,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 3
+      "stars": 4
     },
     {
       "id": "treemap-sunburst",
@@ -6561,7 +6561,6 @@
           "role": "sampler"
         }
       ],
-      "feedback": "don't label the unions between shapes, they don't look good. also Venn supports different sized circles, let's add that for some variance. this example isn't great, let's re-work it. try other ideas.",
       "stars": 2
     },
     {

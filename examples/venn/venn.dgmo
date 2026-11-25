@@ -1,10 +1,11 @@
 venn Pirate Skill Overlap
+proportional
 
-Swordsmanship as sw red
-Navigation as nav blue
-Leadership as lead green
+Swordsmanship as sw red size: 90
+Navigation as nav blue size: 60
+Leadership as lead green size: 35
 
-sw + nav        Sea Raiders
-nav + lead      Voyager Captains
-sw + lead       Buccaneer Chiefs
-sw + nav + lead Legendary Pirates
+sw + nav size: 20
+nav + lead size: 12
+sw + lead size: 10
+sw + nav + lead size: 5
