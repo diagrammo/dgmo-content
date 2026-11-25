@@ -4778,7 +4778,7 @@
       "entity": "c4-containers",
       "file": "examples/c4/c4-containers.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -4793,7 +4793,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 1
+      "stars": 4
     },
     {
       "id": "c4-context",
@@ -4811,7 +4811,6 @@
           "role": "sampler"
         }
       ],
-      "feedback": "more color variance, too much blue",
       "stars": 1
     },
     {

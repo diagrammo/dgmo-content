@@ -1,33 +1,71 @@
-c4 Buccaneer Bay Harbor Authority — System Context
+c4 Buccaneer Bay — System Context
+active-tag Crew
 
-tag Scope as sc
-  Internal blue
-  External gray
+tag Technology as tech
+  React blue
+  Node.js green
+  PostgreSQL purple
+  Redis red
+  Python yellow
+  Kafka orange
+  Parchment gray
 
-Harbormaster is a person sc: Internal
-  description: Assigns berths and settles harbor tolls
-  -Schedules berths using-> Harbor Authority
-  -Reviews toll receipts in-> Harbor Authority
+tag Crew as crew
+  Captain red
+  Purser green
+  Navigator purple
+  Bosun orange
+  Monkeys yellow
 
-Ship Captain is a person sc: Internal
-  description: Requests moorings and files cargo manifests
-  -Files cargo manifests via-> Harbor Authority
+tag Risk as risk
+  Mutiny red
+  Squall orange
+  Drizzle yellow
+  Calm green
 
-Customs Officer is a person sc: Internal
-  description: Inspects cargo and assesses duties on incoming loot
-  -Inspects manifests through-> Harbor Authority
+Captain is a person crew: Captain
+  description: Sets course, books berths
+  -Books berths on-> Dock Board
+Quartermaster is a person crew: Purser
+  description: Settles tolls, splits treasure
+  -Settles tolls on-> Toll Desk
+Navigator is a person crew: Navigator
+  description: Plots routes from tide charts
+  -Plots routes on-> Dock Board
 
-Harbor Authority is a system sc: Internal
-  description: Manages berth scheduling, cargo manifests, and toll collection for the port
-  -Fetches tide and squall forecasts from [HTTPS]-> Tide Almanac
-  -Settles doubloon tolls through [REST]-> Coin Exchange
-  ~Dispatches berth and duty notices via~> Pigeon Post
+Tide Almanac is a system crew: Navigator
+  description: Outside tide and weather forecasts
+Crown Customs is a system crew: Purser
+  description: The Crown's duty office
+Treasure Bank is a system crew: Monkeys
+  description: Holds the shared doubloons
 
-Tide Almanac is a system is an external sc: External
-  description: Third-party tide tables and storm forecasts
-
-Coin Exchange is a system is an external sc: External
-  description: Clearing house that settles doubloon payments between crews
-
-Pigeon Post is a system is an external sc: External
-  description: Carrier-pigeon dispatch service for harbor notices
+Harbor Authority is a system crew: Captain
+  description: Runs berths, manifests and tolls
+  containers
+    Dock Board is a container crew: Navigator
+      description: Berth console
+      -Calls over HTTPS-> Manifest API
+    Toll Desk is a container crew: Purser
+      description: Duty and toll console
+      -Calls over HTTPS-> Manifest API
+    Manifest API is a container crew: Captain
+      description: Core API for berths and tolls
+      -Stores manifests in-> Harbor Ledger
+      -Caches tides in-> Chart Cache
+      -Files duties with-> Crown Customs
+      ~Emits events over AMQP~> Signal Bus
+    Berth Scheduler is a container crew: Bosun
+      description: Assigns moorings by tide
+      -Reads berths from-> Harbor Ledger
+      -Reads tides from-> Tide Almanac
+    Duty Service is a container crew: Purser
+      description: Works out cargo duties
+      -Writes receipts to-> Harbor Ledger
+      -Banks tolls with-> Treasure Bank
+    Harbor Ledger is a container is a database crew: Monkeys
+      description: Berths and toll receipts
+    Chart Cache is a container is a cache crew: Bosun
+      description: Tide tables cache
+    Signal Bus is a container is a queue crew: Monkeys
+      description: Berth and duty events
