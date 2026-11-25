@@ -6546,7 +6546,7 @@
       "entity": "venn",
       "file": "examples/venn/venn.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6561,7 +6561,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 2
+      "stars": 4
     },
     {
       "id": "version-control",
@@ -6583,7 +6583,6 @@
           "role": "sampler"
         }
       ],
-      "feedback": "let's try to give it a pirate theme somehow. pirate software. mention features for a pirate website or something.",
       "stars": 2
     },
     {
