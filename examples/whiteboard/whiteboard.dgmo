@@ -3,30 +3,27 @@ tag Meaning
   Pages blue
   Money green
   Cargo orange
-  Crew purple
-  Ideas gray
+  Trouble red
 rectangle Home at: 300 20, size: 160 70, color: blue, fill: solid
 rectangle Cutlass catalog at: 40 160, size: 170 70, color: blue
 rectangle Ship models at: 300 160, size: 170 70, color: blue
-rectangle Parrot supplies at: 560 160, size: 170 70, color: blue, style: dashed
+rectangle Parrot supplies at: 560 160, size: 170 70, color: red, style: dashed
 database Orders at: 300 310, size: 160 100, color: green
 ellipse Doubloons at: 560 320, size: 160 80, color: green
-file Price list at: 40 320, size: 130 100, color: blue
+file Price list at: 40 320, size: 130 100, color: red
 arrow from: 380 55, to: 125 195, color: blue, bend: 25
 arrow from: 380 55, to: 385 195, color: blue
 arrow from: 380 55, to: 650 195, color: blue, bend: -25
 arrow buy from: 385 195, to: 380 360, color: green
 arrow pay from: 380 360, to: 640 360, color: green
 line from: 105 370, to: 380 360, color: blue, style: dashed, bend: 30
+line from: 850 60, to: 440 55, color: orange, style: dashed, bend: -30
 note Free shipping to every port at: 800 20
-line from: 850 60, to: 440 55, color: gray, style: dashed, bend: -30
-text crew gets a cut at: 590 448, color: purple
-note Price list is stale at: 40 450, size: 170 70, color: purple
-note Cut parrots? No papers, no sale at: 800 190, size: 170 90, color: gray
-ink orange 3 AZAE4gMaFx4OBQYFAwIV
-ink orange 3 AZgE9AMWGwIOGQEHAgAP
-ink orange 3 AYoEiAQWCQ0KCRsDAgQP
-ink purple 3 AYgJxAcWLgMKVAECJgEEVAkDLAMBDgET
-ink gray 3 Af4I0AIYQiAGOhoCHgoEUBoBMhINCAYAAQIBAQQF
-ink gray 3 AaQLzAIcRyAAOR4NGQoCIQwGcyYBBQQAAAIABAIH
-ink purple 3 AYAC3gQcEgQDFAYEEggAEggBDgwDDgwDDAwBCA4CCA4CBAwCBA4CABADARQAAQwABxQACQ4ACxABCwoCDw4GCwgEEQgAEQYCEQYCFQQCFwICEwABEQEDEwMBDwMAFQcDDwcDEQsCDwsECwsADxcBBQkABxMAAxEBAA0BAhEAAg8BBgsCBg0ACg0CDA0CDAsBFA8ADAcAEAUAEAUAGAUBDgEAFgEBFgABGAIBFAQCEgYBEgYEEAgGEAoAEAwACgoADg4N
+note Price list is stale at: 40 450, size: 170 70
+note Cut parrots? No papers, no sale at: 800 190, size: 170 90, color: orange
+text crew gets a cut at: 590 448, color: orange
+ink green 3 AcYIlgUUDAsEDAsEEAkEDgkDEgcDEAcAKAsGFAMEFgEAKgEFIgIAJgoBIAwCDgYCEgwEFhIEDA4CBgwABgwDBAwAAhABAAwEAQ4GAxAEBQoCCRAADRIBCwoEDwwEEQoAFQwBGQgAFQgBFwQAGQIBFQACHQEBHwMBDwMAEQcBFQkAEQkACQkBDQ0BCxEBBQ0CAw0AAREABBMFBA0DCA8ACg8FDg8BEAsAFA0GEgcAFgcCGAcT
+ink orange 3 AYoE3AMYESgEAQIF
+ink orange 3 AZYE8AMYBQAIFQQCEQIV
+ink orange 3 AZAEhAQUDw8ODw8NAAIH
+ink orange 3 AYgJxAcWKgEWUAIEJgADWgUHLgENDgEJ
