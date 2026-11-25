@@ -4619,14 +4619,14 @@
       "entity": "bar-combo",
       "file": "examples/bar/bar-combo.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
           "role": "docs"
         }
       ],
-      "stars": 1
+      "stars": 3
     },
     {
       "id": "bar-facet",
@@ -5805,7 +5805,6 @@
           "role": "docs"
         }
       ],
-      "feedback": "data set doesn't work, more collisions in x-axis.",
       "stars": 1
     },
     {
