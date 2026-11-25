@@ -1,11 +1,20 @@
-boxplot Days Between Ports by Ship
-y-axis Days
+boxplot Plunder per Raid by Ship (doubloons)
+y-axis Doubloons
+points
+mean
+fill-solid
 
-[Black Pearl]
-4 5 5 6 6 6 7 7 7 7 8 8 8 9 9 10 11 12 19
+[Black Pearl] teal
+120 135 140 150 155 160 170 180 195 210 400
 
-[Queen Anne's Revenge]
-6 7 8 8 9 9 9 10 10 11 11 12 13 14 15
+[Queen Anne's] red
+200 240 260 310 330 380 450 520
 
-[Fancy] red
-3 4 4 5 5 5 5 6 6 6 7 7 8 9
+[Fancy] green
+60 70 75 80 85 90 95 100 110
+
+[Adventure Galley] yellow
+90 100 115 125 130 140 150 170
+
+[Revenge] purple
+150 165 180 190 210 220 240 260 300

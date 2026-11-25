@@ -4663,7 +4663,7 @@
       "entity": "boxes-and-lines",
       "file": "examples/boxes-and-lines/boxes-and-lines.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -4678,7 +4678,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 2
+      "stars": 5
     },
     {
       "id": "bracket",
@@ -4700,14 +4700,15 @@
           "role": "sampler"
         }
       ],
-      "stars": 2
+      "stars": 2,
+      "feedback": "can we get more colors on the teams in the brackets?"
     },
     {
       "id": "c4",
       "entity": "c4",
       "file": "examples/c4/c4.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -4822,7 +4823,9 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "let's have a class hierarchy that's 4-5 deep and more interesting no 2 parent things that's a bad practice.",
+      "stars": 2
     },
     {
       "id": "clock",
@@ -4843,7 +4846,9 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "let's do more pirate theme, with pirate ports, maybe including even a stop in Europe.",
+      "stars": 1
     },
     {
       "id": "countdown",
@@ -4864,7 +4869,9 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "add pirate theme, Peg-leg Pete's Birthday, let's have more fun",
+      "stars": 2
     },
     {
       "id": "cycle",
@@ -4885,7 +4892,9 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "show off the non-circular routing that we introduced and a back routing, it has to make sense in the chart.",
+      "stars": 2
     },
     {
       "id": "cycle-circle-nodes",
@@ -4922,7 +4931,7 @@
       "entity": "er",
       "file": "examples/er/er.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -4936,7 +4945,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 5
     },
     {
       "id": "er-labels",
@@ -4974,14 +4984,16 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "pirate theme, more colors, give a collapsed section too",
+      "stars": 1
     },
     {
       "id": "family",
       "entity": "family",
       "file": "examples/family/family.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -5002,7 +5014,7 @@
       "entity": "flowchart",
       "file": "examples/flowchart/flowchart.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -5054,7 +5066,9 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "can we add fills in this diagram?",
+      "stars": 2
     },
     {
       "id": "function-fill",
@@ -5074,7 +5088,7 @@
       "entity": "funnel",
       "file": "examples/funnel/funnel.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -5095,7 +5109,7 @@
       "entity": "gantt",
       "file": "examples/gantt/gantt.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -5133,7 +5147,7 @@
       "entity": "goal",
       "file": "examples/goal/goal.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -5279,7 +5293,7 @@
       "entity": "heatmap",
       "file": "examples/heatmap/heatmap.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -5314,7 +5328,9 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 1,
+      "feedback": "Let's make this more colorful, it looks too much like GitHub. Go from red to blue. also add a tagged group with a colorful red, green, blue."
     },
     {
       "id": "calendar-range",
@@ -5401,8 +5417,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 2,
-      "feedback": "This is way to boring, let's have 5 of them, more interesting colors?"
+      "stars": 2
     },
     {
       "id": "boxplot-points",
@@ -5435,7 +5450,7 @@
       "entity": "waterfall",
       "file": "examples/waterfall/waterfall.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -5449,7 +5464,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "waterfall-cost-bridge",
@@ -5483,7 +5499,9 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 1,
+      "feedback": "this is incredibly sparse and boring. don't we have lines in between in some variations? more color,"
     },
     {
       "id": "dot-dumbbell",
@@ -5516,7 +5534,7 @@
       "entity": "infra",
       "file": "examples/infra/infra.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -5551,7 +5569,9 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "more ups and downs, more sections, show a collapsed section. thought bubbles on some of the sections, not too many.",
+      "stars": 2
     },
     {
       "id": "kanban",
@@ -5572,7 +5592,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "more cards, depth of 2, 4, 5, 2 or something."
     },
     {
       "id": "line",
@@ -5593,7 +5614,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "the '0.6' looks bad, adjust the data. this chart is just kind of small"
     },
     {
       "id": "line-area",
@@ -5752,7 +5774,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "show a pirate themed course around the Caribbean, make sure any edges don't cross land, these are sailings."
     },
     {
       "id": "map-route",
@@ -5776,7 +5799,7 @@
       "entity": "mindmap",
       "file": "examples/mindmap/mindmap.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -5832,7 +5855,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "this is not interesting enough, there should be 7 elements on this. maybe the organization of the dutch east India company. but it can't be too much detail. this is boring and doesn't show different shapes"
     },
     {
       "id": "ownership-group",
@@ -5879,14 +5903,15 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "a bit more parallel nodes somewhere. it looks boring, most of it is red, should show more variance."
     },
     {
       "id": "pie",
       "entity": "pie",
       "file": "examples/pie/pie.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -5968,14 +5993,15 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "this chart is better used to represent things happening in time, like 24 hours or months of the year. that's what this chart is for expressing typically."
     },
     {
       "id": "pyramid",
       "entity": "pyramid",
       "file": "examples/pyramid/pyramid.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6017,7 +6043,7 @@
       "entity": "quadrant",
       "file": "examples/quadrant/quadrant.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6038,7 +6064,7 @@
       "entity": "swot",
       "file": "examples/swot/swot.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6048,14 +6074,15 @@
           "surface": "new-file",
           "role": "starter"
         }
-      ]
+      ],
+      "stars": 5
     },
     {
       "id": "raci",
       "entity": "raci",
       "file": "examples/raci/raci.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6107,14 +6134,15 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "I'd like to see something more exaggerated, this is just kind of smooth and uniform all over. add more spikiness"
     },
     {
       "id": "ring",
       "entity": "ring",
       "file": "examples/ring/ring.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6128,7 +6156,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 5
     },
     {
       "id": "sankey",
@@ -6149,7 +6178,9 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "this example is a little boring with just 1 initial source. it'd be better with multiple additional sources, how about where a pirate operation gets income, where they spend it, how they distribute it.",
+      "stars": 2
     },
     {
       "id": "sankey-alluvial",
@@ -6183,7 +6214,9 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "let's pick circles with more variance, some smaller ones to show the disparity",
+      "stars": 2
     },
     {
       "id": "scatter-connect",
@@ -6230,7 +6263,9 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "this is not good, histogram with more data points. the median and mean are right next to each other, looks dumb",
+      "stars": 1
     },
     {
       "id": "sequence",
@@ -6251,7 +6286,9 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 3,
+      "feedback": "Pretty good but more colors, red, green, blue and perhaps 1-2 additional participants"
     },
     {
       "id": "sequence-groups",
@@ -6306,14 +6343,16 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "add a bit more detail another top level page section under home. riff more on a pirate website, maybe something for scheduling raids. add login, password change.",
+      "stars": 3
     },
     {
       "id": "slope",
       "entity": "slope",
       "file": "examples/slope/slope.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6361,7 +6400,9 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "this is not good, too wide, crossed lines. simplify, more color variance, a little less nodes.",
+      "stars": 2
     },
     {
       "id": "swimlane",
@@ -6382,7 +6423,9 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "more detail, more colors, give it a pirate theme. some fun pirate process like planning a raid, distributing booty.",
+      "stars": 2
     },
     {
       "id": "swimlane-bpmn",
@@ -6416,14 +6459,16 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "make it look more organic, more variance in the dots, maybe just 3 rings so it reads easier.",
+      "stars": 3
     },
     {
       "id": "timeline",
       "entity": "timeline",
       "file": "examples/timeline/timeline.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6437,7 +6482,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "treemap",
@@ -6458,7 +6504,9 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "give the provisions section more detail, food or something beside hardtack.",
+      "stars": 3
     },
     {
       "id": "treemap-sunburst",
@@ -6505,7 +6553,9 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "don't label the unions between shapes, they don't look good. also Venn supports different sized circles, let's add that for some variance. this example isn't great, let's re-work it. try other ideas.",
+      "stars": 2
     },
     {
       "id": "version-control",
@@ -6526,7 +6576,9 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "let's try to give it a pirate theme somehow. pirate software. mention features for a pirate website or something.",
+      "stars": 2
     },
     {
       "id": "whiteboard",
@@ -6547,14 +6599,16 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "nicer colors, red, green, blue but not too many. actually populate the labels for tag colors below the title. still needs pirate theme. notes should be yellow.",
+      "stars": 2
     },
     {
       "id": "wireframe",
       "entity": "wireframe",
       "file": "examples/wireframe/wireframe.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6568,7 +6622,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "wordcloud",
@@ -6589,7 +6644,9 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "this needs color, more disparity in the sizing.",
+      "stars": 2
     }
   ]
 }
