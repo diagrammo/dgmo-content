@@ -5,10 +5,11 @@ tag Meaning
   Cargo orange
   Crew purple
   Ideas gray
+  Trouble red
 rectangle Home at: 300 20, size: 160 70, color: blue, fill: solid
 rectangle Cutlass catalog at: 40 160, size: 170 70, color: blue
 rectangle Ship models at: 300 160, size: 170 70, color: blue
-rectangle Parrot supplies at: 560 160, size: 180 70, color: blue, style: dashed
+rectangle Parrot supplies at: 560 160, size: 170 70, color: blue, style: dashed
 database Orders at: 300 310, size: 160 100, color: green
 ellipse Doubloons at: 560 320, size: 160 80, color: green
 file Price list at: 40 320, size: 130 100, color: blue
@@ -20,7 +21,15 @@ arrow pay from: 380 360, to: 640 360, color: green
 line from: 105 370, to: 380 360, color: blue, style: dashed, bend: 30
 note Free shipping to every port at: 800 20
 line from: 850 60, to: 440 55, color: gray, style: dashed, bend: -30
-ink blue 3 AOwEzAEKBgQCBAEOCQYBBAEEAg4KBgIEAgQBDgkGAQQBBAIGAg4KBAIEAQ4JBgEEAQQCBgIOCgQCBAEGAQ4JBAEEAg4KBgIEAgQBBgEOCQQBBAIKBg
-ink green 3 AMgL0AUACgEKAwoFCgUIBwoHCAsIFw4bDA0EIQghBCEAIQMRAR8HGwsNBRcPCQcHBwUJBQcFCQEJAQkACQIJBAkECQYJCAcIBwoJGA0OBR4JIAcSAyIBJAASAiIGIAoOBhoMDAgUEAgKBgoGCAIKAgoCCgEKAQoDCgUKBwoHCAkI
-ink orange 3 AKwMxAQSOBIvECwSLxI4EjsQOBIv
-ink purple 3 AOAIrAcQCggCBgQIAAgACAMQBxYNEAUIAAYAEAYYDg4ICAQIAAgADgUYDRAHBgMIAAgACAQQCBYOEAYIAAYACAMQBxYNEAUIAAgACAQGAhAK
+note Cut parrots? No papers, no sale at: 800 190, size: 170 90, color: red
+note Price list is stale at: 40 450, size: 170 70, color: red
+text crew gets a cut at: 590 448, color: purple
+ink blue 3 AeQE0gEeOAEAZAAILAEAIgMBIgUAEAMBEAUV
+ink green 3 AfIHqgQUOAEEKAIAMgIENgQCLAYALgoAJgoAJAoDHAoAHhACGg4AEBAADhIECBACAgoGAAgBAQ4DBxABBQoACw4CDwwADQoBGxIDGQwBFQgBPxYBQQ4EKQgGIwQCUwgDSwIBRwEISwcEIwUCIwcAIwcBHwsBEwcAFQkAEwsADQsBDQsDBwsABQsCAQsDAA8BBAsIBAkACg0CDA0EDAkCHhMBFAsCFgkCNhMDPhECPgsHSAcGRgUAPAEBRgQBJgIFKAQDPgwDNAwL
+ink orange 3 AZAE4gMaFx4OBQYFAwIV
+ink orange 3 AZgE9AMWGwIOGQEHAgAP
+ink orange 3 AYoEiAQWCQ0KCRsDAgQP
+ink purple 3 AYgJxAcWLgMKVAECJgEEVAkDLAMBDgET
+ink red 3 Af4I0AIYdjYcHAwCHgwAbCINCAQHAwAT
+ink red 3 AaQLzAIYRyQKPxwFNRQKbSQLCwQFAgAH
+ink red 3 AfoB6AQaFgQFFgYGEgYEFAgBEgwAEg4ADg4DCg4BCA4ABhABBBAAABYCAQoABxYCBQgACRACDQ4CBwYAEQwAEwoCFQgCFQYCEwIAEwIAEwAAGwEEFwMCEwUAEwcCDwcAGQ0DCwkBCQsBCQkBCxEBBQcAAw0AAw0AAQ8EAAkEBhkFBA0ACAkCBgkADA0BEAsADAcCEgkCFgcCGgcBGgMAFAECEgABGAIBJAYCFggAEgYBHBAFGhYP

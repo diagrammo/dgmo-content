@@ -5608,7 +5608,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "the yellow, orange and red bleed into each other. we need more contrasting colors."
     },
     {
       "id": "line",
@@ -6603,8 +6604,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 2,
-      "feedback": "the squiggles look fake, make them look human, the green circle around a green ellipse is too perfect. get some red in this picture"
+      "stars": 2
     },
     {
       "id": "wireframe",
