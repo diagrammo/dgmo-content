@@ -5502,7 +5502,7 @@
       "entity": "dot",
       "file": "examples/dot/dot.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -5517,7 +5517,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 2
+      "stars": 4
     },
     {
       "id": "dot-dumbbell",
@@ -5586,7 +5586,8 @@
           "role": "sampler"
         }
       ],
-      "stars": 1
+      "stars": 1,
+      "feedback": "I still see no thought bubbles on the faces"
     },
     {
       "id": "kanban",
@@ -5607,8 +5608,7 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ],
-      "feedback": "We need some columns with 3-5 things. this is too trivial to be interesting. also let's collapse the done column"
+      ]
     },
     {
       "id": "line",

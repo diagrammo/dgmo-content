@@ -12,20 +12,31 @@ tag Watch as w
   Night purple
 
 [Backlog] blue
-  Repair the foretops'l p: Low, w: Morning
+  Repair the foretop sail p: Low, w: Morning
     Mend after the last storm
   Reinforce the gunwales p: Medium, w: Afternoon
+    Two planks are rotting
+  Splice the mooring lines p: Low, w: Morning
+  Rig a second anchor p: Medium, w: Night
 
-[In Progress] yellow
+[In Progress] yellow wip: 5
   Caulk the hull seams p: High, w: Afternoon
     Hold has been taking water
   Restock powder kegs p: High, w: Morning
     Last batch ran damp
+  Scrub the lower deck p: Low, w: Afternoon
+  Oil the capstan p: Medium, w: Morning
+  Chart the shoals p: Medium, w: Night
+    Navigator wants soundings
 
 [Blocked] red
   Find a new sailmaker p: Critical, w: Morning
     Old one took ill at last port
+  Buy fresh tar p: High, w: Afternoon
+    Port merchants out of stock
 
-[Done] green
+[Done] green collapsed
   Inventory the hold p: Medium, w: Night
   Sharpen the cutlasses p: Low, w: Night
+  Hoist the colours p: Low, w: Morning
+  Stow the cannon p: High, w: Afternoon
