@@ -6568,7 +6568,7 @@
       "entity": "version-control",
       "file": "examples/version-control/version-control.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6583,7 +6583,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 2
+      "stars": 4
     },
     {
       "id": "whiteboard",
@@ -6605,7 +6605,6 @@
           "role": "sampler"
         }
       ],
-      "feedback": "nicer colors, red, green, blue but not too many. actually populate the labels for tag colors below the title. still needs pirate theme. notes should be yellow.",
       "stars": 2
     },
     {
