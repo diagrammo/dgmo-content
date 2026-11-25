@@ -5617,7 +5617,7 @@
       "entity": "line",
       "file": "examples/line/line.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -5631,7 +5631,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "line-area",
@@ -5791,7 +5792,7 @@
           "role": "sampler"
         }
       ],
-      "feedback": "show a pirate themed course around the Caribbean, make sure any edges don't cross land, these are sailings."
+      "feedback": "add notes, annotation on the stops. it's a feature and we handle it well. version 1 looks the closest to what we want and version 3"
     },
     {
       "id": "map-route",
@@ -5836,7 +5837,7 @@
       "entity": "org",
       "file": "examples/org/org.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -5871,8 +5872,7 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ],
-      "feedback": "this is not interesting enough, there should be 7 elements on this. maybe the organization of the dutch east India company. but it can't be too much detail. this is boring and doesn't show different shapes"
+      ]
     },
     {
       "id": "ownership-group",

@@ -941,18 +941,30 @@ Blackbeard r: Captain, s: Revenge
 ### Ownership Chart
 
 ```dgmo
-ownership Dread Fleet Holdings
+ownership Dutch East India Company
 tag Jurisdiction as j
-  Tortuga blue
-  Nassau  green
-  Cayman  orange
+  Amsterdam blue
+  Zeeland green
+  Batavia orange
 
-Dread Fleet Holdings  j: Tortuga
-  The parent company
-  100% Revenge Shipping Ltd  j: Tortuga
-    Owns the flagship
-  80% Serpent Salvage Co  j: Nassau
-    Wreck recovery
+Heeren XVII  j: Amsterdam, type: trust
+  The seventeen governing directors
+  100% Dutch East India Company  j: Amsterdam
+    Chartered 1602
+    50% Amsterdam Chamber  j: Amsterdam
+      Largest shareholder
+    25% Zeeland Chamber  j: Zeeland
+      Middelburg
+    25% Batavia Council  j: Batavia, type: partnership
+      Governs Asian trade posts
+
+Governor-General  j: Batavia, type: individual
+  Runs the Asian trade
+  10% -> Batavia Council
+
+Stadtholder  j: Amsterdam, type: individual
+  Shareholder of the Republic
+  5% -> Amsterdam Chamber
 ```
 
 ### Pyramid Diagram
