@@ -20,7 +20,6 @@ line from: 105 370, to: 380 360, color: blue, style: dashed, bend: 30
 line from: 850 60, to: 440 55, color: orange, style: dashed, bend: -30
 note Free shipping to every port at: 800 20
 note Price list is stale at: 40 450, size: 170 70
-note Cut parrots? No papers, no sale at: 800 190, size: 170 90, color: orange
 text crew gets a cut at: 590 448, color: orange
 ink green 3 AcYIlgUUDAsEDAsEEAkEDgkDEgcDEAcAKAsGFAMEFgEAKgEFIgIAJgoBIAwCDgYCEgwEFhIEDA4CBgwABgwDBAwAAhABAAwEAQ4GAxAEBQoCCRAADRIBCwoEDwwEEQoAFQwBGQgAFQgBFwQAGQIBFQACHQEBHwMBDwMAEQcBFQkAEQkACQkBDQ0BCxEBBQ0CAw0AAREABBMFBA0DCA8ACg8FDg8BEAsAFA0GEgcAFgcCGAcT
 ink orange 3 AYoE3AMYESgEAQIF
