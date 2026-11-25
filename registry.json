@@ -5517,8 +5517,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 2,
-      "feedback": "This still looks boring, it's very sparse. there isn't much variance in the points."
+      "stars": 2
     },
     {
       "id": "dot-dumbbell",
@@ -6604,7 +6603,8 @@
           "role": "sampler"
         }
       ],
-      "stars": 2
+      "stars": 2,
+      "feedback": "the squiggles look fake, make them look human, the green circle around a green ellipse is too perfect. get some red in this picture"
     },
     {
       "id": "wireframe",

@@ -436,15 +436,21 @@ series Before gray, After red
 sort After
 gap
 connector direction
+x-axis 0..
 
-Captain 212 240
-Quartermaster 168 175
-Sailing Master 141 150
-Boatswain 118 112
-Gunner 104 120
-Carpenter 96 101
-Cook 71 88
-Powder Monkey 38 62
+Captain 212 296
+Quartermaster 168 181
+First Mate 151 117
+Sailing Master 139 163
+Navigator 122 74
+Boatswain 96 129
+Gunner 88 52
+Surgeon 79 138
+Carpenter 64 47
+Cook 46 91
+Cabin Boy 24 33
+Powder Monkey 18 58
+Lookout 31 12
 ```
 
 ### Line Chart
