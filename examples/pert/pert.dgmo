@@ -1,26 +1,51 @@
 pert Pirate Voyage to the Atoll
 time-unit w
-default-confidence medium
+default-confidence high
+active-tag Crew
 
-voyage approved 0
+tag Crew as c
+  Captain blue
+  Quartermaster green
+  Navigator purple
+  Bosun orange
+
+voyage approved 0 c: Captain
   -> recruit crew
+  -> careen hull
+  -> chart course
+  -> bribe harbormaster
 
-[outfit ship]
-  recruit crew 1 2 4 as rc
-    -> load powder
-  careen hull 1.5
-    -> load powder
-  load powder 0.5 1 2
-    -> sail to atoll
+recruit crew 1 2 6 c: Bosun
+  -> load powder
+  -> drill gunners
 
-sail to atoll 5
+careen hull 2 c: Bosun
+  -> load powder
+
+load powder 0.5 1 1.5 c: Quartermaster
+  -> sail to atoll
+
+drill gunners 1 1 1.5 c: Bosun
+  -> sail to atoll
+
+chart course 1 3 9 c: Navigator
+  -> sail to atoll
+
+bribe harbormaster 0.5 0.5 1 c: Captain
+  -> sail to atoll
+
+sail to atoll 4 5 7 c: Navigator
   -> count gold
   -> repair hull
+  -> bury chest
 
-count gold 1 2 3
+count gold 1 1 2 c: Quartermaster
   -> divvy shares
 
-repair hull 3
+repair hull 2 c: Bosun
   -> divvy shares
 
-divvy shares 1 2 3
+bury chest 1 4 10 c: Captain
+  -> divvy shares
+
+divvy shares 0.5 1 1 c: Quartermaster

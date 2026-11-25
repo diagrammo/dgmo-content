@@ -5858,7 +5858,7 @@
       "entity": "ownership",
       "file": "examples/ownership/ownership.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -5872,7 +5872,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 5
     },
     {
       "id": "ownership-group",
@@ -5919,8 +5920,7 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ],
-      "feedback": "a bit more parallel nodes somewhere. it looks boring, most of it is red, should show more variance."
+      ]
     },
     {
       "id": "pie",
