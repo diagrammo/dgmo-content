@@ -5976,6 +5976,19 @@
       ]
     },
     {
+      "id": "pie-colors",
+      "entity": "pie",
+      "file": "examples/pie/pie-colors.dgmo",
+      "isPrimary": false,
+      "status": "draft",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
+    },
+    {
       "id": "pie-no-center-total",
       "entity": "pie",
       "file": "examples/pie/pie-no-center-total.dgmo",

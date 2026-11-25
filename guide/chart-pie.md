@@ -32,6 +32,42 @@ pie Chart Title
 Label value
 ```
 
+## Slice colours
+
+To pick a slice's colour, put a colour word between its name and its value. Rows
+without one are coloured automatically from the palette. An automatic colour can
+match one you chose, so check the drawing, and name every row if each colour must
+be your choice.
+
+```dgmo
+pie Plunder by Port
+
+Tortuga purple    5400
+Nassau orange     3100
+Port Royal        2200
+Havana             900
+```
+
+The same rows work with `waffle`: add the bare `waffle` line, and each named
+colour paints that row's squares and its key entry.
+
+```dgmo
+pie Plunder by Port
+waffle
+
+Tortuga purple    5400
+Nassau orange     3100
+Port Royal        2200
+Havana             900
+```
+
+- Use one of the names in [Colors](colors.md), in lowercase. A hex value such as
+  `#3b6ea5` is not accepted.
+- Write the word bare: `Tortuga purple 5400`. In `Tortuga (purple) 5400` the
+  whole of `Tortuga (purple)` is the name and no colour is set.
+- If a name ends in a colour word, capitalise that word to keep it as text:
+  `Code Red 40`.
+
 ## Doughnut — `hole`
 
 Add `hole` to render the pie as a doughnut ring. Use it bare, or with a ratio

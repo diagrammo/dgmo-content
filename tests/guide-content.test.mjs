@@ -352,6 +352,27 @@ const DOCUMENTED = [
     verifiedAgainst: 'dgmo tests/chart-facet.test.ts and gallery/fixtures/line-facet.dgmo at 09fcd21c (#1853)',
     on: '2026-11-24',
   },
+  {
+    what: 'the pie guide has a Slice colours section that covers pie and waffle',
+    file: 'guide/chart-pie.md',
+    contains: [
+      '## Slice colours',
+      'put a colour word between its name and its value',
+      'Tortuga purple    5400',
+      'The same rows work with `waffle`',
+    ],
+    why: 'A user asked from inside the app how to colour pie and waffle slices (#2314); the parser took a colour word on a data row and the guide never said so.',
+    verifiedAgainst: 'dgmo src/charts-d3/pie.ts and waffle.ts (row colour, else palette) at a29330ae (#2314)',
+    on: '2026-11-24',
+  },
+  {
+    what: 'the pie-colors example colours some rows and leaves others automatic',
+    file: 'examples/pie/pie-colors.dgmo',
+    contains: ['Tortuga purple    5400', 'Nassau orange     3100', 'Port Royal        2200'],
+    why: 'The pie colour row (#2314) is done only when a pie-colors example exists.',
+    verifiedAgainst: 'dgmo parseChart on the file at a29330ae (#2314)',
+    on: '2026-11-24',
+  },
 ];
 
 /**
