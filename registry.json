@@ -4375,7 +4375,8 @@
           "role": "sampler"
         }
       ],
-      "stars": 2
+      "stars": 2,
+      "feedback": "it's weir to have 2 geography groups and 1 gender groups. let's have 4 geography groups. more line thickness disparity."
     },
     {
       "id": "arc-ordered",
@@ -4700,8 +4701,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 2,
-      "feedback": "can we get more colors on the teams in the brackets?"
+      "stars": 2
     },
     {
       "id": "c4",
@@ -5402,7 +5402,7 @@
       "entity": "boxplot",
       "file": "examples/boxplot/boxplot.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",

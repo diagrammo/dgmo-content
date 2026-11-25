@@ -1,17 +1,25 @@
 bracket Grand Line Cup
 
-rounds 
-  Skirmish orange 
+rounds
+  Skirmish orange
   Clash green
   Fleet Final yellow
 
+tag Ship as s
+  Galleon red
+  Frigate blue
+  Sloop green
+  Brigantine purple
+  Schooner orange
+  Corsair teal
+
 [Red Fleet] red
-  seed 1 Black Pearl
-  seed 2 Queen Anne
-  seed 3 Sea Serpent
-  seed 4 Jolly Roger
-  seed 5 Kraken
-  seed 6 Barnacle Betty
+  seed 1 Black Pearl s: Galleon
+  seed 2 Queen Anne s: Frigate
+  seed 3 Sea Serpent s: Sloop
+  seed 4 Jolly Roger s: Brigantine
+  seed 5 Kraken s: Schooner
+  seed 6 Barnacle Betty s: Corsair
   Sea Serpent beats Barnacle Betty 2-1
   Jolly Roger beats Kraken 2-0
   Black Pearl beats Jolly Roger 3-1
@@ -19,12 +27,12 @@ rounds
   Black Pearl beats Queen Anne 4-2
 
 [Blue Fleet] blue
-  seed 1 Flying Dutchman
-  seed 2 Salty Dog
-  seed 3 Grog Hound
-  seed 4 Marauder
-  seed 5 Tidewater
-  seed 6 Coral Cutlass
+  seed 1 Flying Dutchman s: Galleon
+  seed 2 Salty Dog s: Frigate
+  seed 3 Grog Hound s: Sloop
+  seed 4 Marauder s: Brigantine
+  seed 5 Tidewater s: Schooner
+  seed 6 Coral Cutlass s: Corsair
   Grog Hound beats Coral Cutlass 2-1
   Marauder beats Tidewater 2-1
   Flying Dutchman beats Marauder 3-0
