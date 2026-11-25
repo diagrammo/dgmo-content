@@ -6136,7 +6136,7 @@
       "entity": "radar",
       "file": "examples/radar/radar.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6150,7 +6150,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 3
     },
     {
       "id": "ring",
@@ -6194,7 +6195,6 @@
           "role": "sampler"
         }
       ],
-      "feedback": "this example is a little boring with just 1 initial source. it'd be better with multiple additional sources, how about where a pirate operation gets income, where they spend it, how they distribute it.",
       "stars": 2
     },
     {
