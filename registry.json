@@ -4405,8 +4405,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 1,
-      "feedback": "too boring, needs groups"
+      "stars": 1
     },
     {
       "id": "bar",
@@ -4604,14 +4603,14 @@
       "entity": "bar-mirror",
       "file": "examples/bar/bar-mirror.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
           "role": "docs"
         }
       ],
-      "stars": 2
+      "stars": 4
     },
     {
       "id": "bar-combo",

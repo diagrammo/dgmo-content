@@ -1,13 +1,24 @@
 arc Pirate Alliance Network
-order degree
+order group
 
-// `order degree` places the most-connected pirates first, so the busiest
-// hubs of the alliance web sit at the center of the arc.
-Blackbeard -> Bonnet    8
-Blackbeard -> Vane      5
-Blackbeard -> Hornigold 4
-Bonny      -> Rackham   9
-Bonny      -> Read      7
-Rackham    -> Vane      3
-Hornigold  -> Bonnet    2
-Roberts    -> Davis     6
+// `order group` clusters each fleet side by side along the baseline.
+[Caribbean] red
+  Blackbeard -> Bonnet    8
+  Blackbeard -> Vane      5
+  Blackbeard -> Hornigold 4
+  Hornigold  -> Bonnet    2
+
+[Women Pirates] purple
+  Bonny   -> Rackham 9
+  Bonny   -> Read    7
+  Rackham -> Calico  4
+
+[West Africa] teal
+  Roberts -> Davis  6
+  Roberts -> Anstis 5
+  Davis   -> Anstis 3
+
+[Bahamas] blue
+  Rackham   -> Vane    3
+  Hornigold -> Jennings 4
+  Jennings  -> Bonnet  2
