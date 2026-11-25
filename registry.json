@@ -4957,7 +4957,6 @@
           "role": "sampler"
         }
       ],
-      "feedback": "show a node going backward just to show off the feature",
       "stars": 1
     },
     {
@@ -6313,14 +6312,14 @@
       "entity": "scatter-connect",
       "file": "examples/scatter/scatter-connect.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
           "role": "docs"
         }
       ],
-      "stars": 1
+      "stars": 4
     },
     {
       "id": "scatter-trend",
