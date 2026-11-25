@@ -34,7 +34,7 @@ deployment
 
 C4 diagrams model software architecture at multiple zoom levels, following the [C4 model](https://c4model.com). Define people, systems, containers, and components — then drill down from context to detail. Relationships use the same arrow syntax as sequence diagrams.
 
-The diagram starts at the **Context** level (people + systems). In the app, click a system to drill into its **Containers**, then click a container to see its **Components**. A rendered or exported image is always the Context level unless you take one of the steps in [Rendering a specific zoom level](#rendering-a-specific-zoom-level) — read that section before writing architecture docs into a repo.
+The diagram starts at the **Context** level (people + systems). In the app, click a system to drill into its **Containers**, then click a container to see its **Components**. A rendered or exported image draws the Context level unless the file says otherwise with `level` — see [Rendering a specific zoom level](#rendering-a-specific-zoom-level).
 
 Reach for it for system context diagrams, container and component views, and architecture onboarding docs — anywhere you need to explain how a system fits together to a mixed technical and non-technical audience. C4 asserts a specific abstraction level, so keep each view to one: mixing context, container, and component in a single picture produces a diagram that violates the model it claims to follow.
 
@@ -79,7 +79,7 @@ Analytics Platform is a system description: Multi-tenant analytics, tech: Node.j
 
 ## Shapes
 
-Shapes can be inferred from a container or component's technology or name, or declared explicitly. Static C4 rendering starts at Context level, whose person and system nodes do not carry a shape field; shape declarations on those nodes therefore have no visible effect.
+Shapes can be inferred from a container or component's technology or name, or declared explicitly. Context-level person and system nodes do not carry a shape field, so a shape declaration on one has no visible effect; shapes show on containers and components.
 
 ```
 Database is a container is a database
@@ -167,35 +167,50 @@ At the **Context** level, container-level relationships are automatically rolled
 
 ## Rendering a specific zoom level
 
-A rendered C4 file always draws the **Context** level: people and systems only. Drilling into containers and components is an **interactive affordance in the app** — click a system to descend, click a container to descend again. There is no directive, no CLI flag, and no metadata key that pins a file to the container or component level.
+A rendered C4 file (the CLI, an export, a docs embed) draws the **Context** level by default: people and systems only. Containers nested under a system are parsed and make it drillable in the app, but a Context render collapses the system to one box.
 
-This has a consequence that surprises people writing architecture docs into a repo: **nesting elements under `containers` does not produce a container-level picture.** The containers are parsed, they make the parent system drillable in the app, and they are *not drawn* by a static render — the system collapses to a single box. Declaring a `container` at the top level doesn't help either; the Context view draws only `person` and `system` elements, so a top-level container is silently omitted from the image.
+To render another level, add a `level` line to the header, before the first element:
 
-There are two ways to get a static container-level deliverable:
-
-**Write a separate file whose top-level elements are the things you want drawn.** Model each container as a `system` in that file. The C4 model treats a container diagram as its own view with its own boundary, so this is a faithful split, not a workaround:
+| Line | What the image shows |
+|---|---|
+| `level context` | People and systems. The default. |
+| `level containers of <System>` | That system's containers inside its boundary, plus the people and systems they talk to. |
+| `level containers` | The same, when exactly one system has containers. |
+| `level components of <Container>` | That container's components. The system is found from the container. |
+| `level components` | The same, when exactly one container has components. |
+| `level deployment` | The `deployment` section's infrastructure boxes with the containers placed in them. |
 
 ```dgmo
 c4 Harbor Authority — Containers
+level containers of Harbor Authority
+
+tag Technology as tech
+  React blue
+  Node.js green
+  PostgreSQL purple
 
 Ship Captain is a person
-  -Books berths via HTTPS-> Dock Board
+  -Books berths via [HTTPS]-> Dock Board
 
-Dock Board is a system tech: React
-  description: Berth scheduling console for captains
-  -Books berths through JSON/HTTPS-> Manifest API
+Harbor Authority is a system
+  containers
+    Dock Board is a container tech: React
+      description: Berth scheduling console for captains
+      -Books berths through [JSON/HTTPS]-> Manifest API
 
-Manifest API is a system tech: Node.js
-  description: Core API for berths, manifests, and tolls
-  -Reads and writes over SQL/TCP-> Harbor Ledger
+    Manifest API is a container tech: Node.js
+      description: Core API for berths, manifests, and tolls
+      -Reads and writes [SQL/TCP]-> Harbor Ledger
 
-Harbor Ledger is a system is a database tech: PostgreSQL
-  description: Berths, manifests, tariffs, and toll receipts
+    Harbor Ledger is a container is a database tech: PostgreSQL
+      description: Berths, manifests, tariffs, and toll receipts
 ```
 
-Suffix the title with the level (`— System Context`, `— Containers`) so the view names itself. The shipped examples `c4-context.dgmo` and `c4-containers.dgmo` are a matched pair in this style — but note the containers one is authored for the app's drill-down, so rendering it statically yields its Context view.
+Names match without regard to case. If the name is unknown, the bare form is ambiguous, or the level has nothing to draw, you get a warning that names the choices, and the image falls back to Context. The app still opens a file on Context; `level` sets the static image only.
 
-**Or drill in the app and export.** Open the nested file, click down to the level you want, and export from there; the export captures the view currently on screen.
+Suffix the title with the level (`— System Context`, `— Containers`) so the view names itself. Keep one level per file: a file that mixes context and container elements violates the model it claims to follow.
+
+You can also **drill in the app and export**. Click down to the level you want and export; the export captures the view on screen.
 
 Drillable system cards carry a solid accent bar along their bottom edge. A drilled view adds an outer boundary frame with a synthesized italic `<Name> — system` heading. Context cards also include a stereotype band (`«person»` or `«system»`) and divider; people add a stick figure.
 
@@ -267,7 +282,8 @@ Header directives, written at indent 0 above the content:
 
 | Directive | Values | Effect |
 | --------- | ------ | ------ |
-| `active-tag` | tag group name | Which tag group drives element coloring. Defaults to the first declared group, so only set this to pick another. |
+| `active-tag` | tag group name | Which tag group drives element coloring. Defaults to the first declared group, so only set this to pick another. Applies at every level, in the app and in a static render. |
+| `level` | `context` · `containers of <System>` · `components of <Container>` · `deployment` | The level a static render draws — see [Rendering a specific zoom level](#rendering-a-specific-zoom-level). Default `context`. |
 | `fill-tint` \| `fill-solid` \| `fill-outline` | (flag) | Fill treatment — see [Appearance](#appearance). Mutually exclusive; last one wins. |
 | `no-title` | (flag) | Hide the title line. |
 | `no-legend` | (flag) | Hide the legend. |
@@ -318,7 +334,7 @@ The quieter version of this mistake is worse: an arrow left at indent 0 with **n
 
 ### Expecting nested containers to appear in the rendered image
 
-They will not. See [Rendering a specific zoom level](#rendering-a-specific-zoom-level) — a static render is always the Context view, and containers only surface through the app's drill-down or a separate file.
+They will not, unless the file says `level containers of <System>`. See [Rendering a specific zoom level](#rendering-a-specific-zoom-level) — without `level`, a static render is the Context view.
 
 ### Bidirectional arrows
 
