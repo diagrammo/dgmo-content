@@ -248,14 +248,13 @@ To lead with lines instead, write a `line` chart and give the bar series
 
 ### Small multiples — `facet`
 
-The bare `facet` flag draws one panel per series of a `group` block, in the
+The `facet` flag draws one panel per series of a `group` block, in the
 order the block lists them, in a grid under one title block. Use it when the
 grouped bars are too many to compare side by side:
 
 ```dgmo
 bar Plunder by Ship and Season
-facet
-columns 3
+facet 3
 x-axis Season
 y-axis Chests
 
@@ -275,7 +274,7 @@ Winter 38 30 20
 - All panels share one value axis, with tick labels on the first column only.
   `facet-free-y` gives each panel its own range and labels every panel.
 - The grid takes as many columns as fit at a readable panel width.
-  `columns N` sets the count.
+  `facet N` sets the count, as in `facet 3`.
 - `orientation-horizontal`, eras, markers, bands and the statistics overlays
   apply in every panel. Bars never draw the grey context a line panel draws.
 - `stack`, `stack 100%`, `mirror` and `mark:` are errors beside `facet`,
@@ -292,7 +291,7 @@ Winter 38 30 20
 | `mirror` | Two series drawn back to back from a centre gutter (see above) | No |
 | `facet` | One panel per `group` series, in a grid — small multiples (see above) | No |
 | `facet-free-y` | With `facet`: each panel takes its own value range | No |
-| `columns` | With `facet`: panels per row, e.g. `columns 3` | No |
+| `facet N` | `facet` with N panels per row, e.g. `facet 3` | No |
 | `mark:` | On a `stack` or `group` series line: `line` or `step` draws it as a line over the bars (see above) | No |
 | `y-right-axis` | Inside the `stack` or `group` block: a header for the line series on the right axis (see above) | No |
 | indented rows | Rows indented under a category line draw stacks grouped by category (see above) | No |

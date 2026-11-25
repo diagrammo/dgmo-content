@@ -198,7 +198,7 @@ covers that form.
 
 ## Small multiples — `facet`
 
-The bare `facet` flag draws one panel per series, in the order the `series`
+The `facet` flag draws one panel per series, in the order the `series`
 block lists them, in a grid under one title block. Use it when four or more
 lines tangle in one plot and each one's own shape matters more than where the
 lines cross:
@@ -232,7 +232,7 @@ Jun 15 14 21 12
   context. `no-context` turns them off; a `facet-free-y` chart never draws
   them, because its panels share no scale.
 - The grid takes as many columns as fit at a readable panel width.
-  `columns N` sets the count.
+  `facet N` sets the count, as in `facet 3`.
 - `fill`, `step` / `step-before`, eras, markers, bands and the statistics
   overlays apply in every panel. A `note` stays with its own series' panel.
 - `stack`, `mirror`, a `y-right-axis` group, `mark:`, a series `band` and
@@ -492,7 +492,7 @@ Era syntax: `era <start> -> <end> Label color`
 | `facet` | One panel per series, in a grid — small multiples (see above) | No |
 | `facet-free-y` | With `facet`: each panel takes its own value range | No |
 | `no-context` | With `facet`: no grey lines for the other series | No |
-| `columns` | With `facet`: panels per row, e.g. `columns 2` | No |
+| `facet N` | `facet` with N panels per row, e.g. `facet 2` | No |
 | `fill`    | Shade the area under the line             | No       |
 | `fill-between` | Shade between two series, by which one leads | No |
 | `band` | A value range (`band 40..60`) or a band between two series (`band Forecast Low High`) | No |

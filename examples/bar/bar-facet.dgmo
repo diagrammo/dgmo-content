@@ -1,6 +1,5 @@
 bar Plunder by Ship and Season
-facet
-columns 3
+facet 3
 x-axis Season
 y-axis Chests
 
