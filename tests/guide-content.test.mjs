@@ -275,10 +275,10 @@ const DOCUMENTED = [
   {
     what: 'the bar-mirror example declares the mirror block with exactly two series',
     file: 'examples/bar/bar-mirror.dgmo',
-    contains: ['\nmirror\n  Black Gull purple\n  Red Kraken teal\n\n'],
+    contains: ['\nmirror\n  Deserted red\n  Signed on green\n\n'],
     why: 'The butterfly row (#1878) needs an example under examples/bar/ for its registry variant.',
-    verifiedAgainst: 'dgmo gallery/fixtures/bar-mirror.dgmo at f004d770 (#1878)',
-    on: '2026-11-19',
+    verifiedAgainst: 'examples/bar/bar-mirror.dgmo after the owner picked marquee redraw version 1 (#2282)',
+    on: '2026-11-25',
   },
   {
     what: 'the bar guide has a combo section and a `mark:` row in its Metadata Keys table',
