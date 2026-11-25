@@ -1,12 +1,30 @@
-map Follow-the-Sun Support Desk
+map Plunder Route to the Gulf
 
-hours 9-17
-workweek mon-fri
+tag Port of Call as p
+  Home Port red
+  Friendly green
+  Spanish Prize orange
 
-poi San Francisco clock label: West
-poi Denver US-CO clock label: Central
-poi Miami clock label: East 
+tag Leg as l
+  Outbound blue
+  Homeward purple
 
-route Houston
-  ~> Chicago
-  ~> Washington 
+poi 25.05 -77.35 as nassau label: Nassau, p: Home Port, size: 100
+  note Weigh anchor
+    Captain sets course at dawn.
+poi 23.13 -82.36 as havana label: Havana, p: Spanish Prize, size: 110
+  note Plunder the harbour
+    Powder Monkey scouts the **gun line**.
+poi 23.2 -84.2 as offshore label: Off the Cape
+poi 21.7 -85.4 as capesan label: Cabo San Antonio
+  note Round the cape
+    Navigator reads the trade winds.
+poi 20.4 -86.9 as cozumel label: Cozumel, p: Friendly, size: 70
+  note Landfall
+    Split the treasure here.
+
+route nassau
+  -sail west-> havana l: Outbound
+  -> offshore l: Outbound
+  -round the cape-> capesan l: Outbound
+  -> cozumel l: Outbound

@@ -5587,7 +5587,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 4
+      "stars": 1
     },
     {
       "id": "kanban",
@@ -5609,7 +5609,7 @@
           "role": "sampler"
         }
       ],
-      "feedback": "the yellow, orange, red bleed into each other, pick different colors for the tags."
+      "feedback": "We need some columns with 3-5 things. this is too trivial to be interesting. also let's collapse the done column"
     },
     {
       "id": "line",
@@ -5790,8 +5790,7 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ],
-      "feedback": "add notes, annotation on the stops. it's a feature and we handle it well. version 1 looks the closest to what we want and version 3"
+      ]
     },
     {
       "id": "map-route",
