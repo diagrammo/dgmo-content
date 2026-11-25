@@ -4824,7 +4824,6 @@
           "role": "sampler"
         }
       ],
-      "feedback": "let's have a class hierarchy that's 4-5 deep and more interesting no 2 parent things that's a bad practice.",
       "stars": 2
     },
     {
@@ -5314,7 +5313,7 @@
       "entity": "calendar",
       "file": "examples/calendar/calendar.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
