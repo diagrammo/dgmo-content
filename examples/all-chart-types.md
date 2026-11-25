@@ -869,14 +869,17 @@ tag Station as st
 [Signing On]
   Sign the articles score: 4, emotion: Hopeful, st: Ashore
     description: Captain reads the code aloud — pay shares, no women aboard, lights out at 8
+    thought: A real crew at last
   Scrub the decks score: 2, emotion: Weary, st: Deck
     pain: The Bosun inspects every plank
+    thought: Is this what pirates do all day
 
 [The Tempest]
   Caught in a squall off the reef score: 1, emotion: Terrified, st: Deck
     pain: Two crewmates lost overboard before dawn
     thought: Maybe the merchant fleet wasn't so bad after all
   Dawn, and she still floats score: 3, emotion: Relieved, st: Deck
+    thought: I'm still here
 
 [Powder Duty] collapsed
   Haul powder to the gun deck score: 2, emotion: Strained, st: Below
@@ -884,8 +887,10 @@ tag Station as st
 
 [The Prize]
   Chase the merchantman score: 4, emotion: Eager, st: Deck
+    thought: Run, you fat merchant
   Strike the colors score: 5, emotion: Triumphant, st: Deck
     description: Heavy with silver from the Veracruz mines
+    thought: I helped take her
   Night watch with a cracked rib score: 2, emotion: Aching, st: Below
 
 [Homecoming]
@@ -893,6 +898,7 @@ tag Station as st
     thought: Three doubloons hidden where only he can find them
   Back to the Rusty Anchor score: 4, emotion: Content, st: Ashore
     opportunity: Next time he signs on as a full hand, not a boy
+    thought: Home, of a sort
 ```
 
 ### Map

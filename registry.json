@@ -4977,7 +4977,7 @@
       "entity": "event-line",
       "file": "examples/event-line/event-line.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -4992,7 +4992,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 1
+      "stars": 4
     },
     {
       "id": "family",
@@ -5587,8 +5587,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 4,
-      "feedback": "we still have no thought bubbles on the faces, that's part of the DGMO and a feature, let's add them."
+      "stars": 4
     },
     {
       "id": "kanban",
