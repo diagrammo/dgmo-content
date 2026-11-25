@@ -1879,43 +1879,43 @@ Galley w: Idlers
 ### Sequence Diagram
 
 ```dgmo
-sequence Treasure Hunt App
+sequence Raid on Port Royal
 
-tag Concern as c
-  Search blue
-  Claims green
-  Notifications orange
+tag Phase as p
+  Scout blue
+  Plunder green
+  Danger red
 
-User is an actor
+Captain is an actor
+Navigator is an actor
 
-[Treasure Service]
-  TreasureAPI
-  MapDB is a database
-  NotifyQueue is a queue
+[Flagship]
+  Spyglass
+  Cannons
+  Hold is a database
 
-User -Search nearby loot-> WebApp
-WebApp -GET /treasures?nearby-> TreasureAPI c: Search
-TreasureAPI -Find within 5nm-> MapDB c: Search
-note
-  - check location
-  - use compass
-MapDB -3 results-> TreasureAPI
-TreasureAPI -locations-> WebApp
-WebApp -Show treasure map-> User
+[Port]
+  Harbor
+  Fort
 
-== Claim ==
+Captain ~Set course~> Navigator p: Scout
+Navigator ~Plot route~> Spyglass p: Scout
+Spyglass ~Fort sighted~> Captain p: Scout
 
-User -Claim chest #42-> WebApp
-WebApp -POST /claim-> TreasureAPI c: Claims
-if chest available
-  TreasureAPI -Set status = claimed-> MapDB c: Claims
-  MapDB -OK-> TreasureAPI
-  TreasureAPI ~treasure.claimed~> NotifyQueue c: Notifications
-  TreasureAPI -Claim accepted-> WebApp
-  WebApp -500 doubloons earned!-> User
+== Engage ==
+
+Captain -Fire at will-> Cannons p: Danger
+Cannons -Broadside-> Fort p: Danger
+if fort returns fire
+  Fort -Cannonball-> Cannons p: Danger
+  Cannons -Hull damaged-> Captain p: Danger
 else
-  TreasureAPI -409 Already claimed-> WebApp
-  WebApp -Too slow, matey!-> User
+  Fort -Surrender-> Harbor p: Plunder
+
+== Plunder ==
+
+Captain -Load the loot-> Hold p: Plunder
+Hold -Stored-> Captain p: Plunder
 ```
 
 ### Sitemap

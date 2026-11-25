@@ -6215,7 +6215,7 @@
       "entity": "scatter",
       "file": "examples/scatter/scatter.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6230,7 +6230,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 2
+      "stars": 4
     },
     {
       "id": "scatter-connect",
@@ -6300,8 +6300,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 3,
-      "feedback": "Pretty good but more colors, red, green, blue and perhaps 1-2 additional participants"
+      "stars": 3
     },
     {
       "id": "sequence-groups",
