@@ -6341,7 +6341,7 @@
       "entity": "sitemap",
       "file": "examples/sitemap/sitemap.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6356,7 +6356,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 3
+      "stars": 4
     },
     {
       "id": "slope",
@@ -6412,7 +6412,6 @@
           "role": "sampler"
         }
       ],
-      "feedback": "this is not good, too wide, crossed lines. simplify, more color variance, a little less nodes.",
       "stars": 2
     },
     {

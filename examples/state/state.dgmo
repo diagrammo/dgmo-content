@@ -1,32 +1,25 @@
 state Ship Battle Lifecycle
+direction-tb
+
+tag Stance as s
+  Calm blue
+  Attack red
+  Cunning orange
+  Spoils green
+  Doom gray
 
 [*] -> Sailing
-
-Sailing
-  -enemy spotted-> BattleStations
-
-[Losses] gray
-  Captured -> [*]
-  Sinking -> [*]
-
-[Aftermath] teal
-  Victorious
-    -loot taken-> Sailing
-
-  Retreating
-    -escaped-> Sailing
-    -caught-> Captured
-
-[Combat] red
-  Engaging
-    -alongside-> Boarding
-    -hull breach-> Sinking
-    -outgunned-> Retreating
-
-  Boarding
-    -crew wins-> Victorious
-    -crew loses-> Captured
-
-BattleStations
-  -in range-> Engaging
-  -enemy retreats-> Sailing
+Sailing s: Calm
+  -enemy spotted-> Engaging
+Engaging s: Attack
+  -boarders ready-> Boarding
+  -outgunned-> Fleeing
+Boarding s: Attack
+  -crew wins-> Plundering
+  -crew loses-> Captured
+Fleeing s: Cunning
+  -escaped-> Sailing
+Plundering s: Spoils
+  -loot taken-> Sailing
+Captured s: Doom
+  -> [*]
