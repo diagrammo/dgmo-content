@@ -1,24 +1,27 @@
-cycle The Tide Turns Widdershins
+cycle The Voyage Home
 
 direction-counterclockwise
 autonumber
-
-Careen blue
-  Beach the ship and scrape the hull
-  clean of barnacles and weed.
-  -Hull is sound-> color: blue
+center VOYAGE
 
 Provision green
-  Take on fresh water, salt pork,
-  and powder for the guns.
+  Water, pork and powder
   -Hold is full-> color: green
 
-Set Sail orange
-  Catch the ebb tide and stand out
-  for the shipping lanes.
-  -Plunder aboard-> color: orange
+Set Course blue
+  The Navigator marks the chart
+  -Fair winds-> color: blue
 
-Return to Port red
-  Fence the plunder and pay the crew
-  before the whole rig starts anew.
-  -Back to the beach-> color: red
+Engage orange
+  Run down the merchantman
+  -Prize taken-> color: orange
+  -Outgunned-> Set Course color: red
+
+Plunder purple
+  Strip the hold of silver
+  -Heavy laden-> color: purple
+  -Too little-> Engage color: yellow
+
+Landfall teal
+  Drop anchor at Tortuga
+  -Shares split-> color: teal

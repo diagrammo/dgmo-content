@@ -4800,7 +4800,7 @@
       "entity": "c4-context",
       "file": "examples/c4/c4-context.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -4811,7 +4811,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 1
+      "stars": 4
     },
     {
       "id": "c4-deployment",
@@ -4953,8 +4953,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 1,
-      "feedback": "show a node going backward as well just to show off the feature"
+      "stars": 1
     },
     {
       "id": "er",
