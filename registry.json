@@ -6419,7 +6419,7 @@
       "entity": "swimlane",
       "file": "examples/swimlane/swimlane.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6434,7 +6434,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 2
+      "stars": 4
     },
     {
       "id": "swimlane-bpmn",
@@ -6469,7 +6469,6 @@
           "role": "sampler"
         }
       ],
-      "feedback": "make it look more organic, more variance in the dots, maybe just 3 rings so it reads easier.",
       "stars": 3
     },
     {
