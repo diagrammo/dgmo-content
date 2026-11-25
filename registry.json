@@ -1791,6 +1791,18 @@
       "description": "Days as tiles: daily values, tags and events across weeks, months or a wall calendar — activity logs, habits, time off, appointments"
     },
     {
+      "id": "calendar-months",
+      "kind": "variant",
+      "base": "calendar",
+      "name": "Month strips",
+      "family": "data",
+      "intent": [],
+      "produces": "layout months",
+      "keywords": [],
+      "guidance": null,
+      "description": null
+    },
+    {
       "id": "boxplot",
       "kind": "type",
       "base": null,
@@ -4809,7 +4821,7 @@
       "entity": "class",
       "file": "examples/class/class.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -4846,7 +4858,6 @@
           "role": "sampler"
         }
       ],
-      "feedback": "let's do more pirate theme, with pirate ports, maybe including even a stop in Europe.",
       "stars": 1
     },
     {
@@ -5313,7 +5324,7 @@
       "entity": "calendar",
       "file": "examples/calendar/calendar.dgmo",
       "isPrimary": true,
-      "status": "marquee",
+      "status": "draft",
       "placements": [
         {
           "surface": "docs",
@@ -5327,8 +5338,20 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ],
-      "stars": 1
+      ]
+    },
+    {
+      "id": "calendar-months",
+      "entity": "calendar-months",
+      "file": "examples/calendar/calendar-months.dgmo",
+      "isPrimary": true,
+      "status": "marquee",
+      "placements": [
+        {
+          "surface": "docs",
+          "role": "docs"
+        }
+      ]
     },
     {
       "id": "calendar-range",
