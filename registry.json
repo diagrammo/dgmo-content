@@ -5060,7 +5060,7 @@
       "entity": "function",
       "file": "examples/function/function.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -5075,7 +5075,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 2
+      "stars": 5
     },
     {
       "id": "function-fill",
@@ -6281,7 +6281,6 @@
           "role": "sampler"
         }
       ],
-      "feedback": "this is not good, histogram with more data points. the median and mean are right next to each other, looks dumb",
       "stars": 1
     },
     {
