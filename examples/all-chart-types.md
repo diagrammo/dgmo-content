@@ -1081,20 +1081,27 @@ threats
 ### Swimlane
 
 ```dgmo
-swimlane Weekly Publishing
+swimlane Planning a Raid
 direction-lr
 
-lane Writer gray
-  Draft Post -> Review
-  Revise -> Review
-lane Editor blue
-  <Review>
-    -changes-> Revise
-    -ok-> Schedule
-  Schedule -> Publish
-  Publish -> Promote
-lane Social green
-  Promote
+[Plan]
+  lane Captain red
+    Set Course -> <Worth the risk?>
+    <Worth the risk?>
+      -no-> (!Stay in Port)
+      -yes-> Brief Crew
+    Brief Crew -> Chart Route
+  lane Navigator blue
+    Chart Route -> Man Cannons
+[Raid]
+  lane Bosun orange
+    Man Cannons -> Board Prize
+  lane Captain red
+    Board Prize -> Count Haul
+[Share]
+  lane Quartermaster green
+    Count Haul -> Split Shares
+    Split Shares -> (Paid Out) success
 ```
 
 ### BPMN process (swimlane pools)

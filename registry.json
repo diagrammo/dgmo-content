@@ -6397,7 +6397,7 @@
       "entity": "state",
       "file": "examples/state/state.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6412,7 +6412,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 2
+      "stars": 4
     },
     {
       "id": "swimlane",
@@ -6434,7 +6434,6 @@
           "role": "sampler"
         }
       ],
-      "feedback": "more detail, more colors, give it a pirate theme. some fun pirate process like planning a raid, distributing booty.",
       "stars": 2
     },
     {
