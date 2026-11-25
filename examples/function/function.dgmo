@@ -1,9 +1,10 @@
-function Ship Roll After a Full Broadside
+function Roll After a Broadside: Galleon vs Sloop
 
 x-axis Seconds after broadside 0..12
 y-axis Roll (degrees)
+fill
 
-// Recoil heels the ship 30° — the roll rings down as the sea damps it.
-Roll blue: 30*exp(-0.25*x)*sin(2*x)
-Decay envelope gray: 30*exp(-0.25*x)
-Mirror envelope gray: -30*exp(-0.25*x)
+// The heavy galleon rolls slow and deep; the sloop snaps back quick but rings longer.
+Galleon blue: 30*exp(-0.25*x)*sin(1.5*x)
+Sloop orange: 18*exp(-0.15*x)*sin(3*x)
+Calm sea green: 0

@@ -4993,7 +4993,8 @@
           "role": "sampler"
         }
       ],
-      "stars": 1
+      "stars": 1,
+      "feedback": "The events look equidistant on the timeline, I'd like some variance"
     },
     {
       "id": "family",
@@ -5074,7 +5075,6 @@
           "role": "sampler"
         }
       ],
-      "feedback": "can we add fills in this diagram?",
       "stars": 2
     },
     {
