@@ -2005,7 +2005,6 @@ wireframe Pirate Crew Portal
 
 ```dgmo
 event-line The Black Pearl Legend
-no-scale
 no-box
 
 tag Deed as t
@@ -2018,15 +2017,15 @@ tag Deed as t
 [The Mutiny Years]
   1712-03 Captain takes the helm  t: Crew
     The Black Pearl gets a new master and a skeleton crew.
-  1713-09 Set course for Tortuga  t: Voyage
+  1712-06 Set course for Tortuga  t: Voyage
     First long crossing under the black flag.
 
-[The Golden Age] collapsed
+[The Golden Age]
   1715-06 Spanish galleon taken  t: Plunder
     Forty chests of doubloons.
-  1716-02 Siege of Port Royal  t: Battle
+  1715-09 Siege of Port Royal  t: Battle
     The harbour guns fall silent.
-  1717-08 Shares split  t: Treasure
+  1716-02 Shares split  t: Treasure
     Every sailor draws a fair cut.
 
 [Last Voyages]
@@ -2034,7 +2033,7 @@ tag Deed as t
     **Three** longboats lost to the deep.
   1721-11 Landfall at Skull Island  t: Voyage
     The map finally leads somewhere.
-  1722-05 Hoard buried  t: Treasure
+  1722-01 Hoard buried  t: Treasure
     Only the Navigator knows the spot.
 
 [What's Next]
