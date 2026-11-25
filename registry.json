@@ -4611,7 +4611,6 @@
           "role": "docs"
         }
       ],
-      "feedback": "more color, add some red, green",
       "stars": 2
     },
     {
@@ -5071,7 +5070,7 @@
       "entity": "flowchart-lr",
       "file": "examples/flowchart/flowchart-lr.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -5082,7 +5081,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 1
+      "stars": 4
     },
     {
       "id": "function",

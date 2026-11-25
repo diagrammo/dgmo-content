@@ -1,14 +1,14 @@
-bar Crew by Age, Black Gull and Red Kraken
-subtitle Sailors aboard each ship, 1720
-x-axis Age
+bar Crew Gained and Lost by Port
+subtitle Sailors who signed on against sailors who deserted
+x-axis Port
 y-axis Sailors
 
 mirror
-  Black Gull purple
-  Red Kraken teal
+  Deserted red
+  Signed on green
 
-50+   6 9
-40–49 14 18
-30–39 27 31
-20–29 38 34
-15–19 12 8
+Tortuga 6 22
+Nassau 9 31
+Havana 18 12
+Kingston 14 9
+Cartagena 25 7
