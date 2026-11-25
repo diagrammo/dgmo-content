@@ -1,10 +1,10 @@
 flowchart Boarding a Merchant Ship
 direction-lr
 
-(Spot Sail) -> [Hoist Colors] -> <In Range?>
-  -yes-> [Fire Warning Shot] -> <Surrender?>
-  -no-> [Give Chase] -> <In Range?>
-
-<Surrender?>
-  -strikes-> [Board Peacefully] -> [[Take the Cargo]] -> (Sail Away)
-  -fights-> [Grapple and Board] -> [Storm the Deck] -> [[Take the Cargo]]
+(Spot Sail) -> <Flag Seen?>
+  -navy-> [Run Silent] -> (Slip Away)
+  -pirate-> [Share the News] -> (Split a Cask)
+  -merchant-> <Surrender?>
+    -strikes-> [Board Peacefully] -> (Take the Cargo)
+    -fights-> [Grapple and Board] -> (Take the Cargo)
+    -flees-> [Chain Shot the Rigging] -> (Take the Cargo)

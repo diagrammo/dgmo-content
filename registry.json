@@ -4513,7 +4513,8 @@
           "role": "docs"
         }
       ],
-      "stars": 1
+      "stars": 1,
+      "feedback": "do this with a target and more interesting things."
     },
     {
       "id": "bar-diverging",
@@ -5081,7 +5082,6 @@
           "role": "sampler"
         }
       ],
-      "feedback": "change it so it isn't so horizontal, looks odd",
       "stars": 1
     },
     {
