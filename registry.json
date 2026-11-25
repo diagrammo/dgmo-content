@@ -4843,7 +4843,7 @@
       "entity": "clock",
       "file": "examples/clock/clock.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
