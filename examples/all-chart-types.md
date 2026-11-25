@@ -720,9 +720,12 @@ Tokyo as Deckhand
 ### Countdown
 
 ```dgmo
-countdown New Year
-since 2026-01-01
-on-day 🎉 Happy New Year!
+countdown Peg-leg Pete's Birthday Bash
+since 1971-03-14T20:00
+since-label Pete turns Nth — hoist the colors!
+tz America/New_York
+on-day 🎂 Fire the cannons, Pete's another year older!
+note **Plunder the cake.** Bring rum, Captain's orders.
 ```
 
 ### Countdown (recurring, numbered)
@@ -795,22 +798,30 @@ target 100
 ### Cycle Diagram
 
 ```dgmo
-cycle The Pirate Raid Cycle
+cycle Raid Cycle with a Refit Loop
 
 center RAID
+circle-nodes
 autonumber
 
-Scout blue
-  Spot merchant vessels from afar
+tag phase as p
+  Hunt blue
+  Fight orange
+  Feast red
 
-Pursue green
-  Raise the colors, trim the sails
-
-Board orange
-  Swing across and seize the deck
-
-Celebrate red
-  Divide the spoils, then repair
+Spot a Sail p:Hunt
+  Lookout cries from the crow's nest
+Pursue p:Hunt
+  Trim the sails, close the gap
+Board p:Fight
+  Grappling hooks and cutlasses
+Plunder p:Fight
+  Strip the hold
+Split Shares p:Feast
+  Quartermaster deals the haul
+Refit p:Feast
+  Patch the hull, restock the rum
+  -Back on the hunt-> Pursue
 ```
 
 ### Journey Map
