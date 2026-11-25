@@ -2,13 +2,13 @@ bar Grog Rations Against the Daily Allowance
 lollipop
 orientation-horizontal
 sort asc
-target 3 below green
+marker 3 Allowance
 mean
 y-axis Pints per head per day
 
-Captain 2
-Quartermaster 3
-Navigator 3
-Cook 4
-Bosun 5
-PowderMonkey 7
+Captain purple 2
+Quartermaster teal 3
+Navigator purple 3
+Cook teal 4
+Bosun orange 5
+PowderMonkey red 7
