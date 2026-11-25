@@ -4756,7 +4756,7 @@
       "entity": "c4-components",
       "file": "examples/c4/c4-components.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -4771,7 +4771,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 1
+      "stars": 4
     },
     {
       "id": "c4-containers",
@@ -4793,7 +4793,6 @@
           "role": "sampler"
         }
       ],
-      "feedback": "more color variance, too much blues/ cyans",
       "stars": 1
     },
     {
