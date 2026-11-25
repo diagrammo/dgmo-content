@@ -5798,14 +5798,14 @@
       "entity": "line-combo",
       "file": "examples/line/line-combo.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
           "role": "docs"
         }
       ],
-      "stars": 1
+      "stars": 4
     },
     {
       "id": "line-facet",
@@ -6320,7 +6320,6 @@
           "role": "docs"
         }
       ],
-      "feedback": "come up with a different example, this is lame",
       "stars": 1
     },
     {

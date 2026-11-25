@@ -1,11 +1,23 @@
-scatter Black Pearl Voyage
-subtitle Ports in the order she called at them
-x-axis Longitude (°W)
-y-axis Latitude (°N)
+scatter Black Pearl, Out and Back
+subtitle Rum in the hold against crew morale, week by week
+x-axis Rum barrels left 0..40
+y-axis Crew morale 0..100
 connect
 
-Port Royal 76.8 17.9
-Tortuga 72.8 20.0
-Nassau 77.3 25.0
-Havana 82.4 23.1
-Cartagena 75.5 10.4
+[Fair winds] green
+  Set course 38 70
+  Steady 32 82
+  Trade winds 26 90
+[Doldrums] orange
+  . 26 90
+  Becalmed 22 62
+  Dry casks 18 38
+[Storm] red
+  . 18 38
+  Mutter 15 20
+  Mutiny 12 12
+[Plunder] blue
+  . 12 12
+  Prize sighted 14 55
+  Boarding 20 86
+  Landfall 28 96
