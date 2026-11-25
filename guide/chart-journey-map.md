@@ -133,7 +133,7 @@ Deeper-indented lines under a step add context:
 |--------|-----------|
 | `pain:` | Pain point (red accent) |
 | `opportunity:` | Improvement opportunity (green accent) |
-| `thought:` | User thought (italic) |
+| `thought:` | User thought (italic) — a bubble above the step's face in exports, on hover in the app |
 | `description:` | General context text |
 
 Multiple annotations per step are allowed.
