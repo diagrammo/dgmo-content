@@ -4399,7 +4399,7 @@
       "entity": "bar",
       "file": "examples/bar/bar.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -4413,7 +4413,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 5
     },
     {
       "id": "bar-fill-solid",
@@ -4618,7 +4619,7 @@
       "entity": "block",
       "file": "examples/block/block.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -4632,14 +4633,15 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "body",
       "entity": "body",
       "file": "examples/body/body.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -4653,7 +4655,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 5
     },
     {
       "id": "boxes-and-lines",
@@ -4674,7 +4677,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 2
     },
     {
       "id": "bracket",
@@ -4695,7 +4699,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 2
     },
     {
       "id": "c4",
@@ -5395,7 +5400,9 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 2,
+      "feedback": "This is way to boring, let's have 5 of them, more interesting colors?"
     },
     {
       "id": "boxplot-points",

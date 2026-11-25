@@ -1,28 +1,33 @@
 boxes-and-lines Pirate Fleet Command
 
-tag Status as s
-  Operational green
-  Damaged red
-  Building blue default
+tag Side as t
+  Pirate green
+  Navy red
+  Smuggler yellow
+  Harbor blue default
 
-heat Crew red green
-active-tag Status
-
-Flagship s: Operational, heat: 120
-  -> [Harbor Defenses]
-  -> IntelNetwork
+Flagship t: Pirate
+  -orders-> [Harbor Defenses]
+  -scouts-> IntelNetwork
 
 [Harbor Defenses]
-  FortCannon s: Operational, heat: 40
-    -> Watchtower
-  Watchtower s: Operational, heat: 12
-  SeaMines s: Building, heat: 6
+  FortCannon t: Harbor
+    -covers-> Watchtower
+  Watchtower t: Harbor
+  SeaMines t: Harbor
 
-IntelNetwork s: Operational, heat: 35
-  -> SpyRing
-  -> SignalFlags
+IntelNetwork t: Pirate
+  -hires-> SpyRing
+  -reads-> SignalFlags
 
-SpyRing s: Operational, heat: 18
-  -> [Harbor Defenses]
+SpyRing t: Smuggler
+  -warns-> [Harbor Defenses]
 
-SignalFlags s: Damaged, heat: 8
+SignalFlags t: Pirate
+
+NavyFrigate t: Navy
+  -blockades-> [Harbor Defenses]
+NavyCutter t: Navy
+  -hunts-> SmugglerSloop
+SmugglerSloop t: Smuggler
+  -trades-> SpyRing
