@@ -36,8 +36,8 @@ Label value
 
 To pick a slice's colour, put a colour word between its name and its value. Rows
 without one are coloured automatically from the palette. An automatic colour can
-match one you chose, so check the drawing, and name every row if each colour must
-be your choice.
+match one you chose, so check the drawing, and name every row to choose each
+colour yourself.
 
 ```dgmo
 pie Plunder by Port
@@ -48,8 +48,8 @@ Port Royal        2200
 Havana             900
 ```
 
-The same rows work with `waffle`: add the bare `waffle` line, and each named
-colour paints that row's squares and its key entry.
+The same rows work with `waffle`: add the bare `waffle` line, and a named colour
+paints the squares of a row that is drawn on its own.
 
 ```dgmo
 pie Plunder by Port
@@ -60,6 +60,22 @@ Nassau orange     3100
 Port Royal        2200
 Havana             900
 ```
+
+A chosen colour does not show in these cases:
+
+- `other-below` combines two or more rows under its threshold into one `Other`
+  slice, on a pie or a waffle. Their colours are dropped, and `Other` is coloured
+  automatically.
+- A waffle can merge its smallest rows into one grey group, labelled for example
+  `3 more, each under 3%`. This happens with more than 8 rows and no
+  `other-below`. It can also happen with fewer rows, or with `other-below`, when
+  several small rows crowd one line of the grid.
+- A waffle row too small to get a square has nothing to colour.
+- [`highlight`](#highlight-one-item--story-view) turns the other slices grey, and
+  `highlight orange` paints the highlighted slice orange instead of its own
+  colour.
+
+When you write colours:
 
 - Use one of the names in [Colors](colors.md), in lowercase. A hex value such as
   `#3b6ea5` is not accepted.
