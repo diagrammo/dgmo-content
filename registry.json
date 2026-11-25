@@ -5776,7 +5776,7 @@
       "entity": "map",
       "file": "examples/map/map.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -5790,7 +5790,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "map-route",
@@ -6603,8 +6604,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 2,
-      "feedback": "get rid of the red note. add some freehand scribbles. create some lines with curves like a user can. show some dashed lines and dashed shapes (rarely). connect the note with a line to what it describes. add the document shape."
+      "stars": 2
     },
     {
       "id": "wireframe",
