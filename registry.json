@@ -4887,7 +4887,7 @@
       "entity": "cycle",
       "file": "examples/cycle/cycle.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -4993,7 +4993,6 @@
           "role": "sampler"
         }
       ],
-      "feedback": "pirate theme, more colors, give a collapsed section too",
       "stars": 1
     },
     {
@@ -5519,8 +5518,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 1,
-      "feedback": "this is incredibly sparse and boring. don't we have lines in between in some variations? more color,"
+      "stars": 1
     },
     {
       "id": "dot-dumbbell",

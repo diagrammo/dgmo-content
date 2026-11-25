@@ -1997,41 +1997,42 @@ wireframe Pirate Crew Portal
 ### Event Line
 
 ```dgmo
-event-line Product Milestones
-//no-scale
-now 2022-06
+event-line The Black Pearl Legend
+no-scale
 no-box
 
-tag Track as t
-  Product blue
-  Growth green
-  Funding purple
+tag Deed as t
+  Voyage blue
+  Plunder orange
+  Battle red
+  Crew green
+  Treasure purple
 
-[Early Days]
-  2019-03 Idea sketched  t: Product
-    A weekend prototype becomes a real plan.
-  2019-09 Private beta  t: Product
-    First fifty users kick the tires.
+[The Mutiny Years]
+  1712-03 Captain takes the helm  t: Crew
+    The Black Pearl gets a new master and a skeleton crew.
+  1713-09 Set course for Tortuga  t: Voyage
+    First long crossing under the black flag.
 
-[Scaling Up]
-  2020-06 Seed round  t: Funding
-    **$2M** raised to grow the team.
-  2021-01 Public launch  t: Product
-    Open to everyone, no waitlist.
-  2021-11 100k users  t: Growth
-    Word of mouth does the heavy lifting.
+[The Golden Age] collapsed
+  1715-06 Spanish galleon taken  t: Plunder
+    Forty chests of doubloons.
+  1716-02 Siege of Port Royal  t: Battle
+    The harbour guns fall silent.
+  1717-08 Shares split  t: Treasure
+    Every sailor draws a fair cut.
 
-[Going Long]
-  2023-04 Series A  t: Funding
-    Expansion into new markets.
-  2024-08 1M users  t: Growth
-    A milestone years in the making.
+[Last Voyages]
+  1719-04 Kraken sighted  t: Battle
+    **Three** longboats lost to the deep.
+  1721-11 Landfall at Skull Island  t: Voyage
+    The map finally leads somewhere.
+  1722-05 Hoard buried  t: Treasure
+    Only the Navigator knows the spot.
 
 [What's Next]
-  TBD Series B  t: Funding
-    Raising when the metrics line up — no date yet.
-  TBD Mobile app  t: Product
-    On the roadmap, not yet scheduled.
+  TBD Retire to the Caribbean  t: Crew
+    Quartermaster keeps the ledger.
 ```
 
 ### Block
