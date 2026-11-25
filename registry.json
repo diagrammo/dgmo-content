@@ -4686,7 +4686,7 @@
       "entity": "bracket",
       "file": "examples/bracket/bracket.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -5329,8 +5329,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 1,
-      "feedback": "Let's make this more colorful, it looks too much like GitHub. Go from red to blue. also add a tagged group with a colorful red, green, blue."
+      "stars": 1
     },
     {
       "id": "calendar-range",
