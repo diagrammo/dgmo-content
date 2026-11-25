@@ -5571,7 +5571,7 @@
       "entity": "journey-map",
       "file": "examples/journey-map/journey-map.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -5608,8 +5608,7 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ],
-      "feedback": "the yellow, orange and red bleed into each other. we need more contrasting colors."
+      ]
     },
     {
       "id": "line",
@@ -6604,7 +6603,8 @@
           "role": "sampler"
         }
       ],
-      "stars": 2
+      "stars": 2,
+      "feedback": "get rid of the red notes. get rid of blue line under home. get rid of green circle around orders and doubloons."
     },
     {
       "id": "wireframe",

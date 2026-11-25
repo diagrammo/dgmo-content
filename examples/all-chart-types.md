@@ -1365,48 +1365,47 @@ marker 1718-05-14 Ransom Deadline red
 ### Kanban Board
 
 ```dgmo
-kanban Crew Tasks
+kanban Fleet Repairs by Ship
+
+active-tag Ship
+
+tag Ship as s
+  Black Pearl purple
+  Revenge red
+  Fortune blue
+  Mermaid teal
 
 tag Priority as p
-  Low blue
-  Medium yellow
-  High orange
-  Critical red
+  Low gray
+  High green
 
-tag Watch as w
-  Morning green
-  Afternoon yellow
-  Night purple
-
-[Backlog] blue
-  Repair the foretop sail p: Low, w: Morning
+[Backlog] gray
+  Repair the foretop sail s: Revenge, p: Low
     Mend after the last storm
-  Reinforce the gunwales p: Medium, w: Afternoon
+  Reinforce the gunwales s: Fortune, p: High
     Two planks are rotting
-  Splice the mooring lines p: Low, w: Morning
-  Rig a second anchor p: Medium, w: Night
+  Rig a second anchor s: Black Pearl, p: Low
+  Splice the mooring lines s: Mermaid, p: Low
 
-[In Progress] yellow wip: 5
-  Caulk the hull seams p: High, w: Afternoon
+[In Progress] teal wip: 4
+  Caulk the hull seams s: Revenge, p: High
     Hold has been taking water
-  Restock powder kegs p: High, w: Morning
+  Restock powder kegs s: Black Pearl, p: High
     Last batch ran damp
-  Scrub the lower deck p: Low, w: Afternoon
-  Oil the capstan p: Medium, w: Morning
-  Chart the shoals p: Medium, w: Night
-    Navigator wants soundings
+  Chart the shoals s: Fortune, p: Low
+  Oil the capstan s: Mermaid, p: Low
 
 [Blocked] red
-  Find a new sailmaker p: Critical, w: Morning
+  Find a new sailmaker s: Black Pearl, p: High
     Old one took ill at last port
-  Buy fresh tar p: High, w: Afternoon
+  Buy fresh tar s: Mermaid, p: High
     Port merchants out of stock
 
 [Done] green collapsed
-  Inventory the hold p: Medium, w: Night
-  Sharpen the cutlasses p: Low, w: Night
-  Hoist the colours p: Low, w: Morning
-  Stow the cannon p: High, w: Afternoon
+  Inventory the hold s: Fortune, p: Low
+  Sharpen the cutlasses s: Revenge, p: Low
+  Hoist the colours s: Black Pearl, p: Low
+  Stow the cannon s: Revenge, p: High
 ```
 
 ### PERT
