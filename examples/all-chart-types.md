@@ -1931,28 +1931,37 @@ tag Access
 tag Page
   Landing purple
   Form orange
-  Content cyan 
+  Content cyan
 
 Home Access: Public, Page: Landing
   -shop-> Shop
   -join-> Enlist
-  -map-> Treasure Map
+  -sign in-> Login
+  -raids-> Raid Calendar
   -> [Port Market]
 
 [Port Market]
   Shop Access: Public, Page: Content
     -buy-> Checkout
-
   Checkout Access: Crew Only, Page: Form
-    -purchased-> Ship Log 
+    -purchased-> Ship Log
 
-[Crew Quarters]
+[Account]
   Enlist Access: Public, Page: Form
     -enlisted-> Ship Log
-
+  Login Access: Public, Page: Form
+    -welcome aboard-> Ship Log
+    -forgot-> Reset Password
+  Reset Password Access: Public, Page: Form
+  Change Password Access: Crew Only, Page: Form
   Ship Log Access: Crew Only, Page: Content
-    -voyage-> Treasure Map
+    -voyage-> Raid Calendar
 
+[Raid Planning]
+  Raid Calendar Access: Crew Only, Page: Content
+    -book-> Schedule Raid
+    -view-> Treasure Map
+  Schedule Raid Access: Captain, Page: Form
   Treasure Map Access: Captain, Page: Content
 ```
 
