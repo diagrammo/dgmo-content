@@ -5995,7 +5995,7 @@
       "entity": "polar-area",
       "file": "examples/polar-area/polar-area.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6009,7 +6009,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "pyramid",
@@ -6149,8 +6150,7 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ],
-      "feedback": "I'd like to see something more exaggerated, this is just kind of smooth and uniform all over. add more spikiness"
+      ]
     },
     {
       "id": "ring",

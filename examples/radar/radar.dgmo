@@ -4,9 +4,9 @@ series
   Queen Anne's Revenge green
   Flying Dutchman purple
 
-Firepower       85 70 95
-Speed           90 65 55
-Armor           60 80 90
-Maneuverability 88 62 50
-Crew Morale     75 85 70
-Cannon Range    70 78 92
+Firepower       95 40 100
+Speed           100 20 30
+Armor           15 90 95
+Maneuverability 90 25 10
+Crew Morale     30 95 15
+Cannon Range    25 100 90
