@@ -4771,7 +4771,6 @@
           "role": "sampler"
         }
       ],
-      "feedback": "trivially boring, no color, very bad, needs about 4 more boxes",
       "stars": 1
     },
     {
@@ -5856,7 +5855,8 @@
           "role": "starter"
         }
       ],
-      "stars": 1
+      "stars": 1,
+      "feedback": "add annotations/ notes to some of the stops"
     },
     {
       "id": "mindmap",

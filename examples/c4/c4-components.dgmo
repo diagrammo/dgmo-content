@@ -1,45 +1,100 @@
-c4 Harbor Authority — Manifest API Components
+c4 Manifest API — Components
+level components of Manifest API
+active-tag Technology
 
 tag Technology as tech
-  Express blue
-  TypeScript green
+  React blue
+  Node.js green
   PostgreSQL purple
   Redis red
+  Python yellow
+  Kafka orange
+  Parchment gray
 
-Ship Captain is a person
-  description: Files cargo manifests and books berths
-  -Files manifests via [HTTPS]-> Manifest API
+tag Crew as crew
+  Captain red
+  Purser green
+  Navigator purple
+  Bosun orange
+  Monkeys yellow
 
-Harbor Authority is a system
-  description: Manages berths, manifests, and tolls for the port
+tag Risk as risk
+  Mutiny red
+  Squall orange
+  Drizzle yellow
+  Calm green
 
+Captain is a person tech: Parchment
+  description: Sets course, books berths
+  -Books berths on-> Dock Board
+Quartermaster is a person tech: Parchment
+  description: Settles tolls, splits treasure
+  -Settles tolls on-> Toll Desk
+Navigator is a person tech: Parchment
+  description: Plots routes from tide charts
+  -Plots routes on-> Dock Board
+
+Tide Almanac is a system tech: Python
+  description: Outside tide and weather forecasts
+Crown Customs is a system tech: Kafka
+  description: The Crown's duty office
+Treasure Bank is a system tech: PostgreSQL
+  description: Holds the shared doubloons
+
+Harbor Authority is a system tech: Node.js
+  description: Runs berths, manifests and tolls
   containers
-    Manifest API is a container tech: Express
-      description: Core API for berths, manifests, and tolls
+    Dock Board is a container tech: React
+      description: Berth console
+      -Calls over HTTPS-> Manifest API
+    Toll Desk is a container tech: React
+      description: Duty and toll console
+      -Calls over HTTPS-> Manifest API
+    Manifest API is a container tech: Node.js
+      description: Core API for berths and tolls
+      -Stores manifests in-> Harbor Ledger
+      -Caches tides in-> Chart Cache
+      -Files duties with-> Crown Customs
+      ~Emits events over AMQP~> Signal Bus
 
       components
-        Berth Controller is a component tech: Express
-          description: Handles berth booking and release requests
-          -Validates payloads with-> Manifest Validator
-          -Reads and writes berths via-> Ledger Repository
-
-        Manifest Validator is a component tech: TypeScript
-          description: Checks cargo manifests against port rules
-
-        Toll Calculator is a component tech: TypeScript
-          description: Tallies doubloon tolls per berth and cargo
+        Berth Controller is a component tech: Node.js, crew: Navigator, risk: Drizzle
+          description: Takes berth booking requests
+          -Checks with-> Manifest Validator
+          -Stores through-> Ledger Repository
+        Manifest Validator is a component tech: Node.js, crew: Captain, risk: Squall
+          description: Checks cargo against port rules
+        Crew Pass Guard is a component tech: Node.js, crew: Captain, risk: Mutiny
+          description: Lets only signed crew in
+          -Guards-> Berth Controller
+          -Guards-> Toll Calculator
+        Toll Calculator is a component tech: Python, crew: Purser, risk: Squall
+          description: Tallies doubloon tolls
           -Persists receipts via-> Ledger Repository
-
-        Tide Gateway is a component tech: TypeScript
-          description: Wraps calls to the external tide almanac
+          -Posts events with-> Event Publisher
+        Tide Gateway is a component tech: Python, crew: Bosun, risk: Drizzle
+          description: Wraps the tide almanac
           -Caches forecasts in-> Chart Cache
-
-        Ledger Repository is a component tech: TypeScript
-          description: Data-access layer over the harbor ledger
-          -Reads and writes [SQL/TCP]-> Harbor Ledger
-
+        Ledger Repository is a component tech: PostgreSQL, crew: Monkeys, risk: Mutiny
+          description: Data layer over the ledger
+          -Reads and writes over SQL/TCP-> Harbor Ledger
+        Event Publisher is a component tech: Kafka, crew: Monkeys, risk: Calm
+          description: Sends events
+          ~Publishes over AMQP~> Signal Bus
+        Report Builder is a component tech: Python, crew: Bosun, risk: Calm
+          description: Builds the daily harbor report
+          -Reads from-> Ledger Repository
+    Berth Scheduler is a container tech: Python
+      description: Assigns moorings by tide
+      -Reads berths from-> Harbor Ledger
+      -Reads tides from-> Tide Almanac
+    Duty Service is a container tech: Python
+      description: Works out cargo duties
+      -Writes receipts to-> Harbor Ledger
+      -Banks tolls with-> Treasure Bank
     Harbor Ledger is a container is a database tech: PostgreSQL
-      description: Berths, manifests, tariffs, and toll receipts
-
+      description: Berths and toll receipts
     Chart Cache is a container is a cache tech: Redis
-      description: Tide tables and berth-availability cache
+      description: Tide tables cache
+    Signal Bus is a container is a queue tech: Kafka
+      description: Berth and duty events
