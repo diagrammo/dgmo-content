@@ -4404,7 +4404,9 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 1,
+      "feedback": "too boring, needs groups"
     },
     {
       "id": "bar",
@@ -4446,7 +4448,7 @@
       "entity": "bar-grouped",
       "file": "examples/bar/bar-grouped.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -4460,14 +4462,15 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "bar-horizontal",
       "entity": "bar-horizontal",
       "file": "examples/bar/bar-horizontal.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -4481,20 +4484,22 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "bar-sorted",
       "entity": "bar-sorted",
       "file": "examples/bar/bar-sorted.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
           "role": "docs"
         }
-      ]
+      ],
+      "stars": 3
     },
     {
       "id": "bar-lollipop",
@@ -4507,59 +4512,65 @@
           "surface": "docs",
           "role": "docs"
         }
-      ]
+      ],
+      "feedback": "come up with options, this is boring",
+      "stars": 1
     },
     {
       "id": "bar-diverging",
       "entity": "bar-diverging",
       "file": "examples/bar/bar-diverging.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
           "role": "docs"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "bar-stack-100",
       "entity": "bar-stack-100",
       "file": "examples/bar/bar-stack-100.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
           "role": "docs"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "bar-marimekko",
       "entity": "bar-marimekko",
       "file": "examples/bar/bar-marimekko.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
           "role": "docs"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "bar-pareto",
       "entity": "bar-pareto",
       "file": "examples/bar/bar-pareto.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
           "role": "docs"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "bar-target",
@@ -4579,13 +4590,14 @@
       "entity": "bar-clustered-stack",
       "file": "examples/bar/bar-clustered-stack.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
           "role": "docs"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "bar-mirror",
@@ -4598,7 +4610,9 @@
           "surface": "docs",
           "role": "docs"
         }
-      ]
+      ],
+      "feedback": "more color, add some red, green",
+      "stars": 2
     },
     {
       "id": "bar-combo",
@@ -4611,20 +4625,23 @@
           "surface": "docs",
           "role": "docs"
         }
-      ]
+      ],
+      "feedback": "this chart needs work, can't go like this. modify the data so that we don't run into this. the chart is all smashed. use a data set and values that avoid this for now",
+      "stars": 1
     },
     {
       "id": "bar-facet",
       "entity": "bar-facet",
       "file": "examples/bar/bar-facet.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
           "role": "docs"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "block",
@@ -4712,7 +4729,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 2
+      "stars": 4
     },
     {
       "id": "c4",
@@ -4733,7 +4750,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "c4-components",
@@ -4754,7 +4772,9 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "trivially boring, no color, very bad, needs about 4 more boxes",
+      "stars": 1
     },
     {
       "id": "c4-containers",
@@ -4775,7 +4795,9 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "more color variance, too much blues/ cyans",
+      "stars": 1
     },
     {
       "id": "c4-context",
@@ -4792,7 +4814,9 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "more color variance, too much blue",
+      "stars": 1
     },
     {
       "id": "c4-deployment",
@@ -4813,7 +4837,9 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "too boring, 1 box, insane, we can't show this. add more boxes",
+      "stars": 1
     },
     {
       "id": "class",
@@ -4835,7 +4861,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 2
+      "stars": 4
     },
     {
       "id": "clock",
@@ -4857,7 +4883,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 1
+      "stars": 4
     },
     {
       "id": "countdown",
@@ -4879,7 +4905,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 2
+      "stars": 4
     },
     {
       "id": "cycle",
@@ -4901,7 +4927,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 2
+      "stars": 4
     },
     {
       "id": "cycle-circle-nodes",
@@ -4931,7 +4957,9 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "show a node going backward just to show off the feature",
+      "stars": 1
     },
     {
       "id": "er",
@@ -4960,7 +4988,7 @@
       "entity": "er-labels",
       "file": "examples/er/er-labels.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -4970,7 +4998,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "event-line",
@@ -5013,7 +5042,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "flowchart",
@@ -5034,7 +5064,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "flowchart-lr",
@@ -5051,7 +5082,9 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "change it so it isn't so horizontal, looks odd",
+      "stars": 1
     },
     {
       "id": "function",
@@ -5107,7 +5140,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "gantt",
@@ -5128,14 +5162,15 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "gantt-critical-path",
       "entity": "gantt-critical-path",
       "file": "examples/gantt/gantt-critical-path.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -5145,7 +5180,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "goal",
@@ -5166,20 +5202,22 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "goal-gauge",
       "entity": "goal-gauge",
       "file": "examples/goal/goal-gauge.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
           "role": "docs"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "goal-no-auto-color",
@@ -5251,7 +5289,7 @@
       "entity": "goal-thermometer",
       "file": "examples/goal/goal-thermometer.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -5261,7 +5299,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "goal-bullet",
@@ -5278,7 +5317,8 @@
           "surface": "new-file",
           "role": "starter"
         }
-      ]
+      ],
+      "stars": 1
     },
     {
       "id": "goal-bullet-gauges",
@@ -5312,7 +5352,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "calendar",
@@ -5434,7 +5475,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 2
+      "stars": 4
     },
     {
       "id": "boxplot-points",
@@ -5564,7 +5605,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "journey-map",
@@ -5586,7 +5628,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 1,
+      "stars": 4,
       "feedback": "I still see no thought bubbles on the faces"
     },
     {
@@ -5608,7 +5650,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "line",
@@ -5637,7 +5680,7 @@
       "entity": "line-area",
       "file": "examples/line/line-area.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -5651,7 +5694,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "line-stack",
@@ -5664,59 +5708,65 @@
           "surface": "docs",
           "role": "docs"
         }
-      ]
+      ],
+      "feedback": "way too boring, more data, more interesting",
+      "stars": 1
     },
     {
       "id": "line-step",
       "entity": "line-step",
       "file": "examples/line/line-step.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
           "role": "docs"
         }
-      ]
+      ],
+      "stars": 3
     },
     {
       "id": "line-band",
       "entity": "line-band",
       "file": "examples/line/line-band.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
           "role": "docs"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "line-fill-between",
       "entity": "line-fill-between",
       "file": "examples/line/line-fill-between.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
           "role": "docs"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "line-moving-average",
       "entity": "line-moving-average",
       "file": "examples/line/line-moving-average.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
           "role": "docs"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "line-mean-median",
@@ -5755,20 +5805,23 @@
           "surface": "docs",
           "role": "docs"
         }
-      ]
+      ],
+      "feedback": "data set doesn't work, more collisions in x-axis.",
+      "stars": 1
     },
     {
       "id": "line-facet",
       "entity": "line-facet",
       "file": "examples/line/line-facet.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
           "role": "docs"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "map",
@@ -5807,7 +5860,9 @@
           "surface": "new-file",
           "role": "starter"
         }
-      ]
+      ],
+      "feedback": "bad example, if this is sailing it crosses land",
+      "stars": 1
     },
     {
       "id": "mindmap",
@@ -5828,7 +5883,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "org",
@@ -5849,7 +5905,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "ownership",
@@ -5918,7 +5975,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "pie",
@@ -5939,14 +5997,15 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "pie-donut",
       "entity": "pie-donut",
       "file": "examples/pie/pie-donut.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -5960,20 +6019,22 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "pie-waffle",
       "entity": "pie-waffle",
       "file": "examples/pie/pie-waffle.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
           "role": "docs"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "pie-colors",
@@ -6042,14 +6103,15 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "pyramid-inverted",
       "entity": "pyramid-inverted",
       "file": "examples/pyramid/pyramid-inverted.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6063,7 +6125,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "quadrant",
@@ -6084,7 +6147,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "swot",
@@ -6123,14 +6187,15 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "raci-rasci",
       "entity": "raci-rasci",
       "file": "examples/raci/raci-rasci.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6140,7 +6205,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "radar",
@@ -6162,7 +6228,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 3
+      "stars": 4
     },
     {
       "id": "ring",
@@ -6213,13 +6279,14 @@
       "entity": "sankey-alluvial",
       "file": "examples/sankey/sankey-alluvial.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
           "role": "docs"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "scatter",
@@ -6254,7 +6321,9 @@
           "surface": "docs",
           "role": "docs"
         }
-      ]
+      ],
+      "feedback": "come up with a different example, this is lame",
+      "stars": 1
     },
     {
       "id": "scatter-trend",
@@ -6267,7 +6336,9 @@
           "surface": "docs",
           "role": "docs"
         }
-      ]
+      ],
+      "stars": 3,
+      "feedback": "colors are too similar, red, blue"
     },
     {
       "id": "histogram",
@@ -6318,7 +6389,7 @@
       "entity": "sequence-groups",
       "file": "examples/sequence/sequence-groups.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6328,14 +6399,15 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "sequence-protocols",
       "entity": "sequence-protocols",
       "file": "examples/sequence/sequence-protocols.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6345,7 +6417,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "sitemap",
@@ -6388,20 +6461,22 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "slope-rank",
       "entity": "slope-rank",
       "file": "examples/slope/slope-rank.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
           "role": "docs"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "state",
@@ -6452,13 +6527,14 @@
       "entity": "swimlane-bpmn",
       "file": "examples/swimlane/swimlane-bpmn.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
           "role": "docs"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "tech-radar",
@@ -6531,26 +6607,28 @@
       "entity": "treemap-sunburst",
       "file": "examples/treemap/treemap-sunburst.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
           "role": "docs"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "treemap-icicle",
       "entity": "treemap-icicle",
       "file": "examples/treemap/treemap-icicle.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
           "role": "docs"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "venn",
@@ -6601,7 +6679,7 @@
       "entity": "whiteboard",
       "file": "examples/whiteboard/whiteboard.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6616,7 +6694,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 1
+      "stars": 5
     },
     {
       "id": "wireframe",
@@ -6660,7 +6738,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 2
+      "stars": 4
     }
   ]
 }
