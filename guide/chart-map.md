@@ -65,7 +65,7 @@ route Tokyo
   ~> Singapore
 ```
 
-The first line declares the chart type and an optional title. **Type `map`, name some places, and you're done** — there is no projection, scale, or label directive to set. Cosmetic features are on by default; the only knobs are the bare `no-*` opt-outs in [Turning things off](#turning-things-off).
+The first line declares the chart type and an optional title. **Type `map`, name some places, and you're done** — there is no projection or label directive to set. Cosmetic features are on by default; the only knobs are the bare `no-*` opt-outs in [Turning things off](#turning-things-off).
 
 ## How the map is chosen
 
@@ -99,7 +99,8 @@ Peru heat: 4
 ```
 
 - `region-heat Label` names the ramp in the legend.
-- A trailing color on `region-heat` sets the ramp **hue** — `region-heat Bags (millions) blue` shades blue instead of the default red.
+- A trailing color on `region-heat` sets the ramp **hue** — `region-heat Bags (millions) blue` shades blue instead of the default red. Two colors set the low and high ends, and the ramp fades straight from one to the other.
+- **Diverging scale** — `scale diverging <mid>` colours regions below `mid` blue and above it red, through a neutral at `mid`. Use it when the values are a change, a gap or a margin, where above and below mean opposite things. `mid` defaults to 0. Two `region-heat` colours replace blue and red (`region-heat Net green purple`).
 
 ## Region fill — categorical (tags)
 
@@ -271,7 +272,8 @@ The only label/legend directives name a channel or attribute the data:
 
 | Directive | Effect |
 |-----------|--------|
-| `caption Text` | Caption below the map (data-source attribution; travels with the exported image). |
+| `subtitle Text` | A line under the title, smaller than it (what is measured, the units, the period). |
+| `footnote Text` | A note under the map for the data source or a credit (`footnote Source: …`); indented lines below it continue the note. Travels with the exported image. |
 | `region-heat Label` | Names the region heat-ramp legend. |
 | `poi-size Label` | Parsed and stored, but currently has no visible effect. |
 | `flow-width Label` | Parsed and stored, but currently has no visible effect. |
@@ -313,7 +315,7 @@ The four basemap flags for a plain, data-journalism look are `no-coastline`,
 The directive set has no colons, and splits in two.
 
 **Naming intent the renderer can't infer** — `region-heat`, `poi-size`,
-`flow-width`, `locale`, `active-tag`, `caption`, plus `hours` and `workweek`
+`flow-width`, `locale`, `active-tag`, `scale diverging`, plus `hours` and `workweek`
 (the clock availability window; `days` is accepted as a spelling of `workweek`).
 
 **Cosmetic opt-outs**, all bare flags — `no-legend`, `no-title`, `no-coastline`,
@@ -321,8 +323,9 @@ The directive set has no colons, and splits in two.
 `no-poi-labels`, `no-cities`, `no-colorize`, `no-cluster-pois`. See
 [Turning things off](#turning-things-off).
 
-There is no `projection`, `scale`, `subtitle`, or `surface` directive, and the
-cosmetic features have no positive opt-in form.
+`subtitle` and `footnote` work as on every chart type. There is no `caption`
+(use `footnote`), no `projection` and no `surface` directive, and the cosmetic
+features have no positive opt-in form.
 
 Reserved metadata keys (need colons): `heat`, `size`, `width`, `label`, `style`, `clock`. The numeric channel splits by element kind — regions use `heat:` (choropleth shade), POIs use `size:` (marker area), and edges/legs use `width:` (line thickness). `clock` is unusual — it works bare (a flag, deriving the zone) or valued (`clock: <zone>`).
 

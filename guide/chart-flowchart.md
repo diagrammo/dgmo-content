@@ -83,13 +83,7 @@ The indented lines connect back to the last node at the parent indent level, cre
 
 ## Node Colors
 
-Append a color name (lowercase) at the end of a node label:
-
-```
-(Start green) -> [Process blue] -> (End red)
-```
-
-The recognized colors are `red`, `orange`, `yellow`, `green`, `blue`, `purple`, `teal`, `cyan`, `gray`, `black`, and `white`. To use one as a literal label, capitalize it (`Red`, `Blue`).
+A node's colour comes from its shape — terminals, decisions and the other shapes are coloured automatically. There is no colour suffix and there are no tags: a trailing colour word stays part of the label (`[Process blue]` is labelled "Process blue"), and `key: value` metadata after a node is ignored with a warning.
 
 ## Comments
 
@@ -103,11 +97,11 @@ The recognized colors are `red`, `orange`, `yellow`, `green`, `blue`, `purple`, 
 ## Complete Example
 
 ```dgmo
-flowchart Color Demo
+flowchart Input Check
 
-(Start green) -> [Parse Input] -> <Valid? blue>
-  -yes-> [Process teal] -> (Success green)
-  -no-> [Error Handler red] -> /Log Error orange/ -> (Failure red)
+(Start) -> [Parse Input] -> <Valid?>
+  -yes-> [Process] -> (Success)
+  -no-> [Error Handler] -> /Log Error/ -> (Failure)
 ```
 
 ## Appearance
