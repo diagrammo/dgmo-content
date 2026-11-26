@@ -139,22 +139,35 @@ Coral Run        300 260 380 200
 ### Arc — Chord Layout
 
 ```dgmo
-arc Pirate Alliance Network
+arc Who Sailed With Whom
 layout chord
+order group
 
-Blackbeard -> Bonnet    150
-Blackbeard -> Vane       80
-Blackbeard -> Hornigold 120
-Bonnet     -> Rackham    40
-Vane       -> Rackham    60
-Rackham    -> Bonny     200
-Bonny      -> Read      180
-Roberts    -> Davis      90
-Roberts    -> Anstis     70
-Hornigold  -> Bonnet     50
-Vane       -> Bonny      30
-Roberts    -> Rackham    20
-Rackham    -> Roberts   100
+// Grouped by how each captain's story ended. Weight = voyages sailed together.
+[Pardoned] green
+  Hornigold -> Jennings 6
+  Hornigold -> Burgess  4
+  Jennings  -> Burgess  3
+
+[Killed at Sea] orange
+  Blackbeard -> Hornigold 12
+  Roberts    -> Davis      9
+  Roberts    -> Anstis     6
+  Davis      -> Anstis     3
+
+[Hanged] red
+  Bonnet      -> Blackbeard  10
+  Vane        -> Hornigold    4
+  Vane        -> Jennings     5
+  Vane        -> Calico Jack 11
+
+[Spared by the Court] purple
+  Bonny -> Calico Jack 14
+  Bonny -> Read         9
+  Read  -> Calico Jack  7
+
+Blackbeard -> Vane     5
+Roberts    -> Bonnet   2
 ```
 
 ### Doughnut Chart (pie + hole)
