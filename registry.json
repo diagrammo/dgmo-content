@@ -6995,7 +6995,7 @@
       "entity": "map-pois",
       "file": "examples/map/map-pois.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -7010,7 +7010,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 2
+      "stars": 4
     },
     {
       "id": "map-subnational-zoom",
@@ -7032,7 +7032,6 @@
           "role": "sampler"
         }
       ],
-      "feedback": "this is kind of boring, let's add annotation and arcs between POIs if we can",
       "stars": 2
     },
     {

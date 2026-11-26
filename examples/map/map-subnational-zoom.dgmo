@@ -14,8 +14,22 @@ South Carolina c: Blockaded
 North Carolina c: Safe Harbour
 Virginia c: Hunting Us
 
-poi Charleston US-SC label: Charles Town blockaded, e: Raid
-poi 35.55 -76.81 as bath label: Bath Town pardon, e: Refuge
-poi 35.11 -75.98 as ocracoke label: Blackbeard falls at Ocracoke, e: Raid
-poi 37.27 -76.71 as williamsburg label: Williamsburg sends Maynard, e: Refuge
-poi 33.4 -73.6 as prize label: Prizes taken at sea, e: Raid
+tag Voyage as v
+  Plunder orange
+  Pardon blue
+  The Hunt purple
+
+poi Charleston US-SC label: Charles Town, e: Raid
+poi 35.55 -76.81 as bath label: Bath Town, e: Refuge
+poi 35.11 -75.98 as ocracoke label: Ocracoke Inlet, e: Raid
+  note Blackbeard falls here
+    Maynard's crew boards at dawn.
+poi 37.27 -76.71 as williamsburg label: Williamsburg, e: Refuge
+poi 33.4 -73.6 as prize label: Prizes at sea, e: Raid
+
+prize ~> Charleston v: Plunder, width: 8
+  note Four prizes in a week
+Charleston ~> bath v: Pardon, width: 4
+  note Governor Eden pardons the crew
+bath ~> ocracoke v: Plunder, width: 3
+williamsburg ~> ocracoke v: The Hunt, width: 6
