@@ -14,7 +14,7 @@ tag Hold as h
 
 Treasure w: Priceless, h: Treasury
   Gold collapsed
-    Doubloons description: Spanish-minted, coin of the realm
+    Doubloons description: "Spanish-minted, coin of the realm"
     Ingots
     Rings
   Gems
@@ -27,7 +27,7 @@ Spirits w: Prized, h: Galley
   Rum w: Prized
     Dark Rum
     Spiced Rum
-    Grog description: Watered rum, the crew's daily ration
+    Grog description: "Watered rum, the crew's daily ration"
   Whiskey
   Wine w: Prized, collapsed
     Port
