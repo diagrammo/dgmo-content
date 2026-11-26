@@ -5604,7 +5604,7 @@
       "entity": "journey-map",
       "file": "examples/journey-map/journey-map.dgmo",
       "isPrimary": true,
-      "status": "marquee",
+      "status": "draft",
       "placements": [
         {
           "surface": "docs",
@@ -5619,7 +5619,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 4
+      "stars": 2
     },
     {
       "id": "kanban",
