@@ -179,6 +179,13 @@ era 1716->1718 Nassau Republic
 era 1719->1722 Roberts Era
 ```
 
+An era's ends can also name an event or a `[Lane]`. A named start takes that event's date and a named end takes its end date, so the band moves when the event does:
+
+```
+era Nassau Republic -> Woodes Rogers Golden Age orange
+era [Crew] -> [Crew] Crew years
+```
+
 ## Markers
 
 Notable moments displayed as a dashed vertical line with a diamond indicator:

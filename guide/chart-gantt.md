@@ -260,6 +260,14 @@ marker 2024-02-26 Admiral Inspection
 marker 2024-04-08 Landfall orange
 ```
 
+An era's ends can also name a task or a `[Group]` instead of a date. The band then starts where the first one starts and ends where the second one ends, so it moves with the schedule when a duration or `start-date` changes. Ends can mix dates, `+offsets` and names:
+
+```
+era [Shipyard] -> [Shipyard] Harbor Preparations
+era Supply Run -> Cargo Loading Loading Window blue
+era Cannon Mounting -> 2024-03-14 Arming
+```
+
 Eras and markers also support block syntax for multiple entries:
 
 ```
@@ -409,7 +417,7 @@ tag Phase as p
   Outfitting green
   Voyage orange
 
-era 2024-01-15 -> 2024-02-15 Harbor Preparations
+era [Shipyard] -> [Shipyard] Harbor Preparations
 era 2024-03-10 -> 2024-03-14 Storm Season purple
 marker 2024-02-26 Admiral Inspection
 marker 2024-04-08 Landfall orange
