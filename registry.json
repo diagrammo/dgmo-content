@@ -6730,7 +6730,7 @@
       "entity": "arc-chord",
       "file": "examples/arc/arc-chord.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6744,14 +6744,15 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "boxes-and-lines-diverging",
       "entity": "boxes-and-lines-diverging",
       "file": "examples/boxes-and-lines/boxes-and-lines-diverging.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6765,14 +6766,15 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "class-full",
       "entity": "class-full",
       "file": "examples/class/class-full.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6786,14 +6788,15 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "flowchart-decision",
       "entity": "flowchart-decision",
       "file": "examples/flowchart/flowchart-decision.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6807,14 +6810,15 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "flowchart-loop",
       "entity": "flowchart-loop",
       "file": "examples/flowchart/flowchart-loop.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6828,14 +6832,15 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "flowchart-shapes",
       "entity": "flowchart-shapes",
       "file": "examples/flowchart/flowchart-shapes.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6849,14 +6854,15 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "gantt-sprints",
       "entity": "gantt-sprints",
       "file": "examples/gantt/gantt-sprints.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6870,7 +6876,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "infra-full",
@@ -6891,14 +6898,15 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 1
     },
     {
       "id": "line-dual-axis",
       "entity": "line-dual-axis",
       "file": "examples/line/line-dual-axis.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6912,14 +6920,15 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "map-categorical",
       "entity": "map-categorical",
       "file": "examples/map/map-categorical.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6933,14 +6942,15 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "map-choropleth-diverging",
       "entity": "map-choropleth-diverging",
       "file": "examples/map/map-choropleth-diverging.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6954,7 +6964,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "map-choropleth",
@@ -6975,7 +6986,9 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "no let's stick to the Caribbean but focus more so on the central and eastern Caribbean so we get a map of a different perspective",
+      "stars": 1
     },
     {
       "id": "map-pois",
@@ -6996,7 +7009,9 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "let's add annotation to 2-3 of these POIs",
+      "stars": 2
     },
     {
       "id": "map-subnational-zoom",
@@ -7017,7 +7032,9 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "this is kind of boring, let's add annotation and arcs between POIs if we can",
+      "stars": 2
     },
     {
       "id": "org-teams",
@@ -7038,14 +7055,16 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "feedback": "what type of diagram is this?",
+      "stars": 1
     },
     {
       "id": "sequence-tags",
       "entity": "sequence-tags",
       "file": "examples/sequence/sequence-tags.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -7059,14 +7078,15 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "tech-radar-dense",
       "entity": "tech-radar-dense",
       "file": "examples/tech-radar/tech-radar-dense.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -7080,14 +7100,15 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "timeline-grouped",
       "entity": "timeline-grouped",
       "file": "examples/timeline/timeline-grouped.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -7101,14 +7122,15 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "treemap-heat",
       "entity": "treemap-heat",
       "file": "examples/treemap/treemap-heat.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -7122,14 +7144,15 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     },
     {
       "id": "treemap-tags",
       "entity": "treemap-tags",
       "file": "examples/treemap/treemap-tags.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -7143,7 +7166,8 @@
           "surface": "obsidian",
           "role": "sampler"
         }
-      ]
+      ],
+      "stars": 4
     }
   ]
 }

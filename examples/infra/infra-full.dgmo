@@ -1,70 +1,89 @@
 infra Plunder Pipeline — Full Simulation
 slo-p90-latency-ms 2000
 
-tag Crew as c
-  Lookout teal default
-  Quartermaster blue
-  Purser purple
-  Navigator orange
+tag Team as t
+  Platform teal default
+  Bookings blue
+  Ledger purple
+  Search orange
 
 Edge
   rps: 600
-  -> CrowsNest
+  -> CDN
 
-CrowsNest c: Lookout
-  description: Spots sails; most are ships already logged
+CDN t: Platform
+  description: CloudFront with AWS WAF for the crew-booking web app
   cache-hit: 40%
-  -> NavyScreen
-
-NavyScreen c: Lookout
-  description: Turns away navy frigates flying false colours
   firewall-block: 10%
+  -> API Gateway
+
+API Gateway t: Platform
+  description: Per-tenant rate limits before the auth check
   ratelimit-rps: 2000
-  -> Quartermaster
+  latency-ms: 4
+  -> Auth Service
 
-Quartermaster c: Quartermaster
-  -/gold-> [Treasury] split: 50%
-  -/cargo-> Fence split: 30%
-  -/charts-> ChartRoom split: 20%
+Auth Service t: Platform
+  description: Verifies session JWTs against Redis
+  max-rps: 1500
+  latency-ms: 12
+  -/bookings-> [Booking Pods] split: 50%
+  -/ledger-> [Ledger Pods] split: 30%
+  -/search-> Search API split: 20%
 
-[Treasury]
+[Booking Pods]
   instances: 2-4
 
-  Purser c: Purser
-    description: Weighs the haul and books each share
+  Crew Booking API t: Bookings
+    description: Books crew onto voyages and records each treasure share
     max-rps: 100
     latency-ms: 60
     cb-error-threshold: 50%
-    -> LedgerDB
-    ~share.owed~> ShareQueue
+    -> Bookings Postgres
+    ~share.owed~> Kafka
+    ~contract.pdf~> S3 Contracts
 
-LedgerDB c: Purser
+[Ledger Pods] collapsed
+  instances: 2
+
+  Ledger API t: Ledger
+    max-rps: 300
+    latency-ms: 40
+    -> Ledger Replica
+
+  Ledger Replica t: Ledger
+    max-rps: 1200
+    latency-ms: 6
+
+Bookings Postgres t: Bookings
   max-rps: 2000
   latency-ms: 8
   uptime: 99.99%
 
-ShareQueue c: Purser
+Kafka t: Ledger
   buffer: 5000
   drain-rate: 150
   retention-hours: 72
-  -> Payout
+  partitions: 6
+  -> Payout Worker
 
-Payout c: Purser
+Payout Worker t: Ledger
+  description: Lambda that pays each crew member's treasure share
   concurrency: 60
   duration-ms: 300
   cold-start-ms: 900
 
-Fence c: Quartermaster
-  description: Port Royal dealer for silks and rum
-  max-rps: 400
-  latency-ms: 400
+S3 Contracts t: Bookings
+  description: Signed voyage articles, one PDF per booking
+  latency-ms: 30
+  uptime: 99.99%
 
-ChartRoom c: Navigator
-  description: Plots the next prize across the sea charts
+Search API t: Search
   max-rps: 300
   latency-ms: 90
-  -> ChartShards fanout: 4
+  -> OpenSearch fanout: 4
 
-ChartShards c: Navigator
+OpenSearch t: Search
+  description: Four shards of voyage listings by port
   max-rps: 4000
   latency-ms: 5
