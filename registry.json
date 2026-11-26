@@ -6987,7 +6987,6 @@
           "role": "sampler"
         }
       ],
-      "feedback": "no let's stick to the Caribbean but focus more so on the central and eastern Caribbean so we get a map of a different perspective",
       "stars": 1
     },
     {
@@ -7017,7 +7016,7 @@
       "entity": "map-subnational-zoom",
       "file": "examples/map/map-subnational-zoom.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -7032,7 +7031,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 2
+      "stars": 4
     },
     {
       "id": "org-teams",

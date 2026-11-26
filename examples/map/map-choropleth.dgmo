@@ -1,25 +1,23 @@
-map Panama and Cuba Yield the Richest Plunder
-subtitle Chests of Spanish plate seized off each coast, 1717–1720 voyages
-region-heat Chests seized orange
+map Hispaniola and the Main Yield the Richest Plunder
+subtitle Chests of Spanish plate seized off each eastern coast, sorted into four hauls
+region-heat Chests seized yellow purple
+scale binned 5 15 30
 
 tag Port as p
   Home Port blue
-  Fence purple
+  Fence teal
 
-Cuba heat: 42
-Panama heat: 37
-Mexico heat: 29
-Colombia heat: 24
-Venezuela heat: 17
-Dominican Republic heat: 12
-Puerto Rico heat: 10
-Honduras heat: 8
-Haiti heat: 6
-Nicaragua heat: 5
-Guatemala heat: 3
+Dominican Republic heat: 48
+Venezuela heat: 39
+Haiti heat: 27
+Puerto Rico heat: 18
+Trinidad and Tobago heat: 11
+Jamaica heat: 6
+Guyana heat: 2
 
-poi 25.05 -77.35 as nassau label: Nassau (home port), p: Home Port
-poi Kingston label: Port Royal (fence), p: Fence
-poi 20.03 -72.78 as tortuga label: Tortuga (fence), p: Fence
+poi 20.03 -72.78 as tortuga label: Tortuga (home port), p: Home Port
+poi 18.34 -64.93 as stthomas label: St. Thomas (fence), p: Fence
+poi 14.60 -61.07 as martinique label: Martinique (fence), p: Fence
+poi 13.10 -59.62 as barbados label: Bridgetown (fence), p: Fence
 
-footnote **Source:** the Quartermaster's ledger, tallied at Nassau
+footnote **Source:** the Quartermaster's ledger, tallied at Tortuga
