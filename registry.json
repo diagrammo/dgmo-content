@@ -6884,7 +6884,7 @@
       "entity": "infra-full",
       "file": "examples/infra/infra-full.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -6899,7 +6899,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 1
+      "stars": 4
     },
     {
       "id": "line-dual-axis",
@@ -7010,7 +7010,6 @@
           "role": "sampler"
         }
       ],
-      "feedback": "let's add annotation to 2-3 of these POIs",
       "stars": 2
     },
     {

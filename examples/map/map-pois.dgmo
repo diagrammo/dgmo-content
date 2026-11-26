@@ -9,11 +9,18 @@ tag Port as p
 
 poi 25.05 -77.35 as nassau label: Nassau, p: Pirate Haven, size: 60
 poi 20.03 -72.78 as tortuga label: Tortuga, p: Pirate Haven, size: 45
+  note New hands sign on
+    Fifty men mustered in **one week**.
 poi Kingston label: Port Royal, p: Fence, size: 50
 poi Havana p: Treasure Port, size: 90
 poi Cartagena p: Treasure Port, size: 80
 poi 9.55 -79.65 as portobelo label: Portobelo, p: Treasure Port, size: 100
+  note The fair that fills the hold
+    Spanish plate waits for the galleons.
+    Bosun counts **100 chests** taken.
 poi 19.20 -96.13 as veracruz label: Veracruz, p: Treasure Port, size: 70
 poi 16.40 -86.40 as roatan label: Roatán, p: Careening, size: 20
+  note Hulls scraped clean
+    Three ships careened before the season.
 poi 12.11 -68.93 as curacao label: Curaçao, p: Fence, size: 35
 poi 18.07 -73.64 as vache label: Île-à-Vache, p: Careening, size: 15
