@@ -268,6 +268,13 @@ era Supply Run -> Cargo Loading Loading Window blue
 era Cannon Mounting -> 2024-03-14 Arming
 ```
 
+A marker can name a task or a `[Group]` too. It sits where that task starts and moves with it:
+
+```
+marker Set Sail Departure orange
+marker [Provisions] Loading begins
+```
+
 Eras and markers also support block syntax for multiple entries:
 
 ```

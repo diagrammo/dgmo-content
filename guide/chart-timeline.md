@@ -195,6 +195,12 @@ marker 1718-11-22 Blackbeard Killed red
 marker 1720-11 Trial at Port Royal orange
 ```
 
+A marker can name an event or a `[Lane]` instead of a date. It sits where that event starts and moves with it:
+
+```
+marker Woodes Rogers Arrives orange
+```
+
 Markers are not associated with groups and appear above all events. They're useful for highlighting key dates that span across all timeline tracks.
 
 ## Groups
