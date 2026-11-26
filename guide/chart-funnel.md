@@ -1,11 +1,11 @@
 ```dgmo
 funnel Pirate Recruitment Pipeline
 
-Port Visitors 1000
-Tavern Recruits 500
-Crew Trials 200
-Sworn Pirates 100
-Veteran Buccaneers 50
+Port Visitors blue     1000
+Tavern Recruits cyan    500
+Crew Trials yellow      200
+Sworn Pirates orange    100
+Veteran Buccaneers red   50
 ```
 
 ## Overview

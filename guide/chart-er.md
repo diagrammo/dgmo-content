@@ -16,6 +16,7 @@ captains
   ship_id int fk
   bounty int
   ?-frequents-1 ports
+  *-has-1 crew_members 
 
 crew_members
   id int pk

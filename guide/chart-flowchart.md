@@ -1,10 +1,12 @@
 ```dgmo
-flowchart Pirate's Code
+flowchart Mutiny Resolution
+direction-tb
 
-(Sail Ho!) -> <Friend or Foe?>
-  -friend-> [Check Logs~] -> /Trade Rum/ -> [Celebrate]
-  -foe-> [Fire Cannons] -> [[Claim Loot]] -> [Celebrate]
-[Celebrate]->(Sail On)
+(Weigh Anchor) -> [Set Sail] -> <Crew Discontent?>
+  -no-> (Reach Port)
+  -yes-> [Call a Vote] -> <Vote Outcome?>
+    -loyal-> [Hold Steady] -> (Reach Port)
+    -mutiny-> [Seize the Ship] -> [Maroon the Captain] -> (Elect New Captain)
 ```
 
 ## Overview

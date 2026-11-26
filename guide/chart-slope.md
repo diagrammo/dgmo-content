@@ -1,13 +1,15 @@
 ```dgmo
 slope Pirate Fleet Strength: 1715 vs 1725
 
-period 1715 1725
+period
+  1715
+  1725
 
-Blackbeard 40 4
-Bartholomew Roberts 12 52
-Charles Vane 20 2
-Anne Bonny 8 15
-Calico Jack 18 6
+Blackbeard red           40  4
+Bartholomew Roberts blue 12 52
+Charles Vane orange      20  2
+Anne Bonny green          8 15
+Calico Jack purple       18  6
 ```
 
 ## Overview

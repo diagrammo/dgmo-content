@@ -1,14 +1,14 @@
 ```dgmo
-heatmap Tavern Traffic by Hour
-columns 6am, 9am, 12pm, 3pm, 6pm, 9pm, 12am
+heatmap Pirate Activity by Sea Region
+columns Jan, Feb, Mar, Apr, May, Jun
 
-Monday 2 4 7 5 9 12 6
-Tuesday 2 4 6 5 8 11 5
-Wednesday 3 5 7 6 10 13 7
-Thursday 3 5 8 7 12 16 9
-Friday 4 6 9 9 18 24 17
-Saturday 6 8 11 12 21 27 20
-Sunday 5 7 9 8 13 15 8
+// label value1, value2, ...
+Caribbean       5 4 5 3 4 5
+Atlantic        2 3 2 4 3 2
+Mediterranean   3 2 1 2 3 4
+Indian Ocean    4 5 4 5 4 3
+South China Sea 1 2 3 2 1 2
+West Africa     3 3 4 3 5 4
 ```
 
 ## Overview

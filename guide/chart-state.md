@@ -1,34 +1,29 @@
 ```dgmo
-state Order Lifecycle
+state Ship Battle Lifecycle
+direction-tb
 
-[*] -> Pending
+tag Stance as s
+  Calm blue
+  Attack red
+  Cunning orange
+  Spoils green
+  Doom gray
 
-Pending
-  -submit-> Validating
-
-Validating
-  -approved-> Processing
-  -rejected-> Cancelled
-
-[Fulfillment]
-  Processing
-    -pack-> Shipping
-    -out of stock-> Cancelled
-
-  Shipping
-    -delivered-> Delivered
-    -lost-> Refunded
-
-[Resolution]
-  Delivered
-    -return request-> Returning
-
-  Returning
-    -received-> Refunded
-
-Cancelled -> [*]
-Refunded -> [*]
-Delivered -> [*]
+[*] -> Sailing
+Sailing s: Calm
+  -enemy spotted-> Engaging
+Engaging s: Attack
+  -boarders ready-> Boarding
+  -outgunned-> Fleeing
+Boarding s: Attack
+  -crew wins-> Plundering
+  -crew loses-> Captured
+Fleeing s: Cunning
+  -escaped-> Sailing
+Plundering s: Spoils
+  -loot taken-> Sailing
+Captured s: Doom
+  -> [*]
 ```
 
 ## Overview

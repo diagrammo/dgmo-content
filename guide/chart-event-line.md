@@ -1,30 +1,39 @@
 ```dgmo
-event-line A Short History of the Web
-no-scale
+event-line The Black Pearl Legend
+no-box
 
-tag Theme as t
-  Protocol blue
-  Browser green
-  Platform purple
-  Standard orange
+tag Deed as t
+  Voyage blue
+  Plunder orange
+  Battle red
+  Crew green
+  Treasure purple
 
-[The Early Web]
-  1991 WorldWideWeb  t: Protocol
-    Tim Berners-Lee publishes the first website at **CERN**.
-  1993 Mosaic  t: Browser
-    The first popular *graphical* browser.
+[The Mutiny Years]
+  1712-03 Captain takes the helm  t: Crew
+    The Black Pearl gets a new master and a skeleton crew.
+  1712-06 Set course for Tortuga  t: Voyage
+    First long crossing under the black flag.
 
-[The Standards Era] collapsed
-  1995 JavaScript  t: Platform
-    Brendan Eich writes the language in ten days.
-  1996 CSS  t: Standard
-    Styling splits from structure.
+[The Golden Age]
+  1715-06 Spanish galleon taken  t: Plunder
+    Forty chests of doubloons.
+  1715-09 Siege of Port Royal  t: Battle
+    The harbour guns fall silent.
+  1716-02 Shares split  t: Treasure
+    Every sailor draws a fair cut.
 
-[The App Era]
-  2005 Ajax  t: Platform
-    `XMLHttpRequest` updates pages without a reload.
-  2014 HTML5  t: Standard
-    The living standard — video, canvas, semantics.
+[Last Voyages]
+  1719-04 Kraken sighted  t: Battle
+    **Three** longboats lost to the deep.
+  1721-11 Landfall at Skull Island  t: Voyage
+    The map finally leads somewhere.
+  1722-01 Hoard buried  t: Treasure
+    Only the Navigator knows the spot.
+
+[What's Next]
+  TBD Retire to the Caribbean  t: Crew
+    Quartermaster keeps the ledger.
 ```
 
 > **Dates** — event dates accept any format (`2026-03-20`, `3/20`, `Mar 20`); a bare month-day inherits its year from a `year 2026` line or the surrounding events. See [Writing Dates](writing-dates.md).

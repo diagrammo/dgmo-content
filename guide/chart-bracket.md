@@ -1,38 +1,46 @@
 ```dgmo
-bracket World Series
-rounds Wild Card, Division, Championship
+bracket Grand Line Cup
 
-tag Entry as e
-  Division Winner blue
-  Wild Card orange
+rounds
+  Skirmish orange
+  Clash green
+  Fleet Final yellow
 
-[American League]
-  seed 1 Blue Jays e: Division Winner
-  seed 2 Mariners e: Division Winner
-  seed 3 Guardians e: Division Winner
-  seed 4 Yankees e: Wild Card
-  seed 5 Red Sox e: Wild Card
-  seed 6 Tigers e: Wild Card
-  Tigers beats Guardians 2-1
-  Yankees beats Red Sox 2-1
-  Blue Jays beats Yankees 3-1
-  Mariners beats Tigers 3-2
-  Blue Jays beats Mariners 4-3
+tag Ship as s
+  Galleon red
+  Frigate blue
+  Sloop green
+  Brigantine purple
+  Schooner orange
+  Corsair teal
 
-[National League]
-  seed 1 Brewers e: Division Winner
-  seed 2 Phillies e: Division Winner
-  seed 3 Dodgers e: Division Winner
-  seed 4 Cubs e: Wild Card
-  seed 5 Padres e: Wild Card
-  seed 6 Reds e: Wild Card
-  Dodgers beats Reds 2-0
-  Cubs beats Padres 2-1
-  Brewers beats Cubs 3-2
-  Dodgers beats Phillies 3-1
-  Dodgers beats Brewers 4-0
+[Red Fleet] red
+  seed 1 Black Pearl s: Galleon
+  seed 2 Queen Anne s: Frigate
+  seed 3 Sea Serpent s: Sloop
+  seed 4 Jolly Roger s: Brigantine
+  seed 5 Kraken s: Schooner
+  seed 6 Barnacle Betty s: Corsair
+  Sea Serpent beats Barnacle Betty 2-1
+  Jolly Roger beats Kraken 2-0
+  Black Pearl beats Jolly Roger 3-1
+  Queen Anne beats Sea Serpent 3-2
+  Black Pearl beats Queen Anne 4-2
 
-Dodgers beats Blue Jays 4-3
+[Blue Fleet] blue
+  seed 1 Flying Dutchman s: Galleon
+  seed 2 Salty Dog s: Frigate
+  seed 3 Grog Hound s: Sloop
+  seed 4 Marauder s: Brigantine
+  seed 5 Tidewater s: Schooner
+  seed 6 Coral Cutlass s: Corsair
+  Grog Hound beats Coral Cutlass 2-1
+  Marauder beats Tidewater 2-1
+  Flying Dutchman beats Marauder 3-0
+  Salty Dog beats Grog Hound 3-2
+  Flying Dutchman beats Salty Dog 4-1
+
+Black Pearl beats Flying Dutchman 4-3
 ```
 
 The real 2025 postseason: two six-team leagues mirror inward from **Wild Card** to **Championship**, and the cross-league final at indent 0 (`Dodgers beats Blue Jays`) becomes the **Final** in the center. Lower seeds toppling higher ones are auto-flagged **UPSET** (Tigers, then the Dodgers' run through the 2- and 1-seeds), and the champion gets a star.

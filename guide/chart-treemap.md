@@ -1,23 +1,25 @@
 ```dgmo
-treemap Annual Budget ($M)
+treemap Plunder Spend ($k)
 
-Engineering
-  Platform 4.2
-  Product Eng 3.8
-  Infrastructure 2.1
-  Security 1.4
-Sales & Marketing
-  Field Sales 3.1
-  Demand Gen 1.9
-  Brand 0.8
-Operations
-  Customer Support 1.6
-  IT 0.9
-  Facilities 1.2
-G&A
-  Finance 0.7
-  Legal 0.6
-  People 1.1
+tag Crew as t
+  Deck blue
+  Guns orange
+  Stores green
+
+Sailing & Rigging t: Deck
+  Rigging 320
+  Helm 180
+  Lookout 140
+Cannon Battery t: Guns
+  Powder 90
+  Shot 130
+Provisions t: Stores
+  Rum 110
+  Hardtack 70
+  Salt Pork 85
+  Citrus 60
+  Fresh Water 95
+  Ship's Biscuit 40
 ```
 
 ## Overview

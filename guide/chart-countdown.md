@@ -1,6 +1,10 @@
 ```dgmo
-countdown Trip to Japan
-target 2027-04-15
+countdown Peg-leg Pete's Birthday Bash
+since 1971-03-14T20:00
+since-label Pete turns Nth — hoist the colors!
+tz America/New_York
+on-day 🎂 Fire the cannons, Pete's another year older!
+note **Plunder the cake.** Bring rum, Captain's orders.
 ```
 
 > **Dates** — the `target` accepts any date format (`2026-07-04`, `7/4/2026`, `July 4, 2026`) as well as `now`. See [Writing Dates](writing-dates.md).

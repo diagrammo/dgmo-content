@@ -1,11 +1,16 @@
 ```dgmo
-radar Ship Combat Rating
+radar Ship Combat Ratings by Vessel
+series
+  Black Pearl blue
+  Queen Anne's Revenge green
+  Flying Dutchman purple
 
-Firepower 85
-Speed 70
-Armor 60
-Maneuverability 90
-Crew Morale 75
+Firepower       95 40 100
+Speed           100 20 30
+Armor           15 90 95
+Maneuverability 90 25 10
+Crew Morale     30 95 15
+Cannon Range    25 100 90
 ```
 
 ## Overview

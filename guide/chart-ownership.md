@@ -1,34 +1,28 @@
 ```dgmo
-ownership Dread Fleet group structure
-// A cross-holding inside the group (10% -> ...) and owners outside it.
+ownership Dutch East India Company
 tag Jurisdiction as j
-  Tortuga blue
-  Nassau  green
-  Cayman  orange
-  Havana  purple
-  Lisbon  red
+  Amsterdam blue
+  Zeeland green
+  Batavia orange
 
-Dread Fleet Holdings  j: Tortuga
-  Quoted on the Tortuga exchange
-  100% Revenge Shipping Ltd  j: Tortuga
-    Owns the flagship
-    60% Plunder Partners LLP  j: Nassau, type: partnership
-      Holds the treasure maps
-    10% -> Serpent Salvage Co
-  100% Cayman Cove Trading  j: Cayman
-    Offshore holding company
-    90% Serpent Salvage Co  j: Nassau
-      Wreck recovery
-    75% Havana Rum Imports  j: Havana
-      Distillery and docks
+Heeren XVII  j: Amsterdam, type: trust
+  The seventeen governing directors
+  100% Dutch East India Company  j: Amsterdam
+    Chartered 1602
+    50% Amsterdam Chamber  j: Amsterdam
+      Largest shareholder
+    25% Zeeland Chamber  j: Zeeland
+      Middelburg
+    25% Batavia Council  j: Batavia, type: partnership
+      Governs Asian trade posts
 
-Gold Coast Fund LP  j: Cayman, type: partnership
-  Outside investor
-  40% -> Plunder Partners LLP
+Governor-General  j: Batavia, type: individual
+  Runs the Asian trade
+  10% -> Batavia Council
 
-Calico Rackham  j: Lisbon, type: individual
-  Co-founder, Havana Rum Imports
-  25% -> Havana Rum Imports
+Stadtholder  j: Amsterdam, type: individual
+  Shareholder of the Republic
+  5% -> Amsterdam Chamber
 ```
 
 ## Overview

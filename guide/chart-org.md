@@ -1,25 +1,26 @@
 ```dgmo
 org The Dread Fleet
+active-tag Rank
 sub-node-label Crew
 show-sub-node-count
 
 tag Rank as r
+  Sailor blue
   Captain red
   FirstMate orange
   Quartermaster yellow
   Bosun green
   Gunner teal
-  Sailor blue default
   Jester cyan
   Swab purple
 
 tag Ship as s
-  Revenge blue default
+  Revenge blue
   Serpent green
   Phantom purple
 
 tag Status as st
-  Loyal green default
+  Loyal green
   Turncoat red
   NewRecruit yellow
 

@@ -1,11 +1,18 @@
 ```dgmo
-bar Treasure Hauls by Port
+bar Plunder by Voyage
+x-axis Voyage
+y-axis Doubloons
 
-Port Royal 850
-Tortuga 620
-Nassau 1100
-Havana 430
-Cartagena 780
+stack
+  Gold red
+  Silver orange
+  Spices yellow
+  Rum green
+
+Spanish Main     480 320 210 150
+Barbary Coast    360 290 340 180
+Windward Passage 520 410 160 240
+Coral Run        300 260 380 200
 ```
 
 ## Overview

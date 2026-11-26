@@ -1,22 +1,55 @@
 ```dgmo
-journey-map Morning Coffee Run
+journey-map The Quartermaster's Long Count
 
-persona Maya, Remote Worker
-  31, needs caffeine + a quiet seat before her 9am standup
+persona Quartermaster color: orange
+  Keeps the ledger and the peace
+  Trusts no one, counts everything
 
-[Arrive]
-  Spot the line out the door score: 2, emotion: Wary
-  Find the mobile-order shortcut score: 4, emotion: Hopeful
+tag Place as pl
+  Hold blue
+  Cabin purple
+  Ashore green
 
-[Order]
-  App crashes mid-checkout score: 1, emotion: Frustrated
-    pain: Lost her saved payment method
-  Reorder at the counter score: 3
+[Setting Out]
+  Inventory the hold score: 3, emotion: Careful, pl: Hold
+    description: 40 casks counted in 2 hours
+    pain: Manifest and hold disagree
+    opportunity: Chalk-mark every counted cask
+    thought: Short one cask of rum
+  Draft the articles score: 4, emotion: Satisfied, pl: Cabin
+    description: 31 hands signed by dawn
+    pain: Two sailors sign with crosses
+    opportunity: Read each clause aloud
+    thought: Fair shares for all
 
-[Enjoy]
-  Snag the last window seat score: 4
-  First sip, latte is perfect score: 5, emotion: Delighted
-    thought: Worth the wait — back tomorrow
+[The Plunder]
+  Weigh the silver score: 5, emotion: Gleeful, pl: Hold
+    description: 900 pounds, 3 weighings
+    pain: Scale sticks in rough seas
+    opportunity: Weigh twice, witness each count
+    thought: Heavier than hoped!
+  Crew demands extra shares score: 1, emotion: Furious, pl: Cabin
+    description: 12 hands demand a second share
+    pain: The Bosun wants double
+    opportunity: Offer bonus pay for watch duty
+    thought: Mutiny over maths
+  Cook the books score: 2, emotion: Uneasy, pl: Cabin
+    description: 2 ledgers, 1 hidden
+    pain: Smudged ink gives it away
+    opportunity: Burn the second set
+    thought: Nobody counts better
+
+[Landfall]
+  Split the treasure score: 4, emotion: Relieved, pl: Ashore
+    description: 1 quay, 31 shares, 0 disputes
+    pain: Harbour clerk wants a cut
+    opportunity: Seal each share in a pouch
+    thought: Every coin accounted
+  Pay off the crew score: 5, emotion: Proud, pl: Ashore
+    description: 31 handshakes by sundown
+    pain: One sailor owes the cook
+    opportunity: Offer a berth next run
+    thought: Fair is fair
 ```
 
 ## Overview

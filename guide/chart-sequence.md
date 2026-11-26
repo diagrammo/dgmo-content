@@ -1,28 +1,41 @@
 ```dgmo
-sequence Treasure Hunt App
+sequence Raid on Port Royal
 
-tag Tier as t
-  Client green
-  Service blue
-  Data red
+tag Phase as p
+  Scout blue
+  Plunder green
+  Danger red
 
-User
-WebApp t: Client
-TreasureAPI t: Service
-GeoService t: Service
-MapDB t: Data
+Captain is an actor
+Navigator is an actor
 
-User -Search nearby loot-> WebApp
-WebApp -GET /treasures?nearby-> TreasureAPI
-TreasureAPI -resolve location-> GeoService
-GeoService -lat/long-> TreasureAPI
-note
-  - check location
-  - rank by distance
-TreasureAPI -Find within 5nm-> MapDB
-MapDB -3 results-> TreasureAPI
-TreasureAPI -locations-> WebApp
-WebApp -Show treasure map-> User
+[Flagship]
+  Spyglass
+  Cannons
+  Hold is a database
+
+[Port]
+  Harbor
+  Fort
+
+Captain ~Set course~> Navigator p: Scout
+Navigator ~Plot route~> Spyglass p: Scout
+Spyglass ~Fort sighted~> Captain p: Scout
+
+== Engage ==
+
+Captain -Fire at will-> Cannons p: Danger
+Cannons -Broadside-> Fort p: Danger
+if fort returns fire
+  Fort -Cannonball-> Cannons p: Danger
+  Cannons -Hull damaged-> Captain p: Danger
+else
+  Fort -Surrender-> Harbor p: Plunder
+
+== Plunder ==
+
+Captain -Load the loot-> Hold p: Plunder
+Hold -Stored-> Captain p: Plunder
 ```
 
 Two things are happening here. **Shapes are inferred from names** — `User` becomes a stick figure and `MapDB` a cylinder, while `WebApp`, `TreasureAPI`, and `GeoService` fall through to the default rectangle. And the **`Tier` tag group adds color** — each participant is shaded by layer (client, service, data), so a request's path through the stack reads at a glance. The human `User` stays neutral, outside the system tiers.

@@ -1,28 +1,26 @@
 ```dgmo
-sankey Rum Supply Chain of the Caribbean
+sankey Where a Pirate Crew's Plunder Comes From and Goes
 
-Sugar Plantations green
-  Tortuga Distillery orange 3000
-  Nassau Distillery orange 2500
-  Kingston Distillery orange 2000
+// Income
+Merchant Ships green -> Treasury 4000
+Naval Ransoms green -> Treasury 2500
+Port Raids green -> Treasury 3000
+Smuggled Rum green -> Treasury 1500
 
-Tortuga Distillery
-  Pirate Taverns red 2000
-  Ship Provisions teal 1000
+// Spending
+Treasury
+  Ship Upkeep orange 2500
+  Provisions & Rum orange 2000
+  Bribes to Governors orange 1000
+  Crew Shares purple 5500
 
-Nassau Distillery
-  Pirate Taverns 1500
-  Black Market purple 1000
-
-Kingston Distillery
-  Royal Navy blue 1200
-  Pirate Taverns 800
-
-Pirate Taverns
-  Crew Morale 3500
-  Bar Fights 800 red
-
-Ship Provisions -> Long Voyages 1000
+// Distribution
+Crew Shares
+  Captain 1100
+  Quartermaster 800
+  Navigator 700
+  Bosun 600
+  Common Hands blue 2300
 ```
 
 ## Overview

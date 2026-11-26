@@ -1,20 +1,27 @@
 ```dgmo
 wordcloud Pirate Skills
+size 12, 110
 
-swordsmanship 95
-navigation 88
-seamanship 85
-gunnery 80
-leadership 75
-cartography 70
-intimidation 68
-sailing 65
-plundering 60
-knot-tying 55
-lookout 50
-cooking 45
-carpentry 40
-fishing 35
+swordsmanship 100
+navigation    70
+gunnery       48
+seamanship    38
+plundering    30
+leadership    22
+cartography   18
+intimidation  14
+sailing       11
+knot-tying    9
+lookout       8
+cooking       6
+carpentry     5
+parley        4
+fishing       3
+rum-rationing 3
+mutiny        2
+patch-sails   2
+swabbing      1
+shanties      1
 ```
 
 ## Overview

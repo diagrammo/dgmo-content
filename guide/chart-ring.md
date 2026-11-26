@@ -1,13 +1,12 @@
 ```dgmo
 ring Captain's Sphere of Influence
 
-fill-solid
-
-Captain red
+Captain  red
   Final word on heading and plunder,
   keeper of the ship's charter.
 
-Quartermaster description: "Second-in-command, arbitrates disputes and divvies the booty"
+Quartermaster orange
+  Second-in-command, arbitrates disputes and divvies the booty
 
 Crew yellow
   Deckhands, gunners, and powder

@@ -1,24 +1,28 @@
 ```dgmo
-cycle OODA Loop
+cycle Raid Cycle with a Refit Loop
 
-Observe blue
-  Gather raw information from the environment
-  Monitor unfolding circumstances
-  -Unfold circumstances-> color: blue
+center RAID
+circle-nodes
+autonumber
 
-Orient green
-  Analyze and synthesize observations
-  Form a mental model of the situation
-  -Form hypothesis-> color: green
+tag phase as p
+  Hunt blue
+  Fight orange
+  Feast red
 
-Decide orange
-  Select a course of action
-  -Commit to action-> color: orange
-
-Act red
-  Execute the chosen course of action
-  Generate results that feed back
-  -Generate feedback-> color: red
+Spot a Sail p:Hunt
+  Lookout cries from the crow's nest
+Pursue p:Hunt
+  Trim the sails, close the gap
+Board p:Fight
+  Grappling hooks and cutlasses
+Plunder p:Fight
+  Strip the hold
+Split Shares p:Feast
+  Quartermaster deals the haul
+Refit p:Feast
+  Patch the hull, restock the rum
+  -Back on the hunt-> Pursue
 ```
 
 ## Overview

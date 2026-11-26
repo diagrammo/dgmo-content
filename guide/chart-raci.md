@@ -9,7 +9,6 @@ roles
 
 [Departure] teal
   Plot the course
-    Heading, currents, weather window
     Captain: A
     Navigator: R
     Quartermaster: C
@@ -22,9 +21,17 @@ roles
   Stand the watch
     Boatswain: A
     Crew: R
-  Sight the next port
-    Navigator: A R
-    Captain: C
+  Mend sail damage
+    Boatswain: A
+    Crew: R
+
+[Landfall] green
+  Negotiate with port
+    Captain: R A
+    Quartermaster: C
+  Inventory the take
+    Quartermaster: A R
+    Crew: I
 ```
 
 ## Overview

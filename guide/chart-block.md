@@ -2,9 +2,9 @@
 block Web Service Architecture
 
 tag Layer as l
-  Edge blue
+  Edge red
   Service green
-  Data orange
+  Data blue
 
 [Clients] l: Edge
   [Browser] [Mobile] [CLI]

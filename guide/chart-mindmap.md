@@ -1,25 +1,55 @@
 ```dgmo
-mindmap Product Strategy
+mindmap A Pirate's Preferred Booty
 
-Research
-  User Interviews
-    Surveys description: Quarterly NPS survey
-    Focus Groups
-  Competitor Analysis
-    Feature Matrix
-    Pricing Review
-Development
-  MVP Features
-    Auth System
-      description: Handle login, signup, OAuth flows
-    Dashboard
-  Nice-to-haves collapsed
-    Dark Mode
-    Export PDF
-Go-to-Market
-  Launch Plan
-    Blog Post
-    Demo Video description: 2-min product walkthrough
+tag Worth as w
+  Priceless red
+  Prized orange
+  Trifling green
+
+tag Hold as h
+  Treasury blue
+  Galley teal
+  Armory purple
+  Cargo yellow
+
+Treasure w: Priceless, h: Treasury
+  Gold collapsed
+    Doubloons description: Spanish-minted, coin of the realm
+    Ingots
+    Rings
+  Gems
+    Rubies w: Priceless
+    Emeralds
+    Pearls
+      Black Pearls w: Priceless
+  Pieces of Eight
+Spirits w: Prized, h: Galley
+  Rum w: Prized
+    Dark Rum
+    Spiced Rum
+    Grog description: Watered rum, the crew's daily ration
+  Whiskey
+  Wine w: Prized, collapsed
+    Port
+    Madeira
+Ships w: Priceless, collapsed
+  Galleons description: Fat treasure haulers
+  Sloops
+  Frigates
+Armaments w: Prized, h: Armory, collapsed
+  Cannons w: Priceless
+    Powder w: Prized
+    Shot
+  Cutlasses
+  Muskets
+Dry Goods w: Trifling, h: Cargo
+  Spices w: Prized, collapsed
+    Nutmeg
+    Pepper
+    Cloves
+  Silk
+  Salt Cod
+  Tobacco
 ```
 
 ## Overview

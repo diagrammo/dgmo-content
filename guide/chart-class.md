@@ -1,28 +1,41 @@
 ```dgmo
 class Ship Class Hierarchy
 
-Vessel [interface]
+Vessel [abstract] blue
+  # name: string
   + sail(): void
+
+Ship extends Vessel
+  # crew: number
   + anchor(): void
 
-Ship implements Vessel [abstract]
-  # name: string
-  # crew: number
-  + getName(): string
-  -> ShipType : has type
-
-Galleon extends Ship
+Warship extends Ship red
   - cannons: number
   + fire(): void
 
-Sloop extends Ship
+Galleon extends Warship red
+  - treasureHold: number
+  + plunder(): void
+
+ManOWar extends Galleon red
+  - gunDecks: number
+  + broadside(): void
+
+Frigate extends Warship red
+  - speed: number
+  + chase(): void
+
+Sloop extends Ship green
   - speed: number
   + flee(): void
 
 ShipType [enum]
-  Galleon
   Sloop
-  Frigate
+  Galleon
+  ManOWar
+
+Ship
+  -> ShipType : has type
 ```
 
 ## Overview

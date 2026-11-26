@@ -10,6 +10,7 @@
  *   4. check-guide-directives    guides don't document directives the parser
  *                                rejects (the 2026-07-18 audit found twelve)
  *   5. expand-dgmo-embeds        all-chart-types.md matches its embed source
+ *   6. sync-guide-leads --check  each guide's first fence is its marquee example
  *
  * The MCP trigger-vocabulary guard lives in the sibling repo (it owns
  * triggers.json): run `pnpm -C ../dgmo-mcp check:triggers` there. It's not
@@ -36,6 +37,7 @@ const guards = [
       '--check',
     ],
   },
+  { name: 'guide leads', script: 'sync-guide-leads.mjs', args: ['--check'] },
 ];
 
 let failed = 0;

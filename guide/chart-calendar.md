@@ -1,22 +1,172 @@
 ```dgmo
 calendar Cannon Volleys Fired in 2026
-// Daily log: one `date value` line per day; a missing day is zero.
 year 2026
-unit volley
+heat Volleys as v red blue
+  unit volley
+tag Ship as s
+  Black Gull red
+  Sea Wraith green
+  Iron Kraken blue
+active-tag Volleys
 
-01-03 2
-01-09 1
-02-14 4
-03-02 3
-05-18 6
-06-05 9
-06-06 14
-07-11 4
-07-12 9
-08-21 6
-09-30 3
-11-02 1
-12-24 2
+01-02 v: 1, s: Sea Wraith
+01-03 v: 1, s: Iron Kraken
+01-05 v: 3, s: Iron Kraken
+01-06 v: 9, s: Black Gull
+01-08 v: 9, s: Sea Wraith
+01-09 v: 1, s: Black Gull
+01-13 v: 9, s: Black Gull
+01-14 v: 3, s: Sea Wraith
+01-15 v: 2, s: Sea Wraith
+01-17 v: 1, s: Sea Wraith
+01-21 v: 3, s: Sea Wraith
+01-24 v: 1, s: Black Gull
+02-01 v: 2, s: Iron Kraken
+02-03 v: 4, s: Iron Kraken
+02-09 v: 9, s: Iron Kraken
+02-10 v: 6, s: Black Gull
+02-11 v: 14, s: Black Gull
+02-14 v: 6, s: Iron Kraken
+02-19 v: 1, s: Sea Wraith
+02-23 v: 4, s: Iron Kraken
+03-02 v: 14, s: Sea Wraith
+03-06 v: 4, s: Sea Wraith
+03-07 v: 3, s: Sea Wraith
+03-11 v: 9, s: Iron Kraken
+03-21 v: 2, s: Iron Kraken
+03-22 v: 3, s: Sea Wraith
+03-23 v: 2, s: Sea Wraith
+03-25 v: 9, s: Black Gull
+03-29 v: 1, s: Iron Kraken
+04-08 v: 3, s: Iron Kraken
+04-10 v: 1, s: Sea Wraith
+04-11 v: 2, s: Black Gull
+04-15 v: 3, s: Iron Kraken
+04-17 v: 4, s: Sea Wraith
+04-21 v: 14, s: Black Gull
+04-25 v: 1, s: Black Gull
+05-01 v: 6, s: Black Gull
+05-02 v: 1, s: Iron Kraken
+05-04 v: 1, s: Black Gull
+05-06 v: 6, s: Black Gull
+05-08 v: 3, s: Sea Wraith
+05-09 v: 6, s: Iron Kraken
+05-14 v: 3, s: Black Gull
+05-17 v: 14, s: Black Gull
+05-18 v: 1, s: Black Gull
+05-21 v: 3, s: Black Gull
+05-24 v: 6, s: Sea Wraith
+05-26 v: 3, s: Iron Kraken
+05-27 v: 14, s: Iron Kraken
+05-28 v: 3, s: Sea Wraith
+05-29 v: 1, s: Black Gull
+05-30 v: 6, s: Black Gull
+06-01 v: 1, s: Iron Kraken
+06-05 v: 2, s: Sea Wraith
+06-06 v: 6, s: Black Gull
+06-07 v: 9, s: Sea Wraith
+06-08 v: 1, s: Black Gull
+06-10 v: 2, s: Iron Kraken
+06-11 v: 14, s: Black Gull
+06-13 v: 14, s: Sea Wraith
+06-15 v: 2, s: Iron Kraken
+06-16 v: 1, s: Iron Kraken
+06-17 v: 2, s: Sea Wraith
+06-18 v: 3, s: Black Gull
+06-20 v: 4, s: Iron Kraken
+06-21 v: 3, s: Iron Kraken
+06-23 v: 9, s: Black Gull
+06-25 v: 6, s: Sea Wraith
+06-29 v: 2, s: Sea Wraith
+06-30 v: 1, s: Sea Wraith
+07-05 v: 2, s: Black Gull
+07-06 v: 1, s: Black Gull
+07-07 v: 6, s: Black Gull
+07-09 v: 14, s: Black Gull
+07-11 v: 1, s: Black Gull
+07-12 v: 4, s: Sea Wraith
+07-13 v: 1, s: Iron Kraken
+07-14 v: 1, s: Black Gull
+07-17 v: 3, s: Black Gull
+07-19 v: 14, s: Black Gull
+07-20 v: 3, s: Iron Kraken
+07-24 v: 3, s: Black Gull
+07-26 v: 1, s: Iron Kraken
+07-27 v: 6, s: Iron Kraken
+07-28 v: 3, s: Black Gull
+07-29 v: 3, s: Sea Wraith
+08-02 v: 6, s: Iron Kraken
+08-03 v: 2, s: Iron Kraken
+08-05 v: 1, s: Iron Kraken
+08-06 v: 14, s: Sea Wraith
+08-07 v: 3, s: Black Gull
+08-08 v: 9, s: Sea Wraith
+08-10 v: 9, s: Iron Kraken
+08-11 v: 6, s: Black Gull
+08-12 v: 6, s: Sea Wraith
+08-13 v: 14, s: Sea Wraith
+08-14 v: 1, s: Sea Wraith
+08-15 v: 4, s: Iron Kraken
+08-16 v: 1, s: Black Gull
+08-17 v: 3, s: Black Gull
+08-19 v: 4, s: Iron Kraken
+08-20 v: 2, s: Sea Wraith
+08-21 v: 2, s: Iron Kraken
+08-26 v: 14, s: Black Gull
+08-28 v: 1, s: Black Gull
+08-30 v: 1, s: Sea Wraith
+08-31 v: 1, s: Iron Kraken
+09-03 v: 3, s: Iron Kraken
+09-04 v: 1, s: Sea Wraith
+09-05 v: 6, s: Sea Wraith
+09-07 v: 4, s: Black Gull
+09-09 v: 3, s: Black Gull
+09-12 v: 2, s: Black Gull
+09-13 v: 4, s: Black Gull
+09-15 v: 3, s: Black Gull
+09-16 v: 2, s: Black Gull
+09-17 v: 1, s: Black Gull
+09-19 v: 1, s: Sea Wraith
+09-21 v: 3, s: Sea Wraith
+09-22 v: 3, s: Iron Kraken
+09-24 v: 9, s: Black Gull
+09-26 v: 9, s: Sea Wraith
+09-28 v: 3, s: Iron Kraken
+09-30 v: 2, s: Iron Kraken
+10-03 v: 2, s: Black Gull
+10-04 v: 4, s: Black Gull
+10-06 v: 9, s: Black Gull
+10-10 v: 4, s: Iron Kraken
+10-11 v: 2, s: Sea Wraith
+10-12 v: 14, s: Iron Kraken
+10-13 v: 6, s: Sea Wraith
+10-17 v: 4, s: Black Gull
+10-18 v: 2, s: Iron Kraken
+10-19 v: 9, s: Sea Wraith
+10-20 v: 4, s: Black Gull
+10-22 v: 1, s: Sea Wraith
+10-23 v: 1, s: Iron Kraken
+10-24 v: 1, s: Black Gull
+10-28 v: 2, s: Iron Kraken
+11-04 v: 2, s: Black Gull
+11-05 v: 9, s: Iron Kraken
+11-08 v: 1, s: Sea Wraith
+11-14 v: 1, s: Iron Kraken
+11-15 v: 6, s: Iron Kraken
+11-19 v: 1, s: Sea Wraith
+11-23 v: 1, s: Iron Kraken
+11-28 v: 14, s: Sea Wraith
+11-30 v: 4, s: Sea Wraith
+12-01 v: 3, s: Sea Wraith
+12-02 v: 14, s: Sea Wraith
+12-10 v: 2, s: Iron Kraken
+12-15 v: 14, s: Black Gull
+12-16 v: 4, s: Black Gull
+12-18 v: 3, s: Black Gull
+12-24 v: 3, s: Sea Wraith
+12-26 v: 14, s: Sea Wraith
+12-27 v: 14, s: Iron Kraken
+12-28 v: 14, s: Black Gull
 ```
 
 ## Overview
@@ -128,7 +278,7 @@ empty Idle
 
 - **`heat Name [as a] [low] [high]`** — declares a number group, with indented `unit` and `max`. `as a` gives it a short alias for entries (`k: 12`).
 - Five shades: zero is grey, then quartiles of the days that have a value, so one huge day does not wash out the rest. Set `max N` to pin the top shade, for example "20 or more is the darkest". Four equal bands then run up to N.
-- **Implied number group** — bare numbers with no `heat` line form one number group, named by the header `unit` (and `max`), as in the first example above.
+- **Implied number group** — bare numbers with no `heat` line form one number group, named by the header `unit` (and `max`), as in the Leagues Sailed example above.
 - A number group never colours events.
 
 ## Tag groups

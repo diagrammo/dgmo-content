@@ -1,26 +1,37 @@
 ```dgmo
-boxes-and-lines Pirate Software
+boxes-and-lines Pirate Fleet Command
 
-tag Status as s
-  Done green
-  Doing yellow
-  Todo red
-  NA gray default
+tag Side as t
+  Pirate green
+  Navy red
+  Smuggler yellow
+  Harbor blue default
 
-MobileApp s:Todo
-  -> API
+Flagship t: Pirate
+  -orders-> [Harbor Defenses]
+  -scouts-> IntelNetwork
 
-WebSite s:Doing
-  -> API
+[Harbor Defenses]
+  FortCannon t: Harbor
+    -covers-> Watchtower
+  Watchtower t: Harbor
+  SeaMines t: Harbor
 
-[Backend]
-  API s:Doing
-    -> DB
-    -> AuthVendor
+IntelNetwork t: Pirate
+  -hires-> SpyRing
+  -reads-> SignalFlags
 
-  DB s:Done
+SpyRing t: Smuggler
+  -warns-> [Harbor Defenses]
 
-AuthVendor
+SignalFlags t: Pirate
+
+NavyFrigate t: Navy
+  -blockades-> [Harbor Defenses]
+NavyCutter t: Navy
+  -hunts-> SmugglerSloop
+SmugglerSloop t: Smuggler
+  -trades-> SpyRing
 ```
 
 ## Overview

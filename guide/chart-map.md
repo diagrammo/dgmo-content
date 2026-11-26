@@ -1,26 +1,34 @@
 ```dgmo
-map US Population by State
-region-heat Residents (millions) blue
+map Plunder Route to the Gulf
 
-California heat: 39
-Texas heat: 30
-Florida heat: 23
-New York heat: 20
-Pennsylvania heat: 13
-Illinois heat: 13
-Ohio heat: 12
-Georgia US heat: 11
-North Carolina heat: 11
-Michigan heat: 10
-New Jersey heat: 9
-Virginia heat: 9
-Washington heat: 8
-Arizona heat: 7
-Tennessee heat: 7
-Massachusetts heat: 7
-Indiana heat: 7
-Colorado heat: 6
-Maryland heat: 6
+tag Port of Call as p
+  Home Port red
+  Friendly green
+  Spanish Prize orange
+
+tag Leg as l
+  Outbound blue
+  Homeward purple
+
+poi 25.05 -77.35 as nassau label: Nassau, p: Home Port, size: 100
+  note Weigh anchor
+    Captain sets course at dawn.
+poi 23.13 -82.36 as havana label: Havana, p: Spanish Prize, size: 110
+  note Plunder the harbour
+    Powder Monkey scouts the **gun line**.
+poi 23.2 -84.2 as offshore label: Off the Cape
+poi 21.7 -85.4 as capesan label: Cabo San Antonio
+  note Round the cape
+    Navigator reads the trade winds.
+poi 20.4 -86.9 as cozumel label: Cozumel, p: Friendly, size: 70
+  note Landfall
+    Split the treasure here.
+
+route nassau
+  -sail west-> havana l: Outbound
+  -> offshore l: Outbound
+  -round the cape-> capesan l: Outbound
+  -> cozumel l: Outbound
 ```
 
 ## Overview

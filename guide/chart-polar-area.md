@@ -1,11 +1,20 @@
 ```dgmo
-polar-area Cargo Tonnage by Port
+polar-area Ships Sighted by Month
 
-Port Royal 1200
-Havana 1050
-Tortuga 940
-Nassau 780
-Kingston 610
+January blue 14
+February blue 11
+March green 18
+April green 26
+May green 33
+June orange 41
+July orange 47
+August orange 44
+September red 36
+October red 29
+November purple 20
+December blue 16
+no-value
+no-percent
 ```
 
 ## Overview

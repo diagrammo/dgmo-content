@@ -1,12 +1,12 @@
 ```dgmo
 pie Crew Roles Distribution
 
-Sailors 45
-Gunners 20
-Marines 15
-Officers 8
-Specialists 7
-Cooks & Surgeons 5
+Sailors          45
+Gunners          20
+Marines          15
+Officers          8
+Specialists       7
+Cooks & Surgeons  5
 ```
 
 ## Overview

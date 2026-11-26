@@ -1,18 +1,25 @@
 ```dgmo
-scatter Cannon Range vs Powder Charge
-x-axis Powder (lbs)
-y-axis Range (yards)
+scatter Pirate Fleets of the Caribbean
+x-axis Ruthlessness
+y-axis Plunder (chests)
+size-label Crew
+band 0..20 Scraps
 
-Long Tom 12 1800
-Demi-Culverin 8 1200
-Carronade 4 400
-Swivel Gun 2 250
-Nine-Pounder 6 900
-Eighteen-Pounder 10 1500
-Basilisk 14 2000
-Falconet 3 350
-Minion 5 700
-Saker 7 1050
+[English Pirates] red
+  Blackbeard  90 85 700
+  Calico Jack 55 32 30
+  Anne Bonny  70 28 10
+  Jack Rackham 40 18 5
+
+[French Buccaneers] blue
+  L'Olonnais      80 60 420
+  Pierre le Grand 45 25 6
+  Michel de Grammont 60 45 150
+
+[Welsh Privateers] green
+  Henry Morgan        85 120 1000
+  Bartholomew Roberts 88 110 550
+  Rowboat Raiders     25 10 3
 ```
 
 ## Overview

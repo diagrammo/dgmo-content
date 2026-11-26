@@ -1,21 +1,30 @@
 ```dgmo
 arc Pirate Alliances
-//order appearance name, group, degree
+layout chord
 
-// Source -> Target weight
 [Caribbean] red
-  Blackbeard -> Bonnet 8
-  Blackbeard -> Vane 5
-  Blackbeard -> Hornigold 4
-  Hornigold -> Bonnet 2
+  Blackbeard -> Bonnet    60
+  Blackbeard -> Vane      20
+  Hornigold  -> Bonnet    3
 
-[Women Pirates] purple
-  Bonny -> Rackham 9
-  Bonny -> Read 7
-  Rackham -> Vane 3
+[West Africa] blue
+  Roberts -> Davis  80
+  Davis   -> Anstis 10
+  Roberts -> Anstis 2
 
-[West Africa] teal
-  Roberts -> Davis 6
+[Madagascar] green
+  Kidd    -> Avery  45
+  Avery   -> Tew    8
+  Tew     -> Kidd   2
+
+[Barbary Coast] purple
+  Reis   -> Barbarossa 50
+  Reis   -> Dragut     5
+  Barbarossa -> Dragut 12
+
+Blackbeard -> Roberts  4
+Avery -> Blackbeard    25
+Roberts -> Reis        7
 ```
 
 ## Overview

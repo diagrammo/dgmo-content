@@ -1,17 +1,25 @@
 ```dgmo
-dot The Black Gull's crew grew most loyal after the mutiny
-subtitle Crew loyalty score by ship, before and after the Tortuga mutiny
-series Before, After
-sort gap
+dot Captain Vane takes the largest share of every haul
+subtitle Median share of plunder by rank, before and after the Tortuga mutiny, doubloons
+series Before gray, After red
+sort After
 gap
 connector direction
+x-axis 0..
 
-Black Gull 54 79
-Sea Wraith 66 71
-Crimson Tide 61 63
-Iron Kraken 72 68
-Salty Maiden 58 70
-Grey Ghost 69 64
+Captain 212 296
+Quartermaster 168 181
+First Mate 151 117
+Sailing Master 139 163
+Navigator 122 74
+Boatswain 96 129
+Gunner 88 52
+Surgeon 79 138
+Carpenter 64 47
+Cook 46 91
+Cabin Boy 24 33
+Powder Monkey 18 58
+Lookout 31 12
 ```
 
 ## Overview

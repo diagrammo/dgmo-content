@@ -1,33 +1,36 @@
 **Beta — expect rough edges and syntax changes.**
 
 ```dgmo
-c4 Internet Banking System
+c4 Pirate Treasure Map System
 
-Customer is a person description: A customer of the bank
+tag Scope as sc
+  Crew blue
+  External gray
 
-Internet Banking is a system description: Allows customers to view accounts and make payments
-  -Delivers content over HTTPS-> Customer
-  -Sends emails using SMTP-> Email
+Captain is a person description: Commands the fleet and plans raids
+
+TreasureMap is a system description: Tracks buried treasure locations and raid intelligence
+  -Views treasure locations-> Captain
+  -Sends raid alerts [carrier pigeon]-> Lookout
 
   containers
-    Web App is a container description: SPA for banking features, tech: React
-      -Makes API calls over JSON/HTTPS-> API
+    ChartRoom is a container description: Interactive sea chart with treasure markers, tech: Parchment
+      -Queries treasure data [secret code]-> Vault
 
-    API is a container description: JSON/HTTPS API backend, tech: Node.js
-      -Reads from and writes over SQL/TCP-> Database
+    Vault is a container description: Encrypted treasure ledger and coordinates, tech: Iron Chest
+      -Reads/writes [quill and ink]-> TreasureLog
 
-    Database is a container description: Stores account data, tech: PostgreSQL
+    TreasureLog is a container description: "Stores locations, guard counts, and loot inventories", tech: Leather-Bound Tome
 
-Email is a system description: Sendgrid email delivery
-  ~Sends emails to~> Customer
+Lookout is an external description: Crow's nest spotter on allied ships, sc: External
+  ~Relays sightings to~> Captain
 
 deployment
-  Vercel is a cloud
-    container Web App
-  Railway
-    container API
-  Neon is a database
-    container Database
+  Flagship
+    container ChartRoom
+    container Vault
+  SecretCave
+    container TreasureLog
 ```
 
 ## Overview

@@ -1,6 +1,10 @@
 ```dgmo
-clock Dani
-New York
+clock Crew standups
+direction-lr
+Havana as Port Royal Watch
+London as Admiralty Dock
+Lisbon as Lisbon Harbor
+Tokyo as Deckhand
 ```
 
 ## Overview

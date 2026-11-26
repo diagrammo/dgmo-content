@@ -1,31 +1,34 @@
 **Beta — expect rough edges and syntax changes.**
 
 ```dgmo
-whiteboard Treasure hunt app — kickoff
-text MVP — ship by June at: 330 -14, color: red
-ink red 3 AJQFJBYEPAAuBzwALAg8AAgB
-text v2 ideas at: 870 -14, color: gray
-line from: 835 -20, to: 835 450, color: gray, style: dashed
-ellipse Players at: 40 80, size: 160 90, color: blue
-rectangle Phone app at: 330 85, size: 180 80, color: teal, fill: solid
-ink red 3 APYEvAEeFSQRPg80BTYAVAweCjIYIh4OGAQQABoFEBEYGRY_HkEOIwQ3ADUFLws1FxUNDw8LDwcRARkEDwgRFBccFTQXQA8
-arrow taps and digs from: 120 125, to: 420 125, color: blue
-rectangle Map service at: 620 40, size: 170 70, color: purple
-arrow where am I? from: 420 125, to: 705 75, color: purple, bend: -30
-database Treasure vault at: 640 190, size: 150 110, color: orange
-arrow claim a chest from: 420 125, to: 715 245, color: orange
-queue Push alerts at: 300 300, size: 210 64, color: cyan
-ink green 4 AIgI_AQcICY5Fhs
-arrow chest found! from: 715 245, to: 405 332, color: cyan, style: dashed, bend: 40
-ellipse Leaderboard at: 40 300, size: 170 90, color: green, fill: outline
-arrow from: 405 332, to: 125 345, color: green
-arrow bragging rights from: 125 345, to: 120 125, heads: both, style: dashed
-note Ask legal about digging in parks at: 330 430, size: 200 80, color: red
-note What if chests move at night? at: 870 30
-note Kids mode, no ads at: 870 160, color: green
-note at: 870 290, color: purple
-  Team battles
-  every Friday
+whiteboard Pirate web shop brainstorm
+tag Meaning
+  Pages blue
+  Money green
+  Cargo orange
+  Trouble red
+rectangle Home at: 300 20, size: 160 70, color: blue, fill: solid
+rectangle Cutlass catalog at: 40 160, size: 170 70, color: blue
+rectangle Ship models at: 300 160, size: 170 70, color: blue
+rectangle Parrot supplies at: 560 160, size: 170 70, color: red, style: dashed
+database Orders at: 300 310, size: 160 100, color: green
+ellipse Doubloons at: 560 320, size: 160 80, color: green
+file Price list at: 40 320, size: 130 100, color: red
+arrow from: 380 55, to: 125 195, color: blue, bend: 25
+arrow from: 380 55, to: 385 195, color: blue
+arrow from: 380 55, to: 650 195, color: blue, bend: -25
+arrow buy from: 385 195, to: 380 360, color: green
+arrow pay from: 380 360, to: 640 360, color: green
+line from: 105 370, to: 380 360, color: blue, style: dashed, bend: 30
+line from: 850 60, to: 440 55, color: orange, style: dashed, bend: -30
+note Free shipping to every port at: 800 20
+note Price list is stale at: 40 450, size: 170 70
+text crew gets a cut at: 590 448, color: orange
+ink green 3 AcYIlgUUDAsEDAsEEAkEDgkDEgcDEAcAKAsGFAMEFgEAKgEFIgIAJgoBIAwCDgYCEgwEFhIEDA4CBgwABgwDBAwAAhABAAwEAQ4GAxAEBQoCCRAADRIBCwoEDwwEEQoAFQwBGQgAFQgBFwQAGQIBFQACHQEBHwMBDwMAEQcBFQkAEQkACQkBDQ0BCxEBBQ0CAw0AAREABBMFBA0DCA8ACg8FDg8BEAsAFA0GEgcAFgcCGAcT
+ink orange 3 AYoE3AMYESgEAQIF
+ink orange 3 AZYE8AMYBQAIFQQCEQIV
+ink orange 3 AZAEhAQUDw8ODw8NAAIH
+ink orange 3 AYgJxAcWKgEWUAIEJgADWgUHLgENDgEJ
 ```
 
 ## Overview

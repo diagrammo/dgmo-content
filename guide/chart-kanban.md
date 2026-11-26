@@ -1,31 +1,45 @@
 ```dgmo
-kanban Plunder Sprint 7
+kanban Fleet Repairs by Ship
 
-tag Priority
-  Urgent red
-  High orange
-  Low green default
+active-tag Ship
 
-tag Crew as c
-  Blackbeard red
-  Anne Bonny purple
-  Calico Jack teal
+tag Ship as s
+  Black Pearl purple
+  Revenge red
+  Fortune blue
+  Mermaid teal
 
-[Awaiting Orders] red
-  Recruit gunners at Tortuga priority: High, c: Calico Jack
-  Chart new trade route priority: Urgent, c: Anne Bonny
-    Scout the Windward Passage
-    Avoid Royal Navy patrols
-  Resupply rum and powder priority: Low, c: Calico Jack
+tag Priority as p
+  Low gray
+  High green
 
-[Underway] orange wip: 2
-  Forge letters of marque priority: High, c: Anne Bonny
-  Raid merchant convoy priority: Urgent, c: Blackbeard
-    Three ships spotted off Nassau
+[Backlog] gray
+  Repair the foretop sail s: Revenge, p: Low
+    Mend after the last storm
+  Reinforce the gunwales s: Fortune, p: High
+    Two planks are rotting
+  Rig a second anchor s: Black Pearl, p: Low
+  Splice the mooring lines s: Mermaid, p: Low
 
-[Done] green
-  Bribe the harbour master priority: High, c: Anne Bonny
-  Repair hull damage priority: Low, c: Blackbeard
+[In Progress] teal wip: 4
+  Caulk the hull seams s: Revenge, p: High
+    Hold has been taking water
+  Restock powder kegs s: Black Pearl, p: High
+    Last batch ran damp
+  Chart the shoals s: Fortune, p: Low
+  Oil the capstan s: Mermaid, p: Low
+
+[Blocked] red
+  Find a new sailmaker s: Black Pearl, p: High
+    Old one took ill at last port
+  Buy fresh tar s: Mermaid, p: High
+    Port merchants out of stock
+
+[Done] green collapsed
+  Inventory the hold s: Fortune, p: Low
+  Sharpen the cutlasses s: Revenge, p: Low
+  Hoist the colours s: Black Pearl, p: Low
+  Stow the cannon s: Revenge, p: High
 ```
 
 ## Overview

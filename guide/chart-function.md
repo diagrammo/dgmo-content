@@ -1,11 +1,14 @@
 ```dgmo
-function Trig & Exponential Curves
-x-axis x 0..10
-y-axis f(x)
+function Roll After a Broadside: Galleon vs Sloop
 
-Sine blue: sin(x)
-Cosine green: cos(x)
-Exponential decay red: exp(-x/4)
+x-axis Seconds after broadside 0..12
+y-axis Roll (degrees)
+fill
+
+// The heavy galleon rolls slow and deep; the sloop snaps back quick but rings longer.
+Galleon blue: 30*exp(-0.25*x)*sin(1.5*x)
+Sloop orange: 18*exp(-0.15*x)*sin(3*x)
+Calm sea green: 0
 ```
 
 ## Overview

@@ -1,25 +1,28 @@
 ```dgmo
-version-control Feature Branch Workflow
+version-control Pirate Website Release Voyage
 
 main
-  Initial commit
-  Add README
+  Set sail
+  Add plunder calculator
+  note Never sail without a tagged release
 
-develop from main
-  Set up CI
-  Add test suite
+feature/jolly-roger-theme from main purple
+  Skull and bones logo
+  Dark mode: night watch
 
-feature/login from develop
-  Login form
-  Form validation
-
-develop
-  merge feature/login
-  Address review notes
+feature/ship-leaderboard from main teal
+  Rank the crews
+  Add shares splitter
 
 main
-  merge develop tag: v1.0.0
-  Hotfix typo type: highlight
+  merge feature/jolly-roger-theme tag: v1.1.0
+  merge feature/ship-leaderboard tag: v1.2.0
+
+hotfix/kraken from main red
+  Patch the kraken bug type: highlight
+
+main
+  merge hotfix/kraken tag: v1.2.1
 ```
 
 ## Overview

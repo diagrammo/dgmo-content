@@ -4,59 +4,44 @@ tech-radar Pirate Operations Radar — Q2 1718
 rings
   Full Sail
   Trial Run
-  Spyglass
   Davy Jones
 
-Tactics quadrant: top-right
+Tactics quadrant: top-right, color: purple
   Ambush at Dawn ring: Full Sail, trend: stable
-    Our most reliable boarding tactic. **90% success rate** when
-    approaching from the east with the sun behind us.
-    - Crew morale peaks at dawn — grog hasn't worn off yet
-    - Reduced cannon fire needed: *3 volleys* vs 8 at midday
   Boarding Parties ring: Full Sail, trend: stable
+  Grappling Volleys ring: Full Sail, trend: up
   Decoy Flags ring: Trial Run, trend: up
-    Flying false colours until within cannon range. Early results
-    are promising — merchant ships drop anchor **40% more often**.
   Smoke Screens ring: Trial Run, trend: new
-  Kraken Diplomacy ring: Spyglass, trend: new
-    Exploring alliances with *sea monsters*. Negotiations ongoing.
+  Night Raids ring: Trial Run, trend: up
+  Kraken Diplomacy ring: Trial Run, trend: new
+  Fire Ships ring: Trial Run, trend: new
+  Ramming ring: Davy Jones, trend: down
 
-Vessels quadrant: top-left
+Vessels quadrant: top-left, color: blue
   Brigantine ring: Full Sail, trend: stable
-    Our workhorse. Fast, manoeuvrable, carries **18 cannons**.
-    - Crew capacity: 100 pirates
-    - Top speed: *11 knots* in fair wind
   Sloop ring: Full Sail, trend: up
   War Galleon ring: Trial Run, trend: up
-    Captured from the Spanish fleet. Massive firepower but
-    **slow to turn** — best for convoy raids, not chases.
+  Frigate ring: Trial Run, trend: new
+  Junk Rig ring: Trial Run, trend: new
   Longboat ring: Davy Jones, trend: down
 
-Plunder Targets quadrant: bottom-left
+Plunder Targets quadrant: bottom-left, color: orange
   Merchant Convoys ring: Full Sail, trend: stable
-    Core revenue stream — **78% of total plunder**. East India
-    Company ships running the spice route remain most lucrative.
+  Spanish Treasure Fleets ring: Full Sail, trend: stable
   Port Raids ring: Trial Run, trend: up
   Rival Pirates ring: Trial Run, trend: new
-  Royal Treasury Ships ring: Spyglass, trend: new
-    High risk, astronomical reward. Requires:
-    - Inside information from *corrupt harbourmasters*
-    - At least **3 allied ships** for the blockade
-    - A really good escape plan
-  Whaling Ships ring: Spyglass, trend: stable
+  Royal Treasury Ships ring: Trial Run, trend: new
+  Whaling Ships ring: Davy Jones, trend: stable
   Fishing Villages ring: Davy Jones, trend: down
-    Terrible ROI and **bad for reputation**. The parrot union
-    filed a formal complaint.
 
-Crew Welfare quadrant: bottom-right
+Crew Welfare quadrant: bottom-right, color: green
   Grog Rations ring: Full Sail, trend: stable
-    Non-negotiable. Cutting grog rations caused the *Great Mutiny of 1716*.
+  Code of Conduct ring: Full Sail, trend: stable
+  Parrot Companions ring: Full Sail, trend: up
   Sea Shanty Program ring: Trial Run, trend: new
-    Hired a shanty master. Crew productivity up **25%** during
-    long voyages. Signature tune: *"Yo Ho Ho and a Bottle of Rum"*.
-  Dental Plan ring: Spyglass, trend: up
-    Exploring options. Most crew down to **4 teeth** on average.
-    Parley with a Port Royal dentist scheduled for Q3.
+  Dental Plan ring: Trial Run, trend: up
+  Retirement Fund ring: Trial Run, trend: new
+  Plank Walking ring: Davy Jones, trend: down
 ```
 
 ## Overview

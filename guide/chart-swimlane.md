@@ -1,18 +1,25 @@
 ```dgmo
-swimlane Expense Approval
+swimlane Planning a Raid
 direction-lr
 
-[Submit]
-  lane Employee gray
-    File Expense -> <Approve>
-[Review]
-  lane Manager blue
-    <Approve>
-      -deny-> (!Rejected)
-      -approve-> Reimburse
-[Pay]
-  lane Finance green
-    Reimburse -> (Paid) success
+[Plan]
+  lane Captain red
+    Set Course -> <Worth the risk?>
+    <Worth the risk?>
+      -no-> (!Stay in Port)
+      -yes-> Brief Crew
+    Brief Crew -> Chart Route
+  lane Navigator blue
+    Chart Route -> Man Cannons
+[Raid]
+  lane Bosun orange
+    Man Cannons -> Board Prize
+  lane Captain red
+    Board Prize -> Count Haul
+[Share]
+  lane Quartermaster green
+    Count Haul -> Split Shares
+    Split Shares -> (Paid Out) success
 ```
 
 ## Overview

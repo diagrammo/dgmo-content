@@ -1,19 +1,21 @@
 ```dgmo
-line Ship Speed Over Voyage
-series Knots
-x-axis Day
-y-axis Speed
+line Plunder by Crew Over the Voyage
+series
+  Cutlass Crew blue
+  Powder Monkeys green
+  Rigging Rats orange
+x-axis Port
+y-axis Doubloons (000s)
 
-era Day 1 -> Day 3 Rough Seas red
-era Day 3 -> Day 7 Fair Winds blue
+marker y 8 Captain's Quota
+era Nassau -> Port Royal Shakedown Run teal
+era Port Royal -> Havana Golden Haul orange
 
-Day 1 8
-Day 2 10
-Day 3 7
-Day 4 12
-Day 5 9
-Day 6 11
-Day 7 6
+Nassau      4.4 2.8 1.6
+Tortuga     6.5 3.2 2.0
+Port Royal  9.1 3.9 2.5
+Havana     10.3 5.0 3.4
+Kingston   12.6 5.9 3.9
 ```
 
 ## Overview

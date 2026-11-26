@@ -1,20 +1,25 @@
 ```dgmo
-pyramid Maslow's Hierarchy of Needs
+pyramid Pirate Crew Hierarchy
 
-Self-Actualization purple
-  Morality, creativity, acceptance of facts.
+Captain purple
+  Final word on heading and plunder,
+  keeper of the ship's charter.
 
-Esteem blue
-  Respect, recognition, confidence.
+Quartermaster blue
+  Second-in-command, arbitrates
+  disputes, divvies the booty.
 
-Love & Belonging green
-  Friendship, intimacy, family.
+Boatswain & Gunner green
+  Keep the rigging tight and
+  the cannons ready.
 
-Safety yellow
-  Security, employment, health.
+Able Seamen yellow
+  Haul lines, swab decks,
+  and stand watch.
 
-Physiological orange
-  Food, water, warmth, rest.
+Powder Monkeys orange
+  Ferry shot and charges to the guns
+  during a broadside.
 ```
 
 ## Overview

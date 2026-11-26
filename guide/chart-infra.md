@@ -1,17 +1,56 @@
 ```dgmo
-infra Storefront
+infra Pirate Communication Network
 
-Internet
-  rps: 10000
-  -> CDN
+tag Fleet as f
+  Blackbeard red
+  Bonny purple
+  Rackham blue
 
-CDN
-  cache-hit: 80%
-  -> Api
+Edge
+  rps: 200
+  -> SignalFlags
 
-Api
-  max-rps: 1500
-  latency-ms: 40
+SignalFlags f: Blackbeard
+  description: Flag semaphore relay — ship-to-ship messaging
+  latency-ms: 3000
+  -> Flagship
+  -> ScoutShip
+
+Flagship f: Blackbeard
+  description: Command vessel — decrypts and routes all intelligence
+  instances: 1
+  max-rps: 50
+  latency-ms: 500
+  -> CarrierPigeons
+  -> RumRunner
+
+ScoutShip f: Bonny
+  description: Fast sloop for reconnaissance
+  instances: 2
+  max-rps: 30
+  latency-ms: 800
+  -> Flagship
+
+CarrierPigeons f: Rackham
+  description: Long-range bird relay — messages to allied ports
+  buffer: 100
+  drain-rate: 12
+  retention-hours: 72
+  -> TavernNetwork
+
+[Allied Ports]
+  instances: 3
+
+  TavernNetwork f: Rackham
+    description: Dockside tavern informants across the Caribbean
+    max-rps: 20
+    latency-ms: 9000
+
+RumRunner f: Bonny
+  description: Smuggler supply line — moves coded messages in rum barrels
+  concurrency: 4
+  duration-ms: 12000
+  -> TavernNetwork
 ```
 
 Ten lines, and the chart has already done arithmetic you didn't write. `Internet` is the entry point and the only place a traffic number is declared. The CDN serves 80% from cache, so `Api` receives 2,000 RPS — not 10,000. `Api` tops out at 1,500, so it renders **overloaded**, and its availability drops to 75% because a quarter of requests have nowhere to go.

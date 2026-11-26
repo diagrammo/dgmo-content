@@ -1,46 +1,46 @@
 ```dgmo
-sitemap The Salty Compass
+sitemap Pirate Bay Trading Co.
 
-tag Auth
+tag Access
   Public green
   Crew Only blue
+  Captain red
 
-Home Auth: Public, description: Landing page with interactive demos
+tag Page
+  Landing purple
+  Form orange
+  Content cyan
+
+Home Access: Public, Page: Landing
   -shop-> Shop
-  -voyages-> Upcoming Voyages
-  -join crew-> Sign Up
+  -join-> Enlist
   -sign in-> Login
+  -raids-> Raid Calendar
+  -> [Port Market]
 
-[Ship Store]
-  Shop Auth: Public
-    -> Eye Patches
-    -> Flags & Banners
-  Eye Patches Auth: Public
-    -add to chest-> Cart
-  Flags & Banners Auth: Public
-    -add to chest-> Cart
-  Cart Auth: Public
-    -checkout-> Checkout
-  Checkout Auth: Crew Only
-    -done-> My Orders
+[Port Market]
+  Shop Access: Public, Page: Content
+    -buy-> Checkout
+  Checkout Access: Crew Only, Page: Form
+    -purchased-> Ship Log
 
-[Voyages]
-  Upcoming Voyages Auth: Public
-    -details-> Voyage Detail
-  Voyage Detail Auth: Public
-    -enlist-> Sign Up
+[Account]
+  Enlist Access: Public, Page: Form
+    -enlisted-> Ship Log
+  Login Access: Public, Page: Form
+    -welcome aboard-> Ship Log
+    -forgot-> Reset Password
+  Reset Password Access: Public, Page: Form
+  Change Password Access: Crew Only, Page: Form
+  Ship Log Access: Crew Only, Page: Content
+    -voyage-> Raid Calendar
 
-[Crew Quarters]
-  Login Auth: Public
-    -welcome aboard-> Dashboard
-    -new pirate-> Sign Up
-  Sign Up Auth: Public
-    -welcome aboard-> Dashboard
-  Dashboard Auth: Crew Only
-    description: Full overview of crew activity and orders
-    -> My Orders
-  My Orders Auth: Crew Only
-    -reorder-> Shop
+[Raid Planning]
+  Raid Calendar Access: Crew Only, Page: Content
+    -book-> Schedule Raid
+    -view-> Treasure Map
+  Schedule Raid Access: Captain, Page: Form
+  Treasure Map Access: Captain, Page: Content
 ```
 
 ## Overview
