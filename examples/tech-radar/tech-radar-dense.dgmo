@@ -1,0 +1,71 @@
+tech-radar Fleet Arsenal Radar — every blip, 1719
+
+rings
+  Full Sail
+  Trial Run
+  Spyglass
+  Davy Jones
+
+Seamanship quadrant: top-right, color: teal
+  Star Charts ring: Full Sail, trend: stable
+  Sextant ring: Full Sail, trend: stable
+  Dead Reckoning ring: Full Sail, trend: stable
+  Lead Line ring: Trial Run, trend: up
+  Log and Knot ring: Trial Run, trend: up
+  Chronometer ring: Trial Run, trend: new
+  Storm Jib ring: Trial Run, trend: up
+  Careening Beach ring: Trial Run, trend: stable
+  Monsoon Tables ring: Spyglass, trend: new
+  Copper Sheathing ring: Spyglass, trend: new
+  Trade Wind Maps ring: Spyglass, trend: up
+  Kraken Charts ring: Davy Jones, trend: down
+  Lodestone Only ring: Davy Jones, trend: down
+  Moon Sailing ring: Davy Jones, trend: down
+
+Armaments quadrant: top-left, color: red
+  Broadside ring: Full Sail, trend: stable
+  Grapeshot ring: Full Sail, trend: stable
+  Boarding Axes ring: Full Sail, trend: stable
+  Grenadoes ring: Trial Run, trend: up
+  Chain Shot ring: Trial Run, trend: up
+  Swivel Guns ring: Trial Run, trend: up
+  Stinkpots ring: Trial Run, trend: new
+  Fire Ships ring: Trial Run, trend: new
+  Bar Shot ring: Spyglass, trend: new
+  Mortar Ketch ring: Spyglass, trend: new
+  Greek Fire ring: Spyglass, trend: stable
+  Catapult ring: Davy Jones, trend: down
+  Crossbows ring: Davy Jones, trend: down
+  Ramming ring: Davy Jones, trend: down
+
+Plunder quadrant: bottom-left, color: orange
+  Merchant Convoys ring: Full Sail, trend: stable
+  Silver Fleets ring: Full Sail, trend: stable
+  Ransom Notes ring: Trial Run, trend: up
+  Prize Ships ring: Full Sail, trend: stable
+  Port Raids ring: Trial Run, trend: up
+  Blockades ring: Trial Run, trend: new
+  Smuggler Sloops ring: Trial Run, trend: new
+  Logwood Cutters ring: Trial Run, trend: stable
+  Mughal Pilgrims ring: Spyglass, trend: new
+  Whalers ring: Spyglass, trend: stable
+  Treasury Ships ring: Spyglass, trend: up
+  Fishing Villages ring: Davy Jones, trend: down
+  Rival Pirates ring: Davy Jones, trend: down
+  Navy Frigates ring: Davy Jones, trend: down
+
+Crew quadrant: bottom-right, color: purple
+  Ship's Articles ring: Full Sail, trend: stable
+  Fair Shares ring: Full Sail, trend: stable
+  Grog Rations ring: Full Sail, trend: stable
+  Injury Payouts ring: Trial Run, trend: up
+  Citrus Rations ring: Trial Run, trend: up
+  Shanty Master ring: Trial Run, trend: new
+  Ship's Surgeon ring: Trial Run, trend: up
+  Elected Captain ring: Trial Run, trend: stable
+  PowderMonkey School ring: Spyglass, trend: new
+  Retirement Fund ring: Spyglass, trend: new
+  Parrot Corps ring: Spyglass, trend: up
+  Marooning ring: Davy Jones, trend: down
+  Keelhauling ring: Davy Jones, trend: down
+  Plank Walking ring: Davy Jones, trend: down

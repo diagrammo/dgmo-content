@@ -1,0 +1,58 @@
+class Plunder Ledger Model
+
+Plunderable [interface]
+  + appraise(): number
+  + seize(by: Crew): void
+
+Ship [abstract]
+  # name: string
+  # hull: number
+  + sail(to: Port): void
+  *-- Crew : manned by
+  o-- Cargo : holds
+  -> Port : home port
+
+Galleon extends Ship
+  - gunDecks: number
+  + broadside(): void
+  ..|> Plunderable
+
+Sloop extends Ship
+  - speed: number
+  + flee(): void
+
+Crew
+  - articles: string
+  + muster(): void
+  o-- Pirate : signs on
+
+Pirate
+  + name: string
+  - share: number
+  -> Rank : holds
+
+Rank [enum]
+  Captain
+  Quartermaster
+  Navigator
+  Bosun
+  PowderMonkey
+
+Cargo
+  + kind: string
+  + weight: number
+  ..|> Plunderable
+
+Port
+  + name: string
+  + fence(c: Cargo): number
+
+Ledger
+  - entries: number
+  + record(haul: number): void
+  + shareOf(r: Rank): number {static}
+  ..> Plunderable : appraises
+  ..> Rank : weighs shares
+
+note Galleon red
+  The prize: **gold** below decks

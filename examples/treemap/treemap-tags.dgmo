@@ -1,0 +1,29 @@
+treemap Plunder by Voyage Leg — by ship that took it (doubloons)
+
+tag Ship as s
+  Revenge red
+  Ranger blue
+  Adventure green
+  Fancy purple
+
+Windward Passage s: Revenge
+  Spanish Galleon s: Revenge
+    Silver Bars 4800
+    Gold Coin 3100
+  Sugar Brig s: Ranger
+    Sugar 1400
+    Rum 900
+Gulf of Honduras s: Adventure
+  Logwood Sloop s: Adventure
+    Logwood 1700
+    Cloth 650
+  Merchant Convoy s: Revenge
+    Indigo 2200
+    Tobacco 1100
+Carolina Coast s: Fancy
+  Blockade Ransom s: Fancy
+    Ransom Chest 2600
+    Medicine 500
+  Coastal Packet s: Ranger
+    Letters & Bonds 800
+    Powder 700

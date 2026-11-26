@@ -1,0 +1,13 @@
+flowchart Who Gets a Share?
+
+(Haul Counted) -> <Signed the Articles?>
+  -no-> (No Share)
+  -yes-> <Rank Aboard?>
+    -captain-> [Two Shares] -> <Wounded in Action?>
+    -quartermaster-> [One and a Half] -> <Wounded in Action?>
+    -crew-> [One Share] -> <Wounded in Action?>
+    -powder monkey-> [Half Share] -> <Wounded in Action?>
+<Wounded in Action?>
+  -lost a limb-> [Add Surgeon's Purse] -> (Paid Out)
+  -unhurt-> (Paid Out)
+  -deserted-> (Forfeit)

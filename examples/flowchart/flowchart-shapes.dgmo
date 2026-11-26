@@ -1,0 +1,7 @@
+flowchart Squaring the Ledger
+direction-lr
+
+(Haul Aboard) -> /Count the Coin/ -> <Ledger Balanced?>
+  -short-> [Search the Hold] -> (Maroon the Thief)
+  -even-> [[Split by the Articles]] -> (Pay the Crew)
+  -over-> [Log the Surplus~] -> (Rum Ration)

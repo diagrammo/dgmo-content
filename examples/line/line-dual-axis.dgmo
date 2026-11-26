@@ -1,0 +1,22 @@
+line Stores Against Fit Hands, Crossing to Guinea
+x-axis Week
+
+series
+  y-axis Barrels in Hold 0..
+    Water blue
+    Rum orange
+  y-right-axis Crew Fit for Duty (%) 0..120
+    Fit Hands green
+
+era W2 -> W4 Doldrums gray
+
+W1 80 40 96
+W2 70 35 94
+W3 60 29 91
+W4 50 22 82
+W5 40 12 66
+  note "Fit Hands" Scurvy
+W6 74 30 74
+  marker Landfall
+W7 66 25 85
+W8 58 20 92

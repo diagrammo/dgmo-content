@@ -1,0 +1,49 @@
+sequence Parley at Bath Town
+
+tag Ship as s
+  Revenge red
+  Adventure blue
+  Shore green
+
+tag Risk as r
+  Safe teal default
+  Bribe orange
+  Treachery purple
+
+Captain is an actor
+
+[Revenge] s: Revenge
+  Captain
+  Quartermaster
+  Ledger is a database
+
+[Adventure] s: Adventure
+  Navigator
+  Bosun s: Shore
+
+[Bath Town] s: Shore
+  Governor
+  Customs
+
+Captain -Sound the inlet-> Navigator
+Navigator ~All clear~> Captain
+Captain -Request parley-> Governor
+note right of Governor Wants a cut of the cargo
+Governor -Pardon, for a price-> Captain r: Bribe
+
+== Paying the Governor ==
+
+Captain -Fetch the haul-> Quartermaster
+Quartermaster -Weigh the share-> Ledger
+Ledger -Sixty pounds silver-> Quartermaster
+Quartermaster -Chest of silver-> Governor r: Bribe
+
+== Betrayal ==
+
+Governor ~Offers a reward~> Bosun r: Treachery
+
+if Bosun turns King's evidence
+  Bosun ~Names the crew~> Customs r: Treachery
+  Customs -Seize the Adventure-> Navigator r: Treachery
+else
+  Navigator -Weigh anchor-> Bosun

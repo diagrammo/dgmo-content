@@ -1,0 +1,32 @@
+gantt Refit of the Queen Anne's Revenge
+start-date 1718-03-02
+sprint-length 2w
+sprint-number 4
+sprint-start 1718-03-02
+today-marker 1718-04-02
+
+tag Crew as c
+  Bosun blue
+  Navigator purple
+  Quartermaster green
+  PowderMonkey orange
+
+marker 1718-03-24 Navy Sloop Sighted red
+
+[Hull] c: Bosun
+  Careen and Scrape 1sp progress: 100
+    -> Caulk the Seams 1sp progress: 60
+      -> Mount New Cannon 1sp c: PowderMonkey, progress: 0
+        -> [Muster].Set Sail
+  Re-rig the Mainmast 2sp? progress: 40
+
+[Charts] c: Navigator
+  Plot Carolina Shoals 1sp progress: 100
+    -> Bribe Harbor Pilot 1sp progress: 50
+  Sound the Inlet 1sp? progress: 20
+
+[Muster] c: Quartermaster
+  Sign the Articles 1sp progress: 100
+    -> Stock Powder and Rum 2sp c: PowderMonkey, progress: 30
+  Set Sail 0d
+    -> Shakedown Cruise 10d c: Navigator

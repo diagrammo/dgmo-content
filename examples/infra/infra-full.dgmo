@@ -1,0 +1,70 @@
+infra Plunder Pipeline — Full Simulation
+slo-p90-latency-ms 2000
+
+tag Crew as c
+  Lookout teal default
+  Quartermaster blue
+  Purser purple
+  Navigator orange
+
+Edge
+  rps: 600
+  -> CrowsNest
+
+CrowsNest c: Lookout
+  description: Spots sails; most are ships already logged
+  cache-hit: 40%
+  -> NavyScreen
+
+NavyScreen c: Lookout
+  description: Turns away navy frigates flying false colours
+  firewall-block: 10%
+  ratelimit-rps: 2000
+  -> Quartermaster
+
+Quartermaster c: Quartermaster
+  -/gold-> [Treasury] split: 50%
+  -/cargo-> Fence split: 30%
+  -/charts-> ChartRoom split: 20%
+
+[Treasury]
+  instances: 2-4
+
+  Purser c: Purser
+    description: Weighs the haul and books each share
+    max-rps: 100
+    latency-ms: 60
+    cb-error-threshold: 50%
+    -> LedgerDB
+    ~share.owed~> ShareQueue
+
+LedgerDB c: Purser
+  max-rps: 2000
+  latency-ms: 8
+  uptime: 99.99%
+
+ShareQueue c: Purser
+  buffer: 5000
+  drain-rate: 150
+  retention-hours: 72
+  -> Payout
+
+Payout c: Purser
+  concurrency: 60
+  duration-ms: 300
+  cold-start-ms: 900
+
+Fence c: Quartermaster
+  description: Port Royal dealer for silks and rum
+  max-rps: 400
+  latency-ms: 400
+
+ChartRoom c: Navigator
+  description: Plots the next prize across the sea charts
+  max-rps: 300
+  latency-ms: 90
+  -> ChartShards fanout: 4
+
+ChartShards c: Navigator
+  max-rps: 4000
+  latency-ms: 5

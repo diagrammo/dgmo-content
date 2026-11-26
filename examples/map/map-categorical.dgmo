@@ -1,0 +1,30 @@
+map Whose Flag Flies on the Spanish Main
+subtitle Green pins mark the pirate havens where the crew takes on rum and powder
+
+tag Flag as f
+  Spain red
+  England blue
+  France purple
+  Netherlands orange
+
+tag Port as p
+  Pirate Haven green
+
+Cuba f: Spain
+Mexico f: Spain
+Guatemala f: Spain
+Honduras f: Spain
+Nicaragua f: Spain
+Panama f: Spain
+Colombia f: Spain
+Venezuela f: Spain
+Dominican Republic f: Spain
+Puerto Rico f: Spain
+Jamaica f: England
+Haiti f: France
+Guyana f: Netherlands
+Suriname f: Netherlands
+
+poi Kingston label: Port Royal, p: Pirate Haven
+poi 20.03 -72.78 as tortuga label: Tortuga, p: Pirate Haven
+poi 25.05 -77.35 as nassau label: Nassau, p: Pirate Haven

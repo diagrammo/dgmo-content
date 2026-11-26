@@ -1,0 +1,27 @@
+treemap Haul by Port — margin after costs (doubloons)
+
+heat Margin % red green
+
+Caribbean
+  Nassau
+    Rum 4200 heat: 18
+    Sugar 2600 heat: 9
+    Tobacco 1500 heat: -6
+  Port Royal
+    Silver 5100 heat: 31
+    Cloth 1400 heat: -12
+  Tortuga
+    Powder 1800 heat: -24
+    Muskets 1200 heat: -8
+Atlantic
+  Charleston
+    Indigo 2100 heat: 14
+    Rice 900 heat: -3
+  Ocracoke
+    Prize Ships 3300 heat: 42
+    Ransom 1600 heat: 27
+Indian Ocean
+  Madagascar
+    Spices 2900 heat: 22
+    Silk 2200 heat: 35
+    Ivory 800 heat: -15

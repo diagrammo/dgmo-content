@@ -1,0 +1,28 @@
+boxes-and-lines Fleet Morale After the Storm
+
+// Two-colour heat ramp: red = mutinous, green = loyal.
+heat Morale red green
+
+[Nassau Squadron]
+  Flagship heat: 92
+    -escorts-> Frigate
+  Frigate heat: 74
+    -guards-> Storeship
+
+[Tortuga Squadron]
+  Storeship heat: 38
+    -resupplies-> Brigantine
+  Brigantine heat: 55
+    -tows-> Sloop
+  Sloop heat: 12
+
+Flagship <-parley-> PortRoyal
+PortRoyal heat: 81
+
+note Sloop red
+  Near mutiny:
+  - **rum** ran dry
+  - shares unpaid
+
+note Flagship green
+  Shares paid in full

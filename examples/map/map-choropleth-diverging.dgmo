@@ -1,0 +1,24 @@
+map The Main Pays, the Gulf Bleeds the Ledger
+subtitle Net chests per coast after the Quartermaster pays for powder, repairs and lost hands
+region-heat Net chests red green
+scale diverging 0
+
+tag Ledger Entry as l
+  Ship Lost purple
+
+Panama heat: 31
+Colombia heat: 22
+Venezuela heat: 14
+Cuba heat: 9
+Dominican Republic heat: 7
+Honduras heat: 6
+Nicaragua heat: -3
+Guatemala heat: -6
+Haiti heat: -2
+Puerto Rico heat: -8
+Mexico heat: -19
+
+poi 23.4 -94.6 as campeche label: Ranger sunk, l: Ship Lost
+poi 18.47 -66.11 as sanjuan label: Sloop taken, l: Ship Lost
+
+footnote **Source:** the Quartermaster's ledger; below zero the crew paid more than it took

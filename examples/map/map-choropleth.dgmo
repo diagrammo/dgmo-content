@@ -1,0 +1,25 @@
+map Panama and Cuba Yield the Richest Plunder
+subtitle Chests of Spanish plate seized off each coast, 1717–1720 voyages
+region-heat Chests seized orange
+
+tag Port as p
+  Home Port blue
+  Fence purple
+
+Cuba heat: 42
+Panama heat: 37
+Mexico heat: 29
+Colombia heat: 24
+Venezuela heat: 17
+Dominican Republic heat: 12
+Puerto Rico heat: 10
+Honduras heat: 8
+Haiti heat: 6
+Nicaragua heat: 5
+Guatemala heat: 3
+
+poi 25.05 -77.35 as nassau label: Nassau (home port), p: Home Port
+poi Kingston label: Port Royal (fence), p: Fence
+poi 20.03 -72.78 as tortuga label: Tortuga (fence), p: Fence
+
+footnote **Source:** the Quartermaster's ledger, tallied at Nassau

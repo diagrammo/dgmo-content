@@ -1,0 +1,47 @@
+org The Revenge — Crew by Watch
+sub-node-label Hands
+show-sub-node-count
+hide Watch
+
+tag Watch as w
+  Command red
+  Larboard blue
+  Starboard green
+  Gun Deck orange
+
+Captain Blackbeard w: Command
+  role: Captain
+
+  [Quarterdeck]
+    goal: Set course, keep the articles
+
+    Quartermaster Bonnet w: Command
+      role: Quartermaster
+      Navigator Vane w: Command
+        role: Navigator
+
+  [Larboard Watch]
+    goal: Sails and helm, dusk to dawn
+
+    Bosun Rackham w: Larboard
+      role: Bosun
+      Topman Hale w: Larboard
+      Helmsman Cobb w: Larboard
+
+  [Starboard Watch]
+    goal: Sails and helm, dawn to dusk
+
+    Bosun Read w: Starboard
+      role: Bosun
+      Topman Finch w: Starboard
+      Lookout Bonny w: Starboard
+
+  [Gun Deck]
+    goal: Twelve guns ready to engage
+
+    Master Gunner Roberts w: Gun Deck
+      role: Gunner
+      PowderMonkey Tam w: Gun Deck
+        role: PowderMonkey
+      PowderMonkey Kit w: Gun Deck
+        role: PowderMonkey

@@ -1,0 +1,21 @@
+map Blackbeard's Last Season on the Carolina Coast
+subtitle 1718: the colony each ship's company feared, sheltered in, or was hunted from
+
+tag Colony as c
+  Blockaded red
+  Safe Harbour green
+  Hunting Us purple
+
+tag Event as e
+  Raid orange
+  Refuge blue
+
+South Carolina c: Blockaded
+North Carolina c: Safe Harbour
+Virginia c: Hunting Us
+
+poi Charleston US-SC label: Charles Town blockaded, e: Raid
+poi 35.55 -76.81 as bath label: Bath Town pardon, e: Refuge
+poi 35.11 -75.98 as ocracoke label: Blackbeard falls at Ocracoke, e: Raid
+poi 37.27 -76.71 as williamsburg label: Williamsburg sends Maynard, e: Refuge
+poi 33.4 -73.6 as prize label: Prizes taken at sea, e: Raid

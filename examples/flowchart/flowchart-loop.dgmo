@@ -1,0 +1,9 @@
+flowchart Sounding the Channel
+
+(Sight Land) -> [Heave the Lead] -> /Call the Depth/ -> <Six Fathoms?>
+  -deep enough-> <Reef Ahead?>
+    -clear-> (Drop Anchor)
+    -breakers-> [Tack Away]
+  -too shallow-> [Shorten Sail]
+[Shorten Sail] -sound again-> [Heave the Lead]
+[Tack Away] -sound again-> [Heave the Lead]
