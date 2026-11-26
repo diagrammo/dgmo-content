@@ -4491,7 +4491,7 @@
       "entity": "bar-sorted",
       "file": "examples/bar/bar-sorted.dgmo",
       "isPrimary": true,
-      "status": "draft",
+      "status": "marquee",
       "placements": [
         {
           "surface": "docs",
@@ -5619,8 +5619,7 @@
           "role": "sampler"
         }
       ],
-      "stars": 4,
-      "feedback": "I still see no thought bubbles on the faces"
+      "stars": 4
     },
     {
       "id": "kanban",
